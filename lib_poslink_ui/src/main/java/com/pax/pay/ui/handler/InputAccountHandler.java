@@ -1,0 +1,30 @@
+/*
+ *
+ * ============================================================================
+ * = COPYRIGHT
+ *          PAX Computer Technology(Shenzhen) CO., LTD PROPRIETARY INFORMATION
+ *   This software is supplied under the terms of a license agreement or nondisclosure
+ *   agreement with PAX Computer Technology(Shenzhen) CO., LTD and may not be copied or
+ *   disclosed except in accordance with the terms in that agreement.
+ *      Copyright (C) 2009-2020 PAX Computer Technology(Shenzhen) CO., LTD All rights reserved.
+ * Description: // Detail description about the function of this module,
+ *             // interfaces with the other modules, and dependencies.
+ * ============================================================================
+ *
+ */
+
+package com.pax.pay.ui.handler;
+
+public class InputAccountHandler extends BaseHandler {
+
+    private static final String TAG = "CustomUIInputAccountHan";
+
+    public InputAccountHandler(String recvPackage) {
+        super(recvPackage);
+    }
+
+    public void sendInputArea(int width, int height, int offsetX, int offsetY) {
+        getMessageCenter().sendInputArea(recvPackage, width, height, offsetX, offsetY);
+    }
+
+}

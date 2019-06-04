@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item type="id" name="expandable_toggle_button" />
+    <item type="id" name="expandable" />
+    <item type="id" name="loading_expand" />
+
+    <!--<item name="space_vertical_large" type="dimen" />-->
+    <!--<item name="space_horizontal_small" type="dimen"/>-->
+    <!--<item name="space_vertical" type="dimen" />-->
+    <!--<item name="space_horizontal" type="dimen"/>-->
+    <!--<item name="font_size_value" type="dimen"/>-->
+
+    <!--<item name="font_size_hint" type="dimen"/>-->
+    <!--<item name="common_toast_bg" type="drawable" />-->
+</resources>

@@ -1,0 +1,62 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="alert_width_small">140dp</dimen>
+    <dimen name="alert_width">280dp</dimen>
+    <dimen name="alert_height">180dp</dimen>
+    <dimen name="common_circle_width">3dp</dimen>
+    <dimen name="progress_circle_radius">34dp</dimen>
+    <dimen name="button_height">48dp</dimen>
+    <dimen name="edit_height">50dp</dimen>
+    <dimen name="tab_height">50dp</dimen>
+    <dimen name="process_wheel">60dp</dimen>
+    <dimen name="dialog_icon">50dp</dimen>
+    <dimen name="grid_item">38dp</dimen>
+    <dimen name="clss_light">30dp</dimen>
+    <dimen name="logo_size">128dp</dimen>
+    <dimen name="card_elevation">4dp</dimen>
+    <dimen name="global_radius">6dp</dimen>
+
+    <!--vertical space-->
+    <dimen name="space_vertical_small">8dp</dimen>
+    <dimen name="space_vertical">24dp</dimen>
+    <dimen name="space_vertical_large">48dp</dimen>
+    <dimen name="space_vertical_extra_large">72dp</dimen>
+
+    <!--&lt;!&ndash;horizontal space &ndash;&gt;-->
+    <!--horizontal space-->
+    <dimen name="space_horizontal_small">8dp</dimen>
+    <dimen name="space_horizontal">16dp</dimen>
+    <dimen name="space_horizontal_select_dialog">16dp</dimen>
+
+    <dimen name="font_size_hint">14sp</dimen>
+    <dimen name="font_size_prompt">16sp</dimen>
+    <dimen name="font_size_dialog_title">18sp</dimen>
+    <dimen name="font_size_dialog_item">18sp</dimen>
+    <dimen name="font_size_value">20sp</dimen>
+    <dimen name="font_button">14sp</dimen>
+    <dimen name="font_edit_text">24sp</dimen>
+    <dimen name="font_size_key">24sp</dimen>
+    <dimen name="font_size_headline">72sp</dimen>
+    <dimen name="font_size_key_large">40sp</dimen>
+
+
+    <!--font size-->
+    <dimen name="font_size">40sp</dimen>
+    <dimen name="font_size_title">20sp</dimen>
+    <dimen name="font_size_large_title">18sp</dimen>
+
+
+    <!--&lt;!&ndash; special dimens &ndash;&gt;-->
+    <dimen name="receipt_preview_height">800dp</dimen>
+    <dimen name="receipt_preview_top">38dp</dimen>
+    <dimen name="receipt_preview_start_end">40dp</dimen>
+    <dimen name="receipt_preview_padding_start_end">30dp</dimen>
+    <dimen name="receipt_preview_padding_bottom">50dp</dimen>
+
+    <dimen name="paint_width">5dp</dimen>
+
+    <dimen name="default_gap">8dip</dimen>
+
+    <!--<dimen name="check_box_scale" format="float">1.2</dimen>-->
+</resources>
