@@ -19,15 +19,15 @@ import com.pax.pay.ui.def_ui.utils.CurrencyConverter;
 import com.pax.pay.ui.def_ui.utils.ToastHelper;
 import com.pax.pay.ui.def_ui.view.ClssLight;
 import com.pax.pay.ui.def_ui.view.ClssLightsView;
-import com.pax.us.pay.ui.base.constant.status.VirtualClssLight;
-import com.pax.us.pay.ui.base.message.RespMessage;
-import com.pax.us.pay.ui.base.message.UIMessageManager;
-import com.pax.us.pay.ui.base.message.api.IAmountListener;
-import com.pax.us.pay.ui.base.message.api.ICardListener;
-import com.pax.us.pay.ui.base.message.api.ICurrencyListener;
-import com.pax.us.pay.ui.base.message.api.IMessageListener;
-import com.pax.us.pay.ui.base.message.api.IRespStatus;
-import com.pax.us.pay.ui.base.message.helper.SecurityHelper;
+import com.pax.us.pay.ui.core.constant.status.VirtualClssLight;
+import com.pax.us.pay.ui.core.message.RespMessage;
+import com.pax.us.pay.ui.core.message.UIMessageManager;
+import com.pax.us.pay.ui.core.message.api.IAmountListener;
+import com.pax.us.pay.ui.core.message.api.ICardListener;
+import com.pax.us.pay.ui.core.message.api.ICurrencyListener;
+import com.pax.us.pay.ui.core.message.api.IMessageListener;
+import com.pax.us.pay.ui.core.message.api.IRespStatus;
+import com.pax.us.pay.ui.core.message.helper.SecurityHelper;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
@@ -167,7 +167,7 @@ public class SearchCardActivity extends AppCompatActivity implements View.OnClic
                 if (resourceId > 0) {
                     barHeight = getResources().getDimensionPixelSize(resourceId);
                 }
-                helper.sendObjNext(x, y - barHeight, cardNumEdt.getWidth(), cardNumEdt.getHeight());
+                helper.setSecurityArea(x, y - barHeight, cardNumEdt.getWidth(), cardNumEdt.getHeight());
             }
         });
     }

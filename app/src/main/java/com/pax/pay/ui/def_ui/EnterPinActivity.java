@@ -12,12 +12,12 @@ import com.pax.pay.ui.def_ui.eventbus.Event;
 import com.pax.pay.ui.def_ui.eventbus.EventBusConstant;
 import com.pax.pay.ui.def_ui.eventbus.EventBusUtil;
 import com.pax.pay.ui.def_ui.utils.ToastHelper;
-import com.pax.us.pay.ui.base.constant.status.PINStatus;
-import com.pax.us.pay.ui.base.message.RespMessage;
-import com.pax.us.pay.ui.base.message.UIMessageManager;
-import com.pax.us.pay.ui.base.message.api.IMessageListener;
-import com.pax.us.pay.ui.base.message.api.IRespStatus;
-import com.pax.us.pay.ui.base.message.helper.SecurityHelper;
+import com.pax.us.pay.ui.core.constant.status.PINStatus;
+import com.pax.us.pay.ui.core.message.RespMessage;
+import com.pax.us.pay.ui.core.message.UIMessageManager;
+import com.pax.us.pay.ui.core.message.api.IMessageListener;
+import com.pax.us.pay.ui.core.message.api.IRespStatus;
+import com.pax.us.pay.ui.core.message.helper.SecurityHelper;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
@@ -115,7 +115,7 @@ public class EnterPinActivity extends AppCompatActivity implements View.OnClickL
                 if (resourceId > 0) {
                     barHeight = getResources().getDimensionPixelSize(resourceId);
                 }
-                helper.sendObjNext(x, y - barHeight, pwdInputText.getWidth(), pwdInputText.getHeight());
+                helper.setSecurityArea(x, y - barHeight, pwdInputText.getWidth(), pwdInputText.getHeight());
             }
         });
     }

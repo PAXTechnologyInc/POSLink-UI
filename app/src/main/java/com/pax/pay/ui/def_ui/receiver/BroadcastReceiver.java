@@ -26,7 +26,7 @@ import android.util.Log;
 import com.pax.pay.ui.def_ui.DialogActivity;
 import com.pax.pay.ui.def_ui.event.PINEvent;
 import com.pax.pay.ui.def_ui.eventbus.EventBusUtil;
-import com.pax.us.pay.ui.base.constant.ActionCategory;
+import com.pax.us.pay.ui.core.constant.ActionCategory;
 
 import java.util.Set;
 

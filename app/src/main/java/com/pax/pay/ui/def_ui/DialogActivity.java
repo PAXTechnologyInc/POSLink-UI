@@ -31,9 +31,9 @@ import com.pax.pay.ui.def_ui.eventbus.EventBusConstant;
 import com.pax.pay.ui.def_ui.eventbus.EventBusUtil;
 import com.pax.pay.ui.def_ui.view.ProcessDialogListener;
 import com.pax.pay.ui.def_ui.view.ProcessDialogListenerImpl;
-import com.pax.us.pay.ui.base.constant.status.Batch;
-import com.pax.us.pay.ui.base.constant.status.Information;
-import com.pax.us.pay.ui.base.message.UIMessageManager;
+import com.pax.us.pay.ui.core.constant.status.Batch;
+import com.pax.us.pay.ui.core.constant.status.Information;
+import com.pax.us.pay.ui.core.message.UIMessageManager;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
@@ -119,7 +119,7 @@ public class DialogActivity extends AppCompatActivity {
                 break;
             case Information.TRANS_ONLINE_FINISHED:
             case Information.EMV_PROCESS_FINISHED:
-            case Batch.BATCH_FINISHED:
+            case Batch.BATCH_CLOSE_COMPLETED:
                 hideDialog();
                 finish();
                 break;
@@ -136,7 +136,7 @@ public class DialogActivity extends AppCompatActivity {
             case Batch.BATCH_CLOSE_STARTED:
                 showProcessDialog("Batch Close START...");
                 break;
-            case Batch.BATCH_UPLOADING:
+            case Batch.BATCH_SF_UPLOADING:
                 showProcessDialog("Uploading Trans...");
                 break;
 //            case Batch.BATCH_UPDATE_MSG:

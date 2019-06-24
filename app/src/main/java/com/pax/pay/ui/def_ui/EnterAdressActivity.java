@@ -16,11 +16,11 @@ import com.pax.pay.ui.def_ui.eventbus.EventBusConstant;
 import com.pax.pay.ui.def_ui.eventbus.EventBusUtil;
 import com.pax.pay.ui.def_ui.utils.EnterDataLineHelper;
 import com.pax.pay.ui.def_ui.utils.ToastHelper;
-import com.pax.us.pay.ui.base.message.RespMessage;
-import com.pax.us.pay.ui.base.message.UIMessageManager;
-import com.pax.us.pay.ui.base.message.api.IMessageListener;
-import com.pax.us.pay.ui.base.message.api.IRespStatus;
-import com.pax.us.pay.ui.base.message.helper.AddressHelper;
+import com.pax.us.pay.ui.core.message.RespMessage;
+import com.pax.us.pay.ui.core.message.UIMessageManager;
+import com.pax.us.pay.ui.core.message.api.IMessageListener;
+import com.pax.us.pay.ui.core.message.api.IRespStatus;
+import com.pax.us.pay.ui.core.message.helper.AddressHelper;
 
 public class EnterAdressActivity extends AppCompatActivity implements View.OnClickListener, IMessageListener {
 
@@ -55,22 +55,22 @@ public class EnterAdressActivity extends AppCompatActivity implements View.OnCli
             imm.showSoftInput(mEditText, InputMethodManager.SHOW_IMPLICIT);
         }, 200);
 
-        UIMessageManager.getInstance().registerUI(this, this, helper, getIntent(), new IRespStatus() {
+        UIMessageManager.getInstance().setCurrentUI(this, this, helper, getIntent(), new IRespStatus() {
             @Override
-            public void respAccept() {
+            public void onAccepted() {
                 EventBusUtil.postEvent(EventBusConstant.END_EVENT);
                 finish();
             }
 
             @Override
-            public void respDecline(RespMessage respMessage) {
+            public void onDeclined(RespMessage respMessage) {
                 String buff = "Request Declined\n Error Code:" + respMessage.getResultCode() + "\n Error Msg: " + respMessage.getResultMsg();
                 //Toast.makeText(this, buff, Toast.LENGTH_LONG).show();
                 ToastHelper.showMessage(EnterAdressActivity.this, buff);
             }
 
             @Override
-            public void respComplete() {
+            public void onCompleted() {
                 finish();
             }
         });
