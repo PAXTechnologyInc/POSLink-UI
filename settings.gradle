@@ -1,2 +1,2 @@
-include ':app',  ':lib_poslink_ui'
-//include ':app', ':poslink_ui_test', ':hoverlibrary', ':lib_poslink_ui'
+include ':app',  ':lib_ui_base', ':lib_ui_constant'
+//include ':app', ':poslink_ui_test', ':hoverlibrary', ':lib_poslink_ui', ':lib_ui_base'

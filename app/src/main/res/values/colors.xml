@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="clss_blue">@color/primary</color>
+    <color name="clss_yellow">#C5C53F</color>
+    <color name="clss_green">#51B53F</color>
+    <color name="clss_red">#C53F31</color>
+
+    <color name="primary">#3F51B5</color>
+    <color name="primary_dark">#303F9F</color>
+    <color name="primary_light">#C5CAE9</color>
+    <!--
+    <color name="accent">#03A9F4</color>
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#757575</color>
+    -->
+    <color name="error_stroke_color">#FF0000</color>
+    <color name="accent">@android:color/holo_red_light</color>
+    <color name="accent_amount">@android:color/holo_green_light</color>
+    <color name="primary_text_light">@android:color/primary_text_light</color>
+    <color name="secondary_text_light">@android:color/secondary_text_light</color>
+    <color name="primary_text_dark">@android:color/primary_text_dark</color>
+    <color name="secondary_text_dark">@android:color/secondary_text_dark</color>
+
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#C0BDBDBD</color>
+    <color name="divider_dark">#C0000000</color>
+
+    <color name="background">@android:color/background_light</color>
 </resources>

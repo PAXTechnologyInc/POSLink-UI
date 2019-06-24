@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.pax.pay.ui.poslink_ui">
+    package="com.pax.pay.ui.def_ui">
 
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -11,15 +11,275 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        tools:replace="android:appComponentFactory"
-        android:appComponentFactory="Test">
-        <activity android:name="com.pax.pay.ui.poslink_ui.MainActivity">
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".EnterAmountActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.ENTER_AMOUNT" />
+
+                <category android:name="com.pax.us.pay.ui.category.TEXT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".EnterTipActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.ENTER_TIP" />
+
+                <category android:name="com.pax.us.pay.ui.category.TEXT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".EnterAdressActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.ENTER_ADDRESS" />
+
+                <category android:name="com.pax.us.pay.ui.category.TEXT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".EnterAuthCodeActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.ENTER_AUTH_CODE" />
+
+                <category android:name="com.pax.us.pay.ui.category.TEXT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".EnterExpiryDateActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.ENTER_EXPIRY_DATE" />
+
+                <category android:name="com.pax.us.pay.ui.category.TEXT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".EnterZipActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.ENTER_ZIP_CODE" />
+
+                <category android:name="com.pax.us.pay.ui.category.TEXT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".EnterTransNumActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.ENTER_TRANS_NO" />
+
+                <category android:name="com.pax.us.pay.ui.category.TEXT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".EnterFSAAmountActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.ENTER_FSA_AMOUNT" />
+
+                <category android:name="com.pax.us.pay.ui.category.TEXT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".EnterAVSActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.ENTER_AVS_DATA" />
+
+                <category android:name="com.pax.us.pay.ui.category.TEXT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".EnterVoucherActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.ENTER_VOUCHER_DATA" />
+
+                <category android:name="com.pax.us.pay.ui.category.TEXT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".EnterReferenceNumActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.ENTER_REFERENCE_NO" />
+
+                <category android:name="com.pax.us.pay.ui.category.TEXT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+
+        <activity
+            android:name="com.pax.pay.ui.def_ui.SignatureActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.GET_SIGNATURE" />
+
+                <category android:name="com.pax.us.pay.ui.category.SIGNATURE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+
+        <activity
+            android:name=".SelectEbtTypeActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.SELECT_EBT_TYPE" />
+
+                <category android:name="com.pax.us.pay.ui.category.OPTION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SelectCardPresentActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.SELECT_CARD_PRESENT" />
+
+                <category android:name="com.pax.us.pay.ui.category.OPTION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SelectBypassReasonActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.SELECT_BY_PASS" />
+
+                <category android:name="com.pax.us.pay.ui.category.OPTION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".SearchCardActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.INPUT_ACCOUNT" />
+
+                <category android:name="com.pax.us.pay.ui.category.SECURITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".EnterPinActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.ENTER_PIN" />
+
+                <category android:name="com.pax.us.pay.ui.category.SECURITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".EnterVCodeActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.ENTER_CVV" />
+
+                <category android:name="com.pax.us.pay.ui.category.SECURITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".DialogActivity"
+            android:launchMode="singleInstance"
+            android:theme="@style/ActivityTranslucent" />
+
+
+        <receiver android:name=".receiver.BroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.TRANS_ONLINE" />
+                <action android:name="com.pax.us.pay.TRANS_ONLINE_FINISHED" />
+                <action android:name="com.pax.us.pay.EMV_PROCESS_STARTED" />
+                <action android:name="com.pax.us.pay.EMV_PROCESS_FINISHED" />
+                <action android:name="com.pax.us.pay.CARD_REMOVED" />
+                <action android:name="com.pax.us.pay.SEE_PHONE" />
+                <action android:name="com.pax.us.pay.CARD_TO_REMOVE" />
+                <action android:name="com.pax.us.pay.UPDATE_MSG" />
+
+                <category android:name="com.pax.us.pay.status.category.INFORMATION" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="com.pax.us.pay.CLSS_LIGHT_NOT_READY" />
+                <action android:name="com.pax.us.pay.CLSS_LIGHT_IDLE" />
+                <action android:name="com.pax.us.pay.CLSS_LIGHT_READY_FOR_TXN" />
+                <action android:name="com.pax.us.pay.CLSS_LIGHT_PROCESSING" />
+                <action android:name="com.pax.us.pay.CLSS_LIGHT_REMOVE_CARD" />
+                <action android:name="com.pax.us.pay.CLSS_LIGHT_COMPLETED" />
+                <action android:name="com.pax.us.pay.CLSS_LIGHT_ERROR" />
+                <action android:name="com.pax.us.pay.CLSS_LIGHT_BLUE_ON" />
+                <action android:name="com.pax.us.pay.CLSS_LIGHT_BLUE_OFF" />
+                <action android:name="com.pax.us.pay.CLSS_LIGHT_BLUE_BLINK" />
+                <action android:name="com.pax.us.pay.CLSS_LIGHT_YELLOW_ON" />
+                <action android:name="com.pax.us.pay.CLSS_LIGHT_YELLOW_OFF" />
+                <action android:name="com.pax.us.pay.CLSS_LIGHT_YELLOW_BLINK" />
+                <action android:name="com.pax.us.pay.CLSS_LIGHT_GREEN_ON" />
+                <action android:name="com.pax.us.pay.CLSS_LIGHT_GREEN_OFF" />
+                <action android:name="com.pax.us.pay.CLSS_LIGHT_GREEN_BLINK" />
+                <action android:name="com.pax.us.pay.CLSS_LIGHT_RED_ON" />
+                <action android:name="com.pax.us.pay.CLSS_LIGHT_RED_OFF" />
+                <action android:name="com.pax.us.pay.CLSS_LIGHT_RED_BLINK" />
+
+                <category android:name="com.pax.us.pay.status.category.VIRTUAL_CLSS_LIGHT" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="com,pax.us.pay.PIN_CLEARED" />
+                <action android:name="com,pax.us.pay.PIN_ENTER_COMPLETED" />
+                <action android:name="com,pax.us.pay.PIN_ENTER_ABORTED" />
+                <action android:name="com,pax.us.pay.PIN_ENTERING" />
+
+                <category android:name="com.pax.us.pay.status.category.PIN" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="com.pax.us.pay.BATCH_CLOSE_STARTED" />
+                <action android:name="com.pax.us.pay.BATCH_UPLOADING" />
+                <action android:name="com.pax.us.pay.BATCH_FINISHED" />
+
+                <category android:name="com.pax.us.pay.status.category.BATCH" />
+            </intent-filter>
+        </receiver>
+
+
     </application>
 
 </manifest>

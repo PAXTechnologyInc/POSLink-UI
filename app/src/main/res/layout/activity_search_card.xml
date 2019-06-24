@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginStart="@dimen/space_horizontal"
+    android:layout_marginEnd="@dimen/space_horizontal">
+
+    <!-- ======================================================默认读卡界面==================================================== -->
+
+    <com.pax.pay.ui.def_ui.view.ClssLightsView
+        android:id="@+id/clssLight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_vertical"
+        android:layout_marginBottom="@dimen/space_vertical"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/space_vertical"
+        app:layout_constraintTop_toBottomOf="@id/clssLight">
+
+        <include layout="@layout/content_amount_prompt" />
+
+        <TextView
+            android:id="@+id/prompt_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_vertical_small"
+            android:layout_marginBottom="@dimen/space_vertical_small"
+            android:text="@string/hint_enter_account"
+            android:textColor="@color/secondary_text_light"
+            android:textSize="@dimen/font_size_prompt" />
+
+        <EditText
+            android:id="@+id/card_number_edit"
+            style="@android:style/Widget.EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:inputType="number"
+            android:textColor="@color/primary_text_light"
+            android:textSize="@dimen/font_edit_text"
+            android:hint="@string/prompt_card_num"
+            android:textColorHint="@color/secondary_text_dark" />
+    </LinearLayout>
+
+    <!-- 确定按键 -->
+    <Button
+        android:id="@+id/confirm_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/supported_card_prompt"
+        android:layout_marginBottom="@dimen/space_vertical_large"
+        android:background="@drawable/btn_bg_light"
+        android:text="@string/dialog_ok"
+        android:textColor="@color/primary_text_dark"
+        android:textSize="@dimen/font_button" />
+
+    <LinearLayout
+        android:id="@+id/supported_card_prompt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/space_vertical_small"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:id="@+id/tv_swipe"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/selection_swipe_card"
+            android:gravity="bottom|center"
+            android:padding="4dp"
+            android:scaleType="fitStart"
+            android:text="Swipe" />
+
+        <TextView
+            android:id="@+id/tv_insert"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/selection_insert_card"
+            android:gravity="bottom|center"
+            android:padding="4dp"
+            android:scaleType="fitCenter"
+            android:text="Insert" />
+
+        <TextView
+            android:id="@+id/tv_tap"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/selection_tap_card"
+            android:gravity="bottom|center"
+            android:padding="4dp"
+            android:scaleType="fitEnd"
+            android:text="Tap" />
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

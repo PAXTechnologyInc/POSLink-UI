@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_marginStart="@dimen/space_horizontal"
+    android:layout_marginEnd="@dimen/space_horizontal"
+    android:keepScreenOn="true">
+
+    <LinearLayout
+        android:id="@+id/cvv_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_vertical_large"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/prompt_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/pls_input_vcode"
+            android:textColor="@color/primary_text_light"
+            android:textSize="@dimen/font_size_prompt" />
+
+        <!--Pin is returned from PED, so use TextView as EditText -->
+        <TextView
+            android:id="@+id/pin_input_text"
+            style="@style/DefEditText"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/space_vertical_small"
+            android:focusableInTouchMode="true"
+            android:gravity="center" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/confirm_btn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginTop="@dimen/space_vertical_large"
+        app:layout_constraintTop_toBottomOf="@id/cvv_input"
+        android:background="@drawable/btn_bg_light"
+        android:text="@string/trans_confirm_btn"
+        android:textColor="@color/primary_text_dark"
+        android:textSize="@dimen/font_button" />
+
+
+</android.support.constraint.ConstraintLayout>
