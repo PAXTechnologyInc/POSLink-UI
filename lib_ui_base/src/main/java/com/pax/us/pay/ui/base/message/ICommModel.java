@@ -18,7 +18,5 @@ interface ICommModel {
         void onSuccess();
 
         void onFailure(RespMessage respMessage);
-
-        void onComplete();
     }
 }

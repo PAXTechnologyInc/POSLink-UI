@@ -5,7 +5,7 @@ android {
 
 
     defaultConfig {
-        minSdkVersion 15
+        minSdkVersion 22
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -34,5 +34,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
-    api project(path: ':lib_ui_constant')
+    implementation project(path: ':lib_ui_constant')
 }

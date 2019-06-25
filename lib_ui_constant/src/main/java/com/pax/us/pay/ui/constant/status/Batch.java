@@ -1,4 +1,4 @@
-package com.pax.us.pay.ui.base.constant.status;
+package com.pax.us.pay.ui.constant.status;
 
 public class Batch {
     public static final String BATCH_CLOSE_STARTED = "com.pax.us.pay.BATCH_CLOSE_STARTED";

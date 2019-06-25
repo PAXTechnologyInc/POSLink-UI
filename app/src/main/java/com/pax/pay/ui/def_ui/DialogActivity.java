@@ -27,13 +27,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.pax.pay.ui.def_ui.App.AppManager;
 import com.pax.pay.ui.def_ui.eventbus.EventBusConstant;
 import com.pax.pay.ui.def_ui.eventbus.EventBusUtil;
 import com.pax.pay.ui.def_ui.view.ProcessDialogListener;
 import com.pax.pay.ui.def_ui.view.ProcessDialogListenerImpl;
-import com.pax.us.pay.ui.base.constant.status.Batch;
-import com.pax.us.pay.ui.base.constant.status.Information;
 import com.pax.us.pay.ui.base.message.UIMessageManager;
+import com.pax.us.pay.ui.constant.status.Batch;
+import com.pax.us.pay.ui.constant.status.Information;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
@@ -66,13 +67,13 @@ public class DialogActivity extends AppCompatActivity {
         handleIntent(getIntent());
         EventBusUtil.register(this);
 
-        UIMessageManager.getInstance().registerAction(this, new UIMessageManager.ActionFinish() {
-            @Override
-            public void onFinished() {
-                hideDialog();
-                finish();
-            }
-        });
+//        UIMessageManager.getInstance().registerAction(this, new UIMessageManager.ActionFinish() {
+//            @Override
+//            public void onFinished() {
+//                hideDialog();
+//                finish();
+//            }
+//        });
         //mCv.open();
     }
 
@@ -143,6 +144,13 @@ public class DialogActivity extends AppCompatActivity {
 //                String message = intent.getStringExtra("value");
 //                updateMessage(message);
 //                break;
+            case Information.TRANS_COMPLETED:
+                //showProcessDialog("Uploading Trans...");
+                hideDialog();
+                UIMessageManager.getInstance().unregisterAction(AppManager.getAppManager().currentActivity());
+                AppManager.getAppManager().finishAllActivity();
+                finish();
+                break;
         }
     }
 

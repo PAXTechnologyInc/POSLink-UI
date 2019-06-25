@@ -1,4 +1,4 @@
-package com.pax.us.pay.ui.base.constant.status;
+package com.pax.us.pay.ui.constant.status;
 
 public class VirtualClssLight {
     public static final String CLSS_LIGHT_BLUE_ON = "com.pax.us.pay.CLSS_LIGHT_BLUE_ON";

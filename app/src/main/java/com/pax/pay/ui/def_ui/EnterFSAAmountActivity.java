@@ -14,8 +14,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.pax.pay.ui.def_ui.eventbus.EventBusConstant;
-import com.pax.pay.ui.def_ui.eventbus.EventBusUtil;
+import com.pax.pay.ui.def_ui.App.AppManager;
 import com.pax.pay.ui.def_ui.utils.CurrencyCode;
 import com.pax.pay.ui.def_ui.utils.CurrencyConverter;
 import com.pax.pay.ui.def_ui.utils.EnterAmountTextWatcher;
@@ -73,25 +72,15 @@ public class EnterFSAAmountActivity extends AppCompatActivity implements View.On
             imm.showSoftInput(healthcareEditText, InputMethodManager.SHOW_IMPLICIT);
         }, 200);
 
-        UIMessageManager.getInstance().registerUI(this, this, helper, getIntent(), new IRespStatus() {
+        DisplayRespStatus displayRespStatus = new DisplayRespStatus(this);
+        displayRespStatus.setListener(new DisplayRespStatus.DisplayRespStatusListener() {
             @Override
-            public void respAccept() {
-                EventBusUtil.postEvent(EventBusConstant.END_EVENT);
-                finish();
-            }
-
-            @Override
-            public void respDecline(RespMessage respMessage) {
-                String buff = "Request Declined\n Error Code:" + respMessage.getResultCode() + "\n Error Msg: " + respMessage.getResultMsg();
-                //Toast.makeText(this, buff, Toast.LENGTH_LONG).show();
-                ToastHelper.showMessage(EnterFSAAmountActivity.this, buff);
-            }
-
-            @Override
-            public void respComplete() {
-                finish();
+            public void unRegister() {
+                UIMessageManager.getInstance().unregisterUI(EnterFSAAmountActivity.this, helper);
             }
         });
+        UIMessageManager.getInstance().registerUI(this, this, helper, getIntent(), displayRespStatus);
+        AppManager.getAppManager().addActivity(this);
     }
 
     private void initEditText() {
@@ -236,13 +225,6 @@ public class EnterFSAAmountActivity extends AppCompatActivity implements View.On
         super.onStop();
     }
 
-
-    @Override
-    protected void onDestroy() {
-        UIMessageManager.getInstance().unregisterUI(this, helper);
-        super.onDestroy();
-    }
-
     void OnDataConfirm() {
         long healthAmt = CurrencyConverter.parse(healthcareEditText.getText().toString(), locale);
         long clinicAmt = CurrencyConverter.parse(clinicEditText.getText().toString(), locale);
@@ -263,10 +245,6 @@ public class EnterFSAAmountActivity extends AppCompatActivity implements View.On
                 ToastHelper.showMessage(EnterFSAAmountActivity.this, buff);
             }
 
-            @Override
-            public void respComplete() {
-                finish();
-            }
         });
     }
 

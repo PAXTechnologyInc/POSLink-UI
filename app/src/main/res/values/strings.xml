@@ -80,7 +80,7 @@
     <string name="pls_input_expiry_date">Please Input Expiry Date</string>
     <string name="pls_input_transaction_number">Please Input Transaction Number</string>
     <string name="select_ebt_type">Please Select EBT Type</string>
-    <string name="select_card_present">Card Present?</string>
+    <string name="check_card_present">Card Present?</string>
     <string name="select_bypass_reason">Please Select Bypass Reason</string>
 
     <!-- signature -->

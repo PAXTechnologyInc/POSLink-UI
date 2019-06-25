@@ -1,4 +1,4 @@
-package com.pax.us.pay.ui.base.constant.status;
+package com.pax.us.pay.ui.constant.status;
 
 public class Information {
     public static final String TRANS_COMPLETED = "com.pax.us.pay.TRANS_COMPLETED";

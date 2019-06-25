@@ -1,4 +1,4 @@
-package com.pax.us.pay.ui.base.constant.entry;
+package com.pax.us.pay.ui.constant.entry;
 
 public class Option {
     /**
@@ -14,7 +14,7 @@ public class Option {
     /**
      * The intent action of Select Card Present
      */
-    public static final String ACTION_SELECT_CARD_PRESENT = "com.pax.us.pay.action.SELECT_CARD_PRESENT";
+    public static final String ACTION_CHECK_CARD_PRESENT = "com.pax.us.pay.action.CHECK_CARD_PRESENT";
 
 
     /**

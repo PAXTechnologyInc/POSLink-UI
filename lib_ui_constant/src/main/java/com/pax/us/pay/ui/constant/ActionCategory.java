@@ -16,7 +16,7 @@
  * 2019-3-29               Justin.Z                      Create
  * ============================================================================
  */
-package com.pax.us.pay.ui.base.constant;
+package com.pax.us.pay.ui.constant;
 
 public class ActionCategory {
 

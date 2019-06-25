@@ -13,15 +13,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.pax.pay.ui.def_ui.App.AppManager;
 import com.pax.pay.ui.def_ui.base.BaseViewHolder;
-import com.pax.pay.ui.def_ui.eventbus.EventBusConstant;
-import com.pax.pay.ui.def_ui.eventbus.EventBusUtil;
-import com.pax.pay.ui.def_ui.utils.ToastHelper;
-import com.pax.us.pay.ui.base.message.RespMessage;
 import com.pax.us.pay.ui.base.message.UIMessageManager;
 import com.pax.us.pay.ui.base.message.api.IMessageListener;
 import com.pax.us.pay.ui.base.message.api.IOptionListener;
-import com.pax.us.pay.ui.base.message.api.IRespStatus;
 import com.pax.us.pay.ui.base.message.helper.OptionsHelper;
 
 import java.util.ArrayList;
@@ -55,25 +51,15 @@ public class SelectEbtTypeActivity extends AppCompatActivity implements View.OnC
         confirmBtn.setOnClickListener(this);
 
         tvPrompt.setText(getResources().getText(R.string.select_ebt_type));
-        UIMessageManager.getInstance().registerUI(this, this, helper, getIntent(), new IRespStatus() {
+        DisplayRespStatus displayRespStatus = new DisplayRespStatus(this);
+        displayRespStatus.setListener(new DisplayRespStatus.DisplayRespStatusListener() {
             @Override
-            public void respAccept() {
-                EventBusUtil.postEvent(EventBusConstant.END_EVENT);
-                finish();
-            }
-
-            @Override
-            public void respDecline(RespMessage respMessage) {
-                String buff = "Request Declined\n Error Code:" + respMessage.getResultCode() + "\n Error Msg: " + respMessage.getResultMsg();
-                //Toast.makeText(this, buff, Toast.LENGTH_LONG).show();
-                ToastHelper.showMessage(SelectEbtTypeActivity.this, buff);
-            }
-
-            @Override
-            public void respComplete() {
-                finish();
+            public void unRegister() {
+                UIMessageManager.getInstance().unregisterUI(SelectEbtTypeActivity.this, helper);
             }
         });
+        UIMessageManager.getInstance().registerUI(this, this, helper, getIntent(), displayRespStatus);
+        AppManager.getAppManager().addActivity(this);
     }
 
     @Override
@@ -96,12 +82,6 @@ public class SelectEbtTypeActivity extends AppCompatActivity implements View.OnC
     protected void onStop() {
         moveTaskToBack(true);
         super.onStop();
-    }
-
-    @Override
-    protected void onDestroy() {
-        UIMessageManager.getInstance().unregisterUI(this, helper);
-        super.onDestroy();
     }
 
     @Override

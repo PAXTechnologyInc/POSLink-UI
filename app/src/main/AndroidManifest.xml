@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
 
     <application
         android:allowBackup="true"
@@ -169,7 +170,7 @@
             android:name=".SelectCardPresentActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
-                <action android:name="com.pax.us.pay.action.SELECT_CARD_PRESENT" />
+                <action android:name="com.pax.us.pay.action.CHECK_CARD_PRESENT" />
 
                 <category android:name="com.pax.us.pay.ui.category.OPTION" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -225,6 +226,7 @@
 
         <receiver android:name=".receiver.BroadcastReceiver">
             <intent-filter>
+                <action android:name="com.pax.us.pay.TRANS_COMPLETED" />
                 <action android:name="com.pax.us.pay.TRANS_ONLINE" />
                 <action android:name="com.pax.us.pay.TRANS_ONLINE_FINISHED" />
                 <action android:name="com.pax.us.pay.EMV_PROCESS_STARTED" />

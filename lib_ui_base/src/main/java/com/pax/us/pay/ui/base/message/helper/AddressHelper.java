@@ -1,14 +1,13 @@
 package com.pax.us.pay.ui.base.message.helper;
 
-import com.pax.us.pay.ui.constant.parameter.Request;
+import android.os.Bundle;
 
-import java.util.HashMap;
-import java.util.Map;
+import com.pax.us.pay.ui.constant.parameter.Request;
 
 public class AddressHelper extends BaseHelper {
     public void sendObjNext(String address) {
-        Map<String, String> addressMap = new HashMap<>();
-        addressMap.put(Request.Text.PARA_ADDRESS, address);
-        super.sendObjNext(addressMap);
+        Bundle bundle = new Bundle();
+        bundle.putString(Request.Text.PARA_ADDRESS, address);
+        super.sendObjNext(bundle);
     }
 }

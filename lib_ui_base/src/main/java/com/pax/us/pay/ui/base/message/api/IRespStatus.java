@@ -6,6 +6,4 @@ public interface IRespStatus {
     void respAccept();
 
     void respDecline(RespMessage respMessage);
-
-    void respComplete();
 }

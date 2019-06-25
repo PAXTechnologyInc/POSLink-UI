@@ -16,12 +16,12 @@
  * 2019-3-27               Justin.Z                      Create
  * ============================================================================
  */
-package com.pax.us.pay.ui.base.constant;
+package com.pax.us.pay.ui.constant;
 
 
 public class InnerBroadcast {
 
-    public class reqAction {
+    public class ReqAction {
         /**
          * NEXT with value: request BroadPOS to go to next step with input value.
          */
@@ -43,7 +43,7 @@ public class InnerBroadcast {
         public static final String AREA = "com.pax.us.pay.ui.SECURITY_AREA";
     }
 
-    public class respAction {
+    public class RespAction {
         /**
          * ACCEPTED: BroadPOS accepted request action from your app.
          */

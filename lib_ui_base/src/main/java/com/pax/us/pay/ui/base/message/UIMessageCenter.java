@@ -8,14 +8,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.pax.us.pay.ui.base.constant.ActionCategory;
-import com.pax.us.pay.ui.base.constant.InnerBroadcast;
-import com.pax.us.pay.ui.base.constant.entry.Confirmation;
-import com.pax.us.pay.ui.base.constant.entry.Option;
-import com.pax.us.pay.ui.base.constant.entry.Security;
-import com.pax.us.pay.ui.base.constant.entry.Signature;
-import com.pax.us.pay.ui.base.constant.entry.Text;
-import com.pax.us.pay.ui.base.constant.status.Information;
 import com.pax.us.pay.ui.base.message.api.IAmountListener;
 import com.pax.us.pay.ui.base.message.api.IAmountOptionListener;
 import com.pax.us.pay.ui.base.message.api.ICardListener;
@@ -27,14 +19,19 @@ import com.pax.us.pay.ui.base.message.api.IRespStatus;
 import com.pax.us.pay.ui.base.message.api.ITitleListener;
 import com.pax.us.pay.ui.base.message.api.IUIListener;
 import com.pax.us.pay.ui.base.message.helper.BaseHelper;
+import com.pax.us.pay.ui.constant.ActionCategory;
+import com.pax.us.pay.ui.constant.InnerBroadcast;
+import com.pax.us.pay.ui.constant.entry.Confirmation;
+import com.pax.us.pay.ui.constant.entry.Option;
+import com.pax.us.pay.ui.constant.entry.Security;
+import com.pax.us.pay.ui.constant.entry.Signature;
+import com.pax.us.pay.ui.constant.entry.Text;
 import com.pax.us.pay.ui.constant.parameter.Common;
 import com.pax.us.pay.ui.constant.parameter.InputPar;
 import com.pax.us.pay.ui.constant.parameter.Response;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Observable;
@@ -42,75 +39,32 @@ import java.util.Observer;
 import java.util.Set;
 
 class UIMessageCenter implements ICommModel, Observer {
-    private final static Map<String, Class> valueTypeMap = new HashMap<>();
 
-    static {
-        valueTypeMap.put(Text.ACTION_ENTER_ADDRESS, String.class);
-        valueTypeMap.put(Text.ACTION_ENTER_AUTH, String.class);
-        valueTypeMap.put(Text.ACTION_ENTER_EXPIRY_DATE, String.class);
-        valueTypeMap.put(Text.ACTION_ENTER_ZIPCODE, String.class);
-        valueTypeMap.put(Text.ACTION_ENTER_VOUCHER_DATA, String.class);
-        valueTypeMap.put(Text.ACTION_ENTER_AVS_DATA, String.class);
-        valueTypeMap.put(Text.ACTION_ENTER_REFERENCE_NUMBER, String.class);
-        valueTypeMap.put(Text.ACTION_ENTER_INVOICE_NUMBER, String.class);
-        valueTypeMap.put(Text.ACTION_ENTER_CLERK_ID, String.class);
-
-        valueTypeMap.put(Text.ACTION_ENTER_TRANS_NO, Integer.class);
-        valueTypeMap.put(Option.ACTION_SELECT_EBT_TYPE, Integer.class);
-        valueTypeMap.put(Option.ACTION_SELECT_BY_PASS, Integer.class);
-        valueTypeMap.put(Option.ACTION_SELECT_CARD_PRESENT, Integer.class);
-        valueTypeMap.put(Option.ACTION_SELECT_SUB_TRANS_TYPE, Integer.class);
-        valueTypeMap.put(Option.ACTION_SELECT_AID, Integer.class);
-        valueTypeMap.put(Option.ACTION_REVERSE_PARTIAL_APPROVAL, Integer.class);
-        valueTypeMap.put(Option.ACTION_SUPPLEMENT_PARTIAL_APPROVAL, Integer.class);
-
-        valueTypeMap.put(Security.ACTION_ENTER_VCODE, Integer.class);
-        valueTypeMap.put(Security.ACTION_ENTER_PIN, Integer.class);
-        valueTypeMap.put(Security.ACTION_INPUT_ACCOUNT, Integer.class);
-        valueTypeMap.put(Security.ACTION_ENTER_CARD_LAST_4_DIGITS, Integer.class);
-        valueTypeMap.put(Security.ACTION_ENTER_CARD_ALL_DIGITS, Integer.class);
-
-        valueTypeMap.put(Text.ACTION_ENTER_AMOUNT, Long.class);
-        valueTypeMap.put(Text.ACTION_ENTER_TIP, Long.class);
-        valueTypeMap.put(Text.ACTION_ENTER_FSA_AMOUNT, Long.class);
-        valueTypeMap.put(Text.ACTION_ENTER_CAHSBACK, Long.class);
-
-        valueTypeMap.put(Signature.ACTION_SIGNATURE, Short[].class);
-    }
-
-    private Context context;
-    private List<Intent> receiverDataCacheList = new LinkedList<>();
     private BroadcastReceiver receiver;
     private BroadcastSender sender;
-
     private ICommModel.RespResult<RespMessage> result;
-
-    private TransactionFinishListener transFinishListener;
-
     private String currentAction;
     private ReqMessage reqMessage;
     private IRespStatus resp;
 
     private static UIMessageCenter instance;
 
-    public static UIMessageCenter getInstance(Context context) {
+    public static UIMessageCenter getInstance() {
         if (instance == null) {
-            instance = new UIMessageCenter(context.getApplicationContext());
+            instance = new UIMessageCenter();
         }
         return instance;
     }
 
-    private UIMessageCenter(Context context) {
-        this.context = context.getApplicationContext();
+    private UIMessageCenter() {
     }
 
     public void registerUICenter(Context context, IUIListener uiListener, BaseHelper helper, Intent intent, IRespStatus respStatus) {
-        this.context = context;
         this.resp = respStatus;
         this.currentAction = intent.getAction();
         reqMessage = new ReqMessage();
         setReqMessage(intent);
-        registerUIDesignReceiver();
+        registerUIDesignReceiver(context);
         showUI(uiListener);
         helper.addObserver(UIMessageCenter.this);
         Log.i("Obsever", "helper.addObserver : " + currentAction);
@@ -124,7 +78,6 @@ class UIMessageCenter implements ICommModel, Observer {
 
     @Override
     public void update(Observable observable, Object o) {
-        //Log.i("Obsever", "update !");
         if (observable != null) {
             getSendHandler(new ICommModel.RespResult() {
                 @Override
@@ -135,11 +88,6 @@ class UIMessageCenter implements ICommModel, Observer {
                 @Override
                 public void onFailure(RespMessage respMessage) {
                     resp.respDecline(respMessage);
-                }
-
-                @Override
-                public void onComplete() {
-                    resp.respComplete();
                 }
             });
             if (o instanceof String) {
@@ -157,97 +105,59 @@ class UIMessageCenter implements ICommModel, Observer {
     /**
      * This should be called in your Application onCreate. This initialize the BroadcastReceiver.
      */
-    public void registerUIDesignReceiver() {
+    public void registerUIDesignReceiver(Context context) {
         IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(InnerBroadcast.respAction.BROADCAST_ACTION_ACCEPTED);
-        intentFilter.addAction(InnerBroadcast.respAction.BROADCAST_ACTION_DECLINED);
-        intentFilter.addAction(InnerBroadcast.reqAction.AREA);
-        intentFilter.addAction(Information.TRANS_COMPLETED);
-        registerUIDesignReceiver(intentFilter);
+        intentFilter.addAction(InnerBroadcast.RespAction.BROADCAST_ACTION_ACCEPTED);
+        intentFilter.addAction(InnerBroadcast.RespAction.BROADCAST_ACTION_DECLINED);
+        registerUIDesignReceiver(context, intentFilter);
     }
 
-    private void registerUIDesignReceiver(IntentFilter intentFilter) {
-        //final IBroadcastMessage broadcastMessage = null;
-        receiverDataCacheList.clear();
+    private void registerUIDesignReceiver(Context context, IntentFilter intentFilter) {
+        //receiverDataCacheList.clear();
         sender = new BroadcastSender(context);
-        receiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                String action = intent.getAction();
-                RespMessage respMessage = new RespMessage();
+        if (receiver == null) {
+            Log.i("UIReceiver", "start a new BroadcastReceiver ");
+            receiver = new BroadcastReceiver() {
+                @Override
+                public void onReceive(Context context, Intent intent) {
+                    String action = intent.getAction();
+                    RespMessage respMessage = new RespMessage();
 
-                if (TextUtils.isEmpty(action))
-                    return;
-                Log.i("UIDesignReceiver", "onReceive action : " + action);
-                switch (action) {
-                    case InnerBroadcast.respAction.BROADCAST_ACTION_ACCEPTED:
-                        //notifyUI(respMessage);
-                        Log.i("BroadcastReceiver", "BROADCAST_ACTION_ACCEPTED, receiver need unregisterReceiver ");
-                        result.onSuccess();
-                        if (receiver != null) {
-                            context.unregisterReceiver(receiver);
-                            receiver = null;
-                            Log.i("BroadcastReceiver", "BROADCAST_ACTION_ACCEPTED receiver unregisterReceiver ");
-                        }
-                        break;
-                    case InnerBroadcast.respAction.BROADCAST_ACTION_DECLINED:
-                        respMessage.setResultCode(intent.getStringExtra(Response.RESULT_CODE));
-                        respMessage.setResultMsg(intent.getStringExtra(Response.RESULT_MSG));
-                        result.onFailure(respMessage);
-                        break;
-                    case Information.TRANS_COMPLETED:
-                        //notifyUI(respMessage);
-                        Log.i("BroadcastReceiver", "TRANS_COMPLETED, receiver need unregisterReceiver ");
-                        result.onComplete();
-                        if (receiver != null) {
-                            context.unregisterReceiver(receiver);
-                            receiver = null;
-                            Log.i("BroadcastReceiver", "TRANS_COMPLETED receiver unregisterReceiver! ");
-                        }
-                        receiverDataCacheList.clear();
-                        if (transFinishListener != null) {
-                            transFinishListener.onFinish();
-                        } else {
-                            receiverDataCacheList.add(intent);
-                        }
-                        break;
-                    default:
-                        break;
+                    if (TextUtils.isEmpty(action))
+                        return;
+                    Log.i("UIDesignReceiver", "onReceive action : " + action);
+                    switch (action) {
+                        case InnerBroadcast.RespAction.BROADCAST_ACTION_ACCEPTED:
+                            //notifyUI(respMessage);
+                            Log.i("BroadcastReceiver", "BROADCAST_ACTION_ACCEPTED, receiver need unregisterReceiver ");
+                            result.onSuccess();
+                            if (receiver != null) {
+                                context.unregisterReceiver(receiver);
+                                receiver = null;
+                                Log.i("BroadcastReceiver", "BROADCAST_ACTION_ACCEPTED receiver unregisterReceiver ");
+                            }
+                            break;
+                        case InnerBroadcast.RespAction.BROADCAST_ACTION_DECLINED:
+                            respMessage.setResultCode(intent.getIntExtra(Response.RESULT_CODE, 0));
+                            respMessage.setResultMsg(intent.getStringExtra(Response.RESULT_MSG));
+                            result.onFailure(respMessage);
+                            break;
+                        default:
+                            break;
+                    }
                 }
-            }
-        };
+            };
+        }
+        Log.i("UIReceiver", "register receiver ");
         context.registerReceiver(receiver, intentFilter);
     }
 
-    public void registerTransactionFinishListener(TransactionFinishListener transFinishListener) {
-        this.transFinishListener = transFinishListener;
-        Intent cacheIntent = detectCacheAction(Information.TRANS_COMPLETED);
-        if (cacheIntent != null) {
-            transFinishListener.onFinish();
-            receiverDataCacheList.remove(cacheIntent);
+    public void unregisterUIReceiver(Context context) {
+        if (receiver != null) {
+            Log.i("UIReceiver", "unregister receiver " + context.toString());
+            context.unregisterReceiver(receiver);
+            receiver = null;
         }
-    }
-
-    public void unregisterTransactionFinishListener() {
-        transFinishListener = null;
-        receiverDataCacheList.clear();
-
-    }
-
-    public void init() {
-        sender = null;
-        transFinishListener = null;
-        receiverDataCacheList.clear();
-    }
-
-    private Intent detectCacheAction(String action) {
-        for (Intent intent : receiverDataCacheList) {
-            String curAction = intent.getAction();
-            if (action.equals(curAction)) {
-                return intent;
-            }
-        }
-        return null;
     }
 
     @Override
@@ -256,33 +166,19 @@ class UIMessageCenter implements ICommModel, Observer {
     }
 
 
-    public interface TransactionFinishListener {
-        void onFinish();
-    }
-
-//    /**
-//     * When you need to terminate the transaction, you can call this. <br>
-//     *
-//     * @param senderPackage The package name of the transaction service.
-//     */
-//    public void sendAbort(String senderPackage) {
-//        Intent intent = new Intent();
-//        sender.send(senderPackage, InnerBroadcast.reqAction.ABORT, intent);
-//    }
-
 
     public void sendObjAbort() {
         Log.i("BroadcastReceiver", reqMessage.getReqAction() + "sendObjAbort ");
         Intent intent = new Intent();
         intent.setPackage(reqMessage.getReqPackage());
-        intent.setAction(InnerBroadcast.reqAction.ABORT);
+        intent.setAction(InnerBroadcast.ReqAction.ABORT);
         sender.send(intent);
     }
 
     public void sendObjPrev() {
         Intent intent = new Intent();
         intent.setPackage(reqMessage.getReqPackage());
-        intent.setAction(InnerBroadcast.reqAction.PREV);
+        intent.setAction(InnerBroadcast.ReqAction.PREV);
         sender.send(intent);
     }
 
@@ -416,48 +312,16 @@ class UIMessageCenter implements ICommModel, Observer {
 
     public void sendObjNext(Object obj) {
         Intent intent = new Intent();
-        if ((obj != null) && (obj instanceof Map)) {
+        if ((obj != null) && (obj instanceof Bundle)) {
             intent.setPackage(reqMessage.getReqPackage());
             if (reqMessage.getReqCategory().equals(ActionCategory.UI.CATEGORY_SECURITY))
-                intent.setAction(InnerBroadcast.reqAction.AREA);
+                intent.setAction(InnerBroadcast.ReqAction.AREA);
             else
-                intent.setAction(InnerBroadcast.reqAction.NEXT);
-
-            String reqAction = reqMessage.getReqAction();
-            Log.i("BroadcastReceiver", reqAction + " sendObjNext ");
-
-            Class type = valueTypeMap.get(reqAction);
-            if (type == null)
-                throw new RuntimeException("Action Not Found");
-
-            if (type.equals(String.class)) {
-                Map<String, Class> stringMap = (Map<String, Class>) obj;
-                for (Map.Entry<String, Class> entry : stringMap.entrySet()) {
-                    intent.putExtra(entry.getKey(), entry.getValue());
-                }
-            } else if (type.equals(Long.class)) {
-                Map<String, Long> longMap = (Map<String, Long>) obj;
-                for (Map.Entry<String, Long> entry : longMap.entrySet()) {
-                    intent.putExtra(entry.getKey(), entry.getValue());
-                }
-            } else if (type.equals(Integer.class)) {
-                Map<String, Long> longMap = (Map<String, Long>) obj;
-                for (Map.Entry<String, Long> entry : longMap.entrySet()) {
-                    intent.putExtra(entry.getKey(), entry.getValue());
-                }
-            } else if (type.equals(Short[].class)) {
-                Map<String, short[]> map = (Map<String, short[]>) obj;
-                for (Map.Entry<String, short[]> entry : map.entrySet()) {
-                    short[] array = entry.getValue();
-                    intent.putExtra(entry.getKey(), array);
-                }
-            } else {
-                intent.setPackage(reqMessage.getReqPackage());
-                intent.setAction(InnerBroadcast.reqAction.NEXT);
-            }
+                intent.setAction(InnerBroadcast.ReqAction.NEXT);
+            intent.putExtras((Bundle) obj);
         } else {
             intent.setPackage(reqMessage.getReqPackage());
-            intent.setAction(InnerBroadcast.reqAction.NEXT);
+            intent.setAction(InnerBroadcast.ReqAction.NEXT);
 
         }
         sender.send(intent);

@@ -13,15 +13,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.pax.pay.ui.def_ui.App.AppManager;
 import com.pax.pay.ui.def_ui.base.BaseViewHolder;
-import com.pax.pay.ui.def_ui.eventbus.EventBusConstant;
-import com.pax.pay.ui.def_ui.eventbus.EventBusUtil;
-import com.pax.pay.ui.def_ui.utils.ToastHelper;
-import com.pax.us.pay.ui.base.message.RespMessage;
 import com.pax.us.pay.ui.base.message.UIMessageManager;
 import com.pax.us.pay.ui.base.message.api.IMessageListener;
 import com.pax.us.pay.ui.base.message.api.IOptionListener;
-import com.pax.us.pay.ui.base.message.api.IRespStatus;
 import com.pax.us.pay.ui.base.message.helper.OptionsHelper;
 
 import java.util.ArrayList;
@@ -54,25 +50,16 @@ public class SelectCardPresentActivity extends AppCompatActivity implements View
         confirmBtn = (Button) findViewById(R.id.confirm_btn);
         confirmBtn.setOnClickListener(this);
 
-        tvPrompt.setText(getResources().getText(R.string.select_card_present));
-        UIMessageManager.getInstance().registerUI(this, this, helper, getIntent(), new IRespStatus() {
+        tvPrompt.setText(getResources().getText(R.string.check_card_present));
+        DisplayRespStatus displayRespStatus = new DisplayRespStatus(this);
+        displayRespStatus.setListener(new DisplayRespStatus.DisplayRespStatusListener() {
             @Override
-            public void respAccept() {
-                EventBusUtil.postEvent(EventBusConstant.END_EVENT);
-                finish();
-            }
-
-            @Override
-            public void respDecline(RespMessage respMessage) {
-                String buff = "Request Declined\n Error Code:" + respMessage.getResultCode() + "\n Error Msg: " + respMessage.getResultMsg();
-                ToastHelper.showMessage(SelectCardPresentActivity.this, buff);
-            }
-
-            @Override
-            public void respComplete() {
-                finish();
+            public void unRegister() {
+                UIMessageManager.getInstance().unregisterUI(SelectCardPresentActivity.this, helper);
             }
         });
+        UIMessageManager.getInstance().registerUI(this, this, helper, getIntent(), displayRespStatus);
+        AppManager.getAppManager().addActivity(this);
     }
 
     @Override
@@ -93,12 +80,6 @@ public class SelectCardPresentActivity extends AppCompatActivity implements View
     protected void onStop() {
         moveTaskToBack(true);
         super.onStop();
-    }
-
-    @Override
-    protected void onDestroy() {
-        UIMessageManager.getInstance().unregisterUI(this, helper);
-        super.onDestroy();
     }
 
     @Override

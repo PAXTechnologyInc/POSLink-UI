@@ -1,14 +1,14 @@
 package com.pax.us.pay.ui.base.message;
 
 public class RespMessage {
-    private String resultCode;
+    private int resultCode;
     private String resultMessage;
 
-    public String getResultCode() {
+    public int getResultCode() {
         return resultCode;
     }
 
-    public void setResultCode(String resultCode) {
+    public void setResultCode(int resultCode) {
         this.resultCode = resultCode;
     }
 

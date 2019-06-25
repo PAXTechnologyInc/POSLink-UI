@@ -1,4 +1,4 @@
-package com.pax.us.pay.ui.base.constant.entry;
+package com.pax.us.pay.ui.constant.entry;
 
 public class Signature {
     /**

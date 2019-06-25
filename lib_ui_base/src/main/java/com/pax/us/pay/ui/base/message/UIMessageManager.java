@@ -9,8 +9,6 @@ import com.pax.us.pay.ui.base.message.helper.BaseHelper;
 
 public class UIMessageManager {
     static UIMessageManager Instance;
-    private ActionFinish actionFinish;
-
 
     private UIMessageManager() {
     }
@@ -23,34 +21,33 @@ public class UIMessageManager {
     }
 
     public void registerUI(Context context, IUIListener uiListener, BaseHelper helper, Intent intent, IRespStatus respStatus) {
-        UIMessageCenter.getInstance(context).registerUICenter(context, uiListener, helper, intent, respStatus);
+        UIMessageCenter.getInstance().registerUICenter(context, uiListener, helper, intent, respStatus);
     }
 
     public void unregisterUI(Context context, BaseHelper helper) {
-        UIMessageCenter.getInstance(context).unregisterTransactionFinishListener();
-        UIMessageCenter.getInstance(context).unregisterUICenter(helper);
-        //helper.deleteObserver((Observer) UIMessageCenter.getInstance(context));
+        UIMessageCenter.getInstance().unregisterUIReceiver(context);
+        UIMessageCenter.getInstance().unregisterUICenter(helper);
     }
 
-    public void registerAction(Context context, final ActionFinish actionFinish) {
-        this.actionFinish = actionFinish;
-        UIMessageCenter.getInstance(context).registerTransactionFinishListener(new UIMessageCenter.TransactionFinishListener() {
-            @Override
-            public void onFinish() {
-                actionFinish.onFinished();
-            }
-        });
+//    public void registerAction(Context context, final ActionFinish actionFinish) {
+//        this.actionFinish = actionFinish;
+//        UIMessageCenter.getInstance(context).registerTransactionFinishListener(new UIMessageCenter.TransactionFinishListener() {
+//            @Override
+//            public void onFinish() {
+//                actionFinish.onFinished();
+//            }
+//        });
+//
+//    }
 
-    }
-
-    public interface ActionFinish {
-        void onFinished();
-    }
+//    public interface ActionFinish {
+//        void onFinished();
+//    }
 
     ;
 
     public void unregisterAction(Context context) {
-        UIMessageCenter.getInstance(context).unregisterTransactionFinishListener();
-
+        UIMessageCenter.getInstance().unregisterUIReceiver(context);
+        //UIMessageCenter.getInstance().unregisterTransactionFinishListener();
     }
 }
