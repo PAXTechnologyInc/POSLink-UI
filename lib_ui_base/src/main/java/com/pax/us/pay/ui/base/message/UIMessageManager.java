@@ -29,25 +29,7 @@ public class UIMessageManager {
         UIMessageCenter.getInstance().unregisterUICenter(helper);
     }
 
-//    public void registerAction(Context context, final ActionFinish actionFinish) {
-//        this.actionFinish = actionFinish;
-//        UIMessageCenter.getInstance(context).registerTransactionFinishListener(new UIMessageCenter.TransactionFinishListener() {
-//            @Override
-//            public void onFinish() {
-//                actionFinish.onFinished();
-//            }
-//        });
-//
-//    }
-
-//    public interface ActionFinish {
-//        void onFinished();
-//    }
-
-    ;
-
     public void unregisterAction(Context context) {
         UIMessageCenter.getInstance().unregisterUIReceiver(context);
-        //UIMessageCenter.getInstance().unregisterTransactionFinishListener();
     }
 }

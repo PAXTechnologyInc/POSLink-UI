@@ -227,14 +227,13 @@
         <receiver android:name=".receiver.BroadcastReceiver">
             <intent-filter>
                 <action android:name="com.pax.us.pay.TRANS_COMPLETED" />
-                <action android:name="com.pax.us.pay.TRANS_ONLINE" />
+                <action android:name="com.pax.us.pay.TRANS_ONLINE_STARTED" />
                 <action android:name="com.pax.us.pay.TRANS_ONLINE_FINISHED" />
-                <action android:name="com.pax.us.pay.EMV_PROCESS_STARTED" />
-                <action android:name="com.pax.us.pay.EMV_PROCESS_FINISHED" />
+                <action android:name="com.pax.us.pay.CARD_PROCESS_STARTED" />
+                <action android:name="com.pax.us.pay.CARD_PROCESS_FINISHED" />
                 <action android:name="com.pax.us.pay.CARD_REMOVED" />
                 <action android:name="com.pax.us.pay.SEE_PHONE" />
-                <action android:name="com.pax.us.pay.CARD_TO_REMOVE" />
-                <action android:name="com.pax.us.pay.UPDATE_MSG" />
+                <action android:name="com.pax.us.pay.CARD_REMOVAL_REQUIRED" />
 
                 <category android:name="com.pax.us.pay.status.category.INFORMATION" />
             </intent-filter>

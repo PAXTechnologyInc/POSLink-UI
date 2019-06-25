@@ -112,19 +112,19 @@ public class DialogActivity extends AppCompatActivity {
         }
         //hideDialog();
         switch (action) {
-            case Information.TRANS_ONLINE:
+            case Information.TRANS_ONLINE_STARTED:
                 showProcessDialog("Trans Online...");
                 break;
-            case Information.EMV_PROCESS_STARTED:
+            case Information.CARD_PROCESS_STARTED:
                 showProcessDialog("EMV START...");
                 break;
             case Information.TRANS_ONLINE_FINISHED:
-            case Information.EMV_PROCESS_FINISHED:
+            case Information.CARD_PROCESS_FINISHED:
             case Batch.BATCH_FINISHED:
                 hideDialog();
                 finish();
                 break;
-            case Information.CARD_TO_REMOVE:
+            case Information.CARD_REMOVAL_REQUIRED:
                 showWarnDialog("Remove card!");
                 break;
             case Information.SEE_PHONE:
@@ -176,7 +176,7 @@ public class DialogActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         //UIMessageCenter.getInstance(this).unregisterTransactionFinishListener();
-        UIMessageManager.getInstance().unregisterAction(this);
+        //UIMessageManager.getInstance().unregisterAction(this);
         EventBusUtil.unregister(this);
         super.onDestroy();
     }
