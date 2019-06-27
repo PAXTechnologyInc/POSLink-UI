@@ -19,15 +19,15 @@ import com.pax.pay.ui.def_ui.utils.CurrencyConverter;
 import com.pax.pay.ui.def_ui.utils.ToastHelper;
 import com.pax.pay.ui.def_ui.view.ClssLight;
 import com.pax.pay.ui.def_ui.view.ClssLightsView;
-import com.pax.us.pay.ui.core.constant.status.VirtualClssLight;
-import com.pax.us.pay.ui.core.message.RespMessage;
-import com.pax.us.pay.ui.core.message.UIMessageManager;
-import com.pax.us.pay.ui.core.message.api.IAmountListener;
-import com.pax.us.pay.ui.core.message.api.ICardListener;
-import com.pax.us.pay.ui.core.message.api.ICurrencyListener;
-import com.pax.us.pay.ui.core.message.api.IMessageListener;
-import com.pax.us.pay.ui.core.message.api.IRespStatus;
-import com.pax.us.pay.ui.core.message.helper.SecurityHelper;
+import com.pax.us.pay.ui.constant.status.VirtualClssLight;
+import com.pax.us.pay.ui.core.RespMessage;
+import com.pax.us.pay.ui.core.UIMessageManager;
+import com.pax.us.pay.ui.core.api.IAmountListener;
+import com.pax.us.pay.ui.core.api.ICardListener;
+import com.pax.us.pay.ui.core.api.ICurrencyListener;
+import com.pax.us.pay.ui.core.api.IMessageListener;
+import com.pax.us.pay.ui.core.api.IRespStatus;
+import com.pax.us.pay.ui.core.helper.SecurityHelper;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
@@ -77,21 +77,16 @@ public class SearchCardActivity extends AppCompatActivity implements View.OnClic
         promptTv.setText(getResources().getText(R.string.hint_enter_account));
         UIMessageManager.getInstance().registerUI(this, this, helper, getIntent(), new IRespStatus() {
             @Override
-            public void respAccept() {
+            public void onAccepted() {
                 EventBusUtil.postEvent(EventBusConstant.END_EVENT);
                 finish();
             }
 
             @Override
-            public void respDecline(RespMessage respMessage) {
+            public void onDeclined(RespMessage respMessage) {
                 String buff = "Request Declined\n Error Code:" + respMessage.getResultCode() + "\n Error Msg: " + respMessage.getResultMsg();
                 //Toast.makeText(this, buff, Toast.LENGTH_LONG).show();
                 ToastHelper.showMessage(SearchCardActivity.this, buff);
-            }
-
-            @Override
-            public void respComplete() {
-                finish();
             }
         });
     }
@@ -99,7 +94,7 @@ public class SearchCardActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onClick(View view) {
-        helper.sendObjNext();
+        helper.sendNext();
     }
 
     @Override
@@ -107,7 +102,7 @@ public class SearchCardActivity extends AppCompatActivity implements View.OnClic
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             helper.sendAbort();
         } else if (keyCode == KeyEvent.KEYCODE_ENTER) {
-            helper.sendObjNext();
+            helper.sendNext();
         }
         return false;
     }

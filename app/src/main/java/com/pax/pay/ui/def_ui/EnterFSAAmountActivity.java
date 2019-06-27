@@ -20,13 +20,13 @@ import com.pax.pay.ui.def_ui.utils.CurrencyCode;
 import com.pax.pay.ui.def_ui.utils.CurrencyConverter;
 import com.pax.pay.ui.def_ui.utils.EnterAmountTextWatcher;
 import com.pax.pay.ui.def_ui.utils.ToastHelper;
-import com.pax.us.pay.ui.core.message.RespMessage;
-import com.pax.us.pay.ui.core.message.UIMessageManager;
-import com.pax.us.pay.ui.core.message.api.IAmountListener;
-import com.pax.us.pay.ui.core.message.api.ICurrencyListener;
-import com.pax.us.pay.ui.core.message.api.IMessageListener;
-import com.pax.us.pay.ui.core.message.api.IRespStatus;
-import com.pax.us.pay.ui.core.message.helper.FSAAmountHelper;
+import com.pax.us.pay.ui.core.RespMessage;
+import com.pax.us.pay.ui.core.UIMessageManager;
+import com.pax.us.pay.ui.core.api.IAmountListener;
+import com.pax.us.pay.ui.core.api.ICurrencyListener;
+import com.pax.us.pay.ui.core.api.IMessageListener;
+import com.pax.us.pay.ui.core.api.IRespStatus;
+import com.pax.us.pay.ui.core.helper.FSAAmountHelper;
 
 import java.util.Locale;
 
@@ -75,21 +75,16 @@ public class EnterFSAAmountActivity extends AppCompatActivity implements View.On
 
         UIMessageManager.getInstance().registerUI(this, this, helper, getIntent(), new IRespStatus() {
             @Override
-            public void respAccept() {
+            public void onAccepted() {
                 EventBusUtil.postEvent(EventBusConstant.END_EVENT);
                 finish();
             }
 
             @Override
-            public void respDecline(RespMessage respMessage) {
+            public void onDeclined(RespMessage respMessage) {
                 String buff = "Request Declined\n Error Code:" + respMessage.getResultCode() + "\n Error Msg: " + respMessage.getResultMsg();
                 //Toast.makeText(this, buff, Toast.LENGTH_LONG).show();
                 ToastHelper.showMessage(EnterFSAAmountActivity.this, buff);
-            }
-
-            @Override
-            public void respComplete() {
-                finish();
             }
         });
     }
@@ -250,22 +245,17 @@ public class EnterFSAAmountActivity extends AppCompatActivity implements View.On
         long dentalAmt = CurrencyConverter.parse(dentalEditText.getText().toString(), locale);
         long visionAmt = CurrencyConverter.parse(visionEditText.getText().toString(), locale);
         long transitAmt = CurrencyConverter.parse(transitEditText.getText().toString(), locale);
-        helper.sendObjNext(healthAmt, clinicAmt, prescriptionAmt, dentalAmt, visionAmt, transitAmt, totalAmount, new IRespStatus() {
+        helper.sendNext(healthAmt, clinicAmt, prescriptionAmt, dentalAmt, visionAmt, transitAmt, totalAmount, new IRespStatus() {
             @Override
-            public void respAccept() {
+            public void onAccepted() {
                 ;
             }
 
             @Override
-            public void respDecline(RespMessage respMessage) {
+            public void onDeclined(RespMessage respMessage) {
                 String buff = "Request Declined\n Error Code:" + respMessage.getResultCode() + "\n Error Msg: " + respMessage.getResultMsg();
                 //Toast.makeText(this, buff, Toast.LENGTH_LONG).show();
                 ToastHelper.showMessage(EnterFSAAmountActivity.this, buff);
-            }
-
-            @Override
-            public void respComplete() {
-                finish();
             }
         });
     }

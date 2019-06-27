@@ -31,9 +31,9 @@ import com.pax.pay.ui.def_ui.eventbus.EventBusConstant;
 import com.pax.pay.ui.def_ui.eventbus.EventBusUtil;
 import com.pax.pay.ui.def_ui.view.ProcessDialogListener;
 import com.pax.pay.ui.def_ui.view.ProcessDialogListenerImpl;
-import com.pax.us.pay.ui.core.constant.status.Batch;
-import com.pax.us.pay.ui.core.constant.status.Information;
-import com.pax.us.pay.ui.core.message.UIMessageManager;
+import com.pax.us.pay.ui.constant.status.Batch;
+import com.pax.us.pay.ui.constant.status.Information;
+import com.pax.us.pay.ui.core.UIMessageManager;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
@@ -111,19 +111,19 @@ public class DialogActivity extends AppCompatActivity {
         }
         //hideDialog();
         switch (action) {
-            case Information.TRANS_ONLINE:
+            case Information.TRANS_ONLINE_STARTED:
                 showProcessDialog("Trans Online...");
                 break;
-            case Information.EMV_PROCESS_STARTED:
-                showProcessDialog("EMV START...");
+            case Information.CARD_PROCESS_STARTED:
+                showProcessDialog("CARD PROCESS START...");
                 break;
             case Information.TRANS_ONLINE_FINISHED:
-            case Information.EMV_PROCESS_FINISHED:
+            case Information.CARD_PROCESS_FINISHED:
             case Batch.BATCH_CLOSE_COMPLETED:
                 hideDialog();
                 finish();
                 break;
-            case Information.CARD_TO_REMOVE:
+            case Information.CARD_REMOVAL_REQUIRED:
                 showWarnDialog("Remove card!");
                 break;
             case Information.SEE_PHONE:

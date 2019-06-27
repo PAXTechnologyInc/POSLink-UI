@@ -17,12 +17,12 @@ import com.pax.pay.ui.def_ui.base.BaseViewHolder;
 import com.pax.pay.ui.def_ui.eventbus.EventBusConstant;
 import com.pax.pay.ui.def_ui.eventbus.EventBusUtil;
 import com.pax.pay.ui.def_ui.utils.ToastHelper;
-import com.pax.us.pay.ui.core.message.RespMessage;
-import com.pax.us.pay.ui.core.message.UIMessageManager;
-import com.pax.us.pay.ui.core.message.api.IMessageListener;
-import com.pax.us.pay.ui.core.message.api.IOptionListener;
-import com.pax.us.pay.ui.core.message.api.IRespStatus;
-import com.pax.us.pay.ui.core.message.helper.OptionsHelper;
+import com.pax.us.pay.ui.core.RespMessage;
+import com.pax.us.pay.ui.core.UIMessageManager;
+import com.pax.us.pay.ui.core.api.IMessageListener;
+import com.pax.us.pay.ui.core.api.IOptionListener;
+import com.pax.us.pay.ui.core.api.IRespStatus;
+import com.pax.us.pay.ui.core.helper.OptionsHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,21 +57,16 @@ public class SelectEbtTypeActivity extends AppCompatActivity implements View.OnC
         tvPrompt.setText(getResources().getText(R.string.select_ebt_type));
         UIMessageManager.getInstance().registerUI(this, this, helper, getIntent(), new IRespStatus() {
             @Override
-            public void respAccept() {
+            public void onAccepted() {
                 EventBusUtil.postEvent(EventBusConstant.END_EVENT);
                 finish();
             }
 
             @Override
-            public void respDecline(RespMessage respMessage) {
+            public void onDeclined(RespMessage respMessage) {
                 String buff = "Request Declined\n Error Code:" + respMessage.getResultCode() + "\n Error Msg: " + respMessage.getResultMsg();
                 //Toast.makeText(this, buff, Toast.LENGTH_LONG).show();
                 ToastHelper.showMessage(SelectEbtTypeActivity.this, buff);
-            }
-
-            @Override
-            public void respComplete() {
-                finish();
             }
         });
     }
@@ -80,7 +75,7 @@ public class SelectEbtTypeActivity extends AppCompatActivity implements View.OnC
     public void onClick(View view) {
         if (selected != -1) {
             Integer index = (Integer) selectOption.indexOf(selectOption.get(selected));
-            helper.sendObjNext(index);
+            helper.sendNext(index);
         }
     }
 

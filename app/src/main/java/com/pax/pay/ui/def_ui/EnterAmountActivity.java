@@ -18,12 +18,12 @@ import com.pax.pay.ui.def_ui.utils.CurrencyCode;
 import com.pax.pay.ui.def_ui.utils.CurrencyConverter;
 import com.pax.pay.ui.def_ui.utils.EnterDataLineHelper;
 import com.pax.pay.ui.def_ui.utils.ToastHelper;
-import com.pax.us.pay.ui.core.message.RespMessage;
-import com.pax.us.pay.ui.core.message.UIMessageManager;
-import com.pax.us.pay.ui.core.message.api.ICurrencyListener;
-import com.pax.us.pay.ui.core.message.api.IMessageListener;
-import com.pax.us.pay.ui.core.message.api.IRespStatus;
-import com.pax.us.pay.ui.core.message.helper.AmountHelper;
+import com.pax.us.pay.ui.core.RespMessage;
+import com.pax.us.pay.ui.core.UIMessageManager;
+import com.pax.us.pay.ui.core.api.ICurrencyListener;
+import com.pax.us.pay.ui.core.api.IMessageListener;
+import com.pax.us.pay.ui.core.api.IRespStatus;
+import com.pax.us.pay.ui.core.helper.AmountHelper;
 
 import java.util.Locale;
 
@@ -66,21 +66,16 @@ public class EnterAmountActivity extends AppCompatActivity implements View.OnCli
 
         UIMessageManager.getInstance().registerUI(this, this, helper, getIntent(), new IRespStatus() {
             @Override
-            public void respAccept() {
+            public void onAccepted() {
                 EventBusUtil.postEvent(EventBusConstant.END_EVENT);
                 finish();
             }
 
             @Override
-            public void respDecline(RespMessage respMessage) {
+            public void onDeclined(RespMessage respMessage) {
                 String buff = "Request Declined\n Error Code:" + respMessage.getResultCode() + "\n Error Msg: " + respMessage.getResultMsg();
                 //Toast.makeText(this, buff, Toast.LENGTH_LONG).show();
                 ToastHelper.showMessage(EnterAmountActivity.this, buff);
-            }
-
-            @Override
-            public void respComplete() {
-                finish();
             }
         });
     }
@@ -89,7 +84,7 @@ public class EnterAmountActivity extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View view) {
         Long amount = CurrencyConverter.parse(mEditText.getText().toString(), locale);
-        helper.sendObjNext(amount);
+        helper.sendNext(amount);
 
     }
 
@@ -99,7 +94,7 @@ public class EnterAmountActivity extends AppCompatActivity implements View.OnCli
             helper.sendAbort();
         } else if (keyCode == KeyEvent.KEYCODE_ENTER) {
             Long amount = CurrencyConverter.parse(mEditText.getText().toString(), locale);
-            helper.sendObjNext(amount);
+            helper.sendNext(amount);
         }
         return false;
     }

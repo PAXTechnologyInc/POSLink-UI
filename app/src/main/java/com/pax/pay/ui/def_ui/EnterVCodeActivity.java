@@ -11,11 +11,11 @@ import android.widget.TextView;
 import com.pax.pay.ui.def_ui.eventbus.EventBusConstant;
 import com.pax.pay.ui.def_ui.eventbus.EventBusUtil;
 import com.pax.pay.ui.def_ui.utils.ToastHelper;
-import com.pax.us.pay.ui.core.message.RespMessage;
-import com.pax.us.pay.ui.core.message.UIMessageManager;
-import com.pax.us.pay.ui.core.message.api.IMessageListener;
-import com.pax.us.pay.ui.core.message.api.IRespStatus;
-import com.pax.us.pay.ui.core.message.helper.SecurityHelper;
+import com.pax.us.pay.ui.core.RespMessage;
+import com.pax.us.pay.ui.core.UIMessageManager;
+import com.pax.us.pay.ui.core.api.IMessageListener;
+import com.pax.us.pay.ui.core.api.IRespStatus;
+import com.pax.us.pay.ui.core.helper.SecurityHelper;
 
 public class EnterVCodeActivity extends AppCompatActivity implements View.OnClickListener, IMessageListener {
 
@@ -40,29 +40,25 @@ public class EnterVCodeActivity extends AppCompatActivity implements View.OnClic
         promptTitle.setText(getResources().getText(R.string.pls_input_vcode));
         UIMessageManager.getInstance().registerUI(this, this, helper, getIntent(), new IRespStatus() {
             @Override
-            public void respAccept() {
+            public void onAccepted() {
                 EventBusUtil.postEvent(EventBusConstant.END_EVENT);
                 finish();
             }
 
             @Override
-            public void respDecline(RespMessage respMessage) {
+            public void onDeclined(RespMessage respMessage) {
                 String buff = "Request Declined\n Error Code:" + respMessage.getResultCode() + "\n Error Msg: " + respMessage.getResultMsg();
                 //Toast.makeText(this, buff, Toast.LENGTH_LONG).show();
                 ToastHelper.showMessage(EnterVCodeActivity.this, buff);
             }
 
-            @Override
-            public void respComplete() {
-                finish();
-            }
         });
     }
 
 
     @Override
     public void onClick(View view) {
-        helper.sendObjNext();
+        helper.sendNext();
     }
 
     @Override
@@ -70,7 +66,7 @@ public class EnterVCodeActivity extends AppCompatActivity implements View.OnClic
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             helper.sendAbort();
         } else if (keyCode == KeyEvent.KEYCODE_ENTER) {
-            helper.sendObjNext();
+            helper.sendNext();
         }
         return false;
     }

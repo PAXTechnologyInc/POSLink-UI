@@ -16,11 +16,11 @@ import com.pax.pay.ui.def_ui.eventbus.EventBusConstant;
 import com.pax.pay.ui.def_ui.eventbus.EventBusUtil;
 import com.pax.pay.ui.def_ui.utils.EnterDataLineHelper;
 import com.pax.pay.ui.def_ui.utils.ToastHelper;
-import com.pax.us.pay.ui.core.message.RespMessage;
-import com.pax.us.pay.ui.core.message.UIMessageManager;
-import com.pax.us.pay.ui.core.message.api.IMessageListener;
-import com.pax.us.pay.ui.core.message.api.IRespStatus;
-import com.pax.us.pay.ui.core.message.helper.TransNumHelper;
+import com.pax.us.pay.ui.core.RespMessage;
+import com.pax.us.pay.ui.core.UIMessageManager;
+import com.pax.us.pay.ui.core.api.IMessageListener;
+import com.pax.us.pay.ui.core.api.IRespStatus;
+import com.pax.us.pay.ui.core.helper.TransNumHelper;
 
 public class EnterTransNumActivity extends AppCompatActivity implements View.OnClickListener, IMessageListener {
 
@@ -57,28 +57,23 @@ public class EnterTransNumActivity extends AppCompatActivity implements View.OnC
 
         UIMessageManager.getInstance().registerUI(this, this, helper, getIntent(), new IRespStatus() {
             @Override
-            public void respAccept() {
+            public void onAccepted() {
                 EventBusUtil.postEvent(EventBusConstant.END_EVENT);
                 finish();
             }
 
             @Override
-            public void respDecline(RespMessage respMessage) {
+            public void onDeclined(RespMessage respMessage) {
                 String buff = "Request Declined\n Error Code:" + respMessage.getResultCode() + "\n Error Msg: " + respMessage.getResultMsg();
                 //Toast.makeText(this, buff, Toast.LENGTH_LONG).show();
                 ToastHelper.showMessage(EnterTransNumActivity.this, buff);
-            }
-
-            @Override
-            public void respComplete() {
-                finish();
             }
         });
     }
 
     @Override
     public void onClick(View view) {
-        helper.sendObjNext(Integer.valueOf(mEditText.getText().toString()));
+        helper.sendNext(Integer.valueOf(mEditText.getText().toString()));
     }
 
     @Override
@@ -86,7 +81,7 @@ public class EnterTransNumActivity extends AppCompatActivity implements View.OnC
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             helper.sendAbort();
         } else if (keyCode == KeyEvent.KEYCODE_ENTER) {
-            helper.sendObjNext(Integer.valueOf(mEditText.getText().toString()));
+            helper.sendNext(Integer.valueOf(mEditText.getText().toString()));
         }
         return false;
     }
