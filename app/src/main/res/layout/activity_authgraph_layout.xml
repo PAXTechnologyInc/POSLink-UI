@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="bottom"
-            android:text="@string/history_detail_amount"
+            android:text="Amount"
             android:textColor="@color/primary_text_light"
             android:textSize="@dimen/font_size_prompt" />
 
@@ -33,8 +33,6 @@
             android:textColor="@color/primary_text_light"
             android:textSize="@dimen/font_size_value" />
     </LinearLayout>
-
-    <View style="@style/LongLine" />
 
     <RelativeLayout
         android:id="@+id/writeUserNameSpace"
@@ -53,8 +51,7 @@
             android:layout_width="0dp"
             android:layout_height="@dimen/button_height"
             android:layout_weight="1"
-            android:background="@drawable/cancel_sign_background"
-            android:text="@string/cancel_sign"
+            android:text="CANCEL"
             android:textColor="@color/primary_text_light"
             android:textSize="@dimen/font_button"
             style="?android:attr/buttonBarButtonStyle" />
@@ -64,8 +61,7 @@
             android:layout_width="0dp"
             android:layout_height="@dimen/button_height"
             android:layout_weight="1"
-            android:background="@drawable/clear_sign_background"
-            android:text="@string/signature_clear"
+            android:text="CLEAR"
             android:textColor="@color/primary_text_light"
             android:textSize="@dimen/font_button"
             style="?android:attr/buttonBarButtonStyle" />
@@ -75,8 +71,7 @@
             android:layout_width="0dp"
             android:layout_height="@dimen/button_height"
             android:layout_weight="1"
-            android:background="@drawable/confirm_sign_background"
-            android:text="@string/signature_done"
+            android:text="OK"
             android:textColor="@color/primary_text_light"
             android:textSize="@dimen/font_button"
             style="?android:attr/buttonBarButtonStyle" />

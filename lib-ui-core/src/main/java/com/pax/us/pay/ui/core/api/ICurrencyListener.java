@@ -1,5 +1,7 @@
 package com.pax.us.pay.ui.core.api;
 
+import android.support.annotation.Nullable;
+
 public interface ICurrencyListener extends IUIListener {
-    void onShowCurrency(String currency);
+    void onShowCurrency(@Nullable String currency);
 }

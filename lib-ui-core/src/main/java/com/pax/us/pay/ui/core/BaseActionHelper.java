@@ -1,39 +1,146 @@
 package com.pax.us.pay.ui.core;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
+import com.pax.us.pay.ui.constant.entry.EntryInput;
+import com.pax.us.pay.ui.core.api.IAmountListener;
+import com.pax.us.pay.ui.core.api.ICardListener;
+import com.pax.us.pay.ui.core.api.IInformationListener;
+import com.pax.us.pay.ui.core.api.IMessageListener;
+import com.pax.us.pay.ui.core.api.IOptionListener;
+import com.pax.us.pay.ui.core.api.IRespStatus;
+import com.pax.us.pay.ui.core.api.ITipOptionListener;
+import com.pax.us.pay.ui.core.api.IUIListener;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Set;
 
 public abstract class BaseActionHelper {
 
-    private IActionHandler handler;
+    private static final String STATE_ERROR_LOG = "need to call start firstly";
 
+    private IActionHandler actionHandler;
+
+    @Nullable
+    private IUIListener uiListener;
+    @Nullable
+    private IRespStatus respStatus;
+
+    private Intent intent;
+    private Handler handler = new Handler();
+
+    protected BaseActionHelper(@Nullable IUIListener uiListener, @Nullable IRespStatus respStatus) {
+        this.uiListener = uiListener;
+        this.respStatus = respStatus;
+    }
 
     protected void sendNext(Bundle bundle) {
-        if (handler != null) {
-            handler.sendNext(bundle);
+        if (actionHandler == null) {
+            throw new IllegalStateException(STATE_ERROR_LOG);
         }
+        actionHandler.sendNext(bundle);
     }
 
     protected void sendNext() {
-        if (handler != null) {
-            handler.sendNext(null);
-        }
+        sendNext(null);
     }
 
     public void sendAbort() {
-        if (handler != null) {
-            handler.sendAbort();
+        if (actionHandler == null) {
+            throw new IllegalStateException(STATE_ERROR_LOG);
         }
+        actionHandler.sendAbort();
     }
 
     public void sendPrev() {
-        if (handler != null) {
-            handler.sendPrev();
+        if (actionHandler == null) {
+            throw new IllegalStateException(STATE_ERROR_LOG);
         }
+        actionHandler.sendPrev();
     }
 
     protected void setSecurityArea(Bundle bundle) {
-        if (handler != null) {
-            handler.setSecurityArea(bundle);
+        if (actionHandler == null) {
+            throw new IllegalStateException(STATE_ERROR_LOG);
+        }
+        actionHandler.setSecurityArea(bundle);
+    }
+
+    protected final void decline(int code, String message) {
+        if (respStatus != null) {
+            respStatus.onDeclined(code, message);
+        }
+    }
+
+    protected void showUI(@Nullable IUIListener uiListener, @NonNull Bundle bundle) {
+
+        if (uiListener instanceof IMessageListener) {
+            ((IMessageListener) uiListener).onShowMessage(bundle.getString(EntryInput.PARAM_TRANS_TYPE), bundle.getString(EntryInput.PARAM_MESSAGE));
+        }
+
+        //////
+        //TODO Kim.L move to xxxHelper
+
+        if (uiListener instanceof IAmountListener && bundle.containsKey(EntryInput.PARAM_DISP_AMOUNT)) {
+            ((IAmountListener) uiListener).onShowAmount(bundle.getLong(EntryInput.PARAM_DISP_AMOUNT));
+        }
+
+        if (uiListener instanceof IOptionListener && bundle.containsKey(EntryInput.PARAM_OPTIONS)) {
+            ((IOptionListener) uiListener).onShowOptions(bundle.getStringArray(EntryInput.PARAM_OPTIONS));
+        }
+
+        if (uiListener instanceof ICardListener) {
+            ((ICardListener) uiListener).onShowCard(
+                    bundle.getBoolean(EntryInput.PARAM_ENABLE_MANUAL, false),
+                    bundle.getBoolean(EntryInput.PARAM_ENABLE_SWIPE, false),
+                    bundle.getBoolean(EntryInput.PARAM_ENABLE_INSERT, false),
+                    bundle.getBoolean(EntryInput.PARAM_ENABLE_TAP, false)
+            );
+        }
+
+        if (uiListener instanceof ITipOptionListener && bundle.containsKey(EntryInput.PARAM_TIP_OPTIONS)) {
+            ((ITipOptionListener) uiListener).onShowTipOptions(bundle.getStringArray(EntryInput.PARAM_TIP_OPTIONS));
+        }
+
+        /*if (uiListener instanceof ITipOptionListener && bundle.containsKey(EntryInput.PARAM_CASHBACK_OPTIONS)) {
+            ((ITipOptionListener) uiListener).onShowTipOptions(bundle.getStringArray(EntryInput.PARAM_CASHBACK_OPTIONS));
+        }*/
+
+        if (uiListener instanceof IInformationListener) {
+            Set<String> keySet = bundle.keySet();
+            Map<String, String> map = new LinkedHashMap<>();
+            for (String key : keySet) {
+                if (key.equals(EntryInput.PARAM_TRANS_TYPE) || key.equals(EntryInput.PARAM_PACKAGE) || key.equals(EntryInput.PARAM_OPTIONS)) {
+                    continue;
+                } else {
+                    map.put(key, bundle.getString(key));
+                }
+            }
+            if (map.size() > 0) {
+                ((IInformationListener) uiListener).onShowInformation(map);
+            }
+        }
+    }
+
+    public void start(Context context, Intent intent) {
+        if (actionHandler == null) {
+            actionHandler = new UIMessageHandler(context, intent.getStringExtra(EntryInput.PARAM_PACKAGE), respStatus);
+        }
+
+        this.intent = intent.cloneFilter();
+        if (this.intent.getExtras() != null) {
+            handler.post(new Runnable() {
+                @Override
+                public void run() {
+                    showUI(uiListener, BaseActionHelper.this.intent.getExtras());
+                }
+            });
         }
     }
 }

@@ -8,7 +8,7 @@
 
     <!-- ======================================================默认读卡界面==================================================== -->
 
-    <com.pax.pay.ui.def_ui.view.ClssLightsView
+    <com.pax.pay.poslink.ui.demo.view.ClssLightsView
         android:id="@+id/clssLight"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,29 +24,31 @@
         android:layout_marginTop="@dimen/space_vertical"
         app:layout_constraintTop_toBottomOf="@id/clssLight">
 
-        <include layout="@layout/content_amount_prompt" />
-
-        <TextView
-            android:id="@+id/prompt_tv"
+        <LinearLayout
+            android:id="@+id/amount_prompt_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_vertical_small"
-            android:layout_marginBottom="@dimen/space_vertical_small"
-            android:text="@string/hint_enter_account"
-            android:textColor="@color/secondary_text_light"
-            android:textSize="@dimen/font_size_prompt" />
+            android:layout_marginBottom="@dimen/space_vertical"
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/card_number_edit"
-            style="@android:style/Widget.EditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:inputType="number"
-            android:textColor="@color/primary_text_light"
-            android:textSize="@dimen/font_edit_text"
-            android:hint="@string/prompt_card_num"
-            android:textColorHint="@color/secondary_text_dark" />
+            <TextView
+                android:id="@+id/total_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="bottom"
+                android:text="Total Amount"
+                android:textColor="@color/primary_text_light"
+                android:textSize="@dimen/font_size_prompt" />
+
+            <TextView
+                android:id="@+id/amount_prompt_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="bottom|end"
+                android:text="@string/amount_default"
+                android:textColor="@color/primary_text_light"
+                android:textSize="@dimen/font_size_value" />
+        </LinearLayout>
     </LinearLayout>
 
     <!-- 确定按键 -->
@@ -56,8 +58,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/supported_card_prompt"
         android:layout_marginBottom="@dimen/space_vertical_large"
-        android:background="@drawable/btn_bg_light"
-        android:text="@string/dialog_ok"
+        android:text="OK"
         android:textColor="@color/primary_text_dark"
         android:textSize="@dimen/font_button" />
 
@@ -65,7 +66,7 @@
         android:id="@+id/supported_card_prompt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/space_vertical_small"
+        android:layout_marginBottom="@dimen/default_gap"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent">
 
@@ -75,7 +76,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
             android:layout_weight="1"
-            android:background="@drawable/selection_swipe_card"
             android:gravity="bottom|center"
             android:padding="4dp"
             android:scaleType="fitStart"
@@ -87,7 +87,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
             android:layout_weight="1"
-            android:background="@drawable/selection_insert_card"
             android:gravity="bottom|center"
             android:padding="4dp"
             android:scaleType="fitCenter"
@@ -99,7 +98,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
             android:layout_weight="1"
-            android:background="@drawable/selection_tap_card"
             android:gravity="bottom|center"
             android:padding="4dp"
             android:scaleType="fitEnd"

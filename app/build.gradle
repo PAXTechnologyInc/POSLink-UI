@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 27
     defaultConfig {
-        applicationId "com.pax.pay.ui.poslink_ui"
+        applicationId "com.pax.pay.poslink.ui.demo"
         minSdkVersion 22
         targetSdkVersion 27
         versionCode 1
@@ -33,13 +33,14 @@ dependencies {
     implementation 'android.arch.lifecycle:extensions:1.1.0'
     annotationProcessor "android.arch.lifecycle:compiler:1.1.0"
     implementation 'com.android.support:design:27.1.1'
-    implementation 'com.orhanobut:logger:2.2.0'
     implementation 'org.greenrobot:eventbus:3.0.0'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    api project(path: ':ui.core')
+
+    implementation project(path: ':ui.constant')
+    implementation project(path: ':ui.core')
     //only for test
     //api project(':poslink_ui_test')
 }

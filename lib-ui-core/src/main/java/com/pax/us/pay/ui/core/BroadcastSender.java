@@ -17,6 +17,9 @@ package com.pax.us.pay.ui.core;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.annotation.NonNull;
+
+import java.lang.ref.WeakReference;
 
 /**
  * A internal helper broadcast sender class
@@ -24,14 +27,15 @@ import android.content.Intent;
 
 class BroadcastSender {
 
-    private Context context;
+    private WeakReference<Context> context;
 
     BroadcastSender(Context context) {
-        this.context = context.getApplicationContext();
+        this.context = new WeakReference<>(context.getApplicationContext());
     }
 
-    void send(Intent data) {
-        if (data != null)
-            context.sendBroadcast(data);
+    void send(@NonNull Intent data) {
+        Context con = context.get();
+        if (con != null)
+            con.sendBroadcast(data);
     }
 }
