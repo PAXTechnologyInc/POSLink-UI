@@ -9,6 +9,8 @@ public class EntryResponse {
 
     /**
      * DECLINED with reason: BroadPOS declined request action with result code, result message.
+     * param: {@link EntryResponse#PARAM_CODE}
+     * param: {@link EntryResponse#PARAM_MSG}
      */
     public static final String ACTION_DECLINED = "com.pax.us.pay.ui.DECLINED";
 

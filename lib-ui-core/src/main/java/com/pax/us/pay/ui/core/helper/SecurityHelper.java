@@ -5,12 +5,12 @@ import android.support.annotation.Nullable;
 
 import com.pax.us.pay.ui.constant.entry.EntryRequest;
 import com.pax.us.pay.ui.core.BaseActionHelper;
-import com.pax.us.pay.ui.core.api.ICardListener;
+import com.pax.us.pay.ui.core.api.IMessageListener;
 import com.pax.us.pay.ui.core.api.IRespStatus;
 
 public class SecurityHelper extends BaseActionHelper {
 
-    public SecurityHelper(@Nullable ICardListener listener, @Nullable IRespStatus respStatus) {
+    public SecurityHelper(@Nullable ISecurityListener listener, @Nullable IRespStatus respStatus) {
         super(listener, respStatus);
     }
 
@@ -26,5 +26,8 @@ public class SecurityHelper extends BaseActionHelper {
         bundle.putInt(EntryRequest.PARAM_WIDTH, width);
         bundle.putInt(EntryRequest.PARAM_HEIGHT, height);
         super.setSecurityArea(bundle);
+    }
+
+    public interface ISecurityListener extends IMessageListener {
     }
 }

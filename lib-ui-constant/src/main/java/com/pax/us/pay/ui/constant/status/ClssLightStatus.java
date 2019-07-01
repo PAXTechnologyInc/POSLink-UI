@@ -1,7 +1,7 @@
 package com.pax.us.pay.ui.constant.status;
 
 public final class ClssLightStatus {
-    public static final String CATEGORY = "com.pax.us.pay.status.category.CLSS_LIGHT";
+    public static final String CATEGORY = "com.pax.us.pay.status.category.VIRTUAL_CLSS_LIGHT";
 
     public static final String CLSS_LIGHT_BLUE_ON = "com.pax.us.pay.CLSS_LIGHT_BLUE_ON";
     public static final String CLSS_LIGHT_BLUE_OFF = "com.pax.us.pay.CLSS_LIGHT_BLUE_OFF";

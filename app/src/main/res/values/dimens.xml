@@ -6,6 +6,7 @@
     <dimen name="clss_light">30dp</dimen>
 
     <!--vertical space-->
+    <dimen name="space_vertical_small">8dp</dimen>
     <dimen name="space_vertical">24dp</dimen>
     <dimen name="space_vertical_large">48dp</dimen>
 

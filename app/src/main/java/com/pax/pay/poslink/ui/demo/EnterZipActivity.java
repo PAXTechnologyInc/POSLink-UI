@@ -2,23 +2,21 @@ package com.pax.pay.poslink.ui.demo;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.pax.pay.poslink.ui.demo.activity.ActivityManager;
 import com.pax.pay.poslink.ui.demo.base.RespStatusImpl;
-import com.pax.pay.poslink.ui.demo.utils.EnterDataLineHelper;
-import com.pax.us.pay.ui.core.UIMessageManager;
-import com.pax.us.pay.ui.core.api.IMessageListener;
-import com.pax.us.pay.ui.core.helper.ZipCodeHelper;
+import com.pax.us.pay.ui.core.helper.EnterZipCodeHelper;
 
-public class EnterZipActivity extends AppCompatActivity implements View.OnClickListener, IMessageListener {
+public class EnterZipActivity extends AppCompatActivity implements View.OnClickListener, EnterZipCodeHelper.IEnterZipCodeListener {
 
     TextView promptTv;
     EditText mEditText;
@@ -26,7 +24,7 @@ public class EnterZipActivity extends AppCompatActivity implements View.OnClickL
 
     private int minLen, maxLen;
 
-    private ZipCodeHelper helper = new ZipCodeHelper();
+    private EnterZipCodeHelper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +36,7 @@ public class EnterZipActivity extends AppCompatActivity implements View.OnClickL
         confirmBtn = (Button) findViewById(R.id.confirm_btn);
         confirmBtn.setOnClickListener(this);
 
-        promptTv.setText(getResources().getText(R.string.pls_input_zip_code));
+        promptTv.setText("Please Input Zip Code");
         minLen = 0;
         maxLen = 300;
         mEditText.setCursorVisible(false);
@@ -51,7 +49,9 @@ public class EnterZipActivity extends AppCompatActivity implements View.OnClickL
             imm.showSoftInput(mEditText, InputMethodManager.SHOW_IMPLICIT);
         }, 200);
 
-        UIMessageManager.getInstance().registerUI(this, this, helper, getIntent(), new RespStatusImpl(this));
+        helper = new EnterZipCodeHelper(this, new RespStatusImpl(this));
+        helper.start(this, getIntent());
+        ActivityManager.getInstance().addActivity(this);
     }
 
 
@@ -80,22 +80,12 @@ public class EnterZipActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     protected void onDestroy() {
-        UIMessageManager.getInstance().unregisterUI(this, helper);
         super.onDestroy();
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN
-                | WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
-        EnterDataLineHelper.setEditTextNumber(this, mEditText, maxLen, 0);
-    }
-
-    @Override
-    public void onShowMessage(String message) {
+    public void onShowMessage(@Nullable String transName, @Nullable String message) {
         if (message != null)
             promptTv.setText(message);
-
     }
 }

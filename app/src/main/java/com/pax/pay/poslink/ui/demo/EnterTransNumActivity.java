@@ -2,23 +2,22 @@ package com.pax.pay.poslink.ui.demo;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.pax.pay.poslink.ui.demo.activity.ActivityManager;
 import com.pax.pay.poslink.ui.demo.base.RespStatusImpl;
-import com.pax.pay.poslink.ui.demo.utils.EnterDataLineHelper;
-import com.pax.us.pay.ui.core.UIMessageManager;
-import com.pax.us.pay.ui.core.api.IMessageListener;
-import com.pax.us.pay.ui.core.helper.TransNumHelper;
+import com.pax.us.pay.ui.core.helper.EnterInvoiceNumHelper;
+import com.pax.us.pay.ui.core.helper.EnterTransNumHelper;
 
-public class EnterTransNumActivity extends AppCompatActivity implements View.OnClickListener, IMessageListener {
+public class EnterTransNumActivity extends AppCompatActivity implements View.OnClickListener, EnterInvoiceNumHelper.IEnterInvoiceNumListener {
 
     TextView promptTv;
     EditText mEditText;
@@ -26,7 +25,7 @@ public class EnterTransNumActivity extends AppCompatActivity implements View.OnC
 
     private int minLen, maxLen;
 
-    private TransNumHelper helper = new TransNumHelper();
+    private EnterTransNumHelper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +37,7 @@ public class EnterTransNumActivity extends AppCompatActivity implements View.OnC
         confirmBtn = (Button) findViewById(R.id.confirm_btn);
         confirmBtn.setOnClickListener(this);
 
-        promptTv.setText(getResources().getText(R.string.pls_input_transaction_number));
+        promptTv.setText("Please Enter Transaction Number");
         minLen = 0;
         maxLen = 300;
         mEditText.setCursorVisible(false);
@@ -51,7 +50,9 @@ public class EnterTransNumActivity extends AppCompatActivity implements View.OnC
             imm.showSoftInput(mEditText, InputMethodManager.SHOW_IMPLICIT);
         }, 200);
 
-        UIMessageManager.getInstance().registerUI(this, this, helper, getIntent(), new RespStatusImpl(this));
+        helper = new EnterTransNumHelper(this, new RespStatusImpl(this));
+        helper.start(this, getIntent());
+        ActivityManager.getInstance().addActivity(this);
     }
 
     @Override
@@ -77,18 +78,14 @@ public class EnterTransNumActivity extends AppCompatActivity implements View.OnC
 
     @Override
     protected void onDestroy() {
-        UIMessageManager.getInstance().unregisterUI(this, helper);
         super.onDestroy();
     }
 
 
+
     @Override
-    public void onShowMessage(String message) {
+    public void onShowMessage(@Nullable String transName, @Nullable String message) {
         if (message != null)
             promptTv.setText(message);
-
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN
-                | WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
-        EnterDataLineHelper.setEditTextNumber(this, mEditText, maxLen, 0);
     }
 }

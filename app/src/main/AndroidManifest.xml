@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.pax.pay.poslink.ui.demo">
 
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
@@ -33,8 +34,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
-
         <activity
             android:name=".EnterTipActivity"
             android:theme="@style/AppTheme.NoActionBar"
@@ -95,7 +94,7 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
-                <action android:name="com.pax.us.pay.action.ENTER_TRANS_NO" />
+                <action android:name="com.pax.us.pay.action.ENTER_TRANS_NUMBER" />
 
                 <category android:name="com.pax.us.pay.ui.category.TEXT" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -139,25 +138,54 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
-                <action android:name="com.pax.us.pay.action.ENTER_REFERENCE_NO" />
+                <action android:name="com.pax.us.pay.action.ENTER_REFERENCE_NUMBER" />
+
+                <category android:name="com.pax.us.pay.ui.category.TEXT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".EnterInvoiceNumActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.ENTER_INVOICE_NUMBER" />
+
+                <category android:name="com.pax.us.pay.ui.category.TEXT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".EnterClerkIdActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.ENTER_CLERK_ID" />
+                <category android:name="com.pax.us.pay.ui.category.TEXT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".EnterCashbackActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.ENTER_CASH_BACK" />
 
                 <category android:name="com.pax.us.pay.ui.category.TEXT" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
-
         <activity
             android:name="com.pax.pay.poslink.ui.demo.SignatureActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="com.pax.us.pay.action.GET_SIGNATURE" />
-
                 <category android:name="com.pax.us.pay.ui.category.SIGNATURE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
 
         <activity
             android:name=".SelectEbtTypeActivity"
@@ -173,8 +201,7 @@
             android:name=".SelectCardPresentActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
-                <action android:name="com.pax.us.pay.action.SELECT_CARD_PRESENT" />
-
+                <action android:name="com.pax.us.pay.action.CHECK_CARD_PRESENT" />
                 <category android:name="com.pax.us.pay.ui.category.OPTION" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -189,6 +216,47 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".SelectSubTransActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.SELECT_SUB_TRANS_TYPE" />
+
+                <category android:name="com.pax.us.pay.ui.category.OPTION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SelectAIDActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.SELECT_AID" />
+
+                <category android:name="com.pax.us.pay.ui.category.OPTION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SelectReversePartialActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.REVERSE_PARTIAL_APPROVAL" />
+
+                <category android:name="com.pax.us.pay.ui.category.OPTION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SelectSupplementPartialActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.SUPPLEMENT_PARTIAL_APPROVAL" />
+
+                <category android:name="com.pax.us.pay.ui.category.OPTION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
 
         <activity
             android:name=".SearchCardActivity"
@@ -220,6 +288,58 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".EnterCardLast4DigitsActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.ENTER_CARD_LAST_4_DIGITS" />
+
+                <category android:name="com.pax.us.pay.ui.category.SECURITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".EnterCardAllDigitsActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.ENTER_CARD_ALL_DIGITS" />
+
+                <category android:name="com.pax.us.pay.ui.category.SECURITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".DisplayFeeActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.DISPLAY_FEES" />
+
+                <category android:name="com.pax.us.pay.ui.category.CONFIRMATION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".DisplayBalanceActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.DISPLAY_BALANCE" />
+
+                <category android:name="com.pax.us.pay.ui.category.CONFIRMATION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".DisplayTransActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.DISPLAY_TRANS_INFORMATION" />
+
+                <category android:name="com.pax.us.pay.ui.category.CONFIRMATION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
 
         <activity
             android:name=".DialogActivity"
@@ -229,13 +349,14 @@
 
         <receiver android:name=".receiver.StatusReceiver">
             <intent-filter>
+                <action android:name="com.pax.us.pay.TRANS_COMPLETED" />
                 <action android:name="com.pax.us.pay.TRANS_ONLINE" />
                 <action android:name="com.pax.us.pay.TRANS_ONLINE_FINISHED" />
-                <action android:name="com.pax.us.pay.EMV_PROCESS_STARTED" />
-                <action android:name="com.pax.us.pay.EMV_PROCESS_FINISHED" />
+                <action android:name="com.pax.us.pay.CARD_PROCESS_STARTED" />
+                <action android:name="com.pax.us.pay.CARD_PROCESS_FINISHED" />
                 <action android:name="com.pax.us.pay.CARD_REMOVED" />
                 <action android:name="com.pax.us.pay.SEE_PHONE" />
-                <action android:name="com.pax.us.pay.CARD_TO_REMOVE" />
+                <action android:name="com.pax.us.pay.CARD_REMOVAL_REQUIRED" />
                 <action android:name="com.pax.us.pay.UPDATE_MSG" />
 
                 <category android:name="com.pax.us.pay.status.category.INFORMATION" />

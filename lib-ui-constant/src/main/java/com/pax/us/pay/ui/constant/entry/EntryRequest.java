@@ -28,11 +28,11 @@ public class EntryRequest {
     public static final String PARAM_AMOUNT = "amount";
     public static final String PARAM_TIP = "tip";
     public static final String PARAM_ZIP_CODE = "zipCode";
-    public static final String PARAM_TRANS_NO = "transNo";
+    public static final String PARAM_TRANS_NUMBER = "transNumber";
     public static final String PARAM_EXPIRY_DATE = "expiryDate";
     public static final String PARAM_ADDRESS = "address";
     public static final String PARAM_SIGNATURE = "signature";
-    public static final String PARAM_VOUCHER_NO = "voucherNo";
+    public static final String PARAM_VOUCHER_NUMBER = "voucherNumber";
     public static final String PARAM_AUTH_CODE = "authCode";
     public static final String PARAM_HEALTH_CARE_AMOUNT = "healthCareAmount";
     public static final String PARAM_CLINIC_AMOUNT = "clinicAmount";
@@ -41,8 +41,8 @@ public class EntryRequest {
     public static final String PARAM_DENTAL_AMOUNT = "dentalAmount";
     public static final String PARAM_TRANSIT_AMOUNT = "transitAmount";
     public static final String PARAM_CASHBACK_AMOUNT = "cashbackAmount";
-    public static final String PARAM_REFERENCE_NUMBER = "referenceNo";
-    public static final String PARAM_INVOICE_NUMBER = "invoiceNo";
+    public static final String PARAM_REFERENCE_NUMBER = "referenceNumber";
+    public static final String PARAM_INVOICE_NUMBER = "invoiceNumber";
     public static final String PARAM_CLERK_ID = "clerkId";
 
     public static final String PARAM_VALUE = "value";

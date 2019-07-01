@@ -5,6 +5,10 @@ public class ConfirmationEntry {
 
     /**
      * The intent action of display fees
+     * input: {@link EntryInput#PARAM_PACKAGE}
+     * input: {@link EntryInput#PARAM_MESSAGE}
+     * input: According the actually receiving message
+     * request: None
      */
     public static final String ACTION_DISPLAY_FEES = "com.pax.us.pay.action.DISPLAY_FEES";
 
@@ -15,13 +19,21 @@ public class ConfirmationEntry {
 
     /**
      * The intent action of display balance
+     * input: {@link EntryInput#PARAM_PACKAGE}
+     * input: {@link EntryInput#PARAM_MESSAGE}
+     * input: According the actually receiving message
+     * request: None
      */
     public static final String ACTION_DISPLAY_BALANCE = "com.pax.us.pay.action.DISPLAY_BALANCE";
 
-
     /**
      * The intent action of display transaction information
+     * input: {@link EntryInput#PARAM_PACKAGE}
+     * input: {@link EntryInput#PARAM_MESSAGE}
+     * input: According the actually receiving message
+     * request: None
      */
     public static final String ACTION_DISPLAY_TRANS_INFORMATION = "com.pax.us.pay.action.DISPLAY_TRANS_INFORMATION";
+
 
 }

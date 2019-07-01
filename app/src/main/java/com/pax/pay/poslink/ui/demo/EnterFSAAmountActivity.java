@@ -2,6 +2,7 @@ package com.pax.pay.poslink.ui.demo;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
@@ -12,18 +13,12 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.pax.pay.poslink.ui.demo.activity.ActivityManager;
 import com.pax.pay.poslink.ui.demo.base.RespStatusImpl;
-import com.pax.pay.poslink.ui.demo.utils.CurrencyCode;
-import com.pax.pay.poslink.ui.demo.utils.CurrencyConverter;
-import com.pax.us.pay.ui.core.UIMessageManager;
-import com.pax.us.pay.ui.core.api.IAmountListener;
-import com.pax.us.pay.ui.core.api.ICurrencyListener;
-import com.pax.us.pay.ui.core.api.IMessageListener;
-import com.pax.us.pay.ui.core.helper.FSAAmountHelper;
+import com.pax.pay.poslink.ui.demo.utils.StringUtils;
+import com.pax.us.pay.ui.core.helper.EnterFSAAmountHelper;
 
-import java.util.Locale;
-
-public class EnterFSAAmountActivity extends AppCompatActivity implements View.OnClickListener, IMessageListener, ICurrencyListener, IAmountListener {
+public class EnterFSAAmountActivity extends AppCompatActivity implements View.OnClickListener, EnterFSAAmountHelper.IEnterFSAAmountListener {
 
     TextView amountTv;
     Button confirmBtn;
@@ -35,11 +30,9 @@ public class EnterFSAAmountActivity extends AppCompatActivity implements View.On
     EditText visionEditText;
     EditText dentalEditText;
     EditText transitEditText;
-    private Locale locale;
     private long totalAmount;
-    private int minLen, maxLen;
 
-    private FSAAmountHelper helper = new FSAAmountHelper();
+    private EnterFSAAmountHelper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,10 +48,7 @@ public class EnterFSAAmountActivity extends AppCompatActivity implements View.On
         visionEditText = (EditText) findViewById(R.id.fsa_vision_edt);
         dentalEditText = (EditText) findViewById(R.id.fsa_dental_edt);
         transitEditText = (EditText) findViewById(R.id.fsa_transit_edt);
-
-        minLen = 0;
-        maxLen = 300;
-
+        confirmBtn.setOnClickListener(this);
 
         healthcareEditText.requestFocus();
         healthcareEditText.postDelayed(() -> {
@@ -66,7 +56,9 @@ public class EnterFSAAmountActivity extends AppCompatActivity implements View.On
             imm.showSoftInput(healthcareEditText, InputMethodManager.SHOW_IMPLICIT);
         }, 200);
 
-        UIMessageManager.getInstance().registerUI(this, this, helper, getIntent(), new RespStatusImpl(this));
+        helper = new EnterFSAAmountHelper(this, new RespStatusImpl(this));
+        helper.start(this, getIntent());
+        ActivityManager.getInstance().addActivity(this);
     }
 
     private void initEditText() {
@@ -179,6 +171,12 @@ public class EnterFSAAmountActivity extends AppCompatActivity implements View.On
         OnDataConfirm();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initEditText();
+    }
+
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -199,31 +197,24 @@ public class EnterFSAAmountActivity extends AppCompatActivity implements View.On
 
     @Override
     protected void onDestroy() {
-        UIMessageManager.getInstance().unregisterUI(this, helper);
         super.onDestroy();
     }
 
     void OnDataConfirm() {
-        long healthAmt = CurrencyConverter.parse(healthcareEditText.getText().toString(), locale);
-        long clinicAmt = CurrencyConverter.parse(clinicEditText.getText().toString(), locale);
-        long prescriptionAmt = CurrencyConverter.parse(prescriptionEditText.getText().toString(), locale);
-        long dentalAmt = CurrencyConverter.parse(dentalEditText.getText().toString(), locale);
-        long visionAmt = CurrencyConverter.parse(visionEditText.getText().toString(), locale);
-        long transitAmt = CurrencyConverter.parse(transitEditText.getText().toString(), locale);
+        long healthAmt = StringUtils.parseLong(healthcareEditText.getText().toString());
+        long clinicAmt = StringUtils.parseLong(clinicEditText.getText().toString());
+        long prescriptionAmt = StringUtils.parseLong(prescriptionEditText.getText().toString());
+        long dentalAmt = StringUtils.parseLong(dentalEditText.getText().toString());
+        long visionAmt = StringUtils.parseLong(visionEditText.getText().toString());
+        long transitAmt = StringUtils.parseLong(transitEditText.getText().toString());
         helper.sendNext(healthAmt, clinicAmt, prescriptionAmt, dentalAmt, visionAmt, transitAmt, totalAmount);
     }
-
-    @Override
-    public void onShowMessage(String message) {
-
-    }
-
 
     @Override
     public void onShowAmount(long amount) {
         totalAmount = amount;
         if (totalAmount != 0) {
-            amountTv.setText(CurrencyConverter.convert(totalAmount, "", locale));
+            amountTv.setText(String.valueOf(amount));
         } else {
             transAmountLayout.setVisibility(View.INVISIBLE);
         }
@@ -231,12 +222,10 @@ public class EnterFSAAmountActivity extends AppCompatActivity implements View.On
 
     @Override
     public void onShowCurrency(String currency) {
-        if ((currency == null) || (currency == "")) {
-            currency = "USD";
-        }
-        String countryName = CurrencyCode.findTypeByCurrencyNmae(currency).getCurrencyName();
-        locale = CurrencyConverter.findLocalByCountryName(countryName);
-        CurrencyConverter.setDefCurrency(countryName);
     }
 
+    @Override
+    public void onShowMessage(@Nullable String transName, @Nullable String message) {
+
+    }
 }

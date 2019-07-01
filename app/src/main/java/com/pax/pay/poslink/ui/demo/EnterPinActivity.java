@@ -1,6 +1,7 @@
 package com.pax.pay.poslink.ui.demo;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
@@ -8,17 +9,17 @@ import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.pax.pay.poslink.ui.demo.activity.ActivityManager;
 import com.pax.pay.poslink.ui.demo.base.RespStatusImpl;
 import com.pax.pay.poslink.ui.demo.event.Event;
 import com.pax.pay.poslink.ui.demo.event.EventBusUtil;
 import com.pax.us.pay.ui.constant.status.PINStatus;
-import com.pax.us.pay.ui.core.api.IMessageListener;
 import com.pax.us.pay.ui.core.helper.SecurityHelper;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-public class EnterPinActivity extends AppCompatActivity implements View.OnClickListener, IMessageListener {
+public class EnterPinActivity extends AppCompatActivity implements View.OnClickListener, SecurityHelper.ISecurityListener {
 
     TextView amountTv;
     TextView promptTitle;
@@ -28,7 +29,7 @@ public class EnterPinActivity extends AppCompatActivity implements View.OnClickL
     private int pinLen;
 
 
-    private SecurityHelper helper = new SecurityHelper();
+    private SecurityHelper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +46,10 @@ public class EnterPinActivity extends AppCompatActivity implements View.OnClickL
         confirmBtn.setOnClickListener(this);
 
         promptTitle.setText("Please Enter PIN");
-        UIMessageManager.getInstance().registerUI(this, this, helper, getIntent(), new RespStatusImpl(this));
+        helper = new SecurityHelper(this, new RespStatusImpl(this));
+        helper.start(this, getIntent());
+        ActivityManager.getInstance().addActivity(this);
+
     }
 
 
@@ -72,7 +76,6 @@ public class EnterPinActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     protected void onDestroy() {
-        UIMessageManager.getInstance().unregisterUI(this, helper);
         super.onDestroy();
     }
 
@@ -118,9 +121,8 @@ public class EnterPinActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
-
     @Override
-    public void onShowMessage(String message) {
+    public void onShowMessage(@Nullable String transName, @Nullable String message) {
         if (message != null && !message.equals("")) {
             promptTitle.setText(message);
         }

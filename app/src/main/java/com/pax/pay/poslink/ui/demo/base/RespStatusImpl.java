@@ -29,7 +29,7 @@ public class RespStatusImpl implements IRespStatus {
         Activity activity = activityWeakReference.get();
         if (activity != null) {
             activity.runOnUiThread(() -> {
-                String buff = "Request Declined\n Error Code:" + code + "\n Error Msg: " + message;
+                String buff = message + "\n Error Code : " + code;
                 Toast.makeText(activity, buff, Toast.LENGTH_LONG).show();
             });
         }

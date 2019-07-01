@@ -2,51 +2,61 @@ package com.pax.pay.poslink.ui.demo;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.WindowManager;
+import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.pax.pay.poslink.ui.demo.activity.ActivityManager;
+import com.pax.pay.poslink.ui.demo.base.BaseViewHolder;
 import com.pax.pay.poslink.ui.demo.base.RespStatusImpl;
-import com.pax.pay.poslink.ui.demo.utils.CurrencyCode;
-import com.pax.pay.poslink.ui.demo.utils.CurrencyConverter;
-import com.pax.pay.poslink.ui.demo.utils.EnterDataLineHelper;
-import com.pax.us.pay.ui.core.UIMessageManager;
-import com.pax.us.pay.ui.core.api.ICurrencyListener;
-import com.pax.us.pay.ui.core.api.IMessageListener;
-import com.pax.us.pay.ui.core.api.ITipOptionListener;
-import com.pax.us.pay.ui.core.helper.TipHelper;
+import com.pax.pay.poslink.ui.demo.utils.StringUtils;
+import com.pax.us.pay.ui.core.helper.EnterTipHelper;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Locale;
 
-public class EnterTipActivity extends AppCompatActivity implements View.OnClickListener, IMessageListener, ICurrencyListener, ITipOptionListener {
+public class EnterTipActivity extends AppCompatActivity implements View.OnClickListener, EnterTipHelper.IEnterTipListener {
 
     TextView promptTv;
     EditText mEditText;
     Button confirmBtn;
+    RecyclerView mRecyclerView;
 
     private int minLen, maxLen;
-    private Locale locale;
 
-    private TipHelper helper = new TipHelper();
+    private RecyclerView.Adapter<BaseViewHolder<String>> mAdapter;
+    private int selected = -1;
+    private List<String> selectOption = new ArrayList<>();
+    private int viewType = 0;
+    private static final int SELECT_AMOUNT = 1;
+    private static final int INPUT_AMOUNT = 0;
+
+    private EnterTipHelper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_enter_info);
+        setContentView(R.layout.activity_enter_option);
 
         promptTv = (TextView) findViewById(R.id.prompt_tv);
         mEditText = (EditText) findViewById(R.id.data_edt);
         confirmBtn = (Button) findViewById(R.id.confirm_btn);
         confirmBtn.setOnClickListener(this);
+        mRecyclerView = (RecyclerView) findViewById(R.id.option_select);
 
-        promptTv.setText(getResources().getText(R.string.prompt_input_tip));
+        promptTv.setText("Please Input Tip");
         minLen = 0;
         maxLen = 300;
         mEditText.setCursorVisible(false);
@@ -58,13 +68,21 @@ public class EnterTipActivity extends AppCompatActivity implements View.OnClickL
             imm.showSoftInput(mEditText, InputMethodManager.SHOW_IMPLICIT);
         }, 200);
 
-        UIMessageManager.getInstance().registerUI(this, this, helper, getIntent(), new RespStatusImpl(this));
+        helper = new EnterTipHelper(this, new RespStatusImpl(this));
+        helper.start(this, getIntent());
+        ActivityManager.getInstance().addActivity(this);
     }
 
 
     @Override
     public void onClick(View view) {
-        Long amount = CurrencyConverter.parse(mEditText.getText().toString(), locale);
+        long amount;
+        if (viewType == INPUT_AMOUNT)
+            amount = StringUtils.parseLong(mEditText.getText().toString(), -1);
+        else {
+            amount = StringUtils.parseLong((String) selectOption.get(selected));
+        }
+
         helper.sendNext(amount);
     }
 
@@ -74,8 +92,7 @@ public class EnterTipActivity extends AppCompatActivity implements View.OnClickL
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             helper.sendAbort();
         } else if (keyCode == KeyEvent.KEYCODE_ENTER) {
-            Long amount = CurrencyConverter.parse(mEditText.getText().toString(), locale);
-            helper.sendNext(amount);
+            confirmBtn.performClick();
         }
         return false;
     }
@@ -88,31 +105,88 @@ public class EnterTipActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     protected void onDestroy() {
-        UIMessageManager.getInstance().unregisterUI(this, helper);
         super.onDestroy();
     }
 
-
     @Override
     public void onShowCurrency(String currency) {
-        if (currency != null) {
-            String countryName = CurrencyCode.findTypeByCurrencyNmae(currency).getCurrencyName();
-            locale = CurrencyConverter.findLocalByCountryName(countryName);
-            CurrencyConverter.setDefCurrency(countryName);
-        }
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN
-                | WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
-        EnterDataLineHelper.setEditTextAmount(this, mEditText, maxLen, 0);
     }
 
     @Override
-    public void onShowMessage(String message) {
-        if (message != null)
+    public void onShowMessage(@Nullable String transName, @Nullable String message) {
+        if (message != null && !message.equals(""))
             promptTv.setText(message);
     }
 
     @Override
-    public void onShowAmountOptions(List<String> options) {
-
+    public void onShowTipOptions(String[] options) {
+        if (options != null && options.length > 0) {
+            mEditText.setVisibility(View.GONE);
+            promptTv.setVisibility(View.GONE);
+            mRecyclerView.setVisibility(View.VISIBLE);
+            confirmBtn.setEnabled(false);
+            setmAmountOption(options);
+            viewType = SELECT_AMOUNT;
+        } else {
+            mEditText.setVisibility(View.VISIBLE);
+            promptTv.setVisibility(View.VISIBLE);
+            mRecyclerView.setVisibility(View.GONE);
+            viewType = INPUT_AMOUNT;
+        }
     }
+
+    void setmAmountOption(String[] options) {
+        selectOption = Arrays.asList(options);
+        GridLayoutManager layoutManager = new GridLayoutManager(this, 2, RecyclerView.VERTICAL, false);
+        mRecyclerView.setLayoutManager(layoutManager);
+        mAdapter = new RecyclerView.Adapter<BaseViewHolder<String>>() {
+            @NonNull
+            @Override
+            public BaseViewHolder<String> onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                return new EnterTipActivity.OptionModelViewHolder(LayoutInflater.from(EnterTipActivity.this).inflate(R.layout.item_mode_grid, parent, false));
+            }
+
+            @Override
+            public void onBindViewHolder(@NonNull BaseViewHolder<String> holder, int position) {
+
+                String viewData = selectOption.get(position);
+
+                if (viewData == null)
+                    return;
+                holder.bindBaseView(viewData, position);
+            }
+
+            @Override
+            public int getItemCount() {
+                return selectOption.size();
+            }
+        };
+        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setAdapter(mAdapter);
+    }
+
+    class OptionModelViewHolder extends BaseViewHolder<String> {
+        TextView textView;
+
+        OptionModelViewHolder(View itemView) {
+            super(itemView);
+        }
+
+        @Override
+        protected void initView() {
+            textView = (TextView) itemView.findViewById(R.id.mode_grid_tv);
+        }
+
+        @Override
+        protected void bindView(View view, final String dataBean, final int pos) {
+            textView.setText(dataBean);
+            textView.setSelected(selected == pos);
+            textView.setOnClickListener(v -> {
+                selected = pos;
+                confirmBtn.setEnabled(true);
+                mAdapter.notifyDataSetChanged();
+            });
+        }
+    }
+
 }

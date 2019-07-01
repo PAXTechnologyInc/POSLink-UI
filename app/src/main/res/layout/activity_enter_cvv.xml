@@ -30,8 +30,10 @@
         <TextView
             android:id="@+id/pin_input_text"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/default_gap"
             android:focusableInTouchMode="true"
+            android:textSize="@dimen/font_edit_text"
             android:gravity="center" />
 
     </LinearLayout>

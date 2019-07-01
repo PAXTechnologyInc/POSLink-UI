@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.pax.pay.poslink.ui.demo.activity.ActivityManager;
 import com.pax.pay.poslink.ui.demo.base.RespStatusImpl;
 import com.pax.pay.poslink.ui.demo.utils.StringUtils;
 import com.pax.us.pay.ui.core.helper.EnterAmountHelper;
@@ -37,7 +38,6 @@ public class EnterAmountActivity extends AppCompatActivity implements View.OnCli
         promptTv = findViewById(R.id.prompt_tv);
         mEditText = (EditText) findViewById(R.id.data_edt);
         confirmBtn = (Button) findViewById(R.id.confirm_btn);
-        //transAmountLayout = (LinearLayout) findViewById(R.id.trans_amount_layout);
         confirmBtn.setOnClickListener(this);
 
 
@@ -50,6 +50,7 @@ public class EnterAmountActivity extends AppCompatActivity implements View.OnCli
 
         helper = new EnterAmountHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
+        ActivityManager.getInstance().addActivity(this);
     }
 
 
@@ -88,5 +89,6 @@ public class EnterAmountActivity extends AppCompatActivity implements View.OnCli
     public void onShowMessage(@Nullable String transName, @Nullable String message) {
         if (message != null && !message.equals(""))
             promptTv.setText(message);
+
     }
 }

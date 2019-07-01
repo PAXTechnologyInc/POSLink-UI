@@ -8,18 +8,9 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import com.pax.us.pay.ui.constant.entry.EntryInput;
-import com.pax.us.pay.ui.core.api.IAmountListener;
-import com.pax.us.pay.ui.core.api.ICardListener;
-import com.pax.us.pay.ui.core.api.IInformationListener;
 import com.pax.us.pay.ui.core.api.IMessageListener;
-import com.pax.us.pay.ui.core.api.IOptionListener;
 import com.pax.us.pay.ui.core.api.IRespStatus;
-import com.pax.us.pay.ui.core.api.ITipOptionListener;
 import com.pax.us.pay.ui.core.api.IUIListener;
-
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Set;
 
 public abstract class BaseActionHelper {
 
@@ -79,52 +70,8 @@ public abstract class BaseActionHelper {
     }
 
     protected void showUI(@Nullable IUIListener uiListener, @NonNull Bundle bundle) {
-
         if (uiListener instanceof IMessageListener) {
             ((IMessageListener) uiListener).onShowMessage(bundle.getString(EntryInput.PARAM_TRANS_TYPE), bundle.getString(EntryInput.PARAM_MESSAGE));
-        }
-
-        //////
-        //TODO Kim.L move to xxxHelper
-
-        if (uiListener instanceof IAmountListener && bundle.containsKey(EntryInput.PARAM_DISP_AMOUNT)) {
-            ((IAmountListener) uiListener).onShowAmount(bundle.getLong(EntryInput.PARAM_DISP_AMOUNT));
-        }
-
-        if (uiListener instanceof IOptionListener && bundle.containsKey(EntryInput.PARAM_OPTIONS)) {
-            ((IOptionListener) uiListener).onShowOptions(bundle.getStringArray(EntryInput.PARAM_OPTIONS));
-        }
-
-        if (uiListener instanceof ICardListener) {
-            ((ICardListener) uiListener).onShowCard(
-                    bundle.getBoolean(EntryInput.PARAM_ENABLE_MANUAL, false),
-                    bundle.getBoolean(EntryInput.PARAM_ENABLE_SWIPE, false),
-                    bundle.getBoolean(EntryInput.PARAM_ENABLE_INSERT, false),
-                    bundle.getBoolean(EntryInput.PARAM_ENABLE_TAP, false)
-            );
-        }
-
-        if (uiListener instanceof ITipOptionListener && bundle.containsKey(EntryInput.PARAM_TIP_OPTIONS)) {
-            ((ITipOptionListener) uiListener).onShowTipOptions(bundle.getStringArray(EntryInput.PARAM_TIP_OPTIONS));
-        }
-
-        /*if (uiListener instanceof ITipOptionListener && bundle.containsKey(EntryInput.PARAM_CASHBACK_OPTIONS)) {
-            ((ITipOptionListener) uiListener).onShowTipOptions(bundle.getStringArray(EntryInput.PARAM_CASHBACK_OPTIONS));
-        }*/
-
-        if (uiListener instanceof IInformationListener) {
-            Set<String> keySet = bundle.keySet();
-            Map<String, String> map = new LinkedHashMap<>();
-            for (String key : keySet) {
-                if (key.equals(EntryInput.PARAM_TRANS_TYPE) || key.equals(EntryInput.PARAM_PACKAGE) || key.equals(EntryInput.PARAM_OPTIONS)) {
-                    continue;
-                } else {
-                    map.put(key, bundle.getString(key));
-                }
-            }
-            if (map.size() > 0) {
-                ((IInformationListener) uiListener).onShowInformation(map);
-            }
         }
     }
 
@@ -133,7 +80,8 @@ public abstract class BaseActionHelper {
             actionHandler = new UIMessageHandler(context, intent.getStringExtra(EntryInput.PARAM_PACKAGE), respStatus);
         }
 
-        this.intent = intent.cloneFilter();
+        //this.intent = intent.cloneFilter(); //cloneFilter don't clone Extras data to new intent
+        this.intent = (Intent) intent.clone();
         if (this.intent.getExtras() != null) {
             handler.post(new Runnable() {
                 @Override

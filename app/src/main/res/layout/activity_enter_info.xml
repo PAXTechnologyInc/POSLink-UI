@@ -52,7 +52,7 @@
             android:id="@+id/data_edt"
             android:layout_height="@dimen/edit_height"
             android:layout_width="match_parent"
-            android:layout_marginTop="@dimen/default_gap"
+            android:layout_marginTop="@dimen/space_horizontal"
             android:hint="" />
     </LinearLayout>
 

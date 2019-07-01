@@ -27,14 +27,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.pax.pay.poslink.ui.demo.Dialog.MessageDialog;
+import com.pax.pay.poslink.ui.demo.activity.ActivityManager;
 import com.pax.pay.poslink.ui.demo.event.EndEvent;
 import com.pax.pay.poslink.ui.demo.event.EventBusUtil;
 import com.pax.us.pay.ui.constant.status.BatchStatus;
 import com.pax.us.pay.ui.constant.status.CardStatus;
 import com.pax.us.pay.ui.constant.status.InformationStatus;
+import com.pax.us.pay.ui.constant.status.StatusData;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
+
+import java.lang.ref.WeakReference;
 
 
 public class DialogActivity extends AppCompatActivity {
@@ -42,13 +47,17 @@ public class DialogActivity extends AppCompatActivity {
     private static ConditionVariable mCv;
     private Handler handler;
     private Runnable run;
+    private static MessageDialog messageDialog;
+    private static WeakReference<Context> currContext;
 
     public static void start(Context context, Intent intent) {
         //mCv = new ConditionVariable();
+        currContext = new WeakReference<>(context);
         Intent starter = new Intent(context, DialogActivity.class);
         starter.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_NO_ANIMATION);
         starter.setAction(intent.getAction());
-        starter.putExtra("value", intent.getStringExtra("value"));
+        if (intent.getExtras() != null)
+            starter.putExtras(intent.getExtras());
         context.startActivity(starter);
         // mCv.block();
     }
@@ -90,10 +99,6 @@ public class DialogActivity extends AppCompatActivity {
         }
         Log.i("StatusReceiver", "action :" + action);
 
-        if (processDialogListener == null) {
-            processDialogListener = new ProcessDialogListenerImpl(this);
-        }
-        //hideDialog();
         switch (action) {
             case InformationStatus.TRANS_ONLINE_STARTED:
                 showProcessDialog("Trans Online...");
@@ -127,26 +132,80 @@ public class DialogActivity extends AppCompatActivity {
 //                String message = intent.getStringExtra("value");
 //                updateMessage(message);
 //                break;
+            case InformationStatus.TRANS_COMPLETED:
+                Bundle bundle = intent.getExtras();
+                int resultCode = bundle.getInt(StatusData.PARAM_CODE);
+                String resultMessage = bundle.getString(StatusData.PARAM_MSG);
+                String displayMessage;
+                int timeOut;
+                if (resultCode == 0) {
+                    if ((resultMessage != null) && (!resultMessage.equals("")))
+                        displayMessage = resultMessage;
+                    else
+                        displayMessage = "Transaction Successes!";
+                    timeOut = 2;
+                } else {
+                    if ((resultMessage != null) && (!resultMessage.equals("")))
+                        displayMessage = resultMessage + "\nError Code : " + String.valueOf(resultCode);
+                    else
+                        displayMessage = "Transaction Failed!";
+                    timeOut = 5;
+                }
+                showMessage(displayMessage);
+                new Handler().postDelayed(new Runnable() {
+                    public void run() {
+                        hideDialog();
+                        finish();
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                ActivityManager.getInstance().finishAllActivity();
+                                //moveTaskToBack(true);
+                            }
+                        }, 200);
+                    }
+                }, timeOut * 1000);
+
+                break;
         }
     }
 
     private void showProcessDialog(String message) {
-        processDialogListener.onShowProgress(message);
+        showMessage(message);
     }
 
     private void showWarnDialog(String message) {
-        processDialogListener.onShowWarn(message);
+        showMessage("WARNING : " + message);
     }
 
     private void updateMessage(String message) {
-        processDialogListener.onUpdateMessage(message);
+        if (messageDialog != null)
+            messageDialog.setContent(message);
+        ;
     }
 
     private void hideDialog() {
-        if (processDialogListener != null) {
-            processDialogListener.onHideProgress();
-            processDialogListener = null;
+        if (messageDialog != null) {
+            messageDialog.dismiss();
+            messageDialog = null;
         }
+    }
+
+    private void showMessage(String msg) {
+        Handler handler = new Handler();
+        run = new Runnable() {
+            @Override
+            public void run() {
+                if (messageDialog != null) {
+                    messageDialog.setContent(msg);
+                } else {
+                    messageDialog = new MessageDialog(DialogActivity.this);
+                    messageDialog.setContent(msg);
+                    messageDialog.show();
+                }
+            }
+        };
+        handler.post(run);
     }
 
     @Override
@@ -154,4 +213,5 @@ public class DialogActivity extends AppCompatActivity {
         EventBusUtil.unregister(this);
         super.onDestroy();
     }
+
 }

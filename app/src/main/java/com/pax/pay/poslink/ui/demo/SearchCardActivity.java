@@ -1,7 +1,7 @@
 package com.pax.pay.poslink.ui.demo;
 
-import android.TextUtils;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -12,27 +12,19 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.pax.pay.poslink.ui.demo.activity.ActivityManager;
 import com.pax.pay.poslink.ui.demo.base.RespStatusImpl;
 import com.pax.pay.poslink.ui.demo.event.ClssLightEvent;
 import com.pax.pay.poslink.ui.demo.event.EventBusUtil;
-import com.pax.pay.poslink.ui.demo.utils.CurrencyCode;
-import com.pax.pay.poslink.ui.demo.utils.CurrencyConverter;
 import com.pax.pay.poslink.ui.demo.view.ClssLight;
 import com.pax.pay.poslink.ui.demo.view.ClssLightsView;
 import com.pax.us.pay.ui.constant.status.ClssLightStatus;
-import com.pax.us.pay.ui.core.UIMessageManager;
-import com.pax.us.pay.ui.core.api.IAmountListener;
-import com.pax.us.pay.ui.core.api.ICardListener;
-import com.pax.us.pay.ui.core.api.ICurrencyListener;
-import com.pax.us.pay.ui.core.api.IMessageListener;
-import com.pax.us.pay.ui.core.helper.SecurityHelper;
+import com.pax.us.pay.ui.core.helper.SearCardHelper;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-import java.util.Locale;
-
-public class SearchCardActivity extends AppCompatActivity implements View.OnClickListener, IMessageListener, ICurrencyListener, IAmountListener, ICardListener {
+public class SearchCardActivity extends AppCompatActivity implements View.OnClickListener, SearCardHelper.ISearchCardListener {
 
     TextView promptTv;
     EditText cardNumEdt;
@@ -46,11 +38,8 @@ public class SearchCardActivity extends AppCompatActivity implements View.OnClic
     TextView tvTap;
 
     private long displayAmount;
-    private String currencyName = null;
-    private int minLen, maxLen;
-    private Locale locale;
 
-    private SecurityHelper helper = new SecurityHelper();
+    private SearCardHelper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,9 +60,10 @@ public class SearchCardActivity extends AppCompatActivity implements View.OnClic
         confirmBtn.setOnClickListener(this);
 
         tvClssLight.setVisibility(View.INVISIBLE);
-
-        promptTv.setText(getResources().getText(R.string.hint_enter_account));
-        UIMessageManager.getInstance().registerUI(this, this, helper, getIntent(), new RespStatusImpl(this));
+        promptTv.setText("Please Input Pan");
+        helper = new SearCardHelper(this, new RespStatusImpl(this));
+        helper.start(this, getIntent());
+        ActivityManager.getInstance().addActivity(this);
     }
 
 
@@ -100,7 +90,6 @@ public class SearchCardActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     protected void onDestroy() {
-        UIMessageManager.getInstance().unregisterUI(this, helper);
         super.onDestroy();
     }
 
@@ -154,7 +143,8 @@ public class SearchCardActivity extends AppCompatActivity implements View.OnClic
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onEventAsync(ClssLightEvent event) {
-        if (event != null && TextUtils.isEmpty((String) event.getStatus()))
+        String action = event.getStatus();
+        if (event != null && (action == null || action.equals("")))
             return;
         Log.i("StatusReceiver", "EVENTBUS action :" + action);
         switch (action) {
@@ -223,7 +213,7 @@ public class SearchCardActivity extends AppCompatActivity implements View.OnClic
     public void onShowAmount(long amount) {
         displayAmount = amount;
         if (displayAmount != 0) {
-            amountTv.setText(CurrencyConverter.convert(amount, "", locale));
+            amountTv.setText(String.valueOf(amount));
         } else {
             amountLayout.setVisibility(View.INVISIBLE);
         }
@@ -231,19 +221,11 @@ public class SearchCardActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onShowCurrency(String currency) {
-        if (currency != null && !currency.equals("")) {
-            currencyName = currency;
-        }
-        if (currencyName != null) {
-            String countryName = CurrencyCode.findTypeByCurrencyNmae(currency).getCurrencyName();
-            locale = CurrencyConverter.findLocalByCountryName(countryName);
-            CurrencyConverter.setDefCurrency(countryName);
-        }
 
     }
 
     @Override
-    public void onShowMessage(String message) {
+    public void onShowMessage(@Nullable String transName, @Nullable String message) {
         if (message != null && !message.equals("")) {
             promptTv.setText(message);
         }

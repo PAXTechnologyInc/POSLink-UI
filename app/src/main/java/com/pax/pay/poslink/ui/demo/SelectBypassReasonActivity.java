@@ -3,6 +3,7 @@ package com.pax.pay.poslink.ui.demo;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,31 +14,29 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.pax.pay.poslink.ui.demo.activity.ActivityManager;
 import com.pax.pay.poslink.ui.demo.base.BaseViewHolder;
 import com.pax.pay.poslink.ui.demo.base.RespStatusImpl;
-import com.pax.us.pay.ui.core.UIMessageManager;
-import com.pax.us.pay.ui.core.api.IMessageListener;
-import com.pax.us.pay.ui.core.api.IOptionListener;
-import com.pax.us.pay.ui.core.helper.OptionsHelper;
+import com.pax.us.pay.ui.core.helper.SelectOptionsHelper;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
  * Created by Charles.S on 2017/5/5.
  */
 
-public class SelectBypassReasonActivity extends AppCompatActivity implements View.OnClickListener, IMessageListener, IOptionListener {
+public class SelectBypassReasonActivity extends AppCompatActivity implements View.OnClickListener, SelectOptionsHelper.ISelectOptionListener {
 
     RecyclerView mRecyclerView;
     Button confirmBtn;
     private TextView tvPrompt;
-    private String prompt1;
     private RecyclerView.Adapter<BaseViewHolder<String>> mAdapter;
     private int selected = -1;
     private List<String> selectOption = new ArrayList<>();
 
-    private OptionsHelper helper = new OptionsHelper();
+    private SelectOptionsHelper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,9 +47,12 @@ public class SelectBypassReasonActivity extends AppCompatActivity implements Vie
         mRecyclerView = (RecyclerView) findViewById(R.id.option_select);
         confirmBtn = (Button) findViewById(R.id.confirm_btn);
         confirmBtn.setOnClickListener(this);
+        confirmBtn.setEnabled(false);
 
-        tvPrompt.setText(getResources().getText(R.string.select_bypass_reason));
-        UIMessageManager.getInstance().registerUI(this, this, helper, getIntent(), new RespStatusImpl(this));
+        tvPrompt.setText("Please Select Bypass Reason");
+        helper = new SelectOptionsHelper(this, new RespStatusImpl(this));
+        helper.start(this, getIntent());
+        ActivityManager.getInstance().addActivity(this);
     }
 
     @Override
@@ -75,14 +77,19 @@ public class SelectBypassReasonActivity extends AppCompatActivity implements Vie
 
     @Override
     protected void onDestroy() {
-        UIMessageManager.getInstance().unregisterUI(this, helper);
         super.onDestroy();
     }
 
+
     @Override
-    public void onShowOptions(List<String> options) {
+    public void onShowMessage(@Nullable String transName, @Nullable String message) {
+
+    }
+
+    @Override
+    public void onShowOptions(String[] options) {
         if (options != null) {
-            selectOption = options;
+            selectOption = Arrays.asList(options);
             GridLayoutManager layoutManager = new GridLayoutManager(this, 2, RecyclerView.VERTICAL, false);
             mRecyclerView.setLayoutManager(layoutManager);
             mAdapter = new RecyclerView.Adapter<BaseViewHolder<String>>() {
@@ -110,10 +117,6 @@ public class SelectBypassReasonActivity extends AppCompatActivity implements Vie
             mRecyclerView.setHasFixedSize(true);
             mRecyclerView.setAdapter(mAdapter);
         }
-    }
-
-    @Override
-    public void onShowMessage(String message) {
 
     }
 

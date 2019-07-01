@@ -3,6 +3,7 @@ package com.pax.pay.poslink.ui.demo;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -12,20 +13,15 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.pax.pay.poslink.ui.demo.activity.ActivityManager;
 import com.pax.pay.poslink.ui.demo.base.ElectronicSignatureView;
 import com.pax.pay.poslink.ui.demo.base.RespStatusImpl;
-import com.pax.pay.poslink.ui.demo.utils.CurrencyCode;
-import com.pax.pay.poslink.ui.demo.utils.CurrencyConverter;
-import com.pax.us.pay.ui.core.UIMessageManager;
-import com.pax.us.pay.ui.core.api.IAmountListener;
-import com.pax.us.pay.ui.core.api.ICurrencyListener;
-import com.pax.us.pay.ui.core.api.IMessageListener;
 import com.pax.us.pay.ui.core.helper.SignatureHelper;
 
 import java.util.List;
 import java.util.Locale;
 
-public class SignatureActivity extends AppCompatActivity implements View.OnClickListener, IMessageListener, ICurrencyListener, IAmountListener {
+public class SignatureActivity extends AppCompatActivity implements View.OnClickListener, SignatureHelper.ISignatureListener {
 
     TextView amountTv;
     LinearLayout amountLayout;
@@ -42,7 +38,7 @@ public class SignatureActivity extends AppCompatActivity implements View.OnClick
     private Locale locale;
     private boolean processing = false;
 
-    private SignatureHelper helper = new SignatureHelper();
+    private SignatureHelper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,8 +60,9 @@ public class SignatureActivity extends AppCompatActivity implements View.OnClick
         mSignatureView = new ElectronicSignatureView(SignatureActivity.this);
         mSignatureView.setBitmap(new Rect(0, 0, 384, 128), 0, Color.WHITE);
         writeUserName.addView(mSignatureView);
-
-        UIMessageManager.getInstance().registerUI(this, this, helper, getIntent(), new RespStatusImpl(this));
+        helper = new SignatureHelper(this, new RespStatusImpl(this));
+        helper.start(this, getIntent());
+        ActivityManager.getInstance().addActivity(this);
     }
 
 
@@ -139,7 +136,6 @@ public class SignatureActivity extends AppCompatActivity implements View.OnClick
 
     @Override
     protected void onDestroy() {
-        UIMessageManager.getInstance().unregisterUI(this, helper);
         super.onDestroy();
     }
 
@@ -159,7 +155,7 @@ public class SignatureActivity extends AppCompatActivity implements View.OnClick
     public void onShowAmount(long amount) {
         displayAmount = amount;
         if (displayAmount != 0) {
-            amountTv.setText(CurrencyConverter.convert(amount, "", locale));
+            amountTv.setText(String.valueOf(amount));
         } else {
             amountLayout.setVisibility(View.INVISIBLE);
         }
@@ -167,18 +163,11 @@ public class SignatureActivity extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onShowCurrency(String currency) {
-        if (currency != null && !currency.equals("")) {
-            currencyName = currency;
-        }
-        if (currencyName != null) {
-            String countryName = CurrencyCode.findTypeByCurrencyNmae(currency).getCurrencyName();
-            locale = CurrencyConverter.findLocalByCountryName(countryName);
-            CurrencyConverter.setDefCurrency(countryName);
-        }
     }
 
+
     @Override
-    public void onShowMessage(String message) {
+    public void onShowMessage(@Nullable String transName, @Nullable String message) {
 
     }
 }

@@ -2,6 +2,7 @@ package com.pax.pay.poslink.ui.demo;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
@@ -12,11 +13,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.pax.pay.poslink.ui.demo.activity.ActivityManager;
 import com.pax.pay.poslink.ui.demo.base.RespStatusImpl;
-import com.pax.us.pay.ui.core.api.IMessageListener;
-import com.pax.us.pay.ui.core.helper.AVSHelper;
+import com.pax.us.pay.ui.core.helper.EnterAVSHelper;
 
-public class EnterAVSActivity extends AppCompatActivity implements View.OnClickListener, IMessageListener {
+public class EnterAVSActivity extends AppCompatActivity implements View.OnClickListener, EnterAVSHelper.IEnterAvsListener {
 
     TextView promptTv1;
     EditText mEditText1;
@@ -26,7 +27,7 @@ public class EnterAVSActivity extends AppCompatActivity implements View.OnClickL
 
     private int minLen, maxLen;
 
-    private AVSHelper helper = new AVSHelper();
+    private EnterAVSHelper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +62,9 @@ public class EnterAVSActivity extends AppCompatActivity implements View.OnClickL
             imm.showSoftInput(mEditText1, InputMethodManager.SHOW_IMPLICIT);
         }, 200);
 
-        UIMessageManager.getInstance().registerUI(this, this, helper, getIntent(), new RespStatusImpl(this));
+        helper = new EnterAVSHelper(this, new RespStatusImpl(this));
+        helper.start(this, getIntent());
+        ActivityManager.getInstance().addActivity(this);
     }
 
 
@@ -90,7 +93,6 @@ public class EnterAVSActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     protected void onDestroy() {
-        UIMessageManager.getInstance().unregisterUI(this, helper);
         super.onDestroy();
     }
 
@@ -100,8 +102,8 @@ public class EnterAVSActivity extends AppCompatActivity implements View.OnClickL
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN | WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
     }
 
-
     @Override
-    public void onShowMessage(String message) {
+    public void onShowMessage(@Nullable String transName, @Nullable String message) {
+
     }
 }

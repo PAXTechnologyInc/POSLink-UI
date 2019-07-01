@@ -1,6 +1,7 @@
 package com.pax.pay.poslink.ui.demo;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
@@ -9,11 +10,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.pax.pay.poslink.ui.demo.activity.ActivityManager;
 import com.pax.pay.poslink.ui.demo.base.RespStatusImpl;
-import com.pax.us.pay.ui.core.api.IMessageListener;
-import com.pax.us.pay.ui.core.helper.AuthCodeHelper;
+import com.pax.us.pay.ui.core.helper.EnterAuthCodeHelper;
 
-public class EnterAuthCodeActivity extends AppCompatActivity implements View.OnClickListener, IMessageListener {
+public class EnterAuthCodeActivity extends AppCompatActivity implements View.OnClickListener, EnterAuthCodeHelper.IEnterAuthCodeListener {
 
     TextView promptTv;
     EditText mEditText;
@@ -21,7 +22,7 @@ public class EnterAuthCodeActivity extends AppCompatActivity implements View.OnC
 
     private int minLen, maxLen;
 
-    private AuthCodeHelper helper = new AuthCodeHelper();
+    private EnterAuthCodeHelper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +40,9 @@ public class EnterAuthCodeActivity extends AppCompatActivity implements View.OnC
         mEditText.setCursorVisible(false);
         mEditText.requestFocus();
         mEditText.setImeOptions(EditorInfo.IME_ACTION_DONE);
-
-        UIMessageManager.getInstance().registerUI(this, this, helper, getIntent(), new RespStatusImpl(this));
+        helper = new EnterAuthCodeHelper(this, new RespStatusImpl(this));
+        helper.start(this, getIntent());
+        ActivityManager.getInstance().addActivity(this);
     }
 
 
@@ -68,15 +70,12 @@ public class EnterAuthCodeActivity extends AppCompatActivity implements View.OnC
 
     @Override
     protected void onDestroy() {
-        UIMessageManager.getInstance().unregisterUI(this, helper);
         super.onDestroy();
     }
 
-
     @Override
-    public void onShowMessage(String message) {
+    public void onShowMessage(@Nullable String transName, @Nullable String message) {
         if (message != null)
             promptTv.setText(message);
-
     }
 }

@@ -12,6 +12,7 @@ import android.util.Log;
 
 import com.pax.us.pay.ui.constant.entry.EntryRequest;
 import com.pax.us.pay.ui.constant.entry.EntryResponse;
+import com.pax.us.pay.ui.constant.status.InformationStatus;
 import com.pax.us.pay.ui.core.api.IRespStatus;
 
 class UIMessageHandler implements IActionHandler {
@@ -29,7 +30,13 @@ class UIMessageHandler implements IActionHandler {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(EntryResponse.ACTION_ACCEPTED);
         intentFilter.addAction(EntryResponse.ACTION_DECLINED);
-        context.registerReceiver(new RespReceiver(), intentFilter);
+
+        RespReceiver receiver = new RespReceiver();
+        context.registerReceiver(receiver, intentFilter);
+        IntentFilter transactionFilter = new IntentFilter();
+        transactionFilter.addAction(InformationStatus.TRANS_COMPLETED);
+        transactionFilter.addCategory(InformationStatus.CATEGORY);
+        context.registerReceiver(receiver, transactionFilter);
     }
 
     @Override
@@ -89,6 +96,9 @@ class UIMessageHandler implements IActionHandler {
                         resp.onDeclined(intent.getIntExtra(EntryResponse.PARAM_CODE, -1),
                                 intent.getStringExtra(EntryResponse.PARAM_MSG));
                     }
+                    break;
+                case InformationStatus.TRANS_COMPLETED:
+                    context.unregisterReceiver(this);
                     break;
                 default:
                     break;
