@@ -10,7 +10,7 @@
         android:id="@+id/data_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_vertical_small"
+        android:layout_marginTop="@dimen/default_gap"
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
@@ -23,10 +23,10 @@
 
         <!--keep this as EditText, cuz key enter works as same as go next-->
         <EditText
-            style="@style/DefEditText"
+            android:layout_height="@dimen/edit_height"
             android:id="@+id/edit_tv_1"
             android:layout_width="match_parent"
-            android:layout_marginTop="@dimen/space_vertical_small"
+            android:layout_marginTop="@dimen/default_gap"
             android:hint="" />
     </LinearLayout>
 
@@ -34,7 +34,7 @@
         android:id="@+id/data_2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_vertical_small"
+        android:layout_marginTop="@dimen/default_gap"
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
@@ -46,10 +46,10 @@
             android:textSize="@dimen/font_size_prompt" />
 
         <EditText
-            style="@style/DefEditText"
+            android:layout_height="@dimen/edit_height"
             android:id="@+id/edit_tv_2"
             android:layout_width="match_parent"
-            android:layout_marginTop="@dimen/space_vertical_small"
+            android:layout_marginTop="@dimen/default_gap"
             android:imeOptions="actionDone"
             android:focusable="true"
             android:focusableInTouchMode="true"
@@ -61,8 +61,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/button_height"
         android:layout_marginTop="@dimen/space_vertical"
-        android:background="@drawable/btn_bg_light"
-        android:text="@string/trans_confirm_btn"
+        android:text="OK"
         android:textColor="@color/primary_text_dark"
         android:textSize="@dimen/font_button" />
 </LinearLayout>

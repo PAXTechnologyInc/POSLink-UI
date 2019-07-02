@@ -1,2 +1,7 @@
-include ':app',  ':lib_ui_base', ':lib_ui_constant'
-//include ':app', ':poslink_ui_test', ':hoverlibrary', ':lib_poslink_ui', ':lib_ui_base'
+include ':app'
+
+include ':ui.constant'
+project (':ui.constant').projectDir = file('./lib-ui-constant')
+
+include ':ui.core'
+project (':ui.core').projectDir = file('./lib-ui-core')

@@ -22,16 +22,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/prompt_pin"
+            android:text="Please Enter PIN"
             android:textColor="@color/primary_text_light"
             android:textSize="@dimen/font_size_prompt" />
 
         <!--Pin is returned from PED, so use TextView as EditText -->
         <TextView
             android:id="@+id/pin_input_text"
-            style="@style/DefEditText"
+            android:layout_height="@dimen/edit_height"
             android:layout_width="match_parent"
-            android:layout_marginTop="@dimen/space_vertical_small"
+            android:layout_marginTop="@dimen/default_gap"
             android:focusableInTouchMode="true"
             android:gravity="center" />
 
@@ -39,9 +39,9 @@
             android:id="@+id/prompt_no_pin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_vertical_small"
+            android:layout_marginTop="@dimen/default_gap"
             android:gravity="center"
-            android:text="@string/prompt_no_pin"
+            android:text="No PIN, Please Click OK"
             android:textColor="@color/secondary_text_light"
             android:textSize="@dimen/font_size_hint" />
     </LinearLayout>
@@ -52,8 +52,7 @@
         android:layout_height="@dimen/button_height"
         android:layout_marginTop="@dimen/space_vertical_large"
         app:layout_constraintTop_toBottomOf="@id/pin_input"
-        android:background="@drawable/btn_bg_light"
-        android:text="@string/trans_confirm_btn"
+        android:text="OK"
         android:textColor="@color/primary_text_dark"
         android:textSize="@dimen/font_button" />
 

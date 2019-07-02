@@ -29,8 +29,7 @@
         android:layout_height="@dimen/button_height"
         android:layout_marginTop="@dimen/space_vertical"
         android:layout_marginBottom="@dimen/space_vertical"
-        android:background="@drawable/btn_bg_light"
-        android:text="@string/dialog_ok"
+        android:text="OK"
         android:textColor="@color/primary_text_dark"
         android:textSize="@dimen/font_button" />
 
