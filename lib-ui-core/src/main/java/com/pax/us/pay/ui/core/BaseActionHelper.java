@@ -87,7 +87,6 @@ public abstract class BaseActionHelper {
             actionHandler = new UIMessageHandler(context, intent.getStringExtra(EntryInput.PARAM_PACKAGE), respStatus);
         }
 
-        //this.intent = intent.cloneFilter(); //cloneFilter don't clone Extras data to new intent
         this.intent = (Intent) intent.clone();
         if (this.intent.getExtras() != null) {
             handler.post(new Runnable() {

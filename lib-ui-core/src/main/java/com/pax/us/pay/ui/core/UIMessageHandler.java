@@ -15,6 +15,9 @@ import com.pax.us.pay.ui.constant.entry.EntryResponse;
 import com.pax.us.pay.ui.constant.status.InformationStatus;
 import com.pax.us.pay.ui.core.api.IRespStatus;
 
+/**
+ * message sender implementation
+ */
 class UIMessageHandler implements IActionHandler {
 
     private final BroadcastSender sender;
@@ -33,6 +36,8 @@ class UIMessageHandler implements IActionHandler {
 
         RespReceiver receiver = new RespReceiver();
         context.registerReceiver(receiver, intentFilter);
+
+        //for unregister
         IntentFilter transactionFilter = new IntentFilter();
         transactionFilter.addAction(InformationStatus.TRANS_COMPLETED);
         transactionFilter.addCategory(InformationStatus.CATEGORY);
