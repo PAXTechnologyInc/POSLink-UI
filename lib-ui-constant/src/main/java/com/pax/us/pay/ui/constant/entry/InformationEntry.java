@@ -1,12 +1,12 @@
 package com.pax.us.pay.ui.constant.entry;
 
-public class ConfirmationEntry {
+public class InformationEntry {
     public static final String CATEGORY = "com.pax.us.pay.ui.category.CONFIRMATION";
 
     /**
      * The intent action of display fees
-     * input: {@link EntryInput#PARAM_PACKAGE}
-     * input: {@link EntryInput#PARAM_MESSAGE}
+     * input: {@link EntryExtraData#PARAM_PACKAGE}
+     * input: {@link EntryExtraData#PARAM_MESSAGE}
      * input: According the actually receiving message
      * request: None
      */
@@ -19,8 +19,8 @@ public class ConfirmationEntry {
 
     /**
      * The intent action of display balance
-     * input: {@link EntryInput#PARAM_PACKAGE}
-     * input: {@link EntryInput#PARAM_MESSAGE}
+     * input: {@link EntryExtraData#PARAM_PACKAGE}
+     * input: {@link EntryExtraData#PARAM_MESSAGE}
      * input: According the actually receiving message
      * request: None
      */
@@ -28,8 +28,8 @@ public class ConfirmationEntry {
 
     /**
      * The intent action of display transaction information
-     * input: {@link EntryInput#PARAM_PACKAGE}
-     * input: {@link EntryInput#PARAM_MESSAGE}
+     * input: {@link EntryExtraData#PARAM_PACKAGE}
+     * input: {@link EntryExtraData#PARAM_MESSAGE}
      * input: According the actually receiving message
      * request: None
      */
