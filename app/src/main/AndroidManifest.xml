@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".VersionActivity">
+        <activity android:name=".activity.VersionActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.MAIN" />
@@ -25,7 +25,7 @@
         </activity>
 
         <activity
-            android:name=".EnterAmountActivity"
+            android:name=".activity.EnterAmountActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
@@ -36,7 +36,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".EnterTipActivity"
+            android:name=".activity.EnterTipActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
@@ -47,7 +47,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".EnterAdressActivity"
+            android:name=".activity.EnterAdressActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
@@ -58,7 +58,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".EnterAuthCodeActivity"
+            android:name=".activity.EnterAuthCodeActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
@@ -69,7 +69,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".EnterExpiryDateActivity"
+            android:name=".activity.EnterExpiryDateActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
@@ -80,7 +80,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".EnterZipActivity"
+            android:name=".activity.EnterZipActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
@@ -91,7 +91,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".EnterTransNumActivity"
+            android:name=".activity.EnterTransNumActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
@@ -102,7 +102,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".EnterFSAAmountActivity"
+            android:name=".activity.EnterFSAAmountActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
@@ -113,7 +113,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".EnterAVSActivity"
+            android:name=".activity.EnterAVSActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
@@ -124,7 +124,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".EnterVoucherActivity"
+            android:name=".activity.EnterVoucherActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
@@ -135,7 +135,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".EnterReferenceNumActivity"
+            android:name=".activity.EnterReferenceNumActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
@@ -146,7 +146,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".EnterInvoiceNumActivity"
+            android:name=".activity.EnterInvoiceNumActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
@@ -157,7 +157,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".EnterClerkIdActivity"
+            android:name=".activity.EnterClerkIdActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
@@ -168,7 +168,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".EnterCashbackActivity"
+            android:name=".activity.EnterCashbackActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
@@ -180,7 +180,7 @@
         </activity>
 
         <activity
-            android:name="com.pax.pay.poslink.ui.demo.SignatureActivity"
+            android:name="com.pax.pay.poslink.ui.demo.activity.SignatureActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="com.pax.us.pay.action.GET_SIGNATURE" />
@@ -190,7 +190,7 @@
         </activity>
 
         <activity
-            android:name=".SelectEbtTypeActivity"
+            android:name=".activity.SelectEbtTypeActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="com.pax.us.pay.action.SELECT_EBT_TYPE" />
@@ -200,7 +200,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SelectCardPresentActivity"
+            android:name=".activity.SelectCardPresentActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="com.pax.us.pay.action.CHECK_CARD_PRESENT" />
@@ -209,7 +209,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SelectBypassReasonActivity"
+            android:name=".activity.SelectBypassReasonActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="com.pax.us.pay.action.SELECT_BY_PASS" />
@@ -219,7 +219,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SelectSubTransActivity"
+            android:name=".activity.SelectSubTransActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="com.pax.us.pay.action.SELECT_SUB_TRANS_TYPE" />
@@ -229,7 +229,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SelectAIDActivity"
+            android:name=".activity.SelectAIDActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="com.pax.us.pay.action.SELECT_AID" />
@@ -239,7 +239,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SelectReversePartialActivity"
+            android:name=".activity.SelectReversePartialActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="com.pax.us.pay.action.REVERSE_PARTIAL_APPROVAL" />
@@ -249,7 +249,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SelectSupplementPartialActivity"
+            android:name=".activity.SelectSupplementPartialActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="com.pax.us.pay.action.SUPPLEMENT_PARTIAL_APPROVAL" />
@@ -261,7 +261,7 @@
 
 
         <activity
-            android:name=".SearchCardActivity"
+            android:name=".activity.SearchCardActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="com.pax.us.pay.action.INPUT_ACCOUNT" />
@@ -271,7 +271,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".EnterPinActivity"
+            android:name=".activity.EnterPinActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="com.pax.us.pay.action.ENTER_PIN" />
@@ -281,7 +281,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".EnterVCodeActivity"
+            android:name=".activity.EnterVCodeActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="com.pax.us.pay.action.ENTER_CVV" />
@@ -291,7 +291,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".EnterCardLast4DigitsActivity"
+            android:name=".activity.EnterCardLast4DigitsActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="com.pax.us.pay.action.ENTER_CARD_LAST_4_DIGITS" />
@@ -301,7 +301,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".EnterCardAllDigitsActivity"
+            android:name=".activity.EnterCardAllDigitsActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="com.pax.us.pay.action.ENTER_CARD_ALL_DIGITS" />
@@ -312,7 +312,7 @@
         </activity>
 
         <activity
-            android:name=".DisplayFeeActivity"
+            android:name=".activity.DisplayFeeActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="com.pax.us.pay.action.DISPLAY_FEES" />
@@ -322,7 +322,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DisplayBalanceActivity"
+            android:name=".activity.DisplayBalanceActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="com.pax.us.pay.action.DISPLAY_BALANCE" />
@@ -332,7 +332,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DisplayTransActivity"
+            android:name=".activity.DisplayTransActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="com.pax.us.pay.action.DISPLAY_TRANS_INFORMATION" />
@@ -344,7 +344,7 @@
 
 
         <activity
-            android:name=".DialogActivity"
+            android:name=".activity.DialogActivity"
             android:launchMode="singleInstance"
             android:theme="@style/ActivityTranslucent" />
 

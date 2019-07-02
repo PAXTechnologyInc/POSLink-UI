@@ -23,7 +23,7 @@ import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.pax.pay.poslink.ui.demo.DialogActivity;
+import com.pax.pay.poslink.ui.demo.activity.DialogActivity;
 import com.pax.pay.poslink.ui.demo.event.ClssLightEvent;
 import com.pax.pay.poslink.ui.demo.event.EventBusUtil;
 import com.pax.pay.poslink.ui.demo.event.PINEvent;
