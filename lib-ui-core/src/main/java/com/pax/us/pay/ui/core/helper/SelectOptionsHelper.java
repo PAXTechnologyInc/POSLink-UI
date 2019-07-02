@@ -27,7 +27,9 @@ public class SelectOptionsHelper extends BaseActionHelper {
     protected void showUI(@Nullable IUIListener uiListener, @NonNull Bundle bundle) {
         super.showUI(uiListener, bundle);
         if (uiListener instanceof IOptionListener && bundle.containsKey(EntryInput.PARAM_OPTIONS)) {
-            ((IOptionListener) uiListener).onShowOptions(bundle.getStringArray(EntryInput.PARAM_OPTIONS));
+            String[] options = bundle.getStringArray(EntryInput.PARAM_OPTIONS);
+            if (options.length > 0)
+                ((IOptionListener) uiListener).onShowOptions(options);
         }
     }
 

@@ -23,10 +23,14 @@ public class EnterCashbackHelper extends BaseActionHelper {
     protected void showUI(@Nullable IUIListener uiListener, @NonNull Bundle bundle) {
         super.showUI(uiListener, bundle);
         if (uiListener instanceof ICurrencyListener && bundle.containsKey(EntryInput.PARAM_CURRENCY)) {
-            ((ICurrencyListener) uiListener).onShowCurrency(bundle.getString(EntryInput.PARAM_CURRENCY));
+            String currency = bundle.getString(EntryInput.PARAM_CURRENCY);
+            if (currency.length() > 0)
+                ((ICurrencyListener) uiListener).onShowCurrency(currency);
         }
         if (uiListener instanceof ICashbackOptionListener && bundle.containsKey(EntryInput.PARAM_CASHBACK_OPTIONS)) {
-            ((ICashbackOptionListener) uiListener).onShowCashbackOptions(bundle.getStringArray(EntryInput.PARAM_CASHBACK_OPTIONS));
+            String[] options = bundle.getStringArray(EntryInput.PARAM_CASHBACK_OPTIONS);
+            if (options.length > 0)
+                ((ICashbackOptionListener) uiListener).onShowCashbackOptions(options);
         }
     }
 

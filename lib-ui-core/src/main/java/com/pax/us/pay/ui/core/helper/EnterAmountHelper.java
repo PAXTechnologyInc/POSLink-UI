@@ -22,7 +22,9 @@ public class EnterAmountHelper extends BaseActionHelper {
     protected void showUI(@Nullable IUIListener uiListener, @NonNull Bundle bundle) {
         super.showUI(uiListener, bundle);
         if (uiListener instanceof ICurrencyListener && bundle.containsKey(EntryInput.PARAM_CURRENCY)) {
-            ((ICurrencyListener) uiListener).onShowCurrency(bundle.getString(EntryInput.PARAM_CURRENCY));
+            String currency = bundle.getString(EntryInput.PARAM_CURRENCY);
+            if (currency.length() > 0)
+                ((ICurrencyListener) uiListener).onShowCurrency(currency);
         }
     }
 

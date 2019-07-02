@@ -29,17 +29,19 @@ public class ConfirmHelper extends BaseActionHelper {
     protected void showUI(@Nullable IUIListener uiListener, @NonNull Bundle bundle) {
         super.showUI(uiListener, bundle);
         if (uiListener instanceof IInformationListener) {
-            Set<String> keySet = bundle.keySet();
-            Map<String, String> map = new LinkedHashMap<>();
-            for (String key : keySet) {
-                if (key.equals(EntryInput.PARAM_TRANS_TYPE) || key.equals(EntryInput.PARAM_PACKAGE) || key.equals(EntryInput.PARAM_OPTIONS)) {
-                    continue;
-                } else {
-                    map.put(key, bundle.getString(key));
+            if (bundle.size() > 0) {
+                Set<String> keySet = bundle.keySet();
+                Map<String, String> map = new LinkedHashMap<>();
+                for (String key : keySet) {
+                    if (key.equals(EntryInput.PARAM_TRANS_TYPE) || key.equals(EntryInput.PARAM_PACKAGE) || key.equals(EntryInput.PARAM_OPTIONS)) {
+                        continue;
+                    } else {
+                        map.put(key, bundle.getString(key));
+                    }
                 }
-            }
-            if (map.size() > 0) {
-                ((IInformationListener) uiListener).onShowInformation(map);
+                if (map.size() > 0) {
+                    ((IInformationListener) uiListener).onShowInformation(map);
+                }
             }
 
         }

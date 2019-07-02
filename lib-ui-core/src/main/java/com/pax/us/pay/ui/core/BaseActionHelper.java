@@ -70,8 +70,15 @@ public abstract class BaseActionHelper {
     }
 
     protected void showUI(@Nullable IUIListener uiListener, @NonNull Bundle bundle) {
+        String transType = "";
+        String message = "";
         if (uiListener instanceof IMessageListener) {
-            ((IMessageListener) uiListener).onShowMessage(bundle.getString(EntryInput.PARAM_TRANS_TYPE), bundle.getString(EntryInput.PARAM_MESSAGE));
+            if (bundle.containsKey(EntryInput.PARAM_TRANS_TYPE))
+                transType = bundle.getString(EntryInput.PARAM_TRANS_TYPE);
+            if (bundle.containsKey(EntryInput.PARAM_MESSAGE))
+                message = bundle.getString(EntryInput.PARAM_MESSAGE);
+            if (transType.length() > 0 || message.length() > 0)
+                ((IMessageListener) uiListener).onShowMessage(transType, message);
         }
     }
 

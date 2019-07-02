@@ -36,7 +36,7 @@ public class EnterAuthCodeActivity extends AppCompatActivity implements View.OnC
 
         promptTv.setText("Please enter auth code");
         minLen = 0;
-        maxLen = 300;
+        maxLen = 6;
         mEditText.setCursorVisible(false);
         mEditText.requestFocus();
         mEditText.setImeOptions(EditorInfo.IME_ACTION_DONE);
@@ -75,7 +75,7 @@ public class EnterAuthCodeActivity extends AppCompatActivity implements View.OnC
 
     @Override
     public void onShowMessage(@Nullable String transName, @Nullable String message) {
-        if (message != null)
+        if (message != null && !message.equals(""))
             promptTv.setText(message);
     }
 }

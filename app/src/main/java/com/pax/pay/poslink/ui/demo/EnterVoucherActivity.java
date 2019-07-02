@@ -43,7 +43,7 @@ public class EnterVoucherActivity extends AppCompatActivity implements View.OnCl
         promptTv1.setText("Please Enter Voucher Number");
         promptTv2.setText("Please Enter Auth Code");
         minLen = 0;
-        maxLen = 300;
+        maxLen = 30;
         mEditText1.setSingleLine(true);
         mEditText1.requestFocus();
         mEditText1.setImeOptions(EditorInfo.IME_ACTION_DONE);

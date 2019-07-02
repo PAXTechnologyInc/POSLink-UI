@@ -34,9 +34,9 @@ public class EnterExpiryDateActivity extends AppCompatActivity implements View.O
         confirmBtn = (Button) findViewById(R.id.confirm_btn);
         confirmBtn.setOnClickListener(this);
 
-        promptTv.setText("Please input expiry date");
+        promptTv.setText("Please input expiry date(MM/YY)");
         minLen = 0;
-        maxLen = 300;
+        maxLen = 5;
         mEditText.setCursorVisible(false);
         mEditText.requestFocus();
         mEditText.setImeOptions(EditorInfo.IME_ACTION_DONE);
@@ -75,7 +75,7 @@ public class EnterExpiryDateActivity extends AppCompatActivity implements View.O
 
     @Override
     public void onShowMessage(@Nullable String transName, @Nullable String message) {
-        if (message != null)
+        if (message != null && !message.equals(""))
             promptTv.setText(message);
     }
 }

@@ -58,7 +58,7 @@ public class EnterTipActivity extends AppCompatActivity implements View.OnClickL
 
         promptTv.setText("Please Input Tip");
         minLen = 0;
-        maxLen = 300;
+        maxLen = 10;
         mEditText.setCursorVisible(false);
         mEditText.requestFocus();
         mEditText.setImeOptions(EditorInfo.IME_ACTION_DONE);
@@ -67,6 +67,8 @@ public class EnterTipActivity extends AppCompatActivity implements View.OnClickL
             InputMethodManager imm = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.showSoftInput(mEditText, InputMethodManager.SHOW_IMPLICIT);
         }, 200);
+
+        viewType = INPUT_AMOUNT;
 
         helper = new EnterTipHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
@@ -109,6 +111,21 @@ public class EnterTipActivity extends AppCompatActivity implements View.OnClickL
     }
 
     @Override
+    protected void onResume() {
+        if (viewType == SELECT_AMOUNT) {
+            mEditText.setVisibility(View.GONE);
+            promptTv.setVisibility(View.GONE);
+            mRecyclerView.setVisibility(View.VISIBLE);
+            confirmBtn.setEnabled(false);
+        } else {
+            mEditText.setVisibility(View.VISIBLE);
+            promptTv.setVisibility(View.VISIBLE);
+            mRecyclerView.setVisibility(View.GONE);
+        }
+        super.onResume();
+    }
+
+    @Override
     public void onShowCurrency(String currency) {
     }
 
@@ -120,19 +137,12 @@ public class EnterTipActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onShowTipOptions(String[] options) {
-        if (options != null && options.length > 0) {
-            mEditText.setVisibility(View.GONE);
-            promptTv.setVisibility(View.GONE);
-            mRecyclerView.setVisibility(View.VISIBLE);
-            confirmBtn.setEnabled(false);
-            setmAmountOption(options);
-            viewType = SELECT_AMOUNT;
-        } else {
-            mEditText.setVisibility(View.VISIBLE);
-            promptTv.setVisibility(View.VISIBLE);
-            mRecyclerView.setVisibility(View.GONE);
-            viewType = INPUT_AMOUNT;
-        }
+        mEditText.setVisibility(View.GONE);
+        promptTv.setVisibility(View.GONE);
+        mRecyclerView.setVisibility(View.VISIBLE);
+        confirmBtn.setEnabled(false);
+        setmAmountOption(options);
+        viewType = SELECT_AMOUNT;
     }
 
     void setmAmountOption(String[] options) {

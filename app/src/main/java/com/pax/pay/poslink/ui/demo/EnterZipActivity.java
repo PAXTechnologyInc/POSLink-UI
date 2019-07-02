@@ -38,7 +38,7 @@ public class EnterZipActivity extends AppCompatActivity implements View.OnClickL
 
         promptTv.setText("Please Input Zip Code");
         minLen = 0;
-        maxLen = 300;
+        maxLen = 10;
         mEditText.setCursorVisible(false);
         mEditText.requestFocus();
         mEditText.setImeOptions(EditorInfo.IME_ACTION_DONE);
@@ -85,7 +85,7 @@ public class EnterZipActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onShowMessage(@Nullable String transName, @Nullable String message) {
-        if (message != null)
+        if (message != null && !message.equals(""))
             promptTv.setText(message);
     }
 }

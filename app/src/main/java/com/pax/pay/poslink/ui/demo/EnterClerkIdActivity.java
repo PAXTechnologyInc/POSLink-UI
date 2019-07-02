@@ -38,7 +38,7 @@ public class EnterClerkIdActivity extends AppCompatActivity implements View.OnCl
 
         promptTv.setText("Please Enter Clerk ID");
         minLen = 0;
-        maxLen = 300;
+        maxLen = 40;
         mEditText.setCursorVisible(false);
         mEditText.requestFocus();
         mEditText.setImeOptions(EditorInfo.IME_ACTION_DONE);
@@ -83,7 +83,7 @@ public class EnterClerkIdActivity extends AppCompatActivity implements View.OnCl
 
     @Override
     public void onShowMessage(@Nullable String transName, @Nullable String message) {
-        if (message != null)
+        if (message != null && !message.equals(""))
             promptTv.setText(message);
     }
 }

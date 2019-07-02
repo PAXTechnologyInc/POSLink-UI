@@ -56,9 +56,9 @@ public class EnterCashbackActivity extends AppCompatActivity implements View.OnC
         confirmBtn.setOnClickListener(this);
         mRecyclerView = (RecyclerView) findViewById(R.id.option_select);
 
-        promptTv.setText("Please Input Tip");
+        promptTv.setText("Please Input Cashback Amount");
         minLen = 0;
-        maxLen = 300;
+        maxLen = 12;
         mEditText.setCursorVisible(false);
         mEditText.requestFocus();
         mEditText.setImeOptions(EditorInfo.IME_ACTION_DONE);
@@ -67,6 +67,7 @@ public class EnterCashbackActivity extends AppCompatActivity implements View.OnC
             InputMethodManager imm = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.showSoftInput(mEditText, InputMethodManager.SHOW_IMPLICIT);
         }, 200);
+        viewType = INPUT_AMOUNT;
 
         helper = new EnterCashbackHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
@@ -109,6 +110,21 @@ public class EnterCashbackActivity extends AppCompatActivity implements View.OnC
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        if (viewType == SELECT_AMOUNT) {
+            mEditText.setVisibility(View.GONE);
+            promptTv.setVisibility(View.GONE);
+            mRecyclerView.setVisibility(View.VISIBLE);
+            confirmBtn.setEnabled(false);
+        } else {
+            mEditText.setVisibility(View.VISIBLE);
+            promptTv.setVisibility(View.VISIBLE);
+            mRecyclerView.setVisibility(View.GONE);
+        }
+    }
+
+    @Override
     public void onShowCurrency(String currency) {
     }
 
@@ -121,20 +137,12 @@ public class EnterCashbackActivity extends AppCompatActivity implements View.OnC
 
     @Override
     public void onShowCashbackOptions(String[] options) {
-        if (options != null && options.length > 0) {
-            mEditText.setVisibility(View.GONE);
-            promptTv.setVisibility(View.GONE);
-            mRecyclerView.setVisibility(View.VISIBLE);
-            confirmBtn.setEnabled(false);
-            setmAmountOption(options);
-            viewType = SELECT_AMOUNT;
-        } else {
-            mEditText.setVisibility(View.VISIBLE);
-            promptTv.setVisibility(View.VISIBLE);
-            mRecyclerView.setVisibility(View.GONE);
-            viewType = INPUT_AMOUNT;
-        }
-
+        mEditText.setVisibility(View.GONE);
+        promptTv.setVisibility(View.GONE);
+        mRecyclerView.setVisibility(View.VISIBLE);
+        confirmBtn.setEnabled(false);
+        setmAmountOption(options);
+        viewType = SELECT_AMOUNT;
     }
 
     void setmAmountOption(String[] options) {

@@ -43,7 +43,7 @@ public class EnterAmountActivity extends AppCompatActivity implements View.OnCli
 
         promptTv.setText("Please Input Amount");
         minLen = 0;
-        maxLen = 300;
+        maxLen = 12;
         mEditText.setCursorVisible(false);
         mEditText.requestFocus();
         mEditText.setImeOptions(EditorInfo.IME_ACTION_DONE);
