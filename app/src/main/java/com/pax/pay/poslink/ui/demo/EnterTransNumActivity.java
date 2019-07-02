@@ -82,7 +82,6 @@ public class EnterTransNumActivity extends AppCompatActivity implements View.OnC
     }
 
 
-
     @Override
     public void onShowMessage(@Nullable String transName, @Nullable String message) {
         if (message != null)

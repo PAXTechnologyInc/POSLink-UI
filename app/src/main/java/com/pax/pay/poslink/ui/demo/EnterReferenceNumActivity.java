@@ -12,7 +12,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-
 import com.pax.pay.poslink.ui.demo.activity.ActivityManager;
 import com.pax.pay.poslink.ui.demo.base.RespStatusImpl;
 import com.pax.us.pay.ui.core.helper.EnterReferenceNumHelper;
@@ -78,7 +77,6 @@ public class EnterReferenceNumActivity extends AppCompatActivity implements View
         moveTaskToBack(true);
         super.onStop();
     }
-
 
 
     @Override
