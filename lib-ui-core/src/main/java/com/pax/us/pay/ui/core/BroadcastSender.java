@@ -24,7 +24,6 @@ import java.lang.ref.WeakReference;
 /**
  * A internal helper broadcast sender class
  */
-
 class BroadcastSender {
 
     private WeakReference<Context> context;
