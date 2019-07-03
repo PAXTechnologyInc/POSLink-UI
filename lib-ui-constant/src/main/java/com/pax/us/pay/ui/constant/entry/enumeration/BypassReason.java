@@ -4,4 +4,9 @@ public final class BypassReason {
     public static final String WANT_TO_BYPASS = "WANT TO BYPASS";
     public static final String CANNOT_READ = "CANNOT READ";
     public static final String DOES_NOT_EXIST = "DOES NOT EXIST";
+
+
+    public static String[] values() {
+        return new String[]{WANT_TO_BYPASS, CANNOT_READ, DOES_NOT_EXIST};
+    }
 }
