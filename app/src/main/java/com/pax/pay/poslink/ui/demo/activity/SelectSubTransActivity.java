@@ -53,7 +53,7 @@ public class SelectSubTransActivity extends AppCompatActivity implements View.On
         tvPrompt.setText("Please Select Sub Transaction Type");
         helper = new SelectOptionsHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityManager.getInstance().addActivity(this);
+        LocalActivityManager.getInstance().addActivity(this);
     }
 
     @Override
@@ -120,7 +120,7 @@ public class SelectSubTransActivity extends AppCompatActivity implements View.On
             mRecyclerView.setHasFixedSize(true);
             mRecyclerView.setAdapter(mAdapter);
         }
-        ActivityManager.getInstance().addActivity(this);
+        LocalActivityManager.getInstance().addActivity(this);
     }
 
     class OptionModelViewHolder extends BaseViewHolder<String> {

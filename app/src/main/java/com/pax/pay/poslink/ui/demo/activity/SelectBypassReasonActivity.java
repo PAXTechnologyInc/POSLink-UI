@@ -53,7 +53,7 @@ public class SelectBypassReasonActivity extends AppCompatActivity implements Vie
         tvPrompt.setText("Please Select Bypass Reason");
         helper = new SelectOptionsHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityManager.getInstance().addActivity(this);
+        LocalActivityManager.getInstance().addActivity(this);
     }
 
     @Override

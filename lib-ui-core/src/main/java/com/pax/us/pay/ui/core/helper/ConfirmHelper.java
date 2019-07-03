@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.pax.us.pay.ui.constant.entry.EntryInput;
+import com.pax.us.pay.ui.constant.entry.EntryExtraData;
 import com.pax.us.pay.ui.core.BaseActionHelper;
 import com.pax.us.pay.ui.core.api.IInformationListener;
 import com.pax.us.pay.ui.core.api.IMessageListener;
@@ -33,7 +33,7 @@ public class ConfirmHelper extends BaseActionHelper {
                 Set<String> keySet = bundle.keySet();
                 Map<String, String> map = new LinkedHashMap<>();
                 for (String key : keySet) {
-                    if (key.equals(EntryInput.PARAM_TRANS_TYPE) || key.equals(EntryInput.PARAM_PACKAGE) || key.equals(EntryInput.PARAM_OPTIONS)) {
+                    if (key.equals(EntryExtraData.PARAM_TRANS_TYPE) || key.equals(EntryExtraData.PARAM_PACKAGE) || key.equals(EntryExtraData.PARAM_OPTIONS)) {
                         continue;
                     } else {
                         map.put(key, bundle.getString(key));

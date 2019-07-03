@@ -1,5 +1,7 @@
 package com.pax.us.pay.ui.constant.entry;
 
+import com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType;
+
 public class OptionEntry {
     public static final String CATEGORY = "com.pax.us.pay.ui.category.OPTION";
     /**
@@ -24,7 +26,7 @@ public class OptionEntry {
      * The intent action of check card present
      * input: {@link EntryExtraData#PARAM_PACKAGE}
      * input: {@link EntryExtraData#PARAM_MESSAGE}
-     * input: {@link EntryExtraData#PARAM_OPTIONS}: enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.Confirmation}
+     * input: {@link EntryExtraData#PARAM_OPTIONS}: enum: {@link ConfirmationType}
      * request: {@link EntryRequest#PARAM_INDEX}
      */
     public static final String ACTION_CHECK_CARD_PRESENT = "com.pax.us.pay.action.CHECK_CARD_PRESENT";
@@ -53,7 +55,7 @@ public class OptionEntry {
      * The intent action of reverse partially approval
      * input: {@link EntryExtraData#PARAM_PACKAGE}
      * input: {@link EntryExtraData#PARAM_MESSAGE}
-     * input: {@link EntryExtraData#PARAM_OPTIONS}: enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.Confirmation}
+     * input: {@link EntryExtraData#PARAM_OPTIONS}: enum: {@link ConfirmationType}
      * request: {@link EntryRequest#PARAM_INDEX}
      */
     public static final String ACTION_REVERSE_PARTIAL_APPROVAL = "com.pax.us.pay.action.REVERSE_PARTIAL_APPROVAL";
@@ -63,7 +65,7 @@ public class OptionEntry {
      * The intent action of supplement partially approval
      * input: {@link EntryExtraData#PARAM_PACKAGE}
      * input: {@link EntryExtraData#PARAM_MESSAGE}
-     * input: {@link EntryExtraData#PARAM_OPTIONS}: enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.Confirmation}
+     * input: {@link EntryExtraData#PARAM_OPTIONS}: enum: {@link ConfirmationType}
      * request: {@link EntryRequest#PARAM_INDEX}
      */
     public static final String ACTION_SUPPLEMENT_PARTIAL_APPROVAL = "com.pax.us.pay.action.SUPPLEMENT_PARTIAL_APPROVAL";

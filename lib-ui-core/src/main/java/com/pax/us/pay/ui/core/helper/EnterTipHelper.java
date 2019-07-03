@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.pax.us.pay.ui.constant.entry.EntryInput;
+import com.pax.us.pay.ui.constant.entry.EntryExtraData;
 import com.pax.us.pay.ui.constant.entry.EntryRequest;
 import com.pax.us.pay.ui.core.BaseActionHelper;
 import com.pax.us.pay.ui.core.api.ICurrencyListener;
@@ -28,15 +28,15 @@ public class EnterTipHelper extends BaseActionHelper {
     @Override
     protected void showUI(@Nullable IUIListener uiListener, @NonNull Bundle bundle) {
         super.showUI(uiListener, bundle);
-        if (uiListener instanceof ICurrencyListener && bundle.containsKey(EntryInput.PARAM_CURRENCY)) {
-            String currency = bundle.getString(EntryInput.PARAM_CURRENCY);
+        if (uiListener instanceof ICurrencyListener && bundle.containsKey(EntryExtraData.PARAM_CURRENCY)) {
+            String currency = bundle.getString(EntryExtraData.PARAM_CURRENCY);
             if (currency.length() > 0)
                 ((ICurrencyListener) uiListener).onShowCurrency(currency);
         }
 
-        if (uiListener instanceof ITipOptionListener && bundle.containsKey(EntryInput.PARAM_TIP_OPTIONS)) {
-            String[] options = bundle.getStringArray(EntryInput.PARAM_TIP_OPTIONS);
-            if (options.length > 0)
+        if (uiListener instanceof ITipOptionListener && bundle.containsKey(EntryExtraData.PARAM_TIP_OPTIONS)) {
+            String[] options = bundle.getStringArray(EntryExtraData.PARAM_TIP_OPTIONS);
+            if (options != null && options.length > 0)
                 ((ITipOptionListener) uiListener).onShowTipOptions(options);
         }
     }

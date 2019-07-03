@@ -64,7 +64,7 @@ public class SearchCardActivity extends AppCompatActivity implements View.OnClic
         promptTv.setText("Please Input Pan");
         helper = new SearCardHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityManager.getInstance().addActivity(this);
+        LocalActivityManager.getInstance().addActivity(this);
     }
 
 

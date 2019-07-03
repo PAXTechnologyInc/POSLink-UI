@@ -65,7 +65,7 @@ public class EnterAVSActivity extends AppCompatActivity implements View.OnClickL
 
         helper = new EnterAVSHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityManager.getInstance().addActivity(this);
+        LocalActivityManager.getInstance().addActivity(this);
     }
 
 

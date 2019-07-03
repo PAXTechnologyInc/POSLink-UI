@@ -7,7 +7,7 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.pax.us.pay.ui.constant.entry.EntryInput;
+import com.pax.us.pay.ui.constant.entry.EntryExtraData;
 import com.pax.us.pay.ui.core.api.IMessageListener;
 import com.pax.us.pay.ui.core.api.IRespStatus;
 import com.pax.us.pay.ui.core.api.IUIListener;
@@ -70,13 +70,9 @@ public abstract class BaseActionHelper {
     }
 
     protected void showUI(@Nullable IUIListener uiListener, @NonNull Bundle bundle) {
-        String transType = "";
-        String message = "";
         if (uiListener instanceof IMessageListener) {
-            if (bundle.containsKey(EntryInput.PARAM_TRANS_TYPE))
-                transType = bundle.getString(EntryInput.PARAM_TRANS_TYPE);
-            if (bundle.containsKey(EntryInput.PARAM_MESSAGE))
-                message = bundle.getString(EntryInput.PARAM_MESSAGE);
+            String transType = bundle.getString(EntryExtraData.PARAM_TRANS_TYPE, "");
+            String message = bundle.getString(EntryExtraData.PARAM_MESSAGE, "");
             if (transType.length() > 0 || message.length() > 0)
                 ((IMessageListener) uiListener).onShowMessage(transType, message);
         }
@@ -84,7 +80,7 @@ public abstract class BaseActionHelper {
 
     public void start(Context context, Intent intent) {
         if (actionHandler == null) {
-            actionHandler = new UIMessageHandler(context, intent.getStringExtra(EntryInput.PARAM_PACKAGE), respStatus);
+            actionHandler = new UIMessageHandler(context, intent.getStringExtra(EntryExtraData.PARAM_PACKAGE), respStatus);
         }
 
         this.intent = (Intent) intent.clone();

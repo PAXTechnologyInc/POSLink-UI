@@ -36,7 +36,7 @@ public class EnterCardLast4DigitsActivity extends AppCompatActivity implements V
         promptTitle.setText("Please Input Card Last 4 Digits");
         helper = new SecurityHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityManager.getInstance().addActivity(this);
+        LocalActivityManager.getInstance().addActivity(this);
     }
 
 

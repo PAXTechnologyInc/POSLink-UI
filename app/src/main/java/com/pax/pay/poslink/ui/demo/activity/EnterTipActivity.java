@@ -72,7 +72,7 @@ public class EnterTipActivity extends AppCompatActivity implements View.OnClickL
 
         helper = new EnterTipHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityManager.getInstance().addActivity(this);
+        LocalActivityManager.getInstance().addActivity(this);
     }
 
 

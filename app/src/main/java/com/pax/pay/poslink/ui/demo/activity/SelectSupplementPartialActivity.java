@@ -53,7 +53,7 @@ public class SelectSupplementPartialActivity extends AppCompatActivity implement
         tvPrompt.setText("Another PMT?");
         helper = new SelectOptionsHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityManager.getInstance().addActivity(this);
+        LocalActivityManager.getInstance().addActivity(this);
     }
 
     @Override
@@ -120,7 +120,7 @@ public class SelectSupplementPartialActivity extends AppCompatActivity implement
             mRecyclerView.setHasFixedSize(true);
             mRecyclerView.setAdapter(mAdapter);
         }
-        ActivityManager.getInstance().addActivity(this);
+        LocalActivityManager.getInstance().addActivity(this);
     }
 
     class OptionModelViewHolder extends BaseViewHolder<String> {

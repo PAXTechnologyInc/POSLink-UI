@@ -6,16 +6,16 @@ import android.util.Log;
 import java.lang.ref.WeakReference;
 import java.util.Stack;
 
-public class ActivityManager {
+public class LocalActivityManager {
     private static Stack<WeakReference<Activity>> activityStack;
-    private static ActivityManager instance;
+    private static LocalActivityManager instance;
 
-    private ActivityManager() {
+    private LocalActivityManager() {
     }
 
-    public static ActivityManager getInstance() {
+    public static LocalActivityManager getInstance() {
         if (instance == null) {
-            instance = new ActivityManager();
+            instance = new LocalActivityManager();
         }
         return instance;
     }
@@ -29,6 +29,13 @@ public class ActivityManager {
         }
         WeakReference<Activity> activityWeakReference = new WeakReference<>(activity);
         activityStack.add(activityWeakReference);
+    }
+
+    public WeakReference<Activity> getCurrentActivity() {
+        if (activityStack != null) {
+            return activityStack.lastElement();
+        }
+        return null;
     }
 
     /**

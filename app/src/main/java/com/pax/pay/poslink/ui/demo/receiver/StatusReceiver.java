@@ -36,6 +36,9 @@ public class StatusReceiver extends android.content.BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
+
+//        if(!getForegroundActivity(context.getApplicationContext()))
+//            return;
         if (TextUtils.isEmpty(intent.getAction()))
             return;
         Log.i("StatusReceiver", "receive broadcast :" + intent.getAction());
@@ -62,4 +65,25 @@ public class StatusReceiver extends android.content.BroadcastReceiver {
             return;
         EventBusUtil.doEvent(new ClssLightEvent(intent.getAction()));
     }
+
+//    private boolean getForegroundActivity(Context context) {
+//        //To Do Waiting for Verification
+//        ActivityManager activityManager = (ActivityManager) context
+//                .getSystemService(Context.ACTIVITY_SERVICE);
+//        List<ActivityManager.RunningAppProcessInfo> appProcesses = activityManager
+//                .getRunningAppProcesses();
+//        for (ActivityManager.RunningAppProcessInfo appProcess : appProcesses) {
+//            if (appProcess.processName.equals(context.getPackageName())) {
+//                if (appProcess.importance == ActivityManager.RunningAppProcessInfo.IMPORTANCE_BACKGROUND) {
+//                    Log.i("StatusReceiver", String.format("Background App:"+appProcess.processName));
+//                    return false;
+//                }else{
+//                    Log.i("StatusReceiver", String.format("Foreground App:"+appProcess.processName));
+//                    return true;
+//                }
+//            }
+//        }
+//        return false;
+//    }
+
 }
