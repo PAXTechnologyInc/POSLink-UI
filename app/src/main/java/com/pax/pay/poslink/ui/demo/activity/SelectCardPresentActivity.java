@@ -53,7 +53,7 @@ public class SelectCardPresentActivity extends AppCompatActivity implements View
         tvPrompt.setText("Card Persent?");
         helper = new SelectOptionsHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        LocalActivityManager.getInstance().addActivity(this);
+        ActivityLocalManager.getInstance().addActivity(this);
 
     }
 

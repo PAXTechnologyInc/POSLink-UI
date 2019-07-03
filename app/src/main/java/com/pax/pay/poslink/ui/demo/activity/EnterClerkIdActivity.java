@@ -51,7 +51,7 @@ public class EnterClerkIdActivity extends AppCompatActivity implements View.OnCl
 
         helper = new EnterClerkIDHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        LocalActivityManager.getInstance().addActivity(this);
+        ActivityLocalManager.getInstance().addActivity(this);
     }
 
     @Override

@@ -52,7 +52,7 @@ public class EnterAdressActivity extends AppCompatActivity implements View.OnCli
 
         helper = new EnterAddressHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        LocalActivityManager.getInstance().addActivity(this);
+        ActivityLocalManager.getInstance().addActivity(this);
     }
 
 

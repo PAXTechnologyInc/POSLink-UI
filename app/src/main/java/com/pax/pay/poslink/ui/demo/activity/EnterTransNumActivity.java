@@ -52,7 +52,7 @@ public class EnterTransNumActivity extends AppCompatActivity implements View.OnC
 
         helper = new EnterTransNumHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        LocalActivityManager.getInstance().addActivity(this);
+        ActivityLocalManager.getInstance().addActivity(this);
     }
 
     @Override

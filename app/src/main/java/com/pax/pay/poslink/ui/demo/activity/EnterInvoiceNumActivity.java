@@ -51,7 +51,7 @@ public class EnterInvoiceNumActivity extends AppCompatActivity implements View.O
 
         helper = new EnterInvoiceNumHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        LocalActivityManager.getInstance().addActivity(this);
+        ActivityLocalManager.getInstance().addActivity(this);
     }
 
     @Override

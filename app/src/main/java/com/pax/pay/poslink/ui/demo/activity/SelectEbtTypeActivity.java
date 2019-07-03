@@ -54,7 +54,7 @@ public class SelectEbtTypeActivity extends AppCompatActivity implements View.OnC
         tvPrompt.setText("Please Select EBT Type");
         helper = new SelectOptionsHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        LocalActivityManager.getInstance().addActivity(this);
+        ActivityLocalManager.getInstance().addActivity(this);
     }
 
     @Override
@@ -122,7 +122,7 @@ public class SelectEbtTypeActivity extends AppCompatActivity implements View.OnC
             mRecyclerView.setHasFixedSize(true);
             mRecyclerView.setAdapter(mAdapter);
         }
-        LocalActivityManager.getInstance().addActivity(this);
+        ActivityLocalManager.getInstance().addActivity(this);
     }
 
     class OptionModelViewHolder extends BaseViewHolder<String> {

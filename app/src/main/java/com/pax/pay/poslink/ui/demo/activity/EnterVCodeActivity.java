@@ -37,7 +37,7 @@ public class EnterVCodeActivity extends AppCompatActivity implements View.OnClic
         promptTitle.setText("Please Input V-Code");
         helper = new SecurityHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        LocalActivityManager.getInstance().addActivity(this);
+        ActivityLocalManager.getInstance().addActivity(this);
     }
 
 

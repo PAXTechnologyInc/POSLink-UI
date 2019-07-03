@@ -71,7 +71,7 @@ public class EnterCashbackActivity extends AppCompatActivity implements View.OnC
 
         helper = new EnterCashbackHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        LocalActivityManager.getInstance().addActivity(this);
+        ActivityLocalManager.getInstance().addActivity(this);
     }
 
 
