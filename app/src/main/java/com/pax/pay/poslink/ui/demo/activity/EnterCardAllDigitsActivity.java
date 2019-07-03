@@ -36,7 +36,7 @@ public class EnterCardAllDigitsActivity extends AppCompatActivity implements Vie
         promptTitle.setText("Please Input Card Number");
         helper = new SecurityHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityManager.getInstance().addActivity(this);
+        ActivityLocalManager.getInstance().addActivity(this);
     }
 
 

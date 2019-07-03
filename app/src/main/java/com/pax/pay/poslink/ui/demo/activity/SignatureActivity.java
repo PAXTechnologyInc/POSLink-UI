@@ -62,7 +62,7 @@ public class SignatureActivity extends AppCompatActivity implements View.OnClick
         writeUserName.addView(mSignatureView);
         helper = new SignatureHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityManager.getInstance().addActivity(this);
+        ActivityLocalManager.getInstance().addActivity(this);
     }
 
 

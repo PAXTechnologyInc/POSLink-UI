@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.pax.us.pay.ui.constant.entry.EntryInput;
+import com.pax.us.pay.ui.constant.entry.EntryExtraData;
 import com.pax.us.pay.ui.constant.entry.EntryRequest;
 import com.pax.us.pay.ui.core.BaseActionHelper;
 import com.pax.us.pay.ui.core.api.IMessageListener;
@@ -26,9 +26,9 @@ public class SelectOptionsHelper extends BaseActionHelper {
     @Override
     protected void showUI(@Nullable IUIListener uiListener, @NonNull Bundle bundle) {
         super.showUI(uiListener, bundle);
-        if (uiListener instanceof IOptionListener && bundle.containsKey(EntryInput.PARAM_OPTIONS)) {
-            String[] options = bundle.getStringArray(EntryInput.PARAM_OPTIONS);
-            if (options.length > 0)
+        if (uiListener instanceof IOptionListener && bundle.containsKey(EntryExtraData.PARAM_OPTIONS)) {
+            String[] options = bundle.getStringArray(EntryExtraData.PARAM_OPTIONS);
+            if (options != null && options.length > 0)
                 ((IOptionListener) uiListener).onShowOptions(options);
         }
     }

@@ -42,7 +42,7 @@ public class EnterAuthCodeActivity extends AppCompatActivity implements View.OnC
         mEditText.setImeOptions(EditorInfo.IME_ACTION_DONE);
         helper = new EnterAuthCodeHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityManager.getInstance().addActivity(this);
+        ActivityLocalManager.getInstance().addActivity(this);
     }
 
 

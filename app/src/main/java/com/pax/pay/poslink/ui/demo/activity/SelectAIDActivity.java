@@ -53,7 +53,7 @@ public class SelectAIDActivity extends AppCompatActivity implements View.OnClick
         tvPrompt.setText("Please Select Application");
         helper = new SelectOptionsHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityManager.getInstance().addActivity(this);
+        ActivityLocalManager.getInstance().addActivity(this);
     }
 
     @Override
@@ -120,7 +120,7 @@ public class SelectAIDActivity extends AppCompatActivity implements View.OnClick
             mRecyclerView.setHasFixedSize(true);
             mRecyclerView.setAdapter(mAdapter);
         }
-        ActivityManager.getInstance().addActivity(this);
+        ActivityLocalManager.getInstance().addActivity(this);
     }
 
     class OptionModelViewHolder extends BaseViewHolder<String> {

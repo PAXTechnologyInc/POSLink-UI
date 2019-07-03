@@ -49,7 +49,7 @@ public class EnterPinActivity extends AppCompatActivity implements View.OnClickL
         promptTitle.setText("Please Enter PIN");
         helper = new SecurityHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityManager.getInstance().addActivity(this);
+        ActivityLocalManager.getInstance().addActivity(this);
 
     }
 

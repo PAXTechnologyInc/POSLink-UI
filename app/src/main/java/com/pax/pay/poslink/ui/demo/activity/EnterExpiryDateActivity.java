@@ -42,7 +42,7 @@ public class EnterExpiryDateActivity extends AppCompatActivity implements View.O
         mEditText.setImeOptions(EditorInfo.IME_ACTION_DONE);
         helper = new EnterExpiryDateHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityManager.getInstance().addActivity(this);
+        ActivityLocalManager.getInstance().addActivity(this);
     }
 
 

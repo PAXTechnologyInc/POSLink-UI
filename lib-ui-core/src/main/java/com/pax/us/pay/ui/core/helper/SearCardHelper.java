@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.pax.us.pay.ui.constant.entry.EntryInput;
+import com.pax.us.pay.ui.constant.entry.EntryExtraData;
 import com.pax.us.pay.ui.constant.entry.EntryRequest;
 import com.pax.us.pay.ui.core.BaseActionHelper;
 import com.pax.us.pay.ui.core.api.IAmountListener;
@@ -37,26 +37,26 @@ public class SearCardHelper extends BaseActionHelper {
     @Override
     protected void showUI(@Nullable IUIListener uiListener, @NonNull Bundle bundle) {
         super.showUI(uiListener, bundle);
-        if (uiListener instanceof ICurrencyListener && bundle.containsKey(EntryInput.PARAM_CURRENCY)) {
-            String currency = bundle.getString(EntryInput.PARAM_CURRENCY);
+        if (uiListener instanceof ICurrencyListener) {
+            String currency = bundle.getString(EntryExtraData.PARAM_CURRENCY, "");
             if (currency.length() > 0)
                 ((ICurrencyListener) uiListener).onShowCurrency(currency);
         }
 
-        if (uiListener instanceof IAmountListener && bundle.containsKey(EntryInput.PARAM_DISP_AMOUNT)) {
-            ((IAmountListener) uiListener).onShowAmount(bundle.getLong(EntryInput.PARAM_DISP_AMOUNT));
+        if (uiListener instanceof IAmountListener && bundle.containsKey(EntryExtraData.PARAM_DISP_AMOUNT)) {
+            ((IAmountListener) uiListener).onShowAmount(bundle.getLong(EntryExtraData.PARAM_DISP_AMOUNT));
         }
 
         if (uiListener instanceof ICardListener && (
-                bundle.containsKey(EntryInput.PARAM_ENABLE_MANUAL) ||
-                        bundle.containsKey(EntryInput.PARAM_ENABLE_SWIPE) ||
-                        bundle.containsKey(EntryInput.PARAM_ENABLE_INSERT) ||
-                        bundle.containsKey(EntryInput.PARAM_ENABLE_TAP))) {
+                bundle.containsKey(EntryExtraData.PARAM_ENABLE_MANUAL) ||
+                        bundle.containsKey(EntryExtraData.PARAM_ENABLE_SWIPE) ||
+                        bundle.containsKey(EntryExtraData.PARAM_ENABLE_INSERT) ||
+                        bundle.containsKey(EntryExtraData.PARAM_ENABLE_TAP))) {
             ((ICardListener) uiListener).onShowCard(
-                    bundle.getBoolean(EntryInput.PARAM_ENABLE_MANUAL, false),
-                    bundle.getBoolean(EntryInput.PARAM_ENABLE_SWIPE, false),
-                    bundle.getBoolean(EntryInput.PARAM_ENABLE_INSERT, false),
-                    bundle.getBoolean(EntryInput.PARAM_ENABLE_TAP, false)
+                    bundle.getBoolean(EntryExtraData.PARAM_ENABLE_MANUAL, false),
+                    bundle.getBoolean(EntryExtraData.PARAM_ENABLE_SWIPE, false),
+                    bundle.getBoolean(EntryExtraData.PARAM_ENABLE_INSERT, false),
+                    bundle.getBoolean(EntryExtraData.PARAM_ENABLE_TAP, false)
             );
         }
     }

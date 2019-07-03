@@ -42,7 +42,7 @@ public class DisplayFeeActivity extends AppCompatActivity implements View.OnClic
 
         helper = new ConfirmHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityManager.getInstance().addActivity(this);
+        ActivityLocalManager.getInstance().addActivity(this);
     }
 
 

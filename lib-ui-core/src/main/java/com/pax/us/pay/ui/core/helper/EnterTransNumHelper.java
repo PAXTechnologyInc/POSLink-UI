@@ -7,10 +7,9 @@ import com.pax.us.pay.ui.constant.entry.EntryRequest;
 import com.pax.us.pay.ui.core.BaseActionHelper;
 import com.pax.us.pay.ui.core.api.IMessageListener;
 import com.pax.us.pay.ui.core.api.IRespStatus;
-import com.pax.us.pay.ui.core.api.IUIListener;
 
 public class EnterTransNumHelper extends BaseActionHelper {
-    public EnterTransNumHelper(@Nullable IUIListener uiListener, @Nullable IRespStatus respStatus) {
+    public EnterTransNumHelper(@Nullable IEnterTransNumberListener uiListener, @Nullable IRespStatus respStatus) {
         super(uiListener, respStatus);
     }
 
@@ -20,6 +19,6 @@ public class EnterTransNumHelper extends BaseActionHelper {
         super.sendNext(bundle);
     }
 
-    public interface IEnterZipCodeListener extends IMessageListener {
+    public interface IEnterTransNumberListener extends IMessageListener {
     }
 }

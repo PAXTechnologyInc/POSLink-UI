@@ -53,7 +53,7 @@ public class SelectReversePartialActivity extends AppCompatActivity implements V
         tvPrompt.setText("Reversed?");
         helper = new SelectOptionsHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityManager.getInstance().addActivity(this);
+        ActivityLocalManager.getInstance().addActivity(this);
     }
 
     @Override
@@ -120,7 +120,7 @@ public class SelectReversePartialActivity extends AppCompatActivity implements V
             mRecyclerView.setHasFixedSize(true);
             mRecyclerView.setAdapter(mAdapter);
         }
-        ActivityManager.getInstance().addActivity(this);
+        ActivityLocalManager.getInstance().addActivity(this);
     }
 
     class OptionModelViewHolder extends BaseViewHolder<String> {
