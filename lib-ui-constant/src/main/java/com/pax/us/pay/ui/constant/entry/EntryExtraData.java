@@ -24,8 +24,8 @@ public final class EntryExtraData {
     public static final String PARAM_SERVICE_FEE = "serviceFee";
     public static final String PARAM_TOTAL_FEE = "totalFee";
 
-    public static final String PARAM_CASH_BENEFIT = "cashBenefit";
-    public static final String PARAM_FOOD_STAMP = "foodStamp";
+    public static final String PARAM_FOOD_STAMPS_BALANCE = "foodStampsBalance";
+    public static final String PARAM_CASH_BENEFIT_BALANCE = "cashBenefitBalance";
     public static final String PARAM_BALANCE = "balance";
 
     public static final String PARAM_TRANS_MODE = "transMode";
@@ -49,7 +49,8 @@ public final class EntryExtraData {
     public static final String PARAM_MERCHANT_FEE = "merchantFee";
     public static final String PARAM_SURCHARGE_FEE = "surchargeFee";
     public static final String PARAM_ADDITION_FEE = "additionFee";
-    public static final String PARAM_FSA_AMOUNT = "fsaAmount";
+
+    public static final String PARAM_HEALTH_CARD_TYPES = "healthCardTypes";
     public static final String PARAM_HEALTH_AMOUNT = "healthAmount";
     public static final String PARAM_CLINIC_AMOUNT = "clinicAmount";
     public static final String PARAM_DENTAL_AMOUNT = "dentalAmount";
@@ -57,6 +58,7 @@ public final class EntryExtraData {
     public static final String PARAM_RX_AMOUNT = "rxAmount";
     public static final String PARAM_VISION_AMOUNT = "visionAmount";
     public static final String PARAM_TRANSIT_AMOUNT = "transitAmount";
+
     public static final String PARAM_STATUS = "status";
     public static final String PARAM_CLERK_ID = "clerkID";
     public static final String PARAM_CLERK_NAME = "clerkName";
@@ -73,7 +75,6 @@ public final class EntryExtraData {
     public static final String PARAM_RESPONSE_STATUS = "responseStatus";
     public static final String PARAM_AVS_RESPONSE = "avsResponse";
     public static final String PARAM_ENTRY_MODE = "entryMode";
-    public static final String PARAM_FOOD_STAMPS_BALANCE = "foodStampsBalance";
-    public static final String PARAM_CASH_BENEFIT_BALANCE = "cashBenefitBalance";
+
 
 }

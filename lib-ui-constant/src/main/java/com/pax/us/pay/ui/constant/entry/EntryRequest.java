@@ -34,12 +34,14 @@ public class EntryRequest {
     public static final String PARAM_SIGNATURE = "signature";
     public static final String PARAM_VOUCHER_NUMBER = "voucherNumber";
     public static final String PARAM_AUTH_CODE = "authCode";
+
     public static final String PARAM_HEALTH_CARE_AMOUNT = "healthCareAmount";
     public static final String PARAM_CLINIC_AMOUNT = "clinicAmount";
     public static final String PARAM_PRESCRIPTION_AMOUNT = "prescriptionAmount";
     public static final String PARAM_VISION_AMOUNT = "visionAmount";
     public static final String PARAM_DENTAL_AMOUNT = "dentalAmount";
     public static final String PARAM_TRANSIT_AMOUNT = "transitAmount";
+
     public static final String PARAM_CASHBACK_AMOUNT = "cashbackAmount";
     public static final String PARAM_REFERENCE_NUMBER = "referenceNumber";
     public static final String PARAM_INVOICE_NUMBER = "invoiceNumber";
