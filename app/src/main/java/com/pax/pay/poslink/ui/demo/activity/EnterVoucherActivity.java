@@ -18,10 +18,8 @@ import com.pax.us.pay.ui.core.helper.VoucherHelper;
 
 public class EnterVoucherActivity extends AppCompatActivity implements View.OnClickListener, VoucherHelper.IEnterVoucherListener {
 
-    TextView promptTv1;
-    EditText mEditText1;
-    TextView promptTv2;
-    EditText mEditText2;
+    TextView promptTv;
+    EditText mEditText;
     Button confirmBtn;
 
     private int minLen, maxLen;
@@ -33,32 +31,24 @@ public class EnterVoucherActivity extends AppCompatActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_line_2_layout);
 
-        promptTv1 = (TextView) findViewById(R.id.prompt_tv_1);
-        mEditText1 = (EditText) findViewById(R.id.edit_tv_1);
-        promptTv2 = (TextView) findViewById(R.id.prompt_tv_2);
-        mEditText2 = (EditText) findViewById(R.id.edit_tv_2);
+        promptTv = (TextView) findViewById(R.id.prompt_tv_1);
+        mEditText = (EditText) findViewById(R.id.edit_tv_1);
         confirmBtn = (Button) findViewById(R.id.confirm_btn);
         confirmBtn.setOnClickListener(this);
 
-        promptTv1.setText("Please Enter Voucher Number");
-        promptTv2.setText("Please Enter Auth Code");
+        promptTv.setText("Please Enter Voucher Number");
         minLen = 0;
         maxLen = 30;
-        mEditText1.setSingleLine(true);
-        mEditText1.requestFocus();
-        mEditText1.setImeOptions(EditorInfo.IME_ACTION_DONE);
-        //mEditText1.setOnEditorActionListener();
+        mEditText.setSingleLine(true);
+        mEditText.requestFocus();
+        mEditText.setImeOptions(EditorInfo.IME_ACTION_DONE);
+        //mEditText.setOnEditorActionListener();
 
-
-        //Click KEY_BACK, then the editTv2 get IME_ACTION_DONE
-        mEditText2.setSingleLine(true);
-        //mEditText1.setOnEditorActionListener(new View.OnClickListener());
-        // mEditText.setCursorVisible(false);
 
         //mEditText.setOnKey
-        mEditText1.postDelayed(() -> {
+        mEditText.postDelayed(() -> {
             InputMethodManager imm = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.showSoftInput(mEditText1, InputMethodManager.SHOW_IMPLICIT);
+            imm.showSoftInput(mEditText, InputMethodManager.SHOW_IMPLICIT);
         }, 200);
 
 
@@ -70,7 +60,7 @@ public class EnterVoucherActivity extends AppCompatActivity implements View.OnCl
 
     @Override
     public void onClick(View view) {
-        helper.sendNext(mEditText1.getText().toString(), mEditText2.getText().toString());
+        helper.sendNext(mEditText.getText().toString());
     }
 
 
@@ -79,7 +69,7 @@ public class EnterVoucherActivity extends AppCompatActivity implements View.OnCl
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             helper.sendAbort();
         } else if (keyCode == KeyEvent.KEYCODE_ENTER) {
-            helper.sendNext(mEditText1.getText().toString(), mEditText2.getText().toString());
+            helper.sendNext(mEditText.getText().toString());
         }
         return false;
     }

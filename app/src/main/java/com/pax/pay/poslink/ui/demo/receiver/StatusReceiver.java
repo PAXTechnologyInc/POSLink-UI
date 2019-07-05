@@ -66,8 +66,19 @@ public class StatusReceiver extends android.content.BroadcastReceiver {
         EventBusUtil.doEvent(new ClssLightEvent(intent.getAction()));
     }
 
-//    private boolean getForegroundActivity(Context context) {
-//        //To Do Waiting for Verification
+    private boolean getForegroundActivity(Context context) {
+        //To Do Waiting for Verification
+//        try {
+//            int myTid = android.os.Process.myPid();
+//            int level = android.os.Process.getThreadPriority(myTid);
+//            if (level == THREAD_PRIORITY_BACKGROUND)
+//                return false;
+//            else
+//                return true;
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+        return false;
 //        ActivityManager activityManager = (ActivityManager) context
 //                .getSystemService(Context.ACTIVITY_SERVICE);
 //        List<ActivityManager.RunningAppProcessInfo> appProcesses = activityManager
@@ -84,6 +95,6 @@ public class StatusReceiver extends android.content.BroadcastReceiver {
 //            }
 //        }
 //        return false;
-//    }
+    }
 
 }

@@ -13,10 +13,9 @@ public class VoucherHelper extends BaseActionHelper {
         super(uiListener, respStatus);
     }
 
-    public void sendNext(String voucherNo, String authCode) {
+    public void sendNext(String voucherNo) {
         Bundle bundle = new Bundle();
         bundle.putString(EntryRequest.PARAM_VOUCHER_NUMBER, voucherNo);
-        bundle.putString(EntryRequest.PARAM_AUTH_CODE, authCode);
         super.sendNext(bundle);
     }
 

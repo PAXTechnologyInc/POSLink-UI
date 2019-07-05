@@ -21,8 +21,8 @@ public class DisplayInfoContent {
     public static final Map<String, String> BALANCE_MAP = new LinkedHashMap<>();
 
     static {
-        BALANCE_MAP.put(EntryExtraData.PARAM_CASH_BENEFIT, "Cash Benefit : ");
-        BALANCE_MAP.put(EntryExtraData.PARAM_FOOD_STAMP, "Food Stamp : ");
+        BALANCE_MAP.put(EntryExtraData.PARAM_CASH_BENEFIT_BALANCE, "Cash Benefit : ");
+        BALANCE_MAP.put(EntryExtraData.PARAM_FOOD_STAMPS_BALANCE, "Food Stamp : ");
         BALANCE_MAP.put(EntryExtraData.PARAM_BALANCE, "Balance : ");
     }
 

@@ -14,10 +14,9 @@ import android.widget.TextView;
 
 import com.pax.pay.poslink.ui.demo.R;
 import com.pax.pay.poslink.ui.demo.base.RespStatusImpl;
-import com.pax.us.pay.ui.core.helper.EnterInvoiceNumHelper;
 import com.pax.us.pay.ui.core.helper.EnterTransNumHelper;
 
-public class EnterTransNumActivity extends AppCompatActivity implements View.OnClickListener, EnterInvoiceNumHelper.IEnterInvoiceNumListener {
+public class EnterTransNumActivity extends AppCompatActivity implements View.OnClickListener, EnterTransNumHelper.IEnterTransNumberListener {
 
     TextView promptTv;
     EditText mEditText;
