@@ -26,10 +26,12 @@ public class EntryRequest {
     public static final String ACTION_SECURITY_AREA = "com.pax.us.pay.ui.SECURITY_AREA";
 
     public static final String PARAM_AMOUNT = "amount";
+    public static final String PARAM_POINT = "amount";
     public static final String PARAM_TIP = "tip";
     public static final String PARAM_ZIP_CODE = "zipCode";
     public static final String PARAM_TRANS_NUMBER = "transNumber";
     public static final String PARAM_EXPIRY_DATE = "expiryDate";
+    public static final String PARAM_ORIG_DATE = "origTransDate";
     public static final String PARAM_ADDRESS = "address";
     public static final String PARAM_SIGNATURE = "signature";
     public static final String PARAM_VOUCHER_NUMBER = "voucherNumber";
@@ -44,9 +46,22 @@ public class EntryRequest {
     public static final String PARAM_TRANSIT_AMOUNT = "transitAmount";
 
     public static final String PARAM_CASHBACK_AMOUNT = "cashbackAmount";
+    public static final String PARAM_FUEL_AMOUNT = "fuelAmount";
+    public static final String PARAM_TAX_AMOUNT = "taxAmount";
+
     public static final String PARAM_REFERENCE_NUMBER = "referenceNumber";
     public static final String PARAM_INVOICE_NUMBER = "invoiceNumber";
     public static final String PARAM_CLERK_ID = "clerkId";
+    public static final String PARAM_SERVER_ID = "serverId";
+    public static final String PARAM_TABLE_NUMBER = "tableNumber";
+    public static final String PARAM_PHONE_NUMBER = "phoneNumber";
+    public static final String PARAM_GUEST_NUMBER = "guestNumber";
+    public static final String PARAM_ORDER_NUMBER = "orderNumber";
+    public static final String PARAM_PO_NUMBER = "PONumber";
+    public static final String PARAM_PROC_DESC = "prodDesc";
+
+    public static final String PARAM_CUSTOMER_CODE = "customerCode";
+    public static final String PARAM_PROMPT_RESTRICTION_CODE = "promptRestrictionCode";
 
     public static final String PARAM_VALUE = "value";
 
