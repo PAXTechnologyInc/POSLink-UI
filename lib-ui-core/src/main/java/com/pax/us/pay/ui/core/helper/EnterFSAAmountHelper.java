@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 
 public class EnterFSAAmountHelper extends BaseActionHelper {
-    private List<String> amountOption;
+    private List<String> amountOption = null;
 
 
     public EnterFSAAmountHelper(@Nullable IEnterFSAAmountListener uiListener, @Nullable IRespStatus respStatus) {
@@ -29,6 +29,12 @@ public class EnterFSAAmountHelper extends BaseActionHelper {
 
     public void sendNext(long healthAmt, long clinicAmt, long prescriptionAmt, long dentalAmt
             , long visionAmt, long copayAmt, long transitAmt, long totalAmount) {
+
+        if (amountOption == null) {
+            decline(102301, "FSA AMOUNT OPTION IS EMPTY");
+            return;
+        }
+
         Map<String, Long> amtMap = new HashMap<>();
         amtMap.put(EntryRequest.PARAM_HEALTH_CARE_AMOUNT, healthAmt);
         amtMap.put(EntryRequest.PARAM_CLINIC_AMOUNT, clinicAmt);
@@ -76,6 +82,8 @@ public class EnterFSAAmountHelper extends BaseActionHelper {
         if (uiListener instanceof IAmountListener && bundle.containsKey(EntryExtraData.PARAM_DISP_AMOUNT)) {
             ((IAmountListener) uiListener).onShowAmount(bundle.getLong(EntryExtraData.PARAM_DISP_AMOUNT));
         }
+
+        amountOption = null;
 
         if (uiListener instanceof IFsaAmountOptionListener && bundle.containsKey(EntryExtraData.PARAM_FSA_AMOUNT_OPTIONS)) {
             String[] options = bundle.getStringArray(EntryExtraData.PARAM_FSA_AMOUNT_OPTIONS);
