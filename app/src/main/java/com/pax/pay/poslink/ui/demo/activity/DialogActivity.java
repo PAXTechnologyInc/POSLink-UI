@@ -112,13 +112,13 @@ public class DialogActivity extends AppCompatActivity {
                 hideDialog();
                 finish();
                 break;
-            case InformationStatus.CARD_REMOVAL_REQUIRED:
+            case CardStatus.CARD_REMOVAL_REQUIRED:
                 showWarnDialog("Remove card!");
                 break;
-            case InformationStatus.SEE_PHONE:
+            case CardStatus.SEE_PHONE:
                 showWarnDialog("Please See Phone");
                 break;
-            case InformationStatus.CARD_REMOVED:
+            case CardStatus.CARD_REMOVED:
                 hideDialog();
                 finish();
                 break;

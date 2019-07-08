@@ -12,7 +12,5 @@ public final class InformationStatus {
     public static final String TRANS_ONLINE_STARTED = "com.pax.us.pay.TRANS_ONLINE_STARTED";
     public static final String TRANS_ONLINE_FINISHED = "com.pax.us.pay.TRANS_ONLINE_FINISHED";
 
-    public static final String CARD_REMOVAL_REQUIRED = "com.pax.us.pay.CARD_REMOVAL_REQUIRED";
-    public static final String SEE_PHONE = "com.pax.us.pay.SEE_PHONE";
-    public static final String CARD_REMOVED = "com.pax.us.pay.CARD_REMOVED";
+    public static final String ERROR = "com.pax.us.pay.ERROR";
 }
