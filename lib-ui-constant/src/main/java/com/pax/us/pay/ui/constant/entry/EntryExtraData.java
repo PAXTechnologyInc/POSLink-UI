@@ -11,6 +11,7 @@ public final class EntryExtraData {
     public static final String PARAM_DISP_AMOUNT = "amount";
     public static final String PARAM_TIP_OPTIONS = "tipOptions";
     public static final String PARAM_CASHBACK_OPTIONS = "cashbackOptions";
+    public static final String PARAM_FSA_AMOUNT_OPTIONS = "fsaAmountOptions";
 
     public static final String PARAM_ENABLE_SWIPE = "enableSwipe";
     public static final String PARAM_ENABLE_INSERT = "enableInsert";

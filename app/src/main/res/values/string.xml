@@ -10,6 +10,7 @@
     <string name="fsa_prescription_amt">Prescription Amount</string>
     <string name="fsa_vision_amt">Vision Amount</string>
     <string name="fsa_dental_amt">Dental Amount</string>
+    <string name="fsa_copay_amt">Copay Amount</string>
     <string name="fsa_transit_amt">Transit Amount</string>
 
 </resources>
