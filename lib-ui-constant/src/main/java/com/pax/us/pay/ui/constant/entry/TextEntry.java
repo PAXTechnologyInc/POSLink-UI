@@ -70,7 +70,7 @@ public class TextEntry {
      * request: {@link EntryRequest#PARAM_DENTAL_AMOUNT}
      * request: {@link EntryRequest#PARAM_TRANSIT_AMOUNT}
      */
-    public static final String ACTION_ENTER_FSA_AMOUNT = "com.pax.us.pay.action.ENTER_FSA_AMOUNT";
+    public static final String ACTION_ENTER_FSA_DATA = "com.pax.us.pay.action.ENTER_FSA_DATA";
 
 
     /**

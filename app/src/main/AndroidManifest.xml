@@ -106,7 +106,7 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
-                <action android:name="com.pax.us.pay.action.ENTER_FSA_AMOUNT" />
+                <action android:name="com.pax.us.pay.action.ENTER_FSA_DATA" />
 
                 <category android:name="com.pax.us.pay.ui.category.TEXT" />
                 <category android:name="android.intent.category.DEFAULT" />
