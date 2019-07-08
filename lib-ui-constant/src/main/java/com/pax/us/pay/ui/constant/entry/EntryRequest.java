@@ -63,6 +63,16 @@ public class EntryRequest {
     public static final String PARAM_CUSTOMER_CODE = "customerCode";
     public static final String PARAM_PROMPT_RESTRICTION_CODE = "promptRestrictionCode";
 
+    public static final String PARAM_FLEET_CUSTOMER_DATA = "fleetCustomerData";
+    public static final String PARAM_FLEET_DEPARTMENT_NUMBER = "fleetDepartmentNumber";
+    public static final String PARAM_FLEET_USER_ID = "fleetUserId";
+    public static final String PARAM_FLEET_VEHICLE_ID = "fleetVehicleId";
+    public static final String PARAM_FLEET_VEHICLE_NUMBER = "fleetVehicleNumber";
+    public static final String PARAM_FLEET_JOB_NUMBER = "fleetJobNumber";
+    public static final String PARAM_FLEET_ODOMETER = "fleetOdometer";
+    public static final String PARAM_FLEET_DRIVER_ID = "fleetDriverId";
+    public static final String PARAM_FLEET_LICENSE_NUMBER = "fleetLicenseNumber";
+
     public static final String PARAM_VALUE = "value";
 
     public static final String PARAM_INDEX = "index";
