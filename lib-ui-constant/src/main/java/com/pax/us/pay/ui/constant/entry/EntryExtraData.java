@@ -52,7 +52,7 @@ public final class EntryExtraData {
     public static final String PARAM_ADDITION_FEE = "additionFee";
 
     public static final String PARAM_HEALTH_CARD_TYPES = "healthCardTypes";
-    public static final String PARAM_HEALTH_AMOUNT = "healthAmount";
+    public static final String PARAM_HEALTH_CARE_AMOUNT = "healthCareAmount";
     public static final String PARAM_CLINIC_AMOUNT = "clinicAmount";
     public static final String PARAM_DENTAL_AMOUNT = "dentalAmount";
     public static final String PARAM_COPAY_AMOUNT = "copayAmount";
