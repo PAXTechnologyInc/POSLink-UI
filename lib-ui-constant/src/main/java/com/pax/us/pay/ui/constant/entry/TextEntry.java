@@ -6,7 +6,7 @@ public class TextEntry {
      * The intent action of Enter Amount
      * input: {@link EntryExtraData#PARAM_PACKAGE}
      * input: {@link EntryExtraData#PARAM_MESSAGE}
-     * input: {@link EntryExtraData#PARAM_CURRENCY}
+     * input: {@link EntryExtraData#PARAM_CURRENCY}  enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType}
      * request: {@link EntryRequest#PARAM_AMOUNT}
      */
     public static final String ACTION_ENTER_AMOUNT = "com.pax.us.pay.action.ENTER_AMOUNT";
@@ -14,7 +14,8 @@ public class TextEntry {
      * The intent action of Enter Tip
      * input: {@link EntryExtraData#PARAM_PACKAGE}
      * input: {@link EntryExtraData#PARAM_MESSAGE}
-     * input: {@link EntryExtraData#PARAM_CURRENCY}
+     * input: {@link EntryExtraData#PARAM_CURRENCY}  enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType}
+     * input: {@link EntryExtraData#PARAM_TOTAL_AMOUNT}
      * request: {@link EntryRequest#PARAM_TIP}
      */
     public static final String ACTION_ENTER_TIP = "com.pax.us.pay.action.ENTER_TIP";
@@ -63,12 +64,17 @@ public class TextEntry {
      * The intent action of Enter FSA Amount
      * input: {@link EntryExtraData#PARAM_PACKAGE}
      * input: {@link EntryExtraData#PARAM_MESSAGE}
+     * input: {@link EntryExtraData#PARAM_CURRENCY}  enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType}
+     * input: {@link EntryExtraData#PARAM_TOTAL_AMOUNT}
+     * input: {@link EntryExtraData#PARAM_FSA_AMOUNT_OPTIONS} enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.FSAAmountType}
      * request: {@link EntryRequest#PARAM_HEALTH_CARE_AMOUNT}
      * request: {@link EntryRequest#PARAM_CLINIC_AMOUNT}
      * request: {@link EntryRequest#PARAM_PRESCRIPTION_AMOUNT}
      * request: {@link EntryRequest#PARAM_VISION_AMOUNT}
      * request: {@link EntryRequest#PARAM_DENTAL_AMOUNT}
+     * request: {@link EntryRequest#PARAM_COPAY_AMOUNT}
      * request: {@link EntryRequest#PARAM_TRANSIT_AMOUNT}
+     * @see {@link EntryExtraData#PARAM_FSA_AMOUNT_OPTIONS} control which request field will be send
      */
     public static final String ACTION_ENTER_FSA_DATA = "com.pax.us.pay.action.ENTER_FSA_DATA";
 

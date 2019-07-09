@@ -8,7 +8,6 @@ public final class EntryExtraData {
     public static final String PARAM_OPTIONS = "options";
 
     public static final String PARAM_CURRENCY = "currency";
-    public static final String PARAM_DISP_AMOUNT = "amount";
     public static final String PARAM_TIP_OPTIONS = "tipOptions";
     public static final String PARAM_CASHBACK_OPTIONS = "cashbackOptions";
     public static final String PARAM_FSA_AMOUNT_OPTIONS = "fsaAmountOptions";
