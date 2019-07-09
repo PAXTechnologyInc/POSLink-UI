@@ -26,7 +26,6 @@ public class EntryRequest {
     public static final String ACTION_SECURITY_AREA = "com.pax.us.pay.ui.SECURITY_AREA";
 
     public static final String PARAM_AMOUNT = "amount";
-    public static final String PARAM_POINT = "amount";
     public static final String PARAM_TIP = "tip";
     public static final String PARAM_ZIP_CODE = "zipCode";
     public static final String PARAM_TRANS_NUMBER = "transNumber";

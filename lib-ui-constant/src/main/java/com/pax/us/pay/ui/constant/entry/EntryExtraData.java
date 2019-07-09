@@ -10,7 +10,7 @@ public final class EntryExtraData {
     public static final String PARAM_CURRENCY = "currency";
     public static final String PARAM_TIP_OPTIONS = "tipOptions";
     public static final String PARAM_CASHBACK_OPTIONS = "cashbackOptions";
-    public static final String PARAM_FSA_AMOUNT_OPTIONS = "fsaAmountOptions";
+
 
     public static final String PARAM_ENABLE_SWIPE = "enableSwipe";
     public static final String PARAM_ENABLE_INSERT = "enableInsert";
@@ -41,16 +41,13 @@ public final class EntryExtraData {
     public static final String PARAM_BASE_AMOUNT = "baseAmount";
     public static final String PARAM_TOTAL_AMOUNT = "totalAmount";
     public static final String PARAM_APPROVED_AMOUNT = "approvedAmount";
-    public static final String PARAM_BASE_POINTS = "basePoints";
-    public static final String PARAM_TOTAL_POINTS = "totalPoints";
-    public static final String PARAM_APPROVED_POINTS = "approvedPoints";
     public static final String PARAM_TAX = "tax";
     public static final String PARAM_CASH_BACK = "cashBack";
     public static final String PARAM_MERCHANT_FEE = "merchantFee";
     public static final String PARAM_SURCHARGE_FEE = "surchargeFee";
     public static final String PARAM_ADDITION_FEE = "additionFee";
 
-    public static final String PARAM_HEALTH_CARD_TYPES = "healthCardTypes";
+    public static final String PARAM_FSA_AMOUNT_OPTIONS = "fsaAmountOptions";
     public static final String PARAM_HEALTH_CARE_AMOUNT = "healthCareAmount";
     public static final String PARAM_CLINIC_AMOUNT = "clinicAmount";
     public static final String PARAM_DENTAL_AMOUNT = "dentalAmount";
