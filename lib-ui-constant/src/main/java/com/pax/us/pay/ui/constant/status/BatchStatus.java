@@ -10,4 +10,8 @@ public final class BatchStatus {
     public static final String BATCH_SF_STARTED = "com.pax.us.pay.BATCH_SF_STARTED";
     public static final String BATCH_SF_UPLOADING = "com.pax.us.pay.BATCH_UPLOADING";
     public static final String BATCH_SF_COMPLETED = "com.pax.us.pay.BATCH_SF_COMPLETED";
+
+    public static final String PARAM_SF_TYPE = "sfType";
+    public static final String PARAM_SF_CURRENT = "sfCurrent";
+    public static final String PARAM_SF_TOTAL = "sfTotal";
 }
