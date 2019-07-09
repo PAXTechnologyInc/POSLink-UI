@@ -41,6 +41,9 @@ public final class EntryExtraData {
     public static final String PARAM_BASE_AMOUNT = "baseAmount";
     public static final String PARAM_TOTAL_AMOUNT = "totalAmount";
     public static final String PARAM_APPROVED_AMOUNT = "approvedAmount";
+    public static final String PARAM_BASE_POINTS = "basePoints";
+    public static final String PARAM_TOTAL_POINTS = "totalPoints";
+    public static final String PARAM_APPROVED_POINTS = "approvedPoints";
     public static final String PARAM_TAX = "tax";
     public static final String PARAM_CASH_BACK = "cashBack";
     public static final String PARAM_MERCHANT_FEE = "merchantFee";
