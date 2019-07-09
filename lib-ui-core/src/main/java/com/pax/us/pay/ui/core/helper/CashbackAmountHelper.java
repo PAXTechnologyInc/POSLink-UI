@@ -29,9 +29,8 @@ public class CashbackAmountHelper extends BaseActionHelper {
     protected void showUI(@Nullable IUIListener uiListener, @NonNull Bundle bundle) {
         super.showUI(uiListener, bundle);
         if (uiListener instanceof ICurrencyListener) {
-            String currency = bundle.getString(EntryExtraData.PARAM_CURRENCY, "");
-            if (currency.length() > 0)
-                ((ICashbackListener) uiListener).onShowCurrency(currency);
+            String currency = bundle.getString(EntryExtraData.PARAM_CURRENCY, "USD");
+            ((ICashbackListener) uiListener).onShowCurrency(currency);
         }
         if (uiListener instanceof ICashbackOptionListener && bundle.containsKey(EntryExtraData.PARAM_CASHBACK_OPTIONS)) {
             String[] options = bundle.getStringArray(EntryExtraData.PARAM_CASHBACK_OPTIONS);

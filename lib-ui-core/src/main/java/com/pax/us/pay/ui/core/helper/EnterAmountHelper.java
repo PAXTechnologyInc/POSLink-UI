@@ -22,9 +22,8 @@ public class EnterAmountHelper extends BaseActionHelper {
     protected void showUI(@Nullable IUIListener uiListener, @NonNull Bundle bundle) {
         super.showUI(uiListener, bundle);
         if (uiListener instanceof ICurrencyListener) {
-            String currency = bundle.getString(EntryExtraData.PARAM_CURRENCY, "");
-            if (currency.length() > 0)
-                ((ICurrencyListener) uiListener).onShowCurrency(currency);
+            String currency = bundle.getString(EntryExtraData.PARAM_CURRENCY, "USD");
+            ((ICurrencyListener) uiListener).onShowCurrency(currency);
         }
     }
 
