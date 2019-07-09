@@ -25,7 +25,7 @@ public class RespStatusImpl implements IRespStatus {
     }
 
     @Override
-    public void onDeclined(int code, String message) {
+    public void onDeclined(long code, String message) {
         Activity activity = activityWeakReference.get();
         if (activity != null) {
             activity.runOnUiThread(() -> {

@@ -19,9 +19,9 @@
 package com.pax.pay.poslink.ui.demo.event;
 
 
-public class PINEvent extends Event<String, Integer> {
+public class PINEvent extends Event<String, Long> {
 
-    public PINEvent(String status, int data) {
+    public PINEvent(String status, long data) {
         super(status, data);
     }
 }

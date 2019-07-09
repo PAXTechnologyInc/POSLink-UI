@@ -55,7 +55,7 @@ public class StatusReceiver extends android.content.BroadcastReceiver {
 
     private void doPinEvent(Intent intent) {
         String action = intent.getAction();
-        int length = intent.getIntExtra("pinLength", 0);
+        long length = intent.getLongExtra("pinLength", 0);
         EventBusUtil.doEvent(new PINEvent(action, length));
     }
 

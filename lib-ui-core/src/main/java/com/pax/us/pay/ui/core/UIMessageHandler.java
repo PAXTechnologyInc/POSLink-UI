@@ -98,7 +98,7 @@ class UIMessageHandler implements IActionHandler {
                     break;
                 case EntryResponse.ACTION_DECLINED:
                     if (resp != null) {
-                        resp.onDeclined(intent.getIntExtra(EntryResponse.PARAM_CODE, -1),
+                        resp.onDeclined(intent.getLongExtra(EntryResponse.PARAM_CODE, -1),
                                 intent.getStringExtra(EntryResponse.PARAM_MSG));
                     }
                     break;
