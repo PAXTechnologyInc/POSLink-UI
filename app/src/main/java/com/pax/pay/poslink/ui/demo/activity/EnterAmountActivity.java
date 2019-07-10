@@ -83,12 +83,15 @@ public class EnterAmountActivity extends AppCompatActivity implements View.OnCli
 
     @Override
     public void onShowCurrency(@Nullable String currency) {
+
+    }
+
+    @Override
+    public void onShowPoint() {
+        promptTv.setText("Please Input Point");
     }
 
     @Override
     public void onShowMessage(@Nullable String transName, @Nullable String message) {
-        if (message != null && !message.equals(""))
-            promptTv.setText(message);
-
     }
 }

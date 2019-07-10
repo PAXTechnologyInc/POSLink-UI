@@ -258,6 +258,11 @@ public class EnterFSAAmountActivity extends AppCompatActivity implements View.On
     }
 
     @Override
+    public void onShowPoint() {
+
+    }
+
+    @Override
     public void onShowMessage(@Nullable String transName, @Nullable String message) {
 
     }

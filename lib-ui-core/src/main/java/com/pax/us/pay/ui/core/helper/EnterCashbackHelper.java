@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import com.pax.us.pay.ui.constant.entry.EntryExtraData;
 import com.pax.us.pay.ui.constant.entry.EntryRequest;
 import com.pax.us.pay.ui.core.BaseActionHelper;
+import com.pax.us.pay.ui.core.api.IAmountListener;
 import com.pax.us.pay.ui.core.api.ICashbackOptionListener;
 import com.pax.us.pay.ui.core.api.ICurrencyListener;
 import com.pax.us.pay.ui.core.api.IMessageListener;
@@ -26,6 +27,13 @@ public class EnterCashbackHelper extends BaseActionHelper {
             String currency = bundle.getString(EntryExtraData.PARAM_CURRENCY, "USD");
             ((ICurrencyListener) uiListener).onShowCurrency(currency);
         }
+
+        if (uiListener instanceof IAmountListener && bundle.containsKey(EntryExtraData.PARAM_TOTAL_AMOUNT)) {
+            Object obj = bundle.get(EntryExtraData.PARAM_TOTAL_AMOUNT);
+            if (obj != null)
+                ((IAmountListener) uiListener).onShowAmount((long) obj);
+        }
+
         if (uiListener instanceof ICashbackOptionListener && bundle.containsKey(EntryExtraData.PARAM_CASHBACK_OPTIONS)) {
             String[] options = bundle.getStringArray(EntryExtraData.PARAM_CASHBACK_OPTIONS);
             if (options.length > 0)
@@ -39,6 +47,6 @@ public class EnterCashbackHelper extends BaseActionHelper {
         super.sendNext(bundle);
     }
 
-    public interface IEnterCashbackListener extends IMessageListener, ICurrencyListener, ICashbackOptionListener {
+    public interface IEnterCashbackListener extends IMessageListener, ICurrencyListener, IAmountListener, ICashbackOptionListener {
     }
 }

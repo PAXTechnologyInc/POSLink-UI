@@ -95,4 +95,19 @@ public class EnterVoucherActivity extends AppCompatActivity implements View.OnCl
     public void onShowMessage(@Nullable String transName, @Nullable String message) {
 
     }
+
+    @Override
+    public void onShowAmount(long amount) {
+
+    }
+
+    @Override
+    public void onShowCurrency(@Nullable String currency) {
+
+    }
+
+    @Override
+    public void onShowPoint() {
+
+    }
 }

@@ -4,4 +4,7 @@ import android.support.annotation.Nullable;
 
 public interface ICurrencyListener extends IUIListener {
     void onShowCurrency(@Nullable String currency);
+
+    void onShowPoint();
+
 }

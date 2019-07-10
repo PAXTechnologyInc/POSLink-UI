@@ -83,7 +83,5 @@ public class EnterClerkIdActivity extends AppCompatActivity implements View.OnCl
 
     @Override
     public void onShowMessage(@Nullable String transName, @Nullable String message) {
-        if (message != null && !message.equals(""))
-            promptTv.setText(message);
     }
 }

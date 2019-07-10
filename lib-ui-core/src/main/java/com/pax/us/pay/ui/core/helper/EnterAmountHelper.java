@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 
 import com.pax.us.pay.ui.constant.entry.EntryExtraData;
 import com.pax.us.pay.ui.constant.entry.EntryRequest;
+import com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType;
 import com.pax.us.pay.ui.core.BaseActionHelper;
 import com.pax.us.pay.ui.core.api.ICurrencyListener;
 import com.pax.us.pay.ui.core.api.IMessageListener;
@@ -23,7 +24,10 @@ public class EnterAmountHelper extends BaseActionHelper {
         super.showUI(uiListener, bundle);
         if (uiListener instanceof ICurrencyListener) {
             String currency = bundle.getString(EntryExtraData.PARAM_CURRENCY, "USD");
-            ((ICurrencyListener) uiListener).onShowCurrency(currency);
+            if (currency.equals(CurrencyType.POINT))
+                ((ICurrencyListener) uiListener).onShowPoint();
+            else
+                ((ICurrencyListener) uiListener).onShowCurrency(currency);
         }
     }
 

@@ -37,7 +37,7 @@ public class DisplayBalanceActivity extends AppCompatActivity implements View.On
         btnCancel.setOnClickListener(this);
         btnConfirm = (Button) findViewById(R.id.confirm_btn);
         btnConfirm.setOnClickListener(this);
-
+        promptTv.setText("EBT Balance : ");
         llDetailContainer = (LinearLayout) findViewById(R.id.detail_layout);
 
         helper = new ConfirmHelper(this, new RespStatusImpl(this));
@@ -80,8 +80,6 @@ public class DisplayBalanceActivity extends AppCompatActivity implements View.On
 
     @Override
     public void onShowMessage(@Nullable String transName, @Nullable String message) {
-        if (message != null && !message.equals(""))
-            promptTv.setText(message);
 
     }
 

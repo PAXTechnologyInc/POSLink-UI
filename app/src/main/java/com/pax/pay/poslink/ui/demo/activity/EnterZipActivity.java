@@ -85,7 +85,5 @@ public class EnterZipActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onShowMessage(@Nullable String transName, @Nullable String message) {
-        if (message != null && !message.equals(""))
-            promptTv.setText(message);
     }
 }

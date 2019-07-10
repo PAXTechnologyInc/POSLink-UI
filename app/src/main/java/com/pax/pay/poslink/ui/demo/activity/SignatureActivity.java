@@ -115,9 +115,7 @@ public class SignatureActivity extends AppCompatActivity implements View.OnClick
         } else if (i == R.id.cancel_btn) {
             helper.sendAbort();
 
-        } else {
         }
-
     }
 
     @Override
@@ -164,6 +162,11 @@ public class SignatureActivity extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onShowCurrency(String currency) {
+    }
+
+    @Override
+    public void onShowPoint() {
+
     }
 
 

@@ -78,8 +78,10 @@ public class EnterFSAAmountHelper extends BaseActionHelper {
             ((ICurrencyListener) uiListener).onShowCurrency(currency);
         }
 
-        if (uiListener instanceof IAmountListener && bundle.containsKey(EntryExtraData.PARAM_DISP_AMOUNT)) {
-            ((IAmountListener) uiListener).onShowAmount(bundle.getLong(EntryExtraData.PARAM_DISP_AMOUNT));
+        if (uiListener instanceof IAmountListener && bundle.containsKey(EntryExtraData.PARAM_TOTAL_AMOUNT)) {
+            Object obj = bundle.get(EntryExtraData.PARAM_TOTAL_AMOUNT);
+            if (obj != null)
+                ((IAmountListener) uiListener).onShowAmount((long) obj);
         }
 
         amountOption = null;

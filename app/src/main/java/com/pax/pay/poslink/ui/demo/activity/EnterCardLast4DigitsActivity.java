@@ -91,8 +91,20 @@ public class EnterCardLast4DigitsActivity extends AppCompatActivity implements V
 
     @Override
     public void onShowMessage(@Nullable String transName, @Nullable String message) {
-        if (message != null && !message.equals("")) {
-            promptTitle.setText(message);
-        }
+    }
+
+    @Override
+    public void onShowAmount(long amount) {
+
+    }
+
+    @Override
+    public void onShowCurrency(@Nullable String currency) {
+
+    }
+
+    @Override
+    public void onShowPoint() {
+
     }
 }

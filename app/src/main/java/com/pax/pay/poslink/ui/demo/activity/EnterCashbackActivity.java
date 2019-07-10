@@ -129,9 +129,17 @@ public class EnterCashbackActivity extends AppCompatActivity implements View.OnC
     }
 
     @Override
+    public void onShowPoint() {
+
+    }
+
+    @Override
+    public void onShowAmount(long amount) {
+
+    }
+
+    @Override
     public void onShowMessage(@Nullable String transName, @Nullable String message) {
-        if (message != null && !message.equals(""))
-            promptTv.setText(message);
     }
 
 

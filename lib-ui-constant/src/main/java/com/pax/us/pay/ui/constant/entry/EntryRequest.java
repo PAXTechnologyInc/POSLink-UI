@@ -2,37 +2,71 @@ package com.pax.us.pay.ui.constant.entry;
 
 public class EntryRequest {
     /**
-     * NEXT with value: request BroadPOS to go to next step with input value.
+     * NEXT with value: request BroadPOS to go to next step with input value. <br>
      */
     public static final String ACTION_NEXT = "com.pax.us.pay.ui.NEXT";
 
     /**
-     * ABORT: request BroadPOS to abort the transaction.
+     * ABORT: request BroadPOS to abort the transaction. <br>
      */
     public static final String ACTION_ABORT = "com.pax.us.pay.ui.ABORT";
 
     /**
-     * PREV: request BroadPOS to go to previous step .
+     * PREV: request BroadPOS to go to previous step . <br>
      */
     public static final String ACTION_PREV = "com.pax.us.pay.ui.PREV";
 
     /**
-     * SECURITY_AREA: request BroadPOS to show security widget on a specific position.
-     * param: {@link EntryRequest#PARAM_X}
-     * param: {@link EntryRequest#PARAM_Y}
-     * param: {@link EntryRequest#PARAM_WIDTH}
-     * param: {@link EntryRequest#PARAM_HEIGHT}
+     * SECURITY_AREA: request BroadPOS to show security widget on a specific position. <br>
+     * param: {@link EntryRequest#PARAM_X} <br>
+     * param: {@link EntryRequest#PARAM_Y} <br>
+     * param: {@link EntryRequest#PARAM_WIDTH} <br>
+     * param: {@link EntryRequest#PARAM_HEIGHT} <br>
      */
     public static final String ACTION_SECURITY_AREA = "com.pax.us.pay.ui.SECURITY_AREA";
 
+    /**
+     * PARAM_AMOUNT : request parameter amount <br>
+     * value type: long <br>
+     */
     public static final String PARAM_AMOUNT = "amount";
-    public static final String PARAM_POINT = "amount";
+    public static final String PARAM_POINT = "amount";  ///?????????????????????
+    /**
+     * PARAM_TIP : request parameter tip amount <br>
+     * value type: long <br>
+     */
     public static final String PARAM_TIP = "tip";
+    /**
+     * PARAM_ZIP_CODE : request parameter zip code <br>
+     * value type: String <br>
+     */
     public static final String PARAM_ZIP_CODE = "zipCode";
+    /**
+     * PARAM_TRANS_NUMBER : request parameter transaction number <br>
+     * value type: String <br>
+     */
     public static final String PARAM_TRANS_NUMBER = "transNumber";
+    /**
+     * PARAM_EXPIRY_DATE : request parameter card expiry date <br>
+     * value type: String <br>
+     * format: MMYY <br>
+     */
     public static final String PARAM_EXPIRY_DATE = "expiryDate";
+    /**
+     * PARAM_TRANS_NUMBER : request parameter transaction number <br>
+     * value type: String <br>
+     * format:   <br>   ?????????????????
+     */
     public static final String PARAM_ORIG_DATE = "origTransDate";
+    /**
+     * PARAM_ADDRESS : request parameter address <br>
+     * value type: String <br>
+     */
     public static final String PARAM_ADDRESS = "address";
+    /**
+     * PARAM_SIGNATURE : request parameter trace data of signature <br>
+     * value type: short[] <br>
+     */
     public static final String PARAM_SIGNATURE = "signature";
     public static final String PARAM_VOUCHER_NUMBER = "voucherNumber";
     public static final String PARAM_AUTH_CODE = "authCode";

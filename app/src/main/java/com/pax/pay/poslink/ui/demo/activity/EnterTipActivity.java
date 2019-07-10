@@ -130,9 +130,17 @@ public class EnterTipActivity extends AppCompatActivity implements View.OnClickL
     }
 
     @Override
+    public void onShowPoint() {
+
+    }
+
+    @Override
+    public void onShowAmount(long amount) {
+
+    }
+
+    @Override
     public void onShowMessage(@Nullable String transName, @Nullable String message) {
-        if (message != null && !message.equals(""))
-            promptTv.setText(message);
     }
 
     @Override
@@ -174,6 +182,7 @@ public class EnterTipActivity extends AppCompatActivity implements View.OnClickL
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setAdapter(mAdapter);
     }
+
 
     class OptionModelViewHolder extends BaseViewHolder<String> {
         TextView textView;

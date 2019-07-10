@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 
 import com.pax.us.pay.ui.constant.entry.EntryExtraData;
 import com.pax.us.pay.ui.constant.entry.EntryRequest;
+import com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType;
 import com.pax.us.pay.ui.core.BaseActionHelper;
 import com.pax.us.pay.ui.core.api.IAmountListener;
 import com.pax.us.pay.ui.core.api.ICurrencyListener;
@@ -29,11 +30,16 @@ public class SignatureHelper extends BaseActionHelper {
         super.showUI(uiListener, bundle);
         if (uiListener instanceof ICurrencyListener) {
             String currency = bundle.getString(EntryExtraData.PARAM_CURRENCY, "USD");
-            ((ICurrencyListener) uiListener).onShowCurrency(currency);
+            if (currency.equals(CurrencyType.POINT))
+                ((ICurrencyListener) uiListener).onShowPoint();
+            else
+                ((ICurrencyListener) uiListener).onShowCurrency(currency);
         }
 
-        if (uiListener instanceof IAmountListener && bundle.containsKey(EntryExtraData.PARAM_DISP_AMOUNT)) {
-            ((IAmountListener) uiListener).onShowAmount(bundle.getLong(EntryExtraData.PARAM_DISP_AMOUNT));
+        if (uiListener instanceof IAmountListener && bundle.containsKey(EntryExtraData.PARAM_TOTAL_AMOUNT)) {
+            Object obj = bundle.get(EntryExtraData.PARAM_TOTAL_AMOUNT);
+            if (obj != null)
+                ((IAmountListener) uiListener).onShowAmount((long) obj);
         }
     }
 

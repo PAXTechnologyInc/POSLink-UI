@@ -83,7 +83,5 @@ public class EnterInvoiceNumActivity extends AppCompatActivity implements View.O
 
     @Override
     public void onShowMessage(@Nullable String transName, @Nullable String message) {
-        if (message != null && !message.equals(""))
-            promptTv.setText(message);
     }
 }
