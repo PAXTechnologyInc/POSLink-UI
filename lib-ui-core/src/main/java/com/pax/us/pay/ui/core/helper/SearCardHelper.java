@@ -51,10 +51,10 @@ public class SearCardHelper extends BaseActionHelper {
 
         if (uiListener instanceof ICardListener) {
             ((ICardListener) uiListener).onShowCard(
-                    bundle.getBoolean(EntryExtraData.PARAM_ENABLE_MANUAL, false),
-                    bundle.getBoolean(EntryExtraData.PARAM_ENABLE_SWIPE, false),
-                    bundle.getBoolean(EntryExtraData.PARAM_ENABLE_INSERT, false),
-                    bundle.getBoolean(EntryExtraData.PARAM_ENABLE_TAP, false)
+                    bundle.getBoolean(EntryExtraData.PARAM_ENABLE_MANUAL, true),
+                    bundle.getBoolean(EntryExtraData.PARAM_ENABLE_SWIPE, true),
+                    bundle.getBoolean(EntryExtraData.PARAM_ENABLE_INSERT, true),
+                    bundle.getBoolean(EntryExtraData.PARAM_ENABLE_TAP, true)
             );
         }
     }
