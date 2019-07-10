@@ -39,9 +39,7 @@ public class EnterTipHelper extends BaseActionHelper {
         }
 
         if (uiListener instanceof IAmountListener && bundle.containsKey(EntryExtraData.PARAM_TOTAL_AMOUNT)) {
-            Object obj = bundle.get(EntryExtraData.PARAM_TOTAL_AMOUNT);
-            if (obj != null)
-                ((IAmountListener) uiListener).onShowAmount((long) obj);
+            ((IAmountListener) uiListener).onShowAmount(bundle.getLong(EntryExtraData.PARAM_TOTAL_AMOUNT));
         }
 
         if (uiListener instanceof ITipOptionListener && bundle.containsKey(EntryExtraData.PARAM_TIP_OPTIONS)) {

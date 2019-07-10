@@ -36,7 +36,7 @@ public class VoucherHelper extends BaseActionHelper {
             else
                 ((ICurrencyListener) uiListener).onShowCurrency(currency, false);
 
-            ((IAmountListener) uiListener).onShowAmount((long) bundle.get(EntryExtraData.PARAM_TOTAL_AMOUNT));
+            ((IAmountListener) uiListener).onShowAmount(bundle.getLong(EntryExtraData.PARAM_TOTAL_AMOUNT));
         }
     }
 
