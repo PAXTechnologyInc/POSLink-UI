@@ -262,66 +262,55 @@ public class EnterFSAAmountActivity extends AppCompatActivity implements View.On
 
     }
 
-    @Override
-    public void onShowHealthCareAmount() {
-        healthcareLayout.setVisibility(View.VISIBLE);
-        setEditTextAmount(healthcareEditText);
-
-        healthcareEditText.requestFocus();
-        healthcareEditText.postDelayed(() -> {
-            InputMethodManager imm = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.showSoftInput(healthcareEditText, InputMethodManager.SHOW_IMPLICIT);
-        }, 200);
-        healthcardEnable = true;
-        return;
-    }
 
     @Override
-    public void onShowClinicAmount() {
-        clinicLayout.setVisibility(View.VISIBLE);
-        setEditTextAmount(clinicEditText);
-        return;
-    }
+    public void onShowFsaAmountOption(boolean healthCareAmountVisible, boolean ClinicAmountVisible, boolean prescriptionVisible,
+                                      boolean dentalVisible, boolean versionVisible, boolean copayVisible, boolean transitAmount) {
+        if (healthCareAmountVisible) {
+            healthcareLayout.setVisibility(View.VISIBLE);
+            setEditTextAmount(healthcareEditText);
 
-    @Override
-    public void onShowPrescriptionAmt() {
-        prescriptionLayout.setVisibility(View.VISIBLE);
-        setEditTextAmount(prescriptionEditText);
-        return;
-    }
-
-    @Override
-    public void onShowDentalAmount() {
-        dentalLayout.setVisibility(View.VISIBLE);
-        setEditTextAmount(dentalEditText);
-        return;
-    }
-
-    @Override
-    public void onShowVisionAmount() {
-        visionLayout.setVisibility(View.VISIBLE);
-        setEditTextAmount(visionEditText);
-        return;
-    }
-
-    @Override
-    public void onShowCopayAmount() {
-        copayLayout.setVisibility(View.VISIBLE);
-        setEditTextAmount(copayEditText);
-        return;
-    }
-
-    @Override
-    public void onShowTransitAmount() {
-        transitLayout.setVisibility(View.VISIBLE);
-        setEditTextAmount(transitEditText);
-        if (healthcardEnable == false) {
-            transitLayout.requestFocus();
-            transitLayout.postDelayed(() -> {
+            healthcareEditText.requestFocus();
+            healthcareEditText.postDelayed(() -> {
                 InputMethodManager imm = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.showSoftInput(transitLayout, InputMethodManager.SHOW_IMPLICIT);
+                imm.showSoftInput(healthcareEditText, InputMethodManager.SHOW_IMPLICIT);
             }, 200);
+            healthcardEnable = true;
         }
-        return;
+        if (ClinicAmountVisible) {
+            clinicLayout.setVisibility(View.VISIBLE);
+            setEditTextAmount(clinicEditText);
+        }
+        if (prescriptionVisible) {
+            prescriptionLayout.setVisibility(View.VISIBLE);
+            setEditTextAmount(prescriptionEditText);
+        }
+
+        if (dentalVisible) {
+            dentalLayout.setVisibility(View.VISIBLE);
+            setEditTextAmount(dentalEditText);
+        }
+
+        if (versionVisible) {
+            visionLayout.setVisibility(View.VISIBLE);
+            setEditTextAmount(visionEditText);
+        }
+
+        if (copayVisible) {
+            copayLayout.setVisibility(View.VISIBLE);
+            setEditTextAmount(copayEditText);
+        }
+
+        if (transitAmount) {
+            transitLayout.setVisibility(View.VISIBLE);
+            setEditTextAmount(transitEditText);
+            if (healthcardEnable == false) {
+                transitLayout.requestFocus();
+                transitLayout.postDelayed(() -> {
+                    InputMethodManager imm = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.showSoftInput(transitLayout, InputMethodManager.SHOW_IMPLICIT);
+                }, 200);
+            }
+        }
     }
 }

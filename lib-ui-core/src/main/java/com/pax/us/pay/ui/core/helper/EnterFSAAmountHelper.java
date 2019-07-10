@@ -73,6 +73,9 @@ public class EnterFSAAmountHelper extends BaseActionHelper {
     @Override
     protected void showUI(@Nullable IUIListener uiListener, @NonNull Bundle bundle) {
         super.showUI(uiListener, bundle);
+        boolean healthCareVisible, ClinicVisible, prescriptionVisible;
+        boolean dentalVisible, versionVisible, copayVisible, transitVisible;
+
         if (uiListener instanceof ICurrencyListener) {
             String currency = bundle.getString(EntryExtraData.PARAM_CURRENCY, "USD");
             ((ICurrencyListener) uiListener).onShowCurrency(currency, false);
@@ -88,37 +91,43 @@ public class EnterFSAAmountHelper extends BaseActionHelper {
 
         if (uiListener instanceof IFsaAmountOptionListener && bundle.containsKey(EntryExtraData.PARAM_FSA_AMOUNT_OPTIONS)) {
             String[] options = bundle.getStringArray(EntryExtraData.PARAM_FSA_AMOUNT_OPTIONS);
-
+            healthCareVisible = false;
+            ClinicVisible = false;
+            prescriptionVisible = false;
+            dentalVisible = false;
+            versionVisible = false;
+            copayVisible = false;
+            transitVisible = false;
             if (options != null && options.length > 0) {
                 amountOption = Arrays.asList(options);
-                //((IFsaAmountOptionListener) uiListener).onShowFsaAmountOption(options);
                 for (String amtType : amountOption) {
-                    //map.get(amtType);
                     switch (amtType) {
                         case EntryRequest.PARAM_HEALTH_CARE_AMOUNT:
-                            ((IFsaAmountOptionListener) uiListener).onShowHealthCareAmount();
+                            healthCareVisible = true;
                             break;
                         case EntryRequest.PARAM_CLINIC_AMOUNT:
-                            ((IFsaAmountOptionListener) uiListener).onShowClinicAmount();
+                            ClinicVisible = true;
                             break;
                         case EntryRequest.PARAM_PRESCRIPTION_AMOUNT:
-                            ((IFsaAmountOptionListener) uiListener).onShowPrescriptionAmt();
+                            prescriptionVisible = true;
                             break;
                         case EntryRequest.PARAM_DENTAL_AMOUNT:
-                            ((IFsaAmountOptionListener) uiListener).onShowDentalAmount();
+                            dentalVisible = true;
                             break;
                         case EntryRequest.PARAM_VISION_AMOUNT:
-                            ((IFsaAmountOptionListener) uiListener).onShowVisionAmount();
+                            versionVisible = true;
                             break;
                         case EntryRequest.PARAM_COPAY_AMOUNT:
-                            ((IFsaAmountOptionListener) uiListener).onShowCopayAmount();
+                            copayVisible = true;
                             break;
                         case EntryRequest.PARAM_TRANSIT_AMOUNT:
-                            ((IFsaAmountOptionListener) uiListener).onShowTransitAmount();
+                            transitVisible = true;
                             break;
                     }
                 } //for
             }// options not null
+            ((IFsaAmountOptionListener) uiListener).onShowFsaAmountOption(healthCareVisible, ClinicVisible, prescriptionVisible,
+                    dentalVisible, versionVisible, copayVisible, transitVisible);
         }
     }
 
