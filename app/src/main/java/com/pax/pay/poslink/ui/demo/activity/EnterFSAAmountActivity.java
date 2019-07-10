@@ -254,12 +254,7 @@ public class EnterFSAAmountActivity extends AppCompatActivity implements View.On
     }
 
     @Override
-    public void onShowCurrency(String currency) {
-    }
-
-    @Override
-    public void onShowPoint() {
-
+    public void onShowCurrency(@Nullable String currency, boolean isPoint) {
     }
 
     @Override

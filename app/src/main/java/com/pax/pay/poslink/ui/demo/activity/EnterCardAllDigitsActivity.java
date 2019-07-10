@@ -99,12 +99,6 @@ public class EnterCardAllDigitsActivity extends AppCompatActivity implements Vie
     }
 
     @Override
-    public void onShowCurrency(@Nullable String currency) {
-
-    }
-
-    @Override
-    public void onShowPoint() {
-
+    public void onShowCurrency(@Nullable String currency, boolean isPoint) {
     }
 }

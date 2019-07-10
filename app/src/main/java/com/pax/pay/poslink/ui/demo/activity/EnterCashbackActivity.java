@@ -125,13 +125,9 @@ public class EnterCashbackActivity extends AppCompatActivity implements View.OnC
     }
 
     @Override
-    public void onShowCurrency(String currency) {
+    public void onShowCurrency(String currency, boolean isPoint) {
     }
 
-    @Override
-    public void onShowPoint() {
-
-    }
 
     @Override
     public void onShowAmount(long amount) {

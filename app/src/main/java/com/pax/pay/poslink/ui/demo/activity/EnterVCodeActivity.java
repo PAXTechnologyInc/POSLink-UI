@@ -101,12 +101,7 @@ public class EnterVCodeActivity extends AppCompatActivity implements View.OnClic
     }
 
     @Override
-    public void onShowCurrency(@Nullable String currency) {
-
+    public void onShowCurrency(@Nullable String currency, boolean isPoint) {
     }
 
-    @Override
-    public void onShowPoint() {
-
-    }
 }

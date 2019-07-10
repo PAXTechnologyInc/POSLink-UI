@@ -72,6 +72,7 @@ public class DisplayInfoContent {
         TRANS_MAP.put(EntryExtraData.PARAM_REF_NUMBER, "Reference Number : ");
         TRANS_MAP.put(EntryExtraData.PARAM_AUTH_CODE, "Auth Code : ");
         TRANS_MAP.put(EntryExtraData.PARAM_RESPONSE_STATUS, "Response Status : ");
+        TRANS_MAP.put(EntryExtraData.PARAM_TRANS_STATUS, "Transcation Status : ");
         TRANS_MAP.put(EntryExtraData.PARAM_AVS_RESPONSE, "AVS Response : ");
         TRANS_MAP.put(EntryExtraData.PARAM_ENTRY_MODE, "Entry Mode : ");
         TRANS_MAP.put(EntryExtraData.PARAM_FOOD_STAMPS_BALANCE, "Food Stamps Balance : ");

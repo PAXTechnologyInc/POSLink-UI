@@ -8,6 +8,7 @@ public final class EntryExtraData {
     public static final String PARAM_OPTIONS = "options";
 
     public static final String PARAM_CURRENCY = "currency";
+    public static final String PARAM_TOTAL_AMOUNT = "totalAmount";
     public static final String PARAM_TIP_OPTIONS = "tipOptions";
     public static final String PARAM_CASHBACK_OPTIONS = "cashbackOptions";
 
@@ -16,6 +17,10 @@ public final class EntryExtraData {
     public static final String PARAM_ENABLE_INSERT = "enableInsert";
     public static final String PARAM_ENABLE_TAP = "enableTap";
     public static final String PARAM_ENABLE_MANUAL = "enableManualEntry";
+
+    public static final String PARAM_INFORMATION_TITLE = "informationTitle";
+    public static final String PARAM_INFORMATION_CONTENT = "informationContent";
+
 
     public static final String PARAM_TITLE = "title";
     public static final String PARAM_USER_MESSAGE = "userMessage";
@@ -28,6 +33,10 @@ public final class EntryExtraData {
     public static final String PARAM_CASH_BENEFIT_BALANCE = "cashBenefitBalance";
     public static final String PARAM_BALANCE = "balance";
 
+    /**
+     * PARAM_TRANS_MODE : transaction mode <br>
+     * enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode}
+     */
     public static final String PARAM_TRANS_MODE = "transMode";
     public static final String PARAM_EDC_TYPE = "edcType";
     public static final String PARAM_SUB_TRANS_TYPE = "subTransType";
@@ -39,7 +48,6 @@ public final class EntryExtraData {
     public static final String PARAM_TIP2 = "tip2";
     public static final String PARAM_TIP3 = "tip3";
     public static final String PARAM_BASE_AMOUNT = "baseAmount";
-    public static final String PARAM_TOTAL_AMOUNT = "totalAmount";
     public static final String PARAM_APPROVED_AMOUNT = "approvedAmount";
     public static final String PARAM_BASE_POINTS = "basePoints";
     public static final String PARAM_TOTAL_POINTS = "totalPoints";
@@ -73,6 +81,10 @@ public final class EntryExtraData {
     public static final String PARAM_REF_NUMBER = "refNumber";
     public static final String PARAM_AUTH_CODE = "authCode";
     public static final String PARAM_RESPONSE_STATUS = "responseStatus";
+    /**
+     * PARAM_TRANS_STATUS : transaction status <br>
+     * To Do : enum: upload, offline, voided, Adjusted ??????
+     */
     public static final String PARAM_TRANS_STATUS = "transStatus";
     public static final String PARAM_AVS_RESPONSE = "avsResponse";
     public static final String PARAM_ENTRY_MODE = "entryMode";

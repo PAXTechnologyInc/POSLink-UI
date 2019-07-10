@@ -124,14 +124,8 @@ public class EnterTipActivity extends AppCompatActivity implements View.OnClickL
         }
         super.onResume();
     }
-
     @Override
-    public void onShowCurrency(String currency) {
-    }
-
-    @Override
-    public void onShowPoint() {
-
+    public void onShowCurrency(@Nullable String currency, boolean isPoint) {
     }
 
     @Override

@@ -31,9 +31,9 @@ public class SignatureHelper extends BaseActionHelper {
         if (uiListener instanceof ICurrencyListener) {
             String currency = bundle.getString(EntryExtraData.PARAM_CURRENCY, "USD");
             if (currency.equals(CurrencyType.POINT))
-                ((ICurrencyListener) uiListener).onShowPoint();
+                ((ICurrencyListener) uiListener).onShowCurrency(currency, true);
             else
-                ((ICurrencyListener) uiListener).onShowCurrency(currency);
+                ((ICurrencyListener) uiListener).onShowCurrency(currency, false);
         }
 
         if (uiListener instanceof IAmountListener && bundle.containsKey(EntryExtraData.PARAM_TOTAL_AMOUNT)) {

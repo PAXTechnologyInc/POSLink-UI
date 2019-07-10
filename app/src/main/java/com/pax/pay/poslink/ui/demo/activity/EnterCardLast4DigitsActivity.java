@@ -99,12 +99,6 @@ public class EnterCardLast4DigitsActivity extends AppCompatActivity implements V
     }
 
     @Override
-    public void onShowCurrency(@Nullable String currency) {
-
-    }
-
-    @Override
-    public void onShowPoint() {
-
+    public void onShowCurrency(@Nullable String currency, boolean isPoint) {
     }
 }

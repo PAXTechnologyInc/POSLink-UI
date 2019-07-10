@@ -133,12 +133,6 @@ public class EnterPinActivity extends AppCompatActivity implements View.OnClickL
     }
 
     @Override
-    public void onShowCurrency(@Nullable String currency) {
-
-    }
-
-    @Override
-    public void onShowPoint() {
-
+    public void onShowCurrency(@Nullable String currency, boolean isPoint) {
     }
 }

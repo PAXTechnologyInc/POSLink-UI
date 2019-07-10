@@ -102,12 +102,6 @@ public class EnterVoucherActivity extends AppCompatActivity implements View.OnCl
     }
 
     @Override
-    public void onShowCurrency(@Nullable String currency) {
-
-    }
-
-    @Override
-    public void onShowPoint() {
-
+    public void onShowCurrency(@Nullable String currency, boolean isPoint) {
     }
 }
