@@ -73,6 +73,7 @@ public final class EntryExtraData {
     public static final String PARAM_REF_NUMBER = "refNumber";
     public static final String PARAM_AUTH_CODE = "authCode";
     public static final String PARAM_RESPONSE_STATUS = "responseStatus";
+    public static final String PARAM_TRANS_STATUS = "transStatus";
     public static final String PARAM_AVS_RESPONSE = "avsResponse";
     public static final String PARAM_ENTRY_MODE = "entryMode";
 
