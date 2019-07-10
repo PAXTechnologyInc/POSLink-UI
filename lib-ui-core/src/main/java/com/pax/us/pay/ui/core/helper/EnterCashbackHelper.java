@@ -25,7 +25,7 @@ public class EnterCashbackHelper extends BaseActionHelper {
         super.showUI(uiListener, bundle);
         if (uiListener instanceof ICurrencyListener) {
             String currency = bundle.getString(EntryExtraData.PARAM_CURRENCY, "USD");
-            ((ICurrencyListener) uiListener).onShowCurrency(currency);
+            ((ICurrencyListener) uiListener).onShowCurrency(currency, false);
         }
 
         if (uiListener instanceof IAmountListener && bundle.containsKey(EntryExtraData.PARAM_TOTAL_AMOUNT)) {

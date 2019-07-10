@@ -28,18 +28,15 @@ public class VoucherHelper extends BaseActionHelper {
     @Override
     protected void showUI(@Nullable IUIListener uiListener, @NonNull Bundle bundle) {
         super.showUI(uiListener, bundle);
-        if (uiListener instanceof ICurrencyListener) {
+        if ((uiListener instanceof ICurrencyListener) &&
+                (uiListener instanceof IAmountListener && bundle.containsKey(EntryExtraData.PARAM_TOTAL_AMOUNT))) {
             String currency = bundle.getString(EntryExtraData.PARAM_CURRENCY, "USD");
             if (currency.equals(CurrencyType.POINT))
                 ((ICurrencyListener) uiListener).onShowCurrency(currency, true);
             else
                 ((ICurrencyListener) uiListener).onShowCurrency(currency, false);
-        }
 
-        if (uiListener instanceof IAmountListener && bundle.containsKey(EntryExtraData.PARAM_TOTAL_AMOUNT)) {
-            Object obj = bundle.get(EntryExtraData.PARAM_TOTAL_AMOUNT);
-            if (obj != null)
-                ((IAmountListener) uiListener).onShowAmount((long) obj);
+            ((IAmountListener) uiListener).onShowAmount((long) bundle.get(EntryExtraData.PARAM_TOTAL_AMOUNT));
         }
     }
 

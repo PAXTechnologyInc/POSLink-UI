@@ -38,25 +38,18 @@ public class SearCardHelper extends BaseActionHelper {
     @Override
     protected void showUI(@Nullable IUIListener uiListener, @NonNull Bundle bundle) {
         super.showUI(uiListener, bundle);
-        if (uiListener instanceof ICurrencyListener) {
+        if ((uiListener instanceof ICurrencyListener) &&
+                (uiListener instanceof IAmountListener && bundle.containsKey(EntryExtraData.PARAM_TOTAL_AMOUNT))) {
             String currency = bundle.getString(EntryExtraData.PARAM_CURRENCY, "USD");
             if (currency.equals(CurrencyType.POINT))
                 ((ICurrencyListener) uiListener).onShowCurrency(currency, true);
             else
                 ((ICurrencyListener) uiListener).onShowCurrency(currency, false);
+
+            ((IAmountListener) uiListener).onShowAmount((long) bundle.get(EntryExtraData.PARAM_TOTAL_AMOUNT));
         }
 
-        if (uiListener instanceof IAmountListener && bundle.containsKey(EntryExtraData.PARAM_TOTAL_AMOUNT)) {
-            Object obj = bundle.get(EntryExtraData.PARAM_TOTAL_AMOUNT);
-            if (obj != null)
-                ((IAmountListener) uiListener).onShowAmount((long) obj);
-        }
-
-        if (uiListener instanceof ICardListener && (
-                bundle.containsKey(EntryExtraData.PARAM_ENABLE_MANUAL) ||
-                        bundle.containsKey(EntryExtraData.PARAM_ENABLE_SWIPE) ||
-                        bundle.containsKey(EntryExtraData.PARAM_ENABLE_INSERT) ||
-                        bundle.containsKey(EntryExtraData.PARAM_ENABLE_TAP))) {
+        if (uiListener instanceof ICardListener) {
             ((ICardListener) uiListener).onShowCard(
                     bundle.getBoolean(EntryExtraData.PARAM_ENABLE_MANUAL, false),
                     bundle.getBoolean(EntryExtraData.PARAM_ENABLE_SWIPE, false),
