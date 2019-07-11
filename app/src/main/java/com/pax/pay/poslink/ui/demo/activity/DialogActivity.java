@@ -35,6 +35,7 @@ import com.pax.us.pay.ui.constant.status.BatchStatus;
 import com.pax.us.pay.ui.constant.status.CardStatus;
 import com.pax.us.pay.ui.constant.status.InformationStatus;
 import com.pax.us.pay.ui.constant.status.StatusData;
+import com.pax.us.pay.ui.constant.status.Uncategory;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
@@ -106,35 +107,76 @@ public class DialogActivity extends AppCompatActivity {
             case CardStatus.CARD_PROCESS_STARTED:
                 showProcessDialog("CARD PROCESS START...");
                 break;
-            case InformationStatus.TRANS_ONLINE_FINISHED:
-            case CardStatus.CARD_PROCESS_COMPLETED:
-            case BatchStatus.BATCH_CLOSE_COMPLETED:
-                hideDialog();
-                finish();
+            case CardStatus.CARD_PROCESS_ERROR:
+                showWarnDialog("Card Error!");
+                showTimeOut(2);
                 break;
             case CardStatus.CARD_REMOVAL_REQUIRED:
-                showWarnDialog("Remove card!");
+            case CardStatus.CARD_QUICK_REMOVAL_REQUIRED:
+                showWarnDialog("Please Remove card!");
+                break;
+            case CardStatus.CARD_INSERT_REQUIRED:
+                showWarnDialog("Please Insert Card!");
+                showTimeOut(2);
+                break;
+            case CardStatus.CARD_SWIPE_REQUIRED:
+                showWarnDialog("Please Swipe Card!");
+                showTimeOut(2);
+                break;
+            case CardStatus.CARD_TAP_REQUIRED:
+                showWarnDialog("Please Tap Card!");
+                showTimeOut(2);
                 break;
             case CardStatus.SEE_PHONE:
                 showWarnDialog("Please See Phone");
+                showTimeOut(2);
                 break;
-            case CardStatus.CARD_REMOVED:
-                hideDialog();
-                finish();
+            case Uncategory.ACTIVATE_STARTED:
+                showProcessDialog("Trans Online...");
+                break;
+            case Uncategory.CAPK_UPDATE_STARTED:
+                showProcessDialog("CAPK Update...");
+                break;
+            case Uncategory.PRINT_STARTED:
+                showProcessDialog("Printing...");
                 break;
             case BatchStatus.BATCH_CLOSE_STARTED:
-                showProcessDialog("BatchStatus Close START...");
+                showProcessDialog("Batch Close START...");
                 break;
             case BatchStatus.BATCH_SF_UPLOADING:
                 showProcessDialog("Uploading Trans...");
+                //To Do need display SF type, uploading count, total count
                 break;
-//            case BatchStatus.BATCH_UPDATE_MSG:
-//                String message = intent.getStringExtra("value");
-//                updateMessage(message);
-//                break;
+            case BatchStatus.BATCH_SF_STARTED:
+                showProcessDialog("Upload Start");
+                break;
+
+            case InformationStatus.ERROR:
+                long errCode = intent.getLongExtra(StatusData.PARAM_CODE, 0);
+                String errMessage = intent.getStringExtra(StatusData.PARAM_MSG);
+                StringBuffer dispMsg = new StringBuffer();
+                if (TextUtils.isEmpty(errMessage))
+                    dispMsg.append("Transaction Failed!\n Error Code:").append(errCode);
+                else {
+                    dispMsg.append(errMessage).append("\n Error Code:").append(errCode);
+                }
+                showMessage(dispMsg.toString());
+                showTimeOut(5);
+                break;
+            case InformationStatus.TRANS_ONLINE_FINISHED:
+            case CardStatus.CARD_PROCESS_COMPLETED:
+            case CardStatus.CARD_REMOVED:
+            case Uncategory.ACTIVATE_COMPLETED:
+            case Uncategory.CAPK_UPDATE_COMPLETED:
+            case Uncategory.PRINT_COMPLETED:
+            case BatchStatus.BATCH_SF_COMPLETED:
+            case BatchStatus.BATCH_CLOSE_COMPLETED:
+                hideDialog();
+                //finish();
+                break;
             case InformationStatus.TRANS_COMPLETED:
                 Bundle bundle = intent.getExtras();
-                int resultCode = bundle.getInt(StatusData.PARAM_CODE);
+                long resultCode = bundle.getLong(StatusData.PARAM_CODE, 0);
                 String resultMessage = bundle.getString(StatusData.PARAM_MSG);
                 String displayMessage;
                 int timeOut;
@@ -169,6 +211,14 @@ public class DialogActivity extends AppCompatActivity {
                 break;
         }
     }
+
+    private void showTimeOut(int timeOut) {
+        new Handler().postDelayed(new Runnable() {
+            public void run() {
+                hideDialog();
+            }
+        }, timeOut * 1000);
+    }    
 
     private void showProcessDialog(String message) {
         showMessage(message);

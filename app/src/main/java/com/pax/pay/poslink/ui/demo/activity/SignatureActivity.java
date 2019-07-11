@@ -169,4 +169,9 @@ public class SignatureActivity extends AppCompatActivity implements View.OnClick
     public void onShowMessage(@Nullable String transName, @Nullable String message) {
 
     }
+
+    @Override
+    public void onShowTimeout(long timeout) {
+
+    }
 }

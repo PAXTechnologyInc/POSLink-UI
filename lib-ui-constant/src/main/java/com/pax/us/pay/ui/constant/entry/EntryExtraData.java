@@ -11,6 +11,7 @@ public final class EntryExtraData {
     public static final String PARAM_TOTAL_AMOUNT = "totalAmount";
     public static final String PARAM_TIP_OPTIONS = "tipOptions";
     public static final String PARAM_CASHBACK_OPTIONS = "cashbackOptions";
+    public static final String PARAM_TIMEOUT = "timeout";
 
 
     public static final String PARAM_ENABLE_SWIPE = "enableSwipe";
@@ -20,6 +21,7 @@ public final class EntryExtraData {
 
     public static final String PARAM_INFORMATION_KET = "informationKey";
     public static final String PARAM_INFORMATION_VALUE = "informationValue";
+
 
     public static final String PARAM_TITLE = "title";
     public static final String PARAM_USER_MESSAGE = "userMessage";
