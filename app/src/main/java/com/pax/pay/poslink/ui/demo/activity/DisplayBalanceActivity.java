@@ -93,8 +93,8 @@ public class DisplayBalanceActivity extends AppCompatActivity implements View.On
             return;
         for (int i = 0; i < key.length; i++) {
             if (!TextUtils.isEmpty(key[i])) {
-                if (DisplayInfoContent.FEE_MAP.get(key[i]) != null) {
-                    leftColum = DisplayInfoContent.FEE_MAP.get(key[i]);
+                if (DisplayInfoContent.BALANCE_MAP.get(key[i]) != null) {
+                    leftColum = DisplayInfoContent.BALANCE_MAP.get(key[i]);
                 } else
                     leftColum = key[i];
 

@@ -116,8 +116,8 @@ public class DisplayTransActivity extends AppCompatActivity implements View.OnCl
             return;
         for (int i = 0; i < key.length; i++) {
             if (!TextUtils.isEmpty(key[i])) {
-                if (DisplayInfoContent.FEE_MAP.get(key[i]) != null) {
-                    leftColum = DisplayInfoContent.FEE_MAP.get(key[i]);
+                if (DisplayInfoContent.TRANS_MAP.get(key[i]) != null) {
+                    leftColum = DisplayInfoContent.TRANS_MAP.get(key[i]);
                 } else
                     leftColum = key[i];
 
