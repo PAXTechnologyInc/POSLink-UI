@@ -3,6 +3,7 @@ package com.pax.pay.poslink.ui.demo.activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,8 +15,6 @@ import com.pax.pay.poslink.ui.demo.R;
 import com.pax.pay.poslink.ui.demo.base.RespStatusImpl;
 import com.pax.pay.poslink.ui.demo.view.DisplayInfoContent;
 import com.pax.us.pay.ui.core.helper.ConfirmHelper;
-
-import java.util.Map;
 
 public class DisplayTransActivity extends AppCompatActivity implements View.OnClickListener, ConfirmHelper.IConfirmListener {
 
@@ -83,28 +82,55 @@ public class DisplayTransActivity extends AppCompatActivity implements View.OnCl
     }
 
     @Override
-    public void onShowInformation(Map<String, String> informations) {
+//    public void onShowInformation(Map<String, String> informations) {
+//        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+//                LinearLayout.LayoutParams.WRAP_CONTENT);
+//        params.bottomMargin = 15;
+//
+//        for (Map.Entry<String, String> value : DisplayInfoContent.TRANS_MAP.entrySet()) {
+//            String title = value.getValue();
+//            if (title == null) {
+//                if (informations.get(value.getKey()) != null) {
+//                    String leftColum = informations.get(value.getKey());
+//                    String rightColum = "";
+//                    View view = genSingleLineLayout(leftColum, rightColum);
+//                    llDetailContainer.addView(view, params);
+//                }
+//            } else {
+//                if (informations.get(value.getKey()) != null) {
+//                    String leftColum = value.getValue();
+//                    String rightColum = informations.get(value.getKey());
+//                    View view = genSingleLineLayout(leftColum, rightColum);
+//                    llDetailContainer.addView(view, params);
+//                }
+//            }
+//        }
+//    }
+    public void onShowInformation(String[] key, String[] value) {
+        String leftColum = "", rightColum = "";
+
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT);
         params.bottomMargin = 15;
+        if (key.length != value.length)
+            return;
+        for (int i = 0; i < key.length; i++) {
+            if (!TextUtils.isEmpty(key[i])) {
+                if (DisplayInfoContent.FEE_MAP.get(key[i]) != null) {
+                    leftColum = DisplayInfoContent.FEE_MAP.get(key[i]);
+                } else
+                    leftColum = key[i];
 
-        for (Map.Entry<String, String> value : DisplayInfoContent.TRANS_MAP.entrySet()) {
-            String title = value.getValue();
-            if (title == null) {
-                if (informations.get(value.getKey()) != null) {
-                    String leftColum = informations.get(value.getKey());
-                    String rightColum = "";
-                    View view = genSingleLineLayout(leftColum, rightColum);
-                    llDetailContainer.addView(view, params);
-                }
             } else {
-                if (informations.get(value.getKey()) != null) {
-                    String leftColum = value.getValue();
-                    String rightColum = informations.get(value.getKey());
-                    View view = genSingleLineLayout(leftColum, rightColum);
-                    llDetailContainer.addView(view, params);
-                }
+                leftColum = "";
             }
+            if (!TextUtils.isEmpty(value[i]))
+                rightColum = value[i];
+            else
+                rightColum = "";
+
+            View view = genSingleLineLayout(leftColum, rightColum);
+            llDetailContainer.addView(view, params);
         }
     }
 

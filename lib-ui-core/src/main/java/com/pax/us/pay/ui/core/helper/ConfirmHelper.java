@@ -11,10 +11,6 @@ import com.pax.us.pay.ui.core.api.IMessageListener;
 import com.pax.us.pay.ui.core.api.IRespStatus;
 import com.pax.us.pay.ui.core.api.IUIListener;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Set;
-
 public class ConfirmHelper extends BaseActionHelper {
     public ConfirmHelper(@Nullable IConfirmListener uiListener, @Nullable IRespStatus respStatus) {
         super(uiListener, respStatus);
@@ -28,23 +24,14 @@ public class ConfirmHelper extends BaseActionHelper {
     @Override
     protected void showUI(@Nullable IUIListener uiListener, @NonNull Bundle bundle) {
         super.showUI(uiListener, bundle);
-        if (uiListener instanceof IInformationListener) {
-            if (bundle.size() > 0) {
-                Set<String> keySet = bundle.keySet();
-                Map<String, String> map = new LinkedHashMap<>();
-                for (String key : keySet) {
-                    if (key.equals(EntryExtraData.PARAM_TRANS_TYPE) || key.equals(EntryExtraData.PARAM_PACKAGE) || key.equals(EntryExtraData.PARAM_OPTIONS)) {
-                        continue;
-                    } else {
-                        map.put(key, bundle.getString(key));
-                    }
-                }
-                if (map.size() > 0) {
-                    ((IInformationListener) uiListener).onShowInformation(map);
-                }
+        String[] key = bundle.getStringArray(EntryExtraData.PARAM_INFORMATION_KET);
+        String[] value = bundle.getStringArray(EntryExtraData.PARAM_INFORMATION_VALUE);
+        if ((key != null) && (key.length > 0) && (value != null) && (value.length > 0) && (key.length == value.length)) {
+            if (uiListener instanceof IInformationListener) {
+                ((IInformationListener) uiListener).onShowInformation(key, value);
             }
-
-        }
+        } else
+            throw new IllegalStateException("Information Format Error");
     }
 
     public interface IConfirmListener extends IMessageListener, IInformationListener {

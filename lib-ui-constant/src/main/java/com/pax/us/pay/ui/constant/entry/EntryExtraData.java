@@ -18,9 +18,8 @@ public final class EntryExtraData {
     public static final String PARAM_ENABLE_TAP = "enableTap";
     public static final String PARAM_ENABLE_MANUAL = "enableManualEntry";
 
-    public static final String PARAM_INFORMATION_TITLE = "informationTitle";
-    public static final String PARAM_INFORMATION_CONTENT = "informationContent";
-
+    public static final String PARAM_INFORMATION_KET = "informationKey";
+    public static final String PARAM_INFORMATION_VALUE = "informationValue";
 
     public static final String PARAM_TITLE = "title";
     public static final String PARAM_USER_MESSAGE = "userMessage";
