@@ -30,7 +30,6 @@ public class EntryRequest {
      * value type: long <br>
      */
     public static final String PARAM_AMOUNT = "amount";
-    public static final String PARAM_POINT = "amount";  ///?????????????????????
     /**
      * PARAM_TIP : request parameter tip amount <br>
      * value type: long <br>
@@ -53,7 +52,7 @@ public class EntryRequest {
      */
     public static final String PARAM_EXPIRY_DATE = "expiryDate";
     /**
-     * PARAM_TRANS_NUMBER : request parameter transaction number <br>
+     * PARAM_ORIG_DATE : request parameter orginal transaction date <br>
      * value type: String <br>
      * format:   <br>   ?????????????????
      */

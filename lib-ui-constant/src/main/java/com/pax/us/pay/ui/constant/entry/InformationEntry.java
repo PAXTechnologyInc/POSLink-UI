@@ -7,7 +7,8 @@ public class InformationEntry {
      * The intent action of display fees <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * input: According the actually receiving message <br>
+     * input: {@link EntryExtraData#PARAM_INFORMATION_KEY} <br>
+     * input: {@link EntryExtraData#PARAM_INFORMATION_VALUE} <br>
      * request: None <br>
      */
     public static final String ACTION_DISPLAY_FEES = "com.pax.us.pay.action.DISPLAY_FEES";
@@ -21,7 +22,8 @@ public class InformationEntry {
      * The intent action of display balance <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * input: According the actually receiving message <br>
+     * input: {@link EntryExtraData#PARAM_INFORMATION_KEY} <br>
+     * input: {@link EntryExtraData#PARAM_INFORMATION_VALUE} <br>
      * request: None <br>
      */
     public static final String ACTION_DISPLAY_BALANCE = "com.pax.us.pay.action.DISPLAY_BALANCE";
@@ -30,7 +32,8 @@ public class InformationEntry {
      * The intent action of display transaction information <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * input: According the actually receiving message <br>
+     * input: {@link EntryExtraData#PARAM_INFORMATION_KEY} <br>
+     * input: {@link EntryExtraData#PARAM_INFORMATION_VALUE} <br>
      * request: None <br>
      */
     public static final String ACTION_DISPLAY_TRANS_INFORMATION = "com.pax.us.pay.action.DISPLAY_TRANS_INFORMATION";

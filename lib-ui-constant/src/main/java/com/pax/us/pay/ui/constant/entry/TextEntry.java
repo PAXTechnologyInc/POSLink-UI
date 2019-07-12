@@ -135,5 +135,125 @@ public class TextEntry {
      */
     public static final String ACTION_ENTER_CASH_BACK = "com.pax.us.pay.action.ENTER_CASH_BACK";
 
+    /**
+     * The intent action of Enter original transaction date <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE}  <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE}  <br>
+     * request: {@link EntryRequest#PARAM_ORIG_DATE} <br>
+     */
+    public static final String ACTION_ENTER_ORIG_DATE = "com.pax.us.pay.action.ENTER_ORIG_DATE";
+
+    /**
+     * The intent action of Enter fuel amount <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE}  <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE}  <br>
+     * input: {@link EntryExtraData#PARAM_CURRENCY}  enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType}  <br>
+     * request: {@link EntryRequest#PARAM_FUEL_AMOUNT} long  <br>
+     */
+    public static final String ACTION_ENTER_FUEL_AMOUNT = "com.pax.us.pay.action.ENTER_FUEL_AMOUNT";
+
+    /**
+     * The intent action of Enter tax amount <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE}  <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE}  <br>
+     * input: {@link EntryExtraData#PARAM_CURRENCY}  enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType}  <br>
+     * input: {@link EntryExtraData#PARAM_TOTAL_AMOUNT} long  <br>
+     * request: {@link EntryRequest#PARAM_TAX_AMOUNT} long  <br>
+     */
+    public static final String ACTION_ENTER_TAX_AMOUNT = "com.pax.us.pay.action.ENTER_TAX_AMOUNT";
+
+
+    /**
+     * The intent action of Enter server id <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE}  <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE}  <br>
+     * request: {@link EntryRequest#PARAM_SERVER_ID} <br>
+     */
+    public static final String ACTION_ENTER_SERVER_ID = "com.pax.us.pay.action.ENTER_SERVER_ID";
+
+    /**
+     * The intent action of Enter table number <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE}  <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE}  <br>
+     * request: {@link EntryRequest#PARAM_TABLE_NUMBER} <br>
+     */
+    public static final String ACTION_ENTER_TABLE_NUMBER = "com.pax.us.pay.action.ENTER_TABLE_NUMBER";
+
+    /**
+     * The intent action of Enter phone number <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE}  <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE}  <br>
+     * request: {@link EntryRequest#PARAM_PHONE_NUMBER} <br>
+     */
+    public static final String ACTION_ENTER_PHONE_NUMBER = "com.pax.us.pay.action.ENTER_PHONE_NUMBER";
+
+
+    /**
+     * The intent action of Enter guest number <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE}  <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE}  <br>
+     * request: {@link EntryRequest#PARAM_GUEST_NUMBER} <br>
+     */
+    public static final String ACTION_ENTER_GUEST_NUMBER = "com.pax.us.pay.action.ENTER_GUEST_NUMBER";
+
+    /**
+     * The intent action of Enter order number <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE}  <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE}  <br>
+     * request: {@link EntryRequest#PARAM_ORDER_NUMBER} <br>
+     */
+    public static final String ACTION_ENTER_ORDER_NUMBER = "com.pax.us.pay.action.ENTER_ORDER_NUMBER";
+
+    /**
+     * The intent action of Enter P.O. number <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE}  <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE}  <br>
+     * request: {@link EntryRequest#PARAM_PO_NUMBER} String <br>
+     */
+    public static final String ACTION_ENTER_PO_NUMBER = "com.pax.us.pay.action.ENTER_PO_NUMBER";
+
+    /**
+     * The intent action of Enter production description <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE}  <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE}  <br>
+     * request: {@link EntryRequest#PARAM_PROC_DESC} String <br>
+     */
+    public static final String ACTION_ENTER_PROC_DESC = "com.pax.us.pay.action.ENTER_PROC_DESC";
+
+    /**
+     * The intent action of Enter customer code <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE}  <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE}  <br>
+     * request: {@link EntryRequest#PARAM_CUSTOMER_CODE} String <br>
+     */
+    public static final String ACTION_ENTER_CUSTOMER_CODE = "com.pax.us.pay.action.ENTER_CUSTOMER_CODE";
+
+    /**
+     * The intent action of Enter prompt restrication code <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE}  <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE}  <br>
+     * request: {@link EntryRequest#PARAM_PROMPT_RESTRICTION_CODE} String <br>
+     */
+    public static final String ACTION_ENTER_PROMPT_RESTRICATION_CODE = "com.pax.us.pay.action.ENTER_PROMPT_RESTRICATION_CODE";
+
+    //FLEET CARD DATA
+    /**
+     * The intent action of Enter Fleet card data <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * request: {@link EntryRequest#PARAM_FLEET_DRIVER_ID} <br>
+     * request: {@link EntryRequest#PARAM_FLEET_ODOMETER} <br>
+     * request: {@link EntryRequest#PARAM_FLEET_VEHICLE_NUMBER} <br>
+     * request: {@link EntryRequest#PARAM_FLEET_LICENSE_NUMBER} <br>
+     * request: {@link EntryRequest#PARAM_FLEET_JOB_NUMBER} <br>
+     * request: {@link EntryRequest#PARAM_FLEET_DEPARTMENT_NUMBER} <br>
+     * request: {@link EntryRequest#PARAM_FLEET_CUSTOMER_DATA} <br>
+     * request: {@link EntryRequest#PARAM_FLEET_USER_ID} <br>
+     * request: {@link EntryRequest#PARAM_FLEET_VEHICLE_ID} <br>
+     */
+    public static final String ACTION_ENTER_FLEET_DATA = "com.pax.us.pay.action.ENTER_FLEET_DATA";
+
+
+
 
 }

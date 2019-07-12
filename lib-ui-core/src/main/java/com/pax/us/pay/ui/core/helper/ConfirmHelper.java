@@ -24,7 +24,7 @@ public class ConfirmHelper extends BaseActionHelper {
     @Override
     protected void showUI(@Nullable IUIListener uiListener, @NonNull Bundle bundle) {
         super.showUI(uiListener, bundle);
-        String[] key = bundle.getStringArray(EntryExtraData.PARAM_INFORMATION_KET);
+        String[] key = bundle.getStringArray(EntryExtraData.PARAM_INFORMATION_KEY);
         String[] value = bundle.getStringArray(EntryExtraData.PARAM_INFORMATION_VALUE);
         if ((key != null) && (key.length > 0) && (value != null) && (value.length > 0) && (key.length == value.length)) {
             if (uiListener instanceof IInformationListener) {

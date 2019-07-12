@@ -10,8 +10,11 @@ public final class CardStatus {
     public static final String CARD_REMOVED = "com.pax.us.pay.CARD_REMOVED";
 
     public static final String CARD_INSERT_REQUIRED = "com.pax.us.pay.CARD_INSERT_REQUIRED";
+    public static final String CARD_INSERTED = "com.pax.us.pay.CARD_INSERTED";
     public static final String CARD_SWIPE_REQUIRED = "com.pax.us.pay.CARD_SWIPE_REQUIRED";
+    public static final String CARD_SWIPED = "com.pax.us.pay.CARD_SWIPED";
     public static final String CARD_TAP_REQUIRED = "com.pax.us.pay.CARD_TAP_REQUIRED";
+    public static final String CARD_TAPPED = "com.pax.us.pay.CARD_TAPPED";
     public static final String CARD_REMOVAL_REQUIRED = "com.pax.us.pay.CARD_REMOVAL_REQUIRED";
     public static final String CARD_QUICK_REMOVAL_REQUIRED = "com.pax.us.pay.CARD_QUICK_REMOVAL_REQUIRED";
     public static final String SEE_PHONE = "com.pax.us.pay.SEE_PHONE";

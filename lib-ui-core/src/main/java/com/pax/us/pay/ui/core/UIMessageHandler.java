@@ -34,14 +34,18 @@ class UIMessageHandler implements IActionHandler {
         intentFilter.addAction(EntryResponse.ACTION_ACCEPTED);
         intentFilter.addAction(EntryResponse.ACTION_DECLINED);
 
-        RespReceiver receiver = new RespReceiver();
-        context.registerReceiver(receiver, intentFilter);
+        try {
+            RespReceiver receiver = new RespReceiver();
+            context.registerReceiver(receiver, intentFilter);
 
-        //for unregister
-        IntentFilter transactionFilter = new IntentFilter();
-        transactionFilter.addAction(InformationStatus.TRANS_COMPLETED);
-        transactionFilter.addCategory(InformationStatus.CATEGORY);
-        context.registerReceiver(receiver, transactionFilter);
+            //for unregister
+            IntentFilter transactionFilter = new IntentFilter();
+            transactionFilter.addAction(InformationStatus.TRANS_COMPLETED);
+            transactionFilter.addCategory(InformationStatus.CATEGORY);
+            context.registerReceiver(receiver, transactionFilter);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -110,5 +114,9 @@ class UIMessageHandler implements IActionHandler {
             }
         }
     }
+
+//    protected void Stop(Context context){
+//        //context.unregisterReceiver(receiver);
+//    }
 
 }

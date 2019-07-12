@@ -93,4 +93,11 @@ public abstract class BaseActionHelper {
             });
         }
     }
+
+//    public void stop(Context context) {
+//        if (actionHandler != null) {
+//            actionHandler.stop();
+//        }
+//    }
+
 }
