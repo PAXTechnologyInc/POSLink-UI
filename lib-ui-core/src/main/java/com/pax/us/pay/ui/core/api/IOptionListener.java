@@ -1,5 +1,7 @@
 package com.pax.us.pay.ui.core.api;
 
+import android.support.annotation.NonNull;
+
 public interface IOptionListener extends IUIListener {
-    void onShowOptions(String[] options);
+    void onShowOptions(@NonNull String[] options);
 }

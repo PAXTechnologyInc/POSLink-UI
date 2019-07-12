@@ -90,7 +90,7 @@ public class SelectSubTransActivity extends AppCompatActivity implements View.On
     }
 
     @Override
-    public void onShowOptions(String[] options) {
+    public void onShowOptions(@NonNull String[] options) {
         if (options != null) {
             selectOption = Arrays.asList(options);
             GridLayoutManager layoutManager = new GridLayoutManager(this, 2, RecyclerView.VERTICAL, false);

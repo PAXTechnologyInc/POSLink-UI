@@ -1,6 +1,7 @@
 package com.pax.pay.poslink.ui.demo.base;
 
 import android.app.Activity;
+import android.support.annotation.Nullable;
 import android.widget.Toast;
 
 import com.pax.pay.poslink.ui.demo.event.EndEvent;
@@ -25,11 +26,15 @@ public class RespStatusImpl implements IRespStatus {
     }
 
     @Override
-    public void onDeclined(long code, String message) {
+    public void onDeclined(long code, @Nullable String message) {
         Activity activity = activityWeakReference.get();
         if (activity != null) {
             activity.runOnUiThread(() -> {
-                String buff = message + "\n Error Code : " + code;
+                String buff;
+                if (message == null)
+                    buff = "Trans Failed! Error Code : " + code;
+                else
+                    buff = message + "\n Error Code : " + code;
                 Toast.makeText(activity, buff, Toast.LENGTH_LONG).show();
             });
         }

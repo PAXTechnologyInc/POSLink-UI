@@ -138,16 +138,16 @@ public class EnterTipActivity extends AppCompatActivity implements View.OnClickL
     }
 
     @Override
-    public void onShowTipOptions(String[] options) {
+    public void onShowTipOptions(@NonNull String[] options) {
         mEditText.setVisibility(View.GONE);
         promptTv.setVisibility(View.GONE);
         mRecyclerView.setVisibility(View.VISIBLE);
         confirmBtn.setEnabled(false);
-        setmAmountOption(options);
+        setAmountOption(options);
         viewType = SELECT_AMOUNT;
     }
 
-    void setmAmountOption(String[] options) {
+    void setAmountOption(String[] options) {
         selectOption = Arrays.asList(options);
         GridLayoutManager layoutManager = new GridLayoutManager(this, 2, RecyclerView.VERTICAL, false);
         mRecyclerView.setLayoutManager(layoutManager);

@@ -34,7 +34,7 @@ public class EnterCashbackHelper extends BaseActionHelper {
 
         if (uiListener instanceof ICashbackOptionListener && bundle.containsKey(EntryExtraData.PARAM_CASHBACK_OPTIONS)) {
             String[] options = bundle.getStringArray(EntryExtraData.PARAM_CASHBACK_OPTIONS);
-            if (options.length > 0)
+            if ((options != null) && (options.length > 0))
                 ((ICashbackOptionListener) uiListener).onShowCashbackOptions(options);
         }
     }

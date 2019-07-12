@@ -125,7 +125,7 @@ public class EnterCashbackActivity extends AppCompatActivity implements View.OnC
     }
 
     @Override
-    public void onShowCurrency(String currency, boolean isPoint) {
+    public void onShowCurrency(@Nullable String currency, boolean isPoint) {
     }
 
 
@@ -140,16 +140,16 @@ public class EnterCashbackActivity extends AppCompatActivity implements View.OnC
 
 
     @Override
-    public void onShowCashbackOptions(String[] options) {
+    public void onShowCashbackOptions(@NonNull String[] options) {
         mEditText.setVisibility(View.GONE);
         promptTv.setVisibility(View.GONE);
         mRecyclerView.setVisibility(View.VISIBLE);
         confirmBtn.setEnabled(false);
-        setmAmountOption(options);
+        setAmountOption(options);
         viewType = SELECT_AMOUNT;
     }
 
-    void setmAmountOption(String[] options) {
+    void setAmountOption(@NonNull String[] options) {
         selectOption = Arrays.asList(options);
         GridLayoutManager layoutManager = new GridLayoutManager(this, 2, RecyclerView.VERTICAL, false);
         mRecyclerView.setLayoutManager(layoutManager);

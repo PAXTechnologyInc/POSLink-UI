@@ -90,36 +90,34 @@ public class SelectSupplementPartialActivity extends AppCompatActivity implement
     }
 
     @Override
-    public void onShowOptions(String[] options) {
-        if (options != null) {
-            selectOption = Arrays.asList(options);
-            GridLayoutManager layoutManager = new GridLayoutManager(this, 2, RecyclerView.VERTICAL, false);
-            mRecyclerView.setLayoutManager(layoutManager);
-            mAdapter = new RecyclerView.Adapter<BaseViewHolder<String>>() {
-                @NonNull
-                @Override
-                public BaseViewHolder<String> onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                    return new OptionModelViewHolder(LayoutInflater.from(SelectSupplementPartialActivity.this).inflate(R.layout.item_mode_grid, parent, false));
-                }
+    public void onShowOptions(@NonNull String[] options) {
+        selectOption = Arrays.asList(options);
+        GridLayoutManager layoutManager = new GridLayoutManager(this, 2, RecyclerView.VERTICAL, false);
+        mRecyclerView.setLayoutManager(layoutManager);
+        mAdapter = new RecyclerView.Adapter<BaseViewHolder<String>>() {
+            @NonNull
+            @Override
+            public BaseViewHolder<String> onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                return new OptionModelViewHolder(LayoutInflater.from(SelectSupplementPartialActivity.this).inflate(R.layout.item_mode_grid, parent, false));
+            }
 
-                @Override
-                public void onBindViewHolder(@NonNull BaseViewHolder<String> holder, int position) {
+            @Override
+            public void onBindViewHolder(@NonNull BaseViewHolder<String> holder, int position) {
 
-                    String viewData = selectOption.get(position);
+                String viewData = selectOption.get(position);
 
-                    if (viewData == null)
-                        return;
-                    holder.bindBaseView(viewData, position);
-                }
+                if (viewData == null)
+                    return;
+                holder.bindBaseView(viewData, position);
+            }
 
-                @Override
-                public int getItemCount() {
-                    return selectOption.size();
-                }
-            };
-            mRecyclerView.setHasFixedSize(true);
-            mRecyclerView.setAdapter(mAdapter);
-        }
+            @Override
+            public int getItemCount() {
+                return selectOption.size();
+            }
+        };
+        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setAdapter(mAdapter);
         ActivityLocalManager.getInstance().addActivity(this);
     }
 

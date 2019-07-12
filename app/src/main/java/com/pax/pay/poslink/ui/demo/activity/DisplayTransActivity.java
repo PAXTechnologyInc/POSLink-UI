@@ -1,6 +1,7 @@
 package com.pax.pay.poslink.ui.demo.activity;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -82,31 +83,7 @@ public class DisplayTransActivity extends AppCompatActivity implements View.OnCl
     }
 
     @Override
-//    public void onShowInformation(Map<String, String> informations) {
-//        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-//                LinearLayout.LayoutParams.WRAP_CONTENT);
-//        params.bottomMargin = 15;
-//
-//        for (Map.Entry<String, String> value : DisplayInfoContent.TRANS_MAP.entrySet()) {
-//            String title = value.getValue();
-//            if (title == null) {
-//                if (informations.get(value.getKey()) != null) {
-//                    String leftColum = informations.get(value.getKey());
-//                    String rightColum = "";
-//                    View view = genSingleLineLayout(leftColum, rightColum);
-//                    llDetailContainer.addView(view, params);
-//                }
-//            } else {
-//                if (informations.get(value.getKey()) != null) {
-//                    String leftColum = value.getValue();
-//                    String rightColum = informations.get(value.getKey());
-//                    View view = genSingleLineLayout(leftColum, rightColum);
-//                    llDetailContainer.addView(view, params);
-//                }
-//            }
-//        }
-//    }
-    public void onShowInformation(String[] key, String[] value) {
+    public void onShowInformation(@NonNull String[] key, @NonNull String[] value) {
         String leftColum = "", rightColum = "";
 
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,

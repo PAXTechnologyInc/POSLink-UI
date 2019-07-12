@@ -1,6 +1,7 @@
 package com.pax.pay.poslink.ui.demo.activity;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -83,7 +84,7 @@ public class DisplayBalanceActivity extends AppCompatActivity implements View.On
     }
 
     @Override
-    public void onShowInformation(String[] key, String[] value) {
+    public void onShowInformation(@NonNull String[] key, @NonNull String[] value) {
         String leftColum = "", rightColum = "";
 
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
