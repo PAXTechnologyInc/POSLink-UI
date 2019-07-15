@@ -41,7 +41,7 @@ public class SignatureHelper extends BaseActionHelper {
         }
 
         if (uiListener instanceof ITimeoutListener) {
-            ((ITimeoutListener) uiListener).onShowTimeout(bundle.getLong(EntryExtraData.PARAM_TIMEOUT, 60));
+            ((ITimeoutListener) uiListener).onShowTimeout(bundle.getLong(EntryExtraData.PARAM_TIMEOUT, 30 * 1000));
         }
 
     }
