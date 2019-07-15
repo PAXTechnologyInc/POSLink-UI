@@ -130,6 +130,16 @@ public class EnterFleetDataActivity extends AppCompatActivity implements View.On
 
     }
 
+    @Override
+    public void onShowAmount(long amount) {
+
+    }
+
+    @Override
+    public void onShowCurrency(@Nullable String currency, boolean isPoint) {
+
+    }
+
 //    @Override
 //    public void onShowFleetData() {
 //

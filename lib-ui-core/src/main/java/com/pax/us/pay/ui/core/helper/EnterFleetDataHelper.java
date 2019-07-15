@@ -129,7 +129,7 @@ public class EnterFleetDataHelper extends BaseActionHelper {
 //        }
     }
 
-    public interface IEnterFleetDataListener extends IMessageListener {
+    public interface IEnterFleetDataListener extends IMessageListener, ICurrencyListener, IAmountListener {
     }
 
 }
