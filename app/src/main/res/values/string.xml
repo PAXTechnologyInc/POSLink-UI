@@ -13,4 +13,16 @@
     <string name="fsa_copay_amt">Copay Amount</string>
     <string name="fsa_transit_amt">Transit Amount</string>
 
+    <string name="fleet_odometer">Odometer</string>
+    <string name="fleet_id_no">ID No.</string>
+    <string name="fleet_driver_id">Driver ID</string>
+    <string name="fleet_vehicle_id">Vehicle ID</string>
+    <string name="fleet_user_id">User ID</string>
+    <string name="fleet_customer_data">Customer Data</string>
+    <string name="fleet_department_no">Department No.</string>
+    <string name="fleet_job_no">Job No.</string>
+    <string name="fleet_license_no">License No.</string>
+    <string name="fleet_vehicle_no">Vehicle No.</string>
+
+
 </resources>

@@ -80,86 +80,11 @@ public class EnterFSAAmountActivity extends AppCompatActivity implements View.On
         confirmBtn.setOnClickListener(this);
         healthcardEnable = false;
 
-//        healthcareEditText.requestFocus();
-//        healthcareEditText.postDelayed(() -> {
-//            InputMethodManager imm = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
-//            imm.showSoftInput(healthcareEditText, InputMethodManager.SHOW_IMPLICIT);
-//        }, 200);
-
-
         helper = new EnterFSAAmountHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
         ActivityLocalManager.getInstance().addActivity(this);
     }
 
-//    private void initEditText() {
-//        setEditTextAmount(healthcareEditText);
-//        setEditTextAmount(clinicEditText);
-//        setEditTextAmount(prescriptionEditText);
-//        setEditTextAmount(visionEditText);
-//        setEditTextAmount(dentalEditText);
-//        setEditTextAmount(transitEditText);
-//        healthcareEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-//            @Override
-//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-//                if (actionId == EditorInfo.IME_ACTION_DONE) {
-//                    clinicEditText.requestFocus();
-//                }
-//                return true;
-//            }
-//        });
-//
-//        clinicEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-//            @Override
-//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-//                if (actionId == EditorInfo.IME_ACTION_DONE) {
-//                    prescriptionEditText.requestFocus();
-//                }
-//                return true;
-//            }
-//        });
-//
-//        prescriptionEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-//            @Override
-//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-//                if (actionId == EditorInfo.IME_ACTION_DONE) {
-//                    visionEditText.requestFocus();
-//                }
-//                return true;
-//            }
-//        });
-//
-//        visionEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-//            @Override
-//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-//                if (actionId == EditorInfo.IME_ACTION_DONE) {
-//                    dentalEditText.requestFocus();
-//                }
-//                return true;
-//            }
-//        });
-//
-//        dentalEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-//            @Override
-//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-//                if (actionId == EditorInfo.IME_ACTION_DONE) {
-//                    transitEditText.requestFocus();
-//                }
-//                return true;
-//            }
-//        });
-//
-//        transitEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-//            @Override
-//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-//                if (actionId == EditorInfo.IME_ACTION_DONE) {
-//                    OnDataConfirm();
-//                }
-//                return true;
-//            }
-//        });
-//
-//    }
 
     private void setEditTextAmount(EditText mEditText) {
 
