@@ -30,7 +30,7 @@ public class EnterTipHelper extends BaseActionHelper {
     @Override
     protected void showUI(@Nullable IUIListener uiListener, @NonNull Bundle bundle) {
         super.showUI(uiListener, bundle);
-        if (uiListener instanceof ICurrencyListener && bundle.containsKey(EntryExtraData.PARAM_CURRENCY)) {
+        if (uiListener instanceof ICurrencyListener) {
             String currency = bundle.getString(EntryExtraData.PARAM_CURRENCY, "USD");
             if (currency.equals(CurrencyType.POINT))
                 ((ICurrencyListener) uiListener).onShowCurrency(currency, true);
