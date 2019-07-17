@@ -9,12 +9,13 @@ import com.pax.us.pay.ui.constant.entry.EntryExtraData;
 import com.pax.us.pay.ui.constant.entry.EntryRequest;
 import com.pax.us.pay.ui.core.BaseActionHelper;
 import com.pax.us.pay.ui.core.api.IMessageListener;
+import com.pax.us.pay.ui.core.api.IOptionListener;
 import com.pax.us.pay.ui.core.api.IPrinterStatusListener;
 import com.pax.us.pay.ui.core.api.IRespStatus;
 import com.pax.us.pay.ui.core.api.IUIListener;
 
-public class SelectPrinterStatusHelper extends BaseActionHelper {
-    public SelectPrinterStatusHelper(@Nullable ISelectPrinterStatusListener uiListener, @Nullable IRespStatus respStatus) {
+public class ConfirmPrinterStatusHelper extends BaseActionHelper {
+    public ConfirmPrinterStatusHelper(@Nullable ISelectPrinterStatusListener uiListener, @Nullable IRespStatus respStatus) {
         super(uiListener, respStatus);
     }
 
@@ -32,12 +33,13 @@ public class SelectPrinterStatusHelper extends BaseActionHelper {
             String printerStatus = bundle.getString(EntryExtraData.PARAM_PRINT_STATUS);
             String[] options = bundle.getStringArray(EntryExtraData.PARAM_OPTIONS);
             if ((!TextUtils.isEmpty(printerStatus)) && (options != null && options.length > 0)) {
-                ((IPrinterStatusListener) uiListener).onShowPrinterStatus(printerStatus, options);
+                ((IPrinterStatusListener) uiListener).onShowPrinterStatus(printerStatus);
+                ((IOptionListener) uiListener).onShowOptions(options);
             }
         }
     }
 
-    public interface ISelectPrinterStatusListener extends IMessageListener, IPrinterStatusListener {
+    public interface ISelectPrinterStatusListener extends IMessageListener, IPrinterStatusListener, IOptionListener {
     }
 
 }
