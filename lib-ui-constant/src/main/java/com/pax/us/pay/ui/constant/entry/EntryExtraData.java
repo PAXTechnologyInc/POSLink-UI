@@ -13,6 +13,7 @@ public final class EntryExtraData {
     public static final String PARAM_TIP_OPTIONS = "tipOptions";
     public static final String PARAM_CASHBACK_OPTIONS = "cashbackOptions";
     public static final String PARAM_TIMEOUT = "timeout";
+    public static final String PARAM_PRINT_STATUS = "printStatus";
 
 
     public static final String PARAM_ENABLE_SWIPE = "enableSwipe";

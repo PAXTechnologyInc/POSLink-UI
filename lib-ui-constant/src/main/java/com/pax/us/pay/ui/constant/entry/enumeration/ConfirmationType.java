@@ -7,4 +7,5 @@ public final class ConfirmationType {
     public static String[] values() {
         return new String[]{YES, NO};
     }
+
 }
