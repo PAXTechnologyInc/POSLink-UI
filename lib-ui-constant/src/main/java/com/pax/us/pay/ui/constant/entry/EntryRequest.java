@@ -30,6 +30,12 @@ public class EntryRequest {
      * value type: long <br>
      */
     public static final String PARAM_AMOUNT = "amount";
+
+    /**
+     * PARAM_TOTAL_AMOUNT : request parameter total amount <br>
+     * value type: long <br>
+     */
+    public static final String PARAM_TOTAL_AMOUNT = "totalAmount";
     /**
      * PARAM_TIP : request parameter tip amount <br>
      * value type: long <br>
@@ -105,6 +111,13 @@ public class EntryRequest {
     public static final String PARAM_FLEET_ODOMETER = "fleetOdometer";
     public static final String PARAM_FLEET_DRIVER_ID = "fleetDriverId";
     public static final String PARAM_FLEET_LICENSE_NUMBER = "fleetLicenseNumber";
+
+    /**
+     * PARAM_DEST_ZIP_CODE : request parameter destination zip code <br>
+     * value type: String <br>
+     */
+    public static final String PARAM_DEST_ZIP_CODE = "destinationZipCode";
+
 
     public static final String PARAM_VALUE = "value";
 

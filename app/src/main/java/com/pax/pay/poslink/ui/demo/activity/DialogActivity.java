@@ -181,16 +181,16 @@ public class DialogActivity extends AppCompatActivity {
                 String displayMessage;
                 int timeOut;
                 if (resultCode == 0) {
-                    if ((resultMessage != null) && (!resultMessage.equals("")))
+                    if (!TextUtils.isEmpty(resultMessage))
                         displayMessage = resultMessage;
                     else
                         displayMessage = "Transaction Successes!";
                     timeOut = 2;
                 } else {
-                    if ((resultMessage != null) && (!resultMessage.equals("")))
+                    if (!TextUtils.isEmpty(resultMessage))
                         displayMessage = resultMessage + "\nError Code : " + String.valueOf(resultCode);
                     else
-                        displayMessage = "Transaction Failed!";
+                        displayMessage = "Transaction Failed!" + "\nError Code : " + String.valueOf(resultCode);
                     timeOut = 5;
                 }
                 showMessage(displayMessage);

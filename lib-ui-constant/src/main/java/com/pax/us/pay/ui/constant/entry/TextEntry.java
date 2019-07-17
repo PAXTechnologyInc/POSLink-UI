@@ -15,7 +15,7 @@ public class TextEntry {
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
      * input: {@link EntryExtraData#PARAM_CURRENCY}  enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType} <br>
-     * input: {@link EntryExtraData#PARAM_TOTAL_AMOUNT} <br>
+     * input: {@link EntryExtraData#PARAM_BASE_AMOUNT} <br>
      * input: {@link EntryExtraData#PARAM_TIP_OPTIONS} String Array, Nullable amount array <br>
      * request: {@link EntryRequest#PARAM_TIP} <br>
      */
@@ -254,6 +254,22 @@ public class TextEntry {
     public static final String ACTION_ENTER_FLEET_DATA = "com.pax.us.pay.action.ENTER_FLEET_DATA";
 
 
+    /**
+     * The intent action of Enter total amount <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_CURRENCY}  enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType} <br>
+     * input: {@link EntryExtraData#PARAM_BASE_AMOUNT} <br>
+     * request: {@link EntryRequest#PARAM_TOTAL_AMOUNT} <br>
+     */
+    public static final String ACTION_ENTER_TOTAL_AMOUNT = "com.pax.us.pay.action.ENTER_TOTAL_AMOUNT";
 
+    /**
+     * The intent action of Enter destination Zip Code <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * request: {@link EntryRequest#PARAM_DEST_ZIP_CODE} <br>
+     */
+    public static final String ACTION_ENTER_DEST_ZIPCODE = "com.pax.us.pay.action.ENTER_DEST_ZIP_CODE";
 
 }
