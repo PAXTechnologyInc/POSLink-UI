@@ -199,6 +199,8 @@ public class OptionEntry {
      * The intent action of surcharge fee approval <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_CURRENCY} <br>
+     * input: {@link EntryExtraData#PARAM_SURCHARGE_FEE} long <br>
      * input: {@link EntryExtraData#PARAM_OPTIONS}: enum: {@link ConfirmationType} <br>
      * request: {@link EntryRequest#PARAM_INDEX} <br>
      */
