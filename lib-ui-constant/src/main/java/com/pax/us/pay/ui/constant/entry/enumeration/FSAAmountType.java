@@ -9,8 +9,4 @@ public class FSAAmountType {
     public static final String COPAY_AMOUNT = "copayAmount";
     public static final String TRANSIT_AMOUNT = "transitAmount";
 
-    public static String[] values() {
-        return new String[]{HEALTH_CARE_AMOUNT, CLINIC_AMOUNT, PRESCRIPTION_AMOUNT, DENTAL_AMOUNT, VISION_AMOUNT, COPAY_AMOUNT, TRANSIT_AMOUNT};
-    }
-
 }

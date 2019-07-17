@@ -105,10 +105,10 @@ public class OptionEntry {
      * The intent action of select the transaction online retry or offline <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * input: {@link EntryExtraData#PARAM_OPTIONS}: enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.CommunicationRetryType} <br>
+     * input: {@link EntryExtraData#PARAM_OPTIONS}: enum: {@link ConfirmationType} YES: RETRY, NO: OFFLINE  <br>
      * request: {@link EntryRequest#PARAM_INDEX} <br>
      */
-    public static final String ACTION_SELECT_ONLINE_RETRY_OFFLINE = "com.pax.us.pay.action.SELECT_ONLINE_RETRY_OFFLINE";
+    public static final String ACTION_CONFIRM_ONLINE_RETRY_OFFLINE = "com.pax.us.pay.action.CONFIRM_ONLINE_RETRY_OFFLINE";
 
     /**
      * The intent action of select the card type <br>
@@ -141,16 +141,16 @@ public class OptionEntry {
      * The intent action of select the credit type <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * input: {@link EntryExtraData#PARAM_OPTIONS}: enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.CreditType} <br>
+     * input: {@link EntryExtraData#PARAM_OPTIONS}: enum: {@link ConfirmationType}  YES: DEBIT, NO: CREDIT <br>
      * request: {@link EntryRequest#PARAM_INDEX} <br>
      */
-    public static final String ACTION_SELECT_DEBIT_CREDIT = "com.pax.us.pay.action.SELECT_DEBIT_CREDIT";
+    public static final String ACTION_CONFIRM_DEBIT_TRANS = "com.pax.us.pay.action.CONFIRM_DEBIT_TRANS";
 
     /**
      * The intent action of check card present <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * input: {@link EntryExtraData#PARAM_OPTIONS}: enum: {@link ConfirmationType} <br>
+     * input: {@link EntryExtraData#PARAM_OPTIONS}: enum: {@link ConfirmationType}<br>
      * request: {@link EntryRequest#PARAM_INDEX} <br>
      */
     public static final String ACTION_CHECK_CARD_PRESENT = "com.pax.us.pay.action.CHECK_CARD_PRESENT";
@@ -207,7 +207,7 @@ public class OptionEntry {
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
      * input: {@link EntryExtraData#PARAM_PRINT_STATUS}:  enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.PrintStatusType}<br>
-     * input: {@link EntryExtraData#PARAM_OPTIONS}: enum: {@link ConfirmationType} <br>
+     * input: {@link EntryExtraData#PARAM_OPTIONS}: enum: {@link ConfirmationType} YES: RETRY NO: IGNORE<br>
      * request: {@link EntryRequest#PARAM_INDEX} <br>
      */
     public static final String ACTION_CONFIRM_PRINTER_STATUS = "com.pax.us.pay.action.CONFIRM_PRINTER_STATUS";
@@ -262,7 +262,7 @@ public class OptionEntry {
      * The intent action of print customer receipt approval <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * input: {@link EntryExtraData#PARAM_OPTIONS}: enum: {@link ConfirmationType} <br>
+     * input: {@link EntryExtraData#PARAM_OPTIONS}: enum: {@link ConfirmationType}YES: OK  NO:CANCEL <br>
      * request: {@link EntryRequest#PARAM_INDEX} <br>
      */
     public static final String ACTION_CONFIRM_PRINT_CUSTOMER_COPY = "com.pax.us.pay.action.CONFIRM_PRINT_CUSTOMER_COPY";
