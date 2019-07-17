@@ -25,16 +25,15 @@ public final class EntryExtraData {
     public static final String PARAM_INFORMATION_VALUE = "informationValue";
 
 
-    public static final String PARAM_TITLE = "title";
-    public static final String PARAM_USER_MESSAGE = "userMessage";
-    public static final String PARAM_PRIMARY_AMOUNT = "primaryAmount";
-    public static final String PARAM_CONVENIENCE_FEE = "convenienceFee";
-    public static final String PARAM_SERVICE_FEE = "serviceFee";
-    public static final String PARAM_TOTAL_FEE = "totalFee";
+//    public static final String PARAM_TITLE = "title";
+//    public static final String PARAM_USER_MESSAGE = "userMessage";
+//    public static final String PARAM_PRIMARY_AMOUNT = "primaryAmount";
+//    public static final String PARAM_CONVENIENCE_FEE = "convenienceFee";
+//    public static final String PARAM_SERVICE_FEE = "serviceFee";
+//    public static final String PARAM_TOTAL_FEE = "totalFee";
+//
+//    public static final String PARAM_BALANCE = "balance";
 
-    public static final String PARAM_FOOD_STAMPS_BALANCE = "foodStampsBalance";
-    public static final String PARAM_CASH_BENEFIT_BALANCE = "cashBenefitBalance";
-    public static final String PARAM_BALANCE = "balance";
 
     /**
      * PARAM_TRANS_MODE : transaction mode <br>
@@ -90,6 +89,8 @@ public final class EntryExtraData {
     public static final String PARAM_TRANS_STATUS = "transStatus";
     public static final String PARAM_AVS_RESPONSE = "avsResponse";
     public static final String PARAM_ENTRY_MODE = "entryMode";
+    public static final String PARAM_FOOD_STAMPS_BALANCE = "foodStampsBalance";
+    public static final String PARAM_CASH_BENEFIT_BALANCE = "cashBenefitBalance";
 
 
 }

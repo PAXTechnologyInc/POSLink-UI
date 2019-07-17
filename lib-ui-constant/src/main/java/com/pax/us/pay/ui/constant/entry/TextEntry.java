@@ -229,12 +229,12 @@ public class TextEntry {
     public static final String ACTION_ENTER_CUSTOMER_CODE = "com.pax.us.pay.action.ENTER_CUSTOMER_CODE";
 
     /**
-     * The intent action of Enter prompt restrication code <br>
+     * The intent action of Enter prompt restriction code <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE}  <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE}  <br>
      * request: {@link EntryRequest#PARAM_PROMPT_RESTRICTION_CODE} String <br>
      */
-    public static final String ACTION_ENTER_PROMPT_RESTRICATION_CODE = "com.pax.us.pay.action.ENTER_PROMPT_RESTRICATION_CODE";
+    public static final String ACTION_ENTER_PROMPT_RESTRICTION_CODE = "com.pax.us.pay.action.ENTER_PROMPT_RESTRICTION_CODE";
 
     //FLEET CARD DATA
     /**
