@@ -6,13 +6,13 @@ import android.support.annotation.Nullable;
 
 import com.pax.us.pay.ui.constant.entry.EntryExtraData;
 import com.pax.us.pay.ui.core.BaseActionHelper;
-import com.pax.us.pay.ui.core.api.IInformationListener;
+import com.pax.us.pay.ui.core.api.IDetailsListener;
 import com.pax.us.pay.ui.core.api.IMessageListener;
 import com.pax.us.pay.ui.core.api.IRespStatus;
 import com.pax.us.pay.ui.core.api.IUIListener;
 
-public class InformationHelper extends BaseActionHelper {
-    public InformationHelper(@Nullable IConfirmListener uiListener, @Nullable IRespStatus respStatus) {
+public class ConfirmDetailsHelper extends BaseActionHelper {
+    public ConfirmDetailsHelper(@Nullable IConfirmDetailsListener uiListener, @Nullable IRespStatus respStatus) {
         super(uiListener, respStatus);
     }
 
@@ -27,14 +27,14 @@ public class InformationHelper extends BaseActionHelper {
         String[] key = bundle.getStringArray(EntryExtraData.PARAM_INFORMATION_KEY);
         String[] value = bundle.getStringArray(EntryExtraData.PARAM_INFORMATION_VALUE);
         if ((key != null) && (key.length > 0) && (value != null) && (value.length > 0) && (key.length == value.length)) {
-            if (uiListener instanceof IInformationListener) {
-                ((IInformationListener) uiListener).onShowInformation(key, value);
+            if (uiListener instanceof IDetailsListener) {
+                ((IDetailsListener) uiListener).onShowDetails(key, value);
             }
         } else
             throw new IllegalStateException("Information Format Error");
     }
 
-    public interface IConfirmListener extends IMessageListener, IInformationListener {
+    public interface IConfirmDetailsListener extends IMessageListener, IDetailsListener {
     }
 
 }

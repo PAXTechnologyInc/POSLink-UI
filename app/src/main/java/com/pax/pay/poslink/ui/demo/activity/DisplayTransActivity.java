@@ -15,9 +15,9 @@ import android.widget.TextView;
 import com.pax.pay.poslink.ui.demo.R;
 import com.pax.pay.poslink.ui.demo.base.RespStatusImpl;
 import com.pax.pay.poslink.ui.demo.view.DisplayInfoContent;
-import com.pax.us.pay.ui.core.helper.InformationHelper;
+import com.pax.us.pay.ui.core.helper.ConfirmDetailsHelper;
 
-public class DisplayTransActivity extends AppCompatActivity implements View.OnClickListener, InformationHelper.IConfirmListener {
+public class DisplayTransActivity extends AppCompatActivity implements View.OnClickListener, ConfirmDetailsHelper.IConfirmDetailsListener {
 
     TextView promptTv;
     Button btnConfirm;
@@ -25,7 +25,7 @@ public class DisplayTransActivity extends AppCompatActivity implements View.OnCl
     LinearLayout llDetailContainer;
 
 
-    private InformationHelper helper;
+    private ConfirmDetailsHelper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +40,7 @@ public class DisplayTransActivity extends AppCompatActivity implements View.OnCl
 
         llDetailContainer = (LinearLayout) findViewById(R.id.detail_layout);
 
-        helper = new InformationHelper(this, new RespStatusImpl(this));
+        helper = new ConfirmDetailsHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
         ActivityLocalManager.getInstance().addActivity(this);
     }
@@ -83,7 +83,7 @@ public class DisplayTransActivity extends AppCompatActivity implements View.OnCl
     }
 
     @Override
-    public void onShowInformation(@NonNull String[] key, @NonNull String[] value) {
+    public void onShowDetails(@NonNull String[] key, @NonNull String[] value) {
         String leftColum = "", rightColum = "";
 
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
