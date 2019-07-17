@@ -26,7 +26,9 @@ public class OptionEntry {
      * The intent action of Select Sub trans type <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * input: {@link EntryExtraData#PARAM_OPTIONS}:enum :  {@link com.pax.us.pay.ui.constant.entry.enumeration.SubTransType} <br>
+     * input: {@link EntryExtraData#PARAM_OPTIONS}:enum :  <br>
+     *        {@link com.pax.us.pay.ui.constant.entry.enumeration.SubTransType}  <br>
+     *        or {@link com.pax.us.pay.ui.constant.entry.enumeration.CashoutType} <br>
      * request: {@link EntryRequest#PARAM_INDEX} <br>
      */
     public static final String ACTION_SELECT_SUB_TRANS_TYPE = "com.pax.us.pay.action.SELECT_SUB_TRANS_TYPE";
