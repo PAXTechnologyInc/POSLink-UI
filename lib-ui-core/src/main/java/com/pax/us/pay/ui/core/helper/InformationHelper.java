@@ -11,8 +11,8 @@ import com.pax.us.pay.ui.core.api.IMessageListener;
 import com.pax.us.pay.ui.core.api.IRespStatus;
 import com.pax.us.pay.ui.core.api.IUIListener;
 
-public class ConfirmHelper extends BaseActionHelper {
-    public ConfirmHelper(@Nullable IConfirmListener uiListener, @Nullable IRespStatus respStatus) {
+public class InformationHelper extends BaseActionHelper {
+    public InformationHelper(@Nullable IConfirmListener uiListener, @Nullable IRespStatus respStatus) {
         super(uiListener, respStatus);
     }
 

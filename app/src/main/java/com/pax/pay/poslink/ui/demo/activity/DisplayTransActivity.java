@@ -15,9 +15,9 @@ import android.widget.TextView;
 import com.pax.pay.poslink.ui.demo.R;
 import com.pax.pay.poslink.ui.demo.base.RespStatusImpl;
 import com.pax.pay.poslink.ui.demo.view.DisplayInfoContent;
-import com.pax.us.pay.ui.core.helper.ConfirmHelper;
+import com.pax.us.pay.ui.core.helper.InformationHelper;
 
-public class DisplayTransActivity extends AppCompatActivity implements View.OnClickListener, ConfirmHelper.IConfirmListener {
+public class DisplayTransActivity extends AppCompatActivity implements View.OnClickListener, InformationHelper.IConfirmListener {
 
     TextView promptTv;
     Button btnConfirm;
@@ -25,7 +25,7 @@ public class DisplayTransActivity extends AppCompatActivity implements View.OnCl
     LinearLayout llDetailContainer;
 
 
-    private ConfirmHelper helper;
+    private InformationHelper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +40,7 @@ public class DisplayTransActivity extends AppCompatActivity implements View.OnCl
 
         llDetailContainer = (LinearLayout) findViewById(R.id.detail_layout);
 
-        helper = new ConfirmHelper(this, new RespStatusImpl(this));
+        helper = new InformationHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
         ActivityLocalManager.getInstance().addActivity(this);
     }

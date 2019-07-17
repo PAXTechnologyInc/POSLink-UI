@@ -7,24 +7,24 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class DisplayInfoContent {
-    public static final Map<String, String> FEE_MAP = new LinkedHashMap<>();
+//    public static final Map<String, String> FEE_MAP = new LinkedHashMap<>();
 
-    static {
-        FEE_MAP.put(EntryExtraData.PARAM_TITLE, null);
-        FEE_MAP.put(EntryExtraData.PARAM_USER_MESSAGE, null);
-        FEE_MAP.put(EntryExtraData.PARAM_PRIMARY_AMOUNT, "Primary Amount : ");
-        FEE_MAP.put(EntryExtraData.PARAM_CONVENIENCE_FEE, "Convenience Fee : ");
-        FEE_MAP.put(EntryExtraData.PARAM_SERVICE_FEE, "Service Fee : ");
-        FEE_MAP.put(EntryExtraData.PARAM_TOTAL_FEE, "Total Amount : ");
-    }
-
-    public static final Map<String, String> BALANCE_MAP = new LinkedHashMap<>();
-
-    static {
-        BALANCE_MAP.put(EntryExtraData.PARAM_CASH_BENEFIT_BALANCE, "Cash Benefit : ");
-        BALANCE_MAP.put(EntryExtraData.PARAM_FOOD_STAMPS_BALANCE, "Food Stamp : ");
-        BALANCE_MAP.put(EntryExtraData.PARAM_BALANCE, "Balance : ");
-    }
+//    static {
+//        FEE_MAP.put(EntryExtraData.PARAM_TITLE, null);
+//        FEE_MAP.put(EntryExtraData.PARAM_USER_MESSAGE, null);
+//        FEE_MAP.put(EntryExtraData.PARAM_PRIMARY_AMOUNT, "Primary Amount : ");
+//        FEE_MAP.put(EntryExtraData.PARAM_CONVENIENCE_FEE, "Convenience Fee : ");
+//        FEE_MAP.put(EntryExtraData.PARAM_SERVICE_FEE, "Service Fee : ");
+//        FEE_MAP.put(EntryExtraData.PARAM_TOTAL_FEE, "Total Amount : ");
+//    }
+//
+//    public static final Map<String, String> BALANCE_MAP = new LinkedHashMap<>();
+//
+//    static {
+//        BALANCE_MAP.put(EntryExtraData.PARAM_CASH_BENEFIT_BALANCE, "Cash Benefit : ");
+//        BALANCE_MAP.put(EntryExtraData.PARAM_FOOD_STAMPS_BALANCE, "Food Stamp : ");
+//        BALANCE_MAP.put(EntryExtraData.PARAM_BALANCE, "Balance : ");
+//    }
 
     public static final Map<String, String> TRANS_MAP = new LinkedHashMap<>();
 

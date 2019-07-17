@@ -568,30 +568,7 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".activity.DisplayFeeActivity"
-            android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
-            android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="com.pax.us.pay.action.DISPLAY_FEES" />
 
-                <category android:name="com.pax.us.pay.ui.category.CONFIRMATION" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".activity.DisplayBalanceActivity"
-            android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
-            android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="com.pax.us.pay.action.DISPLAY_BALANCE" />
-
-                <category android:name="com.pax.us.pay.ui.category.CONFIRMATION" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
         <activity
             android:name=".activity.DisplayTransActivity"
             android:taskAffinity="com.pax.us.pay.UI"
