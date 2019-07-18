@@ -15,7 +15,7 @@ public class ConfirmMessageHelper extends BaseActionHelper {
 
     public void sendNext(boolean flag) {
         Bundle bundle = new Bundle();
-        bundle.putBoolean(EntryRequest.PARAM_INDEX, flag);
+        bundle.putBoolean(EntryRequest.PARAM_IS_YES, flag);
         super.sendNext(bundle);
     }
 

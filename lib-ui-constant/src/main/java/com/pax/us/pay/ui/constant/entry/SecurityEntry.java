@@ -8,6 +8,8 @@ public class SecurityEntry {
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
      * input: {@link EntryExtraData#PARAM_CURRENCY}  enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType} <br>
      * input: {@link EntryExtraData#PARAM_TOTAL_AMOUNT}  <br>
+     * input: {@link EntryExtraData#PARAM_IS_ONLINE_PIN} boolean <br>
+     * input: {@link EntryExtraData#PARAM_PIN_STYLES} enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.PinStyles}  <br>
      * input: {@link EntryExtraData#PARAM_ENABLE_SWIPE} boolean <br>
      * input: {@link EntryExtraData#PARAM_ENABLE_INSERT} <br>
      * input: {@link EntryExtraData#PARAM_ENABLE_TAP} <br>

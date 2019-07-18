@@ -14,7 +14,7 @@ public class ConfirmationEntry {
      * input: {@link EntryExtraData#PARAM_OPTIONS}: enum: {@link ConfirmationType} <br>
      * request: {@link EntryRequest#PARAM_INDEX} <br>
      */
-    public static final String ACTION_CONFIRM_UNIFIELD_MESSAGE = "com.pax.us.pay.action.CONFIRM_UNIFIELD_MESSAGE";
+    public static final String ACTION_CONFIRM_UNIFIED_MESSAGE = "com.pax.us.pay.action.CONFIRM_UNIFIED_MESSAGE";
 
 
     /**

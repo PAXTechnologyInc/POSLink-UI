@@ -122,6 +122,7 @@ public class EntryRequest {
     public static final String PARAM_VALUE = "value";
 
     public static final String PARAM_INDEX = "index";
+    public static final String PARAM_IS_YES = "isYes";
 
     public static final String PARAM_X = "x";
     public static final String PARAM_Y = "y";
