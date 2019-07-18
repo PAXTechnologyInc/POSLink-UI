@@ -56,6 +56,7 @@ public final class EntryExtraData {
     public static final String PARAM_TAX = "tax";
     public static final String PARAM_CASH_BACK = "cashBack";
     public static final String PARAM_MERCHANT_FEE = "merchantFee";
+    public static final String PARAM_SURCHARGE_FEE_NAME = "surchargeFeeName";
     public static final String PARAM_SURCHARGE_FEE = "surchargeFee";
     public static final String PARAM_ADDITION_FEE = "additionFee";
 

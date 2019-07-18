@@ -14,7 +14,7 @@ public class ConfirmationEntry {
      * input: {@link EntryExtraData#PARAM_OPTIONS}: enum: {@link ConfirmationType} <br>
      * request: {@link EntryRequest#PARAM_INDEX} <br>
      */
-    public static final String ACTION_CONFIRM_MESSAGE = "com.pax.us.pay.action.CONFIRM_MESSAGE";
+    public static final String ACTION_CONFIRM_UNIFIELD_MESSAGE = "com.pax.us.pay.action.CONFIRM_UNIFIELD_MESSAGE";
 
 
     /**
@@ -109,6 +109,7 @@ public class ConfirmationEntry {
      * The intent action of surcharge fee approval <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_SURCHARGE_FEE_NAME} String <br>
      * input: {@link EntryExtraData#PARAM_CURRENCY} <br>
      * input: {@link EntryExtraData#PARAM_SURCHARGE_FEE} long <br>
      * input: {@link EntryExtraData#PARAM_OPTIONS}: enum: {@link ConfirmationType} <br>
