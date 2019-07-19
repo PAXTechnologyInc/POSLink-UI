@@ -16,6 +16,7 @@ public class TextEntry {
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
      * input: {@link EntryExtraData#PARAM_CURRENCY}  enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType} <br>
      * input: {@link EntryExtraData#PARAM_BASE_AMOUNT} <br>
+     * input: {@link EntryExtraData#PARAM_TIP_NAME} <br>
      * input: {@link EntryExtraData#PARAM_TIP_OPTIONS} String Array, Nullable amount array <br>
      * request: {@link EntryRequest#PARAM_TIP} <br>
      */
