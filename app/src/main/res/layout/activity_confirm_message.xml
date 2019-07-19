@@ -18,6 +18,8 @@
             android:id="@+id/prompt_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:maxLines="4"
+            android:singleLine="false"
             android:textColor="@color/primary_text_light"
             android:textSize="@dimen/font_edit_text" />
 

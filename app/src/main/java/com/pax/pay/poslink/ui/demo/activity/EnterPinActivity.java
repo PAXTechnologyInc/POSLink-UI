@@ -3,6 +3,7 @@ package com.pax.pay.poslink.ui.demo.activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
@@ -13,13 +14,14 @@ import com.pax.pay.poslink.ui.demo.R;
 import com.pax.pay.poslink.ui.demo.base.RespStatusImpl;
 import com.pax.pay.poslink.ui.demo.event.Event;
 import com.pax.pay.poslink.ui.demo.event.EventBusUtil;
+import com.pax.us.pay.ui.constant.entry.enumeration.PinStyles;
 import com.pax.us.pay.ui.constant.status.PINStatus;
-import com.pax.us.pay.ui.core.helper.SecurityHelper;
+import com.pax.us.pay.ui.core.helper.EnterPinHelper;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-public class EnterPinActivity extends AppCompatActivity implements View.OnClickListener, SecurityHelper.ISecurityListener {
+public class EnterPinActivity extends AppCompatActivity implements View.OnClickListener, EnterPinHelper.IEnterPinListener {
 
     TextView amountTv;
     TextView promptTitle;
@@ -29,7 +31,7 @@ public class EnterPinActivity extends AppCompatActivity implements View.OnClickL
     private int pinLen;
 
 
-    private SecurityHelper helper;
+    private EnterPinHelper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +49,7 @@ public class EnterPinActivity extends AppCompatActivity implements View.OnClickL
 
 
         promptTitle.setText("Please Enter PIN");
-        helper = new SecurityHelper(this, new RespStatusImpl(this));
+        helper = new EnterPinHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
         ActivityLocalManager.getInstance().addActivity(this);
 
@@ -134,5 +136,17 @@ public class EnterPinActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onShowCurrency(@Nullable String currency, boolean isPoint) {
+    }
+
+    @Override
+    public void onShowPin(@Nullable String pinStyles, boolean isOnline) {
+        if (!TextUtils.isEmpty(pinStyles)) {
+            if (pinStyles.equals(PinStyles.LAST))
+                promptTitle.setText("Please Enter PIN Last Time");
+            else if (pinStyles.equals(PinStyles.RETRY))
+                promptTitle.setText("Please Enter PIN Again");
+            else
+                promptTitle.setText("Please Enter PIN");
+        }
     }
 }

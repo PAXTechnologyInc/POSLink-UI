@@ -13,7 +13,7 @@ import com.pax.pay.poslink.ui.demo.R;
 import com.pax.pay.poslink.ui.demo.base.RespStatusImpl;
 import com.pax.us.pay.ui.core.helper.ConfirmMessageHelper;
 
-public class ConfirmMessageActivity extends AppCompatActivity implements View.OnClickListener, ConfirmMessageHelper.IConfirmMessageListener {
+public class ConfirmUnifiedMessageActivity extends AppCompatActivity implements View.OnClickListener, ConfirmMessageHelper.IConfirmMessageListener {
 
     TextView promptTv;
     Button cancelBtn;

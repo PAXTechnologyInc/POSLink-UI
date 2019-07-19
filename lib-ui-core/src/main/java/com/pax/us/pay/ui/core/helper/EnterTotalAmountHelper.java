@@ -12,18 +12,17 @@ import com.pax.us.pay.ui.core.api.IAmountListener;
 import com.pax.us.pay.ui.core.api.ICurrencyListener;
 import com.pax.us.pay.ui.core.api.IMessageListener;
 import com.pax.us.pay.ui.core.api.IRespStatus;
-import com.pax.us.pay.ui.core.api.ITipOptionListener;
 import com.pax.us.pay.ui.core.api.IUIListener;
 
-public class EnterTipHelper extends BaseActionHelper {
+public class EnterTotalAmountHelper extends BaseActionHelper {
 
-    public EnterTipHelper(@Nullable IEnterTipListener uiListener, @Nullable IRespStatus respStatus) {
+    public EnterTotalAmountHelper(@Nullable IEnterTotalAmountListener uiListener, @Nullable IRespStatus respStatus) {
         super(uiListener, respStatus);
     }
 
     public void sendNext(long amount) {
         Bundle bundle = new Bundle();
-        bundle.putLong(EntryRequest.PARAM_TIP, amount);
+        bundle.putLong(EntryRequest.PARAM_TOTAL_AMOUNT, amount);
         super.sendNext(bundle);
     }
 
@@ -41,15 +40,9 @@ public class EnterTipHelper extends BaseActionHelper {
         if (uiListener instanceof IAmountListener && bundle.containsKey(EntryExtraData.PARAM_BASE_AMOUNT)) {
             ((IAmountListener) uiListener).onShowAmount(bundle.getLong(EntryExtraData.PARAM_BASE_AMOUNT));
         }
-
-        if (uiListener instanceof ITipOptionListener && bundle.containsKey(EntryExtraData.PARAM_TIP_OPTIONS)) {
-            String[] options = bundle.getStringArray(EntryExtraData.PARAM_TIP_OPTIONS);
-            if (options != null && options.length > 0)
-                ((ITipOptionListener) uiListener).onShowTipOptions(options);
-        }
     }
 
-    public interface IEnterTipListener extends IMessageListener, ICurrencyListener, IAmountListener, ITipOptionListener {
+    public interface IEnterTotalAmountListener extends IMessageListener, ICurrencyListener, IAmountListener {
     }
 
 }

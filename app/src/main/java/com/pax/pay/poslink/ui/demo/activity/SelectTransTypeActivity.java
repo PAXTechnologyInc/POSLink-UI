@@ -27,7 +27,7 @@ import java.util.List;
  * Created by Charles.S on 2017/5/5.
  */
 
-public class SelectReversePartialActivity extends AppCompatActivity implements View.OnClickListener, SelectOptionsHelper.ISelectOptionListener {
+public class SelectTransTypeActivity extends AppCompatActivity implements View.OnClickListener, SelectOptionsHelper.ISelectOptionListener {
 
     RecyclerView mRecyclerView;
     Button confirmBtn;
@@ -50,7 +50,8 @@ public class SelectReversePartialActivity extends AppCompatActivity implements V
         confirmBtn.setOnClickListener(this);
         confirmBtn.setEnabled(false);
 
-        tvPrompt.setText("Reversed?");
+
+        tvPrompt.setText("Please Select Transaction Type");
         helper = new SelectOptionsHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
         ActivityLocalManager.getInstance().addActivity(this);
@@ -79,6 +80,7 @@ public class SelectReversePartialActivity extends AppCompatActivity implements V
     }
 
     @Override
+
     protected void onDestroy() {
         super.onDestroy();
     }
@@ -99,7 +101,7 @@ public class SelectReversePartialActivity extends AppCompatActivity implements V
                 @NonNull
                 @Override
                 public BaseViewHolder<String> onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                    return new OptionModelViewHolder(LayoutInflater.from(SelectReversePartialActivity.this).inflate(R.layout.item_mode_grid, parent, false));
+                    return new OptionModelViewHolder(LayoutInflater.from(SelectTransTypeActivity.this).inflate(R.layout.item_mode_grid, parent, false));
                 }
 
                 @Override

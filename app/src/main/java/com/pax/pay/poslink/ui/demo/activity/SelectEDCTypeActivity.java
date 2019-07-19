@@ -27,7 +27,7 @@ import java.util.List;
  * Created by Charles.S on 2017/5/5.
  */
 
-public class SelectCardPresentActivity extends AppCompatActivity implements View.OnClickListener, SelectOptionsHelper.ISelectOptionListener {
+public class SelectEDCTypeActivity extends AppCompatActivity implements View.OnClickListener, SelectOptionsHelper.ISelectOptionListener {
 
     RecyclerView mRecyclerView;
     Button confirmBtn;
@@ -50,17 +50,19 @@ public class SelectCardPresentActivity extends AppCompatActivity implements View
         confirmBtn.setOnClickListener(this);
         confirmBtn.setEnabled(false);
 
-        tvPrompt.setText("Card Persent?");
+
+        tvPrompt.setText("Please Select EDC Type");
         helper = new SelectOptionsHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
         ActivityLocalManager.getInstance().addActivity(this);
-
     }
 
     @Override
     public void onClick(View view) {
-        Integer index = (Integer) selectOption.indexOf(selectOption.get(selected));
-        helper.sendNext(index);
+        if (selected != -1) {
+            Integer index = (Integer) selectOption.indexOf(selectOption.get(selected));
+            helper.sendNext(index);
+        }
     }
 
     @Override
@@ -83,6 +85,7 @@ public class SelectCardPresentActivity extends AppCompatActivity implements View
         super.onDestroy();
     }
 
+
     @Override
     public void onShowMessage(@Nullable String transName, @Nullable String message) {
 
@@ -98,7 +101,7 @@ public class SelectCardPresentActivity extends AppCompatActivity implements View
                 @NonNull
                 @Override
                 public BaseViewHolder<String> onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                    return new OptionModelViewHolder(LayoutInflater.from(SelectCardPresentActivity.this).inflate(R.layout.item_mode_grid, parent, false));
+                    return new OptionModelViewHolder(LayoutInflater.from(SelectEDCTypeActivity.this).inflate(R.layout.item_mode_grid, parent, false));
                 }
 
                 @Override
@@ -119,7 +122,7 @@ public class SelectCardPresentActivity extends AppCompatActivity implements View
             mRecyclerView.setHasFixedSize(true);
             mRecyclerView.setAdapter(mAdapter);
         }
-
+        ActivityLocalManager.getInstance().addActivity(this);
     }
 
     class OptionModelViewHolder extends BaseViewHolder<String> {
