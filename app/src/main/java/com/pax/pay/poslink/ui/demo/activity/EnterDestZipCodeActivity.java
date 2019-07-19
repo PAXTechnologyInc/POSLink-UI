@@ -16,7 +16,7 @@ import com.pax.pay.poslink.ui.demo.R;
 import com.pax.pay.poslink.ui.demo.base.RespStatusImpl;
 import com.pax.us.pay.ui.core.helper.EnterDescZipCodeHelper;
 
-public class EnterDescZipCodeActivity extends AppCompatActivity implements View.OnClickListener, EnterDescZipCodeHelper.IEnterDescZipCodeListener {
+public class EnterDestZipCodeActivity extends AppCompatActivity implements View.OnClickListener, EnterDescZipCodeHelper.IEnterDescZipCodeListener {
 
     TextView promptTv;
     EditText mEditText;

@@ -389,7 +389,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.EnterDescZipCodeActivity"
+            android:name=".activity.EnterDestZipCodeActivity"
             android:allowTaskReparenting="true"
             android:taskAffinity="com.pax.us.pay.UI"
             android:theme="@style/AppTheme.NoActionBar"
@@ -401,6 +401,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity
             android:name="com.pax.pay.poslink.ui.demo.activity.SignatureActivity"
             android:taskAffinity="com.pax.us.pay.UI"

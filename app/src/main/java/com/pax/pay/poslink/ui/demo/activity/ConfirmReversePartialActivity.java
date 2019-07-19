@@ -11,19 +11,19 @@ import android.widget.TextView;
 
 import com.pax.pay.poslink.ui.demo.R;
 import com.pax.pay.poslink.ui.demo.base.RespStatusImpl;
-import com.pax.us.pay.ui.core.helper.ConfirmAmountHelper;
+import com.pax.us.pay.ui.core.helper.ConfirmApproveAmountHelper;
 
 /**
  * Created by Charles.S on 2017/5/5.
  */
 
-public class ConfirmReversePartialActivity extends AppCompatActivity implements View.OnClickListener, ConfirmAmountHelper.IConFirmAmountsListener {
+public class ConfirmReversePartialActivity extends AppCompatActivity implements View.OnClickListener, ConfirmApproveAmountHelper.IConfirmApproveAmountsListener {
 
     TextView promptTv;
     Button cancelBtn;
     Button confirmBtn;
 
-    private ConfirmAmountHelper helper;
+    private ConfirmApproveAmountHelper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,7 @@ public class ConfirmReversePartialActivity extends AppCompatActivity implements 
 
 
         promptTv.setText("Reverse?");
-        helper = new ConfirmAmountHelper(this, new RespStatusImpl(this));
+        helper = new ConfirmApproveAmountHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
         ActivityLocalManager.getInstance().addActivity(this);
     }
@@ -78,8 +78,9 @@ public class ConfirmReversePartialActivity extends AppCompatActivity implements 
 
 
     @Override
-    public void onShowAmount(long amount) {
-        String message = "Total Amount : " + String.valueOf(amount) + "\nReverse?";
+    public void onShowApproveAmount(long totalAmount, long approveAmount) {
+        String message = "Total Amount : " + String.valueOf(totalAmount) +
+                "\nApprove Amount : " + String.valueOf(approveAmount) + "\nReverse?";
         promptTv.setText(message);
     }
 

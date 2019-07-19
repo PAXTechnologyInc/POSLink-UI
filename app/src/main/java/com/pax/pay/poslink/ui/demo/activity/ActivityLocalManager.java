@@ -1,13 +1,12 @@
 package com.pax.pay.poslink.ui.demo.activity;
 
 import android.app.Activity;
-import android.util.Log;
 
 import java.lang.ref.WeakReference;
-import java.util.Stack;
 
 public class ActivityLocalManager {
-    private static Stack<WeakReference<Activity>> activityStack;
+    // private static Stack<WeakReference<Activity>> activityStack;
+    private static WeakReference<Activity> currActivity;
     private static ActivityLocalManager instance;
 
     private ActivityLocalManager() {
@@ -24,17 +23,17 @@ public class ActivityLocalManager {
      * add Activity into stack
      */
     public void addActivity(Activity activity) {
-        if (activityStack == null) {
-            activityStack = new Stack<WeakReference<Activity>>();
+
+        if (currActivity != null) {
+            currActivity.get().finish();
         }
-        WeakReference<Activity> activityWeakReference = new WeakReference<>(activity);
-        activityStack.add(activityWeakReference);
+        currActivity = new WeakReference<>(activity);
     }
 
     public WeakReference<Activity> getCurrentActivity() {
-        if (activityStack != null) {
-            return activityStack.lastElement();
-        }
+
+        if (currActivity != null)
+            return currActivity;
         return null;
     }
 
@@ -42,15 +41,8 @@ public class ActivityLocalManager {
      * close all Activity
      */
     public void finishAllActivity() {
-        if (activityStack != null) {
-            for (int i = 0, size = activityStack.size(); i < size; i++) {
-                if (null != activityStack.get(i).get()) {
-                    Log.i("AppManager", "finish Activity : " + activityStack.get(i).get().getLocalClassName());
-                    activityStack.get(i).get().finish();
-                }
-            }
-            activityStack.clear();
-        }
+
+        if (currActivity != null)
+            currActivity.get().finish();
     }
 }
-
