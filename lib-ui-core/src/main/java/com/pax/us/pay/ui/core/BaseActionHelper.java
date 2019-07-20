@@ -82,7 +82,7 @@ public abstract class BaseActionHelper {
         if (actionHandler == null) {
             actionHandler = new UIMessageHandler(context, intent.getStringExtra(EntryExtraData.PARAM_PACKAGE), respStatus);
         }
-
+        actionHandler.start();
         this.intent = (Intent) intent.clone();
         if (this.intent.getExtras() != null) {
             handler.post(new Runnable() {
@@ -94,10 +94,10 @@ public abstract class BaseActionHelper {
         }
     }
 
-//    public void stop(Context context) {
-//        if (actionHandler != null) {
-//            actionHandler.stop();
-//        }
-//    }
+    public void stop() {
+        if (actionHandler != null) {
+            actionHandler.stop();
+        }
+    }
 
 }

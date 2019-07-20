@@ -35,4 +35,14 @@ interface IActionHandler {
      * {@link com.pax.us.pay.ui.constant.entry.EntryRequest#PARAM_HEIGHT}
      */
     void setSecurityArea(@NonNull Bundle bundle);
+
+    /**
+     * start action
+     */
+    void start();
+
+    /**
+     * stop action
+     */
+    void stop();
 }

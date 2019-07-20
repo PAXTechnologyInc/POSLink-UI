@@ -20,32 +20,22 @@ import com.pax.us.pay.ui.core.api.IRespStatus;
  */
 class UIMessageHandler implements IActionHandler {
 
+    private static final String STATE_ERROR_LOG = "need to load UIMessageHandler firstly";
+    private static final String STATE_ERROR_START = "need to start firstly";
     private final BroadcastSender sender;
     private final String packageName;
+    private RespReceiver receiver;
+    private Context context;
+    private boolean isStart = false;
 
     @Nullable
     private final IRespStatus resp;
 
     UIMessageHandler(Context context, @NonNull String packageName, @Nullable IRespStatus respStatus) {
+        this.context = context;
         this.resp = respStatus;
         this.packageName = packageName;
         this.sender = new BroadcastSender(context);
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(EntryResponse.ACTION_ACCEPTED);
-        intentFilter.addAction(EntryResponse.ACTION_DECLINED);
-
-        try {
-            RespReceiver receiver = new RespReceiver();
-            context.registerReceiver(receiver, intentFilter);
-
-            //for unregister
-            IntentFilter transactionFilter = new IntentFilter();
-            transactionFilter.addAction(InformationStatus.TRANS_COMPLETED);
-            transactionFilter.addCategory(InformationStatus.CATEGORY);
-            context.registerReceiver(receiver, transactionFilter);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     @Override
@@ -66,6 +56,41 @@ class UIMessageHandler implements IActionHandler {
         intent.setAction(EntryRequest.ACTION_SECURITY_AREA);
         intent.putExtras(bundle);
         sender.send(intent);
+    }
+
+    @Override
+    public void start() {
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(EntryResponse.ACTION_ACCEPTED);
+        intentFilter.addAction(EntryResponse.ACTION_DECLINED);
+
+        try {
+            receiver = new RespReceiver();
+            context.registerReceiver(receiver, intentFilter);
+            isStart = true;
+            IntentFilter transactionFilter = new IntentFilter();
+            transactionFilter.addAction(InformationStatus.TRANS_COMPLETED);
+            transactionFilter.addCategory(InformationStatus.CATEGORY);
+            context.registerReceiver(receiver, transactionFilter);
+        } catch (Exception e) {
+            //throw new IllegalStateException(STATE_ERROR_LOG);
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void stop() {
+        if (context == null)
+            throw new IllegalStateException(STATE_ERROR_LOG);
+
+        if (isStart == false)
+            throw new IllegalStateException(STATE_ERROR_START);
+
+        if (receiver != null) {
+            context.unregisterReceiver(receiver);
+            receiver = null;
+        }
+        isStart = false;
     }
 
     @Override
@@ -94,8 +119,11 @@ class UIMessageHandler implements IActionHandler {
             Log.i("UIDesignReceiver", "onReceive action : " + action);
             switch (action) {
                 case EntryResponse.ACTION_ACCEPTED:
-                    context.unregisterReceiver(this);
-                    Log.i("BroadcastReceiver", "ACCEPTED receiver unregisterReceiver ");
+                    if (receiver != null) {
+                        context.unregisterReceiver(this);
+                        receiver = null;
+                        Log.i("BroadcastReceiver", "ACCEPTED receiver unregisterReceiver :" + context);
+                    }
                     if (resp != null) {
                         resp.onAccepted();
                     }
@@ -107,16 +135,15 @@ class UIMessageHandler implements IActionHandler {
                     }
                     break;
                 case InformationStatus.TRANS_COMPLETED:
-                    context.unregisterReceiver(this);
+                    if (receiver != null) {
+                        context.unregisterReceiver(this);
+                        receiver = null;
+                    }
                     break;
                 default:
                     break;
             }
         }
     }
-
-//    protected void Stop(Context context){
-//        //context.unregisterReceiver(receiver);
-//    }
 
 }
