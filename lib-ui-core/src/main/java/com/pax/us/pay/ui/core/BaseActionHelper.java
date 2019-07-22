@@ -118,7 +118,7 @@ public abstract class BaseActionHelper {
             String action = intent.getAction();
 
             if (InformationStatus.TRANS_COMPLETED.equals(action)) {
-                context.unregisterReceiver(this);
+                stop(context);
                 if (uiListener != null) {
                     uiListener.onTransCompleted();
                 }

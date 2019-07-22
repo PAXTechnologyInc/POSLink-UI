@@ -101,7 +101,7 @@ class UIMessageHandler implements IActionHandler {
             Log.i("UIDesignReceiver", "onReceive action : " + action);
             switch (action) {
                 case EntryResponse.ACTION_ACCEPTED:
-                    context.unregisterReceiver(this);
+                    stop();
                     Log.i("BroadcastReceiver", "ACCEPTED receiver unregisterReceiver :" + context);
                     if (resp != null) {
                         resp.onAccepted();
