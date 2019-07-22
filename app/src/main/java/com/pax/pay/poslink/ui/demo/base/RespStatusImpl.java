@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.support.annotation.Nullable;
 import android.widget.Toast;
 
-import com.pax.pay.poslink.ui.demo.event.EndEvent;
-import com.pax.pay.poslink.ui.demo.event.EventBusUtil;
 import com.pax.us.pay.ui.core.api.IRespStatus;
 
 import java.lang.ref.WeakReference;
@@ -16,13 +14,6 @@ public class RespStatusImpl implements IRespStatus {
 
     public RespStatusImpl(Activity activity) {
         this.activityWeakReference = new WeakReference<>(activity);
-    }
-
-    @Override
-    public void onAccepted() {
-        EventBusUtil.doEvent(new EndEvent());
-        if (activityWeakReference.get() != null)
-            activityWeakReference.get().finish();
     }
 
     @Override
