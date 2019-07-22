@@ -18,8 +18,10 @@ public class RespStatusImpl implements IRespStatus {
 
     @Override
     public void onAccepted() {
-        if (activityWeakReference.get() != null)
-            activityWeakReference.get().finish();
+        Activity activity = activityWeakReference.get();
+        if (activity != null) {
+            activity.finish();
+        }
     }
 
     @Override

@@ -24,7 +24,7 @@ import java.util.Map;
 
 public class ConfirmPrinterStatusActivity extends AppCompatActivity implements View.OnClickListener, ConfirmPrinterStatusHelper.IConfirmPrinterStatusListener {
 
-    private static Map<String, String> messageMap = new HashMap();
+    private static Map<String, String> messageMap = new HashMap<>();
 
     static {
         messageMap.put(PrintStatusType.PRINTER_OUT_OF_PAPER, "Printer Out Of Paper");
@@ -76,12 +76,6 @@ public class ConfirmPrinterStatusActivity extends AppCompatActivity implements V
     protected void onStop() {
         moveTaskToBack(true);
         super.onStop();
-    }
-
-    @Override
-
-    protected void onDestroy() {
-        super.onDestroy();
     }
 
     @Override
