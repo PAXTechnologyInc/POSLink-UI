@@ -29,16 +29,11 @@ import android.util.Log;
 
 import com.pax.pay.poslink.ui.demo.Dialog.MessageDialog;
 import com.pax.pay.poslink.ui.demo.R;
-import com.pax.pay.poslink.ui.demo.event.EndEvent;
-import com.pax.pay.poslink.ui.demo.event.EventBusUtil;
 import com.pax.us.pay.ui.constant.status.BatchStatus;
 import com.pax.us.pay.ui.constant.status.CardStatus;
 import com.pax.us.pay.ui.constant.status.InformationStatus;
 import com.pax.us.pay.ui.constant.status.StatusData;
 import com.pax.us.pay.ui.constant.status.Uncategory;
-
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
 
 import java.lang.ref.WeakReference;
 
@@ -68,15 +63,7 @@ public class DialogActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dialog);
         handleIntent(getIntent());
-        EventBusUtil.register(this);
-    }
-
-    @Subscribe(threadMode = ThreadMode.ASYNC)
-    public void onEventAsync(EndEvent event) {
-        if (event != null) {
-            hideDialog();
-            finish();
-        }
+        //EventBusUtil.register(this);
     }
 
     @Override
@@ -260,7 +247,6 @@ public class DialogActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        EventBusUtil.unregister(this);
         super.onDestroy();
     }
 
