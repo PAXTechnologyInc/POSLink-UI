@@ -12,7 +12,6 @@ import android.util.Log;
 
 import com.pax.us.pay.ui.constant.entry.EntryRequest;
 import com.pax.us.pay.ui.constant.entry.EntryResponse;
-import com.pax.us.pay.ui.constant.status.InformationStatus;
 import com.pax.us.pay.ui.core.api.IRespStatus;
 
 /**
@@ -20,12 +19,10 @@ import com.pax.us.pay.ui.core.api.IRespStatus;
  */
 class UIMessageHandler implements IActionHandler {
 
-    private static final String STATE_ERROR_LOG = "need to load UIMessageHandler firstly";
-    private static final String STATE_ERROR_START = "need to start firstly";
     private final BroadcastSender sender;
     private final String packageName;
-    private RespReceiver receiver;
-    private Context context;
+    private final RespReceiver receiver = new RespReceiver();
+    private final Context context;
     private boolean isStart = false;
 
     @Nullable
@@ -36,6 +33,26 @@ class UIMessageHandler implements IActionHandler {
         this.resp = respStatus;
         this.packageName = packageName;
         this.sender = new BroadcastSender(context);
+    }
+
+    @Override
+    public void start() {
+        if (!isStart) {
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction(EntryResponse.ACTION_ACCEPTED);
+            intentFilter.addAction(EntryResponse.ACTION_DECLINED);
+
+            context.registerReceiver(receiver, intentFilter);
+            isStart = true;
+        }
+    }
+
+    @Override
+    public void stop() {
+        if (isStart) {
+            context.unregisterReceiver(receiver);
+            isStart = false;
+        }
     }
 
     @Override
@@ -56,41 +73,6 @@ class UIMessageHandler implements IActionHandler {
         intent.setAction(EntryRequest.ACTION_SECURITY_AREA);
         intent.putExtras(bundle);
         sender.send(intent);
-    }
-
-    @Override
-    public void start() {
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(EntryResponse.ACTION_ACCEPTED);
-        intentFilter.addAction(EntryResponse.ACTION_DECLINED);
-
-        try {
-            receiver = new RespReceiver();
-            context.registerReceiver(receiver, intentFilter);
-            isStart = true;
-            IntentFilter transactionFilter = new IntentFilter();
-            transactionFilter.addAction(InformationStatus.TRANS_COMPLETED);
-            transactionFilter.addCategory(InformationStatus.CATEGORY);
-            context.registerReceiver(receiver, transactionFilter);
-        } catch (Exception e) {
-            //throw new IllegalStateException(STATE_ERROR_LOG);
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    public void stop() {
-        if (context == null)
-            throw new IllegalStateException(STATE_ERROR_LOG);
-
-        if (isStart == false)
-            throw new IllegalStateException(STATE_ERROR_START);
-
-        if (receiver != null) {
-            context.unregisterReceiver(receiver);
-            receiver = null;
-        }
-        isStart = false;
     }
 
     @Override
@@ -119,11 +101,8 @@ class UIMessageHandler implements IActionHandler {
             Log.i("UIDesignReceiver", "onReceive action : " + action);
             switch (action) {
                 case EntryResponse.ACTION_ACCEPTED:
-                    if (receiver != null) {
-                        context.unregisterReceiver(this);
-                        receiver = null;
-                        Log.i("BroadcastReceiver", "ACCEPTED receiver unregisterReceiver :" + context);
-                    }
+                    context.unregisterReceiver(this);
+                    Log.i("BroadcastReceiver", "ACCEPTED receiver unregisterReceiver :" + context);
                     if (resp != null) {
                         resp.onAccepted();
                     }
@@ -132,12 +111,6 @@ class UIMessageHandler implements IActionHandler {
                     if (resp != null) {
                         resp.onDeclined(intent.getLongExtra(EntryResponse.PARAM_CODE, -1),
                                 intent.getStringExtra(EntryResponse.PARAM_MSG));
-                    }
-                    break;
-                case InformationStatus.TRANS_COMPLETED:
-                    if (receiver != null) {
-                        context.unregisterReceiver(this);
-                        receiver = null;
                     }
                     break;
                 default:

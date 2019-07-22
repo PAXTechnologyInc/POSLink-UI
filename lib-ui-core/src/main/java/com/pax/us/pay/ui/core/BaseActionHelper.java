@@ -1,13 +1,16 @@
 package com.pax.us.pay.ui.core;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import com.pax.us.pay.ui.constant.entry.EntryExtraData;
+import com.pax.us.pay.ui.constant.status.InformationStatus;
 import com.pax.us.pay.ui.core.api.IMessageListener;
 import com.pax.us.pay.ui.core.api.IRespStatus;
 import com.pax.us.pay.ui.core.api.IUIListener;
@@ -22,6 +25,8 @@ public abstract class BaseActionHelper {
     private IUIListener uiListener;
     @Nullable
     private IRespStatus respStatus;
+
+    private final TransCompleteReceiver receiver = new TransCompleteReceiver();
 
     private Intent intent;
     private Handler handler = new Handler();
@@ -81,6 +86,11 @@ public abstract class BaseActionHelper {
     public void start(Context context, Intent intent) {
         if (actionHandler == null) {
             actionHandler = new UIMessageHandler(context, intent.getStringExtra(EntryExtraData.PARAM_PACKAGE), respStatus);
+
+            IntentFilter transactionFilter = new IntentFilter();
+            transactionFilter.addAction(InformationStatus.TRANS_COMPLETED);
+            transactionFilter.addCategory(InformationStatus.CATEGORY);
+            context.registerReceiver(receiver, transactionFilter);
         }
         actionHandler.start();
         this.intent = (Intent) intent.clone();
@@ -94,9 +104,25 @@ public abstract class BaseActionHelper {
         }
     }
 
-    public void stop() {
+    public void stop(Context context) {
         if (actionHandler != null) {
             actionHandler.stop();
+            context.unregisterReceiver(receiver);
+            actionHandler = null;
+        }
+    }
+
+    private class TransCompleteReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+
+            if (InformationStatus.TRANS_COMPLETED.equals(action)) {
+                context.unregisterReceiver(this);
+                if (uiListener != null) {
+                    uiListener.onTransCompleted();
+                }
+            }
         }
     }
 
