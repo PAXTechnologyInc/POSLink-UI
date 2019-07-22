@@ -124,9 +124,7 @@ class UIMessageHandler implements IActionHandler {
                         receiver = null;
                         Log.i("BroadcastReceiver", "ACCEPTED receiver unregisterReceiver :" + context);
                     }
-                    if (resp != null) {
-                        resp.onAccepted();
-                    }
+
                     break;
                 case EntryResponse.ACTION_DECLINED:
                     if (resp != null) {
