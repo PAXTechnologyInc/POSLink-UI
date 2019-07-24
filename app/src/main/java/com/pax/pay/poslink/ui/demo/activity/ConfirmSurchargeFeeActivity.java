@@ -62,12 +62,13 @@ public class ConfirmSurchargeFeeActivity extends AppCompatActivity implements Vi
 
     @Override
     protected void onStop() {
-        moveTaskToBack(true);
+        moveTaskToBack(false);
         super.onStop();
     }
 
     @Override
     protected void onDestroy() {
+        helper.stop();
         super.onDestroy();
     }
 

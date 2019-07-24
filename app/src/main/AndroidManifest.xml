@@ -697,19 +697,47 @@
 
         <receiver android:name=".receiver.StatusReceiver">
             <intent-filter>
+                <action android:name="com.pax.us.pay.CARD_PROCESS_STARTED" />
+                <action android:name="com.pax.us.pay.CARD_PROCESS_ERROR" />
+                <action android:name="com.pax.us.pay.CARD_INSERT_REQUIRED" />
+                <action android:name="com.pax.us.pay.CARD_SWIPE_REQUIRED" />
+                <action android:name="com.pax.us.pay.CARD_TAP_REQUIRED" />
+                <action android:name="com.pax.us.pay.CARD_REMOVAL_REQUIRED" />
+                <action android:name="com.pax.us.pay.CARD_QUICK_REMOVAL_REQUIRED" />
+                <action android:name="com.pax.us.pay.SEE_PHONE" />
+                <action android:name="com.pax.us.pay.CARD_PROCESS_COMPLETED" />
+                <action android:name="com.pax.us.pay.CARD_REMOVED" />
+
+                <category android:name="com.pax.us.pay.status.category.CARD" />
+            </intent-filter>
+            <intent-filter>
                 <action android:name="com.pax.us.pay.TRANS_COMPLETED" />
                 <action android:name="com.pax.us.pay.TRANS_ONLINE_STARTED" />
                 <action android:name="com.pax.us.pay.TRANS_ONLINE_FINISHED" />
-                <action android:name="com.pax.us.pay.CARD_PROCESS_STARTED" />
-                <action android:name="com.pax.us.pay.CARD_PROCESS_FINISHED" />
-                <action android:name="com.pax.us.pay.CARD_REMOVED" />
-                <action android:name="com.pax.us.pay.SEE_PHONE" />
-                <action android:name="com.pax.us.pay.CARD_REMOVAL_REQUIRED" />
-                <action android:name="com.pax.us.pay.UPDATE_MSG" />
+                <action android:name="com.pax.us.pay.ERROR" />
 
                 <category android:name="com.pax.us.pay.status.category.INFORMATION" />
             </intent-filter>
 
+            <intent-filter>
+                <action android:name="com.pax.us.pay.BATCH_CLOSE_STARTED" />
+                <action android:name="com.pax.us.pay.BATCH_SF_STARTED" />
+                <action android:name="com.pax.us.pay.BATCH_UPLOADING" />
+                <action android:name="com.pax.us.pay.BATCH_CLOSE_COMPLETED" />
+                <action android:name="com.pax.us.pay.BATCH_SF_COMPLETED" />
+
+                <category android:name="com.pax.us.pay.status.category.BATCH" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.pax.us.pay.ACTIVATE_STARTED" />
+                <action android:name="com.pax.us.pay.CAPK_UPDATE_STARTED" />
+                <action android:name="com.pax.us.pay.PRINT_STARTED" />
+                <action android:name="com.pax.us.pay.ACTIVATE_COMPLETED" />
+                <action android:name="com.pax.us.pay.CAPK_UPDATE_COMPLETED" />
+                <action android:name="com.pax.us.pay.PRINT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".receiver.ClssStatusReceiver">
             <intent-filter>
                 <action android:name="com.pax.us.pay.CLSS_LIGHT_NOT_READY" />
                 <action android:name="com.pax.us.pay.CLSS_LIGHT_IDLE" />
@@ -733,7 +761,8 @@
 
                 <category android:name="com.pax.us.pay.status.category.VIRTUAL_CLSS_LIGHT" />
             </intent-filter>
-
+        </receiver>
+        <receiver android:name=".receiver.PinStatusReceiver">
             <intent-filter>
                 <action android:name="com,pax.us.pay.PIN_CLEARED" />
                 <action android:name="com,pax.us.pay.PIN_ENTER_COMPLETED" />
@@ -742,16 +771,7 @@
 
                 <category android:name="com.pax.us.pay.status.category.PIN" />
             </intent-filter>
-
-            <intent-filter>
-                <action android:name="com.pax.us.pay.BATCH_CLOSE_STARTED" />
-                <action android:name="com.pax.us.pay.BATCH_UPLOADING" />
-                <action android:name="com.pax.us.pay.BATCH_FINISHED" />
-
-                <category android:name="com.pax.us.pay.status.category.BATCH" />
-            </intent-filter>
         </receiver>
-
 
     </application>
 

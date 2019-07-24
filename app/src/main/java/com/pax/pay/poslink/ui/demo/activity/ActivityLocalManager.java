@@ -24,9 +24,9 @@ public class ActivityLocalManager {
      */
     public void addActivity(Activity activity) {
 
-        if (currActivity != null) {
-            currActivity.get().finish();
-        }
+//        if (currActivity != null) {
+//            currActivity.get().finish();
+//        }
         currActivity = new WeakReference<>(activity);
     }
 
@@ -41,7 +41,7 @@ public class ActivityLocalManager {
      * close all Activity
      */
     public void finishAllActivity() {
-
+//
         if (currActivity != null)
             currActivity.get().finish();
     }

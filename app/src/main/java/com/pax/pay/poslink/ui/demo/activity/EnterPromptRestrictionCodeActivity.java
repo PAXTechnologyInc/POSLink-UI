@@ -71,12 +71,13 @@ public class EnterPromptRestrictionCodeActivity extends AppCompatActivity implem
 
     @Override
     protected void onStop() {
-        moveTaskToBack(true);
+        moveTaskToBack(false);
         super.onStop();
     }
 
     @Override
     protected void onDestroy() {
+        helper.stop();
         super.onDestroy();
     }
 
@@ -84,4 +85,5 @@ public class EnterPromptRestrictionCodeActivity extends AppCompatActivity implem
     @Override
     public void onShowMessage(@Nullable String transName, @Nullable String message) {
     }
+
 }

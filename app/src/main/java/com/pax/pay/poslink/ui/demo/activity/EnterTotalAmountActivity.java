@@ -69,12 +69,13 @@ public class EnterTotalAmountActivity extends AppCompatActivity implements View.
 
     @Override
     protected void onStop() {
-        moveTaskToBack(true);
+        moveTaskToBack(false);
         super.onStop();
     }
 
     @Override
     protected void onDestroy() {
+        helper.stop();
         super.onDestroy();
     }
 

@@ -47,7 +47,7 @@ public class EnterTableNumberActivity extends AppCompatActivity implements View.
         mEditText.postDelayed(() -> {
             InputMethodManager imm = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.showSoftInput(mEditText, InputMethodManager.SHOW_IMPLICIT);
-        }, 200);
+        }, 100);
 
         helper = new EnterTableNumHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
@@ -71,12 +71,13 @@ public class EnterTableNumberActivity extends AppCompatActivity implements View.
 
     @Override
     protected void onStop() {
-        moveTaskToBack(true);
+        moveTaskToBack(false);
         super.onStop();
     }
 
     @Override
     protected void onDestroy() {
+        helper.stop();
         super.onDestroy();
     }
 

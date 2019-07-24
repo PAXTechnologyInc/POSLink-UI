@@ -21,20 +21,19 @@ package com.pax.pay.poslink.ui.demo.receiver;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import android.util.Log;
 
-import com.pax.pay.poslink.ui.demo.activity.DialogActivity;
+import com.pax.pay.poslink.ui.demo.event.ClssLightEvent;
+import com.pax.pay.poslink.ui.demo.event.EventBusUtil;
 
-public class StatusReceiver extends android.content.BroadcastReceiver {
+public class ClssStatusReceiver extends android.content.BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-
-
         if (TextUtils.isEmpty(intent.getAction()))
             return;
-        Log.i("StatusReceiver", "receive broadcast :" + intent.getAction());
-        DialogActivity.start(context, intent);
+
+        EventBusUtil.doEvent(new ClssLightEvent(intent.getAction()));
+
     }
 
 }

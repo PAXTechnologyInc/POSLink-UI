@@ -108,13 +108,14 @@ public class EnterFleetDataActivity extends AppCompatActivity implements View.On
 
     @Override
     protected void onStop() {
-        moveTaskToBack(true);
+        moveTaskToBack(false);
         super.onStop();
     }
 
 
     @Override
     protected void onDestroy() {
+        helper.stop();
         super.onDestroy();
     }
 

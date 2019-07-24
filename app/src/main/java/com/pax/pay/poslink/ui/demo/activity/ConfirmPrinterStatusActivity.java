@@ -27,9 +27,9 @@ public class ConfirmPrinterStatusActivity extends AppCompatActivity implements V
     private static Map<String, String> messageMap = new HashMap<>();
 
     static {
-        messageMap.put(PrintStatusType.PRINTER_OUT_OF_PAPER, "Printer Out Of Paper");
-        messageMap.put(PrintStatusType.PRINTER_HOT, "Printer Over Hot");
-        messageMap.put(PrintStatusType.PRINTER_VOLTAGE_TOO_LOW, "Printer Voltage Too Low");
+        messageMap.put(PrintStatusType.PRINTER_OUT_OF_PAPER, "Printer Out Of Paper, Retry?");
+        messageMap.put(PrintStatusType.PRINTER_HOT, "Printer Over Hot, Retry?");
+        messageMap.put(PrintStatusType.PRINTER_VOLTAGE_TOO_LOW, "Printer Voltage Too Low, Retry?");
     }
 
     TextView promptTv;
@@ -74,7 +74,8 @@ public class ConfirmPrinterStatusActivity extends AppCompatActivity implements V
 
     @Override
     protected void onStop() {
-        moveTaskToBack(true);
+        helper.stop();
+        moveTaskToBack(false);
         super.onStop();
     }
 

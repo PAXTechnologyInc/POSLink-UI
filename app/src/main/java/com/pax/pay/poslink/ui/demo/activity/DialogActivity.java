@@ -173,27 +173,30 @@ public class DialogActivity extends AppCompatActivity {
                     else
                         displayMessage = "Transaction Successes!";
                     timeOut = 2;
+                } else if (resultCode == -3) {
+                    finish();
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            ActivityLocalManager.getInstance().finishAllActivity();
+                            //moveTaskToBack(false);
+                        }
+                    }, 200);
                 } else {
                     if (!TextUtils.isEmpty(resultMessage))
                         displayMessage = resultMessage + "\nError Code : " + String.valueOf(resultCode);
                     else
                         displayMessage = "Transaction Failed!" + "\nError Code : " + String.valueOf(resultCode);
                     timeOut = 5;
+
+                    showMessage(displayMessage);
+                    new Handler().postDelayed(new Runnable() {
+                        public void run() {
+                            hideDialog();
+                            finish();
+                        }
+                    }, timeOut * 1000);
                 }
-                showMessage(displayMessage);
-                new Handler().postDelayed(new Runnable() {
-                    public void run() {
-                        hideDialog();
-                        finish();
-                        new Handler().postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                ActivityLocalManager.getInstance().finishAllActivity();
-                                //moveTaskToBack(true);
-                            }
-                        }, 200);
-                    }
-                }, timeOut * 1000);
 
                 break;
         }

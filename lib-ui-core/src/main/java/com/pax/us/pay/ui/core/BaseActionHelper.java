@@ -8,6 +8,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import com.pax.us.pay.ui.constant.entry.EntryExtraData;
+import com.pax.us.pay.ui.constant.entry.enumeration.TransMode;
 import com.pax.us.pay.ui.core.api.IMessageListener;
 import com.pax.us.pay.ui.core.api.IRespStatus;
 import com.pax.us.pay.ui.core.api.IUIListener;
@@ -73,6 +74,7 @@ public abstract class BaseActionHelper {
         if (uiListener instanceof IMessageListener) {
             String transType = bundle.getString(EntryExtraData.PARAM_TRANS_TYPE, "");
             String message = bundle.getString(EntryExtraData.PARAM_MESSAGE, "");
+            String transMode = bundle.getString(EntryExtraData.PARAM_TRANS_MODE, TransMode.NORMAL);
             if (transType.length() > 0 || message.length() > 0)
                 ((IMessageListener) uiListener).onShowMessage(transType, message);
         }
