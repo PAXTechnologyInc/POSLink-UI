@@ -75,6 +75,6 @@ public class EnterAuthCodeActivity extends AppCompatActivity implements View.OnC
     }
 
     @Override
-    public void onShowMessage(@Nullable String transName, @Nullable String message) {
+    public void onShowMessage(@Nullable String transName, @Nullable String message, boolean isDemo) {
     }
 }

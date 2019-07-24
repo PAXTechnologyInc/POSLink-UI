@@ -83,6 +83,6 @@ public class EnterPhoneNumberActivity extends AppCompatActivity implements View.
 
 
     @Override
-    public void onShowMessage(@Nullable String transName, @Nullable String message) {
+    public void onShowMessage(@Nullable String transName, @Nullable String message, boolean isDemo) {
     }
 }

@@ -91,7 +91,7 @@ public class EnterCardLast4DigitsActivity extends AppCompatActivity implements V
     }
 
     @Override
-    public void onShowMessage(@Nullable String transName, @Nullable String message) {
+    public void onShowMessage(@Nullable String transName, @Nullable String message, boolean isDemo) {
     }
 
     @Override

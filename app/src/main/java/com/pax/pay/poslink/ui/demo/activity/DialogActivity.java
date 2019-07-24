@@ -99,8 +99,10 @@ public class DialogActivity extends AppCompatActivity {
                 showTimeOut(2);
                 break;
             case CardStatus.CARD_REMOVAL_REQUIRED:
-            case CardStatus.CARD_QUICK_REMOVAL_REQUIRED:
                 showWarnDialog("Please Remove card!");
+                break;
+            case CardStatus.CARD_QUICK_REMOVAL_REQUIRED:
+                showWarnDialog("Please Remove card Quickly!");
                 break;
             case CardStatus.CARD_INSERT_REQUIRED:
                 showWarnDialog("Please Insert Card!");
@@ -182,21 +184,22 @@ public class DialogActivity extends AppCompatActivity {
                             //moveTaskToBack(false);
                         }
                     }, 200);
+                    break;
                 } else {
                     if (!TextUtils.isEmpty(resultMessage))
                         displayMessage = resultMessage + "\nError Code : " + String.valueOf(resultCode);
                     else
                         displayMessage = "Transaction Failed!" + "\nError Code : " + String.valueOf(resultCode);
                     timeOut = 5;
-
-                    showMessage(displayMessage);
-                    new Handler().postDelayed(new Runnable() {
-                        public void run() {
-                            hideDialog();
-                            finish();
-                        }
-                    }, timeOut * 1000);
                 }
+                showMessage(displayMessage);
+                new Handler().postDelayed(new Runnable() {
+                    public void run() {
+                        hideDialog();
+                        finish();
+                    }
+                }, timeOut * 1000);
+
 
                 break;
         }

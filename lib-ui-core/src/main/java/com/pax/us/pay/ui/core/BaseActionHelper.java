@@ -75,8 +75,9 @@ public abstract class BaseActionHelper {
             String transType = bundle.getString(EntryExtraData.PARAM_TRANS_TYPE, "");
             String message = bundle.getString(EntryExtraData.PARAM_MESSAGE, "");
             String transMode = bundle.getString(EntryExtraData.PARAM_TRANS_MODE, TransMode.NORMAL);
-            if (transType.length() > 0 || message.length() > 0)
-                ((IMessageListener) uiListener).onShowMessage(transType, message);
+            if (transType.length() > 0 || message.length() > 0) {
+                ((IMessageListener) uiListener).onShowMessage(transType, message, transMode.equals(TransMode.DEMO) ? true : false);
+            }
         }
     }
 

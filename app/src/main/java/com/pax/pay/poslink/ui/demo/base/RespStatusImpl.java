@@ -2,6 +2,7 @@ package com.pax.pay.poslink.ui.demo.base;
 
 import android.app.Activity;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.widget.Toast;
 
 import com.pax.us.pay.ui.core.api.IRespStatus;
@@ -30,7 +31,7 @@ public class RespStatusImpl implements IRespStatus {
         if (activity != null) {
             activity.runOnUiThread(() -> {
                 String buff;
-                if (message == null)
+                if (TextUtils.isEmpty(message))
                     buff = "Trans Failed! Error Code : " + code;
                 else
                     buff = message + "\n Error Code : " + code;

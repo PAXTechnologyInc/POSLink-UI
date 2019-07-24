@@ -75,6 +75,6 @@ public class EnterOriginalTransDateActivity extends AppCompatActivity implements
     }
 
     @Override
-    public void onShowMessage(@Nullable String transName, @Nullable String message) {
+    public void onShowMessage(@Nullable String transName, @Nullable String message, boolean isDemo) {
     }
 }

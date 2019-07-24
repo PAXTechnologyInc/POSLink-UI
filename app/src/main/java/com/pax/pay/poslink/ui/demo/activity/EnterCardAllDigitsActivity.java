@@ -91,7 +91,7 @@ public class EnterCardAllDigitsActivity extends AppCompatActivity implements Vie
     }
 
     @Override
-    public void onShowMessage(@Nullable String transName, @Nullable String message) {
+    public void onShowMessage(@Nullable String transName, @Nullable String message, boolean isDemo) {
     }
 
     @Override

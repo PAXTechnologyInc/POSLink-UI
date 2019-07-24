@@ -1,6 +1,7 @@
 package com.pax.pay.poslink.ui.demo.activity;
 
 import android.app.Activity;
+import android.util.Log;
 
 import java.lang.ref.WeakReference;
 
@@ -24,9 +25,9 @@ public class ActivityLocalManager {
      */
     public void addActivity(Activity activity) {
 
-//        if (currActivity != null) {
-//            currActivity.get().finish();
-//        }
+        if (currActivity != null) {
+            currActivity.get().finish();
+        }
         currActivity = new WeakReference<>(activity);
     }
 
@@ -42,7 +43,12 @@ public class ActivityLocalManager {
      */
     public void finishAllActivity() {
 //
-        if (currActivity != null)
-            currActivity.get().finish();
+        if (currActivity != null) {
+            try {
+                currActivity.get().finish();
+            } catch (Exception e) {
+                Log.i("", "currActivity finished error! " + currActivity.get().getLocalClassName());
+            }
+        }
     }
 }
