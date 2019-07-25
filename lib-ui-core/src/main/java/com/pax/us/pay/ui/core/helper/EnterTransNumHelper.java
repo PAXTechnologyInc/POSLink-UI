@@ -13,9 +13,9 @@ public class EnterTransNumHelper extends BaseActionHelper {
         super(uiListener, respStatus);
     }
 
-    public void sendNext(int transNumCode) {
+    public void sendNext(long transNumCode) {
         Bundle bundle = new Bundle();
-        bundle.putInt(EntryRequest.PARAM_TRANS_NUMBER, transNumCode);
+        bundle.putLong(EntryRequest.PARAM_TRANS_NUMBER, transNumCode);
         super.sendNext(bundle);
     }
 

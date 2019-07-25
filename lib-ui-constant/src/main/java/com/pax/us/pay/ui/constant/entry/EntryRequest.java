@@ -48,7 +48,7 @@ public class EntryRequest {
     public static final String PARAM_ZIP_CODE = "zipCode";
     /**
      * PARAM_TRANS_NUMBER : request parameter transaction number <br>
-     * value type: String <br>
+     * value type: long <br>
      */
     public static final String PARAM_TRANS_NUMBER = "transNumber";
     /**
