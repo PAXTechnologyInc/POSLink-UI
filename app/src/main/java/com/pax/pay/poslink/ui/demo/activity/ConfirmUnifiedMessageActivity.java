@@ -36,7 +36,7 @@ public class ConfirmUnifiedMessageActivity extends AppCompatActivity implements 
 
         helper = new ConfirmMessageHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityLocalManager.getInstance().addActivity(this);
+
     }
 
     @Override

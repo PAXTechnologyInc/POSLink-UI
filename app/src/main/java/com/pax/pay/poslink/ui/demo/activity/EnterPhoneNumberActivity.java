@@ -51,7 +51,7 @@ public class EnterPhoneNumberActivity extends AppCompatActivity implements View.
 
         helper = new EnterPhoneNumHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityLocalManager.getInstance().addActivity(this);
+
     }
 
     @Override

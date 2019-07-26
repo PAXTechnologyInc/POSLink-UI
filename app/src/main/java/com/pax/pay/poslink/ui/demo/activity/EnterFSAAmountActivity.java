@@ -82,7 +82,7 @@ public class EnterFSAAmountActivity extends AppCompatActivity implements View.On
 
         helper = new EnterFSAAmountHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityLocalManager.getInstance().addActivity(this);
+
     }
 
 

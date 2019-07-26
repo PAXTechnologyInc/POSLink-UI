@@ -51,7 +51,7 @@ public class EnterProductDescriptionActivity extends AppCompatActivity implement
 
         helper = new EnterProcDescHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityLocalManager.getInstance().addActivity(this);
+
     }
 
     @Override

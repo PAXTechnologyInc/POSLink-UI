@@ -50,7 +50,7 @@ public class EnterTaxAmountActivity extends AppCompatActivity implements View.On
 
         helper = new EnterTaxAmountHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityLocalManager.getInstance().addActivity(this);
+
     }
 
 

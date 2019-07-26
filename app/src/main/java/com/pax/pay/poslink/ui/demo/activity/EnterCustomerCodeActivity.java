@@ -51,7 +51,7 @@ public class EnterCustomerCodeActivity extends AppCompatActivity implements View
 
         helper = new EnterCustomerCodeHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityLocalManager.getInstance().addActivity(this);
+
     }
 
     @Override

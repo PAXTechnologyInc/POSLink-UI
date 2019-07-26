@@ -53,7 +53,7 @@ public class SelectRefundReasonActivity extends AppCompatActivity implements Vie
         tvPrompt.setText("Please Select Refund Reason");
         helper = new SelectOptionsHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityLocalManager.getInstance().addActivity(this);
+
     }
 
     @Override
@@ -121,7 +121,7 @@ public class SelectRefundReasonActivity extends AppCompatActivity implements Vie
             mRecyclerView.setHasFixedSize(true);
             mRecyclerView.setAdapter(mAdapter);
         }
-        ActivityLocalManager.getInstance().addActivity(this);
+
     }
 
     class OptionModelViewHolder extends BaseViewHolder<String> {

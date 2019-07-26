@@ -41,7 +41,7 @@ public class ConfirmSurchargeFeeActivity extends AppCompatActivity implements Vi
         //promptTv.setText("Reverse?");
         helper = new ConfirmSurchargeFeeHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityLocalManager.getInstance().addActivity(this);
+
     }
 
     @Override

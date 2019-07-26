@@ -51,7 +51,7 @@ public class EnterZipActivity extends AppCompatActivity implements View.OnClickL
 
         helper = new EnterZipCodeHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityLocalManager.getInstance().addActivity(this);
+
     }
 
 

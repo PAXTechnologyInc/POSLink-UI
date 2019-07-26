@@ -51,7 +51,7 @@ public class EnterPONumberActivity extends AppCompatActivity implements View.OnC
 
         helper = new EnterPONumHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityLocalManager.getInstance().addActivity(this);
+
     }
 
     @Override

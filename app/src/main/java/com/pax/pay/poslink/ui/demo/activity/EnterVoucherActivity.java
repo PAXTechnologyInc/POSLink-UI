@@ -54,7 +54,7 @@ public class EnterVoucherActivity extends AppCompatActivity implements View.OnCl
 
         helper = new VoucherHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityLocalManager.getInstance().addActivity(this);
+
     }
 
 

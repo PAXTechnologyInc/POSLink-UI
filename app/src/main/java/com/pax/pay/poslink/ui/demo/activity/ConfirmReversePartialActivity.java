@@ -40,7 +40,7 @@ public class ConfirmReversePartialActivity extends AppCompatActivity implements 
         promptTv.setText("Reverse?");
         helper = new ConfirmApproveAmountHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityLocalManager.getInstance().addActivity(this);
+
     }
 
     @Override

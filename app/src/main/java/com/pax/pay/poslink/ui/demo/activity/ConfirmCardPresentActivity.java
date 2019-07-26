@@ -39,8 +39,6 @@ public class ConfirmCardPresentActivity extends AppCompatActivity implements Vie
         promptTv.setText("Card Persent?");
         helper = new ConfirmMessageHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityLocalManager.getInstance().addActivity(this);
-
     }
 
     @Override

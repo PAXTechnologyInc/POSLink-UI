@@ -40,7 +40,7 @@ public class ConfirmSupplementPartialActivity extends AppCompatActivity implemen
         promptTv.setText("Another PMT?");
         helper = new ConfirmApproveAmountHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityLocalManager.getInstance().addActivity(this);
+
     }
 
     @Override

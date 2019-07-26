@@ -51,7 +51,7 @@ public class EnterDestZipCodeActivity extends AppCompatActivity implements View.
 
         helper = new EnterDescZipCodeHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityLocalManager.getInstance().addActivity(this);
+
     }
 
 

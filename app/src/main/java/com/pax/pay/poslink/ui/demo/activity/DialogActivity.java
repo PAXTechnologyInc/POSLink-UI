@@ -29,6 +29,8 @@ import android.util.Log;
 
 import com.pax.pay.poslink.ui.demo.Dialog.MessageDialog;
 import com.pax.pay.poslink.ui.demo.R;
+import com.pax.pay.poslink.ui.demo.event.EndEvent;
+import com.pax.pay.poslink.ui.demo.event.EventBusUtil;
 import com.pax.us.pay.ui.constant.status.BatchStatus;
 import com.pax.us.pay.ui.constant.status.CardStatus;
 import com.pax.us.pay.ui.constant.status.InformationStatus;
@@ -180,8 +182,11 @@ public class DialogActivity extends AppCompatActivity {
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            ActivityLocalManager.getInstance().finishAllActivity();
-                            //moveTaskToBack(false);
+                            //ActivityLocalManager.getInstance().finishAllActivity();
+                            moveTaskToBack(false);
+                            //for Debug
+                            Log.i("EventBus", "Abort Activity");
+                            EventBusUtil.doEvent(new EndEvent());
                         }
                     }, 200);
                     break;
@@ -196,6 +201,14 @@ public class DialogActivity extends AppCompatActivity {
                 new Handler().postDelayed(new Runnable() {
                     public void run() {
                         hideDialog();
+                        //For Debug
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                Log.i("EventBus", "Complete Activity");
+                                EventBusUtil.doEvent(new EndEvent());
+                            }
+                        }, 200);
                         finish();
                     }
                 }, timeOut * 1000);

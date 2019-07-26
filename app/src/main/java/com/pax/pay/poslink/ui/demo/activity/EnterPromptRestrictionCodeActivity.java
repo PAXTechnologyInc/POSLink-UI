@@ -51,7 +51,7 @@ public class EnterPromptRestrictionCodeActivity extends AppCompatActivity implem
 
         helper = new EnterPromptRestrictionCodeHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityLocalManager.getInstance().addActivity(this);
+
     }
 
     @Override

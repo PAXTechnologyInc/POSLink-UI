@@ -51,7 +51,7 @@ public class EnterGuestNumberActivity extends AppCompatActivity implements View.
 
         helper = new EnterGuestNumHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityLocalManager.getInstance().addActivity(this);
+
     }
 
     @Override

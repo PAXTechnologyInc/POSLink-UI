@@ -47,7 +47,7 @@ public class EnterTotalAmountActivity extends AppCompatActivity implements View.
 
         helper = new EnterTotalAmountHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityLocalManager.getInstance().addActivity(this);
+
     }
 
 

@@ -54,7 +54,7 @@ public class SelectTransTypeActivity extends AppCompatActivity implements View.O
         tvPrompt.setText("Please Select Transaction Type");
         helper = new SelectOptionsHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityLocalManager.getInstance().addActivity(this);
+
     }
 
     @Override
@@ -122,7 +122,7 @@ public class SelectTransTypeActivity extends AppCompatActivity implements View.O
             mRecyclerView.setHasFixedSize(true);
             mRecyclerView.setAdapter(mAdapter);
         }
-        ActivityLocalManager.getInstance().addActivity(this);
+
     }
 
     class OptionModelViewHolder extends BaseViewHolder<String> {

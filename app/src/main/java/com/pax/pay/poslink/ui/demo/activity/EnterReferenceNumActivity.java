@@ -52,7 +52,7 @@ public class EnterReferenceNumActivity extends AppCompatActivity implements View
 
         helper = new EnterReferenceNumHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityLocalManager.getInstance().addActivity(this);
+
     }
 
 

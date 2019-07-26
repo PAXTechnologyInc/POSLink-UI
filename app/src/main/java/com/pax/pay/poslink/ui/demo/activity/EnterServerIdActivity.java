@@ -51,7 +51,7 @@ public class EnterServerIdActivity extends AppCompatActivity implements View.OnC
 
         helper = new EnterServerIdHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityLocalManager.getInstance().addActivity(this);
+
     }
 
     @Override

@@ -9,6 +9,10 @@
     <color name="primary_dark">#303F9F</color>
     <color name="primary_light">#C5CAE9</color>
 
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
     <color name="error_stroke_color">#FF0000</color>
     <color name="accent">@android:color/holo_red_light</color>
     <color name="accent_amount">@android:color/holo_green_light</color>

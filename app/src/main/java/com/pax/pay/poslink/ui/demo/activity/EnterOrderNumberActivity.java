@@ -51,7 +51,7 @@ public class EnterOrderNumberActivity extends AppCompatActivity implements View.
 
         helper = new EnterOrderNumHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityLocalManager.getInstance().addActivity(this);
+
     }
 
     @Override

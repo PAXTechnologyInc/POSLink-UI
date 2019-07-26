@@ -81,7 +81,7 @@ public class EnterFleetDataActivity extends AppCompatActivity implements View.On
 
         helper = new EnterFleetDataHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityLocalManager.getInstance().addActivity(this);
+
     }
 
     @Override

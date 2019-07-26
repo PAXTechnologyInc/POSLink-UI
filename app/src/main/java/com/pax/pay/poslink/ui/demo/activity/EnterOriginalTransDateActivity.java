@@ -42,7 +42,7 @@ public class EnterOriginalTransDateActivity extends AppCompatActivity implements
         mEditText.setImeOptions(EditorInfo.IME_ACTION_DONE);
         helper = new EnterOriginalTransDateHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityLocalManager.getInstance().addActivity(this);
+
     }
 
 

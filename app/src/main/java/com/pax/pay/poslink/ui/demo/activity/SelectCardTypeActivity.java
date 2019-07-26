@@ -54,7 +54,7 @@ public class SelectCardTypeActivity extends AppCompatActivity implements View.On
         tvPrompt.setText("Please Select Card Type");
         helper = new SelectOptionsHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityLocalManager.getInstance().addActivity(this);
+
     }
 
     @Override
@@ -122,7 +122,7 @@ public class SelectCardTypeActivity extends AppCompatActivity implements View.On
             mRecyclerView.setHasFixedSize(true);
             mRecyclerView.setAdapter(mAdapter);
         }
-        ActivityLocalManager.getInstance().addActivity(this);
+
     }
 
     class OptionModelViewHolder extends BaseViewHolder<String> {

@@ -42,7 +42,7 @@ public class DisplayTransActivity extends AppCompatActivity implements View.OnCl
 
         helper = new ConfirmDetailsHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityLocalManager.getInstance().addActivity(this);
+
     }
 
 

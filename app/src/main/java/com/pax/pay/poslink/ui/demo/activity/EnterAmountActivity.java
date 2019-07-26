@@ -50,7 +50,7 @@ public class EnterAmountActivity extends AppCompatActivity implements View.OnCli
 
         helper = new EnterAmountHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityLocalManager.getInstance().addActivity(this);
+
     }
 
 

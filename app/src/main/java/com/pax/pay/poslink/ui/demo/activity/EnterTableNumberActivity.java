@@ -51,7 +51,7 @@ public class EnterTableNumberActivity extends AppCompatActivity implements View.
 
         helper = new EnterTableNumHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityLocalManager.getInstance().addActivity(this);
+
     }
 
     @Override

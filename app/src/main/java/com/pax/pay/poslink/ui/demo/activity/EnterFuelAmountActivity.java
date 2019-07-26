@@ -50,7 +50,7 @@ public class EnterFuelAmountActivity extends AppCompatActivity implements View.O
 
         helper = new EnterFuelAmountHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityLocalManager.getInstance().addActivity(this);
+
     }
 
 

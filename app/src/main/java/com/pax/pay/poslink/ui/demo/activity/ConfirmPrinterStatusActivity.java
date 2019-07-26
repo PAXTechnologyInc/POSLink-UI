@@ -52,7 +52,7 @@ public class ConfirmPrinterStatusActivity extends AppCompatActivity implements V
         promptTv.setText("Printer Error!");
         helper = new ConfirmPrinterStatusHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityLocalManager.getInstance().addActivity(this);
+
 
     }
 

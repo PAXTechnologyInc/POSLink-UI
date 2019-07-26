@@ -12,8 +12,8 @@ import android.widget.TextView;
 
 import com.pax.pay.poslink.ui.demo.R;
 import com.pax.pay.poslink.ui.demo.base.RespStatusImpl;
-import com.pax.pay.poslink.ui.demo.event.Event;
 import com.pax.pay.poslink.ui.demo.event.EventBusUtil;
+import com.pax.pay.poslink.ui.demo.event.PINEvent;
 import com.pax.us.pay.ui.constant.entry.enumeration.PinStyles;
 import com.pax.us.pay.ui.constant.status.PINStatus;
 import com.pax.us.pay.ui.core.helper.EnterPinHelper;
@@ -51,7 +51,7 @@ public class EnterPinActivity extends AppCompatActivity implements View.OnClickL
         promptTitle.setText("Please Enter PIN");
         helper = new EnterPinHelper(this, new RespStatusImpl(this));
         helper.start(this, getIntent());
-        ActivityLocalManager.getInstance().addActivity(this);
+
 
     }
 
@@ -106,7 +106,7 @@ public class EnterPinActivity extends AppCompatActivity implements View.OnClickL
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onEventAsync(Event event) {
+    public void onEventAsync(PINEvent event) {
         String action = (String) event.getStatus();
         switch (action) {
             case PINStatus.PIN_ENTERING:
