@@ -56,7 +56,7 @@ public class EnterTransNumActivity extends AppCompatActivity implements View.OnC
 
     @Override
     public void onClick(View view) {
-        helper.sendNext(Integer.valueOf(mEditText.getText().toString()));
+        helper.sendNext(Long.valueOf(mEditText.getText().toString()));
     }
 
     @Override
@@ -64,7 +64,7 @@ public class EnterTransNumActivity extends AppCompatActivity implements View.OnC
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             helper.sendAbort();
         } else if (keyCode == KeyEvent.KEYCODE_ENTER) {
-            helper.sendNext(Integer.valueOf(mEditText.getText().toString()));
+            helper.sendNext(Long.valueOf(mEditText.getText().toString()));
         }
         return false;
     }
