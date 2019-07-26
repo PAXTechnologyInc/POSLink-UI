@@ -535,7 +535,18 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activity.SelectSearchTypeActivity"
+            android:allowTaskReparenting="true"
+            android:taskAffinity="com.pax.us.pay.UI"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.SELECT_SEARCH_TYPE" />
 
+                <category android:name="com.pax.us.pay.ui.category.OPTION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".activity.ConfirmCardPresentActivity"
@@ -681,7 +692,7 @@
             <intent-filter>
                 <action android:name="com.pax.us.pay.action.DISPLAY_TRANS_INFORMATION" />
 
-                <category android:name="com.pax.us.pay.ui.category.CONFIRMATION" />
+                <category android:name="com.pax.us.pay.ui.category.DETAILS" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
