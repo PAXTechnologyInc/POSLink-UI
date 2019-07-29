@@ -182,5 +182,14 @@ public class ConfirmationEntry {
      */
     public static final String ACTION_CONFIRM_PRINT_CUSTOMER_COPY = "com.pax.us.pay.action.CONFIRM_PRINT_CUSTOMER_COPY";
 
+    /**
+     * The intent action of Batch close for Application update <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_OPTIONS}: enum: {@link ConfirmationType} <br>
+     * request: {@link EntryRequest#PARAM_INDEX} <br>
+     */
+    public static final String ACTION_CONFIRM_BATCH_FOR_APPLICATION_UPDATE = "com.pax.us.pay.action.CONFIRM_BATCH_FOR_APPLICATION_UPDATE";
+
 
 }
