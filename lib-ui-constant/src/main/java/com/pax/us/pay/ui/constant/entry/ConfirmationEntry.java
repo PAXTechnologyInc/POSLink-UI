@@ -7,7 +7,7 @@ public class ConfirmationEntry {
      * The intent action of reverse partially approval <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * request: {@link EntryRequest#PARAM_IS_YES} <br>
+     * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
      */
     public static final String ACTION_CONFIRM_UNIFIED_MESSAGE = "com.pax.us.pay.action.CONFIRM_UNIFIED_MESSAGE";
 
@@ -18,7 +18,7 @@ public class ConfirmationEntry {
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
      * input: {@link EntryExtraData#PARAM_CURRENCY} <br>
      * input: {@link EntryExtraData#PARAM_TOTAL_AMOUNT} <br>
-     * request: {@link EntryRequest#PARAM_IS_YES} <br>
+     * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
      */
     public static final String ACTION_REVERSE_PARTIAL_APPROVAL = "com.pax.us.pay.action.REVERSE_PARTIAL_APPROVAL";
 
@@ -29,7 +29,7 @@ public class ConfirmationEntry {
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
      * input: {@link EntryExtraData#PARAM_CURRENCY} <br>
      * input: {@link EntryExtraData#PARAM_TOTAL_AMOUNT} <br>
-     * request: {@link EntryRequest#PARAM_IS_YES} <br>
+     * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
      */
     public static final String ACTION_SUPPLEMENT_PARTIAL_APPROVAL = "com.pax.us.pay.action.SUPPLEMENT_PARTIAL_APPROVAL";
 
@@ -37,7 +37,7 @@ public class ConfirmationEntry {
      * The intent action of select the transaction online retry or offline <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * request: {@link EntryRequest#PARAM_IS_YES} <br>
+     * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
      */
     public static final String ACTION_CONFIRM_ONLINE_RETRY_OFFLINE = "com.pax.us.pay.action.CONFIRM_ONLINE_RETRY_OFFLINE";
 
@@ -45,7 +45,7 @@ public class ConfirmationEntry {
      * The intent action of select the credit type <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * request: {@link EntryRequest#PARAM_IS_YES} <br>
+     * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
      */
     public static final String ACTION_CONFIRM_DEBIT_TRANS = "com.pax.us.pay.action.CONFIRM_DEBIT_TRANS";
 
@@ -53,7 +53,7 @@ public class ConfirmationEntry {
      * The intent action of check card present <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * request: {@link EntryRequest#PARAM_IS_YES} <br>
+     * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
      */
     public static final String ACTION_CHECK_CARD_PRESENT = "com.pax.us.pay.action.CONFIRM_CARD_PRESENT";
 
@@ -61,7 +61,7 @@ public class ConfirmationEntry {
      * The intent action of check deactivate warning <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * request: {@link EntryRequest#PARAM_IS_YES} <br>
+     * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
      */
     public static final String ACTION_CHECK_DEACTIVATE_WARN = "com.pax.us.pay.action.CONFIRM_DEACTIVATE_WARN";
 
@@ -70,7 +70,7 @@ public class ConfirmationEntry {
      * The intent action of batch close approval <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * request: {@link EntryRequest#PARAM_IS_YES} <br>
+     * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
      */
     public static final String ACTION_CONFIRM_BATCH_CLOSE = "com.pax.us.pay.action.CONFIRM_BATCH_CLOSE";
 
@@ -79,7 +79,7 @@ public class ConfirmationEntry {
      * The intent action of Close W/Untipped approval <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * request: {@link EntryRequest#PARAM_IS_YES} <br>
+     * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
      */
     public static final String ACTION_CONFIRM_UNTIPPED = "com.pax.us.pay.action.CONFIRM_UNTIPPED";
 
@@ -87,7 +87,7 @@ public class ConfirmationEntry {
      * The intent action of Duplicate transaction approval <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * request: {@link EntryRequest#PARAM_IS_YES} <br>
+     * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
      */
     public static final String ACTION_CONFIRM_DUPLICATE_TRANS = "com.pax.us.pay.action.CONFIRM_DUPLICATE_TRANS";
 
@@ -99,7 +99,7 @@ public class ConfirmationEntry {
      * input: {@link EntryExtraData#PARAM_CURRENCY} <br>
      * input: {@link EntryExtraData#PARAM_TOTAL_AMOUNT} <br>
      * input: {@link EntryExtraData#PARAM_SURCHARGE_FEE} long <br>
-     * request: {@link EntryRequest#PARAM_IS_YES} <br>
+     * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
      */
     public static final String ACTION_CONFIRM_SURCHARGE_FEE = "com.pax.us.pay.action.CONFIRM_SURCHARGE_FEE";
 
@@ -108,7 +108,7 @@ public class ConfirmationEntry {
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
      * input: {@link EntryExtraData#PARAM_PRINT_STATUS}:  enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.PrintStatusType}<br>
-     * request: {@link EntryRequest#PARAM_IS_YES} <br>
+     * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
      */
     public static final String ACTION_CONFIRM_PRINTER_STATUS = "com.pax.us.pay.action.CONFIRM_PRINTER_STATUS";
 
@@ -116,7 +116,7 @@ public class ConfirmationEntry {
      * The intent action of upload transaction approval <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * request: {@link EntryRequest#PARAM_IS_YES} <br>
+     * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
      */
     public static final String ACTION_CONFIRM_UPLOAD_TRANS = "com.pax.us.pay.action.CONFIRM_UPLOAD_TRANS";
 
@@ -124,7 +124,7 @@ public class ConfirmationEntry {
      * The intent action of retry upload transaction approval <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * request: {@link EntryRequest#PARAM_IS_YES} <br>
+     * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
      */
     public static final String ACTION_CONFIRM_UPLOAD_RETRY = "com.pax.us.pay.action.CONFIRM_UPLOAD_RETRY";
 
@@ -132,7 +132,7 @@ public class ConfirmationEntry {
      * The intent action of print failed transaction <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * request: {@link EntryRequest#PARAM_IS_YES} <br>
+     * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
      */
     public static final String ACTION_CONFIRM_PRINT_FAILED_TRANS = "com.pax.us.pay.action.CONFIRM_PRINT_FAILED_TRANS";
 
@@ -140,7 +140,7 @@ public class ConfirmationEntry {
      * The intent action of print receipt approval <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * request: {@link EntryRequest#PARAM_IS_YES} <br>
+     * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
      */
     public static final String ACTION_CONFIRM_PRINT_FPS = "com.pax.us.pay.action.CONFIRM_PRINT_FPS";
 
@@ -149,7 +149,7 @@ public class ConfirmationEntry {
      * The intent action of delete SF transaction records approval <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * request: {@link EntryRequest#PARAM_IS_YES} <br>
+     * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
      */
     public static final String ACTION_CONFIRM_DELETE_SF = "com.pax.us.pay.action.CONFIRM_DELETE_SF";
 
@@ -157,7 +157,7 @@ public class ConfirmationEntry {
      * The intent action of print customer receipt approval <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * request: {@link EntryRequest#PARAM_IS_YES} YES: OK  NO:CANCEL  <br>
+     * request: {@link EntryRequest#PARAM_CONFIRMED} YES: OK  NO:CANCEL  <br>
      */
     public static final String ACTION_CONFIRM_PRINT_CUSTOMER_COPY = "com.pax.us.pay.action.CONFIRM_PRINT_CUSTOMER_COPY";
 
@@ -165,7 +165,7 @@ public class ConfirmationEntry {
      * The intent action of Batch close for Application update <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * request: {@link EntryRequest#PARAM_IS_YES} <br>
+     * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
      */
     public static final String ACTION_CONFIRM_BATCH_FOR_APPLICATION_UPDATE = "com.pax.us.pay.action.CONFIRM_BATCH_FOR_APPLICATION_UPDATE";
 

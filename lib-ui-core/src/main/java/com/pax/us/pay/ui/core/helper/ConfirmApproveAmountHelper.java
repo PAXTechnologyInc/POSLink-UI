@@ -21,7 +21,7 @@ public class ConfirmApproveAmountHelper extends BaseActionHelper {
 
     public void sendNext(boolean flag) {
         Bundle bundle = new Bundle();
-        bundle.putBoolean(EntryRequest.PARAM_IS_YES, flag);
+        bundle.putBoolean(EntryRequest.PARAM_CONFIRMED, flag);
         super.sendNext(bundle);
     }
 
