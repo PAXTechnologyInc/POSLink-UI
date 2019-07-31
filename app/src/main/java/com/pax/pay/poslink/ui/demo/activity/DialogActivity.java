@@ -29,7 +29,7 @@ import android.util.Log;
 
 import com.pax.pay.poslink.ui.demo.Dialog.MessageDialog;
 import com.pax.pay.poslink.ui.demo.R;
-import com.pax.pay.poslink.ui.demo.event.EndEvent;
+import com.pax.pay.poslink.ui.demo.event.EndAllEvent;
 import com.pax.pay.poslink.ui.demo.event.EventBusUtil;
 import com.pax.us.pay.ui.constant.status.BatchStatus;
 import com.pax.us.pay.ui.constant.status.CardStatus;
@@ -186,7 +186,7 @@ public class DialogActivity extends AppCompatActivity {
                             moveTaskToBack(false);
                             //for Debug
                             Log.i("EventBus", "Abort Activity");
-                            EventBusUtil.doEvent(new EndEvent());
+                            EventBusUtil.doEvent(new EndAllEvent());
                         }
                     }, 200);
                     break;
@@ -206,7 +206,7 @@ public class DialogActivity extends AppCompatActivity {
                             @Override
                             public void run() {
                                 Log.i("EventBus", "Complete Activity");
-                                EventBusUtil.doEvent(new EndEvent());
+                                EventBusUtil.doEvent(new EndAllEvent());
                             }
                         }, 200);
                         finish();

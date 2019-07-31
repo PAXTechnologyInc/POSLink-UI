@@ -5,6 +5,7 @@ import android.app.Application;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.pax.pay.poslink.ui.demo.event.EndAllEvent;
 import com.pax.pay.poslink.ui.demo.event.EndEvent;
 import com.pax.pay.poslink.ui.demo.event.EventBusUtil;
 
@@ -69,11 +70,20 @@ public class UIActivityLifecycleCallbacks implements Application.ActivityLifecyc
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onEndEvent(EndEvent event) {
         if (mLastActivity.get() != null) {
+            Log.i("EventBus", "end activity " + mLastActivity.get().getLocalClassName());
             if (!mCurrActivity.get().getLocalClassName().contains("DialogActivity")) {
-                Log.i("EventBus", "end activity " + mLastActivity.get().getLocalClassName());
                 mLastActivity.get().finish();
                 EventBusUtil.unregister(this);
             }
+        }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEndAllEvent(EndAllEvent event) {
+        if (mLastActivity.get() != null) {
+            Log.i("EventBus", "end activity " + mLastActivity.get().getLocalClassName());
+            mLastActivity.get().finish();
+            EventBusUtil.unregister(this);
         }
     }
 

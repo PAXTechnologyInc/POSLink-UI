@@ -169,5 +169,12 @@ public class ConfirmationEntry {
      */
     public static final String ACTION_CONFIRM_BATCH_FOR_APPLICATION_UPDATE = "com.pax.us.pay.action.CONFIRM_BATCH_FOR_APPLICATION_UPDATE";
 
+    /**
+     * The intent action of select the transaction online retry <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
+     */
+    public static final String ACTION_CONFIRM_ONLINE_RETRY = "com.pax.us.pay.action.CONFIRM_ONLINE_RETRY";
 
 }
