@@ -1,0 +1,34 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.pax.us.pay.ui.protocol">
+
+    <application>
+        <activity
+            android:name=".EnterAmountActivity"
+            android:allowTaskReparenting="true"
+            android:taskAffinity="com.pax.us.pay.UI"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.ENTER_AMOUNT" />
+
+                <category android:name="com.pax.us.pay.ui.category.TEXT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".SelectEbtTypeActivity"
+            android:allowTaskReparenting="true"
+            android:taskAffinity="com.pax.us.pay.UI"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.SELECT_EBT_TYPE" />
+
+                <category android:name="com.pax.us.pay.ui.category.OPTION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+    </application>
+</manifest>
+

@@ -25,19 +25,19 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".activity.EnterAmountActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
-            android:windowSoftInputMode="adjustPan|stateHidden">
-            <intent-filter>
-                <action android:name="com.pax.us.pay.action.ENTER_AMOUNT" />
+        <!--<activity-->
+        <!--android:name=".activity.EnterAmountActivity"-->
+        <!--android:taskAffinity="com.pax.us.pay.UI"-->
+        <!--android:allowTaskReparenting="true"-->
+        <!--android:theme="@style/AppTheme.NoActionBar"-->
+        <!--android:windowSoftInputMode="adjustPan|stateHidden">-->
+        <!--<intent-filter>-->
+        <!--<action android:name="com.pax.us.pay.action.ENTER_AMOUNT" />-->
 
-                <category android:name="com.pax.us.pay.ui.category.TEXT" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+        <!--<category android:name="com.pax.us.pay.ui.category.TEXT" />-->
+        <!--<category android:name="android.intent.category.DEFAULT" />-->
+        <!--</intent-filter>-->
+        <!--</activity>-->
         <activity
             android:name=".activity.EnterTipActivity"
             android:taskAffinity="com.pax.us.pay.UI"
@@ -415,18 +415,18 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".activity.SelectEbtTypeActivity"
-            android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
-            android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="com.pax.us.pay.action.SELECT_EBT_TYPE" />
+        <!--<activity-->
+        <!--android:name=".activity.SelectEbtTypeActivity"-->
+        <!--android:taskAffinity="com.pax.us.pay.UI"-->
+        <!--android:allowTaskReparenting="true"-->
+        <!--android:theme="@style/AppTheme.NoActionBar">-->
+        <!--<intent-filter>-->
+        <!--<action android:name="com.pax.us.pay.action.SELECT_EBT_TYPE" />-->
 
-                <category android:name="com.pax.us.pay.ui.category.OPTION" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+        <!--<category android:name="com.pax.us.pay.ui.category.OPTION" />-->
+        <!--<category android:name="android.intent.category.DEFAULT" />-->
+        <!--</intent-filter>-->
+        <!--</activity>-->
         <activity
             android:name=".activity.SelectBypassReasonActivity"
             android:taskAffinity="com.pax.us.pay.UI"
