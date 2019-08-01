@@ -2,6 +2,7 @@ package com.pax.us.pay.ui.protocol;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.KeyEvent;
@@ -10,24 +11,20 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.pax.us.pay.ui.constant.entry.EntryExtraData;
 import com.pax.us.pay.ui.constant.entry.EntryRequest;
-import com.pax.us.pay.ui.protocol.handler.RespStatusImpl;
+import com.pax.us.pay.ui.constant.entry.EntryResponse;
+import com.pax.us.pay.ui.protocol.api.IRespStatus;
 import com.pax.us.pay.ui.protocol.utils.StringUtils;
 
-import java.util.Locale;
-
-public class EnterAmountActivity extends AppCompatActivity implements View.OnClickListener {
+public class EnterAmountActivity extends AppCompatActivity implements View.OnClickListener, IRespStatus {
 
     TextView promptTv;
     EditText mEditText;
     Button confirmBtn;
 
-    private long amount;
-    private String currencyName;
-    private int minLen, maxLen;
-    private Locale locale;
     private String packageName;
 
     private ActionHandlerImp helper;
@@ -44,21 +41,15 @@ public class EnterAmountActivity extends AppCompatActivity implements View.OnCli
 
 
         parseIntent(getIntent());
-        minLen = 0;
-        maxLen = 12;
-        mEditText.setCursorVisible(false);
-        mEditText.requestFocus();
         mEditText.setImeOptions(EditorInfo.IME_ACTION_DONE);
 
-        helper = new ActionHandlerImp(this, packageName, new RespStatusImpl(this));
-        helper.start();
+        helper = new ActionHandlerImp(this, packageName, this);
     }
 
     @Override
     protected void onStart() {
-        moveTaskToBack(false);
+        helper.start();
         super.onStart();
-        helper.stop();
     }
 
     @Override
@@ -107,4 +98,26 @@ public class EnterAmountActivity extends AppCompatActivity implements View.OnCli
         return bundle;
     }
 
+    @Override
+    public void onAccepted() {
+
+    }
+
+    @Override
+    public void onDeclined(@Nullable Bundle bundle) {
+        final long code = bundle.getLong(EntryResponse.PARAM_CODE, -1);
+        final String message = bundle.getString(EntryResponse.PARAM_MSG);
+
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                String buff;
+                if (TextUtils.isEmpty(message))
+                    buff = "Trans Failed! Error Code : " + code;
+                else
+                    buff = message + "\n Error Code : " + code;
+                Toast.makeText(EnterAmountActivity.this, buff, Toast.LENGTH_LONG).show();
+            }
+        });
+    }
 }

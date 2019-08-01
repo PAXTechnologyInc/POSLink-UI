@@ -4,6 +4,7 @@ package com.pax.us.pay.ui.protocol;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,10 +15,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.pax.us.pay.ui.constant.entry.EntryExtraData;
 import com.pax.us.pay.ui.constant.entry.EntryRequest;
-import com.pax.us.pay.ui.protocol.handler.RespStatusImpl;
+import com.pax.us.pay.ui.constant.entry.EntryResponse;
+import com.pax.us.pay.ui.protocol.api.IRespStatus;
 import com.pax.us.pay.ui.protocol.utils.BaseViewHolder;
 
 import java.util.ArrayList;
@@ -28,12 +31,11 @@ import java.util.List;
  * Created by Charles.S on 2017/5/5.
  */
 
-public class SelectEbtTypeActivity extends AppCompatActivity implements View.OnClickListener {
+public class SelectEbtTypeActivity extends AppCompatActivity implements View.OnClickListener, IRespStatus {
 
     RecyclerView mRecyclerView;
     Button confirmBtn;
     private TextView tvPrompt;
-    private String prompt1;
     private RecyclerView.Adapter<BaseViewHolder<String>> mAdapter;
     private int selected = -1;
     private List<String> selectOption = new ArrayList<>();
@@ -54,8 +56,7 @@ public class SelectEbtTypeActivity extends AppCompatActivity implements View.OnC
 
 
         parseIntent(getIntent());
-        tvPrompt.setText("Please Select EBT Type");
-        helper = new ActionHandlerImp(this, packageName, new RespStatusImpl(this));
+        helper = new ActionHandlerImp(this, packageName, this);
         helper.start();
 
     }
@@ -77,10 +78,59 @@ public class SelectEbtTypeActivity extends AppCompatActivity implements View.OnC
     }
 
     @Override
+    protected void onStart() {
+        helper.start();
+        super.onStart();
+    }
+
+    @Override
     protected void onStop() {
         moveTaskToBack(false);
         super.onStop();
         helper.stop();
+    }
+
+    private void parseIntent(Intent intent) {
+        Bundle bundle = intent.getExtras();
+        String action = intent.getAction();
+        packageName = intent.getStringExtra(EntryExtraData.PARAM_PACKAGE);
+        String transType = bundle.getString(EntryExtraData.PARAM_TRANS_TYPE);
+        String message = bundle.getString(EntryExtraData.PARAM_MESSAGE);
+        tvPrompt.setText(TextUtils.isEmpty(message) ? "Please Select EBT Type" : message);
+        String transMode = bundle.getString(EntryExtraData.PARAM_TRANS_MODE);
+        String[] options = bundle.getStringArray(EntryExtraData.PARAM_OPTIONS);
+        if (options != null || options.length > 0) {
+            onShowOptions(options);
+        }
+    }
+
+    private Bundle packBundle(int index) {
+        Bundle bundle = new Bundle();
+        bundle.putLong(EntryRequest.PARAM_INDEX, index);
+        return bundle;
+    }
+
+    @Override
+    public void onAccepted() {
+
+    }
+
+    @Override
+    public void onDeclined(@Nullable Bundle bundle) {
+        final long code = bundle.getLong(EntryResponse.PARAM_CODE, -1);
+        final String message = bundle.getString(EntryResponse.PARAM_MSG);
+
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                String buff;
+                if (TextUtils.isEmpty(message))
+                    buff = "Trans Failed! Error Code : " + code;
+                else
+                    buff = message + "\n Error Code : " + code;
+                Toast.makeText(SelectEbtTypeActivity.this, buff, Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     private void onShowOptions(String[] options) {
@@ -115,27 +165,6 @@ public class SelectEbtTypeActivity extends AppCompatActivity implements View.OnC
         }
 
     }
-
-    private void parseIntent(Intent intent) {
-        Bundle bundle = intent.getExtras();
-        String action = intent.getAction();
-        packageName = intent.getStringExtra(EntryExtraData.PARAM_PACKAGE);
-        String transType = bundle.getString(EntryExtraData.PARAM_TRANS_TYPE);
-        String message = bundle.getString(EntryExtraData.PARAM_MESSAGE);
-        tvPrompt.setText(TextUtils.isEmpty(message) ? "Please Select EBT Type" : message);
-        String transMode = bundle.getString(EntryExtraData.PARAM_TRANS_MODE);
-        String[] options = bundle.getStringArray(EntryExtraData.PARAM_OPTIONS);
-        if (options != null || options.length > 0) {
-            onShowOptions(options);
-        }
-    }
-
-    private Bundle packBundle(int index) {
-        Bundle bundle = new Bundle();
-        bundle.putLong(EntryRequest.PARAM_INDEX, index);
-        return bundle;
-    }
-
 
     class OptionModelViewHolder extends BaseViewHolder<String> {
         TextView textView;

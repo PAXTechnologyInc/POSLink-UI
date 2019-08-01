@@ -107,8 +107,7 @@ public class ActionHandlerImp implements IActionHandler {
                     break;
                 case EntryResponse.ACTION_DECLINED:
                     if (resp != null) {
-                        resp.onDeclined(intent.getLongExtra(EntryResponse.PARAM_CODE, -1),
-                                intent.getStringExtra(EntryResponse.PARAM_MSG));
+                        resp.onDeclined(intent.getExtras());
                     }
                     break;
                 default:
