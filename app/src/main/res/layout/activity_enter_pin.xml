@@ -34,27 +34,6 @@
             android:layout_marginTop="@dimen/default_gap"
             android:focusableInTouchMode="true"
             android:gravity="center" />
-
-        <TextView
-            android:id="@+id/prompt_no_pin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/default_gap"
-            android:gravity="center"
-            android:text="No PIN, Please Click OK"
-            android:textColor="@color/secondary_text_light"
-            android:textSize="@dimen/font_size_hint" />
     </LinearLayout>
-
-    <Button
-        android:id="@+id/confirm_btn"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/button_height"
-        android:layout_marginTop="@dimen/space_vertical_large"
-        app:layout_constraintTop_toBottomOf="@id/pin_input"
-        android:text="OK"
-        android:textColor="@color/primary_text_dark"
-        android:textSize="@dimen/font_button" />
-
 
 </android.support.constraint.ConstraintLayout>

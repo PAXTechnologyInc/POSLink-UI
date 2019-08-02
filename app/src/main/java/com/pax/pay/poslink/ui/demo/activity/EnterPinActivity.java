@@ -7,7 +7,6 @@ import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.pax.pay.poslink.ui.demo.R;
@@ -26,8 +25,6 @@ public class EnterPinActivity extends AppCompatActivity implements View.OnClickL
     TextView amountTv;
     TextView promptTitle;
     TextView pwdInputText;
-    TextView promptBypass;
-    Button confirmBtn;
     private int pinLen;
 
 
@@ -43,9 +40,6 @@ public class EnterPinActivity extends AppCompatActivity implements View.OnClickL
         amountTv = (TextView) findViewById(R.id.amount_tv);
         promptTitle = (TextView) findViewById(R.id.prompt_title);
         pwdInputText = (TextView) findViewById(R.id.pin_input_text);
-        promptBypass = (TextView) findViewById(R.id.prompt_no_pin);
-        confirmBtn = (Button) findViewById(R.id.confirm_btn);
-        confirmBtn.setOnClickListener(this);
 
 
         promptTitle.setText("Please Enter PIN");
