@@ -3,6 +3,8 @@ package com.pax.us.pay.ui.constant.status;
 public final class InformationStatus {
     public static final String CATEGORY = "com.pax.us.pay.status.category.INFORMATION";
 
+
+    public static final String TRANS_START = "com.pax.us.pay.TRANS_START";
     /**
      * param: {@link StatusData#PARAM_CODE} <br>
      * param: {@link StatusData#PARAM_MSG} <br>
