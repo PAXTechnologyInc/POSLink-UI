@@ -6,6 +6,7 @@
     android:orientation="vertical"
     android:layout_marginStart="@dimen/space_horizontal"
     android:layout_marginEnd="@dimen/space_horizontal"
+    android:background="@drawable/pumpkin_3"
     android:keepScreenOn="true">
 
     <LinearLayout

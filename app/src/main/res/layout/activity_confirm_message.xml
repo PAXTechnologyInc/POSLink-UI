@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:layout_marginStart="@dimen/space_horizontal"
     android:layout_marginEnd="@dimen/space_horizontal"
+    android:background="@drawable/pumpkin_3"
     android:orientation="vertical">
 
 

@@ -38,19 +38,19 @@
         <!--<category android:name="android.intent.category.DEFAULT" />-->
         <!--</intent-filter>-->
         <!--</activity>-->
-        <activity
-            android:name=".activity.EnterTipActivity"
-            android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustPan|stateHidden">
-            <intent-filter>
-                <action android:name="com.pax.us.pay.action.ENTER_TIP" />
+        <!--<activity-->
+        <!--android:name=".activity.EnterTipActivity"-->
+        <!--android:taskAffinity="com.pax.us.pay.UI"-->
+        <!--android:allowTaskReparenting="true"-->
+        <!--android:theme="@style/AppTheme.NoActionBar"-->
+        <!--android:windowSoftInputMode="adjustPan|stateHidden">-->
+        <!--<intent-filter>-->
+        <!--<action android:name="com.pax.us.pay.action.ENTER_TIP" />-->
 
-                <category android:name="com.pax.us.pay.ui.category.TEXT" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+        <!--<category android:name="com.pax.us.pay.ui.category.TEXT" />-->
+        <!--<category android:name="android.intent.category.DEFAULT" />-->
+        <!--</intent-filter>-->
+        <!--</activity>-->
         <activity
             android:name=".activity.EnterAdressActivity"
             android:taskAffinity="com.pax.us.pay.UI"

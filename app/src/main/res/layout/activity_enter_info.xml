@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_marginStart="@dimen/space_horizontal"
-    android:layout_marginEnd="@dimen/space_horizontal">
+    android:layout_marginEnd="@dimen/space_horizontal"
+    android:background="@drawable/pumpkin_3">
 
     <LinearLayout
         android:id="@+id/trans_amount_layout"
@@ -53,6 +54,7 @@
             android:layout_height="@dimen/edit_height"
             android:layout_width="match_parent"
             android:layout_marginTop="@dimen/space_horizontal"
+            android:textSize="@dimen/font_edit_text"
             android:hint="" />
     </LinearLayout>
 

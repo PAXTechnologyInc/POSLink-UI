@@ -2,7 +2,7 @@
 
     <dimen name="common_circle_width">3dp</dimen>
     <dimen name="button_height">64dp</dimen>
-    <dimen name="edit_height">50dp</dimen>
+    <dimen name="edit_height">70dp</dimen>
     <dimen name="clss_light">30dp</dimen>
 
     <!--vertical space-->
@@ -15,11 +15,11 @@
 
     <dimen name="paint_width">5dp</dimen>
 
-    <dimen name="default_gap">8dp</dimen>
+    <dimen name="default_gap">24dp</dimen>
 
     <dimen name="font_size_hint">14sp</dimen>
-    <dimen name="font_button">14sp</dimen>
-    <dimen name="font_size_prompt">16sp</dimen>
+    <dimen name="font_button">24sp</dimen>
+    <dimen name="font_size_prompt">24sp</dimen>
     <dimen name="font_size_value">20sp</dimen>
-    <dimen name="font_edit_text">24sp</dimen>
+    <dimen name="font_edit_text">48sp</dimen>
 </resources>

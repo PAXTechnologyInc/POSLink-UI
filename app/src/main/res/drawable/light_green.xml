@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_enabled="true">
-        <shape android:shape="oval">
+        <shape android:shape="rectangle">
             <solid android:color="@color/clss_green" />
-            <size android:width="24dp" android:height="24dp" />
+            <size android:width="50dp" android:height="24dp" />
         </shape>
     </item>
     <item>
-        <shape android:shape="oval">
+        <shape android:shape="rectangle">
             <stroke android:color="@color/clss_green" android:width="@dimen/common_circle_width" />
-            <size android:width="24dp" android:height="24dp" />
+            <size android:width="50dp" android:height="24dp" />
         </shape>
     </item>
 </selector>
