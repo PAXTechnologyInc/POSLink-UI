@@ -61,7 +61,9 @@ public final class EntryExtraData {
     public static final String PARAM_MERCHANT_FEE = "merchantFee";
     public static final String PARAM_SURCHARGE_FEE_NAME = "surchargeFeeName";
     public static final String PARAM_SURCHARGE_FEE = "surchargeFee";
-    public static final String PARAM_ADDITION_FEE = "additionFee";
+    public static final String PARAM_ADDITIONAL_FEE = "additionalFee";
+    public static final String PARAM_ADDITIONAL_FEE_NAME = "additionalFeeName";
+    public static final String PARAM_PRIMARY_AMOUNT = "primaryAmount";
 
     public static final String PARAM_FSA_AMOUNT_OPTIONS = "fsaAmountOptions";
     public static final String PARAM_HEALTH_CARE_AMOUNT = "healthCareAmount";
