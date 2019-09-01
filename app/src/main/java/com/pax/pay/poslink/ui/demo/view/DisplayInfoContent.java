@@ -50,7 +50,7 @@ public class DisplayInfoContent {
         TRANS_MAP.put(EntryExtraData.PARAM_CASH_BACK, "Cash Back : ");
         TRANS_MAP.put(EntryExtraData.PARAM_MERCHANT_FEE, "Merchant Fee : ");
         TRANS_MAP.put(EntryExtraData.PARAM_SURCHARGE_FEE, "Surcharge Fee : ");
-        TRANS_MAP.put(EntryExtraData.PARAM_ADDITION_FEE, "Addition Fee : ");
+        TRANS_MAP.put(EntryExtraData.PARAM_ADDITIONAL_FEE, "Additional Fee : ");
         TRANS_MAP.put(EntryExtraData.PARAM_HEALTH_CARE_AMOUNT, "Health Amount : ");
         TRANS_MAP.put(EntryExtraData.PARAM_CLINIC_AMOUNT, "Clinic Amount : ");
         TRANS_MAP.put(EntryExtraData.PARAM_DENTAL_AMOUNT, "Dental Amount : ");

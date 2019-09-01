@@ -133,7 +133,7 @@ public class EnterPinActivity extends AppCompatActivity implements View.OnClickL
     }
 
     @Override
-    public void onShowPin(@Nullable String pinStyles, boolean isOnline) {
+    public void onShowPin(@Nullable String pinStyles, boolean isOnline, boolean isPinByapss) {
         if (!TextUtils.isEmpty(pinStyles)) {
             if (pinStyles.equals(PinStyles.LAST))
                 promptTitle.setText("Please Enter PIN Last Time");

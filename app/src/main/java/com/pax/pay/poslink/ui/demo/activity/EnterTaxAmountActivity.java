@@ -92,4 +92,9 @@ public class EnterTaxAmountActivity extends AppCompatActivity implements View.On
     @Override
     public void onShowMessage(@Nullable String transName, @Nullable String message, boolean isDemo) {
     }
+
+    @Override
+    public void onShowAmount(long amount) {
+
+    }
 }

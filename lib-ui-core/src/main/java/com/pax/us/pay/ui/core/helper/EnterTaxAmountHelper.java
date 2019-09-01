@@ -8,6 +8,7 @@ import com.pax.us.pay.ui.constant.entry.EntryExtraData;
 import com.pax.us.pay.ui.constant.entry.EntryRequest;
 import com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType;
 import com.pax.us.pay.ui.core.BaseActionHelper;
+import com.pax.us.pay.ui.core.api.IAmountListener;
 import com.pax.us.pay.ui.core.api.ICurrencyListener;
 import com.pax.us.pay.ui.core.api.IMessageListener;
 import com.pax.us.pay.ui.core.api.IRespStatus;
@@ -29,6 +30,9 @@ public class EnterTaxAmountHelper extends BaseActionHelper {
             else
                 ((ICurrencyListener) uiListener).onShowCurrency(currency, false);
         }
+        if (uiListener instanceof IAmountListener && bundle.containsKey(EntryExtraData.PARAM_BASE_AMOUNT)) {
+            ((IAmountListener) uiListener).onShowAmount(bundle.getLong(EntryExtraData.PARAM_BASE_AMOUNT));
+        }
     }
 
     public void sendNext(long taxAmount) {
@@ -37,6 +41,6 @@ public class EnterTaxAmountHelper extends BaseActionHelper {
         super.sendNext(bundle);
     }
 
-    public interface IEnterTaxAmountListener extends IMessageListener, ICurrencyListener {
+    public interface IEnterTaxAmountListener extends IMessageListener, ICurrencyListener, IAmountListener {
     }
 }

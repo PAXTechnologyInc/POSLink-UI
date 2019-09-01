@@ -3,6 +3,7 @@ package com.pax.us.pay.ui.core.helper;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 
 import com.pax.us.pay.ui.constant.entry.EntryExtraData;
 import com.pax.us.pay.ui.constant.entry.EntryRequest;
@@ -14,6 +15,9 @@ import com.pax.us.pay.ui.core.api.IMessageListener;
 import com.pax.us.pay.ui.core.api.IPinListener;
 import com.pax.us.pay.ui.core.api.IRespStatus;
 import com.pax.us.pay.ui.core.api.IUIListener;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class EnterPinHelper extends BaseActionHelper {
 
@@ -42,7 +46,17 @@ public class EnterPinHelper extends BaseActionHelper {
         if (uiListener instanceof IPinListener) {
             String pinStyles = bundle.getString(EntryExtraData.PARAM_PIN_STYLES, "NORMAL");
             boolean isOnline = bundle.getBoolean(EntryExtraData.PARAM_IS_ONLINE_PIN);
-            ((IPinListener) uiListener).onShowPin(pinStyles, isOnline);
+            String pinRange = bundle.getString(EntryExtraData.PARAM_PIN_RANGE);
+            boolean isPinBypass = true;
+            if (TextUtils.isEmpty(pinRange)) {
+                isPinBypass = true;
+            } else {
+                String regEx = "[0&&[^[1-9]0]]";
+                Pattern pattern = Pattern.compile(regEx);
+                Matcher matcher = pattern.matcher(pinRange);
+                isPinBypass = matcher.find();
+            }
+            ((IPinListener) uiListener).onShowPin(pinStyles, isOnline, isPinBypass);
         }
     }
 
