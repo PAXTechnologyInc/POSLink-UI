@@ -72,4 +72,15 @@ public class SecurityEntry {
      * request: {@link EntryRequest#PARAM_HEIGHT}  <br>
      */
     public static final String ACTION_ENTER_CARD_ALL_DIGITS = "com.pax.us.pay.action.ENTER_CARD_ALL_DIGITS";
+
+    /**
+     * The intent action of enter administrator password <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * request: {@link EntryRequest#PARAM_X}  <br>
+     * request: {@link EntryRequest#PARAM_Y}  <br>
+     * request: {@link EntryRequest#PARAM_WIDTH}  <br>
+     * request: {@link EntryRequest#PARAM_HEIGHT}  <br>
+     */
+    public static final String ACTION_ENTER_ADMINISTRATION_PASSWORD = "com.pax.us.pay.action.ADMINISTRATOR_PASSWORD";
 }
