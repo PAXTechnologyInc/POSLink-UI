@@ -178,6 +178,11 @@ public class EnterTipActivity extends AppCompatActivity implements View.OnClickL
         mRecyclerView.setAdapter(mAdapter);
     }
 
+    @Override
+    public void onShowTipName(@Nullable String tipName) {
+        promptTv.setText("Please Input " + tipName);
+    }
+
 
     class OptionModelViewHolder extends BaseViewHolder<String> {
         TextView textView;
