@@ -51,9 +51,13 @@ public class EnterPinHelper extends BaseActionHelper {
             if (TextUtils.isEmpty(pinRange)) {
                 isPinBypass = true;
             } else {
-                String regEx = "[0&&[^[1-9]0]]";
+                String regEx = "\\d{2}";
                 Pattern pattern = Pattern.compile(regEx);
                 Matcher matcher = pattern.matcher(pinRange);
+                pinRange = matcher.replaceAll("");
+                regEx = "[0]";
+                pattern = Pattern.compile(regEx);
+                matcher = pattern.matcher(pinRange);
                 isPinBypass = matcher.find();
             }
             ((IPinListener) uiListener).onShowPin(pinStyles, isOnline, isPinBypass);
