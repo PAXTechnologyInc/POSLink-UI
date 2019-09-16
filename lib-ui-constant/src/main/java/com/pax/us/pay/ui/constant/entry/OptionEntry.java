@@ -108,8 +108,8 @@ public class OptionEntry {
      * The intent action of select the search type <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * input: {@link EntryExtraData#PARAM_OPTIONS}: enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.SearchType} <br>
+     * input: {@link EntryExtraData#PARAM_OPTIONS}: enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.SearchCriteria} <br>
      * request: {@link EntryRequest#PARAM_INDEX} <br>
      */
-    public static final String ACTION_SELECT_SEARCH_TYPE = "com.pax.us.pay.action.SELECT_SEARCH_TYPE";
+    public static final String ACTION_SELECT_SEARCH_CRITERIA = "com.pax.us.pay.action.SELECT_SEARCH_CRITERIA";
 }
