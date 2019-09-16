@@ -1,14 +1,14 @@
 package com.pax.us.pay.ui.constant.entry.enumeration;
 
 public class SearchType {
-    public static final String BY_TRANS_NUMBER = "BY TRANS NUMBER";
-    public static final String BY_LAST_4_DIGITS = "BY LAST 4 DIGITS";
-    public static final String BY_INVOICE_NUMBER = "BY INVOICE NUMBER";
-    public static final String BY_CARD_TYP = "BY CARD TYP";
-    public static final String BY_CLERK_SERVER_ID = "BY CLERK SERVER ID ";
-    public static final String BY_UNTIPPED = "SEARCH UNTIPPED ";
-    public static final String BY_STORE_FORWARD = "SEARCH STORE FORWARD ";
-    public static final String BY_UPLOAD_TRANS = "SEARCH UPLOAD TRANSACTION ";
-    public static final String BY_RESENT_FAILED = "SEARCH RESENT FAILED";
+    public static final String BY_TRANS_NUMBER = "By TransNum";
+    public static final String BY_LAST_4_DIGITS = "By CardNum";
+    public static final String BY_INVOICE_NUMBER = "By Invoice";
+    public static final String BY_CARD_TYPE = "By CardType";
+    public static final String BY_CLERK_SERVER_ID = "By Clerk/Server ID";
+    public static final String BY_UNTIPPED = "Scroll Untipped";
+    public static final String BY_STORE_FORWARD = "Store&Forward Only";
+    public static final String BY_UPLOAD_TRANS = "Upload Transaction";
+    public static final String BY_RESENT_FAILED = "Resent Failed";
 
 }
