@@ -112,4 +112,10 @@ public class OptionEntry {
      * request: {@link EntryRequest#PARAM_INDEX} <br>
      */
     public static final String ACTION_SELECT_SEARCH_CRITERIA = "com.pax.us.pay.action.SELECT_SEARCH_CRITERIA";
+
+    /**
+     * The intent action of select transaction for Tip Adjust <br>
+     * request: {@link EntryRequest#PARAM_TRANS_NUMBER} <br>
+     */
+    public static final String ACTION_SELECT_TRANS_FOR_ADJUST = "com.pax.us.pay.action.SELECT_TRANS_FOR_ADJUST";
 }
