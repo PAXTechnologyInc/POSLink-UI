@@ -92,6 +92,8 @@ public final class EntryExtraData {
     public static final String PARAM_EINPUT_TYPE = "eInputType";
     public static final String PARAM_MAX_VALUE = "maxValue";
     public static final String PARAM_MIN_VALUE = "minValue";
+    public static final String PARAM_MAX_LENGTH = "maxLength";
+    public static final String PARAM_MIN_LENGTH = "minLength";
 
     /**
      * PARAM_TRANS_STATUS : transaction status <br>
