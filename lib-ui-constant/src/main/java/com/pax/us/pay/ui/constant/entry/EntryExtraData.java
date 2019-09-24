@@ -89,6 +89,12 @@ public final class EntryExtraData {
     public static final String PARAM_REF_NUMBER = "refNumber";
     public static final String PARAM_AUTH_CODE = "authCode";
     public static final String PARAM_RESPONSE_STATUS = "responseStatus";
+    public static final String PARAM_EINPUT_TYPE = "eInputType";
+    public static final String PARAM_MAX_VALUE = "maxValue";
+    public static final String PARAM_MIN_VALUE = "minValue";
+    public static final String PARAM_MAX_LENGTH = "maxLength";
+    public static final String PARAM_MIN_LENGTH = "minLength";
+
     /**
      * PARAM_TRANS_STATUS : transaction status <br>
      * To Do : enum: upload, offline, voided, Adjusted ??????
