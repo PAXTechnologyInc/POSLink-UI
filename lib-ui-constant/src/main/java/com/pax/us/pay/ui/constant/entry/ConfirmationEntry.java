@@ -177,4 +177,12 @@ public class ConfirmationEntry {
      */
     public static final String ACTION_CONFIRM_ONLINE_RETRY = "com.pax.us.pay.action.CONFIRM_ONLINE_RETRY";
 
+
+    /**
+     * The intent action of confirm adjust tip <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
+     */
+    public static final String ACTION_CONFIRM_ADJUST_TIP = "com.pax.us.pay.action.CONFIRM_ADJUST_TIP";
 }
