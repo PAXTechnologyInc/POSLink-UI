@@ -19,4 +19,10 @@ public final class InformationStatus {
      * param: {@link StatusData#PARAM_MSG} <br>
      */
     public static final String ERROR = "com.pax.us.pay.ERROR";
+
+    /**
+     * param: {@link StatusData#PARAM_TOTAL_AMOUNT} <br>
+     */
+    public static final String TRANS_AMOUNT_CHANGED_IN_CARD_PROCESSING = "com.pax.us.pay.AMOUNT_CHANGED_IN_CARD_PROCESSING";
+
 }
