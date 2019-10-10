@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 
 import com.pax.us.pay.ui.constant.entry.EntryExtraData;
 import com.pax.us.pay.ui.constant.entry.EntryRequest;
+import com.pax.us.pay.ui.constant.entry.enumeration.FSAAmountType;
 import com.pax.us.pay.ui.core.BaseActionHelper;
 import com.pax.us.pay.ui.core.api.IAmountListener;
 import com.pax.us.pay.ui.core.api.ICurrencyListener;
@@ -28,7 +29,7 @@ public class EnterFSAAmountHelper extends BaseActionHelper {
     }
 
     public void sendNext(long healthAmt, long clinicAmt, long prescriptionAmt, long dentalAmt
-            , long visionAmt, long copayAmt, long transitAmt, long totalAmount) {
+            , long visionAmt, long copayAmt, long transitAmt, long totalAmount, String fsaOption) {
 
         if (amountOption == null) {
             decline(102301, "FSA AMOUNT OPTION IS EMPTY");
@@ -54,19 +55,11 @@ public class EnterFSAAmountHelper extends BaseActionHelper {
                 tmpHealthAmount = tmpHealthAmount + (Long) amtType.getValue();
         }
 
-        if (tmpTotalAmount > totalAmount) {
-            decline(101901, "FSA AMOUNT EXCEED LIMIT");
-            return;
-        }
-        if (tmpHealthAmount > healthAmt) {
-            decline(101902, "SUB HEALTH CARE AMOUNT EXCEED LIMIT");
-            return;
-        }
-
         Bundle bundle = new Bundle();
         for (String amtType : amountOption) {
             bundle.putLong(amtType, amtMap.get(amtType));
         }
+        bundle.putString(EntryRequest.PARAM_FSA_OPTION, fsaOption);
         super.sendNext(bundle);
     }
 
