@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.pax.pay.poslink.ui.demo.R;
 import com.pax.pay.poslink.ui.demo.base.RespStatusImpl;
 import com.pax.pay.poslink.ui.demo.utils.StringUtils;
+import com.pax.us.pay.ui.constant.entry.enumeration.FSAType;
 import com.pax.us.pay.ui.core.helper.EnterFSAAmountHelper;
 
 public class EnterFSAAmountActivity extends AppCompatActivity implements View.OnClickListener, EnterFSAAmountHelper.IEnterFSAAmountListener {
@@ -166,7 +167,11 @@ public class EnterFSAAmountActivity extends AppCompatActivity implements View.On
         long visionAmt = StringUtils.parseLong(visionEditText.getText().toString());
         long transitAmt = StringUtils.parseLong(transitEditText.getText().toString());
         long copayAmt = StringUtils.parseLong(copayEditText.getText().toString());
-        helper.sendNext(healthAmt, clinicAmt, prescriptionAmt, dentalAmt, visionAmt, copayAmt, transitAmt, totalAmount);
+
+        if (transitAmt != 0)
+            helper.sendNext(healthAmt, clinicAmt, prescriptionAmt, dentalAmt, visionAmt, copayAmt, transitAmt, totalAmount, FSAType.Transit.name());
+        else
+            helper.sendNext(healthAmt, clinicAmt, prescriptionAmt, dentalAmt, visionAmt, copayAmt, transitAmt, totalAmount, FSAType.HealthCare.name());
     }
 
     @Override
