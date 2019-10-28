@@ -18,6 +18,8 @@ public class TextEntry {
      * input: {@link EntryExtraData#PARAM_BASE_AMOUNT} <br>
      * input: {@link EntryExtraData#PARAM_TIP_NAME} <br>
      * input: {@link EntryExtraData#PARAM_TIP_OPTIONS} String Array, Nullable amount array <br>
+     * input: {@link EntryExtraData#PARAM_TIP_RATE_OPTIONS} String Array, Nullable tip rate array,
+     *         if it exist, the number of tip rate options should equal the number of  tip options <br>
      * request: {@link EntryRequest#PARAM_TIP} <br>
      */
     public static final String ACTION_ENTER_TIP = "com.pax.us.pay.action.ENTER_TIP";
@@ -132,6 +134,8 @@ public class TextEntry {
      * input: {@link EntryExtraData#PARAM_CURRENCY}  enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType}  <br>
      * input: {@link EntryExtraData#PARAM_TOTAL_AMOUNT} long  <br>
      * input: {@link EntryExtraData#PARAM_CASHBACK_OPTIONS} String Array, Nullable amount array  <br>
+     * input: {@link EntryExtraData#PARAM_CASHBACK_RATE_OPTIONS} String Array, Nullable cashback rate array,
+     *         if it exist, the number of cashback rate options should equal the number of  cashback options <br>
      * request: {@link EntryRequest#PARAM_CASHBACK_AMOUNT} long  <br>
      */
     public static final String ACTION_ENTER_CASH_BACK = "com.pax.us.pay.action.ENTER_CASH_BACK";

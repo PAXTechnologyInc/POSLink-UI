@@ -22,6 +22,7 @@ public class EnterCashbackHelper extends BaseActionHelper {
 
     @Override
     protected void showUI(@Nullable IUIListener uiListener, @NonNull Bundle bundle) {
+        String[] rateOptions = null, options = null;
         super.showUI(uiListener, bundle);
         if (uiListener instanceof ICurrencyListener) {
             String currency = bundle.getString(EntryExtraData.PARAM_CURRENCY, "USD");
@@ -32,10 +33,24 @@ public class EnterCashbackHelper extends BaseActionHelper {
             ((IAmountListener) uiListener).onShowAmount(bundle.getLong(EntryExtraData.PARAM_TOTAL_AMOUNT));
         }
 
+        if (uiListener instanceof ICashbackOptionListener && bundle.containsKey(EntryExtraData.PARAM_CASHBACK_RATE_OPTIONS)) {
+            rateOptions = bundle.getStringArray(EntryExtraData.PARAM_CASHBACK_RATE_OPTIONS);
+        }
+
         if (uiListener instanceof ICashbackOptionListener && bundle.containsKey(EntryExtraData.PARAM_CASHBACK_OPTIONS)) {
-            String[] options = bundle.getStringArray(EntryExtraData.PARAM_CASHBACK_OPTIONS);
-            if ((options != null) && (options.length > 0))
-                ((ICashbackOptionListener) uiListener).onShowCashbackOptions(options);
+            options = bundle.getStringArray(EntryExtraData.PARAM_CASHBACK_OPTIONS);
+        }
+
+        if (options != null && options.length > 0) {
+            if ((rateOptions != null && rateOptions.length > 0)) {
+                if (rateOptions.length == options.length) {
+                    if (options != null && options.length > 0) {
+                        ((ICashbackOptionListener) uiListener).onShowCashbackOptions(options, rateOptions);
+                    }
+                }
+            } else {
+                ((ICashbackOptionListener) uiListener).onShowCashbackOptions(options, null);
+            }
         }
     }
 

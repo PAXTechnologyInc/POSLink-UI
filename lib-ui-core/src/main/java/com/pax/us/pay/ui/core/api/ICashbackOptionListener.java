@@ -7,5 +7,5 @@ public interface ICashbackOptionListener extends IUIListener {
      * show pre-set cash back options
      * @param options
      */
-    void onShowCashbackOptions(@NonNull String[] options);
+    void onShowCashbackOptions(@NonNull String[] options, @NonNull String[] rateOptions);
 }

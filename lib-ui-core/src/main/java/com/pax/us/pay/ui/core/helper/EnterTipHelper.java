@@ -30,6 +30,7 @@ public class EnterTipHelper extends BaseActionHelper {
 
     @Override
     protected void showUI(@Nullable IUIListener uiListener, @NonNull Bundle bundle) {
+        String[] rateOptions = null, options = null;
         super.showUI(uiListener, bundle);
         if (uiListener instanceof ICurrencyListener) {
             String currency = bundle.getString(EntryExtraData.PARAM_CURRENCY, "USD");
@@ -47,10 +48,24 @@ public class EnterTipHelper extends BaseActionHelper {
             ((ITipNameListener) uiListener).onShowTipName(bundle.getString(EntryExtraData.PARAM_TIP_NAME));
         }
 
+        if (uiListener instanceof ITipOptionListener && bundle.containsKey(EntryExtraData.PARAM_TIP_RATE_OPTIONS)) {
+            rateOptions = bundle.getStringArray(EntryExtraData.PARAM_TIP_RATE_OPTIONS);
+        }
+
         if (uiListener instanceof ITipOptionListener && bundle.containsKey(EntryExtraData.PARAM_TIP_OPTIONS)) {
-            String[] options = bundle.getStringArray(EntryExtraData.PARAM_TIP_OPTIONS);
-            if (options != null && options.length > 0)
-                ((ITipOptionListener) uiListener).onShowTipOptions(options);
+            options = bundle.getStringArray(EntryExtraData.PARAM_TIP_OPTIONS);
+        }
+
+        if (options != null && options.length > 0) {
+            if ((rateOptions != null && rateOptions.length > 0)) {
+                if (rateOptions.length == options.length) {
+                    if (options != null && options.length > 0) {
+                        ((ITipOptionListener) uiListener).onShowTipOptions(options, rateOptions);
+                    }
+                }
+            } else {
+                ((ITipOptionListener) uiListener).onShowTipOptions(options, null);
+            }
         }
     }
 
