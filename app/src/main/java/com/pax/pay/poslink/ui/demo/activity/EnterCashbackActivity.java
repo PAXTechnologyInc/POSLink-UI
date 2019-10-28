@@ -141,7 +141,7 @@ public class EnterCashbackActivity extends AppCompatActivity implements View.OnC
 
 
     @Override
-    public void onShowCashbackOptions(@NonNull String[] options, @NonNull String[] rateOptions) {
+    public void onShowCashbackOptions(@NonNull String[] options, @Nullable String[] rateOptions) {
         mEditText.setVisibility(View.GONE);
         promptTv.setVisibility(View.GONE);
         mRecyclerView.setVisibility(View.VISIBLE);
