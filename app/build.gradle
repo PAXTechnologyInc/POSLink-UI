@@ -42,7 +42,7 @@ dependencies {
 
     implementation project(path: ':ui.constant')
     implementation project(path: ':ui.core')
-    implementation project(path: ':ui.protocol.demo')
+    implementation project(path: ':ui.demo')
     //only for test
     //api project(':poslink_ui_test')
 }

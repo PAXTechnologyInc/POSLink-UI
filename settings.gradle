@@ -6,5 +6,5 @@ project (':ui.constant').projectDir = file('./lib-ui-constant')
 include ':ui.core'
 project (':ui.core').projectDir = file('./lib-ui-core')
 
-include ':ui.protocol.demo'
-project (':ui.protocol.demo').projectDir = file('./lib-ui-protocol-demo')
+include ':ui.demo'
+project (':ui.demo').projectDir = file('./ui-demo')
