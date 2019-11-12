@@ -96,6 +96,7 @@ public final class EntryExtraData {
     public static final String PARAM_MIN_VALUE = "minValue";
     public static final String PARAM_MAX_LENGTH = "maxLength";
     public static final String PARAM_MIN_LENGTH = "minLength";
+    public static final String PARAM_TIP_UNIT = "tipUnit";
 
     /**
      * PARAM_TRANS_STATUS : transaction status <br>
