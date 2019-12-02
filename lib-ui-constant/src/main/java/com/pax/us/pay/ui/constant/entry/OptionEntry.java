@@ -1,5 +1,7 @@
 package com.pax.us.pay.ui.constant.entry;
 
+import com.pax.us.pay.ui.constant.entry.enumeration.EDCGroup;
+
 public class OptionEntry {
     public static final String CATEGORY = "com.pax.us.pay.ui.category.OPTION";
     /**
@@ -118,4 +120,27 @@ public class OptionEntry {
      * request: {@link EntryRequest#PARAM_TRANS_NUMBER} <br>
      */
     public static final String ACTION_SELECT_TRANS_FOR_ADJUST = "com.pax.us.pay.action.SELECT_TRANS_FOR_ADJUST";
+
+
+    /**
+     * The intent action of select transaction for Tip Adjust <br>
+     * /**
+     * The intent action of select the search type <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_OPTIONS}: enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.BatchType} <br>
+     * request: {@link EntryRequest#PARAM_INDEX} <br>
+     */
+    public static final String ACTION_SELECT_BATCH_TYPE = "com.pax.us.pay.action.SELECT_BATCH_TYPE";
+
+    /**
+     * The intent action of select transaction for Tip Adjust <br>
+     * /**
+     * The intent action of select the search type <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_OPTIONS}: enum: {@link EDCGroup} <br>
+     * request: {@link EntryRequest#PARAM_INDEX} <br>
+     */
+    public static final String ACTION_SELECT_EDC_GROUP = "com.pax.us.pay.action.SELECT_EDC_GROUP";
 }
