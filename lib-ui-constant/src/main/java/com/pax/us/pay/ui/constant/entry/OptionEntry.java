@@ -123,7 +123,7 @@ public class OptionEntry {
 
 
     /**
-     * The intent action of select transaction for Tip Adjust <br>
+     * The intent action of select batch transaction type  <br>
      * /**
      * The intent action of select the search type <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
@@ -134,7 +134,7 @@ public class OptionEntry {
     public static final String ACTION_SELECT_BATCH_TYPE = "com.pax.us.pay.action.SELECT_BATCH_TYPE";
 
     /**
-     * The intent action of select transaction for Tip Adjust <br>
+     * The intent action of select edc group for batch transaction <br>
      * /**
      * The intent action of select the search type <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
@@ -143,4 +143,16 @@ public class OptionEntry {
      * request: {@link EntryRequest#PARAM_INDEX} <br>
      */
     public static final String ACTION_SELECT_EDC_GROUP = "com.pax.us.pay.action.SELECT_EDC_GROUP";
+
+
+    /**
+     * The intent action of select report type for batch transaction <br>
+     * /**
+     * The intent action of select the search type <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_OPTIONS}: enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.ReportType} <br>
+     * request: {@link EntryRequest#PARAM_INDEX} <br>
+     */
+    public static final String ACTION_SELECT_REPORT_TYPE = "com.pax.us.pay.action.SELECT_REPORT_TYPE";
 }
