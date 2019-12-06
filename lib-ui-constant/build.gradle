@@ -1,5 +1,7 @@
 apply plugin: 'java-library'
 
+version = '1.0.1'
+
 dependencies {
 }
 
