@@ -1,6 +1,6 @@
 apply plugin: 'java-library'
 
-version = '1.0.1'
+version = '0.4' + new Date().format("yyyyMMdd", TimeZone.getTimeZone("UTC"))
 
 dependencies {
 }
