@@ -14,6 +14,9 @@ public final class InformationStatus {
     public static final String TRANS_ONLINE_STARTED = "com.pax.us.pay.TRANS_ONLINE_STARTED";
     public static final String TRANS_ONLINE_FINISHED = "com.pax.us.pay.TRANS_ONLINE_FINISHED";
 
+    public static final String TRANS_REVERSAL_STARTED = "com.pax.us.pay.TRANS_REVERSAL_STARTED";
+    public static final String TRANS_REVERSAL_FINISHED = "com.pax.us.pay.TRANS_REVERSAL_FINISHED";
+
     /**
      * param: {@link StatusData#PARAM_CODE} <br>
      * param: {@link StatusData#PARAM_MSG} <br>
