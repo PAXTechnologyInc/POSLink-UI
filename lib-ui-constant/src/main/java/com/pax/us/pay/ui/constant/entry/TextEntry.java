@@ -20,6 +20,9 @@ public class TextEntry {
      * input: {@link EntryExtraData#PARAM_TIP_OPTIONS} String Array, Nullable amount array <br>
      * input: {@link EntryExtraData#PARAM_TIP_RATE_OPTIONS} String Array, Nullable tip rate array,
      *         if it exist, the number of tip rate options should equal the number of  tip options <br>
+     * input: {@link EntryExtraData#PARAM_TIP_UNIT enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.UnitType}} <br>
+     * input: {@link EntryExtraData#PARAM_MIN_LENGTH} <br>
+     * input: {@link EntryExtraData#PARAM_MAX_LENGTH} <br>
      * request: {@link EntryRequest#PARAM_TIP} <br>
      */
     public static final String ACTION_ENTER_TIP = "com.pax.us.pay.action.ENTER_TIP";
@@ -28,6 +31,8 @@ public class TextEntry {
      * The intent action of Enter Trans.No <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MIN_LENGTH} <br>
+     * input: {@link EntryExtraData#PARAM_MAX_LENGTH} <br>
      * request: {@link EntryRequest#PARAM_TRANS_NUMBER} <br>
      */
     public static final String ACTION_ENTER_TRANS_NUMBER = "com.pax.us.pay.action.ENTER_TRANS_NUMBER";
@@ -60,6 +65,8 @@ public class TextEntry {
      * The intent action of Enter AuthCode <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MIN_LENGTH} <br>
+     * input: {@link EntryExtraData#PARAM_MAX_LENGTH} <br>
      * request: {@link EntryRequest#PARAM_AUTH_CODE} <br>
      */
     public static final String ACTION_ENTER_AUTH = "com.pax.us.pay.action.ENTER_AUTH_CODE";
@@ -106,6 +113,8 @@ public class TextEntry {
      * The intent action of Enter reference number <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MIN_LENGTH} <br>
+     * input: {@link EntryExtraData#PARAM_MAX_LENGTH} <br>
      * request: {@link EntryRequest#PARAM_REFERENCE_NUMBER} <br>
      */
     public static final String ACTION_ENTER_REFERENCE_NUMBER = "com.pax.us.pay.action.ENTER_REFERENCE_NUMBER";
@@ -115,6 +124,8 @@ public class TextEntry {
      * The intent action of Enter invoice number <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MIN_LENGTH} <br>
+     * input: {@link EntryExtraData#PARAM_MAX_LENGTH} <br>
      * request: {@link EntryRequest#PARAM_INVOICE_NUMBER} <br>
      */
     public static final String ACTION_ENTER_INVOICE_NUMBER = "com.pax.us.pay.action.ENTER_INVOICE_NUMBER";
@@ -274,6 +285,9 @@ public class TextEntry {
      * The intent action of Enter destination Zip Code <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_EINPUT_TYPE} enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType} <br>
+     * input: {@link EntryExtraData#PARAM_MIN_LENGTH} <br>
+     * input: {@link EntryExtraData#PARAM_MAX_LENGTH} <br>
      * request: {@link EntryRequest#PARAM_DEST_ZIP_CODE} <br>
      */
     public static final String ACTION_ENTER_DEST_ZIPCODE = "com.pax.us.pay.action.ENTER_DEST_ZIP_CODE";
