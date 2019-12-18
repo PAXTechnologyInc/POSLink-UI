@@ -9,4 +9,11 @@ public interface ICashbackOptionListener extends IUIListener {
      * @param options
      */
     void onShowCashbackOptions(@NonNull String[] options, @Nullable String[] rateOptions);
+
+    /**
+     * enable or disable show others option
+     *
+     * @param enable
+     */
+    void onShowEnableOtherPrompt(boolean enable);
 }

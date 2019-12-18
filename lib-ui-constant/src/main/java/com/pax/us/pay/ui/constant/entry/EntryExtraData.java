@@ -15,6 +15,7 @@ public final class EntryExtraData {
     public static final String PARAM_TIP_RATE_OPTIONS = "tipRateOptions";
     public static final String PARAM_CASHBACK_OPTIONS = "cashbackOptions";
     public static final String PARAM_CASHBACK_RATE_OPTIONS = "cashbackRateOptions";
+    public static final String PARAM_ENABLE_OTHER_PROMPT = "enableOtherPrompt";
     public static final String PARAM_TIMEOUT = "timeout";
     public static final String PARAM_PRINT_STATUS = "printStatus";
     public static final String PARAM_PIN_STYLES = "pinStyles";

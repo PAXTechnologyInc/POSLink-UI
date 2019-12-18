@@ -33,6 +33,11 @@ public class EnterCashbackHelper extends BaseActionHelper {
             ((IAmountListener) uiListener).onShowAmount(bundle.getLong(EntryExtraData.PARAM_TOTAL_AMOUNT));
         }
 
+        if (uiListener instanceof ICashbackOptionListener && bundle.containsKey(EntryExtraData.PARAM_ENABLE_OTHER_PROMPT)) {
+            boolean enable = bundle.getBoolean(EntryExtraData.PARAM_ENABLE_OTHER_PROMPT, false);
+            ((ICashbackOptionListener) uiListener).onShowEnableOtherPrompt(enable);
+        }
+
         if (uiListener instanceof ICashbackOptionListener && bundle.containsKey(EntryExtraData.PARAM_CASHBACK_RATE_OPTIONS)) {
             rateOptions = bundle.getStringArray(EntryExtraData.PARAM_CASHBACK_RATE_OPTIONS);
         }
