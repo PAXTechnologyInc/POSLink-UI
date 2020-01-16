@@ -11,7 +11,7 @@ public final class TransType {
     public static final String AUTH = "AUTH";
     public static final String POSTAUTH = "POST AUTH";
     public static final String VAUTH = "VOID AUTH";
-    public static final String VERIFY = "VOID VERIFY";
+    public static final String VERIFY = "VERIFY";
     public static final String TOKENIZE = "TOKENIZE";
     public static final String WITHDRAWAL = "WITHDRAWAL";
     public static final String ADD = "ADD";
