@@ -157,6 +157,11 @@ public class EnterCashbackActivity extends AppCompatActivity implements View.OnC
         viewType = SELECT_AMOUNT;
     }
 
+    @Override
+    public void onShowEnableOtherPrompt(boolean enable) {
+
+    }
+
     void setAmountOption(@NonNull String[] options) {
         selectOption = Arrays.asList(options);
         GridLayoutManager layoutManager = new GridLayoutManager(this, 2, RecyclerView.VERTICAL, false);

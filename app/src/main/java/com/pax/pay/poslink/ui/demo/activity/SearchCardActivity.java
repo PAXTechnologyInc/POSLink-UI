@@ -122,6 +122,11 @@ public class SearchCardActivity extends AppCompatActivity implements View.OnClic
     }
 
     @Override
+    public void onShowLight(boolean enableContactlessLight) {
+
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
         ViewTreeObserver observer = cardNumEdt.getViewTreeObserver();

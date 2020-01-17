@@ -289,7 +289,7 @@ public class TextEntry {
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
      * input: {@link EntryExtraData#PARAM_EINPUT_TYPE} enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType} <br>
-     * input: {@link EntryExtraData#PARAM_SUPPORT_ALLTEXT}<br>
+	 * input: {@link EntryExtraData#PARAM_SUPPORT_ALLTEXT}<br>
      * input: {@link EntryExtraData#PARAM_MIN_LENGTH} <br>
      * input: {@link EntryExtraData#PARAM_MAX_LENGTH} <br>
      * request: {@link EntryRequest#PARAM_DEST_ZIP_CODE} <br>
