@@ -28,6 +28,9 @@ public final class EntryExtraData {
     public static final String PARAM_ENABLE_TAP = "enableTap";
     public static final String PARAM_ENABLE_MANUAL = "enableManualEntry";
 
+    public static final String PARAM_ENABLE_CONTACTLESS_LIGHT = "enableContactlessLight";
+
+
     public static final String PARAM_INFORMATION_KEY = "informationKey";
     public static final String PARAM_INFORMATION_VALUE = "informationValue";
 
@@ -93,6 +96,7 @@ public final class EntryExtraData {
     public static final String PARAM_AUTH_CODE = "authCode";
     public static final String PARAM_RESPONSE_STATUS = "responseStatus";
     public static final String PARAM_EINPUT_TYPE = "eInputType";
+    public static final String PARAM_SUPPORT_ALLTEXT = "supportAllText";
     public static final String PARAM_MAX_VALUE = "maxValue";
     public static final String PARAM_MIN_VALUE = "minValue";
     public static final String PARAM_MAX_LENGTH = "maxLength";
