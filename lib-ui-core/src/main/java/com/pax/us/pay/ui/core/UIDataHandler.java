@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.pax.us.pay.ui.constant.entry.EntryExtraData;
@@ -56,6 +57,7 @@ public class UIDataHandler {
         REQ_DATA_MAP.put(EntryRequest.PARAM_REFERENCE_NUMBER, DEFAULT);
         REQ_DATA_MAP.put(EntryRequest.PARAM_INVOICE_NUMBER, DEFAULT);
         REQ_DATA_MAP.put(EntryRequest.PARAM_CLERK_ID, DEFAULT);
+        REQ_DATA_MAP.put(EntryRequest.PARAM_SERVER_ID, DEFAULT);
         REQ_DATA_MAP.put(EntryRequest.PARAM_TABLE_NUMBER, DEFAULT);
         REQ_DATA_MAP.put(EntryRequest.PARAM_PHONE_NUMBER, DEFAULT);
         REQ_DATA_MAP.put(EntryRequest.PARAM_GUEST_NUMBER, DEFAULT);
@@ -125,7 +127,11 @@ public class UIDataHandler {
                         editor.putString(key, strAmt);
                     }else if (TIP.equals(type)){
                         String strAmt = convertAmount((long)value);
-                        editor.putString(tipName, strAmt);
+                        if (TextUtils.isEmpty(tipName)){
+                            editor.putString(type, strAmt);
+                        } else {
+                            editor.putString(tipName, strAmt);
+                        }
                     }else if (DEFAULT.equals(type)) {
                         if (value instanceof String) {
                             editor.putString(key, (String) value);
