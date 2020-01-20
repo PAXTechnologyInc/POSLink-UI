@@ -7,7 +7,6 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.pax.us.pay.ui.constant.entry.EntryExtraData;
 import com.pax.us.pay.ui.constant.entry.EntryRequest;
 import com.pax.us.pay.ui.constant.entry.OptionEntry;
 
@@ -113,6 +112,9 @@ public class UIDataHandler {
     }
 
     public static void saveData(Context context, @Nullable Bundle bundle){
+
+        if (bundle == null || bundle.size() == 0)
+            return;
 
         SharedPreferences preferences=context.getSharedPreferences(EntryRequest.class.getName(),Context.MODE_PRIVATE);
         SharedPreferences.Editor editor=preferences.edit();
