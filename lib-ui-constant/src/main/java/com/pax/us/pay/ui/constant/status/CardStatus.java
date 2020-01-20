@@ -26,5 +26,10 @@ public final class CardStatus {
     public static final String CARD_TAPPED = "com.pax.us.pay.CARD_TAPPED";
     public static final String CARD_REMOVAL_REQUIRED = "com.pax.us.pay.CARD_REMOVAL_REQUIRED";
     public static final String CARD_QUICK_REMOVAL_REQUIRED = "com.pax.us.pay.CARD_QUICK_REMOVAL_REQUIRED";
+    /**
+     * param: {@link #PARAM_PROMPTS} <br>
+     */
     public static final String SEE_PHONE = "com.pax.us.pay.SEE_PHONE";
+
+    public static final String PARAM_PROMPTS = "prompts";
 }
