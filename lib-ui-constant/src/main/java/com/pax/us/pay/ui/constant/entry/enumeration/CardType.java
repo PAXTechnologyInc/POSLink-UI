@@ -8,6 +8,7 @@ public final class CardType {
     public static final String DISCOVER = "DISCOVER";
     public static final String CUP = "CUP";
     public static final String JCB = "JCB";
+    public static final String INTERAC = "Interac";
     public static final String ENROUTE = "enRoute";
     public static final String INTERAC = "Interac";
     public static final String EXTENDED = "Extended";

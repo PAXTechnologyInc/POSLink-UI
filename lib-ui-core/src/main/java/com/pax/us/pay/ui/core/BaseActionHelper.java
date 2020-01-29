@@ -2,10 +2,12 @@ package com.pax.us.pay.ui.core;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 
 import com.pax.us.pay.ui.constant.entry.EntryExtraData;
 import com.pax.us.pay.ui.constant.entry.enumeration.TransMode;
@@ -75,6 +77,18 @@ public abstract class BaseActionHelper {
             String transType = bundle.getString(EntryExtraData.PARAM_TRANS_TYPE, "");
             String message = bundle.getString(EntryExtraData.PARAM_MESSAGE, "");
             String transMode = bundle.getString(EntryExtraData.PARAM_TRANS_MODE, TransMode.NORMAL);
+
+            String[] options = bundle.getStringArray(EntryExtraData.PARAM_OPTIONS);
+            if (options != null && options.length > 0){
+                UIDataHandler.setAction(intent.getAction());
+                UIDataHandler.setOptions(options);
+            }
+
+            String tipName = bundle.getString(EntryExtraData.PARAM_TIP_NAME);
+            if (!TextUtils.isEmpty(tipName)){
+                UIDataHandler.setTipName(tipName);
+            }
+
             if (transType.length() > 0 || message.length() > 0) {
                 ((IMessageListener) uiListener).onShowMessage(transType, message, transMode.equals(TransMode.DEMO) ? true : false);
             }

@@ -2,6 +2,9 @@ package com.pax.us.pay.ui.constant.entry;
 
 import com.pax.us.pay.ui.constant.entry.enumeration.EDCGroup;
 
+//Note:
+//Appending a new action, please add mapping into "SELECT_OPTION_MAP" in "SelectOptionContent"
+
 public class OptionEntry {
     public static final String CATEGORY = "com.pax.us.pay.ui.category.OPTION";
     /**
@@ -155,4 +158,20 @@ public class OptionEntry {
      * request: {@link EntryRequest#PARAM_INDEX} <br>
      */
     public static final String ACTION_SELECT_REPORT_TYPE = "com.pax.us.pay.action.SELECT_REPORT_TYPE";
+
+
+    /**
+     * The intent action of select account type for debit transaction <br>
+     * /**
+     * The intent action of select the search type <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_OPTIONS}: enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.AccountType} <br>
+     * request: {@link EntryRequest#PARAM_INDEX} <br>
+     */
+    public static final String ACTION_SELECT_ACCOUNT_TYPE = "com.pax.us.pay.action.SELECT_ACCOUNT_TYPE";
+
+//Note:
+//Appending a new action, please add mapping into "SELECT_OPTION_MAP" in "SelectOptionContent"
+
 }

@@ -47,9 +47,12 @@ public class SearCardHelper extends BaseActionHelper {
                 ((ICurrencyListener) uiListener).onShowCurrency(currency, false);
 
             ((IAmountListener) uiListener).onShowAmount(bundle.getLong(EntryExtraData.PARAM_TOTAL_AMOUNT));
+
         }
 
         if (uiListener instanceof ICardListener) {
+            ((ICardListener) uiListener).onShowLight( bundle.getBoolean(EntryExtraData.PARAM_ENABLE_CONTACTLESS_LIGHT, true));
+
             ((ICardListener) uiListener).onShowCard(
                     bundle.getBoolean(EntryExtraData.PARAM_ENABLE_MANUAL, true),
                     bundle.getBoolean(EntryExtraData.PARAM_ENABLE_SWIPE, true),

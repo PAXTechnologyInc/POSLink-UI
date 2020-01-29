@@ -194,4 +194,13 @@ public class ConfirmationEntry {
      */
     public static final String ACTION_CONFIRM_CARD_PROCESS_RESULT = "com.pax.us.pay.action.CONFIRM_CARD_PROCESS_RESULT";
 
+
+    /**
+     * The intent action of confirm the receipt need to be signed or not<br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
+     */
+    public static final String ACTION_CONFIRM_RECEIPT_SIGNATURE = "com.pax.us.pay.action.CONFIRM_RECEIPT_SIGNATURE";
+
 }

@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,6 +14,8 @@ import android.util.Log;
 import com.pax.us.pay.ui.constant.entry.EntryRequest;
 import com.pax.us.pay.ui.constant.entry.EntryResponse;
 import com.pax.us.pay.ui.core.api.IRespStatus;
+
+import java.util.Set;
 
 /**
  * message sender implementation
@@ -57,6 +60,7 @@ class UIMessageHandler implements IActionHandler {
 
     @Override
     public void sendNext(@Nullable Bundle bundle) {
+        UIDataHandler.saveData(context, bundle);
         Intent intent = new Intent();
         intent.setPackage(packageName);
         intent.setAction(EntryRequest.ACTION_NEXT);
