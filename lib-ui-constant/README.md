@@ -10,3 +10,8 @@
 
 ## Version :  1.00.01
    1. Add "enableContactlessLight" parameter for INPUT_ACTION;
+   2. Add "CONFIRM_RECEIPT_SIGNATURE" action
+   3. Add "Interac" for CardType
+   4. Add "Prompts" for "See Phone" action
+   5. Add "PARAM_ENABLE_CONTACTLESS_LIGHT" for input account action
+   6. Fixed error TransType name "VOID VERIFY" to "VERIFY"
