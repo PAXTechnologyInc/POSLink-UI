@@ -99,6 +99,8 @@ public class EntryRequest {
     public static final String PARAM_ORDER_NUMBER = "orderNumber";
     public static final String PARAM_PO_NUMBER = "PONumber";
     public static final String PARAM_PROC_DESC = "prodDesc";
+    public static final String PARAM_MERCHANT_TAX_ID = "merchantTaxID";
+    public static final String PARAM_CS_PHONE_NUMBER = "customerServicePhoneNumber";
 
     public static final String PARAM_CUSTOMER_CODE = "customerCode";
     public static final String PARAM_PROMPT_RESTRICTION_CODE = "promptRestrictionCode";

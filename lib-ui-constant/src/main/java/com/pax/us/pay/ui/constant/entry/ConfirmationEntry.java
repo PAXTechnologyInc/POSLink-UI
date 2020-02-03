@@ -203,4 +203,16 @@ public class ConfirmationEntry {
      */
     public static final String ACTION_CONFIRM_RECEIPT_SIGNATURE = "com.pax.us.pay.action.CONFIRM_RECEIPT_SIGNATURE";
 
+    /**
+     * The intent action of additional fee approval <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_ADDITIONAL_FEE_NAME} String <br>
+     * input: {@link EntryExtraData#PARAM_CURRENCY} <br>
+     * input: {@link EntryExtraData#PARAM_TOTAL_AMOUNT} <br>
+     * input: {@link EntryExtraData#PARAM_ADDITIONAL_FEE} long <br>
+     * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
+     */
+    public static final String ACTION_CONFIRM_ADDITIONAL_FEE = "com.pax.us.pay.action.CONFIRM_SURCHARGE_FEE";
+
 }

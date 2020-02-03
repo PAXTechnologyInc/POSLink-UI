@@ -296,4 +296,20 @@ public class TextEntry {
      */
     public static final String ACTION_ENTER_DEST_ZIPCODE = "com.pax.us.pay.action.ENTER_DEST_ZIP_CODE";
 
+    /**
+     * The intent action of Enter customer service phone number <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE}  <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE}  <br>
+     * request: {@link EntryRequest#PARAM_CS_PHONE_NUMBER} <br>
+     */
+    public static final String ACTION_ENTER_CS_PHONE_NUMBER = "com.pax.us.pay.action.ENTER_CS_PHONE_NUMBER";
+
+    /**
+     * The intent action of Enter merchant tax id <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * request: {@link EntryRequest#PARAM_MERCHANT_TAX_ID} <br>
+     */
+    public static final String ACTION_ENTER_MERCHANT_TAX_ID = "com.pax.us.pay.action.ENTER_MERCHANT_TAX_ID";
+
 }
