@@ -134,6 +134,13 @@ public class UIDataHandler {
                         } else {
                             editor.putString(tipName, strAmt);
                         }
+                    } else if (EXPIRY_DATE.equals(type)) {
+                        if (value instanceof String) {
+                            String date = ((String) value).substring(0, 2) + "/" + ((String) value).substring(2, 4);
+                            if (!TextUtils.isEmpty(date)) {
+                                editor.putString(key, date);
+                            }
+                        }
                     }else if (DEFAULT.equals(type)) {
                         if (value instanceof String) {
                             editor.putString(key, (String) value);
