@@ -213,6 +213,6 @@ public class ConfirmationEntry {
      * input: {@link EntryExtraData#PARAM_ADDITIONAL_FEE} long <br>
      * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
      */
-    public static final String ACTION_CONFIRM_ADDITIONAL_FEE = "com.pax.us.pay.action.CONFIRM_SURCHARGE_FEE";
+    public static final String ACTION_CONFIRM_ADDITIONAL_FEE = "com.pax.us.pay.action.CONFIRM_ADDITIONAL_FEE";
 
 }
