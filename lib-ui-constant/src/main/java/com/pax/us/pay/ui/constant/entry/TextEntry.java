@@ -300,7 +300,7 @@ public class TextEntry {
      * The intent action of Enter customer service phone number <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE}  <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE}  <br>
-     * request: {@link EntryRequest#PARAM_CS_PHONE_NUMBER} <br>
+     * request: {@link EntryRequest#PARAM_PHONE_NUMBER} <br>
      */
     public static final String ACTION_ENTER_CS_PHONE_NUMBER = "com.pax.us.pay.action.ENTER_CS_PHONE_NUMBER";
 

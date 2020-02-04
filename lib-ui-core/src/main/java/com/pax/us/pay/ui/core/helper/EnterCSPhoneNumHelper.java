@@ -16,7 +16,7 @@ public class EnterCSPhoneNumHelper extends BaseActionHelper {
 
     public void sendNext(String phoneNumber) {
         Bundle bundle = new Bundle();
-        bundle.putString(EntryRequest.PARAM_CS_PHONE_NUMBER, phoneNumber);
+        bundle.putString(EntryRequest.PARAM_PHONE_NUMBER, phoneNumber);
         super.sendNext(bundle);
     }
 
