@@ -312,4 +312,77 @@ public class TextEntry {
      */
     public static final String ACTION_ENTER_MERCHANT_TAX_ID = "com.pax.us.pay.action.ENTER_MERCHANT_TAX_ID";
 
+
+    /**
+     * The intent action of Enter fleet customer data <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * request: {@link EntryRequest#PARAM_FLEET_CUSTOMER_DATA} <br>
+     */
+    public static final String ACTION_ENTER_FLEET_CUSTOMER_DATA = "com.pax.us.pay.action.ENTER_FLEET_CUSTOMER_DATA";
+
+    /**
+     * The intent action of Enter fleet department number <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * request: {@link EntryRequest#PARAM_FLEET_DEPARTMENT_NUMBER} <br>
+     */
+    public static final String ACTION_ENTER_FLEET_DEPARTMENT_NUMBER = "com.pax.us.pay.action.ENTER_FLEET_DEPARTMENT_NUMBER";
+
+    /**
+     * The intent action of Enter fleet user id <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * request: {@link EntryRequest#PARAM_FLEET_USER_ID} <br>
+     */
+    public static final String ACTION_ENTER_FLEET_USER_ID = "com.pax.us.pay.action.ENTER_FLEET_USER_ID";
+
+    /**
+     * The intent action of Enter fleet vehicle ID <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * request: {@link EntryRequest#PARAM_FLEET_VEHICLE_ID} <br>
+     */
+    public static final String ACTION_ENTER_FLEET_VEHICLE_ID = "com.pax.us.pay.action.ENTER_FLEET_VEHICLE_ID";
+
+    /**
+     * The intent action of Enter fleet vehicle number <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * request: {@link EntryRequest#PARAM_FLEET_VEHICLE_NUMBER} <br>
+     */
+    public static final String ACTION_ENTER_FLEET_VEHICLE_NUMBER = "com.pax.us.pay.action.ENTER_FLEET_VEHICLE_NUMBER";
+
+    /**
+     * The intent action of Enter fleet job number <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * request: {@link EntryRequest#PARAM_FLEET_JOB_NUMBER} <br>
+     */
+    public static final String ACTION_ENTER_FLEET_JOB_NUMBER = "com.pax.us.pay.action.ENTER_FLEET_JOB_NUMBER";
+
+    /**
+     * The intent action of Enter fleet odometer <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * request: {@link EntryRequest#PARAM_FLEET_ODOMETER} <br>
+     */
+    public static final String ACTION_ENTER_FLEET_ODOMETER = "com.pax.us.pay.action.ENTER_FLEET_ODOMETER";
+
+    /**
+     * The intent action of Enter fleet driver ID <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * request: {@link EntryRequest#PARAM_FLEET_DRIVER_ID} <br>
+     */
+    public static final String ACTION_ENTER_FLEET_DRIVER_ID = "com.pax.us.pay.action.ENTER_FLEET_DRIVER_ID";
+
+    /**
+     * The intent action of Enter fleet license number <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * request: {@link EntryRequest#PARAM_FLEET_LICENSE_NUMBER} <br>
+     */
+    public static final String ACTION_ENTER_FLEET_LICENSE_NUMBER = "com.pax.us.pay.action.ENTER_FLEET_LICENSE_NUMBER";
+
 }
