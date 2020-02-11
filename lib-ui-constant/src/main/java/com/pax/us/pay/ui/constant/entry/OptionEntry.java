@@ -159,7 +159,6 @@ public class OptionEntry {
      */
     public static final String ACTION_SELECT_REPORT_TYPE = "com.pax.us.pay.action.SELECT_REPORT_TYPE";
 
-
     /**
      * The intent action of select account type for debit transaction <br>
      * /**
@@ -170,6 +169,30 @@ public class OptionEntry {
      * request: {@link EntryRequest#PARAM_INDEX} <br>
      */
     public static final String ACTION_SELECT_ACCOUNT_TYPE = "com.pax.us.pay.action.SELECT_ACCOUNT_TYPE";
+
+
+    /**
+     * The intent action of select tip amount options<br>
+     * /**
+     * The intent action of select the search type <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_OPTIONS}: According the tip amount<br>
+     * request: {@link EntryRequest#PARAM_INDEX} <br>
+     */
+    public static final String ACTION_SELECT_TIP_AMOUNT = "com.pax.us.pay.action.SELECT_TIP_AMOUNT";
+
+    /**
+     * The intent action of select tip amount options<br>
+     * /**
+     * The intent action of select the search type <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_OPTIONS}: According the cashback amount<br>
+     * request: {@link EntryRequest#PARAM_INDEX} <br>
+     */
+    public static final String ACTION_SELECT_CASHBACK_AMOUNT = "com.pax.us.pay.action.SELECT_CASHBACK_AMOUNT";
+
 
 //Note:
 //Appending a new action, please add mapping into "SELECT_OPTION_MAP" in "SelectOptionContent"

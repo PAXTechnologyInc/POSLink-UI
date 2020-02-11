@@ -13,6 +13,7 @@ import com.pax.us.pay.ui.core.api.ICardListener;
 import com.pax.us.pay.ui.core.api.ICurrencyListener;
 import com.pax.us.pay.ui.core.api.IMessageListener;
 import com.pax.us.pay.ui.core.api.IRespStatus;
+import com.pax.us.pay.ui.core.api.ITapLogoListener;
 import com.pax.us.pay.ui.core.api.IUIListener;
 
 public class SearCardHelper extends BaseActionHelper {
@@ -60,8 +61,17 @@ public class SearCardHelper extends BaseActionHelper {
                     bundle.getBoolean(EntryExtraData.PARAM_ENABLE_TAP, true)
             );
         }
+
+        if (uiListener instanceof ITapLogoListener) {
+            ((ITapLogoListener) uiListener).onShowCardPay(
+                    bundle.getBoolean(EntryExtraData.PARAM_ENABLE_APPLEPAY, false),
+                    bundle.getBoolean(EntryExtraData.PARAM_ENABLE_GOOGLEPAY, false),
+                    bundle.getBoolean(EntryExtraData.PARAM_ENABLE_SUMSUNGPAY, false),
+                    bundle.getBoolean(EntryExtraData.PARAM_ENABLE_NFCPAY, false)
+            );
+        }
     }
 
-    public interface ISearchCardListener extends IMessageListener, ICurrencyListener, IAmountListener, ICardListener {
+    public interface ISearchCardListener extends IMessageListener, ICurrencyListener, IAmountListener, ICardListener, ITapLogoListener {
     }
 }

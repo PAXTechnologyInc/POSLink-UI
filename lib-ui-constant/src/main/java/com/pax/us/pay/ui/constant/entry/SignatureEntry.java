@@ -9,6 +9,7 @@ public class SignatureEntry {
      * input: {@link EntryExtraData#PARAM_CURRENCY}  enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType} <br>
      * input: {@link EntryExtraData#PARAM_TOTAL_AMOUNT} <br>
      * input: {@link EntryExtraData#PARAM_TIMEOUT} <br>
+     * input: {@link EntryExtraData#PARAM_ENABLE_CANCEL} <br>
      * request: {@link EntryRequest#PARAM_SIGNATURE} <br>
      */
     public static final String ACTION_SIGNATURE = "com.pax.us.pay.action.GET_SIGNATURE";

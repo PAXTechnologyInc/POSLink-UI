@@ -10,6 +10,7 @@ import com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType;
 import com.pax.us.pay.ui.core.BaseActionHelper;
 import com.pax.us.pay.ui.core.api.IAmountListener;
 import com.pax.us.pay.ui.core.api.ICurrencyListener;
+import com.pax.us.pay.ui.core.api.IEnableCancelButtonListener;
 import com.pax.us.pay.ui.core.api.IMessageListener;
 import com.pax.us.pay.ui.core.api.IRespStatus;
 import com.pax.us.pay.ui.core.api.ITimeoutListener;
@@ -40,12 +41,16 @@ public class SignatureHelper extends BaseActionHelper {
             ((IAmountListener) uiListener).onShowAmount(bundle.getLong(EntryExtraData.PARAM_TOTAL_AMOUNT));
         }
 
+        if (uiListener instanceof IEnableCancelButtonListener) {
+            ((IEnableCancelButtonListener) uiListener).onShowCancelButton(bundle.getBoolean(EntryExtraData.PARAM_ENABLE_CANCEL, true));
+        }
+
         if (uiListener instanceof ITimeoutListener) {
             ((ITimeoutListener) uiListener).onShowTimeout(bundle.getLong(EntryExtraData.PARAM_TIMEOUT, 30 * 1000));
         }
 
     }
 
-    public interface ISignatureListener extends IMessageListener, ICurrencyListener, IAmountListener, ITimeoutListener {
+    public interface ISignatureListener extends IMessageListener, ICurrencyListener, IAmountListener, IEnableCancelButtonListener, ITimeoutListener {
     }
 }

@@ -12,6 +12,10 @@ public class SecurityEntry {
      * input: {@link EntryExtraData#PARAM_ENABLE_INSERT} boolean <br>
      * input: {@link EntryExtraData#PARAM_ENABLE_TAP} boolean <br>
      * input: {@link EntryExtraData#PARAM_ENABLE_MANUAL} boolean <br>
+     * input: {@link EntryExtraData#PARAM_ENABLE_APPLEPAY} boolean <br>
+     * input: {@link EntryExtraData#PARAM_ENABLE_GOOGLEPAY} boolean <br>
+     * input: {@link EntryExtraData#PARAM_ENABLE_SUMSUNGPAY} boolean <br>
+     * input: {@link EntryExtraData#PARAM_ENABLE_NFCPAY} boolean <br>
      * input: {@link EntryExtraData#PARAM_ENABLE_CONTACTLESS_LIGHT} boolean <br>
      * request: {@link EntryRequest#PARAM_X} <br>
      * request: {@link EntryRequest#PARAM_Y} <br>

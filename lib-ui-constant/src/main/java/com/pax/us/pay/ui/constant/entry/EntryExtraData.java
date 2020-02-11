@@ -21,12 +21,17 @@ public final class EntryExtraData {
     public static final String PARAM_PIN_STYLES = "pinStyles";
     public static final String PARAM_IS_ONLINE_PIN = "isOnlinePin";
     public static final String PARAM_PIN_RANGE = "pinRange";
+    public static final String PARAM_ENABLE_CANCEL = "enableCancel";
 
 
     public static final String PARAM_ENABLE_SWIPE = "enableSwipe";
     public static final String PARAM_ENABLE_INSERT = "enableInsert";
     public static final String PARAM_ENABLE_TAP = "enableTap";
     public static final String PARAM_ENABLE_MANUAL = "enableManualEntry";
+    public static final String PARAM_ENABLE_APPLEPAY = "enableApplePay";
+    public static final String PARAM_ENABLE_GOOGLEPAY = "enableGooglePay";
+    public static final String PARAM_ENABLE_SUMSUNGPAY = "enableSumsungPay";
+    public static final String PARAM_ENABLE_NFCPAY = "enableNFCPay";
 
     public static final String PARAM_ENABLE_CONTACTLESS_LIGHT = "enableContactlessLight";
 
