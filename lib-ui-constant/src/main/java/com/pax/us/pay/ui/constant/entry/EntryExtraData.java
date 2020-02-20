@@ -107,6 +107,19 @@ public final class EntryExtraData {
     public static final String PARAM_MAX_LENGTH = "maxLength";
     public static final String PARAM_MIN_LENGTH = "minLength";
     public static final String PARAM_TIP_UNIT = "tipUnit";
+    public static final String PARAM_AMOUNT_UNIT = "amountUnit";
+    public static final String PARAM_VALUE_PATTERN = "valuePattern";
+
+    public static final String PARAM_FLEET_CUSTOMER_DATA_PATTERN = "fleetCustomerDataPattern";
+    public static final String PARAM_FLEET_DEPARTMENT_NUMBER_PATTERN = "fleetDepartmentNumberPattern";
+    public static final String PARAM_FLEET_USER_ID_PATTERN = "fleetUserIdPattern";
+    public static final String PARAM_FLEET_VEHICLE_ID_PATTERN = "fleetVehicleIdPattern";
+    public static final String PARAM_FLEET_VEHICLE_NUMBER_PATTERN = "fleetVehicleNumberPattern";
+    public static final String PARAM_FLEET_JOB_NUMBER_PATTERN = "fleetJobNumberPattern";
+    public static final String PARAM_FLEET_ODOMETER_PATTERN = "fleetOdometerPattern";
+    public static final String PARAM_FLEET_DRIVER_ID_PATTERN = "fleetDriverIdPattern";
+    public static final String PARAM_FLEET_LICENSE_NUMBER_PATTERN = "fleetLicenseNumberPattern";
+
 
     /**
      * PARAM_TRANS_STATUS : transaction status <br>

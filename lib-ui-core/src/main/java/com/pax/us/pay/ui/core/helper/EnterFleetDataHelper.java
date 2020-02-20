@@ -3,6 +3,7 @@ package com.pax.us.pay.ui.core.helper;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 
 import com.pax.us.pay.ui.constant.entry.EntryExtraData;
 import com.pax.us.pay.ui.constant.entry.EntryRequest;
@@ -17,9 +18,6 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class EnterFleetDataHelper extends BaseActionHelper {
-    // private List<String> fleetDataOption = null;
-
-
     public EnterFleetDataHelper(@Nullable IEnterFleetDataListener uiListener, @Nullable IRespStatus respStatus) {
         super(uiListener, respStatus);
     }
@@ -27,22 +25,25 @@ public class EnterFleetDataHelper extends BaseActionHelper {
     public void sendNext(String customerData, String departmentNumber, String userID,
                          String vehicleID, String vehicleNumber, String jobNumber,
                          String odometer, String driverId, String licenseNumber) {
-
-//        if (fleetDataOption == null) {
-//            decline(102301, "FLEET DATA OPTION IS EMPTY");
-//            return;
-//        }
-
         Map<String, String> amtMap = new LinkedHashMap<>();
-        amtMap.put(EntryRequest.PARAM_FLEET_CUSTOMER_DATA, customerData);
-        amtMap.put(EntryRequest.PARAM_FLEET_DEPARTMENT_NUMBER, departmentNumber);
-        amtMap.put(EntryRequest.PARAM_FLEET_USER_ID, userID);
-        amtMap.put(EntryRequest.PARAM_FLEET_VEHICLE_ID, vehicleID);
-        amtMap.put(EntryRequest.PARAM_FLEET_VEHICLE_NUMBER, vehicleNumber);
-        amtMap.put(EntryRequest.PARAM_FLEET_JOB_NUMBER, jobNumber);
-        amtMap.put(EntryRequest.PARAM_FLEET_ODOMETER, odometer);
-        amtMap.put(EntryRequest.PARAM_FLEET_DRIVER_ID, driverId);
-        amtMap.put(EntryRequest.PARAM_FLEET_LICENSE_NUMBER, licenseNumber);
+        if (!TextUtils.isEmpty(customerData))
+            amtMap.put(EntryRequest.PARAM_FLEET_CUSTOMER_DATA, customerData);
+        if (!TextUtils.isEmpty(departmentNumber))
+            amtMap.put(EntryRequest.PARAM_FLEET_DEPARTMENT_NUMBER, departmentNumber);
+        if (!TextUtils.isEmpty(userID))
+            amtMap.put(EntryRequest.PARAM_FLEET_USER_ID, userID);
+        if (!TextUtils.isEmpty(vehicleID))
+            amtMap.put(EntryRequest.PARAM_FLEET_VEHICLE_ID, vehicleID);
+        if (!TextUtils.isEmpty(vehicleNumber))
+            amtMap.put(EntryRequest.PARAM_FLEET_VEHICLE_NUMBER, vehicleNumber);
+        if (!TextUtils.isEmpty(jobNumber))
+            amtMap.put(EntryRequest.PARAM_FLEET_JOB_NUMBER, jobNumber);
+        if (!TextUtils.isEmpty(odometer))
+            amtMap.put(EntryRequest.PARAM_FLEET_ODOMETER, odometer);
+        if (!TextUtils.isEmpty(driverId))
+            amtMap.put(EntryRequest.PARAM_FLEET_DRIVER_ID, driverId);
+        if (!TextUtils.isEmpty(licenseNumber))
+            amtMap.put(EntryRequest.PARAM_FLEET_LICENSE_NUMBER, licenseNumber);
 
         Bundle bundle = new Bundle();
         for (Map.Entry<String, String> amtType : amtMap.entrySet()) {
