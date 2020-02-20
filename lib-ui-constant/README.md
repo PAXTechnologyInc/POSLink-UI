@@ -16,9 +16,12 @@
    5. Add "PARAM_ENABLE_CONTACTLESS_LIGHT" for input account action
    6. Fixed error TransType name "VOID VERIFY" to "VERIFY"
    7. Add “ENTER_CS_PHONE”, “ENTER_MERCHANT_TAX_ID”,"CONFIRM_RECEIPT_SIGNATURE",“CONFIRM_ADDITIONAL_FEE” actions
-   8. Add "ENTER_FLEET_CUSTOMER_DATA", "ENTER_FLEET_DEPARTMENT_NUMBER","ENTER_FLEET_USER_ID"
-      "ENTER_FLEET_VEHICLE_ID", "ENTER_FLEET_VEHICLE_NUMBER","ENTER_FLEET_JOB_NUMBER",
-       "ENTER_FLEET_ODOMETER","ENTER_FLEET_ODOMETER", "ENTER_FLEET_LICENSE_NUMBER," actions
+   8. Add "fleetCustomerDataPattern,fleetDepartmentNumberPattern,fleetUserIDPattern,fleetVehicleIDPattern,
+          fleetVehicleNumberPattern,fleetJobNumberPattern,fleetFleetOdometerPattern,fleetDriverIDPattern,
+          fleetLicenseNumberPattern" for "ENTER_FLEET_DATA" action
    9. Add "enableCancel" for "GET_SIGNATURE" action
    10. Add "enableApplePay","enableGooglePay","enableSumsungPay","enableNFCPay" parameters for "INPUT_ACCOUNT" action
    11. Add "SELECT_ACCOUNT_TYPE", "SELECT_TIP_AMOUNT", "SELECT_CASHBACK_AMOUNT" actions
+   12. Add "amountUnit" for "ENTER_TIP" action
+   13. ADD "valuePattern" for "ENTER_AMOUNT,ENTER_TIP, ENTER_ZIP_CODE,ENTER_TRANS_NUMBER,ENTER_CASH_BACK,ENTER_AUTH_CODE,
+        ENTER_REFERENCE_NUMBER, ENTER_INVOICE_NUMBER, ENTER_PHONE_NUMBER,ENTER_CS_PHONE_NUMBER,ENTER_MERCHANT_TAX_ID" actions;
