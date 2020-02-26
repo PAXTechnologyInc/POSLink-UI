@@ -93,7 +93,6 @@ public class SecurityEntry {
      * request: {@link EntryRequest#PARAM_Y}  <br>
      * request: {@link EntryRequest#PARAM_WIDTH}  <br>
      * request: {@link EntryRequest#PARAM_HEIGHT}  <br>
-     * request: {@link EntryRequest#PARAM_FONT_SIZE} <br>     *
      */
     public static final String ACTION_ENTER_ADMINISTRATION_PASSWORD = "com.pax.us.pay.action.ADMINISTRATOR_PASSWORD";
 }
