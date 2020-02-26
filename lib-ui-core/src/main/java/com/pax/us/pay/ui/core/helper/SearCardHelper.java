@@ -36,6 +36,16 @@ public class SearCardHelper extends BaseActionHelper {
         super.setSecurityArea(bundle);
     }
 
+    public void setSecurityArea(int x, int y, int width, int height, int fontSize) {
+        Bundle bundle = new Bundle();
+        bundle.putInt(EntryRequest.PARAM_X, x);
+        bundle.putInt(EntryRequest.PARAM_Y, y);
+        bundle.putInt(EntryRequest.PARAM_WIDTH, width);
+        bundle.putInt(EntryRequest.PARAM_HEIGHT, height);
+        bundle.putInt(EntryRequest.PARAM_FONT_SIZE, fontSize);
+        super.setSecurityArea(bundle);
+    }
+
     @Override
     protected void showUI(@Nullable IUIListener uiListener, @NonNull Bundle bundle) {
         super.showUI(uiListener, bundle);
