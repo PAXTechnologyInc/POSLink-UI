@@ -49,6 +49,16 @@ public class SecurityHelper extends BaseActionHelper {
         super.setSecurityArea(bundle);
     }
 
+    public void setSecurityArea(int x, int y, int width, int height, int fontsize) {
+        Bundle bundle = new Bundle();
+        bundle.putInt(EntryRequest.PARAM_X, x);
+        bundle.putInt(EntryRequest.PARAM_Y, y);
+        bundle.putInt(EntryRequest.PARAM_WIDTH, width);
+        bundle.putInt(EntryRequest.PARAM_HEIGHT, height);
+        bundle.putInt(EntryRequest.PARAM_FONT_SIZE, fontsize);
+        super.setSecurityArea(bundle);
+    }
+
     public interface ISecurityListener extends IMessageListener, ICurrencyListener, IAmountListener {
     }
 }

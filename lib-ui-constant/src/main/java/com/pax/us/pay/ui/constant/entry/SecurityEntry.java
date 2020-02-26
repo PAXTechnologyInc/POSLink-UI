@@ -21,6 +21,7 @@ public class SecurityEntry {
      * request: {@link EntryRequest#PARAM_Y} <br>
      * request: {@link EntryRequest#PARAM_WIDTH} <br>
      * request: {@link EntryRequest#PARAM_HEIGHT} <br>
+     * request: {@link EntryRequest#PARAM_FONT_SIZE} <br>     *
      */
     public static final String ACTION_INPUT_ACCOUNT = "com.pax.us.pay.action.INPUT_ACCOUNT";
 
@@ -50,6 +51,7 @@ public class SecurityEntry {
      * request: {@link EntryRequest#PARAM_Y} <br>
      * request: {@link EntryRequest#PARAM_WIDTH} <br>
      * request: {@link EntryRequest#PARAM_HEIGHT}<br>
+     * request: {@link EntryRequest#PARAM_FONT_SIZE} <br>     *
      */
     public static final String ACTION_ENTER_VCODE = "com.pax.us.pay.action.ENTER_CVV";
 
@@ -64,6 +66,7 @@ public class SecurityEntry {
      * request: {@link EntryRequest#PARAM_Y}  <br>
      * request: {@link EntryRequest#PARAM_WIDTH}  <br>
      * request: {@link EntryRequest#PARAM_HEIGHT}  <br>
+     * request: {@link EntryRequest#PARAM_FONT_SIZE} <br>     *
      */
     public static final String ACTION_ENTER_CARD_LAST_4_DIGITS = "com.pax.us.pay.action.ENTER_CARD_LAST_4_DIGITS";
 
@@ -78,6 +81,7 @@ public class SecurityEntry {
      * request: {@link EntryRequest#PARAM_Y}  <br>
      * request: {@link EntryRequest#PARAM_WIDTH}  <br>
      * request: {@link EntryRequest#PARAM_HEIGHT}  <br>
+     * request: {@link EntryRequest#PARAM_FONT_SIZE} <br>     *
      */
     public static final String ACTION_ENTER_CARD_ALL_DIGITS = "com.pax.us.pay.action.ENTER_CARD_ALL_DIGITS";
 
@@ -89,6 +93,7 @@ public class SecurityEntry {
      * request: {@link EntryRequest#PARAM_Y}  <br>
      * request: {@link EntryRequest#PARAM_WIDTH}  <br>
      * request: {@link EntryRequest#PARAM_HEIGHT}  <br>
+     * request: {@link EntryRequest#PARAM_FONT_SIZE} <br>     *
      */
     public static final String ACTION_ENTER_ADMINISTRATION_PASSWORD = "com.pax.us.pay.action.ADMINISTRATOR_PASSWORD";
 }

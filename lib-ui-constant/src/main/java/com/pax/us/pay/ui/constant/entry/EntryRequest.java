@@ -131,4 +131,5 @@ public class EntryRequest {
     public static final String PARAM_Y = "y";
     public static final String PARAM_WIDTH = "width";
     public static final String PARAM_HEIGHT = "height";
+    public static final String PARAM_FONT_SIZE = "fontSize";
 }
