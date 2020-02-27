@@ -233,4 +233,9 @@ public class SearchCardActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void onShowMessage(@Nullable String transName, @Nullable String message, boolean isDemo) {
     }
+
+    @Override
+    public void onShowCardPay(boolean enableApplePay, boolean enableGooglePay, boolean enableSumsungPay, boolean enableNFCPay) {
+
+    }
 }

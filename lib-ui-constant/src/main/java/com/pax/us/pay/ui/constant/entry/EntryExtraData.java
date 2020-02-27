@@ -22,6 +22,7 @@ public final class EntryExtraData {
     public static final String PARAM_IS_ONLINE_PIN = "isOnlinePin";
     public static final String PARAM_PIN_RANGE = "pinRange";
     public static final String PARAM_ENABLE_CANCEL = "enableCancel";
+    public static final String PARAM_CARD_TYPE = "cardType";
 
 
     public static final String PARAM_ENABLE_SWIPE = "enableSwipe";

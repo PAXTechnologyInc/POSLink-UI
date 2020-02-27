@@ -175,4 +175,9 @@ public class SignatureActivity extends AppCompatActivity implements View.OnClick
     public void onShowTimeout(long timeout) {
 
     }
+
+    @Override
+    public void onShowCancelButton(boolean enableCancel) {
+
+    }
 }
