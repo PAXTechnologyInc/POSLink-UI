@@ -2,7 +2,6 @@ package com.pax.us.pay.ui.core;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -97,7 +96,7 @@ public abstract class BaseActionHelper {
 
     public void start(Context context, Intent intent) {
         if (actionHandler == null) {
-            actionHandler = new UIMessageHandler(context, intent.getStringExtra(EntryExtraData.PARAM_PACKAGE), respStatus);
+            actionHandler = new UIMessageHandler(context, intent.getAction(), intent.getStringExtra(EntryExtraData.PARAM_PACKAGE), respStatus);
         }
         actionHandler.start();
         this.intent = (Intent) intent.clone();
