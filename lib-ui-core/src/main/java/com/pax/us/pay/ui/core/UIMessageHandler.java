@@ -67,7 +67,7 @@ class UIMessageHandler implements IActionHandler {
             intent.setAction(EntryRequest.ACTION_NEXT);
             if (bundle == null)
                 bundle = new Bundle();
-            bundle.putString("action", action);
+            bundle.putString(EntryRequest.PARAM_ACTION, action);
             if (bundle != null) {
                 intent.putExtras(bundle);
             }
@@ -79,7 +79,7 @@ class UIMessageHandler implements IActionHandler {
 
     @Override
     public void setSecurityArea(@NonNull Bundle bundle) {
-        bundle.putString("action", action);
+        bundle.putString(EntryRequest.PARAM_ACTION, action);
         Intent intent = new Intent();
         intent.setPackage(packageName);
         intent.setAction(EntryRequest.ACTION_SECURITY_AREA);
@@ -93,7 +93,7 @@ class UIMessageHandler implements IActionHandler {
         intent.setPackage(packageName);
         intent.setAction(EntryRequest.ACTION_ABORT);
         Bundle bundle = new Bundle();
-        bundle.putString("action", action);
+        bundle.putString(EntryRequest.PARAM_ACTION, action);
         intent.putExtras(bundle);
         sender.send(intent);
     }
@@ -104,7 +104,7 @@ class UIMessageHandler implements IActionHandler {
         intent.setPackage(packageName);
         intent.setAction(EntryRequest.ACTION_PREV);
         Bundle bundle = new Bundle();
-        bundle.putString("action", action);
+        bundle.putString(EntryRequest.PARAM_ACTION, action);
         intent.putExtras(bundle);
         sender.send(intent);
     }

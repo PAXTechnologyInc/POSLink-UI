@@ -1,6 +1,7 @@
 package com.pax.us.pay.ui.constant.entry;
 
 public class EntryRequest {
+
     /**
      * NEXT with value: request BroadPOS to go to next step with input value. <br>
      */
@@ -24,6 +25,12 @@ public class EntryRequest {
      * param: {@link EntryRequest#PARAM_HEIGHT} <br>
      */
     public static final String ACTION_SECURITY_AREA = "com.pax.us.pay.ui.SECURITY_AREA";
+
+    /**
+     * PARAM_ACTION: request parameter current action for BroadPOS <br>
+     * value type: String <br>
+     */
+    public static final String PARAM_ACTION = "action";
 
     /**
      * PARAM_AMOUNT : request parameter amount <br>
