@@ -121,6 +121,8 @@ public final class EntryExtraData {
     public static final String PARAM_FLEET_DRIVER_ID_PATTERN = "fleetDriverIdPattern";
     public static final String PARAM_FLEET_LICENSE_NUMBER_PATTERN = "fleetLicenseNumberPattern";
 
+    public static final String PARAM_ZIP_CODE_PATTERN = "zipCodePattern";
+    public static final String PARAM_ADDRESS_PATTERN = "addressPattern";
 
     /**
      * PARAM_TRANS_STATUS : transaction status <br>
