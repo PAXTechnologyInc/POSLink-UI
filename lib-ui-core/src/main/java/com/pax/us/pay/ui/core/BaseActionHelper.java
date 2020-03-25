@@ -96,7 +96,8 @@ public abstract class BaseActionHelper {
 
     public void start(Context context, Intent intent) {
         if (actionHandler == null) {
-            actionHandler = new UIMessageHandler(context, intent.getAction(), intent.getStringExtra(EntryExtraData.PARAM_PACKAGE), respStatus);
+            actionHandler = new UIMessageHandler(context, intent.getAction(), intent.getCategories(),
+                    intent.getStringExtra(EntryExtraData.PARAM_PACKAGE), respStatus);
         }
         actionHandler.start();
         this.intent = (Intent) intent.clone();

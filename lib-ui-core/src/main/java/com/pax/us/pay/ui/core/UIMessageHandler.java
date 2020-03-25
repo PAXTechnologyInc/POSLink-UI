@@ -11,7 +11,10 @@ import android.text.TextUtils;
 
 import com.pax.us.pay.ui.constant.entry.EntryRequest;
 import com.pax.us.pay.ui.constant.entry.EntryResponse;
+import com.pax.us.pay.ui.constant.entry.SecurityEntry;
 import com.pax.us.pay.ui.core.api.IRespStatus;
+
+import java.util.Set;
 
 /**
  * message sender implementation
@@ -21,6 +24,7 @@ class UIMessageHandler implements IActionHandler {
     private final BroadcastSender sender;
     private final String packageName;
     private final String action;
+    private final Set<String> categories;
     private final RespReceiver receiver = new RespReceiver();
     private final Context context;
     private boolean isStart = false;
@@ -29,9 +33,10 @@ class UIMessageHandler implements IActionHandler {
     @Nullable
     private final IRespStatus resp;
 
-    UIMessageHandler(Context context, @NonNull String action, @NonNull String packageName, @Nullable IRespStatus respStatus) {
+    UIMessageHandler(Context context, @NonNull String action, Set<String> categories, @NonNull String packageName, @Nullable IRespStatus respStatus) {
         this.context = context;
         this.action = action;
+        this.categories = categories;
         this.resp = respStatus;
         this.packageName = packageName;
         this.sender = new BroadcastSender(context);
@@ -73,7 +78,8 @@ class UIMessageHandler implements IActionHandler {
             }
             //Log.i("UIDesignReceiver", "sendNext " + bundle.toString());
             sender.send(intent);
-            isSend = true;
+            if (!categories.contains(SecurityEntry.CATEGORY))
+                isSend = true;
         }
     }
 
