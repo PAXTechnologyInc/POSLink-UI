@@ -5,14 +5,22 @@ public final class BatchStatus {
 
     //BATCH
     public static final String BATCH_CLOSE_STARTED = "com.pax.us.pay.BATCH_CLOSE_STARTED";
+
+    /**
+     * param: {@link StatusData#PARAM_EDC_TYPE} enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.EDCType} <br>
+     * param: {@link StatusData#PARAM_UPLOAD_CURRENT_COUNT} <br>
+     * param: {@link StatusData#PARAM_UPLOAD_TOTAL_COUNT} <br>
+     */
+    public static final String BATCH_CLOSE_UPLOADING = "com.pax.us.pay.BATCH_CLOSE_UPLOADING";
+
     public static final String BATCH_CLOSE_COMPLETED = "com.pax.us.pay.BATCH_CLOSE_COMPLETED";
 
     public static final String BATCH_SF_STARTED = "com.pax.us.pay.BATCH_SF_STARTED";
 
     /**
-     * param: {@link BatchStatus#PARAM_SF_TYPE} enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.SFType} <br>
-     * param: {@link BatchStatus#PARAM_SF_CURRENT} <br>
-     * param: {@link BatchStatus#PARAM_SF_TOTAL} <br>
+     * param: {@link StatusData#PARAM_SF_TYPE} enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.SFType} <br>
+     * param: {@link StatusData#PARAM_SF_CURRENT_COUNT} <br>
+     * param: {@link StatusData#PARAM_SF_TOTAL_COUNT} <br>
      */
     public static final String BATCH_SF_UPLOADING = "com.pax.us.pay.BATCH_UPLOADING";
     public static final String BATCH_SF_COMPLETED = "com.pax.us.pay.BATCH_SF_COMPLETED";
