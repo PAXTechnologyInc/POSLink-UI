@@ -47,6 +47,7 @@ public class SecurityEntry {
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
      * input: {@link EntryExtraData#PARAM_CURRENCY}  enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType} <br>
      * input: {@link EntryExtraData#PARAM_TOTAL_AMOUNT}  <br>
+     * input: {@link EntryExtraData#PARAM_VCODE_NAME enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.VCodeName}  <br>
      * request: {@link EntryRequest#PARAM_X} <br>
      * request: {@link EntryRequest#PARAM_Y} <br>
      * request: {@link EntryRequest#PARAM_WIDTH} <br>
