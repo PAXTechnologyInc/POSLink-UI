@@ -137,5 +137,6 @@ public final class EntryExtraData {
     public static final String PARAM_FOOD_STAMPS_BALANCE = "foodStampsBalance";
     public static final String PARAM_CASH_BENEFIT_BALANCE = "cashBenefitBalance";
 
+    public static final String PARAM_RECEIPT_URI = "receiptUri";
 
 }
