@@ -223,7 +223,7 @@ public class ConfirmationEntry {
      * input: {@link EntryExtraData#PARAM_RECEIPT_URI} String <br>
      * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
      */
-    public static final String ACTION_CONFIRM_RECEIPT_VIEW = "com.pax.us.pay.action.CONFIRM_RECEIPT_VIEW ";
+    public static final String ACTION_CONFIRM_RECEIPT_VIEW = "com.pax.us.pay.action.CONFIRM_RECEIPT_VIEW";
 
 
 }
