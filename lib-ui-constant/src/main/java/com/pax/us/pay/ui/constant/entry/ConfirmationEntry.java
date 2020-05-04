@@ -221,6 +221,7 @@ public class ConfirmationEntry {
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
      * input: {@link EntryExtraData#PARAM_RECEIPT_URI} String <br>
+     * input: {@link EntryExtraData#PARAM_TIMEOUT} Long <br>
      * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
      */
     public static final String ACTION_CONFIRM_RECEIPT_VIEW = "com.pax.us.pay.action.CONFIRM_RECEIPT_VIEW";
