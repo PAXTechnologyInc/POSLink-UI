@@ -33,7 +33,7 @@ public class ConfirmReceiptViewHelper extends BaseActionHelper {
             if (!TextUtils.isEmpty(receiptUri)) {
                 ((IReceiptViewListener) uiListener).onShowReceiptView(receiptUri);
                 if (uiListener instanceof ITimeoutListener && bundle.containsKey(EntryExtraData.PARAM_TIMEOUT)) {
-                    long timeOut = bundle.getLong(EntryExtraData.PARAM_TIMEOUT, 30);
+                    long timeOut = bundle.getLong(EntryExtraData.PARAM_TIMEOUT, 30 * 1000);
                     ((ITimeoutListener) uiListener).onShowTimeout(timeOut);
                 }
             }
