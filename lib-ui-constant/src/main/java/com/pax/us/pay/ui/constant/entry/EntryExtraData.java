@@ -139,4 +139,8 @@ public final class EntryExtraData {
 
     public static final String PARAM_RECEIPT_URI = "receiptUri";
 
+    public static final String PARAM_TRANS_URL = "transUri";
+    public static final String PARAM_TRANS_SELECTION = "transSelection";
+    public static final String PARAM_TRANS_SELECTION_ARGUMENTS = "transSelectionArguments";
+
 }
