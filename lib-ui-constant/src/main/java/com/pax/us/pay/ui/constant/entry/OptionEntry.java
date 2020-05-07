@@ -203,7 +203,7 @@ public class OptionEntry {
      * input: {@link EntryExtraData#PARAM_TRANS_SELECTION_ARGUMENTS}: StringArray <br>
      * request: {@link EntryRequest#PARAM_TRANS_NUMBER} <br>
      */
-    public static final String ACTION_SELECT_TRANS = "com.pax.us.pay.action.SELECT_TRANS";
+    public static final String ACTION_SELECT_TRANS_ADJUST = "com.pax.us.pay.action.SELECT_TRANS_ADJUST";
 
 //Note:
 //Appending a new action, please add mapping into "SELECT_OPTION_MAP" in "SelectOptionContent"

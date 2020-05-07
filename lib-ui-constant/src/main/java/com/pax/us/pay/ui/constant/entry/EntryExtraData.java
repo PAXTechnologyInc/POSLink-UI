@@ -10,6 +10,7 @@ public final class EntryExtraData {
     public static final String PARAM_CURRENCY = "currency";
     public static final String PARAM_BASE_AMOUNT = "baseAmount";
     public static final String PARAM_TOTAL_AMOUNT = "totalAmount";
+    public static final String PARAM_AMOUNT_MESSAGE = "amountMessage";
     public static final String PARAM_TIP_NAME = "tipName";
     public static final String PARAM_TIP_OPTIONS = "tipOptions";
     public static final String PARAM_TIP_RATE_OPTIONS = "tipRateOptions";
