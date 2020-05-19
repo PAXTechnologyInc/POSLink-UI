@@ -17,6 +17,7 @@ public class SecurityEntry {
      * input: {@link EntryExtraData#PARAM_ENABLE_GOOGLEPAY} boolean <br>
      * input: {@link EntryExtraData#PARAM_ENABLE_SUMSUNGPAY} boolean <br>
      * input: {@link EntryExtraData#PARAM_ENABLE_NFCPAY} boolean <br>
+     * input: {@link EntryExtraData#PARAM_PAN_STYLES} enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.PanStyles}  <br>
      * input: {@link EntryExtraData#PARAM_ENABLE_CONTACTLESS_LIGHT} boolean <br>
      * request: {@link EntryRequest#PARAM_X} <br>
      * request: {@link EntryRequest#PARAM_Y} <br>

@@ -27,6 +27,7 @@ public final class EntryExtraData {
     public static final String PARAM_ANIMATION_SUPPORT = "animationSupport";
     public static final String PARAM_SOUND_SUPPORT = "soundSupport";
     public static final String PARAM_VCODE_NAME = "vcodeName";
+    public static final String PARAM_PAN_STYLES = "panStyles";
 
 
     public static final String PARAM_ENABLE_SWIPE = "enableSwipe";
@@ -52,7 +53,7 @@ public final class EntryExtraData {
 //    public static final String PARAM_SERVICE_FEE = "serviceFee";
 //    public static final String PARAM_TOTAL_FEE = "totalFee";
 //
-//    public static final String PARAM_BALANCE = "balance";
+public static final String PARAM_BALANCE = "balance";
 
 
     /**
