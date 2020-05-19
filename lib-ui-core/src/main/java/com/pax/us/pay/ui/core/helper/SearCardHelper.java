@@ -67,8 +67,8 @@ public class SearCardHelper extends BaseActionHelper {
         }
 
         if (uiListener instanceof ICardListener) {
+            ((ICardListener) uiListener).onShowPanStyle(bundle.getString(EntryExtraData.PARAM_PAN_STYLES, "NORMAL"));
             ((ICardListener) uiListener).onShowLight( bundle.getBoolean(EntryExtraData.PARAM_ENABLE_CONTACTLESS_LIGHT, true));
-
             ((ICardListener) uiListener).onShowCard(
                     bundle.getBoolean(EntryExtraData.PARAM_ENABLE_MANUAL, true),
                     bundle.getBoolean(EntryExtraData.PARAM_ENABLE_SWIPE, true),
