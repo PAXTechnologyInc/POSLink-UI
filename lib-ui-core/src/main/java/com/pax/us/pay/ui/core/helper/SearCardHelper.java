@@ -9,6 +9,7 @@ import com.pax.us.pay.ui.constant.entry.EntryRequest;
 import com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType;
 import com.pax.us.pay.ui.core.BaseActionHelper;
 import com.pax.us.pay.ui.core.api.IAmountListener;
+import com.pax.us.pay.ui.core.api.IAmountMessageListener;
 import com.pax.us.pay.ui.core.api.ICardListener;
 import com.pax.us.pay.ui.core.api.ICurrencyListener;
 import com.pax.us.pay.ui.core.api.IMessageListener;
@@ -61,9 +62,13 @@ public class SearCardHelper extends BaseActionHelper {
 
         }
 
-        if (uiListener instanceof ICardListener) {
-            ((ICardListener) uiListener).onShowLight( bundle.getBoolean(EntryExtraData.PARAM_ENABLE_CONTACTLESS_LIGHT, true));
+        if (uiListener instanceof IAmountMessageListener && bundle.containsKey(EntryExtraData.PARAM_AMOUNT_MESSAGE)) {
+            ((IAmountMessageListener) uiListener).onShowAmountMessage(bundle.getString(EntryExtraData.PARAM_AMOUNT_MESSAGE));
+        }
 
+        if (uiListener instanceof ICardListener) {
+            ((ICardListener) uiListener).onShowPanStyle(bundle.getString(EntryExtraData.PARAM_PAN_STYLES, "NORMAL"));
+            ((ICardListener) uiListener).onShowLight( bundle.getBoolean(EntryExtraData.PARAM_ENABLE_CONTACTLESS_LIGHT, true));
             ((ICardListener) uiListener).onShowCard(
                     bundle.getBoolean(EntryExtraData.PARAM_ENABLE_MANUAL, true),
                     bundle.getBoolean(EntryExtraData.PARAM_ENABLE_SWIPE, true),
@@ -82,6 +87,6 @@ public class SearCardHelper extends BaseActionHelper {
         }
     }
 
-    public interface ISearchCardListener extends IMessageListener, ICurrencyListener, IAmountListener, ICardListener, ITapLogoListener {
+    public interface ISearchCardListener extends IMessageListener, ICurrencyListener, IAmountListener, IAmountMessageListener, ICardListener, ITapLogoListener {
     }
 }

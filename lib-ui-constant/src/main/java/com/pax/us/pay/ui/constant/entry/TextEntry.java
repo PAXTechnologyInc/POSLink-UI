@@ -7,7 +7,7 @@ public class TextEntry {
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
      * input: {@link EntryExtraData#PARAM_CURRENCY}  enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType} <br>
-     * input: {@link EntryExtraData#PARAM_VALUE_PATTERN} please refer {@link com.pax.us.pay.ui.core.filter.RangeFilter}<br>
+     * input: {@link EntryExtraData#PARAM_VALUE_PATTERN} <br>
      * request: {@link EntryRequest#PARAM_AMOUNT} <br>
      */
     public static final String ACTION_ENTER_AMOUNT = "com.pax.us.pay.action.ENTER_AMOUNT";
@@ -22,7 +22,7 @@ public class TextEntry {
      * input: {@link EntryExtraData#PARAM_TIP_RATE_OPTIONS} String Array, Nullable tip rate array,
      *         if it exist, the number of tip rate options should equal the number of  tip options <br>
      * input: {@link EntryExtraData#PARAM_TIP_UNIT enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.UnitType}} <br>
-     * input: {@link EntryExtraData#PARAM_VALUE_PATTERN} please refer {@link com.pax.us.pay.ui.core.filter.RangeFilter}<br>
+     * input: {@link EntryExtraData#PARAM_VALUE_PATTERN} <br>
      * request: {@link EntryRequest#PARAM_TIP} <br>
      */
     public static final String ACTION_ENTER_TIP = "com.pax.us.pay.action.ENTER_TIP";
@@ -31,7 +31,7 @@ public class TextEntry {
      * The intent action of Enter Trans.No <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * input: {@link EntryExtraData#PARAM_VALUE_PATTERN} please refer {@link com.pax.us.pay.ui.core.filter.RangeFilter}<br>
+     * input: {@link EntryExtraData#PARAM_VALUE_PATTERN} <br>
      * request: {@link EntryRequest#PARAM_TRANS_NUMBER} <br>
      */
     public static final String ACTION_ENTER_TRANS_NUMBER = "com.pax.us.pay.action.ENTER_TRANS_NUMBER";
@@ -48,6 +48,7 @@ public class TextEntry {
      * The intent action of Enter Address <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_VALUE_PATTERN} <br>
      * request: {@link EntryRequest#PARAM_ADDRESS} <br>
      */
     public static final String ACTION_ENTER_ADDRESS = "com.pax.us.pay.action.ENTER_ADDRESS";
@@ -57,7 +58,7 @@ public class TextEntry {
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
      * input: {@link EntryExtraData#PARAM_SUPPORT_ALLTEXT}<br>
-     * input: {@link EntryExtraData#PARAM_VALUE_PATTERN} please refer {@link com.pax.us.pay.ui.core.filter.RangeFilter}<br>
+     * input: {@link EntryExtraData#PARAM_VALUE_PATTERN} <br>
      * request: {@link EntryRequest#PARAM_ZIP_CODE} <br>
      */
     public static final String ACTION_ENTER_ZIPCODE = "com.pax.us.pay.action.ENTER_ZIP_CODE";
@@ -66,7 +67,7 @@ public class TextEntry {
      * The intent action of Enter AuthCode <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * input: {@link EntryExtraData#PARAM_VALUE_PATTERN} please refer {@link com.pax.us.pay.ui.core.filter.RangeFilter}<br>
+     * input: {@link EntryExtraData#PARAM_VALUE_PATTERN} <br>
      * request: {@link EntryRequest#PARAM_AUTH_CODE} <br>
      */
     public static final String ACTION_ENTER_AUTH = "com.pax.us.pay.action.ENTER_AUTH_CODE";
@@ -104,6 +105,8 @@ public class TextEntry {
      * The intent action of Enter AVS data <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_ZIP_CODE_PATTERN} <br>
+     * input: {@link EntryExtraData#PARAM_ADDRESS_PATTERN} <br>
      * request: {@link EntryRequest#PARAM_ADDRESS} <br>
      * request: {@link EntryRequest#PARAM_ZIP_CODE}
      */
@@ -113,7 +116,7 @@ public class TextEntry {
      * The intent action of Enter reference number <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * input: {@link EntryExtraData#PARAM_VALUE_PATTERN} please refer {@link com.pax.us.pay.ui.core.filter.RangeFilter}<br>
+     * input: {@link EntryExtraData#PARAM_VALUE_PATTERN} <br>
      * request: {@link EntryRequest#PARAM_REFERENCE_NUMBER} <br>
      */
     public static final String ACTION_ENTER_REFERENCE_NUMBER = "com.pax.us.pay.action.ENTER_REFERENCE_NUMBER";
@@ -123,7 +126,7 @@ public class TextEntry {
      * The intent action of Enter invoice number <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * input: {@link EntryExtraData#PARAM_VALUE_PATTERN} please refer {@link com.pax.us.pay.ui.core.filter.RangeFilter}<br>
+     * input: {@link EntryExtraData#PARAM_VALUE_PATTERN} <br>
      * request: {@link EntryRequest#PARAM_INVOICE_NUMBER} <br>
      */
     public static final String ACTION_ENTER_INVOICE_NUMBER = "com.pax.us.pay.action.ENTER_INVOICE_NUMBER";
@@ -239,6 +242,7 @@ public class TextEntry {
      * The intent action of Enter customer code <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE}  <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE}  <br>
+     * input: {@link EntryExtraData#PARAM_VALUE_PATTERN} <br>
      * request: {@link EntryRequest#PARAM_CUSTOMER_CODE} String <br>
      */
     public static final String ACTION_ENTER_CUSTOMER_CODE = "com.pax.us.pay.action.ENTER_CUSTOMER_CODE";

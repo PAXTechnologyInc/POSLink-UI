@@ -10,6 +10,7 @@ public final class EntryExtraData {
     public static final String PARAM_CURRENCY = "currency";
     public static final String PARAM_BASE_AMOUNT = "baseAmount";
     public static final String PARAM_TOTAL_AMOUNT = "totalAmount";
+    public static final String PARAM_AMOUNT_MESSAGE = "amountMessage";
     public static final String PARAM_TIP_NAME = "tipName";
     public static final String PARAM_TIP_OPTIONS = "tipOptions";
     public static final String PARAM_TIP_RATE_OPTIONS = "tipRateOptions";
@@ -23,6 +24,10 @@ public final class EntryExtraData {
     public static final String PARAM_PIN_RANGE = "pinRange";
     public static final String PARAM_ENABLE_CANCEL = "enableCancel";
     public static final String PARAM_CARD_TYPE = "cardType";
+    public static final String PARAM_ANIMATION_SUPPORT = "animationSupport";
+    public static final String PARAM_SOUND_SUPPORT = "soundSupport";
+    public static final String PARAM_VCODE_NAME = "vcodeName";
+    public static final String PARAM_PAN_STYLES = "panStyles";
 
 
     public static final String PARAM_ENABLE_SWIPE = "enableSwipe";
@@ -48,7 +53,7 @@ public final class EntryExtraData {
 //    public static final String PARAM_SERVICE_FEE = "serviceFee";
 //    public static final String PARAM_TOTAL_FEE = "totalFee";
 //
-//    public static final String PARAM_BALANCE = "balance";
+public static final String PARAM_BALANCE = "balance";
 
 
     /**
@@ -121,6 +126,8 @@ public final class EntryExtraData {
     public static final String PARAM_FLEET_DRIVER_ID_PATTERN = "fleetDriverIdPattern";
     public static final String PARAM_FLEET_LICENSE_NUMBER_PATTERN = "fleetLicenseNumberPattern";
 
+    public static final String PARAM_ZIP_CODE_PATTERN = "zipCodePattern";
+    public static final String PARAM_ADDRESS_PATTERN = "addressPattern";
 
     /**
      * PARAM_TRANS_STATUS : transaction status <br>
@@ -132,5 +139,10 @@ public final class EntryExtraData {
     public static final String PARAM_FOOD_STAMPS_BALANCE = "foodStampsBalance";
     public static final String PARAM_CASH_BENEFIT_BALANCE = "cashBenefitBalance";
 
+    public static final String PARAM_RECEIPT_URI = "receiptUri";
+
+    public static final String PARAM_TRANS_URL = "transUri";
+    public static final String PARAM_TRANS_SELECTION = "transSelection";
+    public static final String PARAM_TRANS_SELECTION_ARGUMENTS = "transSelectionArguments";
 
 }

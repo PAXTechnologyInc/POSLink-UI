@@ -19,6 +19,8 @@ public class InformationEntry {
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
      * input: {@link EntryExtraData#PARAM_CARD_TYPE} <br>
+     * input: {@link EntryExtraData#PARAM_ANIMATION_SUPPORT} <br>
+     * input: {@link EntryExtraData#PARAM_SOUND_SUPPORT} <br>
      * request: None <br>
      */
     public static final String ACTION_DISPLAY_APPROVE_MESSAGE = "com.pax.us.pay.action.DISPLAY_APPROVE_MESSAGE";

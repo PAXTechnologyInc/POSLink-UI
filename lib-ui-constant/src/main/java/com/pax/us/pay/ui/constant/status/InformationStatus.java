@@ -17,6 +17,9 @@ public final class InformationStatus {
     public static final String TRANS_REVERSAL_STARTED = "com.pax.us.pay.TRANS_REVERSAL_STARTED";
     public static final String TRANS_REVERSAL_FINISHED = "com.pax.us.pay.TRANS_REVERSAL_FINISHED";
 
+    public static final String PINPAD_CONNECTION_STARTED = "com.pax.us.pay.PINPAD_CONNECTION_STARTED";
+    public static final String PINPAD_CONNECTION_FINISHED = "com.pax.us.pay.PINPAD_CONNECTION_FINISHED";
+
     /**
      * param: {@link StatusData#PARAM_CODE} <br>
      * param: {@link StatusData#PARAM_MSG} <br>

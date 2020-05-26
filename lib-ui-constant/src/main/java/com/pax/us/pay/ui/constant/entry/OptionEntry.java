@@ -194,6 +194,17 @@ public class OptionEntry {
     public static final String ACTION_SELECT_CASHBACK_AMOUNT = "com.pax.us.pay.action.SELECT_CASHBACK_AMOUNT";
 
 
+    /**
+     * The intent action of select trans to adjust <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_TRANS_URL}: String <br>
+     * input: {@link EntryExtraData#PARAM_TRANS_SELECTION}: String <br>
+     * input: {@link EntryExtraData#PARAM_TRANS_SELECTION_ARGUMENTS}: StringArray <br>
+     * request: {@link EntryRequest#PARAM_TRANS_NUMBER} <br>
+     */
+    public static final String ACTION_SELECT_TRANS_ADJUST = "com.pax.us.pay.action.SELECT_TRANS_ADJUST";
+
 //Note:
 //Appending a new action, please add mapping into "SELECT_OPTION_MAP" in "SelectOptionContent"
 

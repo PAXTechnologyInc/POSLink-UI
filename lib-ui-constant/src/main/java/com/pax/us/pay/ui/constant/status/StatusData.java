@@ -8,6 +8,10 @@ public final class StatusData {
     public static final String PARAM_SF_CURRENT_COUNT = "sfCurrent";
     public static final String PARAM_SF_TOTAL_COUNT = "sfTotal";
 
+    public static final String PARAM_EDC_TYPE = "edcType";
+    public static final String PARAM_UPLOAD_CURRENT_COUNT = "uploadCurrentCount";
+    public static final String PARAM_UPLOAD_TOTAL_COUNT = "uploadTotalCout";
+
     public static final String PARAM_TOTAL_AMOUNT = "totalAmount";
 
 }

@@ -7,7 +7,8 @@ public class SecurityEntry {
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
      * input: {@link EntryExtraData#PARAM_CURRENCY}  enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType} <br>
-     * input: {@link EntryExtraData#PARAM_TOTAL_AMOUNT}  <br>
+     * input: {@link EntryExtraData#PARAM_TOTAL_AMOUNT} Long <br>
+     * input: {@link EntryExtraData#PARAM_AMOUNT_MESSAGE} String <br>
      * input: {@link EntryExtraData#PARAM_ENABLE_SWIPE} boolean <br>
      * input: {@link EntryExtraData#PARAM_ENABLE_INSERT} boolean <br>
      * input: {@link EntryExtraData#PARAM_ENABLE_TAP} boolean <br>
@@ -16,6 +17,7 @@ public class SecurityEntry {
      * input: {@link EntryExtraData#PARAM_ENABLE_GOOGLEPAY} boolean <br>
      * input: {@link EntryExtraData#PARAM_ENABLE_SUMSUNGPAY} boolean <br>
      * input: {@link EntryExtraData#PARAM_ENABLE_NFCPAY} boolean <br>
+     * input: {@link EntryExtraData#PARAM_PAN_STYLES} enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.PanStyles}  <br>
      * input: {@link EntryExtraData#PARAM_ENABLE_CONTACTLESS_LIGHT} boolean <br>
      * request: {@link EntryRequest#PARAM_X} <br>
      * request: {@link EntryRequest#PARAM_Y} <br>
@@ -47,6 +49,7 @@ public class SecurityEntry {
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
      * input: {@link EntryExtraData#PARAM_CURRENCY}  enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType} <br>
      * input: {@link EntryExtraData#PARAM_TOTAL_AMOUNT}  <br>
+     * input: {@link EntryExtraData#PARAM_VCODE_NAME enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.VCodeName}  <br>
      * request: {@link EntryRequest#PARAM_X} <br>
      * request: {@link EntryRequest#PARAM_Y} <br>
      * request: {@link EntryRequest#PARAM_WIDTH} <br>
