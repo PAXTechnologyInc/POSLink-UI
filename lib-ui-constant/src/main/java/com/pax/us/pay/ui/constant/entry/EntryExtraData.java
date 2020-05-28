@@ -28,7 +28,7 @@ public final class EntryExtraData {
     public static final String PARAM_SOUND_SUPPORT = "soundSupport";
     public static final String PARAM_VCODE_NAME = "vcodeName";
     public static final String PARAM_PAN_STYLES = "panStyles";
-    public static final String PARAM_IS_EXTERNAL_PINPAD = "isExternalPinpad";
+    public static final String PARAM_IS_EXTERNAL_PINPAD = "external";
 
 
     public static final String PARAM_ENABLE_SWIPE = "enableSwipe";
