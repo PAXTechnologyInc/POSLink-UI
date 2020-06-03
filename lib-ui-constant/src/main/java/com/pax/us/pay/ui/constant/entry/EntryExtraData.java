@@ -12,7 +12,6 @@ public final class EntryExtraData {
     public static final String PARAM_EDC_TYPE = "edcType";
     public static final String PARAM_SUB_TRANS_TYPE = "subTransType";
     public static final String PARAM_TRANS_NUMBER = "transNumber";
-    public static final String PARAM_BATCH_NUMBER = "batchNumber";
 
     public static final String PARAM_OPTIONS = "options";
 
