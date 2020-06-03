@@ -70,6 +70,7 @@ public static final String PARAM_BALANCE = "balance";
      * enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode}
      */
     public static final String PARAM_CARD_NUMBER = "cardNumber";
+    public static final String PARAM_BATCH_NUMBER = "batchNumber";
     public static final String PARAM_ORDER_NUMBER = "orderNumber";
     public static final String PARAM_TIP1 = "tip1";
     public static final String PARAM_TIP2 = "tip2";
