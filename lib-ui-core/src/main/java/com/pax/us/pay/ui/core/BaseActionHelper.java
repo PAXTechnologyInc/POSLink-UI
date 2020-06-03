@@ -102,6 +102,8 @@ public abstract class BaseActionHelper {
         actionHandler.start();
         this.intent = (Intent) intent.clone();
         if (this.intent.getExtras() != null) {
+            //AG3G-49
+            UIDataHandler.saveExtraData(context, this.intent.getExtras());
             handler.post(new Runnable() {
                 @Override
                 public void run() {

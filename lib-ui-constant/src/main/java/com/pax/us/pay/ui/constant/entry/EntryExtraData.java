@@ -4,6 +4,15 @@ public final class EntryExtraData {
     public static final String PARAM_MESSAGE = "message";
     public static final String PARAM_PACKAGE = "senderPackage";
     public static final String PARAM_TRANS_TYPE = "transType";
+    public static final String PARAM_TRANS_TIME = "transTime";
+    public static final String PARAM_TRANS_DATE = "transDate";
+    public static final String PARAM_MERCHANT_ID = "merchantID";
+    public static final String PARAM_TERMINAL_ID = "terminalID";
+    public static final String PARAM_TRANS_MODE = "transMode";
+    public static final String PARAM_EDC_TYPE = "edcType";
+    public static final String PARAM_SUB_TRANS_TYPE = "subTransType";
+    public static final String PARAM_TRANS_NUMBER = "transNumber";
+    public static final String PARAM_BATCH_NUMBER = "batchNumber";
 
     public static final String PARAM_OPTIONS = "options";
 
@@ -61,12 +70,7 @@ public static final String PARAM_BALANCE = "balance";
      * PARAM_TRANS_MODE : transaction mode <br>
      * enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode}
      */
-    public static final String PARAM_TRANS_MODE = "transMode";
-    public static final String PARAM_EDC_TYPE = "edcType";
-    public static final String PARAM_SUB_TRANS_TYPE = "subTransType";
-    public static final String PARAM_TRANS_NUMBER = "transNumber";
     public static final String PARAM_CARD_NUMBER = "cardNumber";
-    public static final String PARAM_BATCH_NUMBER = "batchNumber";
     public static final String PARAM_ORDER_NUMBER = "orderNumber";
     public static final String PARAM_TIP1 = "tip1";
     public static final String PARAM_TIP2 = "tip2";
