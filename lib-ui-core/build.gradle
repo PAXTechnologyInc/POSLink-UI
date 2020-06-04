@@ -8,7 +8,7 @@ android {
         minSdkVersion 22
         targetSdkVersion 27
         versionCode 4
-        versionName "1.00.03 + new Date().format("yyyyMMdd", TimeZone.getTimeZone("UTC"))
+        versionName "1.00.03" + new Date().format("yyyyMMdd", TimeZone.getTimeZone("UTC"))
 
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
