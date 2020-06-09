@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.pax.us.pay.ui.constant.entry.EntryExtraData;
 import com.pax.us.pay.ui.constant.entry.EntryRequest;
 import com.pax.us.pay.ui.constant.entry.OptionEntry;
 
@@ -24,6 +25,8 @@ public class UIDataHandler {
     final static String  TIP = "tip";
     final static String  EXPIRY_DATE = "Expiry";
     final static String  DEFAULT = "Default";
+    final static String DATE = "Date";
+    final static String TIME = "Time";
 
     private static String[] options;
     private static String currentAction;
@@ -99,6 +102,22 @@ public class UIDataHandler {
         ACTION_MAP.put(OptionEntry.ACTION_SELECT_EDC_GROUP, "edcGroup");
     }
 
+    public static final Map<String, String> EXTRA_DATA_MAP = new LinkedHashMap<>();
+
+    static {
+
+        EXTRA_DATA_MAP.put(EntryExtraData.PARAM_TRANS_TYPE, DEFAULT);
+        EXTRA_DATA_MAP.put(EntryExtraData.PARAM_TRANS_TIME, TIME);
+        EXTRA_DATA_MAP.put(EntryExtraData.PARAM_TRANS_DATE, DATE);
+        EXTRA_DATA_MAP.put(EntryExtraData.PARAM_MERCHANT_ID, DEFAULT);
+        EXTRA_DATA_MAP.put(EntryExtraData.PARAM_TERMINAL_ID, DEFAULT);
+        EXTRA_DATA_MAP.put(EntryExtraData.PARAM_EDC_TYPE, DEFAULT);
+        EXTRA_DATA_MAP.put(EntryExtraData.PARAM_TRANS_NUMBER, DEFAULT);
+        EXTRA_DATA_MAP.put(EntryExtraData.PARAM_TRANS_MODE, DEFAULT);
+
+    }
+
+
     public static void setOptions(String[] opt) {
         options = opt;
     }
@@ -160,6 +179,48 @@ public class UIDataHandler {
                 }
             }
         }
+    }
+
+    public static void saveExtraData(Context context, Bundle bundle) {
+        if (bundle == null || bundle.size() == 0)
+            return;
+
+        SharedPreferences preferences = context.getSharedPreferences(EntryRequest.class.getName(), Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        Set<String> keySet = bundle.keySet();
+        for (String key : keySet) {
+            if (EXTRA_DATA_MAP.containsKey(key)) {
+                String type = EXTRA_DATA_MAP.get(key);
+                Object value = bundle.get(key);
+                if (value != null) {
+                    if (DEFAULT.equals(type)) {
+                        if (value instanceof String) {
+                            editor.putString(key, (String) value);
+                        } else if ((value instanceof Integer) || (value instanceof Long)) {
+                            editor.putString(key, String.valueOf(value));
+                        } else if (value instanceof Boolean) {
+                            editor.putString(key, (boolean) value ? "true" : "false");
+                        }
+                    } else if (DATE.equals(type)) {
+                        if (value instanceof String) {
+                            String date = ((String) value).substring(4, 6) + "/" + ((String) value).substring(6, 8) + "/" + ((String) value).substring(0, 4);
+                            if (!TextUtils.isEmpty(date)) {
+                                editor.putString(key, date);
+                            }
+                        }
+                    } else if (TIME.equals(type)) {
+                        if (value instanceof String) {
+                            String date = ((String) value).substring(0, 2) + ":" + ((String) value).substring(2, 4) + ":" + ((String) value).substring(4, 6);
+                            if (!TextUtils.isEmpty(date)) {
+                                editor.putString(key, date);
+                            }
+                        }
+                    }
+                    editor.commit();
+                }
+            }
+        }
+
     }
 
     private static String convertAmount(long amount){

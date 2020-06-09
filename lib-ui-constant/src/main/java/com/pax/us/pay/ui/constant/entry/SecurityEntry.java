@@ -36,6 +36,7 @@ public class SecurityEntry {
      * input: {@link EntryExtraData#PARAM_IS_ONLINE_PIN} boolean <br>
      * input: {@link EntryExtraData#PARAM_PIN_STYLES} enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.PinStyles}  <br>
      * input: {@link EntryExtraData#PARAM_PIN_RANGE}  <br>
+     * input: {@link EntryExtraData#PARAM_IS_EXTERNAL_PINPAD} boolean <br>
      * request: {@link EntryRequest#PARAM_X} <br>
      * request: {@link EntryRequest#PARAM_Y} <br>
      * request: {@link EntryRequest#PARAM_WIDTH} <br>

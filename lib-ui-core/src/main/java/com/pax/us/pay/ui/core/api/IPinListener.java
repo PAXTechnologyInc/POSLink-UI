@@ -8,5 +8,5 @@ public interface IPinListener extends IUIListener {
     @Link onShowPin((@Nullable String pinStyles, boolean isOnline, boolean isPinBypass))
     void onShowPin(@Nullable String pinStyles, boolean isOnline);
     */
-    void onShowPin(@Nullable String pinStyles, boolean isOnline, boolean isPinBypass);
+    void onShowPin(@Nullable String pinStyles, boolean isOnline, boolean isPinBypass, boolean isExternalPinpad);
 }
