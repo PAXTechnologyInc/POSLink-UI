@@ -205,6 +205,18 @@ public class OptionEntry {
      */
     public static final String ACTION_SELECT_TRANS_ADJUST = "com.pax.us.pay.action.SELECT_TRANS_ADJUST";
 
+    /**
+     * The intent action of select user language for debit transaction <br>
+     * /**
+     * The intent action of select the search type <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_OPTIONS} <br>
+     * request: {@link EntryRequest#PARAM_INDEX} <br>
+     */
+    public static final String ACTION_SELECT_LANGUAGE = "com.pax.us.pay.action.SELECT_LANGUAGE";
+
+
 //Note:
 //Appending a new action, please add mapping into "SELECT_OPTION_MAP" in "SelectOptionContent"
 
