@@ -5,4 +5,6 @@ public interface ICardListener extends IUIListener {
     void onShowLight(boolean enableContactlessLight);
 
     void onShowPanStyle(String panStyles);
+
+    void onShowScanIcon(boolean enable);
 }
