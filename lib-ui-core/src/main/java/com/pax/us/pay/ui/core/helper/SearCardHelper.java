@@ -75,6 +75,7 @@ public class SearCardHelper extends BaseActionHelper {
                     bundle.getBoolean(EntryExtraData.PARAM_ENABLE_INSERT, true),
                     bundle.getBoolean(EntryExtraData.PARAM_ENABLE_TAP, true)
             );
+            ((ICardListener) uiListener).onShowScanIcon(bundle.getBoolean(EntryExtraData.PARAM_ENABLE_SCAN, false));
         }
 
         if (uiListener instanceof ITapLogoListener) {
