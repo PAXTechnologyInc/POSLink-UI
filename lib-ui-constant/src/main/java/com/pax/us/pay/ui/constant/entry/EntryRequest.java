@@ -27,7 +27,7 @@ public class EntryRequest {
     public static final String ACTION_SECURITY_AREA = "com.pax.us.pay.ui.SECURITY_AREA";
 
     /**
-     * START_SCAN: optional, for {@link com.pax.us.pay.ui.constant.entry.SecurityEntry#ACTION_INPUT_ACCOUNT} <br>
+     * START_SCAN: optional broadcast, for {@link com.pax.us.pay.ui.constant.entry.SecurityEntry#ACTION_INPUT_ACCOUNT} <br>
      */
     public static final String ACTION_START_SCAN = "com.pax.us.pay.ui.START_SCAN";
 
