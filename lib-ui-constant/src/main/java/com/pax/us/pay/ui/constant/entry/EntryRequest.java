@@ -27,6 +27,25 @@ public class EntryRequest {
     public static final String ACTION_SECURITY_AREA = "com.pax.us.pay.ui.SECURITY_AREA";
 
     /**
+     * PIN_LAYOUT: optional broadcast, for {@link com.pax.us.pay.ui.constant.entry.SecurityEntry#ACTION_ENTER_PIN} only <br>
+     * need to be sent before {@link EntryRequest#ACTION_SECURITY_AREA} <br>
+     * param: {@link EntryRequest#PARAM_KEY_0} <br>
+     * param: {@link EntryRequest#PARAM_KEY_1} <br>
+     * param: {@link EntryRequest#PARAM_KEY_2} <br>
+     * param: {@link EntryRequest#PARAM_KEY_3} <br>
+     * param: {@link EntryRequest#PARAM_KEY_4} <br>
+     * param: {@link EntryRequest#PARAM_KEY_5} <br>
+     * param: {@link EntryRequest#PARAM_KEY_6} <br>
+     * param: {@link EntryRequest#PARAM_KEY_7} <br>
+     * param: {@link EntryRequest#PARAM_KEY_8} <br>
+     * param: {@link EntryRequest#PARAM_KEY_9} <br>
+     * param: {@link EntryRequest#PARAM_KEY_CLEAR} <br>
+     * param: {@link EntryRequest#PARAM_KEY_ENTER} <br>
+     * param: {@link EntryRequest#PARAM_KEY_CANCEL} <br>
+     */
+    public static final String ACTION_SET_PIN_KEY_LAYOUT = "com.pax.us.pay.ui.SET_PIN_LAYOUT";
+
+    /**
      * PARAM_ACTION: request parameter current action for BroadPOS <br>
      * value type: String <br>
      */
@@ -65,7 +84,7 @@ public class EntryRequest {
      */
     public static final String PARAM_EXPIRY_DATE = "expiryDate";
     /**
-     * PARAM_ORIG_DATE : request parameter orginal transaction date <br>
+     * PARAM_ORIG_DATE : request parameter original transaction date <br>
      * value type: String <br>
      * format:   <br>   ?????????????????
      */
@@ -139,4 +158,57 @@ public class EntryRequest {
     public static final String PARAM_WIDTH = "width";
     public static final String PARAM_HEIGHT = "height";
     public static final String PARAM_FONT_SIZE = "fontSize";
+
+    /**
+     * Type {@link android.graphics.Rect}
+     */
+    public static final String PARAM_KEY_0 = "key_0";
+    /**
+     * Type {@link android.graphics.Rect}
+     */
+    public static final String PARAM_KEY_1 = "key_1";
+    /**
+     * Type {@link android.graphics.Rect}
+     */
+    public static final String PARAM_KEY_2 = "key_2";
+    /**
+     * Type {@link android.graphics.Rect}
+     */
+    public static final String PARAM_KEY_3 = "key_3";
+    /**
+     * Type {@link android.graphics.Rect}
+     */
+    public static final String PARAM_KEY_4 = "key_4";
+    /**
+     * Type {@link android.graphics.Rect}
+     */
+    public static final String PARAM_KEY_5 = "key_5";
+    /**
+     * Type {@link android.graphics.Rect}
+     */
+    public static final String PARAM_KEY_6 = "key_6";
+    /**
+     * Type {@link android.graphics.Rect}
+     */
+    public static final String PARAM_KEY_7 = "key_7";
+    /**
+     * Type {@link android.graphics.Rect}
+     */
+    public static final String PARAM_KEY_8 = "key_8";
+    /**
+     * Type {@link android.graphics.Rect}
+     */
+    public static final String PARAM_KEY_9 = "key_9";
+    /**
+     * Type {@link android.graphics.Rect}
+     */
+    public static final String PARAM_KEY_CLEAR = "key_clear";
+    /**
+     * Type {@link android.graphics.Rect}
+     */
+    public static final String PARAM_KEY_ENTER = "key_enter";
+    /**
+     * Type {@link android.graphics.Rect}
+     */
+    public static final String PARAM_KEY_CANCEL = "key_cancel";
 }
