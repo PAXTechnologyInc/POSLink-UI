@@ -49,6 +49,7 @@ public final class EntryExtraData {
     public static final String PARAM_ENABLE_SUMSUNGPAY = "enableSumsungPay";
     public static final String PARAM_ENABLE_NFCPAY = "enableNFCPay";
 
+    public static final String PARAM_ENABLE_LASER_SCAN = "enableLaserScan";
     public static final String PARAM_ENABLE_CONTACTLESS_LIGHT = "enableContactlessLight";
 
 
