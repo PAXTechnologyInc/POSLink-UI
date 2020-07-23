@@ -1,6 +1,7 @@
 package com.pax.us.pay.ui.constant.entry;
 
 import com.pax.us.pay.ui.constant.entry.enumeration.EDCGroup;
+import com.pax.us.pay.ui.constant.entry.enumeration.InterfaceStyles;
 
 //Note:
 //Appending a new action, please add mapping into "SELECT_OPTION_MAP" in "SelectOptionContent"
@@ -216,6 +217,18 @@ public class OptionEntry {
      */
     public static final String ACTION_SELECT_LANGUAGE = "com.pax.us.pay.action.SELECT_LANGUAGE";
 
+
+    /**
+     * The intent action of select user language for debit transaction <br>
+     * /**
+     * The intent action of select the search type <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_OPTIONS} <br>
+     * input: {@link EntryExtraData#PARAM_INTERFACE_STYLES} enum: {@link InterfaceStyles}  <br>
+     * request: {@link EntryRequest#PARAM_INDEX} <br>
+     */
+    public static final String ACTION_SELECT_MERCHANT = "com.pax.us.pay.action.SELECT_MERCHANT";
 
 //Note:
 //Appending a new action, please add mapping into "SELECT_OPTION_MAP" in "SelectOptionContent"
