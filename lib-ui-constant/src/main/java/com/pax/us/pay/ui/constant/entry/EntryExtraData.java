@@ -38,6 +38,7 @@ public final class EntryExtraData {
     public static final String PARAM_PAN_STYLES = "panStyles";
     public static final String PARAM_IS_EXTERNAL_PINPAD = "external";
     public static final String PARAM_INTERFACE_STYLES = "interfaceStyles";
+    public static final String PARAM_MERCHANT_NAME = "merchantName";
 
 
     public static final String PARAM_ENABLE_SWIPE = "enableSwipe";
