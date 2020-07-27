@@ -94,6 +94,7 @@ public class SecurityEntry {
      * The intent action of enter administrator password <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MERCHANT_NAME} <br>
      * request: {@link EntryRequest#PARAM_X}  <br>
      * request: {@link EntryRequest#PARAM_Y}  <br>
      * request: {@link EntryRequest#PARAM_WIDTH}  <br>
