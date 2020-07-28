@@ -236,4 +236,13 @@ public class ConfirmationEntry {
      */
     public static final String ACTION_CONFIRM_BALANCE = "com.pax.us.pay.action.CONFIRM_BALANCE";
 
+    /**
+     * The intent action of confirm scope of application for merchant<br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_OPTIONS} enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.MerchantScope} <br>
+     * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
+     */
+    public static final String ACTION_CONFIRM_MERCHANT_SCOPE = "com.pax.us.pay.action.CONFIRM_MERCHANT_SCOPE";
+
 }
