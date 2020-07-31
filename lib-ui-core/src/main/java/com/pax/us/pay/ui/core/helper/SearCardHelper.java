@@ -12,6 +12,7 @@ import com.pax.us.pay.ui.core.api.IAmountListener;
 import com.pax.us.pay.ui.core.api.IAmountMessageListener;
 import com.pax.us.pay.ui.core.api.ICardListener;
 import com.pax.us.pay.ui.core.api.ICurrencyListener;
+import com.pax.us.pay.ui.core.api.IMerchantListener;
 import com.pax.us.pay.ui.core.api.IMessageListener;
 import com.pax.us.pay.ui.core.api.IRespStatus;
 import com.pax.us.pay.ui.core.api.ITapLogoListener;
@@ -50,6 +51,9 @@ public class SearCardHelper extends BaseActionHelper {
     @Override
     protected void showUI(@Nullable IUIListener uiListener, @NonNull Bundle bundle) {
         super.showUI(uiListener, bundle);
+        if (uiListener instanceof IMerchantListener && bundle.containsKey(EntryExtraData.PARAM_MERCHANT_NAME)) {
+            ((IMerchantListener) uiListener).onShowMerchant(bundle.getString(EntryExtraData.PARAM_MERCHANT_NAME));
+        }
         if ((uiListener instanceof ICurrencyListener) &&
                 (uiListener instanceof IAmountListener && bundle.containsKey(EntryExtraData.PARAM_TOTAL_AMOUNT))) {
             String currency = bundle.getString(EntryExtraData.PARAM_CURRENCY, "USD");
@@ -88,6 +92,6 @@ public class SearCardHelper extends BaseActionHelper {
         }
     }
 
-    public interface ISearchCardListener extends IMessageListener, ICurrencyListener, IAmountListener, IAmountMessageListener, ICardListener, ITapLogoListener {
+    public interface ISearchCardListener extends IMessageListener, ICurrencyListener, IAmountListener, IAmountMessageListener, ICardListener, ITapLogoListener, IMerchantListener {
     }
 }

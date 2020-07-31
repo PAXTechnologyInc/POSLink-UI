@@ -37,6 +37,8 @@ public final class EntryExtraData {
     public static final String PARAM_VCODE_NAME = "vcodeName";
     public static final String PARAM_PAN_STYLES = "panStyles";
     public static final String PARAM_IS_EXTERNAL_PINPAD = "external";
+    public static final String PARAM_INTERFACE_STYLES = "interfaceStyles";
+    public static final String PARAM_MERCHANT_NAME = "merchantName";
 
 
     public static final String PARAM_ENABLE_SWIPE = "enableSwipe";
@@ -114,7 +116,6 @@ public static final String PARAM_BALANCE = "balance";
     public static final String PARAM_AUTH_CODE = "authCode";
     public static final String PARAM_RESPONSE_STATUS = "responseStatus";
     public static final String PARAM_EINPUT_TYPE = "eInputType";
-    public static final String PARAM_SUPPORT_ALLTEXT = "supportAllText";
     public static final String PARAM_MAX_VALUE = "maxValue";
     public static final String PARAM_MIN_VALUE = "minValue";
     public static final String PARAM_MAX_LENGTH = "maxLength";

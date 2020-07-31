@@ -7,6 +7,7 @@ public class SecurityEntry {
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
      * input: {@link EntryExtraData#PARAM_CURRENCY}  enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType} <br>
+     * input: {@link EntryExtraData#PARAM_MERCHANT_NAME} String <br>
      * input: {@link EntryExtraData#PARAM_TOTAL_AMOUNT} Long <br>
      * input: {@link EntryExtraData#PARAM_AMOUNT_MESSAGE} String <br>
      * input: {@link EntryExtraData#PARAM_ENABLE_SWIPE} boolean <br>
@@ -93,6 +94,7 @@ public class SecurityEntry {
      * The intent action of enter administrator password <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MERCHANT_NAME} <br>
      * request: {@link EntryRequest#PARAM_X}  <br>
      * request: {@link EntryRequest#PARAM_Y}  <br>
      * request: {@link EntryRequest#PARAM_WIDTH}  <br>
