@@ -44,6 +44,9 @@ public class EnterPinHelper extends BaseActionHelper {
             ((IAmountListener) uiListener).onShowAmount(bundle.getLong(EntryExtraData.PARAM_TOTAL_AMOUNT));
         }
         if (uiListener instanceof IPinListener) {
+            boolean showVirtualPinPad = bundle.getBoolean(EntryExtraData.PARAM_SHOW_VIRTUAL_PINPAD, false);
+            ((IPinListener) uiListener).onShowVirtualPinpad(showVirtualPinPad);
+
             boolean isExternalPinpad = bundle.getBoolean(EntryExtraData.PARAM_IS_EXTERNAL_PINPAD);
             String pinStyles = bundle.getString(EntryExtraData.PARAM_PIN_STYLES, "NORMAL");
             boolean isOnline = bundle.getBoolean(EntryExtraData.PARAM_IS_ONLINE_PIN);
