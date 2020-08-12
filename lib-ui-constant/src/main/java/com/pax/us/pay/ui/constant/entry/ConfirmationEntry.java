@@ -252,6 +252,6 @@ public class ConfirmationEntry {
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
      * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
      */
-    public static final String CONFIRM_CARD_ENTRY_RETRY = "com.pax.us.pay.action.CONFIRM_CARD_ENTRY_RETRY";
+    public static final String ACTION_CONFIRM_CARD_ENTRY_RETRY = "com.pax.us.pay.action.CONFIRM_CARD_ENTRY_RETRY";
 
 }
