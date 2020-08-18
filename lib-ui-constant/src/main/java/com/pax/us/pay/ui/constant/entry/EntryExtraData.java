@@ -47,12 +47,14 @@ public final class EntryExtraData {
     public static final String PARAM_ENABLE_SWIPE = "enableSwipe";
     public static final String PARAM_ENABLE_INSERT = "enableInsert";
     public static final String PARAM_ENABLE_TAP = "enableTap";
+    public static final String PARAM_ENABLE_SCAN = "enableScan";
     public static final String PARAM_ENABLE_MANUAL = "enableManualEntry";
     public static final String PARAM_ENABLE_APPLEPAY = "enableApplePay";
     public static final String PARAM_ENABLE_GOOGLEPAY = "enableGooglePay";
     public static final String PARAM_ENABLE_SUMSUNGPAY = "enableSumsungPay";
     public static final String PARAM_ENABLE_NFCPAY = "enableNFCPay";
 
+    public static final String PARAM_ENABLE_LASER_SCAN = "enableLaserScan";
     public static final String PARAM_ENABLE_CONTACTLESS_LIGHT = "enableContactlessLight";
 
 
