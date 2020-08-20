@@ -45,6 +45,7 @@ public final class EntryExtraData {
 
 
 
+
     public static final String PARAM_ENABLE_SWIPE = "enableSwipe";
     public static final String PARAM_ENABLE_INSERT = "enableInsert";
     public static final String PARAM_ENABLE_TAP = "enableTap";

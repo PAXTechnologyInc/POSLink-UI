@@ -40,6 +40,7 @@ public class SecurityEntry {
      * input: {@link EntryExtraData#PARAM_PIN_RANGE}  <br>
      * input: {@link EntryExtraData#PARAM_IS_EXTERNAL_PINPAD} boolean <br>
      * input: {@link EntryExtraData#PARAM_SHOW_VIRTUAL_PINPAD} boolean <br>
+     * input: {@link EntryExtraData#PARAM_HAS_PHYSICAL_PINPAD} boolean <br>
      * request: {@link EntryRequest#PARAM_X} <br>
      * request: {@link EntryRequest#PARAM_Y} <br>
      * request: {@link EntryRequest#PARAM_WIDTH} <br>
