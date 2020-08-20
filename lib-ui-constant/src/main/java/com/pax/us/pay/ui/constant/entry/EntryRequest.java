@@ -46,6 +46,11 @@ public class EntryRequest {
     public static final String ACTION_SET_PIN_KEY_LAYOUT = "com.pax.us.pay.ui.SET_PIN_LAYOUT";
 
     /**
+     * START_SCAN: optional, for {@link com.pax.us.pay.ui.constant.entry.SecurityEntry#ACTION_INPUT_ACCOUNT} <br>
+     */
+    public static final String ACTION_START_SCAN = "com.pax.us.pay.ui.START_SCAN";
+
+    /**
      * PARAM_ACTION: request parameter current action for BroadPOS <br>
      * value type: String <br>
      */

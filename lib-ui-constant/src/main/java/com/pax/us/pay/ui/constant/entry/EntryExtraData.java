@@ -37,17 +37,24 @@ public final class EntryExtraData {
     public static final String PARAM_VCODE_NAME = "vcodeName";
     public static final String PARAM_PAN_STYLES = "panStyles";
     public static final String PARAM_IS_EXTERNAL_PINPAD = "external";
+    public static final String PARAM_INTERFACE_STYLES = "interfaceStyles";
+    public static final String PARAM_MERCHANT_NAME = "merchantName";
+    public static final String PARAM_SHOW_VIRTUAL_PINPAD = "showVirtualPinPad";
+
+
 
 
     public static final String PARAM_ENABLE_SWIPE = "enableSwipe";
     public static final String PARAM_ENABLE_INSERT = "enableInsert";
     public static final String PARAM_ENABLE_TAP = "enableTap";
+    public static final String PARAM_ENABLE_SCAN = "enableScan";
     public static final String PARAM_ENABLE_MANUAL = "enableManualEntry";
     public static final String PARAM_ENABLE_APPLEPAY = "enableApplePay";
     public static final String PARAM_ENABLE_GOOGLEPAY = "enableGooglePay";
     public static final String PARAM_ENABLE_SUMSUNGPAY = "enableSumsungPay";
     public static final String PARAM_ENABLE_NFCPAY = "enableNFCPay";
 
+    public static final String PARAM_ENABLE_LASER_SCAN = "enableLaserScan";
     public static final String PARAM_ENABLE_CONTACTLESS_LIGHT = "enableContactlessLight";
 
 
@@ -112,7 +119,6 @@ public static final String PARAM_BALANCE = "balance";
     public static final String PARAM_AUTH_CODE = "authCode";
     public static final String PARAM_RESPONSE_STATUS = "responseStatus";
     public static final String PARAM_EINPUT_TYPE = "eInputType";
-    public static final String PARAM_SUPPORT_ALLTEXT = "supportAllText";
     public static final String PARAM_MAX_VALUE = "maxValue";
     public static final String PARAM_MIN_VALUE = "minValue";
     public static final String PARAM_MAX_LENGTH = "maxLength";
