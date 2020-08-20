@@ -10,5 +10,6 @@ public interface IPinListener extends IUIListener {
     */
     void onShowPin(@Nullable String pinStyles, boolean isOnline, boolean isPinBypass, boolean isExternalPinpad);
 
-    void onShowVirtualPinpad(boolean showVirtualPinPad);
+    void onShowVirtualPinpad(boolean showVirtualPinPad, boolean hasPhysicalPinpad);
+
 }
