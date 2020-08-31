@@ -3,12 +3,14 @@ package com.pax.us.pay.ui.core.helper;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 
 import com.pax.us.pay.ui.constant.entry.EntryExtraData;
 import com.pax.us.pay.ui.constant.entry.EntryRequest;
 import com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType;
 import com.pax.us.pay.ui.core.BaseActionHelper;
 import com.pax.us.pay.ui.core.api.IAmountListener;
+import com.pax.us.pay.ui.core.api.ICardTypeListener;
 import com.pax.us.pay.ui.core.api.ICurrencyListener;
 import com.pax.us.pay.ui.core.api.IEnableCancelButtonListener;
 import com.pax.us.pay.ui.core.api.IMessageListener;
@@ -41,6 +43,13 @@ public class SignatureHelper extends BaseActionHelper {
             ((IAmountListener) uiListener).onShowAmount(bundle.getLong(EntryExtraData.PARAM_TOTAL_AMOUNT));
         }
 
+        if (uiListener instanceof ICardTypeListener && bundle.containsKey(EntryExtraData.PARAM_CARD_TYPE)) {
+            String cardType = bundle.getString(EntryExtraData.PARAM_CARD_TYPE);
+            if (!TextUtils.isEmpty(cardType)) {
+                ((ICardTypeListener) uiListener).onShowCardType(cardType);
+            }
+        }
+
         if (uiListener instanceof IEnableCancelButtonListener) {
             ((IEnableCancelButtonListener) uiListener).onShowCancelButton(bundle.getBoolean(EntryExtraData.PARAM_ENABLE_CANCEL, true));
         }
@@ -51,6 +60,6 @@ public class SignatureHelper extends BaseActionHelper {
 
     }
 
-    public interface ISignatureListener extends IMessageListener, ICurrencyListener, IAmountListener, IEnableCancelButtonListener, ITimeoutListener {
+    public interface ISignatureListener extends IMessageListener, ICurrencyListener, IAmountListener, IEnableCancelButtonListener, ITimeoutListener, ICardTypeListener {
     }
 }

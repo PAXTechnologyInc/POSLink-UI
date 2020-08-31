@@ -10,6 +10,9 @@ public class SignatureEntry {
      * input: {@link EntryExtraData#PARAM_TOTAL_AMOUNT} <br>
      * input: {@link EntryExtraData#PARAM_TIMEOUT} <br>
      * input: {@link EntryExtraData#PARAM_ENABLE_CANCEL} <br>
+     * input: {@link EntryExtraData#PARAM_CARD_TYPE} <br>
+     * input: {@link EntryExtraData#PARAM_ANIMATION_SUPPORT} <br>
+     * input: {@link EntryExtraData#PARAM_SOUND_SUPPORT} <br>*
      * request: {@link EntryRequest#PARAM_SIGNATURE} <br>
      */
     public static final String ACTION_SIGNATURE = "com.pax.us.pay.action.GET_SIGNATURE";
