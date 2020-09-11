@@ -89,7 +89,7 @@ public abstract class BaseActionHelper {
             }
 
             if (transType.length() > 0 || message.length() > 0) {
-                ((IMessageListener) uiListener).onShowMessage(transType, message, transMode.equals(TransMode.DEMO) ? true : false);
+                ((IMessageListener) uiListener).onShowMessage(transType, message, transMode);
             }
         }
     }
