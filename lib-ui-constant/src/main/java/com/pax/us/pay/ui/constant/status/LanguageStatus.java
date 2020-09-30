@@ -14,4 +14,6 @@ public class LanguageStatus {
      * value type: String <br>
      */
     public static final String PARAM_LANGUAGE = "language";
+
+    public static final String PARAM_COUNTRY_NAME = "countryName";
 }
