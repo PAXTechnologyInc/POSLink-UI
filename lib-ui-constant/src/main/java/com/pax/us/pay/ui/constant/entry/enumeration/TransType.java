@@ -32,4 +32,5 @@ public final class TransType {
     public static final String ADJUST = "ADJUST";
     public static final String UPLOAD = "UPLOAD";
     public static final String BATCH_CLOSE = "BATCH";
+    public static final String INCREMENTAL_AUTH = "INCREMENTAL AUTH";
 }
