@@ -14,4 +14,11 @@ public class LanguageStatus {
      * value type: String <br>
      */
     public static final String PARAM_LANGUAGE = "language";
+
+    /**
+     * PARAM_COUNTRY: Extra data in Action SET_LANGUAGE <br>
+     * An uppercase ISO 3166 2-letter code
+     * value type: String <br>
+     */
+    public static final String PARAM_COUNTRY = "country";
 }

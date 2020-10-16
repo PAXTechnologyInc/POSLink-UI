@@ -237,6 +237,8 @@ public class TextEntry {
      * input: {@link EntryExtraData#PARAM_MESSAGE}  <br>
      * request: {@link EntryRequest#PARAM_PROC_DESC} String <br>
      */
+    public static final String ACTION_ENTER_PROD_DESC = "com.pax.us.pay.action.ENTER_PROD_DESC";
+    @Deprecated
     public static final String ACTION_ENTER_PROC_DESC = "com.pax.us.pay.action.ENTER_PROC_DESC";
 
     /**
