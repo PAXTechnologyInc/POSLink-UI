@@ -119,8 +119,6 @@ public class EntryRequest {
     public static final String PARAM_CASHBACK_AMOUNT = "cashbackAmount";
     public static final String PARAM_FUEL_AMOUNT = "fuelAmount";
     public static final String PARAM_TAX_AMOUNT = "taxAmount";
-    public static final String PARAM_SURCHARGE_FEE = "surchargeFee";
-
 
     public static final String PARAM_REFERENCE_NUMBER = "referenceNumber";
     public static final String PARAM_INVOICE_NUMBER = "invoiceNumber";
