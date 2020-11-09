@@ -103,4 +103,23 @@ public class SecurityEntry {
      * request: {@link EntryRequest#PARAM_HEIGHT}  <br>
      */
     public static final String ACTION_ENTER_ADMINISTRATION_PASSWORD = "com.pax.us.pay.action.ADMINISTRATOR_PASSWORD";
+
+    /**
+     * The intent action of Input Account page <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_AMOUNT_MESSAGE} String <br>
+     * input: {@link EntryExtraData#PARAM_ENABLE_SWIPE} boolean <br>
+     * input: {@link EntryExtraData#PARAM_ENABLE_INSERT} boolean <br>
+     * input: {@link EntryExtraData#PARAM_ENABLE_TAP} boolean <br>
+     * input: {@link EntryExtraData#PARAM_ENABLE_MANUAL} boolean <br>
+     * input: {@link EntryExtraData#PARAM_ENABLE_NFCPAY} boolean <br>
+     * input: {@link EntryExtraData#PARAM_ENABLE_CONTACTLESS_LIGHT} boolean <br>
+     * request: {@link EntryRequest#PARAM_X} <br>
+     * request: {@link EntryRequest#PARAM_Y} <br>
+     * request: {@link EntryRequest#PARAM_WIDTH} <br>
+     * request: {@link EntryRequest#PARAM_HEIGHT} <br>
+     * request: {@link EntryRequest#PARAM_FONT_SIZE} <br>     *
+     */
+    public static final String ACTION_MANAGE_INPUT_ACCOUNT = "com.pax.us.pay.action.MANAGE_INPUT_ACCOUNT";
 }
