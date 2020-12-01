@@ -114,6 +114,8 @@ public class UIDataHandler {
         EXTRA_DATA_MAP.put(EntryExtraData.PARAM_EDC_TYPE, DEFAULT);
         EXTRA_DATA_MAP.put(EntryExtraData.PARAM_TRANS_NUMBER, DEFAULT);
         EXTRA_DATA_MAP.put(EntryExtraData.PARAM_TRANS_MODE, DEFAULT);
+        EXTRA_DATA_MAP.put(EntryExtraData.PARAM_ADDITIONAL_FEE, DEFAULT); //ANBP-1009
+        EXTRA_DATA_MAP.put(EntryExtraData.PARAM_TOTAL_AMOUNT, DEFAULT); //ANBP-1009
 
     }
 
