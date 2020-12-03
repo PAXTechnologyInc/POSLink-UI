@@ -114,6 +114,8 @@ public class UIDataHandler {
         EXTRA_DATA_MAP.put(EntryExtraData.PARAM_EDC_TYPE, DEFAULT);
         EXTRA_DATA_MAP.put(EntryExtraData.PARAM_TRANS_NUMBER, DEFAULT);
         EXTRA_DATA_MAP.put(EntryExtraData.PARAM_TRANS_MODE, DEFAULT);
+        EXTRA_DATA_MAP.put(EntryExtraData.PARAM_ADDITIONAL_FEE, DEFAULT); //Fixed ANBP-1009, display additional fee on AR terminals
+        EXTRA_DATA_MAP.put(EntryExtraData.PARAM_TOTAL_AMOUNT, DEFAULT); //Fixed ANBP-1009, display additional fee on AR terminals
 
     }
 
@@ -145,7 +147,10 @@ public class UIDataHandler {
                 if (value != null) {
                     if (AMOUNT.equals(type)){
                         String strAmt = convertAmount((long)value);
-                        editor.putString(key, strAmt);
+                        if (EntryRequest.PARAM_AMOUNT.equals(key)) //fixed ANBP-1009，total amount name duplicate issue
+                            editor.putString("baseAmount", strAmt);
+                        else
+                            editor.putString(key, strAmt);
                     }else if (TIP.equals(type)){
                         String strAmt = convertAmount((long)value);
                         if (TextUtils.isEmpty(tipName)){
