@@ -147,7 +147,10 @@ public class UIDataHandler {
                 if (value != null) {
                     if (AMOUNT.equals(type)){
                         String strAmt = convertAmount((long)value);
-                        editor.putString(key, strAmt);
+                        if (EntryRequest.PARAM_AMOUNT.equals(key)) //fixed ANBP-1009，total amount name duplicate issue
+                            editor.putString("baseAmount", strAmt);
+                        else
+                            editor.putString(key, strAmt);
                     }else if (TIP.equals(type)){
                         String strAmt = convertAmount((long)value);
                         if (TextUtils.isEmpty(tipName)){
