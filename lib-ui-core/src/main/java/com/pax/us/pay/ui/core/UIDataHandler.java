@@ -114,8 +114,8 @@ public class UIDataHandler {
         EXTRA_DATA_MAP.put(EntryExtraData.PARAM_EDC_TYPE, DEFAULT);
         EXTRA_DATA_MAP.put(EntryExtraData.PARAM_TRANS_NUMBER, DEFAULT);
         EXTRA_DATA_MAP.put(EntryExtraData.PARAM_TRANS_MODE, DEFAULT);
-        EXTRA_DATA_MAP.put(EntryExtraData.PARAM_ADDITIONAL_FEE, DEFAULT); //Fixed ANBP-1009, display additional fee on AR terminals
-        EXTRA_DATA_MAP.put(EntryExtraData.PARAM_TOTAL_AMOUNT, DEFAULT); //Fixed ANBP-1009, display additional fee on AR terminals
+        EXTRA_DATA_MAP.put(EntryExtraData.PARAM_ADDITIONAL_FEE, AMOUNT); //Fixed ANBP-1009, display additional fee on AR terminals
+        EXTRA_DATA_MAP.put(EntryExtraData.PARAM_TOTAL_AMOUNT, AMOUNT); //Fixed ANBP-1009, display additional fee on AR terminals
 
     }
 
@@ -220,6 +220,9 @@ public class UIDataHandler {
                                 editor.putString(key, date);
                             }
                         }
+                    } else if (AMOUNT.equals(type)){ //Fixed Ticket ANBP1009, In AR6/AR8, Terminal should record additional fee in history page
+                        String strAmt = convertAmount((long)value);
+                        editor.putString(key, strAmt);
                     }
                     editor.commit();
                 }
