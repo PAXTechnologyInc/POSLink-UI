@@ -17,7 +17,9 @@ public class ConfirmationEntry {
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
      * input: {@link EntryExtraData#PARAM_CURRENCY} <br>
+     * input: {@link EntryExtraData#PARAM_APPROVED_AMOUNT} <br>
      * input: {@link EntryExtraData#PARAM_TOTAL_AMOUNT} <br>
+     * input: {@link EntryExtraData#PARAM_OPTIONS} enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.ApproveType} <br>
      * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
      */
     public static final String ACTION_REVERSE_PARTIAL_APPROVAL = "com.pax.us.pay.action.REVERSE_PARTIAL_APPROVAL";
@@ -28,7 +30,9 @@ public class ConfirmationEntry {
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
      * input: {@link EntryExtraData#PARAM_CURRENCY} <br>
+     * input: {@link EntryExtraData#PARAM_APPROVED_AMOUNT} <br>
      * input: {@link EntryExtraData#PARAM_TOTAL_AMOUNT} <br>
+     * input: {@link EntryExtraData#PARAM_OPTIONS} enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.ApproveType} <br>
      * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
      */
     public static final String ACTION_SUPPLEMENT_PARTIAL_APPROVAL = "com.pax.us.pay.action.SUPPLEMENT_PARTIAL_APPROVAL";
