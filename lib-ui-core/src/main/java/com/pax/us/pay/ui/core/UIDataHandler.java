@@ -116,7 +116,9 @@ public class UIDataHandler {
         EXTRA_DATA_MAP.put(EntryExtraData.PARAM_TRANS_MODE, DEFAULT);
         EXTRA_DATA_MAP.put(EntryExtraData.PARAM_ADDITIONAL_FEE, AMOUNT); //Fixed ANBP-1009, display additional fee on AR terminals
         EXTRA_DATA_MAP.put(EntryExtraData.PARAM_TOTAL_AMOUNT, AMOUNT); //Fixed ANBP-1009, display additional fee on AR terminals
-
+        EXTRA_DATA_MAP.put(EntryExtraData.PARAM_TIP1, AMOUNT);//ANBP1039, When send Tip/Cashback from poslink, terminal should show the tip/cashback amount in receipt side
+        EXTRA_DATA_MAP.put(EntryExtraData.PARAM_CASH_BACK, AMOUNT);//ANBP1039, When send Tip/Cashback from poslink, terminal should show the tip/cashback amount in receipt side
+        EXTRA_DATA_MAP.put(EntryExtraData.PARAM_BASE_AMOUNT, AMOUNT);//ANBP1039, When send Tip/Cashback from poslink, terminal should show the tip/cashback amount in receipt side
     }
 
 
