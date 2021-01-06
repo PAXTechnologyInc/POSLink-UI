@@ -113,6 +113,7 @@ public class EntryRequest {
     public static final String PARAM_VISION_AMOUNT = "visionAmount";
     public static final String PARAM_DENTAL_AMOUNT = "dentalAmount";
     public static final String PARAM_COPAY_AMOUNT = "copayAmount";
+    public static final String PARAM_OTC_AMOUNT = "otcAmount";
     public static final String PARAM_TRANSIT_AMOUNT = "transitAmount";
     public static final String PARAM_FSA_OPTION = "fsaOption";
 
