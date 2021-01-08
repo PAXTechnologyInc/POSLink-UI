@@ -7,6 +7,7 @@ public class FSAAmountType {
     public static final String DENTAL_AMOUNT = "dentalAmount";
     public static final String VISION_AMOUNT = "visionAmount";
     public static final String COPAY_AMOUNT = "copayAmount";
+    public static final String OTC_AMOUNT = "otcAmount";
     public static final String TRANSIT_AMOUNT = "transitAmount";
 
 }

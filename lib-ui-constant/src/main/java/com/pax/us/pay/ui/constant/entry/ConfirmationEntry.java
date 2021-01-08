@@ -258,4 +258,23 @@ public class ConfirmationEntry {
      */
     public static final String ACTION_CONFIRM_CARD_ENTRY_RETRY = "com.pax.us.pay.action.CONFIRM_CARD_ENTRY_RETRY";
 
+
+    /**
+     * The intent action of confirm scope of application for merchant<br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_EULA_URI} <br>
+     * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
+     */
+    public static final String ACTION_CONFIRM_END_USER_LICENSE_AGREEMENT = "com.pax.us.pay.action.CONFIRM_END_USER_LICENSE_AGREEMENT";
+
+    /**
+     * The intent action of confirm scope of application for merchant<br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_OPTIONS} <br>
+     * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
+     */
+    public static final String ACTION_CONFIRM_EULA_CONTINUE = "com.pax.us.pay.action.CONFIRM_EULA_CONTINUE";
+
 }
