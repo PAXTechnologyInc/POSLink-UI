@@ -113,6 +113,7 @@ public class EntryRequest {
     public static final String PARAM_VISION_AMOUNT = "visionAmount";
     public static final String PARAM_DENTAL_AMOUNT = "dentalAmount";
     public static final String PARAM_COPAY_AMOUNT = "copayAmount";
+    public static final String PARAM_OTC_AMOUNT = "otcAmount";
     public static final String PARAM_TRANSIT_AMOUNT = "transitAmount";
     public static final String PARAM_FSA_OPTION = "fsaOption";
 
@@ -120,6 +121,7 @@ public class EntryRequest {
     public static final String PARAM_FUEL_AMOUNT = "fuelAmount";
     public static final String PARAM_TAX_AMOUNT = "taxAmount";
 
+    public static final String PARAM_MERCHANT_REFERENCE_NUMBER = "merchantReferenceNumber";
     public static final String PARAM_REFERENCE_NUMBER = "referenceNumber";
     public static final String PARAM_INVOICE_NUMBER = "invoiceNumber";
     public static final String PARAM_CLERK_ID = "clerkId";

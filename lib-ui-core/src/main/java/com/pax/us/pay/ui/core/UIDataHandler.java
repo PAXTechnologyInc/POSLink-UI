@@ -114,7 +114,11 @@ public class UIDataHandler {
         EXTRA_DATA_MAP.put(EntryExtraData.PARAM_EDC_TYPE, DEFAULT);
         EXTRA_DATA_MAP.put(EntryExtraData.PARAM_TRANS_NUMBER, DEFAULT);
         EXTRA_DATA_MAP.put(EntryExtraData.PARAM_TRANS_MODE, DEFAULT);
-
+        EXTRA_DATA_MAP.put(EntryExtraData.PARAM_ADDITIONAL_FEE, AMOUNT); //Fixed ANBP-1009, display additional fee on AR terminals
+        EXTRA_DATA_MAP.put(EntryExtraData.PARAM_TOTAL_AMOUNT, AMOUNT); //Fixed ANBP-1009, display additional fee on AR terminals
+        EXTRA_DATA_MAP.put(EntryExtraData.PARAM_TIP1, AMOUNT);//ANBP1039, When send Tip/Cashback from poslink, terminal should show the tip/cashback amount in receipt side
+        EXTRA_DATA_MAP.put(EntryExtraData.PARAM_CASH_BACK, AMOUNT);//ANBP1039, When send Tip/Cashback from poslink, terminal should show the tip/cashback amount in receipt side
+        EXTRA_DATA_MAP.put(EntryExtraData.PARAM_BASE_AMOUNT, AMOUNT);//ANBP1039, When send Tip/Cashback from poslink, terminal should show the tip/cashback amount in receipt side
     }
 
 
@@ -145,7 +149,10 @@ public class UIDataHandler {
                 if (value != null) {
                     if (AMOUNT.equals(type)){
                         String strAmt = convertAmount((long)value);
-                        editor.putString(key, strAmt);
+                        if (EntryRequest.PARAM_AMOUNT.equals(key)) //fixed ANBP-1009，total amount name duplicate issue
+                            editor.putString("baseAmount", strAmt);
+                        else
+                            editor.putString(key, strAmt);
                     }else if (TIP.equals(type)){
                         String strAmt = convertAmount((long)value);
                         if (TextUtils.isEmpty(tipName)){
@@ -215,6 +222,9 @@ public class UIDataHandler {
                                 editor.putString(key, date);
                             }
                         }
+                    } else if (AMOUNT.equals(type)){ //Fixed Ticket ANBP1009, In AR6/AR8, Terminal should record additional fee in history page
+                        String strAmt = convertAmount((long)value);
+                        editor.putString(key, strAmt);
                     }
                     editor.commit();
                 }

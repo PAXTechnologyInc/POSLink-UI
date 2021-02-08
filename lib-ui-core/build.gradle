@@ -7,8 +7,8 @@ android {
     defaultConfig {
         minSdkVersion 22
         targetSdkVersion 27
-        versionCode 13
-        versionName "1.00.11-" + new Date().format("yyyyMMdd", TimeZone.getTimeZone("UTC"))+"-01"
+        versionCode 17
+        versionName "1.00.15-" + new Date().format("yyyyMMdd", TimeZone.getTimeZone("UTC"))+"-01"
 
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
