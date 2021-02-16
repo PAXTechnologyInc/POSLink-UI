@@ -10,6 +10,7 @@ import com.pax.us.pay.ui.constant.entry.EntryRequest;
 import com.pax.us.pay.ui.core.BaseActionHelper;
 import com.pax.us.pay.ui.core.api.IAmountListener;
 import com.pax.us.pay.ui.core.api.ICurrencyListener;
+import com.pax.us.pay.ui.core.api.IHasPhyKeyboardListener;
 import com.pax.us.pay.ui.core.api.IMessageListener;
 import com.pax.us.pay.ui.core.api.IRespStatus;
 import com.pax.us.pay.ui.core.api.IUIListener;
@@ -130,7 +131,7 @@ public class EnterFleetDataHelper extends BaseActionHelper {
 //        }
     }
 
-    public interface IEnterFleetDataListener extends IMessageListener, ICurrencyListener, IAmountListener {
+    public interface IEnterFleetDataListener extends IMessageListener, ICurrencyListener, IAmountListener, IHasPhyKeyboardListener {
     }
 
 }
