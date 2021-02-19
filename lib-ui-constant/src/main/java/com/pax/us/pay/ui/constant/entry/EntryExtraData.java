@@ -40,6 +40,7 @@ public final class EntryExtraData {
     public static final String PARAM_INTERFACE_STYLES = "interfaceStyles";
     public static final String PARAM_MERCHANT_NAME = "merchantName";
     public static final String PARAM_SHOW_VIRTUAL_PINPAD = "showVirtualPinPad";
+    public static final String PARAM_HAS_PHYSICAL_KEYBOARD = "hasPhyKeyboard";
 
 
 

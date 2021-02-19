@@ -10,6 +10,7 @@ import com.pax.us.pay.ui.core.BaseActionHelper;
 import com.pax.us.pay.ui.core.api.IAmountListener;
 import com.pax.us.pay.ui.core.api.ICurrencyListener;
 import com.pax.us.pay.ui.core.api.IFsaAmountOptionListener;
+import com.pax.us.pay.ui.core.api.IHasPhyKeyboardListener;
 import com.pax.us.pay.ui.core.api.IMessageListener;
 import com.pax.us.pay.ui.core.api.IRespStatus;
 import com.pax.us.pay.ui.core.api.IUIListener;
@@ -126,7 +127,7 @@ public class EnterFSAAmountHelper extends BaseActionHelper {
         }
     }
 
-    public interface IEnterFSAAmountListener extends IMessageListener, ICurrencyListener, IAmountListener, IFsaAmountOptionListener {
+    public interface IEnterFSAAmountListener extends IMessageListener, ICurrencyListener, IAmountListener, IFsaAmountOptionListener, IHasPhyKeyboardListener {
     }
 
 }
