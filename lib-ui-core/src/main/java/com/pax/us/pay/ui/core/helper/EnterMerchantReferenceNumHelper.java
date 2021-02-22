@@ -9,19 +9,19 @@ import com.pax.us.pay.ui.core.api.IHasPhyKeyboardListener;
 import com.pax.us.pay.ui.core.api.IMessageListener;
 import com.pax.us.pay.ui.core.api.IRespStatus;
 
-public class EnterZipCodeHelper extends BaseActionHelper {
+public class EnterMerchantReferenceNumHelper extends BaseActionHelper {
 
-    public EnterZipCodeHelper(@Nullable IEnterZipCodeListener uiListener, @Nullable IRespStatus respStatus) {
+    public EnterMerchantReferenceNumHelper(@Nullable IEnterMerchantReferenceNumListener uiListener, @Nullable IRespStatus respStatus) {
         super(uiListener, respStatus);
     }
 
-    public void sendNext(String zipCode) {
+    public void sendNext(String referenceNumber) {
         Bundle bundle = new Bundle();
-        bundle.putString(EntryRequest.PARAM_ZIP_CODE, zipCode);
+        bundle.putString(EntryRequest.PARAM_MERCHANT_REFERENCE_NUMBER, referenceNumber);
         super.sendNext(bundle);
     }
 
-    public interface IEnterZipCodeListener extends IMessageListener, IHasPhyKeyboardListener {
+    public interface IEnterMerchantReferenceNumListener extends IMessageListener, IHasPhyKeyboardListener {
     }
 
 }

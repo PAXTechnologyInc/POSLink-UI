@@ -85,6 +85,7 @@ public class TextEntry {
      * request: {@link EntryRequest#PARAM_VISION_AMOUNT} <br>
      * request: {@link EntryRequest#PARAM_DENTAL_AMOUNT} <br>
      * request: {@link EntryRequest#PARAM_COPAY_AMOUNT} <br>
+     * request: {@link EntryRequest#PARAM_OTC_AMOUNT} <br>
      * request: {@link EntryRequest#PARAM_TRANSIT_AMOUNT} <br>
      * request: {@link EntryRequest#PARAM_FSA_OPTION} enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.FSAType}  <br>
      * the{@link EntryExtraData#PARAM_FSA_AMOUNT_OPTIONS} control which request field will be sent <br>
@@ -319,5 +320,15 @@ public class TextEntry {
      * request: {@link EntryRequest#PARAM_MERCHANT_TAX_ID} <br>
      */
     public static final String ACTION_ENTER_MERCHANT_TAX_ID = "com.pax.us.pay.action.ENTER_MERCHANT_TAX_ID";
+
+    /**
+     * The intent action of Enter reference number <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_VALUE_PATTERN} <br>
+     * input: {@link EntryExtraData#PARAM_EINPUT_TYPE} enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType} <br>
+     * request: {@link EntryRequest#PARAM_MERCHANT_REFERENCE_NUMBER} <br>
+     */
+    public static final String ACTION_ENTER_MERCHANT_REFERENCE_NUMBER = "com.pax.us.pay.action.ENTER_MERCHANT_REFERENCE_NUMBER";
 
 }

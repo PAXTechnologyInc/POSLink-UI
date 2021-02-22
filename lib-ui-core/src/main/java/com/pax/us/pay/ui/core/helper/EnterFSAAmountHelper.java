@@ -6,11 +6,11 @@ import android.support.annotation.Nullable;
 
 import com.pax.us.pay.ui.constant.entry.EntryExtraData;
 import com.pax.us.pay.ui.constant.entry.EntryRequest;
-import com.pax.us.pay.ui.constant.entry.enumeration.FSAAmountType;
 import com.pax.us.pay.ui.core.BaseActionHelper;
 import com.pax.us.pay.ui.core.api.IAmountListener;
 import com.pax.us.pay.ui.core.api.ICurrencyListener;
 import com.pax.us.pay.ui.core.api.IFsaAmountOptionListener;
+import com.pax.us.pay.ui.core.api.IHasPhyKeyboardListener;
 import com.pax.us.pay.ui.core.api.IMessageListener;
 import com.pax.us.pay.ui.core.api.IRespStatus;
 import com.pax.us.pay.ui.core.api.IUIListener;
@@ -29,7 +29,7 @@ public class EnterFSAAmountHelper extends BaseActionHelper {
     }
 
     public void sendNext(long healthAmt, long clinicAmt, long prescriptionAmt, long dentalAmt
-            , long visionAmt, long copayAmt, long transitAmt, long totalAmount, String fsaOption) {
+            , long visionAmt, long copayAmt, long otcAmt, long transitAmt, long totalAmount, String fsaOption) {
 
         if (amountOption == null) {
             decline(102301, "FSA AMOUNT OPTION IS EMPTY");
@@ -43,6 +43,7 @@ public class EnterFSAAmountHelper extends BaseActionHelper {
         amtMap.put(EntryRequest.PARAM_DENTAL_AMOUNT, dentalAmt);
         amtMap.put(EntryRequest.PARAM_VISION_AMOUNT, visionAmt);
         amtMap.put(EntryRequest.PARAM_COPAY_AMOUNT, copayAmt);
+        amtMap.put(EntryRequest.PARAM_OTC_AMOUNT, otcAmt);
         amtMap.put(EntryRequest.PARAM_TRANSIT_AMOUNT, transitAmt);
 
         long tmpTotalAmount = 0;
@@ -67,7 +68,7 @@ public class EnterFSAAmountHelper extends BaseActionHelper {
     protected void showUI(@Nullable IUIListener uiListener, @NonNull Bundle bundle) {
         super.showUI(uiListener, bundle);
         boolean healthCareVisible, ClinicVisible, prescriptionVisible;
-        boolean dentalVisible, versionVisible, copayVisible, transitVisible;
+        boolean dentalVisible, versionVisible, copayVisible, transitVisible, otcVisible;
 
         if (uiListener instanceof ICurrencyListener) {
             String currency = bundle.getString(EntryExtraData.PARAM_CURRENCY, "USD");
@@ -89,6 +90,7 @@ public class EnterFSAAmountHelper extends BaseActionHelper {
             versionVisible = false;
             copayVisible = false;
             transitVisible = false;
+            otcVisible = false;
             if (options != null && options.length > 0) {
                 amountOption = Arrays.asList(options);
                 for (String amtType : amountOption) {
@@ -114,15 +116,18 @@ public class EnterFSAAmountHelper extends BaseActionHelper {
                         case EntryRequest.PARAM_TRANSIT_AMOUNT:
                             transitVisible = true;
                             break;
+                        case EntryRequest.PARAM_OTC_AMOUNT:
+                            otcVisible = true;
+                            break;
                     }
                 } //for
             }// options not null
             ((IFsaAmountOptionListener) uiListener).onShowFsaAmountOption(healthCareVisible, ClinicVisible, prescriptionVisible,
-                    dentalVisible, versionVisible, copayVisible, transitVisible);
+                    dentalVisible, versionVisible, copayVisible, otcVisible,transitVisible);
         }
     }
 
-    public interface IEnterFSAAmountListener extends IMessageListener, ICurrencyListener, IAmountListener, IFsaAmountOptionListener {
+    public interface IEnterFSAAmountListener extends IMessageListener, ICurrencyListener, IAmountListener, IFsaAmountOptionListener, IHasPhyKeyboardListener {
     }
 
 }

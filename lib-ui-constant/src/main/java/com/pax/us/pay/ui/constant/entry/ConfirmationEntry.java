@@ -17,7 +17,9 @@ public class ConfirmationEntry {
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
      * input: {@link EntryExtraData#PARAM_CURRENCY} <br>
+     * input: {@link EntryExtraData#PARAM_APPROVED_AMOUNT} <br>
      * input: {@link EntryExtraData#PARAM_TOTAL_AMOUNT} <br>
+     * input: {@link EntryExtraData#PARAM_OPTIONS} enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.ApproveType} <br>
      * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
      */
     public static final String ACTION_REVERSE_PARTIAL_APPROVAL = "com.pax.us.pay.action.REVERSE_PARTIAL_APPROVAL";
@@ -28,7 +30,9 @@ public class ConfirmationEntry {
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
      * input: {@link EntryExtraData#PARAM_CURRENCY} <br>
+     * input: {@link EntryExtraData#PARAM_APPROVED_AMOUNT} <br>
      * input: {@link EntryExtraData#PARAM_TOTAL_AMOUNT} <br>
+     * input: {@link EntryExtraData#PARAM_OPTIONS} enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.ApproveType} <br>
      * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
      */
     public static final String ACTION_SUPPLEMENT_PARTIAL_APPROVAL = "com.pax.us.pay.action.SUPPLEMENT_PARTIAL_APPROVAL";
@@ -247,11 +251,39 @@ public class ConfirmationEntry {
 
 
     /**
-     * The intent action of confirm scope of application for merchant<br>
+     * The intent action of confirm retry card entry<br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
      * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
      */
     public static final String ACTION_CONFIRM_CARD_ENTRY_RETRY = "com.pax.us.pay.action.CONFIRM_CARD_ENTRY_RETRY";
+
+
+    /**
+     * The intent action of confirm end user license agreement<br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_EULA_URI} <br>
+     * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
+     */
+    public static final String ACTION_CONFIRM_END_USER_LICENSE_AGREEMENT = "com.pax.us.pay.action.CONFIRM_END_USER_LICENSE_AGREEMENT";
+
+    /**
+     * The intent action of confirm eula continue<br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_OPTIONS} <br>
+     * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
+     */
+    public static final String ACTION_CONFIRM_EULA_CONTINUE = "com.pax.us.pay.action.CONFIRM_EULA_CONTINUE";
+
+
+    /**
+     * The intent action of confirm cardholder signature match<br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
+     */
+    public static final String ACTION_CONFIRM_SIGNATURE_MATCH = "com.pax.us.pay.action.CONFIRM_SIGNATURE_MATCH";
 
 }

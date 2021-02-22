@@ -40,6 +40,7 @@ public final class EntryExtraData {
     public static final String PARAM_INTERFACE_STYLES = "interfaceStyles";
     public static final String PARAM_MERCHANT_NAME = "merchantName";
     public static final String PARAM_SHOW_VIRTUAL_PINPAD = "showVirtualPinPad";
+    public static final String PARAM_HAS_PHYSICAL_KEYBOARD = "hasPhyKeyboard";
 
 
 
@@ -151,6 +152,7 @@ public static final String PARAM_BALANCE = "balance";
     public static final String PARAM_CASH_BENEFIT_BALANCE = "cashBenefitBalance";
 
     public static final String PARAM_RECEIPT_URI = "receiptUri";
+    public static final String PARAM_EULA_URI = "eulaUri";
 
     public static final String PARAM_TRANS_URL = "transUri";
     public static final String PARAM_TRANS_SELECTION = "transSelection";

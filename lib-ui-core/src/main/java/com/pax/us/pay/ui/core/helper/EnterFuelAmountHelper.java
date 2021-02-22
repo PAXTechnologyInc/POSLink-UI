@@ -9,6 +9,7 @@ import com.pax.us.pay.ui.constant.entry.EntryRequest;
 import com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType;
 import com.pax.us.pay.ui.core.BaseActionHelper;
 import com.pax.us.pay.ui.core.api.ICurrencyListener;
+import com.pax.us.pay.ui.core.api.IHasPhyKeyboardListener;
 import com.pax.us.pay.ui.core.api.IMessageListener;
 import com.pax.us.pay.ui.core.api.IRespStatus;
 import com.pax.us.pay.ui.core.api.IUIListener;
@@ -24,10 +25,7 @@ public class EnterFuelAmountHelper extends BaseActionHelper {
         super.showUI(uiListener, bundle);
         if (uiListener instanceof ICurrencyListener) {
             String currency = bundle.getString(EntryExtraData.PARAM_CURRENCY, "USD");
-            if (currency.equals(CurrencyType.POINT))
-                ((ICurrencyListener) uiListener).onShowCurrency(currency, true);
-            else
-                ((ICurrencyListener) uiListener).onShowCurrency(currency, false);
+            ((ICurrencyListener) uiListener).onShowCurrency(currency, currency.equals(CurrencyType.POINT));
         }
     }
 
@@ -37,6 +35,6 @@ public class EnterFuelAmountHelper extends BaseActionHelper {
         super.sendNext(bundle);
     }
 
-    public interface IEnterFuelAmountListener extends IMessageListener, ICurrencyListener {
+    public interface IEnterFuelAmountListener extends IMessageListener, ICurrencyListener, IHasPhyKeyboardListener {
     }
 }

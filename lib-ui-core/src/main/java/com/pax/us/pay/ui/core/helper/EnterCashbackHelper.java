@@ -10,6 +10,7 @@ import com.pax.us.pay.ui.core.BaseActionHelper;
 import com.pax.us.pay.ui.core.api.IAmountListener;
 import com.pax.us.pay.ui.core.api.ICashbackOptionListener;
 import com.pax.us.pay.ui.core.api.ICurrencyListener;
+import com.pax.us.pay.ui.core.api.IHasPhyKeyboardListener;
 import com.pax.us.pay.ui.core.api.IMessageListener;
 import com.pax.us.pay.ui.core.api.IRespStatus;
 import com.pax.us.pay.ui.core.api.IUIListener;
@@ -65,6 +66,6 @@ public class EnterCashbackHelper extends BaseActionHelper {
         super.sendNext(bundle);
     }
 
-    public interface IEnterCashbackListener extends IMessageListener, ICurrencyListener, IAmountListener, ICashbackOptionListener {
+    public interface IEnterCashbackListener extends IMessageListener, ICurrencyListener, IAmountListener, ICashbackOptionListener , IHasPhyKeyboardListener {
     }
 }
