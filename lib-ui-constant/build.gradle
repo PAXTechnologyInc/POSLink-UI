@@ -1,6 +1,6 @@
 apply plugin: 'java-library'
 
-version = '1.00.17-' + new Date().format("yyyyMMdd", TimeZone.getTimeZone("UTC"))+"-01"
+version = '1.00.18-' + new Date().format("yyyyMMdd", TimeZone.getTimeZone("UTC"))+"-01"
 
 dependencies {
 }
