@@ -158,4 +158,11 @@ public static final String PARAM_BALANCE = "balance";
     public static final String PARAM_TRANS_SELECTION = "transSelection";
     public static final String PARAM_TRANS_SELECTION_ARGUMENTS = "transSelectionArguments";
 
+    //internal parameter
+    /*
+    * Type：Boolean
+    * Action: ACTION_CONFIRM_BATCH_CLOSE
+    * */
+    public static final String PARAM_INTERNAL_NICKNAME_FLAG = "internalNicknameFlag";
+
 }
