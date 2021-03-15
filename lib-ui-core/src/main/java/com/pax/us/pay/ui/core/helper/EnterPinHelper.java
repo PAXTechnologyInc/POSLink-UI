@@ -1,9 +1,10 @@
 package com.pax.us.pay.ui.core.helper;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.pax.us.pay.ui.constant.entry.EntryExtraData;
 import com.pax.us.pay.ui.constant.entry.EntryRequest;
@@ -36,10 +37,7 @@ public class EnterPinHelper extends BaseActionHelper {
         if ((uiListener instanceof ICurrencyListener) &&
                 (uiListener instanceof IAmountListener && bundle.containsKey(EntryExtraData.PARAM_TOTAL_AMOUNT))) {
             String currency = bundle.getString(EntryExtraData.PARAM_CURRENCY, "USD");
-            if (currency.equals(CurrencyType.POINT))
-                ((ICurrencyListener) uiListener).onShowCurrency(currency, true);
-            else
-                ((ICurrencyListener) uiListener).onShowCurrency(currency, false);
+            ((ICurrencyListener) uiListener).onShowCurrency(currency, currency.equals(CurrencyType.POINT));
 
             ((IAmountListener) uiListener).onShowAmount(bundle.getLong(EntryExtraData.PARAM_TOTAL_AMOUNT));
         }

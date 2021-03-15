@@ -1,8 +1,9 @@
 package com.pax.us.pay.ui.core.helper;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.pax.us.pay.ui.constant.entry.EntryExtraData;
 import com.pax.us.pay.ui.constant.entry.EntryRequest;
@@ -12,7 +13,6 @@ import com.pax.us.pay.ui.core.api.IAmountListener;
 import com.pax.us.pay.ui.core.api.ICurrencyListener;
 import com.pax.us.pay.ui.core.api.IMessageListener;
 import com.pax.us.pay.ui.core.api.IRespStatus;
-import com.pax.us.pay.ui.core.api.ISurchargeFeeNameListener;
 import com.pax.us.pay.ui.core.api.IUIListener;
 
 public class ConfirmBalanceHelper extends BaseActionHelper {
@@ -32,10 +32,7 @@ public class ConfirmBalanceHelper extends BaseActionHelper {
         if ((uiListener instanceof ICurrencyListener) &&
                 (uiListener instanceof IAmountListener && bundle.containsKey(EntryExtraData.PARAM_BALANCE))) {
             String currency = bundle.getString(EntryExtraData.PARAM_CURRENCY, "USD");
-            if (currency.equals(CurrencyType.POINT))
-                ((ICurrencyListener) uiListener).onShowCurrency(currency, true);
-            else
-                ((ICurrencyListener) uiListener).onShowCurrency(currency, false);
+            ((ICurrencyListener) uiListener).onShowCurrency(currency, currency.equals(CurrencyType.POINT));
 
             ((IAmountListener) uiListener).onShowAmount(bundle.getLong(EntryExtraData.PARAM_BALANCE));
         }

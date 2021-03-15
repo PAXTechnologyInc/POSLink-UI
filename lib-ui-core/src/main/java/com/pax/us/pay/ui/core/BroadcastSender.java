@@ -17,7 +17,8 @@ package com.pax.us.pay.ui.core;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 import java.lang.ref.WeakReference;
 
@@ -26,7 +27,7 @@ import java.lang.ref.WeakReference;
  */
 class BroadcastSender {
 
-    private WeakReference<Context> context;
+    private final WeakReference<Context> context;
 
     BroadcastSender(Context context) {
         this.context = new WeakReference<>(context.getApplicationContext());
