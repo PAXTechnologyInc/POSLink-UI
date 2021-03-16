@@ -265,6 +265,7 @@ public class ConfirmationEntry {
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
      * input: {@link EntryExtraData#PARAM_EULA_URI} <br>
      * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
+     * request: {@link EntryRequest#PARAM_DO_NOT_PROMPT_AGAIN} <br>
      */
     public static final String ACTION_CONFIRM_END_USER_LICENSE_AGREEMENT = "com.pax.us.pay.action.CONFIRM_END_USER_LICENSE_AGREEMENT";
 

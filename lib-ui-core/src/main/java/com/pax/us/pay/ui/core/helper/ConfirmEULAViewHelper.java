@@ -18,9 +18,10 @@ public class ConfirmEULAViewHelper extends BaseActionHelper {
         super(uiListener, respStatus);
     }
 
-    public void sendNext(boolean flag) {
+    public void sendNext(boolean flag, boolean promptAgain) {
         Bundle bundle = new Bundle();
         bundle.putBoolean(EntryRequest.PARAM_CONFIRMED, flag);
+        bundle.putBoolean(EntryRequest.PARAM_DO_NOT_PROMPT_AGAIN, promptAgain);
         super.sendNext(bundle);
     }
 
