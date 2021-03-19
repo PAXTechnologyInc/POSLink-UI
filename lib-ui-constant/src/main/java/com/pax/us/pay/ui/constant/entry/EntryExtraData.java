@@ -40,7 +40,9 @@ public final class EntryExtraData {
     public static final String PARAM_INTERFACE_STYLES = "interfaceStyles";
     public static final String PARAM_MERCHANT_NAME = "merchantName";
     public static final String PARAM_SHOW_VIRTUAL_PINPAD = "showVirtualPinPad";
-    public static final String PARAM_HAS_PHYSICAL_KEYBOARD = "hasPhyKeyboard";
+    public static final String PARAM_ADMIN_PASSWORD_TYPE = "adminPasswordType";
+
+//    public static final String PARAM_HAS_PHYSICAL_KEYBOARD = "hasPhyKeyboard";
 
 
 
@@ -94,7 +96,7 @@ public static final String PARAM_BALANCE = "balance";
     public static final String PARAM_SURCHARGE_FEE = "surchargeFee";
     public static final String PARAM_ADDITIONAL_FEE = "additionalFee";
     public static final String PARAM_ADDITIONAL_FEE_NAME = "additionalFeeName";
-    public static final String PARAM_PRIMARY_AMOUNT = "primaryAmount";
+//    public static final String PARAM_PRIMARY_AMOUNT = "primaryAmount";
 
     public static final String PARAM_FSA_AMOUNT_OPTIONS = "fsaAmountOptions";
     public static final String PARAM_HEALTH_CARE_AMOUNT = "healthCareAmount";
@@ -120,8 +122,8 @@ public static final String PARAM_BALANCE = "balance";
     public static final String PARAM_AUTH_CODE = "authCode";
     public static final String PARAM_RESPONSE_STATUS = "responseStatus";
     public static final String PARAM_EINPUT_TYPE = "eInputType";
-    public static final String PARAM_MAX_VALUE = "maxValue";
-    public static final String PARAM_MIN_VALUE = "minValue";
+//    public static final String PARAM_MAX_VALUE = "maxValue";
+//    public static final String PARAM_MIN_VALUE = "minValue";
     public static final String PARAM_MAX_LENGTH = "maxLength";
     public static final String PARAM_MIN_LENGTH = "minLength";
     public static final String PARAM_TIP_UNIT = "tipUnit";

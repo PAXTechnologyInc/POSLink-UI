@@ -2,6 +2,7 @@ package com.pax.us.pay.ui.core;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -95,9 +96,9 @@ public abstract class BaseActionHelper {
 
         }
         if (uiListener instanceof IHasPhyKeyboardListener) {
-            if (bundle.containsKey(EntryExtraData.PARAM_HAS_PHYSICAL_KEYBOARD)){
-                boolean hasPhyKeyboard = bundle.getBoolean(EntryExtraData.PARAM_HAS_PHYSICAL_KEYBOARD, false);
-                ((IHasPhyKeyboardListener) uiListener).onHasPhyKeyboard(hasPhyKeyboard);
+            if ("A30".equals(Build.MODEL)){
+                //boolean hasPhyKeyboard = bundle.getBoolean(EntryExtraData.PARAM_HAS_PHYSICAL_KEYBOARD, false);
+                ((IHasPhyKeyboardListener) uiListener).onHasPhyKeyboard(true);
             }
         }
     }

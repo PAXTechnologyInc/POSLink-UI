@@ -134,6 +134,7 @@ public class EntryRequest {
     public static final String PARAM_PROC_DESC = "prodDesc";
     public static final String PARAM_MERCHANT_TAX_ID = "merchantTaxID";
     public static final String PARAM_CS_PHONE_NUMBER = "customerServicePhoneNumber";
+    public static final String PARAM_OCT_REFERENCE_NUMBER = "octReferenceNumber";
 
     public static final String PARAM_CUSTOMER_CODE = "customerCode";
     public static final String PARAM_PROMPT_RESTRICTION_CODE = "promptRestrictionCode";
@@ -153,6 +154,12 @@ public class EntryRequest {
      * value type: String <br>
      */
     public static final String PARAM_DEST_ZIP_CODE = "destinationZipCode";
+
+    /**
+     * PARAM_DO_NOT_PROMPT_AGAIN : request parameter prompt again <br>
+     * value type: Boolean <br>
+     */
+    public static final String PARAM_DO_NOT_PROMPT_AGAIN = "doNotPromptAgain";
 
 
     public static final String PARAM_VALUE = "value";
