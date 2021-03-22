@@ -13,6 +13,12 @@ public class EntryRequest {
     public static final String ACTION_ABORT = "com.pax.us.pay.ui.ABORT";
 
     /**
+     * ABORT: request BroadPOS to abort the transaction. <br>
+     */
+    public static final String ACTION_TIME_OUT = "com.pax.us.pay.ui.TIME_OUT";
+
+
+    /**
      * PREV: request BroadPOS to go to previous step . <br>
      */
     public static final String ACTION_PREV = "com.pax.us.pay.ui.PREV";
