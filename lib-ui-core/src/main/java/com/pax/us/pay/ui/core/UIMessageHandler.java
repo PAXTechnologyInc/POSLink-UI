@@ -115,6 +115,17 @@ class UIMessageHandler implements IActionHandler {
         sender.send(intent);
     }
 
+    @Override
+    public void sendTimeout() {
+        Intent intent = new Intent();
+        intent.setPackage(packageName);
+        intent.setAction(EntryRequest.ACTION_TIME_OUT);
+        Bundle bundle = new Bundle();
+        bundle.putString(EntryRequest.PARAM_ACTION, action);
+        intent.putExtras(bundle);
+        sender.send(intent);
+    }
+
     private class RespReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
