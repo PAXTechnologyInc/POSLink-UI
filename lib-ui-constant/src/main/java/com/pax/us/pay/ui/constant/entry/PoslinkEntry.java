@@ -28,4 +28,20 @@ public class PoslinkEntry {
      */
     public static final String ACTION_SHOW_THANK_YOU = "com.pax.us.pay.action.SHOW_THANK_YOU";
 
+    /**
+     * The intent action of show dialog <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_TITLE} } <br>
+     * input: {@link EntryExtraData#PARAM_INPUT_TYPE} <br>
+     * input: {@link EntryExtraData#PARAM_MIN_LENGTH} <br>
+     * input: {@link EntryExtraData#PARAM_MAX_LENGTH} <br>
+     * input: {@link EntryExtraData#PARAM_DEFAULT_VALUE} <br>
+     * input: {@link EntryExtraData#PARAM_TIMEOUT} <br>
+     * input: {@link EntryExtraData#PARAM_CONTINUE_SCREEN} <br>
+     * request: {@link EntryRequest#PARAM_INPUT_VALUE} <br>
+     */
+    public static final String ACTION_INPUT_TEXT = "com.pax.us.pay.action.INPUT_TEXT";
+
+
 } 

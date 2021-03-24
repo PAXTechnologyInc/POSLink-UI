@@ -164,6 +164,8 @@ public final class EntryExtraData {
     public static final String PARAM_CONTINUE_SCREEN = "continueScreen";
     public static final String PARAM_MESSAGE_1 = "message1";
     public static final String PARAM_MESSAGE_2 = "message2";
+    public static final String PARAM_INPUT_TYPE = "inputType";
+    public static final String PARAM_DEFAULT_VALUE = "defaultValue";
 
 
     //internal parameter
