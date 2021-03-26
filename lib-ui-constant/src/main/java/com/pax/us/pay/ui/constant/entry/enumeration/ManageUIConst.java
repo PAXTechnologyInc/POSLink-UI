@@ -45,4 +45,9 @@ public class ManageUIConst {
         public static final String UNCHECKED = "0";
         public static final String CHECKED = "1";
     }
+
+    public class ButtonType {
+        public static final String RADIO_BUTTON = "1";
+        public static final String CHECK_BOX = "2";
+    }
 }

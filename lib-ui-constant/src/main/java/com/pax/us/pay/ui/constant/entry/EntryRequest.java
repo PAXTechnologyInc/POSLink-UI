@@ -168,6 +168,7 @@ public class EntryRequest {
 
     //POSLINK 
     public static final String PARAM_INPUT_VALUE = "inputValue";
+    public static final String PARAM_LABEL_SELECTED = "labelSelected";
 
     public static final String PARAM_VALUE = "value";
 

@@ -166,6 +166,9 @@ public final class EntryExtraData {
     public static final String PARAM_MESSAGE_2 = "message2";
     public static final String PARAM_INPUT_TYPE = "inputType";
     public static final String PARAM_DEFAULT_VALUE = "defaultValue";
+    public static final String PARAM_LABELS = "labels";
+    public static final String PARAM_LABELS_PROPERTY = "labelsProperty";
+    public static final String PARAM_BUTTON_TYPE = "buttonType";
 
 
     //internal parameter
