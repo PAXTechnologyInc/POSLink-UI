@@ -65,14 +65,14 @@ public final class EntryExtraData {
     public static final String PARAM_INFORMATION_VALUE = "informationValue";
 
 
-//    public static final String PARAM_TITLE = "title";
+    public static final String PARAM_TITLE = "title";
 //    public static final String PARAM_USER_MESSAGE = "userMessage";
 //    public static final String PARAM_PRIMARY_AMOUNT = "primaryAmount";
 //    public static final String PARAM_CONVENIENCE_FEE = "convenienceFee";
 //    public static final String PARAM_SERVICE_FEE = "serviceFee";
 //    public static final String PARAM_TOTAL_FEE = "totalFee";
 //
-public static final String PARAM_BALANCE = "balance";
+    public static final String PARAM_BALANCE = "balance";
 
 
     /**
@@ -159,6 +159,17 @@ public static final String PARAM_BALANCE = "balance";
     public static final String PARAM_TRANS_URL = "transUri";
     public static final String PARAM_TRANS_SELECTION = "transSelection";
     public static final String PARAM_TRANS_SELECTION_ARGUMENTS = "transSelectionArguments";
+
+    //POSLink parameter
+    public static final String PARAM_CONTINUE_SCREEN = "continueScreen";
+    public static final String PARAM_MESSAGE_1 = "message1";
+    public static final String PARAM_MESSAGE_2 = "message2";
+    public static final String PARAM_INPUT_TYPE = "inputType";
+    public static final String PARAM_DEFAULT_VALUE = "defaultValue";
+    public static final String PARAM_LABELS = "labels";
+    public static final String PARAM_LABELS_PROPERTY = "labelsProperty";
+    public static final String PARAM_BUTTON_TYPE = "buttonType";
+
 
     //internal parameter
     /*
