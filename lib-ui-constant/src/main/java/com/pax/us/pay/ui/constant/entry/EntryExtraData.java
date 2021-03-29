@@ -169,6 +169,14 @@ public final class EntryExtraData {
     public static final String PARAM_LABELS = "labels";
     public static final String PARAM_LABELS_PROPERTY = "labelsProperty";
     public static final String PARAM_BUTTON_TYPE = "buttonType";
+    public static final String PARAM_TOP_DOWN = "topDown";
+    public static final String PARAM_TAX_LINE = "taxLine";
+    public static final String PARAM_TOTAL_LINE = "totalLine";
+    public static final String PARAM_IMAGE_URL = "imageURL";
+    public static final String PARAM_IMAGE_DESC = "imageDesc";
+    public static final String PARAM_LINE_ITEM_ACTION = "lineItemAction";
+    public static final String PARAM_ITEM_INDEX = "itemIndex";
+
 
 
     //internal parameter
