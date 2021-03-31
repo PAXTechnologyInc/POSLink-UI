@@ -71,4 +71,15 @@ public class PoslinkEntry {
      */
     public static final String ACTION_SHOW_MESSAGE = "com.pax.us.pay.action.SHOW_MESSAGE";
 
+
+    /**
+     * The intent action of show dialog form <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_TITLE} } <br>
+     * input: {@link EntryExtraData#PARAM_TAX_LINE} <br>
+     * input: {@link EntryExtraData#PARAM_TOTAL_LINE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE_LIST} <br>
+     */
+    public static final String ACTION_SHOW_ITEM = "com.pax.us.pay.action.SHOW_ITEM";
 } 

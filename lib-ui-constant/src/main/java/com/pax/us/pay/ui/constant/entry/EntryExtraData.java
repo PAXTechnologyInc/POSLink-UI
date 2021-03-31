@@ -175,6 +175,7 @@ public final class EntryExtraData {
     public static final String PARAM_IMAGE_URL = "imageURL";
     public static final String PARAM_IMAGE_DESC = "imageDesc";
     public static final String PARAM_MESSAGE_LIST = "messageList";
+    public static final String PARAM_CURRENCY_SYMBOL = "currencySymbol";
 
 //    public static final String PARAM_LINE_ITEM_ACTION = "lineItemAction";
 //    public static final String PARAM_ITEM_INDEX = "itemIndex";
