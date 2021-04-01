@@ -225,4 +225,7 @@ public class EntryRequest {
      * Type {@link android.graphics.Rect}
      */
     public static final String PARAM_KEY_CANCEL = "key_cancel";
+
+    //Aded for Visa Installment
+    public static final String INSTALLMEN_SELECT_OPTION = "installment_select_option";
 }
