@@ -43,6 +43,19 @@ public final class EntryExtraData {
     public static final String PARAM_ADMIN_PASSWORD_TYPE = "adminPasswordType";
 
 //    public static final String PARAM_HAS_PHYSICAL_KEYBOARD = "hasPhyKeyboard";
+    //added for installment plan selection
+    public static final String PARAM_INSTALLMENT_PAYMENT_AMOUNT_A = "installment_payment_amount_planA";
+    public static final String PARAM_INSTALLMENT_PAYMENT_AMOUNT_B = "installment_payment_amount_planB";
+    public static final String PARAM_NUMBER_OF_INSTALLMENTS_A = "numberOfInstallments_planA";
+    public static final String PARAM_NUMBER_OF_INSTALLMENTS_B = "numberOfInstallments_planB";
+    public static final String PARAM_FREQUENCY_OF_INSTALLMENT_A = "NumberOfInstallments_planA";
+    public static final String PARAM_FREQUENCY_OF_INSTALLMENT_B = "NumberOfInstallments_planB";
+    public static final String PARAM_TOTAL_FEES_PER_INSTALLMENT_PLAN_A = "total_fees_planA";
+    public static final String PARAM_TOTAL_FEES_PER_INSTALLMENT_PLAN_B = "total_fees_planB";
+    public static final String PARAM_TOTAL_AMOUNT_INCLUSIVE_OF_FEES_A = "total_amount_inclusive_fees_planA";
+    public static final String PARAM_TOTAL_AMOUNT_INCLUSIVE_OF_FEES_B = "total_amount_inclusive_fees_planB";
+    public static final String PARAM_TERMS_AND_CONDITIONS_A = "termsAndConditions_PlanA";
+    public static final String PARAM_TERMS_AND_CONDITIONS_B = "termsAndConditions_PlanB";
 
 
 

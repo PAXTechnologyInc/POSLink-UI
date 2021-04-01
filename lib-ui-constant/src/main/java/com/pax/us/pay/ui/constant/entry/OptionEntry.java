@@ -230,6 +230,9 @@ public class OptionEntry {
      */
     public static final String ACTION_SELECT_MERCHANT = "com.pax.us.pay.action.SELECT_MERCHANT";
 
+    //TODO for select installment plan, is it neccessary to add mapping into select_option_map?
+    public static final String ACTION_SELECT_INSTALLMENT_PLAN = "com.pax.us.pay.action.Select_Installment_Plan";
+
 //Note:
 //Appending a new action, please add mapping into "SELECT_OPTION_MAP" in "SelectOptionContent"
 
