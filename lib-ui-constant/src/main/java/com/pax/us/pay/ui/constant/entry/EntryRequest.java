@@ -167,6 +167,9 @@ public class EntryRequest {
      */
     public static final String PARAM_DO_NOT_PROMPT_AGAIN = "doNotPromptAgain";
 
+    //POSLINK 
+    public static final String PARAM_INPUT_VALUE = "inputValue";
+    public static final String PARAM_LABEL_SELECTED = "labelSelected";
 
     public static final String PARAM_VALUE = "value";
 
@@ -231,4 +234,7 @@ public class EntryRequest {
      * Type {@link android.graphics.Rect}
      */
     public static final String PARAM_KEY_CANCEL = "key_cancel";
+
+    //Aded for Visa Installment
+    public static final String INSTALLMEN_SELECT_OPTION = "installment_select_option";
 }

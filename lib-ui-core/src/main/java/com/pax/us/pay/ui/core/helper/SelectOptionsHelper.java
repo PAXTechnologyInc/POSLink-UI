@@ -23,6 +23,10 @@ public class SelectOptionsHelper extends BaseActionHelper {
         super.sendNext(bundle);
     }
 
+    public void sendNext() {
+        super.sendNext();
+    }
+
     @Override
     protected void showUI(@Nullable IUIListener uiListener, @NonNull Bundle bundle) {
         super.showUI(uiListener, bundle);
