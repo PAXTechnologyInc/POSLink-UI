@@ -13,6 +13,12 @@ public class EntryRequest {
     public static final String ACTION_ABORT = "com.pax.us.pay.ui.ABORT";
 
     /**
+     * ABORT: request BroadPOS to abort the transaction. <br>
+     */
+    public static final String ACTION_TIME_OUT = "com.pax.us.pay.ui.TIME_OUT";
+
+
+    /**
      * PREV: request BroadPOS to go to previous step . <br>
      */
     public static final String ACTION_PREV = "com.pax.us.pay.ui.PREV";
@@ -161,6 +167,9 @@ public class EntryRequest {
      */
     public static final String PARAM_DO_NOT_PROMPT_AGAIN = "doNotPromptAgain";
 
+    //POSLINK 
+    public static final String PARAM_INPUT_VALUE = "inputValue";
+    public static final String PARAM_LABEL_SELECTED = "labelSelected";
 
     public static final String PARAM_VALUE = "value";
 

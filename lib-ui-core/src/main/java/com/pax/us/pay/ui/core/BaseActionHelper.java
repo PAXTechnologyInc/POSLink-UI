@@ -53,6 +53,13 @@ public abstract class BaseActionHelper {
         actionHandler.sendAbort();
     }
 
+    public void sendTimeout() {
+        if (actionHandler == null) {
+            throw new IllegalStateException(STATE_ERROR_LOG);
+        }
+        actionHandler.sendTimeout();
+    }
+
     public void sendPrev() {
         if (actionHandler == null) {
             throw new IllegalStateException(STATE_ERROR_LOG);
