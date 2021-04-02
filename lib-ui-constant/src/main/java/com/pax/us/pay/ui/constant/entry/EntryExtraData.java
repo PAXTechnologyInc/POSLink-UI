@@ -143,6 +143,8 @@ public final class EntryExtraData {
     public static final String PARAM_ZIP_CODE_PATTERN = "zipCodePattern";
     public static final String PARAM_ADDRESS_PATTERN = "addressPattern";
 
+    public static final String PARAM_QR_CODE_CONTENT = "qrCodeContent";
+
     /**
      * PARAM_TRANS_STATUS : transaction status <br>
      * To Do : enum: upload, offline, voided, Adjusted ??????

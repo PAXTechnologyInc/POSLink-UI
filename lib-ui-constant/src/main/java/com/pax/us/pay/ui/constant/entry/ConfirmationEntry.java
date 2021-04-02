@@ -287,4 +287,13 @@ public class ConfirmationEntry {
      */
     public static final String ACTION_CONFIRM_SIGNATURE_MATCH = "com.pax.us.pay.action.CONFIRM_SIGNATURE_MATCH";
 
+    /**
+     * The intent action of display QRCode receipt<br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_QR_CODE_CONTENT} <br>
+     * input: {@link EntryExtraData#PARAM_TIMEOUT} <br>
+     * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
+     */
+    public static final String ACTION_DISPLAY_QR_CODE_RECEIPT = "com.pax.us.pay.action.DISPLAY_QR_CODE_RECEIPT";
+
 }
