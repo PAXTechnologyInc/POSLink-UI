@@ -169,6 +169,8 @@ public class EntryRequest {
     //POSLINK 
     public static final String PARAM_INPUT_VALUE = "inputValue";
     public static final String PARAM_LABEL_SELECTED = "labelSelected";
+    public static final String PARAM_BUTTON_NUMBER = "buttonNumber";
+    public static final String PARAM_SIGN_STATUS = "signStatus";
 
     public static final String PARAM_VALUE = "value";
 
@@ -180,6 +182,7 @@ public class EntryRequest {
     public static final String PARAM_WIDTH = "width";
     public static final String PARAM_HEIGHT = "height";
     public static final String PARAM_FONT_SIZE = "fontSize";
+
 
     /**
      * Type {@link android.graphics.Rect}

@@ -82,4 +82,41 @@ public class PoslinkEntry {
      * input: {@link EntryExtraData#PARAM_MESSAGE_LIST} <br>
      */
     public static final String ACTION_SHOW_ITEM = "com.pax.us.pay.action.SHOW_ITEM";
+
+
+    /**
+     * The intent action of show dialog form <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_TITLE} <br>
+     * input: {@link EntryExtraData#PARAM_TEXT} <br>
+     * input: {@link EntryExtraData#PARAM_BUTTON_1_NAME} <br>
+     * input: {@link EntryExtraData#PARAM_BUTTON_1_COLOR} <br>
+     * input: {@link EntryExtraData#PARAM_BUTTON_1_KEY} <br>
+     * input: {@link EntryExtraData#PARAM_BUTTON_2_NAME} <br>
+     * input: {@link EntryExtraData#PARAM_BUTTON_2_COLOR} <br>
+     * input: {@link EntryExtraData#PARAM_BUTTON_2_KEY} <br>
+     * input: {@link EntryExtraData#PARAM_BUTTON_3_NAME} <br>
+     * input: {@link EntryExtraData#PARAM_BUTTON_3_COLOR} <br>
+     * input: {@link EntryExtraData#PARAM_BUTTON_3_KEY} <br>
+     * input: {@link EntryExtraData#PARAM_TIMEOUT} <br>
+     * input: {@link EntryExtraData#PARAM_ENABLE_HARD_KEY} <br>
+     * input: {@link EntryExtraData#PARAM_HARD_KEY_LIST} <br>
+     * input: {@link EntryExtraData#PARAM_BARCODE_TYPE} <br>
+     * input: {@link EntryExtraData#PARAM_BARCODE_DATA} <br>
+     * request: {@link EntryRequest#PARAM_BUTTON_NUMBER} <br>
+     */
+    public static final String ACTION_SHOW_TEXT_BOX = "com.pax.us.pay.action.SHOW_TEXT_BOX";
+
+    /**
+     * The intent action of show signature box <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_TITLE} <br>
+     * input: {@link EntryExtraData#PARAM_TEXT} <br>
+     * input: {@link EntryExtraData#PARAM_TIMEOUT} <br>
+     * request: {@link EntryRequest#PARAM_SIGN_STATUS} <br>
+     * request: {@link EntryRequest#PARAM_SIGNATURE} <br>
+     */
+    public static final String ACTION_SHOW_SIGNATURE_BOX = "com.pax.us.pay.action.SHOW_SIGNATURE_BOX";
 } 
