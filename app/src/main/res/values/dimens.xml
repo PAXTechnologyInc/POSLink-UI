@@ -1,25 +1,35 @@
 <resources>
 
-    <dimen name="common_circle_width">3dp</dimen>
-    <dimen name="button_height">64dp</dimen>
-    <dimen name="edit_height">70dp</dimen>
-    <dimen name="clss_light">30dp</dimen>
+    <dimen name="space_vertical_smaller">4dp</dimen>
+    <dimen name="space_vertical_extra_large">72dp</dimen>
+    <dimen name="space_vertical_extra_extra_large">90dp</dimen>
+    <dimen name="space_horizontal_smaller">4dp</dimen>
 
-    <!--vertical space-->
-    <dimen name="space_vertical_small">8dp</dimen>
-    <dimen name="space_vertical">24dp</dimen>
-    <dimen name="space_vertical_large">48dp</dimen>
+    <dimen name="button_height_large">72dp</dimen>
 
-    <!--horizontal space-->
-    <dimen name="space_horizontal">16dp</dimen>
+    <dimen name="receipt_preview_height">800dp</dimen>
+    <dimen name="receipt_preview_top">38dp</dimen>
+    <dimen name="receipt_preview_top_small">20dp</dimen>
+    <dimen name="receipt_preview_top_middle">24dp</dimen>
+    <dimen name="receipt_preview_start_end">40dp</dimen>
+    <dimen name="receipt_preview_padding_start_end">30dp</dimen>
+    <dimen name="receipt_preview_padding_bottom">50dp</dimen>
+    <dimen name="receipt_space_horizontal">10dp</dimen>
+    <dimen name="receipt_space_small">1dp</dimen>
+    <dimen name="receipt_space_header">-4dp</dimen>
 
-    <dimen name="paint_width">5dp</dimen>
 
-    <dimen name="default_gap">24dp</dimen>
+    <dimen name="ui_activity_horizontal_margin">16dp</dimen>
+    <dimen name="ui_text_size">28sp</dimen>
 
-    <dimen name="font_size_hint">14sp</dimen>
-    <dimen name="font_button">24sp</dimen>
-    <dimen name="font_size_prompt">24sp</dimen>
-    <dimen name="font_size_value">20sp</dimen>
-    <dimen name="font_edit_text">48sp</dimen>
+    <dimen name="ui_text_size_8">8sp</dimen>
+    <dimen name="ui_text_size_10">10sp</dimen>
+    <dimen name="ui_text_size_12">12sp</dimen>
+    <dimen name="ui_text_size_16">16sp</dimen>
+    <dimen name="ui_text_size_18">18sp</dimen>
+    <dimen name="ui_text_size_20">20sp</dimen>
+    <dimen name="ui_text_size_25">25sp</dimen>
+
+    <dimen name="ui_font_size_normal">20sp</dimen>
+
 </resources>

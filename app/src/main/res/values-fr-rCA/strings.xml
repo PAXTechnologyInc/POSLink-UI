@@ -1,0 +1,449 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="eula_title">END-USERLICENSE AGREEMENT FOR PAX TECHNOLOGY SOFTWARE\nCONTRAT DE LICENCE D\'UTILISATEUR FINAL POUR LE LOGICIEL DE TECHNOLOGIE PAX</string>
+    <string name="pinpad_connect">Connexion au PINPAD...</string>
+    <string name="test_only">FOR TEST ONLY\n(Not for commercial use)\nPOUR LA TEST SEULEMENT\n(Pas pour une utilisation commerciale)</string>
+    <string name="demo_only">FOR DEMO ONLY\n(Not for commercial use)\nPOUR LA DÉMO SEULEMENT\n(Pas pour une utilisation commerciale)</string>
+    <string name="test_and_demo">FOR TEST &amp; DEMO ONLY\n(Not for commercial use)\nPOUR LA TEST &amp; DÉMO SEULEMENT\n(Pas pour une utilisation commerciale)</string>
+
+    <string name="amount_default">0.00</string>
+    <string name="time_default">00:00</string>
+
+
+    <string name="length">longueur</string>
+    <string name="length_en">length</string>
+    <string name="length_fr">longueur</string>
+
+    <string name="number">nombre</string>
+    <string name="number_en">number</string>
+    <string name="number_fr">nombre</string>
+
+    <string name="tip_name_opt">pourboire</string>
+    <string name="tip_name_en">Tip</string>
+    <string name="tip_name_fr">pourboire</string>
+
+
+    <!--history-->
+    <string name="history_total">Total</string>
+    <string name="history_detail">Detail</string>
+    <string name="history_detail_edc_type">Type de saisie électronique de données</string>
+    <string name="history_detail_trans_type">Types de transaction</string>
+    <string name="history_detail_card_no">Numéro de carte</string>
+    <string name="history_detail_status">Statut</string>
+    <string name="history_detail_auth_code">Code d\'authorisation</string>
+    <string name="history_detail_amount">Amount \\ Montant</string>
+    <string name="history_detail_point">Point</string>
+    <string name="history_detail_ref_no">N°DE REFERENCE.</string>
+    <string name="history_detail_card_type">Type de carte</string>
+    <string name="history_detail_dateTime">Date/Heure</string>
+    <string name="history_menu_print_trans_last">Imprimer en dernier</string>
+    <string name="history_menu_print_trans_detail">Détails d\'impression</string>
+    <string name="history_menu_print_trans_total">Résumé d\'impression</string>
+    <string name="history_menu_print_last_total">Dernier règlement</string>
+    <string name="history_menu_print_any">Imprimer n\'importe quel</string>
+
+    <string name="point">Point :</string>
+
+
+    <!--tip menu-->
+    <string name="scroll_untipped">View Untipped Trans.\nDefiler Trans. S/P</string>
+    <string name="by_invoice">By Invoice No.\nPar facture.</string>
+    <string name="by_server">By Clerk/Server ID\nPar #server/march</string>
+    <string name="by_trans">By Trans. No.\nPar #transaction</string>
+    <string name="by_cardtype">By Card Type\nPar type de carte</string>
+    <string name="by_cardnum">By Card No.\nPar numero de carte</string>
+    <string name="select_tip_menu">Tip Menu\nMenu pourboire</string>
+    <string name="store_forward">Store&amp;Forward\nEnreg. et Trans.</string>
+    <string name="scroll_all">Scroll All\nFaire defiler tout</string>
+    <string name="upload_trans">Upload Transaction\nCharger transaction</string>
+    <string name="resent_failed">Resent Failed\nÉchec du renvoi</string>
+    <string name="by_referencenum">By Ref. No.\nPar numéro de référence</string>
+
+
+    <!-- trans UI -->
+    <string name="trans_confirm_btn">CONFIRM \\ CONFIRMER</string>
+    <string name="cancel_btn" tools:ignore="ButtonCase">CANCEL \\ ANNULER</string>
+    <string name="agree_btn">Agree\nSe mettre d\'accord</string>
+    <string name="disagree_btn">Disagree\nÊtre en désaccord</string>
+
+
+    <!-- Base -->
+    <string name="num_0">0</string>
+    <string name="num_1">1</string>
+    <string name="num_2">2</string>
+    <string name="num_3">3</string>
+    <string name="num_4">4</string>
+    <string name="num_5">5</string>
+    <string name="num_6">6</string>
+    <string name="num_7">7</string>
+    <string name="num_8">8</string>
+    <string name="num_9">9</string>
+    <string name="num_00">00</string>
+    <string name="num_000">000</string>
+
+    <!--prompt-->
+    <string name="prompt_expiry_date_default">MM/YY</string>
+    <string name="prompt_date_default">YYYY/MM/DD</string>
+    <string name="prompt_input_amount">Please Enter Amount \\ Veuillez entrer le montant</string>
+    <string name="prompt_input_tip">Please Enter Tip \\ Veuillez entrer le montant du pourboire</string>
+    <string name="prompt_input_tip_in_dollars">Please Enter Tip (in dollars) \\ Veuillez entrer le montant du pourboire (En dollars)</string>
+    <string name="prompt_card_num">Card No. \\ Numéro de carte</string>
+    <string name="btn_scan">SCAN</string>
+    <string name="hint_enter_account">Enter Card Number \\ ENTRER  #CARTE:</string>
+    <string name="enter_new_account">Enter New Card Number \\ Entrez le nouveau numéro de carte:</string>
+    <string name="prompt_pin">Please Enter PIN \\ ENTRER NIP</string>
+    <string name="prompt_no_pin">Press OK to Bypass PIN \\ Appuyez sur OK pour contourner le code PIN</string>
+    <string name="prompt_offline_pin">Please Enter PIN \\ ENTRER NIP</string>
+    <string name="prompt_use_pinpad">Please Use Pinpad \\ Veuillez utiliser le clavier NIP</string>
+    <string name="prompt_input_point">Please Enter Point \\ Veuillez entrer les points</string>
+    <string name="prompt_input_fuel_amount">Please Enter Fuel Amount \\ Veuillez saisir la quantité de carburant</string>
+    <string name="prompt_input_tax_amount">Please Enter Tax Amount \\ Veuillez entrer le montant de la TAXE</string>
+    <string name="prompt_input_total_amount">Please Enter Total Amount \\ Veuillez saisir le montant total</string>
+    <string name="prompt_phone_xxx_xxx_xxxx">(xxx)xxx-xxxx</string>
+    <string name="prompt_social_security">xxx-xx-xxxx</string>
+
+    <string name="pls_input_4digit">Number must be 4 digits\nLe numéro doit être composé de 4 chiffres</string>
+    <string name="data_cannot_zero">The data cannot be zero, please enter again\nLes données ne peuvent pas être nulles, veuillez saisir à nouveau</string>
+    <string name="invalid_exp_date">Invalid Expiry\nDate D\'exp Inv</string>
+    <string name="pls_input_again">Please Enter Amount\nVeuillez entrer le montant</string>
+    <string name="pls_select_again">Please Select Again\nVeuillez sélectionner à nouveau</string>
+    <!-- Todo combination word，special processing-->
+    <string name="pls_select">Please Select \\ Veuillez sélectionner</string>
+    <string name="prompt_pwd">Please enter password\nVeuillez entrer le mot de passe</string>
+    <string name="prompt_manager_pwd">Enter Manager Password\nEntrez le mot de passe du directeur</string>
+    <string name="prompt_operator_pwd">Enter Operator Password\nEntrez le mot de passe de l\'opérateur</string>
+    <string name="prompt_merchant_pwd">Enter %1$s\'s Password\nEntrez le mot de passe de %1$s</string>
+    <string name="enter_pwd">Enter Password\nEntrez le mot de passe</string>
+
+    <string name="prompt_merchant">Merchant \\ Commerçant</string>
+    <string name="total_amount">Total Amount \\ Montant total</string>
+    <string name="total_point">Total Point \\ Points totaux</string>
+
+    <string name="cancel_sign">Cancel\nAnnuler</string>
+    <string name="clear_sign">Clear\nEffacer</string>
+    <string name="finish_sign">Confirm\nConfirmer</string>
+    <string name="signature">Signature</string>
+    <string name="pls_re_signature">Please Sign Again\nVeuillez signer à nouveau</string>
+    <string name="pls_input_again_date">Please Enter Date again\nVeuillez saisir à nouveau la date</string>
+    <string name="please_enter_voucher_number">Please Enter Voucher Number \\ Veuillez entrer le numéro de bon</string>
+    <string name="please_enter_auth_code">Please Enter Auth Code \\ Veuillez entrer le code d\'aut.</string>
+    <string name="pls_input_address">Please Enter Address \\ Veuillez entrer adresse</string>
+    <string name="pls_input_zip_code">Please Enter Zip Code \\ Veuillez entrer code postal</string>
+    <string name="pls_input_expiry_date">Please Enter Expiry Date \\ Veuillez entrer la date d\'expiration</string>
+    <string name="pls_input_transaction_number">Please Enter Transaction Number \\ Veuillez entrer la trans.</string>
+    <string name="pls_input_reference_number">Please Enter Reference Number \\ Veuillez entrer le numéro de référence</string>
+    <string name="pls_input_invoice_number">Please Enter Invoice Number \\ Veuillez entrer la facture</string>
+    <string name="pls_input_merchant_reference_number">Please Enter Reference Number \\ Veuillez saisir le numéro de référence du marchand</string>
+    <string name="pls_input_oct_reference_number">Please Enter OCT Reference Number \\ Veuillez entrer le numéro de référence du OCT</string>
+
+    <string name="pls_input_pin">Please Enter PIN \\ Entrer NIP</string>
+    <string name="pls_input_vcode">Please Enter V-Code \\ Veuillez entrer V-Code</string>
+    <string name="prompt_input_4digit">Please Enter Last 4 Digits \\ Veuillez entrer les 4 derniers chiffres</string>
+    <string name="prompt_input_all_digit">Please Enter All Digits \\ Veuillez entrer tous les chiffres</string>
+    <string name="prompt_input_cashback">Please Enter Cashback \\ Veuillez entrer le montant de la remise en espèces</string>
+    <string name="pls_input_orig_trans_date">Please Enter Original Transaction Date\Veuillez entrer la date de la trans. initiale</string>
+    <string name="pls_input_pin_again">PIN Error, Please Retry\nPlease Enter PIN\n\nErreur PIN, veuillez réessayer\nVeuillez saisir le code PIN</string>
+    <string name="pls_input_pin_last">Last PIN Attempt\nPlease Enter PIN\n\nDernière tentative de code PIN\nVeuillez saisir le code PIN</string>
+    <string name="pls_input_dest_zip_code">Please Enter Destination Zip Code \\ Veuillez entrer le code postal de destination</string>
+
+    <string name="select_emv_aid">Please Select Application \\ Veuillez sélectionner une app</string>
+    <string name="select_sub_trans_type">Please Select Transaction Type \\ Veuillez sélectionner la transaction</string>
+    <string name="select_account_type">Please Select Debit Account \\ Veuillez sélectionner un compte de débit</string>
+    <string name="select_language">Please Select Language \\ Veuillez sélectionner la langue</string>
+    <string name="select_ebt_type">Please Select EBT Type \\ Veuillez sélectionner le type EBT</string>
+    <string name="check_card_present">Card Present \\ Transaction avec carte?</string>
+    <string name="select_bypass_reason">Explain Reason \\ Expliquer la raison</string>
+    <string name="select_reverse_partial">Reverse \\ Annulée?</string>
+    <string name="select_supplement_partial">Another Payment \\ Autre le paiement?</string>
+    <string name="select_moto_type">Please Select MOTO Type \\ Veuillez sélectionner le type de CP/CT</string>
+    <string name="select_refund_reason">Please Select Refund Reason \\ Veuillez sélectionner la raison du remboursement</string>
+    <string name="select_tax_reason">Please Select TAX Reason \\ Veuillez sélectionner le motif de la taxe</string>
+    <string name="select_edc_type">Please Select EDC Type \\ Veuillez sélectionner le type EDC</string>
+    <string name="select_card_type">Please Select Card Type \\ Veuillez sélectionner le type de carte</string>
+    <string name="select_trans_type">Please Select Transaction Type \\ Veuillez sélectionner le type de transaction</string>
+    <string name="select_search_type">Please Select Search Criteria \\ Veuillez sélectionner les critères de recherche</string>
+    <string name="select_duplicate_override">Duplicate Transaction Override \\ Remplacement de transaction en double?</string>
+    <string name="select_batch_menu">Batch Menu \\ Menu de lots</string>
+    <string name="select_batch_inquiry">Batch Inquiry \\ Interrogation du lot</string>
+    <string name="select_report_type">Select Report Type \\ Sélectionnez le type de rapport</string>
+    <string name="select_tip_amount">Please Select Tip Amount \\ Veuillez sélectionner le pourboire</string>
+    <string name="select_cashback_amount">Please Select Cashback \\ Veuillez sélectionner la remise en espèces</string>
+    <string name="select_merchant">Please Select Merchant \\ Veuillez sélectionner un marchand</string>
+
+    <string name="pls_input_clerk_id">Please Enter Clerk ID \\ Veuillez entrer l\'id du commis</string>
+    <string name="pls_input_server_id">Please Enter Server ID \\ Veuillez entrer l\'id du serveur</string>
+    <string name="pls_input_table_number">Please Enter Table Number \\ Veuillez entrer le numéro de la table</string>
+    <string name="pls_input_phone_number">Please Enter Phone Number \\ Veuillez entrer le numéro de téléphone</string>
+    <string name="pls_input_guest_number">Please Enter Guest Number \\ Veuillez entrer le numéro d\'invité</string>
+    <string name="pls_input_order_number">Please Enter Order Number \\ Veuillez entrer le numéro de commande</string>
+    <string name="pls_input_po_number">Please Enter P.O. Number \\ Veuillez entrer le numéro de BC</string>
+    <string name="pls_input_proc_desc">Please Enter Product Description \\ Veuillez entrer la description de produit</string>
+    <string name="pls_input_customer_code">Please Enter Customer Code \\ Veuillez entrer le code client</string>
+    <string name="pls_input_prompt_restriction_code">Please Enter Prompt Restriction Code \\ Veuillez entrer le code de restriction rapide</string>
+    <string name="pls_input_cs_phone_number">Please Enter Customer Service Phone \\ Veuillez entrer le numéro de téléphone du service à la clientèle</string>
+    <string name="prompt_merchant_tax_id">Please Enter Merchant Tax ID \\ Veuillez entrer l\'ID de taxe du commerçant</string>
+
+    <!--prompt for fleet trans data-->
+    <string name="prompt_input_prompt_code_for_wex">Please Enter Prompt Code \\ Veuillez entrer le code d\'invite </string>
+    <string name="prompt_input_fleet_odometer">Please Enter Odometer \\ Veuillez entrer l\'odomètre </string>
+    <string name="prompt_input_fleet_id_no">Please Enter ID No. \\ Veuillez entrer le numéro d\'identification</string>
+    <string name="prompt_input_fleet_driver_id">Please Enter Driver ID \\ Veuillez entrer l\'ID du pilote</string>
+    <string name="prompt_input_fleet_vehicle_id">Please Enter Vehicle ID \\ Veuillez entrer l\'ID du véhicule</string>
+    <string name="prompt_input_fleet_user_id">Please Enter User ID \\ Veuillez entrer l\'ID utilisateur</string>
+    <string name="prompt_input_fleet_customer_data">Please Enter Data \\ Veuillez entrer les données</string>
+    <string name="prompt_input_fleet_department_no">Please Enter Department No \\ Veuillez entrer le numéro de service </string>
+    <string name="prompt_input_fleet_job_no">Please Enter Job No. \\ Veuillez entrer le numéro de la tâche</string>
+    <string name="prompt_input_fleet_license_no">Please Enter License No. \\ Veuillez entrer le numéro de licence.</string>
+    <string name="prompt_input_fleet_vehicle_no">Please Enter Vehicle No. \\ Veuillez entrer le numéro de véhicule</string>
+
+    <string name="confirm_adjust_tip">Would you like to add this tip?\nSouhaitez-vous ajouter cette astuce?</string>
+    <string name="confirm_card_process_result">Card Error\nErr. de carte à puce</string>
+    <string name="confirm_current">Current\nActuel</string>
+    <string name="confirm_all">All\nTout</string>
+    <string name="confirm_merchant_scope">Apply for all merchants or current?\nAppliquer pour tous les marchands ou courant?</string>
+    <string name="confirm_decline">Decline\nRefuser</string>
+    <string name="confirm_continue">Continuer</string>
+    <string name="confirm_card_entry_retry">Decline-host message\nPlease retry or\nTry another card\n\nMessage de refus de l\'hôte \nVeuillez réessayer ou \nEssayez une autre carte</string>
+    <string name="confirm_eula_continue">You must agree to the EULA to use this device\nVous devez accepter le CLUF pour utiliser cet appareil</string>
+    <string name="confirm_prompt_again">I have accepted the EULA, Don\'t prompt again\nJ\'ai accepté le CLUF, ne plus demander</string>
+
+    <!-- signature -->
+    <string name="signature_clear">Clear\nEffacer</string>
+    <string name="signature_done">Enter\nEntrer</string>
+    <string name="signature_redo">Signature Data is Too Long, Please Sign Again\nLes données de signature sont trop longues, veuillez vous reconnecter</string>
+
+    <!--FSA String-->
+    <string name="fsa_healthcare_amt">HealthCare Amount\nMontant de soins de santé</string>
+    <string name="fsa_otc_amt">OTC Amount\nMontant OTC</string>
+    <string name="fsa_clinic_amt">Clinic Amount\nMontant de la clinique</string>
+    <string name="fsa_prescription_amt">Prescription Amount\nMontant de la prescription</string>
+    <string name="fsa_vision_amt">Vision Amount\nMontant de la vision</string>
+    <string name="fsa_dental_amt">Dental Amount\nMontant dentaire</string>
+    <string name="fsa_copay_amt">Copay Amount\nMontant de la quote-part</string>
+    <string name="fsa_transit_amt">Transit Amount\nMontant du transit</string>
+    <string name="select_fsa_type">Please Select Account Type \\ Veuillez sélectionner le type de compte</string>
+    <string name="select_health_sub_types">Please Select Healthcare Type \\ Veuillez sélectionner le type de soins de santé</string>
+
+
+    <!--Error -->
+    <string name="err_invalid_date">Invalid Date. Please enter again\nDate invalide. Veuillez entrer à nouveau.</string>
+    <string name="err_invalid_time">Invalid Time. Please enter again.\nHeure invalide. Veuillez entrer à nouveau.</string>
+
+    <!-- Notice -->
+    <string name="notice_out_of_range">The %1$s must be in range %2$s\nLe %3$s doit être dans la plage %4$s</string>
+    <string name="notice_len_out_of_range">The %1$s must be in %2$d-%3$d\nLe %4$s doit être en %5$d-%6$d</string>
+    <string name="notice_amount_out_of_range">The amount must be in %1$s-%2$s\nLe montant doit être en %3$s-%4$s</string>
+    <string name="notice_out_of_length">The %1$s must be %2$s\nLe %3$s doit être %4$s</string>
+
+
+    <string name="img_desc" />
+    <string name="dialog_cancel">Cancel \\ Annuler</string>
+    <string name="dialog_ok">OK \\ D\'accord</string>
+    <string name="dialog_no">NO \\ NON</string>
+    <string name="dialog_yes">YES \\ OUI</string>
+    <string name="dialog_accept">Accept \\ J\'accepte</string>
+
+    <string name="other_amount">Others \\ Autres</string>
+    <string name="no_tip">No Tip \\ Aucun conseil</string>
+
+    <string name="column_left">Left</string>
+    <string name="column_right">Right</string>
+    <string name="column_color">Color</string>
+    <string name="color_blue">Blue</string>
+    <string name="color_red">Red</string>
+    <string name="color_default">Default</string>
+
+
+    <!-- image workaround -->
+    <string name="image_desc"> </string>
+
+    <!-- Print  -->
+    <string name="dialog_print">PRINT \\ IMPRIMER</string>
+    <string name="receipt_preview">Print Preview \\ Aperçu avant impression</string>
+    <string name="receipt_image_too_larger">Receipt Image may be to larger!\nL\'image du reçu peut être trop grande!</string>
+    <string name="receipt_image_too_long">Receipt image is too long!\nL\'image du reçu est trop longue!</string>
+    <string name="err_no_trans">Transaction Not Found\nTRANS. INCONNU</string>
+    <string name="trans_adjust">Adjust \\ Ajuster</string>
+    <string name="trans_print">Print \\ Imprimer</string>
+    <string name="history_detail_trans_no">Numéro de transaction</string>
+    <string name="pls_scan_receipt">Scan your receipt \\ Scannez votre reçu</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="sale_amount">Sale Amount\nMontant de la vente</string>
+
+    <!--Select Option Content -->
+    <!-- EBTType -->
+    <string name="food_stamp">FOOD STAMP\nCOUPON ALIMENTAIRE</string>
+    <string name="cash_benefit">CASH BENEFIT\nGAINS EN ESPÈCES</string>
+    <string name="voucher">VOUCHER\nCOUPON</string>
+    <string name="e_wic">E WIC</string>
+    <string name="both">BOTH\nLES DEUX</string>
+    <string name="e_wic_voucher">E WIC VOUCHER\nE WIC COUPON</string>
+    <!-- BypassReason -->
+    <string name="want_to_bypass">Bypass \\ Contourner</string>
+    <string name="cannot_read">Unable to Read \\ Incapable de lire</string>
+    <string name="does_not_exist">Not Present \\ Pas présent</string>
+
+    <!-- SubTransType -->
+    <string name="option_by_cardnum">BY CARDNUM\nPAR NUMERO DE CARTE</string>
+    <string name="by_refno">BY REFNO.\nPAR NUMÉRO DE RÉFÉRENCE</string>
+    <!-- CashoutType -->
+    <string name="cashout_active">CASHOUT ACTIVE\nENCAISSER ACTIVER</string>
+    <string name="cashout">CASHOUT\nENCAISSER</string>
+    <!-- RefundReason -->
+    <string name="option_return">RETURN\nRETOUR</string>
+    <string name="adjustment">AJUSTEMENT</string>
+    <!-- MOTOType -->
+    <string name="mail_order">MAIL ORDER\nCOMMANDE POSTALE</string>
+    <string name="phone_order">PHONE ORDER\nCOMMANDE PAR TÉLÉPHONE</string>
+    <!-- TaxReason -->
+    <string name="tax_not_used">TAX NOT USED\nIMPOT NON APPLIQUE</string>
+    <string name="tax_exempt">TAX EXEMPT\nEXONERATION FISCALE</string>
+    <string name="enter_tax_amount_again">ENTER THE TAX AMOUNT AGAIN\nINSCRIRE DE NOUVEAU LE MONTANT DE LA TAXE</string>
+    <!-- DuplicateType -->
+    <string name="override">OVERRIDE\nOUTREPASSER</string>
+    <string name="get_original_response_data">GET ORIGINAL RESPONSE DATA\nGET ORIGINAL RESPONSE DATA</string>
+    <!-- CardType -->
+    <string name="visa">VISA</string>
+    <string name="mastercard">MASTERCARD</string>
+    <string name="amex">AMEX</string>
+    <string name="diners">DINERS</string>
+    <string name="discover">DISCOVER</string>
+    <string name="unionpay">UNIONPAY</string>
+    <string name="jcb">JCB</string>
+    <string name="enroute">enRoute</string>
+    <string name="extended">Extended</string>
+    <string name="visa_fleet">VisaFleet</string>
+    <string name="mastercard_fleet">MasterCardFleet</string>
+    <string name="fleet_one">FleetOne</string>
+    <string name="fleet_wide">FleetWide</string>
+    <string name="fuelman">Fuelman</string>
+    <string name="gascard">Gascard</string>
+    <string name="voyager">Voyager</string>
+    <string name="wrightexpress">WrightExpress</string>
+
+    <!-- TransType -->
+    <string name="sale">SALE \\ VENTE</string>
+    <string name="redeem">REDEEM \\ RACHETER</string>
+    <string name="trans_return">RETURN \\ RETOUR</string>
+    <string name="balance">BALANCE \\ SOLDE</string>
+    <string name="forced">FORCED \\ TRANSACTION FORCÉE</string>
+    <string name="vfrcd">VOID FORCED \\ ANNULER LA TRANS. FORCÉE</string>
+    <string name="vrtrn">VOID RETURN \\ ANNULER LA TRANS. DE RETOUR</string>
+    <string name="auth">AUTH \\ AUTOR</string>
+    <string name="postauth">POST AUTH \\ POST-AUTOR</string>
+    <string name="vauth">VOID AUTH \\ ANNULER LA TRANS. DE PRÉAUT.</string>
+    <string name="verify">VERIFY \\ VÉRIFIER</string>
+    <string name="tokenize">TOKENIZE \\ SEGMENTER EN UNITÉS</string>
+    <string name="withdrawal">WITHDRAWAL \\ RETRAIT</string>
+    <string name="add">ADD \\ AJOUTER</string>
+    <string name="addtip">ADD TIP \\ AJOUTER UN POURBOIRE</string>
+    <string name="activate">ACTIVATE \\ ACTIVER</string>
+    <string name="unload">UNLOAD \\ DÉSAPPROVISIONNER</string>
+    <string name="trans_void">VOID \\ ANNULER</string>
+    <string name="issue">ISSUE \\ ÉMETTRE</string>
+    <string name="trans_cashout">CASH OUT \\ ENCAISSER</string>
+    <string name="vsale">VOID SALE \\ ANNULER LA VENTE</string>
+    <string name="deact">DEACTIVATE \\ DÉSACTIVER</string>
+    <string name="vpost">VOID POST \\ ANNULER LA TRANS. DE POST-AUT.</string>
+    <string name="vwithdraw">VOID WITHDRAW \\ ANNULER LE RETRAIT</string>
+    <string name="replace">REPLACE \\ REMPLACER</string>
+    <string name="merge">MERGE \\ FUSIONNER</string>
+    <string name="transfer">TRANSFER \\ TRANSFÉRER</string>
+    <string name="reversal">REVERSAL \\ ANNULATION</string>
+    <string name="adjust">ADJUST \\ AJUSTER</string>
+    <string name="upload">UPLOAD \\ CHARGEMENT</string>
+    <string name="batch_close">BATCH \\ LOT FERME</string>
+
+    <!-- EDCType -->
+    <string name="credit">CREDIT \\ CRÉDIT</string>
+    <string name="debit">DEBIT \\ DÉBIT</string>
+    <string name="ebt">EBT</string>
+    <string name="cash">CASH \\ ESPÈCES</string>
+    <string name="gift">GIFT \\ CARTE-CADEAU</string>
+    <string name="loyalty">LOYALTY \\ CARTE DE FIDÉLITÉ</string>
+    <string name="subgift">SUBGIFT \\ SBGIFT</string>
+    <string name="subloyalty">SUBLOYALTY \\ SBLOYALTY</string>
+    <string name="check">CHECK \\ CHÈQUE</string>
+
+    <!-- SearchCriteria -->
+    <string name="by_trans_number">BY TRANS NUMBER\nPar #transaction</string>
+    <string name="by_last_4_digits">BY LAST 4 DIGITS\nPar 4 derniers chiffres</string>
+    <string name="by_invoice_number">BY INVOICE NUMBER\nPAR LA FACTURE</string>
+    <string name="by_card_type">BY CARD TYPE\nPar type de carte</string>
+    <string name="by_clerk_server_id">BY CLERK SERVER ID\nPAR L\'ID DU COMMIS</string>
+    <string name="by_untipped">SEARCH UNTIPPED\nChercher les transactions sans pourboire</string>
+    <string name="by_reference_number">BY REFERENCE NUMBER\nPAR NUMÉRO DE RÉFÉRENCE</string>
+    <string name="by_store_forward">SEARCH STORE FORWARD\nRECHERCHE AVANT MAGASIN</string>
+    <string name="by_upload_trans">SEARCH UPLOAD TRANSACTION\nRECHERCHE TRANSACTION DE TÉLÉCHARGEMENT</string>
+    <string name="by_resent_failed">SEARCH RESENT FAILED\nRECHERCHE RENVOYÉE ÉCHOUÉE</string>
+
+    <!-- BatchType -->
+    <string name="batch_type_batch_close">Batch Close\nLot ferme</string>
+    <string name="batch_type_purge_batch">Purge Batch\nSupprimer lot</string>
+    <string name="batch_type_host_totals">Host Totals\nTotaux d\'hotes</string>
+    <string name="batch_type_force_batch_close">Force Batch Close\nForcer la fermeture du lot</string>
+
+    <!-- EDCGroup -->
+    <string name="edc_group_gift">GIFT\nCADEAU</string>
+    <string name="edc_group_credit_debit_ebt">CREDIT/DEBIT/EBT\nCRÉDIT/DÉBIT/EBT</string>
+
+    <!-- ReportType -->
+    <string name="report_type_current_batch">Current Batch\nLot actuel</string>
+    <string name="report_type_previous_batch">Previous Batch\nLot precedent</string>
+
+    <!-- AccountType -->
+    <string name="acc_type_saving">SAVING \\ EPARGNE</string>
+    <string name="acc_type_checking">CHECKING \\ CHEQUE</string>
+
+    <string name="trans_failed">Trans Failed!\nLa transaction a échoué!</string>
+    <string name="finished">Finished\nLa finition</string>
+    <string name="additional_fee">Additional Fee\nFrais supplémentaires</string>
+    <string name="confirm_amount">Confirm Amount\nConfirmer le montant</string>
+    <string name="reversal_process">Reversal... \nAnnulation...</string>
+    <string name="emv_process_start">EMV Process Start... \nDémarrage du processus EMV...</string>
+    <string name="card_error">Card Error!\nErr. de carte!</string>
+    <string name="please_remove_card">Please Remove Card!\nVeuillez retirer la carte!</string>
+    <string name="please_remove_card_quickly">Please Remove Card Quickly!\nVeuillez retirer la carte rapidement!</string>
+    <string name="please_insert_chip_card">Please Insert Chip Card!\nVeuillez insérer la carte à puce!</string>
+    <string name="please_swipe_card">Please Swipe Card!\nVeuillez glisser la carte!</string>
+    <string name="please_tap_card">Please Tap Card!\nVeuillez toucher la carte!</string>
+    <string name="please_see_phone">Please See Phone!\nVeuillez voir le téléphone!</string>
+    <string name="emv_trans_online">Do Not Remove Your Card Please!\nProcessing Online&#8230;\nNe retirez pas votre carte s\'il vous plaît!\nTraitement en ligne&#8230;</string>
+    <string name="trans_online">Trans Online...\nTransaction en ligne...</string>
+    <string name="download_emv_capk">Downloading EMV CAPK\nPlease Wait...\nTéléchargement d\'EMV CAPK\nVeuillez patienter...</string>
+    <string name="update_process">Updating...\nMise à jour...</string>
+    <string name="print_process">Printing...\nEn cours d\'impression......</string>
+    <string name="batch_close_start">Batch Close START...\nDébut de la fermeture du lot...</string>
+    <string name="uploading_trans">Uploading \\ Téléchargement</string>
+    <string name="total_count">\nTotal Count \\ Le compte total : </string>
+    <string name="current_count">\nCurrent Count \\ Comptage actuel : </string>
+    <string name="uploading_failed_trans">Uploading Failed Transaction...\nÉchec du Téléchargement...</string>
+    <string name="uploading_sf_trans">Uploading Stored Transaction...\nTéléchargement enregistré...</string>
+    <string name="uploading_start">Upload Start\nDébut du téléchargement</string>
+    <string name="transaction_failed">Transaction Failed!\nLa transaction a échoué!</string>
+    <string name="transaction_successful">Transaction Successful!\nTransaction réussie!</string>
+    <string name="tip_name">Tip \\ pourboire</string>
+    <string name="cashback">Cashback \\ Remise en espèces</string>
+    <string name="no_thanks">No Thanks \\ Non, merci</string>
+    <string name="cashback_options">(Cashback \\ Remise en espèces: </string>
+    <string name="sub_healthcare">SubHealthCare\nSous de soins de santé</string>
+    <string name="healthcare_total">Healthcare Total\nTotal pour les soins de santé</string>
+    <string name="healthcare_sub_type">Healthcare SubTypes\nSous-types de soins de santé</string>
+    <string name="please_enter">Please Enter \\ Veuillez entrer </string>
+    <string name="amount_enter">Amount \\ le montant:</string>
+    <string name="on_external_pinpad">\n On the External PIN Pad \\ Sur le clavier NIP externe</string>
+    <string name="tip_options">(Tips \\ Pourboires: </string>
+    <string name="swipe_action">Swipe \\ Glisser</string>
+    <string name="insert_action">Insert \\ Insérer</string>
+    <string name="tap_action">Tap \\ Toucher</string>
+    <string name="no_more_data">No more data\nPlus de données</string>
+    <string name="option_healthcare">Healthcare \\ Soins de santé</string>
+    <string name="option_transit">Transit</string>
+
+    <string name="thx_show_message_context">Thank you \\ Merci</string>
+
+</resources>

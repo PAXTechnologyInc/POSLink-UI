@@ -1,0 +1,17 @@
+apply plugin: 'java-library'
+if(rootProject.name != "BroadPOS-CommonLibrary") {
+    apply from: file('../gradle/version.gradle')
+
+    ext {
+        loadVersions('../version.properties')
+    }
+}
+
+version = GLOBAL_VERSION
+
+sourceCompatibility = "7"
+targetCompatibility = "7"
+
+if(rootProject.name == "BroadPOS-CommonLibrary") {
+    apply from: file('../gradle/publish.gradle')
+}

@@ -1,0 +1,15 @@
+<resources>
+
+    <dimen name="clss_light">30dp</dimen>
+
+    <dimen name="paint_width">5dp</dimen>
+    <dimen name="default_gap">8dp</dimen>
+
+    <dimen name="process_wheel">60dp</dimen>
+    <dimen name="process_wheel_small">40dp</dimen>
+
+    <dimen name="prompt_weight" format="float">0.4</dimen>
+    <dimen name="value_weight" format="float">0.6</dimen>
+
+    <dimen name="edit_height_large">75dp</dimen>
+</resources>

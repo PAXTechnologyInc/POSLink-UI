@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="pin_btn_margin">4dp</dimen>
+    <dimen name="pin_btn_height">90dp</dimen>
+    <dimen name="pin_num_font_size">36sp</dimen>
+
+    <color name="pin_num_text_color">#000000</color>
+
+    <dimen name="pin_btn_radius">8dp</dimen>
+
+    <style name="PinNumber">
+        <item name="android:layout_margin">@dimen/pin_btn_margin</item>
+        <item name="android:background">@drawable/pin_num_bg</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/pin_num_text_color</item>
+        <item name="android:textSize">@dimen/pin_num_font_size</item>
+        <item name="android:elevation">1dp</item>
+    </style>
+</resources>
