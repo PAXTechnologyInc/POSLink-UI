@@ -2,11 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_marginStart="@dimen/space_horizontal"
-    android:layout_marginEnd="@dimen/space_horizontal"
-    android:background="@drawable/pumpkin_3">
+    android:layout_marginEnd="@dimen/space_horizontal">
 
     <LinearLayout
         android:id="@+id/trans_amount_layout"
@@ -14,14 +12,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/space_vertical"
         android:layout_marginBottom="@dimen/space_vertical"
-        android:orientation="horizontal"
-        android:visibility="gone">
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="bottom"
-            android:text="Amount"
+            android:text="@string/history_detail_amount"
             android:textColor="@color/primary_text_light"
             android:textSize="@dimen/font_size_prompt" />
 
@@ -34,7 +31,6 @@
             android:textColor="@color/primary_text_light"
             android:textSize="@dimen/font_size_value" />
     </LinearLayout>
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -50,28 +46,21 @@
             android:textColor="@color/primary_text_light"
             android:textSize="@dimen/font_size_prompt" />
 
-        <EditText
+        <com.pax.us.pay.ui.component.keyboard.CustomKeyboardEditText
             android:id="@+id/data_edt"
-            android:layout_height="@dimen/edit_height"
+            style="@style/DefEditText"
             android:layout_width="match_parent"
-            android:layout_marginTop="@dimen/space_horizontal"
+            android:layout_marginTop="@dimen/space_vertical_small"
             android:hint="" />
     </LinearLayout>
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/option_select"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:spanCount="1"
-        android:overScrollMode="never"
-        android:visibility="gone" />
 
     <Button
         android:id="@+id/confirm_btn"
         android:layout_width="match_parent"
         android:layout_height="@dimen/button_height"
         android:layout_marginTop="@dimen/space_vertical"
-        android:text="OK"
+        android:background="@drawable/btn_bg_light"
+        android:text="@string/trans_confirm_btn"
         android:textColor="@color/primary_text_dark"
         android:textSize="@dimen/font_button" />
 
