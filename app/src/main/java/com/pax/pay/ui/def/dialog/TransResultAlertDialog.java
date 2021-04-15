@@ -149,13 +149,13 @@ public class TransResultAlertDialog extends Dialog {
     }
 
     private void playAnimation() {
-//        if (dialogType == TYPE_FAIL) {
-//            mErrorFrame.startAnimation(mErrorInAnim);
-//            mErrorX.startAnimation(mErrorXInAnim);
-//        } else if (dialogType == TYPE_SUCC) {
-//            mSuccessTick.startTickAnim();
-//            mSuccessRightMask.startAnimation(mSuccessBowAnim);
-//        }
+        if (dialogType == TYPE_FAIL) {
+            mErrorFrame.startAnimation(mErrorInAnim);
+            mErrorX.startAnimation(mErrorXInAnim);
+        } else if (dialogType == TYPE_SUCC) {
+            mSuccessTick.startTickAnim();
+            mSuccessRightMask.startAnimation(mSuccessBowAnim);
+        }
     }
 
     @Override

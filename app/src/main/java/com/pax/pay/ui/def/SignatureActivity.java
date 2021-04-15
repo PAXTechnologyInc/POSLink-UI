@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -29,6 +30,10 @@ public class SignatureActivity extends BaseAppActivity implements SignatureHelpe
     TextView amountPrompt;
     TextView amountTv;
     LinearLayout amountLayout;
+    TextView lineTv1;
+    TextView lineTv2;
+    LinearLayout lineLayout1;
+    LinearLayout lineLayout2;
     ElectronicSignatureView mSignatureView;
     protected TickTimer tickTimer;
 
@@ -89,6 +94,10 @@ public class SignatureActivity extends BaseAppActivity implements SignatureHelpe
         clearBtn = findViewById(R.id.clear_btn);
         cancelBtn = findViewById(R.id.cancel_btn);
         confirmBtn = findViewById(R.id.confirm_btn);
+        lineTv1 = findViewById(R.id.message_prompt_1);
+        lineLayout1 = findViewById(R.id.message_layout_1);
+        lineTv2 = findViewById(R.id.message_prompt_2);
+        lineLayout2 = findViewById(R.id.message_layout_2);
         getTickTimeout();
         navTitle = getString(R.string.signature);
         displayAmount = 0;
@@ -309,5 +318,17 @@ public class SignatureActivity extends BaseAppActivity implements SignatureHelpe
             cancelBtn.setVisibility(View.VISIBLE);
         } else
             cancelBtn.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void onShowSignatureLine(@Nullable String line1, @Nullable String line2) {
+        if (!TextUtils.isEmpty(line1)){
+            lineTv1.setText(line1);
+            lineLayout1.setVisibility(View.VISIBLE);
+        }
+        if (!TextUtils.isEmpty(line2)){
+            lineTv2.setText(line2);
+            lineLayout2.setVisibility(View.VISIBLE);
+        }
     }
 }
