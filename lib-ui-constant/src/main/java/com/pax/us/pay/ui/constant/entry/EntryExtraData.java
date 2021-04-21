@@ -56,6 +56,8 @@ public final class EntryExtraData {
     public static final String PARAM_TOTAL_AMOUNT_INCLUSIVE_OF_FEES_B = "total_amount_inclusive_fees_planB";
     public static final String PARAM_TERMS_AND_CONDITIONS_A = "termsAndConditions_PlanA";
     public static final String PARAM_TERMS_AND_CONDITIONS_B = "termsAndConditions_PlanB";
+    public static final String PARAM_PLANID_A = "planA_ID";
+    public static final String PARAM_PLANID_B = "planB_ID";
 
 
 
