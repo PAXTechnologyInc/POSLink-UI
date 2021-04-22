@@ -3,6 +3,7 @@ package com.pax.us.pay.ui.core.helper;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 
 import com.pax.us.pay.ui.constant.entry.EntryExtraData;
 import com.pax.us.pay.ui.constant.entry.EntryRequest;
@@ -13,6 +14,7 @@ import com.pax.us.pay.ui.core.api.ICurrencyListener;
 import com.pax.us.pay.ui.core.api.IEnableCancelButtonListener;
 import com.pax.us.pay.ui.core.api.IMessageListener;
 import com.pax.us.pay.ui.core.api.IRespStatus;
+import com.pax.us.pay.ui.core.api.ISignatureLineListener;
 import com.pax.us.pay.ui.core.api.ITimeoutListener;
 import com.pax.us.pay.ui.core.api.IUIListener;
 
@@ -41,6 +43,18 @@ public class SignatureHelper extends BaseActionHelper {
             ((IAmountListener) uiListener).onShowAmount(bundle.getLong(EntryExtraData.PARAM_TOTAL_AMOUNT));
         }
 
+        if(uiListener instanceof ISignatureLineListener) {
+            String signLine1 = null;
+            String signLine2 = null;
+            if (bundle.containsKey(EntryExtraData.PARAM_SIGNLINE1))
+                signLine1 = bundle.getString(EntryExtraData.PARAM_SIGNLINE1, "");
+            if (bundle.containsKey(EntryExtraData.PARAM_SIGNLINE2))
+                signLine2 = bundle.getString(EntryExtraData.PARAM_SIGNLINE2, "");
+
+            if (!TextUtils.isEmpty(signLine1) || !TextUtils.isEmpty(signLine2))
+                ((ISignatureLineListener)uiListener).onShowSignatureLine(signLine1, signLine2);
+        }
+
         if (uiListener instanceof IEnableCancelButtonListener) {
             ((IEnableCancelButtonListener) uiListener).onShowCancelButton(bundle.getBoolean(EntryExtraData.PARAM_ENABLE_CANCEL, true));
         }
@@ -51,6 +65,6 @@ public class SignatureHelper extends BaseActionHelper {
 
     }
 
-    public interface ISignatureListener extends IMessageListener, ICurrencyListener, IAmountListener, IEnableCancelButtonListener, ITimeoutListener {
+    public interface ISignatureListener extends IMessageListener, ICurrencyListener, IAmountListener, IEnableCancelButtonListener, ITimeoutListener, ISignatureLineListener {
     }
 }

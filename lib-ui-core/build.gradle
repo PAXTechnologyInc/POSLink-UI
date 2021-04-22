@@ -1,14 +1,22 @@
 apply plugin: 'com.android.library'
 
-android {
-    compileSdkVersion 27
+if(rootProject.name != "BroadPOS-CommonLibrary") {
+    apply from: file('../gradle/version.gradle')
 
+    ext {
+        loadVersions('../version.properties')
+    }
+}
+
+android {
+    compileSdkVersion _compileSdkVersion.toInteger()
 
     defaultConfig {
-        minSdkVersion 22
-        targetSdkVersion 27
-        versionCode 22
-        versionName "1.00.20-" + new Date().format("yyyyMMdd", TimeZone.getTimeZone("UTC"))+"-01"
+        minSdkVersion _minSdkVersion.toInteger()
+        targetSdkVersion _targetSdkVersion.toInteger()
+
+        versionCode _androidModuleVersionCode.toInteger()
+        versionName GLOBAL_VERSION
 
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -34,4 +42,8 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     implementation project(path: ':ui.constant')
+}
+
+if(rootProject.name == "POSLink-UI") {
+    apply from: file('../gradle/publish.gradle')
 }

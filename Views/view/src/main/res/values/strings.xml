@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="keyboard_clear">Clear</string>
+    <string name="keyboard_back">Back</string>
+    <string name="keyboard_cancel">Cancel</string>
+    <string name="keyboard_enter">Enter</string>
+
+</resources>

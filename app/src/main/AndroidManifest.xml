@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.pax.pay.poslink.ui.demo">
+    package="com.pax.pay.ui.def">
 
     <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+    <uses-permission android:name="com.pax.permission.MAGCARD" />
+    <uses-permission android:name="com.pax.permission.PED" />
+    <uses-permission android:name="com.pax.permission.ICC" />
+    <uses-permission android:name="com.pax.permission.PICC" />
 
     <application
+        android:name="com.pax.pay.ui.def.app.App"
+        android:label="POSLink Demo"
         android:allowBackup="false"
-        android:name=".app.App"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:supportsRtl="true">
 
-        <activity android:name=".activity.VersionActivity">
+        <activity android:name="com.pax.pay.ui.def.VersionActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.MAIN" />
@@ -25,88 +25,76 @@
             </intent-filter>
         </activity>
 
-        <!--<activity-->
-        <!--android:name=".activity.EnterAmountActivity"-->
-        <!--android:taskAffinity="com.pax.us.pay.UI"-->
-        <!--android:allowTaskReparenting="true"-->
-        <!--android:theme="@style/AppTheme.NoActionBar"-->
-        <!--android:windowSoftInputMode="adjustPan|stateHidden">-->
-        <!--<intent-filter>-->
-        <!--<action android:name="com.pax.us.pay.action.ENTER_AMOUNT" />-->
 
-        <!--<category android:name="com.pax.us.pay.ui.category.TEXT" />-->
-        <!--<category android:name="android.intent.category.DEFAULT" />-->
-        <!--</intent-filter>-->
-        <!--</activity>-->
-        <!--<activity-->
-        <!--android:name=".activity.EnterTipActivity"-->
-        <!--android:taskAffinity="com.pax.us.pay.UI"-->
-        <!--android:allowTaskReparenting="true"-->
-        <!--android:theme="@style/AppTheme.NoActionBar"-->
-        <!--android:windowSoftInputMode="adjustPan|stateHidden">-->
-        <!--<intent-filter>-->
-        <!--<action android:name="com.pax.us.pay.action.ENTER_TIP" />-->
-
-        <!--<category android:name="com.pax.us.pay.ui.category.TEXT" />-->
-        <!--<category android:name="android.intent.category.DEFAULT" />-->
-        <!--</intent-filter>-->
-        <!--</activity>-->
         <activity
-            android:name=".activity.EnterAdressActivity"
+            android:name="com.pax.pay.ui.def.ConfirmSurchargelFeeActivity"
+            android:autoRemoveFromRecents="true"
+            android:screenOrientation="nosensor"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
             android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
+            android:theme="@style/PaxTheme.ActivityTranslucent">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.CONFIRM_SURCHARGE_FEE" />
+
+                <category android:name="com.pax.us.pay.ui.category.CONFIRMATION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.pax.pay.ui.def.ConfirmAdditionalFeeActivity"
+            android:autoRemoveFromRecents="true"
+            android:screenOrientation="nosensor"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
+            android:taskAffinity="com.pax.us.pay.UI"
+            android:theme="@style/PaxTheme.ActivityTranslucent">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.CONFIRM_ADDITIONAL_FEE" />
+
+                <category android:name="com.pax.us.pay.ui.category.CONFIRMATION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.pax.pay.ui.def.EnterAmountActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
+            android:taskAffinity="com.pax.us.pay.UI"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
-                <action android:name="com.pax.us.pay.action.ENTER_ADDRESS" />
+                <action android:name="com.pax.us.pay.action.ENTER_AMOUNT" />
 
                 <category android:name="com.pax.us.pay.ui.category.TEXT" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.EnterAuthCodeActivity"
+            android:name="com.pax.pay.ui.def.EnterTipActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
             android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
-            android:theme="@style/AppTheme.NoActionBar"
+            android:theme="@style/PaxTheme.ActivityTranslucent"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
-                <action android:name="com.pax.us.pay.action.ENTER_AUTH_CODE" />
+                <action android:name="com.pax.us.pay.action.ENTER_TIP" />
 
                 <category android:name="com.pax.us.pay.ui.category.TEXT" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.EnterExpiryDateActivity"
+            android:name="com.pax.pay.ui.def.EnterTransNumberActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
             android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustPan|stateHidden">
-            <intent-filter>
-                <action android:name="com.pax.us.pay.action.ENTER_EXPIRY_DATE" />
-
-                <category android:name="com.pax.us.pay.ui.category.TEXT" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".activity.EnterZipActivity"
-            android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustPan|stateHidden">
-            <intent-filter>
-                <action android:name="com.pax.us.pay.action.ENTER_ZIP_CODE" />
-
-                <category android:name="com.pax.us.pay.ui.category.TEXT" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".activity.EnterTransNumActivity"
-            android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
@@ -117,48 +105,77 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.EnterFSAAmountActivity"
+            android:name="com.pax.pay.ui.def.EnterZipCodeActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
             android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
-                <action android:name="com.pax.us.pay.action.ENTER_FSA_DATA" />
+                <action android:name="com.pax.us.pay.action.ENTER_ZIP_CODE" />
 
                 <category android:name="com.pax.us.pay.ui.category.TEXT" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.EnterAVSActivity"
+            android:name="com.pax.pay.ui.def.EnterAddressActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
             android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
-                <action android:name="com.pax.us.pay.action.ENTER_AVS_DATA" />
+                <action android:name="com.pax.us.pay.action.ENTER_ADDRESS" />
 
                 <category android:name="com.pax.us.pay.ui.category.TEXT" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.EnterVoucherActivity"
+            android:name="com.pax.pay.ui.def.EnterExpireDateActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
             android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
-                <action android:name="com.pax.us.pay.action.ENTER_VOUCHER_DATA" />
+                <action android:name="com.pax.us.pay.action.ENTER_EXPIRY_DATE" />
 
                 <category android:name="com.pax.us.pay.ui.category.TEXT" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity
-            android:name=".activity.EnterReferenceNumActivity"
+            android:name="com.pax.pay.ui.def.EnterAuthCodeActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
             android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.ENTER_AUTH_CODE" />
+                <category android:name="com.pax.us.pay.ui.category.TEXT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.pax.pay.ui.def.EnterReferenceNumberActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
+            android:taskAffinity="com.pax.us.pay.UI"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
@@ -169,9 +186,60 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.EnterInvoiceNumActivity"
+            android:name="com.pax.pay.ui.def.EnterFSAAmountOptionActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
             android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.ENTER_FSA_DATA" />
+
+                <category android:name="com.pax.us.pay.ui.category.TEXT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.pax.pay.ui.def.EnterAVSActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
+            android:taskAffinity="com.pax.us.pay.UI"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.ENTER_AVS_DATA" />
+
+                <category android:name="com.pax.us.pay.ui.category.TEXT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.pax.pay.ui.def.EnterVoucherActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
+            android:taskAffinity="com.pax.us.pay.UI"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.ENTER_VOUCHER_DATA" />
+
+                <category android:name="com.pax.us.pay.ui.category.TEXT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.pax.pay.ui.def.EnterInvoiceNumActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
+            android:taskAffinity="com.pax.us.pay.UI"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
@@ -182,9 +250,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.EnterClerkIdActivity"
+            android:name="com.pax.pay.ui.def.EnterClerkIDActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
             android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
@@ -195,10 +266,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.EnterCashbackActivity"
+            android:name="com.pax.pay.ui.def.EnterCashbackActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
             android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
-            android:theme="@style/AppTheme.NoActionBar"
+            android:theme="@style/PaxTheme.ActivityTranslucent"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
                 <action android:name="com.pax.us.pay.action.ENTER_CASH_BACK" />
@@ -208,9 +282,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.EnterOriginalTransDateActivity"
+            android:name="com.pax.pay.ui.def.EnterOriginalTransactionDateActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
             android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
@@ -221,9 +298,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.EnterFuelAmountActivity"
+            android:name="com.pax.pay.ui.def.EnterFuelAmountActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
             android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
@@ -234,9 +314,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.EnterTaxAmountActivity"
+            android:name="com.pax.pay.ui.def.EnterTaxAmountActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
             android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
@@ -246,10 +329,30 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity
-            android:name=".activity.EnterServerIdActivity"
+            android:name="com.pax.pay.ui.def.EnterTaxIDActivity"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
             android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
+            android:screenOrientation="nosensor"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.ENTER_MERCHANT_TAX_ID" />
+
+                <category android:name="com.pax.us.pay.ui.category.TEXT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.pax.pay.ui.def.EnterServerIDActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
+            android:taskAffinity="com.pax.us.pay.UI"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
@@ -260,9 +363,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.EnterTableNumberActivity"
+            android:name="com.pax.pay.ui.def.EnterTableNumberActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
             android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
@@ -273,9 +379,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.EnterPhoneNumberActivity"
+            android:name="com.pax.pay.ui.def.EnterPhoneNumberActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
             android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
@@ -286,9 +395,28 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.EnterGuestNumberActivity"
+            android:name="com.pax.pay.ui.def.EnterCSPhoneNumberActivity"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
             android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
+            android:screenOrientation="nosensor"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.ENTER_CS_PHONE_NUMBER" />
+
+                <category android:name="com.pax.us.pay.ui.category.TEXT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.pax.pay.ui.def.EnterGuestNumberActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
+            android:taskAffinity="com.pax.us.pay.UI"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
@@ -299,9 +427,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.EnterOrderNumberActivity"
+            android:name="com.pax.pay.ui.def.EnterOrderNumberActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
             android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
@@ -312,9 +443,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.EnterPONumberActivity"
+            android:name="com.pax.pay.ui.def.EnterPONumberActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
             android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
@@ -325,9 +459,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.EnterProductDescriptionActivity"
+            android:name="com.pax.pay.ui.def.EnterProductDescriptionActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
             android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
@@ -338,9 +475,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.EnterCustomerCodeActivity"
+            android:name="com.pax.pay.ui.def.EnterCustomerCodeActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
             android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
@@ -351,9 +491,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.EnterPromptRestrictionCodeActivity"
+            android:name="com.pax.pay.ui.def.EnterPromptRestrictionCodeActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
             android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
@@ -364,9 +507,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.EnterFleetDataActivity"
+            android:name="com.pax.pay.ui.def.EnterFleetDataActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
             android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
@@ -377,8 +523,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.EnterTotalAmountActivity"
-            android:allowTaskReparenting="true"
+            android:name="com.pax.pay.ui.def.EnterTotalAmountActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
             android:taskAffinity="com.pax.us.pay.UI"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan|stateHidden">
@@ -390,10 +539,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.EnterDestZipCodeActivity"
-            android:allowTaskReparenting="true"
+            android:name="com.pax.pay.ui.def.EnterDestZipCodeActivity"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
             android:taskAffinity="com.pax.us.pay.UI"
             android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="nosensor"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
                 <action android:name="com.pax.us.pay.action.ENTER_DEST_ZIP_CODE" />
@@ -402,36 +554,78 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name="com.pax.pay.poslink.ui.demo.activity.SignatureActivity"
+            android:name="com.pax.pay.ui.def.EnterMerchantReferenceNumberActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
             android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
-                <action android:name="com.pax.us.pay.action.GET_SIGNATURE" />
-                <category android:name="com.pax.us.pay.ui.category.SIGNATURE" />
+                <action android:name="com.pax.us.pay.action.ENTER_MERCHANT_REFERENCE_NUMBER" />
+
+                <category android:name="com.pax.us.pay.ui.category.TEXT" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
-        <!--<activity-->
-        <!--android:name=".activity.SelectEbtTypeActivity"-->
-        <!--android:taskAffinity="com.pax.us.pay.UI"-->
-        <!--android:allowTaskReparenting="true"-->
-        <!--android:theme="@style/AppTheme.NoActionBar">-->
-        <!--<intent-filter>-->
-        <!--<action android:name="com.pax.us.pay.action.SELECT_EBT_TYPE" />-->
-
-        <!--<category android:name="com.pax.us.pay.ui.category.OPTION" />-->
-        <!--<category android:name="android.intent.category.DEFAULT" />-->
-        <!--</intent-filter>-->
-        <!--</activity>-->
         <activity
-            android:name=".activity.SelectBypassReasonActivity"
+            android:name="com.pax.pay.ui.def.EnterOctReferenceNumberActivity"
+            android:autoRemoveFromRecents="true"
+            android:configChanges="orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="nosensor"
             android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.ENTER_OCT_REFERENCE_NUMBER" />
+
+                <category android:name="com.pax.us.pay.ui.category.TEXT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.pax.pay.ui.def.SignatureActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
+            android:taskAffinity="com.pax.us.pay.UI"
             android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.GET_SIGNATURE" />
+
+                <category android:name="com.pax.us.pay.ui.category.SIGNATURE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.pax.pay.ui.def.SelectEbtTypeActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
+            android:taskAffinity="com.pax.us.pay.UI"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.SELECT_EBT_TYPE" />
+
+                <category android:name="com.pax.us.pay.ui.category.OPTION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.pax.pay.ui.def.SelectBypassReasonActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
+            android:taskAffinity="com.pax.us.pay.UI"
+            android:theme="@style/PaxTheme.ActivityTranslucent">
             <intent-filter>
                 <action android:name="com.pax.us.pay.action.SELECT_BY_PASS" />
 
@@ -440,9 +634,27 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.SelectSubTransActivity"
+            android:name="com.pax.pay.ui.def.SelectAidActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
             android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
+            android:theme="@style/PaxTheme.ActivityTranslucent">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.SELECT_AID" />
+
+                <category android:name="com.pax.us.pay.ui.category.OPTION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.pax.pay.ui.def.SelectSubTransactionActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
+            android:taskAffinity="com.pax.us.pay.UI"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="com.pax.us.pay.action.SELECT_SUB_TRANS_TYPE" />
@@ -452,21 +664,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.SelectAIDActivity"
+            android:name="com.pax.pay.ui.def.SelectMotoTypeActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
             android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
-            android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="com.pax.us.pay.action.SELECT_AID" />
-
-                <category android:name="com.pax.us.pay.ui.category.OPTION" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".activity.SelectMotoTypeActivity"
-            android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="com.pax.us.pay.action.SELECT_MOTO_TYPE" />
@@ -476,9 +679,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.SelectRefundReasonActivity"
+            android:name="com.pax.pay.ui.def.SelectRefundReasonActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
             android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="com.pax.us.pay.action.SELECT_REFUND_REASON" />
@@ -488,9 +694,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.SelectTaxReasonActivity"
+            android:name="com.pax.pay.ui.def.SelectTaxReasonActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
             android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="com.pax.us.pay.action.SELECT_TAX_REASON" />
@@ -500,21 +709,27 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.SelectTransTypeActivity"
-            android:allowTaskReparenting="true"
+            android:name="com.pax.pay.ui.def.SelectSearchTypeActivity"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
             android:taskAffinity="com.pax.us.pay.UI"
+            android:screenOrientation="nosensor"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
-                <action android:name="com.pax.us.pay.action.SELECT_TRANS_TYPE" />
+                <action android:name="com.pax.us.pay.action.SELECT_SEARCH_CRITERIA" />
 
                 <category android:name="com.pax.us.pay.ui.category.OPTION" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.SelectCardTypeActivity"
-            android:allowTaskReparenting="true"
+            android:name="com.pax.pay.ui.def.SelectCardTypeActivity"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
             android:taskAffinity="com.pax.us.pay.UI"
+            android:screenOrientation="nosensor"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="com.pax.us.pay.action.SELECT_CARD_TYPE" />
@@ -524,9 +739,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.SelectEDCTypeActivity"
-            android:allowTaskReparenting="true"
+            android:name="com.pax.pay.ui.def.SelectEdcTypeActivity"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
             android:taskAffinity="com.pax.us.pay.UI"
+            android:screenOrientation="nosensor"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="com.pax.us.pay.action.SELECT_EDC_TYPE" />
@@ -536,12 +754,150 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.SelectSearchTypeActivity"
-            android:allowTaskReparenting="true"
+            android:name="com.pax.pay.ui.def.SelectDuplicateOverrideActivity"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
+            android:taskAffinity="com.pax.us.pay.UI"
+            android:screenOrientation="nosensor"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.SELECT_DUPLICATE_OVERRIDE" />
+
+                <category android:name="com.pax.us.pay.ui.category.OPTION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.pax.pay.ui.def.SelectTransTypeActivity"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
+            android:taskAffinity="com.pax.us.pay.UI"
+            android:screenOrientation="nosensor"
+            android:theme="@style/PaxTheme.ActivityTranslucent">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.SELECT_TRANS_TYPE" />
+
+                <category android:name="com.pax.us.pay.ui.category.OPTION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.pax.pay.ui.def.SelectBatchTypeActivity"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
+            android:taskAffinity="com.pax.us.pay.UI"
+            android:screenOrientation="nosensor"
+            android:theme="@style/PaxTheme.ActivityTranslucent">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.SELECT_BATCH_TYPE" />
+
+                <category android:name="com.pax.us.pay.ui.category.OPTION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.pax.pay.ui.def.SelectEdcGroupActivity"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
+            android:taskAffinity="com.pax.us.pay.UI"
+            android:screenOrientation="nosensor"
+            android:theme="@style/PaxTheme.ActivityTranslucent">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.SELECT_EDC_GROUP" />
+
+                <category android:name="com.pax.us.pay.ui.category.OPTION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.pax.pay.ui.def.SelectReportTypeActivity"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
+            android:taskAffinity="com.pax.us.pay.UI"
+            android:screenOrientation="nosensor"
+            android:theme="@style/PaxTheme.ActivityTranslucent">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.SELECT_REPORT_TYPE" />
+
+                <category android:name="com.pax.us.pay.ui.category.OPTION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.pax.pay.ui.def.SelectAccountTypeActivity"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
+            android:taskAffinity="com.pax.us.pay.UI"
+            android:screenOrientation="nosensor"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.SELECT_ACCOUNT_TYPE" />
+
+                <category android:name="com.pax.us.pay.ui.category.OPTION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.pax.pay.ui.def.SelectLanguageActivity"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
+            android:taskAffinity="com.pax.us.pay.UI"
+            android:screenOrientation="nosensor"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.SELECT_LANGUAGE" />
+
+                <category android:name="com.pax.us.pay.ui.category.OPTION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.pax.pay.ui.def.SelectTipAmountActivity"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
+            android:taskAffinity="com.pax.us.pay.UI"
+            android:screenOrientation="nosensor"
+            android:theme="@style/PaxTheme.ActivityTranslucent">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.SELECT_TIP_AMOUNT" />
+
+                <category android:name="com.pax.us.pay.ui.category.OPTION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.pax.pay.ui.def.SelectCashbackAmountActivity"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="nosensor"
+            android:taskAffinity="com.pax.us.pay.UI"
+            android:theme="@style/PaxTheme.ActivityTranslucent">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.SELECT_CASHBACK_AMOUNT" />
+
+                <category android:name="com.pax.us.pay.ui.category.OPTION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.pax.pay.ui.def.SelectTransActivity"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="nosensor"
             android:taskAffinity="com.pax.us.pay.UI"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
-                <action android:name="com.pax.us.pay.action.SELECT_SEARCH_TYPE" />
+                <action android:name="com.pax.us.pay.action.SELECT_TRANS_FOR_ADJUST" />
 
                 <category android:name="com.pax.us.pay.ui.category.OPTION" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -549,95 +905,205 @@
         </activity>
 
         <activity
-            android:name=".activity.ConfirmCardPresentActivity"
-            android:allowTaskReparenting="true"
+            android:name="com.pax.pay.ui.def.SelectMerchantActivity"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="nosensor"
             android:taskAffinity="com.pax.us.pay.UI"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
-                <action android:name="com.pax.us.pay.action.CONFIRM_CARD_PRESENT" />
+                <action android:name="com.pax.us.pay.action.SELECT_MERCHANT" />
 
-                <category android:name="com.pax.us.pay.ui.category.CONFIRMATION" />
+                <category android:name="com.pax.us.pay.ui.category.OPTION" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activity.ConfirmReversePartialActivity"
-            android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
-            android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="com.pax.us.pay.action.REVERSE_PARTIAL_APPROVAL" />
 
-                <category android:name="com.pax.us.pay.ui.category.CONFIRMATION" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
         <activity
-            android:name=".activity.ConfirmSupplementPartialActivity"
+            android:name="com.pax.pay.ui.def.ConfirmUnifiedDialogActivity"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
             android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
-            android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="com.pax.us.pay.action.SUPPLEMENT_PARTIAL_APPROVAL" />
-
-                <category android:name="com.pax.us.pay.ui.category.CONFIRMATION" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".activity.ConfirmSurchargeFeeActivity"
-            android:allowTaskReparenting="true"
-            android:taskAffinity="com.pax.us.pay.UI"
-            android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="com.pax.us.pay.action.CONFIRM_SURCHARGE_FEE" />
-
-                <category android:name="com.pax.us.pay.ui.category.CONFIRMATION" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".activity.ConfirmPrinterStatusActivity"
-            android:allowTaskReparenting="true"
-            android:taskAffinity="com.pax.us.pay.UI"
-            android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="com.pax.us.pay.action.CONFIRM_PRINTER_STATUS" />
-
-                <category android:name="com.pax.us.pay.ui.category.CONFIRMATION" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".activity.ConfirmUnifiedMessageActivity"
-            android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:screenOrientation="nosensor"
+            android:theme="@style/PaxTheme.ActivityTranslucent">
             <intent-filter>
                 <action android:name="com.pax.us.pay.action.CONFIRM_UNIFIED_MESSAGE" />
+                <category android:name="com.pax.us.pay.ui.category.CONFIRMATION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.pax.pay.ui.def.ConfirmOKDialogActivity"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
+            android:taskAffinity="com.pax.us.pay.UI"
+            android:screenOrientation="nosensor"
+            android:theme="@style/PaxTheme.ActivityTranslucent">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.CONFIRM_ADJUST_TIP" />
+                <category android:name="com.pax.us.pay.ui.category.CONFIRMATION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.pax.pay.ui.def.ConfirmCardProcessResultDialogActivity"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
+            android:taskAffinity="com.pax.us.pay.UI"
+            android:screenOrientation="nosensor"
+            android:theme="@style/PaxTheme.ActivityTranslucent">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.CONFIRM_CARD_PROCESS_RESULT" />
 
                 <category android:name="com.pax.us.pay.ui.category.CONFIRMATION" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.pax.pay.ui.def.PrePrintViewActivity"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
+            android:taskAffinity="com.pax.us.pay.UI"
+            android:screenOrientation="nosensor"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.CONFIRM_RECEIPT_VIEW" />
 
+                <category android:name="com.pax.us.pay.ui.category.CONFIRMATION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.pax.pay.ui.def.DisplayQRCodeReceiptActivity"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
+            android:taskAffinity="com.pax.us.pay.UI"
+            android:screenOrientation="nosensor"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.DISPLAY_QR_CODE_RECEIPT" />
+
+                <category android:name="com.pax.us.pay.ui.category.CONFIRMATION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.pax.pay.ui.def.ConfirmPartialApproveDialogActivity"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
+            android:taskAffinity="com.pax.us.pay.UI"
+            android:screenOrientation="nosensor"
+            android:theme="@style/PaxTheme.ActivityTranslucent">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.REVERSE_PARTIAL_APPROVAL" />
+                <action android:name="com.pax.us.pay.action.SUPPLEMENT_PARTIAL_APPROVAL" />
+                <category android:name="com.pax.us.pay.ui.category.CONFIRMATION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.pax.pay.ui.def.ConfirmBalanceDialogActivity"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="nosensor"
+            android:taskAffinity="com.pax.us.pay.UI"
+            android:theme="@style/PaxTheme.ActivityTranslucent">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.CONFIRM_BALANCE" />
+
+                <category android:name="com.pax.us.pay.ui.category.CONFIRMATION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.pax.pay.ui.def.ConfirmMerchantDialogActivity"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="nosensor"
+            android:taskAffinity="com.pax.us.pay.UI"
+            android:theme="@style/PaxTheme.ActivityTranslucent">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.CONFIRM_MERCHANT_SCOPE" />
+
+                <category android:name="com.pax.us.pay.ui.category.CONFIRMATION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.pax.pay.ui.def.ConfirmCardEntryRetryDialogActivity"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="nosensor"
+            android:taskAffinity="com.pax.us.pay.UI"
+            android:theme="@style/PaxTheme.ActivityTranslucent">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.CONFIRM_CARD_ENTRY_RETRY" />
+
+                <category android:name="com.pax.us.pay.ui.category.CONFIRMATION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.pax.pay.ui.def.ConfirmEULAActivity"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
+            android:taskAffinity="com.pax.us.pay.UI"
+            android:screenOrientation="nosensor"
+            android:theme="@style/AppTheme.NoActionBar">
+<!--            android:theme="@style/PaxTheme.ActivityTranslucent">-->
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.CONFIRM_END_USER_LICENSE_AGREEMENT" />
+                <category android:name="com.pax.us.pay.ui.category.CONFIRMATION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.pax.pay.ui.def.ConfirmContinueDialogActivity"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
+            android:taskAffinity="com.pax.us.pay.UI"
+            android:screenOrientation="nosensor"
+            android:theme="@style/PaxTheme.ActivityTranslucent">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.CONFIRM_EULA_CONTINUE" />
+                <category android:name="com.pax.us.pay.ui.category.CONFIRMATION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
 
         <activity
-            android:name=".activity.SearchCardActivity"
+            android:name="com.pax.pay.ui.def.SearchCardActivity"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
             android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
+            android:screenOrientation="nosensor"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="com.pax.us.pay.action.INPUT_ACCOUNT" />
-
                 <category android:name="com.pax.us.pay.ui.category.SECURITY" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.EnterPinActivity"
+            android:name="com.pax.pay.ui.def.EnterPinActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
             android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="com.pax.us.pay.action.ENTER_PIN" />
@@ -647,9 +1113,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.EnterVCodeActivity"
+            android:name="com.pax.pay.ui.def.EnterVCodeActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
             android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="com.pax.us.pay.action.ENTER_CVV" />
@@ -659,9 +1128,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.EnterCardLast4DigitsActivity"
+            android:name="com.pax.pay.ui.def.EnterCardLast4DigitsActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
             android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="com.pax.us.pay.action.ENTER_CARD_LAST_4_DIGITS" />
@@ -671,9 +1143,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.EnterCardAllDigitsActivity"
+            android:name="com.pax.pay.ui.def.EnterCardAllDigitsActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
             android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="com.pax.us.pay.action.ENTER_CARD_ALL_DIGITS" />
@@ -683,11 +1158,90 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name="com.pax.pay.ui.def.ShowDialogActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
+            android:taskAffinity="com.pax.us.pay.UI"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.SHOW_DIALOG" />
+
+                <category android:name="com.pax.us.pay.ui.category.POSLINK" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.pax.pay.ui.def.ShowThankYouActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
+            android:taskAffinity="com.pax.us.pay.UI"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.SHOW_THANK_YOU" />
+
+                <category android:name="com.pax.us.pay.ui.category.POSLINK" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.pax.pay.ui.def.EnterTextActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
+            android:taskAffinity="com.pax.us.pay.UI"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.INPUT_TEXT" />
+
+                <category android:name="com.pax.us.pay.ui.category.POSLINK" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.pax.pay.ui.def.ShowDialogFormActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
+            android:taskAffinity="com.pax.us.pay.UI"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.SHOW_DIALOG_FORM" />
+
+                <category android:name="com.pax.us.pay.ui.category.POSLINK" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
 
         <activity
-            android:name=".activity.DisplayTransActivity"
+            android:name="com.pax.pay.ui.def.PasswordDialogActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
             android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
+            android:theme="@style/DarkTranslucent"
+            android:windowSoftInputMode="adjustNothing">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.ADMINISTRATOR_PASSWORD" />
+                <category android:name="com.pax.us.pay.ui.category.SECURITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.pax.pay.ui.def.DisplayTransactionDetailsActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
+            android:taskAffinity="com.pax.us.pay.UI"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="com.pax.us.pay.action.DISPLAY_TRANS_INFORMATION" />
@@ -696,18 +1250,42 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <service android:name="com.pax.pay.ui.def.service.PlayerService"
+            android:exported="true" />
+        <activity
+            android:name="com.pax.pay.ui.def.DisplayApproveMessageActivity"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
+            android:taskAffinity="com.pax.us.pay.UI"
+            android:screenOrientation="nosensor"
+            android:theme="@style/PaxTheme.ActivityTranslucent">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.action.DISPLAY_APPROVE_MESSAGE" />
 
+                <category android:name="com.pax.us.pay.ui.category.DETAILS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
 
         <activity
-            android:name=".activity.DialogActivity"
+            android:name="com.pax.pay.ui.def.DialogActivity"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
             android:taskAffinity="com.pax.us.pay.UI"
-            android:allowTaskReparenting="true"
-            android:excludeFromRecents="true"
-            android:launchMode="singleInstance"
-            android:theme="@style/ActivityTranslucent" />
+            android:screenOrientation="nosensor"
+            android:theme="@style/PaxTheme.ActivityTranslucent" />
 
+        <activity
+            android:name="com.pax.pay.ui.def.StartEmptyActivity"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:screenOrientation="nosensor"
+            android:taskAffinity="com.pax.us.pay.UI"
+            android:theme="@style/PaxTheme.ActivityTranslucent" />
 
-        <receiver android:name=".receiver.StatusReceiver">
+        <receiver android:name="com.pax.pay.ui.def.receiver.StatusReceiver">
             <intent-filter>
                 <action android:name="com.pax.us.pay.CARD_PROCESS_STARTED" />
                 <action android:name="com.pax.us.pay.CARD_PROCESS_ERROR" />
@@ -717,26 +1295,24 @@
                 <action android:name="com.pax.us.pay.CARD_REMOVAL_REQUIRED" />
                 <action android:name="com.pax.us.pay.CARD_QUICK_REMOVAL_REQUIRED" />
                 <action android:name="com.pax.us.pay.SEE_PHONE" />
-                <action android:name="com.pax.us.pay.CARD_PROCESS_COMPLETED" />
-                <action android:name="com.pax.us.pay.CARD_REMOVED" />
 
                 <category android:name="com.pax.us.pay.status.category.CARD" />
             </intent-filter>
             <intent-filter>
                 <action android:name="com.pax.us.pay.TRANS_COMPLETED" />
                 <action android:name="com.pax.us.pay.TRANS_ONLINE_STARTED" />
-                <action android:name="com.pax.us.pay.TRANS_ONLINE_FINISHED" />
+                <action android:name="com.pax.us.pay.TRANS_REVERSAL_STARTED" />
+                <action android:name="com.pax.us.pay.PINPAD_CONNECTION_STARTED" />
+                <action android:name="com.pax.us.pay.EMV_TRANS_ONLINE_STARTED" />
                 <action android:name="com.pax.us.pay.ERROR" />
 
                 <category android:name="com.pax.us.pay.status.category.INFORMATION" />
             </intent-filter>
-
             <intent-filter>
                 <action android:name="com.pax.us.pay.BATCH_CLOSE_STARTED" />
                 <action android:name="com.pax.us.pay.BATCH_SF_STARTED" />
                 <action android:name="com.pax.us.pay.BATCH_UPLOADING" />
-                <action android:name="com.pax.us.pay.BATCH_CLOSE_COMPLETED" />
-                <action android:name="com.pax.us.pay.BATCH_SF_COMPLETED" />
+                <action android:name="com.pax.us.pay.BATCH_CLOSE_UPLOADING" />
 
                 <category android:name="com.pax.us.pay.status.category.BATCH" />
             </intent-filter>
@@ -744,12 +1320,59 @@
                 <action android:name="com.pax.us.pay.ACTIVATE_STARTED" />
                 <action android:name="com.pax.us.pay.CAPK_UPDATE_STARTED" />
                 <action android:name="com.pax.us.pay.PRINT_STARTED" />
+                <action android:name="com.pax.us.pay.FILE_UPDATE_STARTED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name="com.pax.pay.ui.def.receiver.StartStatusReceiver">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.TRANS_START" />
+
+                <category android:name="com.pax.us.pay.status.category.INFORMATION" />
+            </intent-filter>
+        </receiver>
+
+
+        <receiver android:name="com.pax.pay.ui.def.receiver.FinishStatusReceiver">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.CARD_PROCESS_COMPLETED" />
+                <action android:name="com.pax.us.pay.CARD_REMOVED" />
+
+                <category android:name="com.pax.us.pay.status.category.CARD" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.pax.us.pay.TRANS_ONLINE_FINISHED" />
+                <action android:name="com.pax.us.pay.TRANS_REVERSAL_FINISHED" />
+                <action android:name="com.pax.us.pay.PINPAD_CONNECTION_FINISHED" />
+                <action android:name="com.pax.us.pay.EMV_TRANS_ONLINE_FINISHED" />
+                <category android:name="com.pax.us.pay.status.category.INFORMATION" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.pax.us.pay.BATCH_CLOSE_COMPLETED" />
+                <action android:name="com.pax.us.pay.BATCH_SF_COMPLETED" />
+
+                <category android:name="com.pax.us.pay.status.category.BATCH" />
+            </intent-filter>
+            <intent-filter>
                 <action android:name="com.pax.us.pay.ACTIVATE_COMPLETED" />
                 <action android:name="com.pax.us.pay.CAPK_UPDATE_COMPLETED" />
                 <action android:name="com.pax.us.pay.PRINT_COMPLETED" />
+                <action android:name="com.pax.us.pay.FILE_UPDATE_COMPLETED" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".receiver.ClssStatusReceiver">
+
+        <receiver android:name="com.pax.pay.ui.def.receiver.PinStatusReceiver">
+            <intent-filter>
+                <action android:name="com,pax.us.pay.PIN_CLEARED" />
+                <action android:name="com,pax.us.pay.PIN_ENTER_COMPLETED" />
+                <action android:name="com,pax.us.pay.PIN_ENTER_ABORTED" />
+                <action android:name="com,pax.us.pay.PIN_ENTERING" />
+
+                <category android:name="com.pax.us.pay.status.category.PIN" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name="com.pax.pay.ui.def.receiver.ClssLightReceiver">
             <intent-filter>
                 <action android:name="com.pax.us.pay.CLSS_LIGHT_NOT_READY" />
                 <action android:name="com.pax.us.pay.CLSS_LIGHT_IDLE" />
@@ -774,16 +1397,42 @@
                 <category android:name="com.pax.us.pay.status.category.VIRTUAL_CLSS_LIGHT" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".receiver.PinStatusReceiver">
-            <intent-filter>
-                <action android:name="com,pax.us.pay.PIN_CLEARED" />
-                <action android:name="com,pax.us.pay.PIN_ENTER_COMPLETED" />
-                <action android:name="com,pax.us.pay.PIN_ENTER_ABORTED" />
-                <action android:name="com,pax.us.pay.PIN_ENTERING" />
 
-                <category android:name="com.pax.us.pay.status.category.PIN" />
+        <receiver android:name="com.pax.pay.ui.def.receiver.AmountStatusReceiver">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.AMOUNT_CHANGED_IN_CARD_PROCESSING" />
+
+                <category android:name="com.pax.us.pay.status.category.INFORMATION" />
             </intent-filter>
         </receiver>
+
+        <!--<receiver android:name="com.pax.pay.ui.def.receiver.LocalReceiver">-->
+        <!--<intent-filter>-->
+        <!--<action android:name="com.pax.us.pay.internal.action.SET_TRANSACTION_URI" />-->
+
+        <!--<category android:name="com.pax.us.pay.category.INTERNAL.Expand" />-->
+        <!--</intent-filter>-->
+        <!--</receiver>-->
+
+
+        <activity
+            android:name="com.pax.pay.ui.def.local.LocalDialogActivity"
+            android:screenOrientation="nosensor"
+            android:autoRemoveFromRecents="true"
+            android:exported="true"
+            android:configChanges="orientation|screenSize"
+            android:taskAffinity="com.pax.us.pay.UI"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance"
+            android:theme="@style/PaxTheme.ActivityTranslucent">
+            <intent-filter>
+                <action android:name="com.pax.us.pay.internal.action.PROMPT_DIALOG" />
+                <action android:name="com.pax.us.pay.internal.action.PROMPT_SELECT_DIALOG" />
+                <category android:name="com.pax.us.pay.category.INTERNAL" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+        </activity>
 
     </application>
 

@@ -1,0 +1,2 @@
+include ':ui.view'
+project (':ui.view').projectDir = file('./view')

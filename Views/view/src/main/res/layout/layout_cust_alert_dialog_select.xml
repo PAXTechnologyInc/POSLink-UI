@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/alert_dialog_linearLayout"
+    android:layout_width="@dimen/dialog_width"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/dialog_vertical_space">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dialog_vertical_space"
+            android:gravity="center_horizontal"
+            android:textColor="@color/primary_text_light"
+            android:textSize="@dimen/font_dialog_title"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/content_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dialog_vertical_space"
+            android:layout_marginBottom="@dimen/dialog_vertical_space"
+            android:gravity="center"
+            android:textColor="@color/primary_text_light"
+            android:textSize="@dimen/font_dialog_prompt"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/item_radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dialog_horizontal_space"
+        android:layout_marginTop="@dimen/dialog_vertical_space"
+        android:layout_marginEnd="@dimen/dialog_horizontal_space"
+        android:layout_marginBottom="@dimen/dialog_vertical_space"
+        android:gravity="start" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/cancel_button"
+            style="@style/PaxTheme.DialogButton"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_bg_dark"
+            android:text="@string/dialog_cancel"
+            android:textColor="@color/primary_text_light"
+            android:textSize="@dimen/font_dialog_button"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/confirm_button"
+            style="@style/PaxTheme.DialogButton"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_bg_light"
+            android:text="@string/dialog_ok"
+            android:textColor="@color/primary_text_dark"
+            android:textSize="@dimen/font_dialog_button"
+            android:visibility="gone" />
+    </LinearLayout>
+
+</LinearLayout>

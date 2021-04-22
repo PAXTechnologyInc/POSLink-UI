@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="font_size_prompt_large">24sp</dimen>
+    <dimen name="font_edit_text_large">48sp</dimen>
+
+    <dimen name="font_size_key">24sp</dimen>
+    <dimen name="font_size_key_large">40sp</dimen>
+</resources>
