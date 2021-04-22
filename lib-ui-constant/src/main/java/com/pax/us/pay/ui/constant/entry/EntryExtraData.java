@@ -42,7 +42,6 @@ public final class EntryExtraData {
     public static final String PARAM_SHOW_VIRTUAL_PINPAD = "showVirtualPinPad";
     public static final String PARAM_ADMIN_PASSWORD_TYPE = "adminPasswordType";
 
-<<<<<<< HEAD
 //    public static final String PARAM_HAS_PHYSICAL_KEYBOARD = "hasPhyKeyboard";
     //added for installment plan selection
     public static final String PARAM_INSTALLMENT_PAYMENT_AMOUNT_A = "installment_payment_amount_planA";
@@ -59,9 +58,9 @@ public final class EntryExtraData {
     public static final String PARAM_TERMS_AND_CONDITIONS_B = "termsAndConditions_PlanB";
     public static final String PARAM_PLANID_A = "planA_ID";
     public static final String PARAM_PLANID_B = "planB_ID";
-=======
+    
     public static final String PARAM_HAS_PHYSICAL_KEYBOARD = "hasPhyKeyboard";
->>>>>>> 3aa36c66de02683eb807ff870a729c4051e85581
+
 
 
 
