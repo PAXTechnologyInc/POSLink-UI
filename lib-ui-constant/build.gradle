@@ -1,9 +1,21 @@
 apply plugin: 'java-library'
 
-version = '1.00.15-' + new Date().format("yyyyMMdd", TimeZone.getTimeZone("UTC"))+"-01"
+if(rootProject.name != "POSLink-UI") {
+    apply from: file('../gradle/version.gradle')
+
+    ext {
+        loadVersions('../version.properties')
+    }
+}
+
+version=GLOBAL_VERSION
 
 dependencies {
 }
 
 sourceCompatibility = "7"
 targetCompatibility = "7"
+
+if(rootProject.name == "POSLink-UI") {
+    apply from: file('../gradle/publish.gradle')
+}

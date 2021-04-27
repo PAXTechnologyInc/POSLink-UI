@@ -40,6 +40,9 @@ public final class EntryExtraData {
     public static final String PARAM_INTERFACE_STYLES = "interfaceStyles";
     public static final String PARAM_MERCHANT_NAME = "merchantName";
     public static final String PARAM_SHOW_VIRTUAL_PINPAD = "showVirtualPinPad";
+    public static final String PARAM_ADMIN_PASSWORD_TYPE = "adminPasswordType";
+
+//    public static final String PARAM_HAS_PHYSICAL_KEYBOARD = "hasPhyKeyboard";
 
 
 
@@ -62,14 +65,14 @@ public final class EntryExtraData {
     public static final String PARAM_INFORMATION_VALUE = "informationValue";
 
 
-//    public static final String PARAM_TITLE = "title";
+    public static final String PARAM_TITLE = "title";
 //    public static final String PARAM_USER_MESSAGE = "userMessage";
 //    public static final String PARAM_PRIMARY_AMOUNT = "primaryAmount";
 //    public static final String PARAM_CONVENIENCE_FEE = "convenienceFee";
 //    public static final String PARAM_SERVICE_FEE = "serviceFee";
 //    public static final String PARAM_TOTAL_FEE = "totalFee";
 //
-public static final String PARAM_BALANCE = "balance";
+    public static final String PARAM_BALANCE = "balance";
 
 
     /**
@@ -93,7 +96,7 @@ public static final String PARAM_BALANCE = "balance";
     public static final String PARAM_SURCHARGE_FEE = "surchargeFee";
     public static final String PARAM_ADDITIONAL_FEE = "additionalFee";
     public static final String PARAM_ADDITIONAL_FEE_NAME = "additionalFeeName";
-    public static final String PARAM_PRIMARY_AMOUNT = "primaryAmount";
+//    public static final String PARAM_PRIMARY_AMOUNT = "primaryAmount";
 
     public static final String PARAM_FSA_AMOUNT_OPTIONS = "fsaAmountOptions";
     public static final String PARAM_HEALTH_CARE_AMOUNT = "healthCareAmount";
@@ -119,8 +122,8 @@ public static final String PARAM_BALANCE = "balance";
     public static final String PARAM_AUTH_CODE = "authCode";
     public static final String PARAM_RESPONSE_STATUS = "responseStatus";
     public static final String PARAM_EINPUT_TYPE = "eInputType";
-    public static final String PARAM_MAX_VALUE = "maxValue";
-    public static final String PARAM_MIN_VALUE = "minValue";
+//    public static final String PARAM_MAX_VALUE = "maxValue";
+//    public static final String PARAM_MIN_VALUE = "minValue";
     public static final String PARAM_MAX_LENGTH = "maxLength";
     public static final String PARAM_MIN_LENGTH = "minLength";
     public static final String PARAM_TIP_UNIT = "tipUnit";
@@ -140,6 +143,8 @@ public static final String PARAM_BALANCE = "balance";
     public static final String PARAM_ZIP_CODE_PATTERN = "zipCodePattern";
     public static final String PARAM_ADDRESS_PATTERN = "addressPattern";
 
+    public static final String PARAM_QR_CODE_CONTENT = "qrCodeContent";
+
     /**
      * PARAM_TRANS_STATUS : transaction status <br>
      * To Do : enum: upload, offline, voided, Adjusted ??????
@@ -156,5 +161,23 @@ public static final String PARAM_BALANCE = "balance";
     public static final String PARAM_TRANS_URL = "transUri";
     public static final String PARAM_TRANS_SELECTION = "transSelection";
     public static final String PARAM_TRANS_SELECTION_ARGUMENTS = "transSelectionArguments";
+
+    //POSLink parameter
+    public static final String PARAM_CONTINUE_SCREEN = "continueScreen";
+    public static final String PARAM_MESSAGE_1 = "message1";
+    public static final String PARAM_MESSAGE_2 = "message2";
+    public static final String PARAM_INPUT_TYPE = "inputType";
+    public static final String PARAM_DEFAULT_VALUE = "defaultValue";
+    public static final String PARAM_LABELS = "labels";
+    public static final String PARAM_LABELS_PROPERTY = "labelsProperty";
+    public static final String PARAM_BUTTON_TYPE = "buttonType";
+
+
+    //internal parameter
+    /*
+    * Type：Boolean
+    * Action: ACTION_CONFIRM_BATCH_CLOSE
+    * */
+    public static final String PARAM_INTERNAL_NICKNAME_FLAG = "internalNicknameFlag";
 
 }

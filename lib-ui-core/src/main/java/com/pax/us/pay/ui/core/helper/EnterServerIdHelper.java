@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 
 import com.pax.us.pay.ui.constant.entry.EntryRequest;
 import com.pax.us.pay.ui.core.BaseActionHelper;
+import com.pax.us.pay.ui.core.api.IHasPhyKeyboardListener;
 import com.pax.us.pay.ui.core.api.IMessageListener;
 import com.pax.us.pay.ui.core.api.IRespStatus;
 
@@ -19,6 +20,6 @@ public class EnterServerIdHelper extends BaseActionHelper {
         super.sendNext(bundle);
     }
 
-    public interface IEnterServerIdListener extends IMessageListener {
+    public interface IEnterServerIdListener extends IMessageListener, IHasPhyKeyboardListener {
     }
 }

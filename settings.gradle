@@ -1,3 +1,6 @@
+
+rootProject.name = "POSLink-UI"
+
 include ':app'
 
 include ':ui.constant'

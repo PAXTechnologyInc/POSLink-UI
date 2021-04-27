@@ -21,6 +21,12 @@ interface IActionHandler {
      */
     void sendAbort();
 
+
+    /**
+     * timeout the current action
+     */
+    void sendTimeout();
+
     /**
      * go back to the previous action, (not supported yet)
      */

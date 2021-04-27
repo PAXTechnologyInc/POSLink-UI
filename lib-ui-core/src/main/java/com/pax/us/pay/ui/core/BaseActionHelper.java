@@ -2,6 +2,7 @@ package com.pax.us.pay.ui.core;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -10,6 +11,7 @@ import android.text.TextUtils;
 
 import com.pax.us.pay.ui.constant.entry.EntryExtraData;
 import com.pax.us.pay.ui.constant.entry.enumeration.TransMode;
+import com.pax.us.pay.ui.core.api.IHasPhyKeyboardListener;
 import com.pax.us.pay.ui.core.api.IMessageListener;
 import com.pax.us.pay.ui.core.api.IRespStatus;
 import com.pax.us.pay.ui.core.api.IUIListener;
@@ -21,12 +23,12 @@ public abstract class BaseActionHelper {
     private IActionHandler actionHandler;
 
     @Nullable
-    private IUIListener uiListener;
+    private final IUIListener uiListener;
     @Nullable
-    private IRespStatus respStatus;
+    private final IRespStatus respStatus;
 
     private Intent intent;
-    private Handler handler = new Handler();
+    private final Handler handler = new Handler();
 
     protected BaseActionHelper(@Nullable IUIListener uiListener, @Nullable IRespStatus respStatus) {
         this.uiListener = uiListener;
@@ -49,6 +51,13 @@ public abstract class BaseActionHelper {
             throw new IllegalStateException(STATE_ERROR_LOG);
         }
         actionHandler.sendAbort();
+    }
+
+    public void sendTimeout() {
+        if (actionHandler == null) {
+            throw new IllegalStateException(STATE_ERROR_LOG);
+        }
+        actionHandler.sendTimeout();
     }
 
     public void sendPrev() {
@@ -76,7 +85,6 @@ public abstract class BaseActionHelper {
             String transType = bundle.getString(EntryExtraData.PARAM_TRANS_TYPE, "");
             String message = bundle.getString(EntryExtraData.PARAM_MESSAGE, "");
             String transMode = bundle.getString(EntryExtraData.PARAM_TRANS_MODE, TransMode.NORMAL);
-
             String[] options = bundle.getStringArray(EntryExtraData.PARAM_OPTIONS);
             if (options != null && options.length > 0){
                 UIDataHandler.setAction(intent.getAction());
@@ -90,6 +98,14 @@ public abstract class BaseActionHelper {
 
             if (transType.length() > 0 || message.length() > 0) {
                 ((IMessageListener) uiListener).onShowMessage(transType, message, transMode);
+            }
+
+
+        }
+        if (uiListener instanceof IHasPhyKeyboardListener) {
+            if ("A30".equals(Build.MODEL)){
+                //boolean hasPhyKeyboard = bundle.getBoolean(EntryExtraData.PARAM_HAS_PHYSICAL_KEYBOARD, false);
+                ((IHasPhyKeyboardListener) uiListener).onHasPhyKeyboard(true);
             }
         }
     }
