@@ -237,4 +237,5 @@ public class EntryRequest {
 
     //Aded for Visa Installment
     public static final String INSTALLMEN_SELECT_OPTION = "installment_select_option";
+    public static final String VISAN_TRANSID = "visa_transID";
 }
