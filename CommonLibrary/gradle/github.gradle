@@ -1,0 +1,9 @@
+ext {
+    Properties properties = new Properties()
+    def file = rootProject.file('local.properties')
+    if (file.canRead()) {
+        properties.load(file.newDataInputStream())
+    }
+    GITHUB_USER_NAME = properties.getProperty("gpr.user") ?: System.getenv("USERNAME")
+    GITHUB_USER_TOKEN = properties.getProperty("gpr.key") ?: System.getenv("TOKEN")
+}

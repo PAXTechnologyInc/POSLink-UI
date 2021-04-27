@@ -1,0 +1,39 @@
+<resources>
+
+    <string name="check_card_present">Card Present?\nTransaction avec carte?</string>
+    <string name="select_reverse_partial">Reverse?\nAnnuler?</string>
+    <string name="select_supplement_partial">Another Payment?\nAutre le paiement?</string>
+    <string name="confirm_deactivate_warn">Card Will Be Deactivated, Are You Sure?\nLa carte sera désactivée, êtes-vous sûr?</string>
+    <string name="confirm_online_retry">Online Failed, Retry?\nÉchec en ligne, réessayer?</string>
+    <string name="confirm_debit_trans">Debit Transaction?\nOpération de débit?</string>
+    <string name="confirm_batch_close">Close Batch?\nFermer le lot?</string>
+    <string name="confirm_reconciliation_close">Close Reconciliation?\nFermer la réconciliation?</string>
+    <string name="confirm_untipped_close">Close Batch with Untipped Trans.?\nFermer le lot avec une transaction sans pourboire.?</string>
+    <string name="prompt_confirm_dup_transaction">Duplicated Trans.\nDo you wish to continue?\n\nTrans en double. \nVoulez-vous continuer?</string>
+    <string name="confirm_surcharge_fee">Surcharge Fee\\Frais supplémentaires : </string>
+    <string name="confirm_upload_trans">Upload Transaction, Are You Sure?\nTransférer la transaction, êtes-vous sûr?</string>
+    <string name="confirm_upload_retry">Upload Retry?\nImporter une nouvelle tentative?</string>
+    <string name="confirm_print_failed_trans">Print Failed Trans.?\nÉchec de l\'impression Trans.?</string>
+    <string name="confirm_print_fps">Do You Want To Print Receipt?\nVoulez-vous imprimer un reçu?</string>
+    <string name="confirm_delete_sf">Delete SF Records, Are You Sure?\nSupprimer les enregistrements SF, êtes-vous sûr?</string>
+    <string name="confirm_print_customer_copy">Print Customer Receipt?\nImprimer le reçu du client?</string>
+    <string name="confirm_printer_status">Printer Have Issue, Retry?\nL\'imprimante a un problème, réessayer?</string>
+    <string name="confirm_application_update_with_batch_close">To apply the update, please close the current batch.\nDo you want to close now?\n\nPour appliquer la mise à jour, veuillez fermer le lot actuel. \nVoulez-vous fermer nonw?</string>
+    <string name="confirm_online_retry_offline">Retry Online Or Offline, Retry Online?\nRéessayer en ligne ou hors ligne, réessayer en ligne?</string>
+    <string name="confirm_balance">Balance \\ Solde</string>
+
+    <string name="prompt_printer_out_of_paper">Printer Out Of Paper, Retry?\nImprimante à court de papier, Réessayer?</string>
+    <string name="confirm_printer_over_hot">Printer Over Hot, Retry?\nImprimante surchauffée, réessayer?</string>
+    <string name="confirm_printer_voltage_low">Printer Voltage Low, Retry?\nTension d\'imprimante faible, réessayer?</string>
+    <string name="confirm_adjust_tip">Would you like to add this tip?\nSouhaitez-vous ajouter cette astuce?</string>
+
+    <string name="confirm_receipt_signature">Do you agree to sign the receipt?\nAcceptez-vous de signer le reçu?</string>
+    <string name="confirm_signature_match">Does the cardholder signature match?\nLa signature du titulaire de la carte correspond-elle?</string>
+    <string name="approve_amount">Approved Amount \\ Montant approuvé: </string>
+    <string name="due">DUE \\ Exigible: </string>
+    <string name="total_amount_with_colon">Total Amount \\ Montant total : </string>
+
+    <string name="partial_approve_prompt">Insufficient Fund\nFonds insuffisant\nAmount Due \\ Montant dû: </string>
+    <string name="partial_approve_prompt_pmt">Insufficient Fund\nAmount Due:%s, Another Payment?</string>
+
+</resources>

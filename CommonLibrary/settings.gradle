@@ -1,0 +1,22 @@
+rootProject.name = "BroadPOS-CommonLibrary"
+//common
+include ':common.constant'
+project (':common.constant').projectDir = file('./lib-constant')
+
+include ':common.action-api'
+project (':common.action-api').projectDir = file('./lib-action-api')
+
+include ':common.log'
+project (':common.log').projectDir = file('./lib-log')
+
+include ':common.wrapper'
+project (':common.wrapper').projectDir = file('./lib-wrapper')
+
+include ':common.poslink'
+project (':common.poslink').projectDir = file('./lib-poslink')
+
+include ':common.util'
+project (':common.util').projectDir = file('./lib-util')
+
+include ':common.utils.android'
+project (':common.utils.android').projectDir = file('./lib-android-utils')

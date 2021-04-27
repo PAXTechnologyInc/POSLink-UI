@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="expandable_toggle_button" type="id" />
+    <item name="expandable" type="id" />
+    <item name="loading_expand" type="id" />
+</resources>

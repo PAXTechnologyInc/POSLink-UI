@@ -59,6 +59,9 @@ public final class EntryExtraData {
     public static final String PARAM_PLANID_A = "planA_ID";
     public static final String PARAM_PLANID_B = "planB_ID";
 
+    public static final String PARAM_HAS_PHYSICAL_KEYBOARD = "hasPhyKeyboard";
+
+
 
 
 
@@ -158,6 +161,8 @@ public final class EntryExtraData {
     public static final String PARAM_ZIP_CODE_PATTERN = "zipCodePattern";
     public static final String PARAM_ADDRESS_PATTERN = "addressPattern";
 
+    public static final String PARAM_QR_CODE_CONTENT = "qrCodeContent";
+
     /**
      * PARAM_TRANS_STATUS : transaction status <br>
      * To Do : enum: upload, offline, voided, Adjusted ??????
@@ -184,6 +189,30 @@ public final class EntryExtraData {
     public static final String PARAM_LABELS = "labels";
     public static final String PARAM_LABELS_PROPERTY = "labelsProperty";
     public static final String PARAM_BUTTON_TYPE = "buttonType";
+    public static final String PARAM_TAX_LINE = "taxLine";
+    public static final String PARAM_TOTAL_LINE = "totalLine";
+    public static final String PARAM_IMAGE_URL = "imageURL";
+    public static final String PARAM_IMAGE_DESC = "imageDesc";
+    public static final String PARAM_MESSAGE_LIST = "messageList";
+    public static final String PARAM_CURRENCY_SYMBOL = "currencySymbol";
+    public static final String PARAM_BUTTON_1_NAME = "button1Name";
+    public static final String PARAM_BUTTON_1_COLOR = "button1Color";
+    public static final String PARAM_BUTTON_1_KEY = "button1Key";
+    public static final String PARAM_BUTTON_2_NAME = "button2Name";
+    public static final String PARAM_BUTTON_2_COLOR = "button2Color";
+    public static final String PARAM_BUTTON_2_KEY = "button2Key";
+    public static final String PARAM_BUTTON_3_NAME = "button3Name";
+    public static final String PARAM_BUTTON_3_COLOR = "button3Color";
+    public static final String PARAM_BUTTON_3_KEY = "button3key";
+    public static final String PARAM_TEXT = "text";
+    public static final String PARAM_ENABLE_HARD_KEY = "enableHardKey";
+    public static final String PARAM_HARD_KEY_LIST = "hardKeyList";
+    public static final String PARAM_SIGN_BOX = "signBox";
+    public static final String PARAM_BARCODE_TYPE = "barcodeType";
+    public static final String PARAM_BARCODE_DATA = "barcodeData";
+    public static final String PARAM_SIGNLINE1 = "signLine1";
+    public static final String PARAM_SIGNLINE2 = "signLine2";
+
 
 
     //internal parameter

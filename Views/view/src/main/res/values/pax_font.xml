@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="font_edit_text">24sp</dimen>
+
+    <dimen name="font_size_value">20sp</dimen>
+    <dimen name="font_size_hint">14sp</dimen>
+    <dimen name="font_size_prompt">16sp</dimen>
+    <dimen name="font_button">14sp</dimen>
+
+    <dimen name="font_dialog_button">14sp</dimen>
+    <dimen name="font_dialog_title">18sp</dimen>
+    <dimen name="font_dialog_prompt">16sp</dimen>
+    <dimen name="font_dialog_item">18sp</dimen>
+    <dimen name="font_dialog_title_medium">16sp</dimen>
+    <dimen name="font_dialog_item_small">12sp</dimen>
+
+    <dimen name="font_keyboard_normal">12sp</dimen>
+
+</resources>

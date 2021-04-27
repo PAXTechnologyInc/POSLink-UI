@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/print_preview_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="@dimen/space_horizontal"
+        android:layout_marginTop="@dimen/space_vertical"
+        android:layout_marginEnd="@dimen/space_horizontal"
+        android:contentDescription="@string/image_desc"
+        android:src="@mipmap/print_preview_header" />
+
+    <LinearLayout
+        android:id="@+id/print_preview_linearlayout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/receipt_preview_top">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/print_preview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/receipt_preview_start_end"
+                android:layout_marginEnd="@dimen/receipt_preview_start_end"
+                android:background="@mipmap/print_preview_body"
+                android:contentDescription="@string/image_desc"
+                android:paddingStart="@dimen/receipt_preview_padding_start_end"
+                android:paddingEnd="@dimen/receipt_preview_padding_start_end"
+                android:paddingBottom="@dimen/receipt_preview_padding_bottom"
+                android:scaleType="fitCenter" />
+        </ScrollView>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/confirm_btn"
+        style="?android:attr/buttonBarButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/space_vertical"
+        android:background="@drawable/btn_bg_light"
+        android:text="@string/dialog_print"
+        android:textColor="@color/primary_text_dark"
+        android:textSize="@dimen/font_button" />
+
+</RelativeLayout>
+

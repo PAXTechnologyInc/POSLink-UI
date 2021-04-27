@@ -1,0 +1,56 @@
+<resources>
+
+    <style name="NormalButton" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="android:textSize">@dimen/font_button</item>
+        <item name="android:paddingStart">4dp</item>
+        <item name="android:paddingEnd">4dp</item>
+        <item name="android:textColor">@color/primary_text_light</item>
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+    </style>
+
+    <style name="DefEditText">
+        <item name="android:layout_height">@dimen/edit_height</item>
+        <item name="android:background">@drawable/edit_frame</item>
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:gravity">end|center_vertical</item>
+        <item name="android:textColor">@color/primary_text_light</item>
+        <item name="android:textSize">@dimen/font_edit_text</item>
+        <item name="android:textColorHint">@color/secondary_text_light</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar" parent="PaxTheme.AnimFade">
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+
+    <style name="DarkTranslucent" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowAnimationStyle">@style/PaxTheme.notAnimation</item>
+    </style>
+
+    <style name="LongLine">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:scaleType">fitXY</item>
+        <item name="android:background">@drawable/line</item>
+    </style>
+
+    <style name="CustomKeyboardView" parent="@android:style/Widget.KeyboardView">
+        <item name="android:background">@color/background</item>
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:keyBackground">@drawable/btn_bg_dark</item>
+        <item name="android:keyTextColor">@color/primary_text_light</item>
+    </style>
+
+    <style name="DefLargeEditText" parent="DefEditText">
+        <item name="android:layout_height">@dimen/edit_height_large</item>
+        <item name="android:textSize">@dimen/font_edit_text_large</item>
+    </style>
+
+</resources>

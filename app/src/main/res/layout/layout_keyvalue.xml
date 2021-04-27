@@ -7,26 +7,28 @@
     android:paddingEnd="@dimen/space_horizontal">
 
     <TextView
-        android:id="@+id/item_title"
+        android:id="@id/item_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:textColor="@color/primary_text_light"
         android:textSize="@dimen/font_size_prompt"
+        app:layout_constraintEnd_toStartOf="@id/item_value"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/item_value"
-        app:layout_constraintHorizontal_weight="0.4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_weight="@dimen/prompt_weight"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/item_value"
+        android:id="@id/item_value"
         android:layout_width="0dp"
-        android:layout_height="36dp"
+        android:layout_height="wrap_content"
         android:gravity="end"
+        android:textColor="@color/primary_text_light"
         android:textSize="@dimen/font_size_value"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_weight="0.6"
-        app:layout_constraintStart_toEndOf="@+id/item_title"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@id/item_title"
+        app:layout_constraintHorizontal_weight="@dimen/value_weight"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

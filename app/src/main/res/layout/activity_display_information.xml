@@ -1,61 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/background"
     android:orientation="vertical">
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/scrollw_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@id/button_layout"
+        android:layout_alignParentTop="true"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/title_id"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_vertical"
-            android:layout_marginBottom="@dimen/space_vertical_small"
-            android:textColor="@color/primary_text_light"
-            android:textSize="@dimen/font_size_prompt" />
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/title_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_vertical"
+                    android:layout_marginBottom="@dimen/space_vertical_small"
+                    android:textColor="@color/primary_text_light"
+                    android:textSize="@dimen/font_size_prompt" />
 
 
-        <LinearLayout
-            android:id="@+id/detail_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_vertical_small"
-            android:background="@android:color/white"
-            android:orientation="vertical"
-            android:padding="@dimen/space_vertical_small" />
+                <LinearLayout
+                    android:id="@+id/detail_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_vertical_small"
+                    android:background="@android:color/white"
+                    android:orientation="vertical"
+                    android:padding="@dimen/space_vertical_small" />
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
 
-        <LinearLayout
-            android:id="@+id/button_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/cancel_btn"
-                android:layout_width="40dp"
-                android:layout_height="@dimen/button_height"
-                android:layout_weight="1"
-                android:layout_marginLeft="@dimen/space_vertical_small"
-                android:layout_marginRight="@dimen/space_vertical_small"
-                android:layout_column="1"
-                android:text="Cancel"
-                android:textSize="@dimen/font_button" />
+    <LinearLayout
+        android:id="@+id/button_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="@dimen/space_vertical"
+        android:layout_marginBottom="@dimen/space_vertical_small"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="NotSibling">
 
-            <Button
-                android:id="@+id/confirm_btn"
-                android:layout_width="40dp"
-                android:layout_height="@dimen/button_height"
-                android:layout_weight="1"
-                android:layout_column="2"
-                android:layout_marginRight="@dimen/space_vertical_small"
-                android:text="Confirm"
-                android:textSize="@dimen/font_button" />
-        </LinearLayout>
+        <Button
+            android:id="@+id/cancel_btn"
+            style="@style/NormalButton"
+            android:layout_width="40dp"
+            android:layout_column="1"
+            android:layout_marginLeft="@dimen/space_vertical_small"
+            android:layout_marginRight="@dimen/space_vertical_small"
+            android:layout_weight="1"
+            android:background="@drawable/btn_bg_light"
+            android:text="@string/cancel_btn"
+            android:textColor="@color/primary_text_dark"
+            android:textSize="@dimen/font_button" />
+
+        <Button
+            android:id="@+id/confirm_btn"
+            style="@style/NormalButton"
+            android:layout_width="40dp"
+            android:layout_column="2"
+            android:layout_marginRight="@dimen/space_vertical_small"
+            android:layout_weight="1"
+            android:background="@drawable/btn_bg_light"
+            android:text="@string/trans_confirm_btn"
+            android:textColor="@color/primary_text_dark"
+            android:textSize="@dimen/font_button" />
     </LinearLayout>
 
-
-</ScrollView>
+</RelativeLayout>

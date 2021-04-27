@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mode_grid_tv"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/mode_gird_item"
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="center"
+    android:paddingTop="@dimen/space_vertical"
+    android:paddingBottom="@dimen/space_vertical"
+    android:textColor="@color/primary_text_light"
+    android:textSize="@dimen/font_edit_text_large" />
+

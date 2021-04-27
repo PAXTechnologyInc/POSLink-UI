@@ -18,4 +18,5 @@ public class ConfirmInstallmentPlanHelper extends BaseActionHelper {
         bundle.putString(EntryRequest.INSTALLMEN_SELECT_OPTION, planOption);
         super.sendNext(bundle);
     }
+
 }

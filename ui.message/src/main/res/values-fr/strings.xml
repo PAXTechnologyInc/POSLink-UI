@@ -1,0 +1,40 @@
+<resources>
+
+    <string name="check_card_present">Transaction avec carte?</string>
+    <string name="select_reverse_partial">Annuler?</string>
+    <string name="select_supplement_partial">Autre le paiement?</string>
+    <string name="confirm_deactivate_warn">La carte sera désactivée, êtes-vous sûr?</string>
+    <string name="confirm_online_retry">Échec en ligne, réessayer?</string>
+    <string name="confirm_debit_trans">Opération de débit?</string>
+    <string name="confirm_batch_close">Fermer le lot?</string>
+    <string name="confirm_reconciliation_close">Fermer la réconciliation?</string>
+    <string name="confirm_untipped_close">Fermer le lot avec une transaction sans pourboire.?</string>
+    <string name="prompt_confirm_dup_transaction">Trans en double. \nVoulez-vous continuer?</string>
+    <string name="confirm_surcharge_fee">Frais supplémentaires : </string>
+    <string name="confirm_upload_trans">Transférer la transaction, êtes-vous sûr?</string>
+    <string name="confirm_upload_retry">Importer une nouvelle tentative?</string>
+    <string name="confirm_print_failed_trans">Échec de l\'impression Trans.?</string>
+    <string name="confirm_print_fps">Voulez-vous imprimer un reçu?</string>
+    <string name="confirm_delete_sf">Supprimer les enregistrements SF, êtes-vous sûr?</string>
+    <string name="confirm_print_customer_copy">Imprimer le reçu du client?</string>
+    <string name="confirm_printer_status">L\'imprimante a un problème, réessayer?</string>
+    <string name="confirm_application_update_with_batch_close">Pour appliquer la mise à jour, veuillez fermer le lot actuel. \nVoulez-vous fermer nonw?</string>
+    <string name="confirm_online_retry_offline">Réessayer en ligne ou hors ligne, réessayer en ligne?</string>
+    <string name="confirm_balance">Solde</string>
+
+    <string name="prompt_printer_out_of_paper">Imprimante à court de papier, Réessayer?</string>
+    <string name="confirm_printer_over_hot">Imprimante surchauffée, réessayer?</string>
+    <string name="confirm_printer_voltage_low">Tension d\'imprimante faible, réessayer?</string>
+    <string name="confirm_adjust_tip">Souhaitez-vous ajouter cette astuce?</string>
+
+    <string name="confirm_receipt_signature">Acceptez-vous de signer le reçu?</string>
+    <string name="confirm_signature_match">La signature du titulaire de la carte correspond-elle?</string>
+
+    <string name="approve_amount">Montant approuvé: </string>
+    <string name="due">Exigible: </string>
+    <string name="total_amount_with_colon">Montant total : </string>
+
+    <string name="partial_approve_prompt">Fonds insuffisant\nMontant dû: </string>
+    <string name="partial_approve_prompt_pmt">Fonds insuffisant\nMontant dû:%s, Autre le paiement?</string>
+
+</resources>
