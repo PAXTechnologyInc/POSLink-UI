@@ -79,6 +79,7 @@ public class PoslinkEntry {
      * input: {@link EntryExtraData#PARAM_TITLE} } <br>
      * input: {@link EntryExtraData#PARAM_TAX_LINE} <br>
      * input: {@link EntryExtraData#PARAM_TOTAL_LINE} <br>
+     * input: {@link EntryExtraData#PARAM_CURRENCY_SYMBOL} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE_LIST} <br>
      */
     public static final String ACTION_SHOW_ITEM = "com.pax.us.pay.action.SHOW_ITEM";
@@ -102,6 +103,7 @@ public class PoslinkEntry {
      * input: {@link EntryExtraData#PARAM_TIMEOUT} <br>
      * input: {@link EntryExtraData#PARAM_ENABLE_HARD_KEY} <br>
      * input: {@link EntryExtraData#PARAM_HARD_KEY_LIST} <br>
+     * input: {@link EntryExtraData#PARAM_CONTINUE_SCREEN} <br>
      * input: {@link EntryExtraData#PARAM_BARCODE_TYPE} <br>
      * input: {@link EntryExtraData#PARAM_BARCODE_DATA} <br>
      * request: {@link EntryRequest#PARAM_BUTTON_NUMBER} <br>
