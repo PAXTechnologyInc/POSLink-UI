@@ -261,8 +261,8 @@ public class ConfirmationEntry {
 
     /**
      * The intent action of confirm end user license agreement<br>
-     * set EntryExtraData#PARAM_START_TYPE value "ACTIVITY" when start action from host by call startActivity() directly <br>
-     * when start action from manager, doesn't set EntryExtraData#PARAM_START_TYPE <br>
+     * when start action from host by call startActivity() directly, doesn't set EntryExtraData#PARAM_START_TYPE <br>
+     * when start action from manager, set EntryExtraData#PARAM_START_TYPE value "ACTION" <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
      * input: {@link EntryExtraData#PARAM_EULA_URI} <br>
