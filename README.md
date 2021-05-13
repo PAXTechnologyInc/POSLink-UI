@@ -10,7 +10,7 @@
    
    > ../status/                    : Transaction status prompt, customer UI according those status to display relevant informations or do actions. involve card's status, contactless light status, batch transaction status, prompt message during transaction, etc.     
    
-## ui-demo     :  
+## ui-demo(deprecated)   :
     Demo code to show how to parse the UI action's input datas, and display relevant contents, Customer UI get operator data, and pack into protocol datas, then send request package and according action's result to finish action UI or continue re-enter. that is a low layer encapsulation, all datas processing in one .java class.     
    
 ## lib-ui-core :  
