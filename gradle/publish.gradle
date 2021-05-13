@@ -83,7 +83,11 @@ if(isAndroidPlugin() || isJavaPlugin()) {
                                     }
                                     final dependencyNode = dependenciesNode.appendNode('dependency')
                                     dependencyNode.appendNode('groupId', dep.group)
-                                    dependencyNode.appendNode('artifactId', dep.name)
+                                    if (dep instanceof ProjectDependency) {
+                                        dependencyNode.appendNode('artifactId', dep.dependencyProject.ext.get("_artifactId"))
+                                    } else {
+                                        dependencyNode.appendNode('artifactId', dep.name)
+                                    }
                                     dependencyNode.appendNode('version', dep.version)
                                     dependencyNode.appendNode('scope', scope)
                                     if (!dep.transitive) {
@@ -101,20 +105,19 @@ if(isAndroidPlugin() || isJavaPlugin()) {
                             }
 
                             if (isAndroidPlugin()) {
-                                addDependency(configurations.provided, 'provided')
-                                addDependency(configurations.compileOnly, 'provided')
                                 addDependency(configurations.androidTestApi, 'test')
                                 addDependency(configurations.androidTestImplementation, 'test')
-                                addDependency(configurations.testCompile, 'test')
-                                addDependency(configurations.testApi, 'test')
-                                addDependency(configurations.testImplementation, 'test')
-                            } else {
-                                addDependency(configurations.api, 'compile')
-                                addDependency(configurations.implementation, 'compile')
-                                addDependency(configurations.compileOnly, 'provided')
-                                addDependency(configurations.runtimeOnly, 'runtime')
-                                addDependency(configurations.testImplementation, 'test')
                             }
+                            addDependency(configurations.api, 'compile')
+                            addDependency(configurations.implementation, 'compile')
+                            addDependency(configurations.compileOnly, 'provided')
+                            addDependency(configurations.runtimeOnly, 'runtime')
+                            addDependency(configurations.provided, 'provided')
+                            addDependency(configurations.compileOnly, 'provided')
+
+                            addDependency(configurations.testCompile, 'test')
+                            addDependency(configurations.testApi, 'test')
+                            addDependency(configurations.testImplementation, 'test')
                         }
                     } else {
                         from(components.java)
