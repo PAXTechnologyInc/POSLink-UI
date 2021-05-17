@@ -3,15 +3,11 @@ name: Publish packages
 # Controls when the action will run.
 on:
   # Triggers the workflow on push events but only for the develop/release branch
-  # TODO hide this until it's ready
-  #push:
-  #  branches: [ develop, release ]
-  #  paths-ignore:
-  #    - '**.md'
-  #    - '**.sh'
-  #    - '**.yml'
-  # ignore workflow if commits come from test/demo module only
-  #   - 'otherModule/**'
+  push:
+    branches: [ develop, release ]
+    paths:
+    - 'lib-ui-core/**.java'
+    - 'lib-ui-constant/**.java'
   # Allows you to run this workflow manually from the Actions tab (for testing)
   workflow_dispatch:
 
