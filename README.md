@@ -19,12 +19,12 @@
    > ../helper :  protocol layer data pack and unpack parsing.     
 
 ## app   :  
-   Demo code to show how to use lib-ui-core to dispaly action UI and send/received action datas ;
+   Demo code to show how to use lib-ui-core to dispaly action UI and send/received action datas 
    
-## ui-component :  
-   Components for app, common components be used by app;
+## ui-component   :  
+   Components for app, common components be used by app
    
-## ui-message :  
-   Display message for ConfirmUnifiedDialogActivity.java of app, some actions use same UI to show message;   
+## ui-message   :  
+   Display message for ConfirmUnifiedDialogActivity.java of app, some actions use same UI to show message
    
    
