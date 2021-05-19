@@ -184,6 +184,10 @@ public class EntryRequest {
     public static final String PARAM_HEIGHT = "height";
     public static final String PARAM_FONT_SIZE = "fontSize";
 
+    //Visa Installment
+    public static final String PARAM_INSTALLMEN_SELECT_OPTION = "installment_select_option";
+    public static final String PARAM_VISA_TRANSID = "visa_transID";
+
 
     /**
      * Type {@link android.graphics.Rect}
@@ -237,8 +241,4 @@ public class EntryRequest {
      * Type {@link android.graphics.Rect}
      */
     public static final String PARAM_KEY_CANCEL = "key_cancel";
-
-    //Aded for Visa Installment
-    public static final String INSTALLMEN_SELECT_OPTION = "installment_select_option";
-    public static final String VISAN_TRANSID = "visa_transID";
 }
