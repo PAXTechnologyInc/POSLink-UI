@@ -175,6 +175,7 @@ public final class EntryExtraData {
 
     public static final String PARAM_RECEIPT_URI = "receiptUri";
     public static final String PARAM_EULA_URI = "eulaUri";
+    public static final String PARAM_START_TYPE = "startType";
 
     public static final String PARAM_TRANS_URL = "transUri";
     public static final String PARAM_TRANS_SELECTION = "transSelection";
