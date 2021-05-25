@@ -230,6 +230,31 @@ public class OptionEntry {
      */
     public static final String ACTION_SELECT_MERCHANT = "com.pax.us.pay.action.SELECT_MERCHANT";
 
+    /**
+     * The intent action of select and display installment plan details <br>
+     * /**
+     * The intent action of select the search type <br>
+     * input: {@link EntryExtraData#PARAM_INSTALLMENT_PAYMENT_AMOUNT_A} <br>
+     * input: {@link EntryExtraData#PARAM_INSTALLMENT_PAYMENT_AMOUNT_B} <br>
+     * input: {@link EntryExtraData#PARAM_NUMBER_OF_INSTALLMENTS_A} <br>
+     * input: {@link EntryExtraData#PARAM_NUMBER_OF_INSTALLMENTS_B} <br>
+     * input: {@link EntryExtraData#PARAM_FREQUENCY_OF_INSTALLMENT_A} <br>
+     * input: {@link EntryExtraData#PARAM_FREQUENCY_OF_INSTALLMENT_B} <br>
+     * input: {@link EntryExtraData#PARAM_TOTAL_FEES_PER_INSTALLMENT_PLAN_A} <br>
+     * input: {@link EntryExtraData#PARAM_TOTAL_FEES_PER_INSTALLMENT_PLAN_B} <br>
+     * input: {@link EntryExtraData#PARAM_TOTAL_AMOUNT_INCLUSIVE_OF_FEES_A} <br>
+     * input: {@link EntryExtraData#PARAM_TOTAL_AMOUNT_INCLUSIVE_OF_FEES_B} <br>
+     * input: {@link EntryExtraData#PARAM_TERMS_AND_CONDITIONS_A} <br>
+     * input: {@link EntryExtraData#PARAM_TERMS_AND_CONDITIONS_B} <br>
+     * input: {@link EntryExtraData#PARAM_PLANID_A} <br>
+     * input: {@link EntryExtraData#PARAM_PLANID_B} <br>
+     * input: {@link EntryExtraData#PARAM_PLAN_A_TERMS_AND_CONDITIONS_VERSION} <br>
+     * input: {@link EntryExtraData#PARAM_PLAN_B_TERMS_AND_CONDITIONS_VERSION} <br>
+     * request: {@link EntryRequest#PARAM_INSTALLMEN_SELECT_OPTION} <br>
+     */
+    public static final String ACTION_SELECT_INSTALLMENT_PLAN = "com.pax.us.pay.action.SELECT_INSTALLMENT_PLAN";
+
+
 //Note:
 //Appending a new action, please add mapping into "SELECT_OPTION_MAP" in "SelectOptionContent"
 
