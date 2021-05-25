@@ -236,7 +236,7 @@ public class OptionEntry {
      * The intent action of select the search type <br>
      * input: {@link EntryExtraData#PARAM_BASE_AMOUNT} <br>
      * input: {@link EntryExtraData#PARAM_PLAN_SELECT_INFORMATION} String Array<br>
-     * request: {@link EntryRequest#PARAM_INSTALLMEN_SELECT_OPTION} <br>
+     * request: {@link EntryRequest#PARAM_INSTALLMENT_SELECT_OPTION} <br>
      */
     public static final String ACTION_SELECT_INSTALLMENT_PLAN = "com.pax.us.pay.action.SELECT_INSTALLMENT_PLAN";
 
