@@ -248,9 +248,11 @@ public class OptionEntry {
      * input: {@link EntryExtraData#PARAM_TERMS_AND_CONDITIONS_B} <br>
      * input: {@link EntryExtraData#PARAM_PLANID_A} <br>
      * input: {@link EntryExtraData#PARAM_PLANID_B} <br>
+     * input: {@link EntryExtraData#PARAM_PLAN_A_TERMS_AND_CONDITIONS_VERSION} <br>
+     * input: {@link EntryExtraData#PARAM_PLAN_B_TERMS_AND_CONDITIONS_VERSION} <br>
      * request: {@link EntryRequest#PARAM_INSTALLMEN_SELECT_OPTION} <br>
      */
-    public static final String ACTION_SELECT_INSTALLMENT_PLAN = "com.pax.us.pay.action.Select_Installment_Plan";
+    public static final String ACTION_SELECT_INSTALLMENT_PLAN = "com.pax.us.pay.action.SELECT_INSTALLMENT_PLAN";
 
 
 //Note:

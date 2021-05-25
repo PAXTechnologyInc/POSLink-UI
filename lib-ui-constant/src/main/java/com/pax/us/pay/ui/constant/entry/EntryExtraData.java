@@ -58,6 +58,8 @@ public final class EntryExtraData {
     public static final String PARAM_TERMS_AND_CONDITIONS_B = "termsAndConditions_PlanB";
     public static final String PARAM_PLANID_A = "planA_ID";
     public static final String PARAM_PLANID_B = "planB_ID";
+    public static final String PARAM_PLAN_A_TERMS_AND_CONDITIONS_VERSION = "termsVersionA";
+    public static final String PARAM_PLAN_B_TERMS_AND_CONDITIONS_VERSION = "termsVersionB";
 
     public static final String PARAM_HAS_PHYSICAL_KEYBOARD = "hasPhyKeyboard";
 
