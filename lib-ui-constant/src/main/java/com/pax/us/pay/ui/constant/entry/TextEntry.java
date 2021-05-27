@@ -341,4 +341,11 @@ public class TextEntry {
      */
     public static final String ACTION_ENTER_OCT_REFERENCE_NUMBER = "com.pax.us.pay.action.ENTER_OCT_REFERENCE_NUMBER";
 
+    /**
+     * The intent action of Enter Visa Installment Transaction ID <br>
+     * input: {@link EntryExtraData#PARAM_VALUE_PATTERN} <br>
+     * request: {@link EntryRequest#PARAM_VISA_TRANSID} <br>
+     */
+    public static final String ACTION_ENTER_VISA_INSTALLMENT_TRANSACTIONID = "com.pax.us.pay.action.ENTER_VISA_INSTALLMENT_TRANSACTIONID";
+
 }

@@ -184,6 +184,9 @@ public class EntryRequest {
     public static final String PARAM_HEIGHT = "height";
     public static final String PARAM_FONT_SIZE = "fontSize";
 
+    //Visa Installment
+    public static final String PARAM_INSTALLMENT_SELECT_OPTION = "installmentSelectOption";
+    public static final String PARAM_VISA_TRANSID = "visaTransID";
 
     /**
      * Type {@link android.graphics.Rect}
