@@ -9,5 +9,23 @@ project (':ui.constant').projectDir = file('./lib-ui-constant')
 include ':ui.core'
 project (':ui.core').projectDir = file('./lib-ui-core')
 
-include ':ui.demo'
-project (':ui.demo').projectDir = file('./ui-demo')
+//include ':ui.demo'
+//project (':ui.demo').projectDir = file('./ui-demo')
+
+include ':ui.component'
+project (':ui.component').projectDir = file('./ui.component')
+
+include ':ui.message'
+project (':ui.message').projectDir = file('./ui.message')
+
+include ':ui.view'
+project (':ui.view').projectDir = file('./Views/view')
+
+include ':common.log'
+project (':common.log').projectDir = file('./CommonLibrary/lib-log')
+
+include ':common.utils'
+project (':common.utils').projectDir = file('./CommonLibrary/lib-util')
+
+include ':common.utils.android'
+project (':common.utils.android').projectDir = file('./CommonLibrary/lib-android-utils')

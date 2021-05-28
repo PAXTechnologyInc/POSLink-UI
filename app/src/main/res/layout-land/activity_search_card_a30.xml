@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="@dimen/space_horizontal"
+    android:layout_marginEnd="@dimen/space_horizontal"
+    tools:ignore="MissingDefaultResource">
+
+    <!-- ======================================================默认读卡界面==================================================== -->
+
+    <com.pax.pay.ui.def.view.ClssLightsView
+        android:id="@+id/clssLight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_vertical_small"
+        android:layout_marginBottom="@dimen/space_vertical_small"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/account_edit"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/space_vertical_small"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/btn_layout"
+        app:layout_constraintTop_toBottomOf="@id/clssLight"
+        app:layout_constraintVertical_weight="4">
+
+        <LinearLayout
+            android:id="@+id/merchant_prompt_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/space_vertical_small"
+            android:orientation="horizontal"
+            android:visibility="invisible">
+
+            <TextView
+                android:id="@+id/merchant_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="bottom"
+                android:text="@string/prompt_merchant"
+                android:textColor="@color/primary_text_light"
+                android:textSize="@dimen/font_size_prompt" />
+
+            <TextView
+                android:id="@+id/merchant_prompt_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="bottom|end"
+                android:text=""
+                android:textColor="@color/primary_text_light"
+                android:textSize="@dimen/font_size_value" />
+        </LinearLayout>
+
+        <include layout="@layout/content_amount_prompt_a30" />
+
+        <TextView
+            android:id="@+id/prompt_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_vertical_smaller"
+            android:layout_marginBottom="@dimen/space_vertical_small"
+            android:text="@string/hint_enter_account"
+            android:textColor="@color/secondary_text_light"
+            android:textSize="18sp" />
+
+        <com.pax.us.pay.ui.component.keyboard.CustomKeyboardEditText
+            android:id="@+id/card_number_edit"
+            style="@android:style/Widget.EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:gravity="center"
+            android:inputType="number"
+            android:textColor="@color/primary_text_light"
+            android:textColorHint="@color/secondary_text_dark"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="@id/divider"
+            app:layout_constraintTop_toBottomOf="@id/prompt_tv" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="-9dp"
+            android:background="@color/divider"
+            tools:visibility="visible" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/btn_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/logo_layout"
+        app:layout_constraintTop_toBottomOf="@id/account_edit">
+
+        <Button
+            android:id="@+id/scan_btn"
+            android:layout_width="0dp"
+            android:layout_height="0sp"
+            android:layout_marginEnd="@dimen/space_vertical_small"
+            android:layout_weight="1"
+            android:background="@drawable/btn_bg_light"
+            android:text="@string/btn_scan"
+            android:textColor="@color/primary_text_dark"
+            android:textSize="0sp"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/confirm_btn"
+            android:layout_width="0dp"
+            android:layout_height="0sp"
+            android:layout_marginStart="@dimen/space_vertical_small"
+            android:layout_weight="1"
+            android:background="@drawable/btn_bg_light"
+            android:text="@string/dialog_ok"
+            android:textColor="@color/primary_text_dark"
+            android:textSize="0sp"
+            android:visibility="invisible" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/logo_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_layout"
+        app:layout_constraintVertical_weight="3">
+
+        <LinearLayout
+            android:id="@+id/supported_card_prompt"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="36sp"
+            android:layout_marginTop="@dimen/space_vertical_smaller"
+            android:layout_marginRight="@dimen/space_horizontal"
+            android:layout_marginBottom="@dimen/space_vertical_smaller"
+            android:layout_weight="2"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="parent">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/search_paylogo_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/space_horizontal"
+            android:layout_marginRight="@dimen/space_horizontal_smaller"
+            android:layout_marginBottom="@dimen/space_vertical_smaller"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="parent">
+
+            <ImageView
+                android:id="@+id/iv_apple"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:src="@mipmap/apple_pay"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/iv_google"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:src="@mipmap/google_pay"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/iv_samsung"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:src="@mipmap/samsung_pay"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/iv_tap"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:src="@mipmap/tap"
+                android:visibility="visible" />
+        </LinearLayout>
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,4 @@
+apply plugin: 'java-library'
+
+sourceCompatibility = "7"
+targetCompatibility = "7"

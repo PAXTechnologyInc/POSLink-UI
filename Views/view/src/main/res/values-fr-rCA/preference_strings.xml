@@ -1,0 +1,15 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Notice -->
+    <string name="notice_is_out_of_range">The %1$s must be in %2$d-%3$d</string>
+    <string name="notice_is_out_of_range_new">%1$s must be between %2$d-%3$d</string>
+    <string name="notice_amount_is_out_of_range">The amount must be in %1$s-%2$s</string>
+    <string name="notice_length_is_out_of_range_2">The length must be greater than %1$d</string>
+    <string name="notice_length_is_out_of_range_3" tools:ignore="PluralsCandidate">Can not be less than %1$d or exceed %2$d digit(s)</string>
+    <string name="notice_length_is_out_of_range_4" tools:ignore="PluralsCandidate">Can not exceed %1$d digit(s)</string>
+    <string name="notice_value_length_is_wrong">The length must be %1$d</string>
+    <string name="notice_percent_value_is_out_of_range">The value must be in (%1$.3f-%2$.3f)%%</string>
+    <string name="img_desc" />
+    <string name="dialog_cancel">Cancel</string>
+    <string name="dialog_ok">OK</string>
+    <string name="processing">Processing, Please Wait...</string>
+</resources>
