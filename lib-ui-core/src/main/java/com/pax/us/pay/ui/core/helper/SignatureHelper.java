@@ -35,10 +35,7 @@ public class SignatureHelper extends BaseActionHelper {
         if ((uiListener instanceof ICurrencyListener) &&
                 (uiListener instanceof IAmountListener && bundle.containsKey(EntryExtraData.PARAM_TOTAL_AMOUNT))) {
             String currency = bundle.getString(EntryExtraData.PARAM_CURRENCY, "USD");
-            if (currency.equals(CurrencyType.POINT))
-                ((ICurrencyListener) uiListener).onShowCurrency(currency, true);
-            else
-                ((ICurrencyListener) uiListener).onShowCurrency(currency, false);
+            ((ICurrencyListener) uiListener).onShowCurrency(currency, currency.equals(CurrencyType.POINT));
 
             ((IAmountListener) uiListener).onShowAmount(bundle.getLong(EntryExtraData.PARAM_TOTAL_AMOUNT));
         }
@@ -56,7 +53,7 @@ public class SignatureHelper extends BaseActionHelper {
         }
 
         if (uiListener instanceof IEnableCancelButtonListener) {
-            ((IEnableCancelButtonListener) uiListener).onShowCancelButton(bundle.getBoolean(EntryExtraData.PARAM_ENABLE_CANCEL, true));
+            ((IEnableCancelButtonListener) uiListener).onShowCancelButton(bundle.getBoolean(EntryExtraData.PARAM_ENABLE_CANCEL, false));
         }
 
         if (uiListener instanceof ITimeoutListener) {

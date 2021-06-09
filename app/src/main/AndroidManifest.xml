@@ -14,7 +14,8 @@
         android:name="com.pax.pay.ui.def.app.App"
         android:label="POSLink Demo"
         android:allowBackup="false"
-        android:supportsRtl="true">
+        android:supportsRtl="true"
+        android:theme="@style/PaxTheme.AnimFade">
 
         <activity android:name="com.pax.pay.ui.def.VersionActivity">
             <intent-filter>

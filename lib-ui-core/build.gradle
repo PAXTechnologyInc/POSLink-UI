@@ -1,12 +1,15 @@
 apply plugin: 'com.android.library'
 
-if(rootProject.name != "BroadPOS-CommonLibrary") {
+if(rootProject.name != "POSLink-UI") {
     apply from: file('../gradle/version.gradle')
 
     ext {
         loadVersions('../version.properties')
     }
 }
+
+group=_groupId
+version=GLOBAL_VERSION
 
 android {
     compileSdkVersion _compileSdkVersion.toInteger()
@@ -33,8 +36,6 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
     implementation 'com.android.support:appcompat-v7:27.1.1'
 
     testImplementation 'junit:junit:4.12'

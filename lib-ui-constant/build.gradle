@@ -8,6 +8,7 @@ if(rootProject.name != "POSLink-UI") {
     }
 }
 
+group=_groupId
 version=GLOBAL_VERSION
 
 dependencies {
