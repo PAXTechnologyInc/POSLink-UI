@@ -121,4 +121,15 @@ public class PoslinkEntry {
      * request: {@link EntryRequest#PARAM_SIGNATURE} <br>
      */
     public static final String ACTION_SHOW_SIGNATURE_BOX = "com.pax.us.pay.action.SHOW_SIGNATURE_BOX";
+
+    /**
+     * The intent action of camera scan <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_CAMERA_SCAN_READER} <br>
+     * input: {@link EntryExtraData#PARAM_TIMEOUT} <br>
+     * request: {@link EntryRequest#PARAM_BARCODE_DATA} <br>
+     * request: {@link EntryRequest#PARAM_BARCODE_TYPE} <br>
+     */
+    public static final String ACTION_CAMERA_SCAN = "com.pax.us.pay.action.CAMERA_SCAN";
 } 
