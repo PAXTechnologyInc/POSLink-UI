@@ -82,6 +82,7 @@ public final class EntryExtraData {
 //    public static final String PARAM_TOTAL_FEE = "totalFee";
 //
     public static final String PARAM_BALANCE = "balance";
+    public static final String PARAM_CAMERA_SCAN_READER = "cameraScanReader";
 
 
     /**
