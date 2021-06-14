@@ -43,7 +43,6 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     implementation project(path: ':ui.constant')
-    provided files('PosApi_V1.25_20200527.jar')
 }
 
 if(rootProject.name == "POSLink-UI") {
