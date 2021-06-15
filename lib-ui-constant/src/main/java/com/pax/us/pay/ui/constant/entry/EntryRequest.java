@@ -1,246 +1,219 @@
 package com.pax.us.pay.ui.constant.entry;
 
-public class EntryRequest {
-
-    /**
-     * NEXT with value: request BroadPOS to go to next step with input value. <br>
-     */
-    public static final String ACTION_NEXT = "com.pax.us.pay.ui.NEXT";
-
-    /**
-     * ABORT: request BroadPOS to abort the transaction. <br>
-     */
-    public static final String ACTION_ABORT = "com.pax.us.pay.ui.ABORT";
-
-    /**
-     * ABORT: request BroadPOS to abort the transaction. <br>
-     */
-    public static final String ACTION_TIME_OUT = "com.pax.us.pay.ui.TIME_OUT";
-
-
-    /**
-     * PREV: request BroadPOS to go to previous step . <br>
-     */
-    public static final String ACTION_PREV = "com.pax.us.pay.ui.PREV";
-
-    /**
-     * SECURITY_AREA: request BroadPOS to show security widget on a specific position. <br>
-     * param: {@link EntryRequest#PARAM_X} <br>
-     * param: {@link EntryRequest#PARAM_Y} <br>
-     * param: {@link EntryRequest#PARAM_WIDTH} <br>
-     * param: {@link EntryRequest#PARAM_HEIGHT} <br>
-     */
-    public static final String ACTION_SECURITY_AREA = "com.pax.us.pay.ui.SECURITY_AREA";
-
-    /**
-     * PIN_LAYOUT: optional broadcast, for {@link com.pax.us.pay.ui.constant.entry.SecurityEntry#ACTION_ENTER_PIN} only <br>
-     * need to be sent before {@link EntryRequest#ACTION_SECURITY_AREA} <br>
-     * param: {@link EntryRequest#PARAM_KEY_0} <br>
-     * param: {@link EntryRequest#PARAM_KEY_1} <br>
-     * param: {@link EntryRequest#PARAM_KEY_2} <br>
-     * param: {@link EntryRequest#PARAM_KEY_3} <br>
-     * param: {@link EntryRequest#PARAM_KEY_4} <br>
-     * param: {@link EntryRequest#PARAM_KEY_5} <br>
-     * param: {@link EntryRequest#PARAM_KEY_6} <br>
-     * param: {@link EntryRequest#PARAM_KEY_7} <br>
-     * param: {@link EntryRequest#PARAM_KEY_8} <br>
-     * param: {@link EntryRequest#PARAM_KEY_9} <br>
-     * param: {@link EntryRequest#PARAM_KEY_CLEAR} <br>
-     * param: {@link EntryRequest#PARAM_KEY_ENTER} <br>
-     * param: {@link EntryRequest#PARAM_KEY_CANCEL} <br>
-     */
-    public static final String ACTION_SET_PIN_KEY_LAYOUT = "com.pax.us.pay.ui.SET_PIN_LAYOUT";
-
-    /**
-     * START_SCAN: optional, for {@link com.pax.us.pay.ui.constant.entry.SecurityEntry#ACTION_INPUT_ACCOUNT} <br>
-     */
-    public static final String ACTION_START_SCAN = "com.pax.us.pay.ui.START_SCAN";
-
-    /**
-     * PARAM_ACTION: request parameter current action for BroadPOS <br>
-     * value type: String <br>
-     */
-    public static final String PARAM_ACTION = "action";
-
-    /**
-     * PARAM_AMOUNT : request parameter amount <br>
-     * value type: long <br>
-     */
-    public static final String PARAM_AMOUNT = "amount";
-
-    /**
-     * PARAM_TOTAL_AMOUNT : request parameter total amount <br>
-     * value type: long <br>
-     */
-    public static final String PARAM_TOTAL_AMOUNT = "totalAmount";
-    /**
-     * PARAM_TIP : request parameter tip amount <br>
-     * value type: long <br>
-     */
-    public static final String PARAM_TIP = "tip";
-    /**
-     * PARAM_ZIP_CODE : request parameter zip code <br>
-     * value type: String <br>
-     */
-    public static final String PARAM_ZIP_CODE = "zipCode";
-    /**
-     * PARAM_TRANS_NUMBER : request parameter transaction number <br>
-     * value type: long <br>
-     */
+public final class EntryExtraData {
+    public static final String PARAM_MESSAGE = "message";
+    public static final String PARAM_PACKAGE = "senderPackage";
+    public static final String PARAM_TRANS_TYPE = "transType";
+    public static final String PARAM_TRANS_TIME = "transTime";
+    public static final String PARAM_TRANS_DATE = "transDate";
+    public static final String PARAM_MERCHANT_ID = "merchantID";
+    public static final String PARAM_TERMINAL_ID = "terminalID";
+    public static final String PARAM_TRANS_MODE = "transMode";
+    public static final String PARAM_EDC_TYPE = "edcType";
+    public static final String PARAM_SUB_TRANS_TYPE = "subTransType";
     public static final String PARAM_TRANS_NUMBER = "transNumber";
-    /**
-     * PARAM_EXPIRY_DATE : request parameter card expiry date <br>
-     * value type: String <br>
-     * format: MMYY <br>
-     */
-    public static final String PARAM_EXPIRY_DATE = "expiryDate";
-    /**
-     * PARAM_ORIG_DATE : request parameter original transaction date <br>
-     * value type: String <br>
-     * format:   <br>   ?????????????????
-     */
-    public static final String PARAM_ORIG_DATE = "origTransDate";
-    /**
-     * PARAM_ADDRESS : request parameter address <br>
-     * value type: String <br>
-     */
-    public static final String PARAM_ADDRESS = "address";
-    /**
-     * PARAM_SIGNATURE : request parameter trace data of signature <br>
-     * value type: short[] <br>
-     */
-    public static final String PARAM_SIGNATURE = "signature";
-    public static final String PARAM_VOUCHER_NUMBER = "voucherNumber";
-    public static final String PARAM_AUTH_CODE = "authCode";
 
+    public static final String PARAM_OPTIONS = "options";
+
+    public static final String PARAM_CURRENCY = "currency";
+    public static final String PARAM_BASE_AMOUNT = "baseAmount";
+    public static final String PARAM_TOTAL_AMOUNT = "totalAmount";
+    public static final String PARAM_AMOUNT_MESSAGE = "amountMessage";
+    public static final String PARAM_TIP_NAME = "tipName";
+    public static final String PARAM_TIP_OPTIONS = "tipOptions";
+    public static final String PARAM_TIP_RATE_OPTIONS = "tipRateOptions";
+    public static final String PARAM_CASHBACK_OPTIONS = "cashbackOptions";
+    public static final String PARAM_CASHBACK_RATE_OPTIONS = "cashbackRateOptions";
+    public static final String PARAM_ENABLE_OTHER_PROMPT = "enableOtherPrompt";
+    public static final String PARAM_TIMEOUT = "timeout";
+    public static final String PARAM_PRINT_STATUS = "printStatus";
+    public static final String PARAM_PIN_STYLES = "pinStyles";
+    public static final String PARAM_IS_ONLINE_PIN = "isOnlinePin";
+    public static final String PARAM_PIN_RANGE = "pinRange";
+    public static final String PARAM_ENABLE_CANCEL = "enableCancel";
+    public static final String PARAM_CARD_TYPE = "cardType";
+    public static final String PARAM_ANIMATION_SUPPORT = "animationSupport";
+    public static final String PARAM_SOUND_SUPPORT = "soundSupport";
+    public static final String PARAM_VCODE_NAME = "vcodeName";
+    public static final String PARAM_PAN_STYLES = "panStyles";
+    public static final String PARAM_IS_EXTERNAL_PINPAD = "external";
+    public static final String PARAM_INTERFACE_STYLES = "interfaceStyles";
+    public static final String PARAM_MERCHANT_NAME = "merchantName";
+    public static final String PARAM_SHOW_VIRTUAL_PINPAD = "showVirtualPinPad";
+    public static final String PARAM_ADMIN_PASSWORD_TYPE = "adminPasswordType";
+
+    public static final String PARAM_INSTALLMENT_PAYMENT_AMOUNTS = "installmentPaymentAmounts";
+    public static final String PARAM_INSTALLMENT_PAYMENT_TERMS_AND_CONDITIONS = "termsAndConditions";
+    public static final String PARAM_INSTALLMENT_PAYMENT_TOTAL_FEES = "totalFees";
+    public static final String PARAM_INSTALLMENT_PAYMENT_NUMBER_OF_INSTALLMENTS = "numberOfInstallmens";
+    public static final String PARAM_INSTALLMENT_PAYMENT_FREQUENCY_OF_INSTALLMENTS = "frequencyOfInstallments";
+    public static final String PARAM_INSTALLMENT_PAYMENT_TOTAL_AMOUNT_INCLUSIVE_FEES = "totalAmountInclusiveFees";
+    public static final String PARAM_INSTALLMENT_PAYMENT_PLAN_CURRENCIES = "CURRENCIES";
+    public static final String PARAM_INSTALLMENT_PAYMENT_PLAN_ID = "planId";
+
+    public static final String PARAM_HAS_PHYSICAL_KEYBOARD = "hasPhyKeyboard";
+
+
+
+
+
+    public static final String PARAM_ENABLE_SWIPE = "enableSwipe";
+    public static final String PARAM_ENABLE_INSERT = "enableInsert";
+    public static final String PARAM_ENABLE_TAP = "enableTap";
+    public static final String PARAM_ENABLE_SCAN = "enableScan";
+    public static final String PARAM_ENABLE_MANUAL = "enableManualEntry";
+    public static final String PARAM_ENABLE_APPLEPAY = "enableApplePay";
+    public static final String PARAM_ENABLE_GOOGLEPAY = "enableGooglePay";
+    public static final String PARAM_ENABLE_SUMSUNGPAY = "enableSumsungPay";
+    public static final String PARAM_ENABLE_NFCPAY = "enableNFCPay";
+
+    public static final String PARAM_ENABLE_LASER_SCAN = "enableLaserScan";
+    public static final String PARAM_ENABLE_CONTACTLESS_LIGHT = "enableContactlessLight";
+
+
+    public static final String PARAM_INFORMATION_KEY = "informationKey";
+    public static final String PARAM_INFORMATION_VALUE = "informationValue";
+
+
+    public static final String PARAM_TITLE = "title";
+//    public static final String PARAM_USER_MESSAGE = "userMessage";
+//    public static final String PARAM_PRIMARY_AMOUNT = "primaryAmount";
+//    public static final String PARAM_CONVENIENCE_FEE = "convenienceFee";
+//    public static final String PARAM_SERVICE_FEE = "serviceFee";
+//    public static final String PARAM_TOTAL_FEE = "totalFee";
+//
+    public static final String PARAM_BALANCE = "balance";
+    public static final String PARAM_CAMERA_SCAN_READER = "cameraScanReader";
+
+
+    /**
+     * PARAM_TRANS_MODE : transaction mode <br>
+     * enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode}
+     */
+    public static final String PARAM_CARD_NUMBER = "cardNumber";
+    public static final String PARAM_BATCH_NUMBER = "batchNumber";
+    public static final String PARAM_ORDER_NUMBER = "orderNumber";
+    public static final String PARAM_TIP1 = "tip1";
+    public static final String PARAM_TIP2 = "tip2";
+    public static final String PARAM_TIP3 = "tip3";
+    public static final String PARAM_APPROVED_AMOUNT = "approvedAmount";
+    public static final String PARAM_BASE_POINTS = "basePoints";
+    public static final String PARAM_TOTAL_POINTS = "totalPoints";
+    public static final String PARAM_APPROVED_POINTS = "approvedPoints";
+    public static final String PARAM_TAX = "tax";
+    public static final String PARAM_CASH_BACK = "cashBack";
+    public static final String PARAM_MERCHANT_FEE = "merchantFee";
+    public static final String PARAM_SURCHARGE_FEE_NAME = "surchargeFeeName";
+    public static final String PARAM_SURCHARGE_FEE = "surchargeFee";
+    public static final String PARAM_ADDITIONAL_FEE = "additionalFee";
+    public static final String PARAM_ADDITIONAL_FEE_NAME = "additionalFeeName";
+//    public static final String PARAM_PRIMARY_AMOUNT = "primaryAmount";
+
+    public static final String PARAM_FSA_AMOUNT_OPTIONS = "fsaAmountOptions";
     public static final String PARAM_HEALTH_CARE_AMOUNT = "healthCareAmount";
     public static final String PARAM_CLINIC_AMOUNT = "clinicAmount";
-    public static final String PARAM_PRESCRIPTION_AMOUNT = "prescriptionAmount";
-    public static final String PARAM_VISION_AMOUNT = "visionAmount";
     public static final String PARAM_DENTAL_AMOUNT = "dentalAmount";
     public static final String PARAM_COPAY_AMOUNT = "copayAmount";
-    public static final String PARAM_OTC_AMOUNT = "otcAmount";
+    public static final String PARAM_PRESCRIPTION_AMOUNT = "prescriptionAmount";
+    public static final String PARAM_VISION_AMOUNT = "visionAmount";
     public static final String PARAM_TRANSIT_AMOUNT = "transitAmount";
-    public static final String PARAM_FSA_OPTION = "fsaOption";
 
-    public static final String PARAM_CASHBACK_AMOUNT = "cashbackAmount";
-    public static final String PARAM_FUEL_AMOUNT = "fuelAmount";
-    public static final String PARAM_TAX_AMOUNT = "taxAmount";
-
-    public static final String PARAM_MERCHANT_REFERENCE_NUMBER = "merchantReferenceNumber";
-    public static final String PARAM_REFERENCE_NUMBER = "referenceNumber";
+    public static final String PARAM_STATUS = "status";
+    public static final String PARAM_CLERK_ID = "clerkID";
+    public static final String PARAM_CLERK_NAME = "clerkName";
     public static final String PARAM_INVOICE_NUMBER = "invoiceNumber";
-    public static final String PARAM_CLERK_ID = "clerkId";
-    public static final String PARAM_SERVER_ID = "serverId";
+    public static final String PARAM_PO_NUMBER = "poNumber";
     public static final String PARAM_TABLE_NUMBER = "tableNumber";
-    public static final String PARAM_PHONE_NUMBER = "phoneNumber";
-    public static final String PARAM_GUEST_NUMBER = "guestNumber";
-    public static final String PARAM_ORDER_NUMBER = "orderNumber";
-    public static final String PARAM_PO_NUMBER = "PONumber";
-    public static final String PARAM_PROC_DESC = "prodDesc";
+    public static final String PARAM_GUESTS_NUMBER = "guestsNumber";
+    public static final String PARAM_CUST_CODE = "custCode";
     public static final String PARAM_MERCHANT_TAX_ID = "merchantTaxID";
-    public static final String PARAM_CS_PHONE_NUMBER = "customerServicePhoneNumber";
-    public static final String PARAM_OCT_REFERENCE_NUMBER = "octReferenceNumber";
+    public static final String PARAM_PROD_DESC = "prodDesc";
+    public static final String PARAM_TAX_EXEMPT_ID = "taxExemptID";
+    public static final String PARAM_REF_NUMBER = "refNumber";
+    public static final String PARAM_AUTH_CODE = "authCode";
+    public static final String PARAM_RESPONSE_STATUS = "responseStatus";
+    public static final String PARAM_EINPUT_TYPE = "eInputType";
+//    public static final String PARAM_MAX_VALUE = "maxValue";
+//    public static final String PARAM_MIN_VALUE = "minValue";
+    public static final String PARAM_MAX_LENGTH = "maxLength";
+    public static final String PARAM_MIN_LENGTH = "minLength";
+    public static final String PARAM_TIP_UNIT = "tipUnit";
+    public static final String PARAM_AMOUNT_UNIT = "amountUnit";
+    public static final String PARAM_VALUE_PATTERN = "valuePattern";
 
-    public static final String PARAM_CUSTOMER_CODE = "customerCode";
-    public static final String PARAM_PROMPT_RESTRICTION_CODE = "promptRestrictionCode";
+    public static final String PARAM_FLEET_CUSTOMER_DATA_PATTERN = "fleetCustomerDataPattern";
+    public static final String PARAM_FLEET_DEPARTMENT_NUMBER_PATTERN = "fleetDepartmentNumberPattern";
+    public static final String PARAM_FLEET_USER_ID_PATTERN = "fleetUserIdPattern";
+    public static final String PARAM_FLEET_VEHICLE_ID_PATTERN = "fleetVehicleIdPattern";
+    public static final String PARAM_FLEET_VEHICLE_NUMBER_PATTERN = "fleetVehicleNumberPattern";
+    public static final String PARAM_FLEET_JOB_NUMBER_PATTERN = "fleetJobNumberPattern";
+    public static final String PARAM_FLEET_ODOMETER_PATTERN = "fleetOdometerPattern";
+    public static final String PARAM_FLEET_DRIVER_ID_PATTERN = "fleetDriverIdPattern";
+    public static final String PARAM_FLEET_LICENSE_NUMBER_PATTERN = "fleetLicenseNumberPattern";
 
-    public static final String PARAM_FLEET_CUSTOMER_DATA = "fleetCustomerData";
-    public static final String PARAM_FLEET_DEPARTMENT_NUMBER = "fleetDepartmentNumber";
-    public static final String PARAM_FLEET_USER_ID = "fleetUserId";
-    public static final String PARAM_FLEET_VEHICLE_ID = "fleetVehicleId";
-    public static final String PARAM_FLEET_VEHICLE_NUMBER = "fleetVehicleNumber";
-    public static final String PARAM_FLEET_JOB_NUMBER = "fleetJobNumber";
-    public static final String PARAM_FLEET_ODOMETER = "fleetOdometer";
-    public static final String PARAM_FLEET_DRIVER_ID = "fleetDriverId";
-    public static final String PARAM_FLEET_LICENSE_NUMBER = "fleetLicenseNumber";
+    public static final String PARAM_ZIP_CODE_PATTERN = "zipCodePattern";
+    public static final String PARAM_ADDRESS_PATTERN = "addressPattern";
+
+    public static final String PARAM_QR_CODE_CONTENT = "qrCodeContent";
 
     /**
-     * PARAM_DEST_ZIP_CODE : request parameter destination zip code <br>
-     * value type: String <br>
+     * PARAM_TRANS_STATUS : transaction status <br>
+     * To Do : enum: upload, offline, voided, Adjusted ??????
      */
-    public static final String PARAM_DEST_ZIP_CODE = "destinationZipCode";
+    public static final String PARAM_TRANS_STATUS = "transStatus";
+    public static final String PARAM_AVS_RESPONSE = "avsResponse";
+    public static final String PARAM_ENTRY_MODE = "entryMode";
+    public static final String PARAM_FOOD_STAMPS_BALANCE = "foodStampsBalance";
+    public static final String PARAM_CASH_BENEFIT_BALANCE = "cashBenefitBalance";
 
-    /**
-     * PARAM_DO_NOT_PROMPT_AGAIN : request parameter prompt again <br>
-     * value type: Boolean <br>
-     */
-    public static final String PARAM_DO_NOT_PROMPT_AGAIN = "doNotPromptAgain";
+    public static final String PARAM_RECEIPT_URI = "receiptUri";
+    public static final String PARAM_EULA_URI = "eulaUri";
+    public static final String PARAM_START_TYPE = "startType";
 
-    //POSLINK 
-    public static final String PARAM_INPUT_VALUE = "inputValue";
-    public static final String PARAM_LABEL_SELECTED = "labelSelected";
-    public static final String PARAM_BUTTON_NUMBER = "buttonNumber";
-    public static final String PARAM_SIGN_STATUS = "signStatus";
+    public static final String PARAM_TRANS_URL = "transUri";
+    public static final String PARAM_TRANS_SELECTION = "transSelection";
+    public static final String PARAM_TRANS_SELECTION_ARGUMENTS = "transSelectionArguments";
 
-    public static final String PARAM_VALUE = "value";
-
-    public static final String PARAM_INDEX = "index";
-    public static final String PARAM_CONFIRMED = "confirmed";
-
-    public static final String PARAM_X = "x";
-    public static final String PARAM_Y = "y";
-    public static final String PARAM_WIDTH = "width";
-    public static final String PARAM_HEIGHT = "height";
-    public static final String PARAM_FONT_SIZE = "fontSize";
-
-    public static final String PARAM_BARCODE_DATA = "barcodeData";
+    //POSLink parameter
+    public static final String PARAM_CONTINUE_SCREEN = "continueScreen";
+    public static final String PARAM_MESSAGE_1 = "message1";
+    public static final String PARAM_MESSAGE_2 = "message2";
+    public static final String PARAM_INPUT_TYPE = "inputType";
+    public static final String PARAM_DEFAULT_VALUE = "defaultValue";
+    public static final String PARAM_LABELS = "labels";
+    public static final String PARAM_LABELS_PROPERTY = "labelsProperty";
+    public static final String PARAM_BUTTON_TYPE = "buttonType";
+    public static final String PARAM_TAX_LINE = "taxLine";
+    public static final String PARAM_TOTAL_LINE = "totalLine";
+    public static final String PARAM_IMAGE_URL = "imageURL";
+    public static final String PARAM_IMAGE_DESC = "imageDesc";
+    public static final String PARAM_MESSAGE_LIST = "messageList";
+    public static final String PARAM_CURRENCY_SYMBOL = "currencySymbol";
+    public static final String PARAM_BUTTON_1_NAME = "button1Name";
+    public static final String PARAM_BUTTON_1_COLOR = "button1Color";
+    public static final String PARAM_BUTTON_1_KEY = "button1Key";
+    public static final String PARAM_BUTTON_2_NAME = "button2Name";
+    public static final String PARAM_BUTTON_2_COLOR = "button2Color";
+    public static final String PARAM_BUTTON_2_KEY = "button2Key";
+    public static final String PARAM_BUTTON_3_NAME = "button3Name";
+    public static final String PARAM_BUTTON_3_COLOR = "button3Color";
+    public static final String PARAM_BUTTON_3_KEY = "button3key";
+    public static final String PARAM_TEXT = "text";
+    public static final String PARAM_ENABLE_HARD_KEY = "enableHardKey";
+    public static final String PARAM_HARD_KEY_LIST = "hardKeyList";
+    public static final String PARAM_SIGN_BOX = "signBox";
     public static final String PARAM_BARCODE_TYPE = "barcodeType";
+    public static final String PARAM_BARCODE_DATA = "barcodeData";
+    public static final String PARAM_SIGNLINE1 = "signLine1";
+    public static final String PARAM_SIGNLINE2 = "signLine2";
 
-    //Visa Installment
-    public static final String PARAM_INSTALLMENT_SELECT_OPTION = "installmentSelectOption";
-    public static final String PARAM_VISA_TRANSID = "visaTransID";
 
-    /**
-     * Type {@link android.graphics.Rect}
-     */
-    public static final String PARAM_KEY_0 = "key_0";
-    /**
-     * Type {@link android.graphics.Rect}
-     */
-    public static final String PARAM_KEY_1 = "key_1";
-    /**
-     * Type {@link android.graphics.Rect}
-     */
-    public static final String PARAM_KEY_2 = "key_2";
-    /**
-     * Type {@link android.graphics.Rect}
-     */
-    public static final String PARAM_KEY_3 = "key_3";
-    /**
-     * Type {@link android.graphics.Rect}
-     */
-    public static final String PARAM_KEY_4 = "key_4";
-    /**
-     * Type {@link android.graphics.Rect}
-     */
-    public static final String PARAM_KEY_5 = "key_5";
-    /**
-     * Type {@link android.graphics.Rect}
-     */
-    public static final String PARAM_KEY_6 = "key_6";
-    /**
-     * Type {@link android.graphics.Rect}
-     */
-    public static final String PARAM_KEY_7 = "key_7";
-    /**
-     * Type {@link android.graphics.Rect}
-     */
-    public static final String PARAM_KEY_8 = "key_8";
-    /**
-     * Type {@link android.graphics.Rect}
-     */
-    public static final String PARAM_KEY_9 = "key_9";
-    /**
-     * Type {@link android.graphics.Rect}
-     */
-    public static final String PARAM_KEY_CLEAR = "key_clear";
-    /**
-     * Type {@link android.graphics.Rect}
-     */
-    public static final String PARAM_KEY_ENTER = "key_enter";
-    /**
-     * Type {@link android.graphics.Rect}
-     */
-    public static final String PARAM_KEY_CANCEL = "key_cancel";
+
+    //internal parameter
+    /*
+    * Type：Boolean
+    * Action: ACTION_CONFIRM_BATCH_CLOSE
+    * */
+    public static final String PARAM_INTERNAL_NICKNAME_FLAG = "internalNicknameFlag";
+
 }
