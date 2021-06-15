@@ -76,7 +76,7 @@ public final class EntryExtraData {
 
 
     public static final String PARAM_TITLE = "title";
-    //    public static final String PARAM_USER_MESSAGE = "userMessage";
+//    public static final String PARAM_USER_MESSAGE = "userMessage";
 //    public static final String PARAM_PRIMARY_AMOUNT = "primaryAmount";
 //    public static final String PARAM_CONVENIENCE_FEE = "convenienceFee";
 //    public static final String PARAM_SERVICE_FEE = "serviceFee";
@@ -133,7 +133,7 @@ public final class EntryExtraData {
     public static final String PARAM_AUTH_CODE = "authCode";
     public static final String PARAM_RESPONSE_STATUS = "responseStatus";
     public static final String PARAM_EINPUT_TYPE = "eInputType";
-    //    public static final String PARAM_MAX_VALUE = "maxValue";
+//    public static final String PARAM_MAX_VALUE = "maxValue";
 //    public static final String PARAM_MIN_VALUE = "minValue";
     public static final String PARAM_MAX_LENGTH = "maxLength";
     public static final String PARAM_MIN_LENGTH = "minLength";
@@ -211,9 +211,9 @@ public final class EntryExtraData {
 
     //internal parameter
     /*
-     * Type：Boolean
-     * Action: ACTION_CONFIRM_BATCH_CLOSE
-     * */
+    * Type：Boolean
+    * Action: ACTION_CONFIRM_BATCH_CLOSE
+    * */
     public static final String PARAM_INTERNAL_NICKNAME_FLAG = "internalNicknameFlag";
 
 }
