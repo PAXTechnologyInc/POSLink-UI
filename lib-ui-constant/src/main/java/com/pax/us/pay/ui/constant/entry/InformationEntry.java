@@ -26,11 +26,11 @@ public class InformationEntry {
     public static final String ACTION_DISPLAY_APPROVE_MESSAGE = "com.pax.us.pay.action.DISPLAY_APPROVE_MESSAGE";
 
     /**
-     * The intent action of display transaction information <br>
+     * The intent action of display visa installment transaction approved message <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
      * request: None <br>
      */
-    public static final String ACTION_DISPLAY_TRANS_END = "com.pax.us.pay.action.DISPLAY_TRANS_END";//added for visa installment
+    public static final String ACTION_DISPLAY_VISA_INSTALLMENT_TRANSACTION_END = "com.pax.us.pay.action.DISPLAY_VISA_INSTALLMENT_TRANSACTION_END";
 
 }
