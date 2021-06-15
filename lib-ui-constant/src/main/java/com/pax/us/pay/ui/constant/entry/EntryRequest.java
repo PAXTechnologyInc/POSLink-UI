@@ -190,6 +190,7 @@ public class EntryRequest {
     //Visa Installment
     public static final String PARAM_INSTALLMENT_SELECT_OPTION = "installmentSelectOption";
     public static final String PARAM_VISA_TRANSID = "visaTransID";
+    public static final String PARAM_VISA_PLAN_ACCEPTANCE_ID = "visaPlanAcceptanceID";
 
     /**
      * Type {@link android.graphics.Rect}
