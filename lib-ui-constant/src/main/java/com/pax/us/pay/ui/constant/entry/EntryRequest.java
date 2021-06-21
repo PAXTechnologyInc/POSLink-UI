@@ -184,9 +184,6 @@ public class EntryRequest {
     public static final String PARAM_HEIGHT = "height";
     public static final String PARAM_FONT_SIZE = "fontSize";
 
-    public static final String PARAM_BARCODE_DATA = "barcodeData";
-    public static final String PARAM_BARCODE_TYPE = "barcodeType";
-
     //Visa Installment
     public static final String PARAM_INSTALLMENT_SELECT_OPTION = "installmentSelectOption";
     public static final String PARAM_VISA_TRANSID = "visaTransID";
