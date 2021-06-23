@@ -14,4 +14,6 @@ public final class StatusData {
 
     public static final String PARAM_TOTAL_AMOUNT = "totalAmount";
 
+    public static final String PARAM_HOST_RESP_TIMEOUT = "hostRespTimeout";
+
 }
