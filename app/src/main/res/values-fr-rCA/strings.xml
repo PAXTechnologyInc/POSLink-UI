@@ -424,6 +424,8 @@
     <string name="uploading_failed_trans">Uploading Failed Transaction...\nÉchec du Téléchargement...</string>
     <string name="uploading_sf_trans">Uploading Stored Transaction...\nTéléchargement enregistré...</string>
     <string name="uploading_start">Upload Start\nDébut du téléchargement</string>
+    <string name="log_uploading_start">Starting Upload...\nDémarrage du téléchargement...\n\nWaiting For Connection\nAttente de connexion</string>
+    <string name="log_connected">Connected...\nLié...</string>
     <string name="transaction_failed">Transaction Failed!\nLa transaction a échoué!</string>
     <string name="transaction_successful">Transaction Successful!\nTransaction réussie!</string>
     <string name="tip_name">Tip \\ pourboire</string>
