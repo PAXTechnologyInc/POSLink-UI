@@ -421,6 +421,8 @@
     <string name="uploading_failed_trans">Échec du Téléchargement...</string>
     <string name="uploading_sf_trans">Téléchargement enregistré...</string>
     <string name="uploading_start">Début du téléchargement</string>
+    <string name="log_uploading_start">Démarrage du téléchargement...\nAttente de connexion</string>
+    <string name="log_connected">Lié...</string>
     <string name="transaction_failed">La transaction a échoué!</string>
     <string name="transaction_successful">Transaction réussie!</string>
     <string name="tip_name">pourboire</string>

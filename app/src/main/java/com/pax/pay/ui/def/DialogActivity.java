@@ -76,6 +76,9 @@ public class DialogActivity extends AppCompatActivity implements IStatusListener
         ACTION_MAP.put(Uncategory.CAPK_UPDATE_STARTED, Uncategory.CAPK_UPDATE_COMPLETED);
         ACTION_MAP.put(Uncategory.PRINT_STARTED, Uncategory.PRINT_COMPLETED);
         ACTION_MAP.put(Uncategory.FILE_UPDATE_STARTED, Uncategory.FILE_UPDATE_COMPLETED);
+        ACTION_MAP.put(Uncategory.LOG_UPLOAD_STARTED, Uncategory.LOG_UPLOAD_COMPLETED);
+        ACTION_MAP.put(Uncategory.LOG_UPLOAD_CONNECTED, Uncategory.LOG_UPLOAD_COMPLETED);
+        ACTION_MAP.put(Uncategory.LOG_UPLOAD_UPLOADING, Uncategory.LOG_UPLOAD_COMPLETED);
     }
 
     public static final int FAILED_DIALOG_SHOW_TIME = 5;
@@ -360,7 +363,22 @@ public class DialogActivity extends AppCompatActivity implements IStatusListener
             case BatchStatus.BATCH_SF_STARTED:
                 showProcessDialog(getString(R.string.uploading_start));
                 break;
-
+            case Uncategory.LOG_UPLOAD_STARTED:
+                showProcessDialog(getString(R.string.log_uploading_start));
+                break;
+            case Uncategory.LOG_UPLOAD_CONNECTED:
+                long uploadPercent = intent.getLongExtra(StatusData.PARAM_UPLOAD_CURRENT_PERCENT, 0);
+                String logMessage = getString(R.string.log_connected) + " (" + uploadPercent + "%)";
+                showProcessDialog(logMessage);
+                break;
+            case Uncategory.LOG_UPLOAD_UPLOADING:
+                long logUploadCount = intent.getLongExtra(StatusData.PARAM_UPLOAD_CURRENT_COUNT, 0);
+                long logTotalCount = intent.getLongExtra(StatusData.PARAM_UPLOAD_TOTAL_COUNT, 0);
+                long logUploadPercent = intent.getLongExtra(StatusData.PARAM_UPLOAD_CURRENT_PERCENT, 0);
+                String logUploadMessage = getString(R.string.update_process) + " " + logUploadCount + "/" + logTotalCount + "("
+                        + logUploadPercent + "%)";
+                showProcessDialog(logUploadMessage);
+                break;
             case InformationStatus.ERROR:
                 long errCode = intent.getLongExtra(StatusData.PARAM_CODE, 0);
                 String errMessage = intent.getStringExtra(StatusData.PARAM_MSG);
