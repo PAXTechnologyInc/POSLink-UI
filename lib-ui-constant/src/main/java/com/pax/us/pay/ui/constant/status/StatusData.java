@@ -16,4 +16,6 @@ public final class StatusData {
 
     public static final String PARAM_HOST_RESP_TIMEOUT = "hostRespTimeout";
 
+    public static final String PARAM_UPLOAD_CURRENT_PERCENT = "uploadCurrentPercent";
+
 }

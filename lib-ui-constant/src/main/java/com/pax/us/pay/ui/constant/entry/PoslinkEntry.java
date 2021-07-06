@@ -121,4 +121,5 @@ public class PoslinkEntry {
      * request: {@link EntryRequest#PARAM_SIGNATURE} <br>
      */
     public static final String ACTION_SHOW_SIGNATURE_BOX = "com.pax.us.pay.action.SHOW_SIGNATURE_BOX";
+
 } 

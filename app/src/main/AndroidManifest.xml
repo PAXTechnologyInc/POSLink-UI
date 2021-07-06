@@ -1322,6 +1322,9 @@
                 <action android:name="com.pax.us.pay.CAPK_UPDATE_STARTED" />
                 <action android:name="com.pax.us.pay.PRINT_STARTED" />
                 <action android:name="com.pax.us.pay.FILE_UPDATE_STARTED" />
+                <action android:name="com.pax.us.pay.LOG_UPLOAD_STARTED" />
+                <action android:name="com.pax.us.pay.LOG_UPLOAD_CONNECTED" />
+                <action android:name="com.pax.us.pay.LOG_UPLOAD_UPLOADING" />
             </intent-filter>
         </receiver>
 
@@ -1359,6 +1362,7 @@
                 <action android:name="com.pax.us.pay.CAPK_UPDATE_COMPLETED" />
                 <action android:name="com.pax.us.pay.PRINT_COMPLETED" />
                 <action android:name="com.pax.us.pay.FILE_UPDATE_COMPLETED" />
+                <action android:name="com.pax.us.pay.LOG_UPLOAD_COMPLETED" />
             </intent-filter>
         </receiver>
 

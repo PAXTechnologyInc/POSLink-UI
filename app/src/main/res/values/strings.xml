@@ -424,6 +424,8 @@
     <string name="uploading_failed_trans">Uploading Failed Transaction...</string>
     <string name="uploading_sf_trans">Uploading Stored Transaction...</string>
     <string name="uploading_start">Upload Start</string>
+    <string name="log_uploading_start">Starting Upload...\nWaiting For Connection</string>
+    <string name="log_connected">Connected...</string>
     <string name="transaction_failed">Transaction Failed!</string>
     <string name="transaction_successful">Transaction Successful!</string>
     <string name="tip_name">Tip</string>
