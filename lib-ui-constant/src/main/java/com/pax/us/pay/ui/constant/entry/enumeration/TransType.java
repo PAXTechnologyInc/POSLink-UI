@@ -33,4 +33,7 @@ public final class TransType {
     public static final String UPLOAD = "UPLOAD";
     public static final String BATCH_CLOSE = "BATCH";
     public static final String INCREMENTAL_AUTH = "INCREMENTAL AUTH";
+    public static final String BALANCE_WITH_LOCK = "BALANCE LOCK";
+    public static final String REDEMPTION_WITH_UNLOCK = "REDEMPTION UNLOCK";
+
 }
