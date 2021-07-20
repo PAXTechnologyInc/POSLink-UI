@@ -305,7 +305,7 @@ public class ConfirmationEntry {
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
      * input: {@link EntryExtraData#PARAM_AMOUNT_MESSAGE} <br>
      * input: {@link EntryExtraData#PARAM_EXCHANGE_RATE} <br>
-     * input: {@link EntryExtraData#PARAM_CURRENCY} <br>
+     * input: {@link EntryExtraData#PARAM_CURRENCY_ALPHA_CODE} <br>
      * input: {@link EntryExtraData#PARAM_MARGIN} <br>
      * input: {@link EntryExtraData#PARAM_FOREIGN_AMOUNT_MESSAGE} <br>
      * input: {@link EntryExtraData#PARAM_CONFIRM_WITH_CURRENCY} <br>
