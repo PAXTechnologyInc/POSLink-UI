@@ -308,7 +308,7 @@ public class ConfirmationEntry {
      * input: {@link EntryExtraData#PARAM_CURRENCY_ALPHA_CODE} <br>
      * input: {@link EntryExtraData#PARAM_MARGIN} <br>
      * input: {@link EntryExtraData#PARAM_FOREIGN_AMOUNT_MESSAGE} <br>
-     * input: {@link EntryExtraData#PARAM_CONFIRM_WITH_CURRENCY} <br>
+     * input: {@link EntryExtraData#PARAM_CONFIRM_WITH_CURRENCY} boolean <br>
      * request: {@link EntryRequest#PARAM_CONFIRMED} <br> // true for "USD" if PARAM_CONFIRM_WITH_CURRENCY is true
      */
     public static final String ACTION_CONFIRM_DCC = "com.pax.us.pay.action.CONFIRM_DCC";
