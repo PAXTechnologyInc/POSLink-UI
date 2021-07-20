@@ -23,6 +23,9 @@ public final class InformationStatus {
     public static final String EMV_TRANS_ONLINE_STARTED = "com.pax.us.pay.EMV_TRANS_ONLINE_STARTED";
     public static final String EMV_TRANS_ONLINE_FINISHED = "com.pax.us.pay.EMV_TRANS_ONLINE_FINISHED";
 
+    public static final String DCC_ONLINE_STARTED = "com.pax.us.pay.DCC_ONLINE_STARTED";
+    public static final String DCC_ONLINE_FINISHED = "com.pax.us.pay.DCC_ONLINE_FINISHED";
+
 
     /**
      * param: {@link StatusData#PARAM_CODE} <br>

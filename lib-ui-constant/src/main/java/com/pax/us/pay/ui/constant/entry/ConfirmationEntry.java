@@ -299,4 +299,18 @@ public class ConfirmationEntry {
      */
     public static final String ACTION_DISPLAY_QR_CODE_RECEIPT = "com.pax.us.pay.action.DISPLAY_QR_CODE_RECEIPT";
 
+    /**
+     * The intent action of confirm DCC information <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_AMOUNT_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_EXCHANGE_RATE} <br>
+     * input: {@link EntryExtraData#PARAM_CURRENCY} <br>
+     * input: {@link EntryExtraData#PARAM_MARGIN} <br>
+     * input: {@link EntryExtraData#PARAM_FOREIGN_AMOUNT_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_CONFIRM_WITH_CURRENCY} <br>
+     * request: {@link EntryRequest#PARAM_CONFIRMED} <br> // true for "USD" if PARAM_CONFIRM_WITH_CURRENCY is true
+     */
+    public static final String ACTION_CONFIRM_DCC = "com.pax.us.pay.action.CONFIRM_DCC";
+
 }

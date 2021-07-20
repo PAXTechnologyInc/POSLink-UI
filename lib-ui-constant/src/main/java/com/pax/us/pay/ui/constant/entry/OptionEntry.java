@@ -247,6 +247,16 @@ public class OptionEntry {
      */
     public static final String ACTION_SELECT_INSTALLMENT_PLAN = "com.pax.us.pay.action.SELECT_INSTALLMENT_PLAN";
 
+    /**
+     * The intent action of select user language for debit transaction <br>
+     * /**
+     * The intent action of select the original transaction currency <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_OPTIONS} <br> According the currency alpha code
+     * request: {@link EntryRequest#PARAM_INDEX} <br>
+     */
+    public static final String ACTION_SELECT_ORIG_CURRENCY = "com.pax.us.pay.action.SELECT_ORIG_CURRENCY";
 
 //Note:
 //Appending a new action, please add mapping into "SELECT_OPTION_MAP" in "SelectOptionContent"

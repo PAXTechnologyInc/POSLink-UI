@@ -41,6 +41,11 @@ public final class EntryExtraData {
     public static final String PARAM_MERCHANT_NAME = "merchantName";
     public static final String PARAM_SHOW_VIRTUAL_PINPAD = "showVirtualPinPad";
     public static final String PARAM_ADMIN_PASSWORD_TYPE = "adminPasswordType";
+    public static final String PARAM_EXCHANGE_RATE = "exchangeRate";
+    public static final String PARAM_CURRENCY_ALPHA_CODE = "currencyAlpCode";
+    public static final String PARAM_MARGIN = "margin";
+    public static final String PARAM_FOREIGN_AMOUNT_MESSAGE = "foreignAmountMessage";
+    public static final String PARAM_CONFIRM_WITH_CURRENCY = "confirmWithCurrency";
 
     public static final String PARAM_INSTALLMENT_PAYMENT_AMOUNTS = "installmentPaymentAmounts";
     public static final String PARAM_INSTALLMENT_PAYMENT_TERMS_AND_CONDITIONS = "termsAndConditions";
