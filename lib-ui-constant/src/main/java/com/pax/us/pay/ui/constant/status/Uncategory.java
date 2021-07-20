@@ -27,4 +27,8 @@ public final class Uncategory {
     public static final String LOG_UPLOAD_COMPLETED = "com.pax.us.pay.LOG_UPLOAD_COMPLETED";
 
 
+    public static final String FCP_FILE_UPDATE_STARTED = "com.pax.us.pay.FCP_FILE_UPDATE_STARTED";
+    public static final String FCP_FILE_UPDATE_COMPLETED = "com.pax.us.pay.FCP_FILE_UPDATE_COMPLETED";
+
+
 }
