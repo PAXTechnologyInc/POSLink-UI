@@ -29,15 +29,8 @@ public class DisplayApproveMessageHelper extends BaseActionHelper {
         super.showUI(uiListener, bundle);
         if (uiListener instanceof IDisplayApproveMessageListener && bundle.containsKey(EntryExtraData.PARAM_CARD_TYPE)) {
             String cardType = bundle.getString(EntryExtraData.PARAM_CARD_TYPE);
-            String soundUri = null;
-            if (bundle.containsKey(EntryExtraData.PARAM_SOUND_URI))
-                soundUri = bundle.getString(EntryExtraData.PARAM_SOUND_URI);
             if (!TextUtils.isEmpty(cardType)) {
-                if (!TextUtils.isEmpty(soundUri))
-                    ((ICardTypeListener) uiListener).onShowCardType(cardType, soundUri);
-                else
-                    ((ICardTypeListener) uiListener).onShowCardType(cardType);
-
+                ((ICardTypeListener) uiListener).onShowCardType(cardType);
             }
         }
     }
