@@ -230,6 +230,34 @@ public class OptionEntry {
      */
     public static final String ACTION_SELECT_MERCHANT = "com.pax.us.pay.action.SELECT_MERCHANT";
 
+    /**
+     * The intent action of select and display installment plan details <br>
+     * /**
+     * The intent action of select the search type <br>
+     * input: {@link EntryExtraData#PARAM_BASE_AMOUNT} <br>
+     * input: {@link EntryExtraData#PARAM_INSTALLMENT_PAYMENT_AMOUNTS} String Array<br>
+     * input: {@link EntryExtraData#PARAM_INSTALLMENT_PAYMENT_TERMS_AND_CONDITIONS} String Array<br>
+     * input: {@link EntryExtraData#PARAM_INSTALLMENT_PAYMENT_TOTAL_FEES} String Array<br>
+     * input: {@link EntryExtraData#PARAM_INSTALLMENT_PAYMENT_NUMBER_OF_INSTALLMENTS} String Array<br>
+     * input: {@link EntryExtraData#PARAM_INSTALLMENT_PAYMENT_FREQUENCY_OF_INSTALLMENTS} String Array<br>
+     * input: {@link EntryExtraData#PARAM_INSTALLMENT_PAYMENT_TOTAL_AMOUNT_INCLUSIVE_FEES} String Array<br>
+     * input: {@link EntryExtraData#PARAM_INSTALLMENT_PAYMENT_PLAN_ID} String Array<br>
+     * input: {@link EntryExtraData#PARAM_CURRENCY} String Array<br>
+     * request: {@link EntryRequest#PARAM_INSTALLMENT_SELECT_OPTION} <br>
+     */
+    public static final String ACTION_SELECT_INSTALLMENT_PLAN = "com.pax.us.pay.action.SELECT_INSTALLMENT_PLAN";
+
+    /**
+     * The intent action of select user language for debit transaction <br>
+     * /**
+     * The intent action of select the original transaction currency <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_OPTIONS} <br> According the currency alpha code
+     * request: {@link EntryRequest#PARAM_INDEX} <br>
+     */
+    public static final String ACTION_SELECT_ORIG_CURRENCY = "com.pax.us.pay.action.SELECT_ORIG_CURRENCY";
+
 //Note:
 //Appending a new action, please add mapping into "SELECT_OPTION_MAP" in "SelectOptionContent"
 
