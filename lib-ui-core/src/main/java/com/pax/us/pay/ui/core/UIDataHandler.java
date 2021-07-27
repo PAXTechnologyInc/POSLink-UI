@@ -119,6 +119,9 @@ public class UIDataHandler {
         EXTRA_DATA_MAP.put(EntryExtraData.PARAM_TIP1, AMOUNT);//ANBP1039, When send Tip/Cashback from poslink, terminal should show the tip/cashback amount in receipt side
         EXTRA_DATA_MAP.put(EntryExtraData.PARAM_CASH_BACK, AMOUNT);//ANBP1039, When send Tip/Cashback from poslink, terminal should show the tip/cashback amount in receipt side
         EXTRA_DATA_MAP.put(EntryExtraData.PARAM_BASE_AMOUNT, AMOUNT);//ANBP1039, When send Tip/Cashback from poslink, terminal should show the tip/cashback amount in receipt side
+		EXTRA_DATA_MAP.put(EntryExtraData.PARAM_SURCHARGE_FEE, AMOUNT);
+		EXTRA_DATA_MAP.put(EntryExtraData.PARAM_MERCHANT_FEE, AMOUNT);
+		EXTRA_DATA_MAP.put(EntryExtraData.PARAM_TAX, AMOUNT);
     }
 
 
