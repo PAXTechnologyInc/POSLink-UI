@@ -172,6 +172,22 @@ public class DisplayApproveMessageActivity extends AppCompatActivity implements 
         }
     }
 
+    @Override
+    public void onShowCardType(@NonNull String cardType, @Nullable String soundUri) {
+        if (TextUtils.isEmpty(cardType)) {
+            helper.sendAbort();
+        } else {
+            Logger.i("CardType : " + cardType);
+            if (CardType.VISA.equals(cardType)) {
+                showVisaAmimation();
+            } else {
+                needPlayAnimation = false;
+                if (needPlaySound)
+                    playSound(R.raw.boba);
+            }
+        }
+    }
+
     private void playSound(int resourcesId) {
         //Fix ANFDRC-977
         Intent intent = new Intent(this, PlayerService.class);

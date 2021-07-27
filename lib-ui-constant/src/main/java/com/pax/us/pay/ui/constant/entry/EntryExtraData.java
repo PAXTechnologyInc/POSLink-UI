@@ -34,6 +34,7 @@ public final class EntryExtraData {
     public static final String PARAM_CARD_TYPE = "cardType";
     public static final String PARAM_ANIMATION_SUPPORT = "animationSupport";
     public static final String PARAM_SOUND_SUPPORT = "soundSupport";
+    public static final String PARAM_SOUND_URI = "soundUri";
     public static final String PARAM_VCODE_NAME = "vcodeName";
     public static final String PARAM_PAN_STYLES = "panStyles";
     public static final String PARAM_IS_EXTERNAL_PINPAD = "external";
