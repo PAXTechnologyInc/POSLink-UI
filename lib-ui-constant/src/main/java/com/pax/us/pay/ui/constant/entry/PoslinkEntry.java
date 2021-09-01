@@ -117,6 +117,7 @@ public class PoslinkEntry {
      * input: {@link EntryExtraData#PARAM_TITLE} <br>
      * input: {@link EntryExtraData#PARAM_TEXT} <br>
      * input: {@link EntryExtraData#PARAM_TIMEOUT} <br>
+     * input: {@link EntryExtraData#PARAM_SIGN_BOX} <br>
      * request: {@link EntryRequest#PARAM_SIGN_STATUS} <br>
      * request: {@link EntryRequest#PARAM_SIGNATURE} <br>
      */
