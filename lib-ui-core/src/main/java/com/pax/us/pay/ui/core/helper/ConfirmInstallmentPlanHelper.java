@@ -13,9 +13,9 @@ public class ConfirmInstallmentPlanHelper extends BaseActionHelper {
         super(uiListener, respStatus);
     }
 
-    public void sendNext(String planOption) {
+    public void sendNext(int index) {
         Bundle bundle = new Bundle();
-        bundle.putString(EntryRequest.PARAM_INSTALLMENT_SELECT_OPTION, planOption);
+        bundle.putInt(EntryRequest.PARAM_INDEX, index);
         super.sendNext(bundle);
     }
 
