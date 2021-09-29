@@ -37,8 +37,8 @@ jobs:
       - name: Publish package
         run: ./gradlew clean publish -DisRelease=${{ github.ref == 'refs/heads/release' }}
         env:
-          USERNAME: ${{ github.actor }}
-          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USERNAME: paxusactionbot
+          TOKEN: ${{ secrets.POSLINKUI }}
 
       - name: Cleanup Gradle cache
         # Remove some files from the Gradle cache, so they aren't cached by GitHub Actions.
