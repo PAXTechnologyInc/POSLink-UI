@@ -398,7 +398,7 @@
 
     <string name="trans_failed">La transaction a échoué!</string>
     <string name="finished">La finition</string>
-    <string name="additional_fee">Frais supplémentaires</string>
+    <string name="service_fee">Frais supplémentaires</string>
     <string name="confirm_amount">Confirmer le montant</string>
     <string name="reversal_process">Annulation...</string>
     <string name="emv_process_start">Démarrage du processus EMV...</string>

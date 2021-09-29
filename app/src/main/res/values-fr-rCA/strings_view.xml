@@ -89,6 +89,7 @@
     <string name="view_merchant_fee">Merchant Fee \\ Frais du commerçant : </string>
     <string name="view_surcharge_fee">Surcharge Fee \\ Frais supplémentaires : </string>
     <string name="view_addition_fee">Addition Fee \\ Frais d\'addition : </string>
+    <string name="view_service_fee" >Service Fee \\ Frais de service : </string>
     <string name="view_health_amount">Health Amount \\ Montant de soins de santé : </string>
     <string name="view_rx_amount">Rx Amount \\ Montant Rx : </string>
     <string name="view_clinic_amount">Clinic Amount \\ Montant de la cliniquet : </string>
