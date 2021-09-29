@@ -144,7 +144,7 @@ public class DisplayInfoContent {
         EXPAND_TRANS_MAP.put(EntryRequest.PARAM_FLEET_DRIVER_ID, R.string.view_driver_id);
         EXPAND_TRANS_MAP.put(EntryRequest.PARAM_FLEET_LICENSE_NUMBER, R.string.view_license);
         EXPAND_TRANS_MAP.put(EntryRequest.PARAM_DEST_ZIP_CODE, R.string.view_dest_zip);
-        EXPAND_TRANS_MAP.put(EntryExtraData.PARAM_ADDITIONAL_FEE, R.string.view_additional_fee); //Fixed ANBP-1009, display addional fee on AR terminals
+        EXPAND_TRANS_MAP.put(EntryExtraData.PARAM_SERVICE_FEE, R.string.view_service_fee); //Fixed ANBP-1009, display addional fee on AR terminals
 
         EXPAND_TRANS_MAP.put("ebtType", R.string.view_ebt_type);
         EXPAND_TRANS_MAP.put("bypassReason", R.string.view_bypass_reason);
@@ -195,7 +195,7 @@ public class DisplayInfoContent {
         EXPAND_TRANS_MAP.put(EdcTransContract.CommonTrans.CASH_BACK, R.string.view_cashback);
         EXPAND_TRANS_MAP.put(EdcTransContract.CommonTrans.MERCHANT_FEE, R.string.view_merchant_fee);
         EXPAND_TRANS_MAP.put(EdcTransContract.CommonTrans.SURCHARGE_FEE, R.string.view_surcharge_fee);
-        EXPAND_TRANS_MAP.put(EdcTransContract.CommonTrans.ADDITIONAL_FEE, R.string.view_addition_fee);
+        EXPAND_TRANS_MAP.put(EdcTransContract.CommonTrans.SERVICE_FEE, R.string.view_service_fee);
         EXPAND_TRANS_MAP.put(EdcTransContract.CommonTrans.HEALTH_AMOUNT, R.string.view_health_amount);
         EXPAND_TRANS_MAP.put(EdcTransContract.CommonTrans.RX_AMOUNT, R.string.view_rx_amount);
         EXPAND_TRANS_MAP.put(EdcTransContract.CommonTrans.CLINICAL_AMOUNT, R.string.view_clinic_amount);

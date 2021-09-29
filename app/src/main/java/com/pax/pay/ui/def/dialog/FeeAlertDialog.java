@@ -29,7 +29,7 @@ public class FeeAlertDialog extends CustomAlertDialog {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        feeName = context.getString(R.string.additional_fee);
+        feeName = context.getString(R.string.service_fee);
         mTableContent = findViewById(R.id.custom_layout);
         View view = LayoutInflater.from(getContext()).inflate(R.layout.layout_fee_table, null);
         mTableContent.addView(view);

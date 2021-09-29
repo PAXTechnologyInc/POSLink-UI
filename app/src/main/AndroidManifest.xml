@@ -43,7 +43,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.pax.pay.ui.def.ConfirmAdditionalFeeActivity"
+            android:name="com.pax.pay.ui.def.ConfirmServiceFeeActivity"
             android:autoRemoveFromRecents="true"
             android:screenOrientation="nosensor"
             android:exported="true"
@@ -51,7 +51,7 @@
             android:taskAffinity="com.pax.us.pay.UI"
             android:theme="@style/PaxTheme.ActivityTranslucent">
             <intent-filter>
-                <action android:name="com.pax.us.pay.action.CONFIRM_ADDITIONAL_FEE" />
+                <action android:name="com.pax.us.pay.action.CONFIRM_SERVICE_FEE" />
 
                 <category android:name="com.pax.us.pay.ui.category.CONFIRMATION" />
                 <category android:name="android.intent.category.DEFAULT" />

@@ -261,7 +261,7 @@ public final class EdcTransContract {
         /**
          * <P>Type: Long</P>
          */
-        String ADDITIONAL_FEE = "additional_fee";
+        String SERVICE_FEE = "service_fee";
 
         /**
          * <P>Type: Long</P>
