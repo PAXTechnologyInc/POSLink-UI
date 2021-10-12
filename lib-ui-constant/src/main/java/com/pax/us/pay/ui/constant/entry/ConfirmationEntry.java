@@ -208,16 +208,16 @@ public class ConfirmationEntry {
     public static final String ACTION_CONFIRM_RECEIPT_SIGNATURE = "com.pax.us.pay.action.CONFIRM_RECEIPT_SIGNATURE";
 
     /**
-     * The intent action of additional fee approval <br>
+     * The intent action of service fee approval <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * input: {@link EntryExtraData#PARAM_ADDITIONAL_FEE_NAME} String <br>
+     * input: {@link EntryExtraData#PARAM_SERVICE_FEE_NAME} String <br>
      * input: {@link EntryExtraData#PARAM_CURRENCY} <br>
      * input: {@link EntryExtraData#PARAM_TOTAL_AMOUNT} <br>
-     * input: {@link EntryExtraData#PARAM_ADDITIONAL_FEE} long <br>
+     * input: {@link EntryExtraData#PARAM_SERVICE_FEE} long <br>
      * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
      */
-    public static final String ACTION_CONFIRM_ADDITIONAL_FEE = "com.pax.us.pay.action.CONFIRM_ADDITIONAL_FEE";
+    public static final String ACTION_CONFIRM_SERVICE_FEE = "com.pax.us.pay.action.CONFIRM_SERVICE_FEE";
 
 
     /**
@@ -298,5 +298,19 @@ public class ConfirmationEntry {
      * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
      */
     public static final String ACTION_DISPLAY_QR_CODE_RECEIPT = "com.pax.us.pay.action.DISPLAY_QR_CODE_RECEIPT";
+
+    /**
+     * The intent action of confirm DCC information <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_AMOUNT_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_EXCHANGE_RATE} <br>
+     * input: {@link EntryExtraData#PARAM_CURRENCY_ALPHA_CODE} <br>
+     * input: {@link EntryExtraData#PARAM_MARGIN} <br>
+     * input: {@link EntryExtraData#PARAM_FOREIGN_AMOUNT_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_CONFIRM_WITH_CURRENCY} boolean <br>
+     * request: {@link EntryRequest#PARAM_CONFIRMED} <br> // true for "USD" if PARAM_CONFIRM_WITH_CURRENCY is true
+     */
+    public static final String ACTION_CONFIRM_DCC = "com.pax.us.pay.action.CONFIRM_DCC";
 
 }

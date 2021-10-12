@@ -35,6 +35,6 @@ public class DisplayApproveMessageHelper extends BaseActionHelper {
         }
     }
 
-    public interface IDisplayApproveMessageListener extends IMessageListener, ICardTypeListener {
+    public interface IDisplayApproveMessageListener extends IMessageListener, ICardTypeListener{
     }
 }

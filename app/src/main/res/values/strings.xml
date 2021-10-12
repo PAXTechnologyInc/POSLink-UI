@@ -401,7 +401,7 @@
 
     <string name="trans_failed">Trans Failed!</string>
     <string name="finished">Finished</string>
-    <string name="additional_fee">Additional Fee</string>
+    <string name="service_fee">Service Fee</string>
     <string name="confirm_amount">Confirm Amount</string>
     <string name="reversal_process">Reversal...</string>
     <string name="emv_process_start">EMV Process Start...</string>

@@ -36,7 +36,7 @@ public abstract class ConfirmFeeActivity extends AppCompatActivity implements IU
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_custom);
-        feeName = getString(R.string.additional_fee);
+        feeName = getString(R.string.service_fee);
         EventBusUtil.doEvent(new ConfirmDialogEndEvent());
         EventBusUtil.register(this);
 
