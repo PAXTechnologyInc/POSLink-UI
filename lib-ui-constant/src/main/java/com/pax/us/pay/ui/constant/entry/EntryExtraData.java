@@ -212,7 +212,8 @@ public final class EntryExtraData {
     public static final String PARAM_SIGNLINE1 = "signLine1";
     public static final String PARAM_SIGNLINE2 = "signLine2";
 
-
+    /*Accessibility mode*/
+    public static final String PARAM_ACCESSIBILITY_PIN_PAD_MODE = "accessibilityPinPadMode";
 
     //internal parameter
     /*
