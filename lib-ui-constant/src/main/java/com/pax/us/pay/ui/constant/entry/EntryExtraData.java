@@ -113,6 +113,8 @@ public final class EntryExtraData {
     public static final String PARAM_SERVICE_FEE = "serviceFee";
     public static final String PARAM_SERVICE_FEE_NAME = "serviceFeeName";
 //    public static final String PARAM_PRIMARY_AMOUNT = "primaryAmount";
+    public static final String PARAM_ENABLE_BYPASS = "enableBypass";
+
 
     public static final String PARAM_FSA_AMOUNT_OPTIONS = "fsaAmountOptions";
     public static final String PARAM_HEALTH_CARE_AMOUNT = "healthCareAmount";
