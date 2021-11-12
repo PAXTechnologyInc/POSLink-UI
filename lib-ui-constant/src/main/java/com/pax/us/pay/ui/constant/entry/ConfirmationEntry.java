@@ -103,6 +103,7 @@ public class ConfirmationEntry {
      * input: {@link EntryExtraData#PARAM_CURRENCY} <br>
      * input: {@link EntryExtraData#PARAM_TOTAL_AMOUNT} <br>
      * input: {@link EntryExtraData#PARAM_SURCHARGE_FEE} long <br>
+     * input: {@link EntryExtraData#PARAM_ENABLE_BYPASS} long <br>
      * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
      */
     public static final String ACTION_CONFIRM_SURCHARGE_FEE = "com.pax.us.pay.action.CONFIRM_SURCHARGE_FEE";
