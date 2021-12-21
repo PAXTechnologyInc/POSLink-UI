@@ -151,6 +151,7 @@ public class TextEntry {
      * input: {@link EntryExtraData#PARAM_CASHBACK_OPTIONS} String Array, Nullable amount array  <br>
      * input: {@link EntryExtraData#PARAM_CASHBACK_RATE_OPTIONS} String Array, Nullable cashback rate array,
      *         if it exist, the number of cashback rate options should equal the number of  cashback options <br>
+     * input: {@link EntryExtraData#PARAM_ENABLE_OTHER_PROMPT} boolean <br>
      * request: {@link EntryRequest#PARAM_CASHBACK_AMOUNT} long  <br>
      */
     public static final String ACTION_ENTER_CASH_BACK = "com.pax.us.pay.action.ENTER_CASH_BACK";
@@ -177,7 +178,7 @@ public class TextEntry {
      * input: {@link EntryExtraData#PARAM_PACKAGE}  <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE}  <br>
      * input: {@link EntryExtraData#PARAM_CURRENCY}  enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType}  <br>
-     * input: {@link EntryExtraData#PARAM_TOTAL_AMOUNT} long  <br>
+     * input: {@link EntryExtraData#PARAM_BASE_AMOUNT} long  <br>
      * request: {@link EntryRequest#PARAM_TAX_AMOUNT} long  <br>
      */
     public static final String ACTION_ENTER_TAX_AMOUNT = "com.pax.us.pay.action.ENTER_TAX_AMOUNT";
@@ -203,6 +204,7 @@ public class TextEntry {
      * The intent action of Enter phone number <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE}  <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE}  <br>
+     * input: {@link EntryExtraData#PARAM_VALUE_PATTERN}  <br>
      * request: {@link EntryRequest#PARAM_PHONE_NUMBER} <br>
      */
     public static final String ACTION_ENTER_PHONE_NUMBER = "com.pax.us.pay.action.ENTER_PHONE_NUMBER";
@@ -300,6 +302,7 @@ public class TextEntry {
      * The intent action of Enter destination Zip Code <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_VALUE_PATTERN} <br>
      * input: {@link EntryExtraData#PARAM_EINPUT_TYPE} enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType} <br>
      * request: {@link EntryRequest#PARAM_DEST_ZIP_CODE} <br>
      */
