@@ -8,6 +8,7 @@ public final class InformationStatus {
     /**
      * param: {@link StatusData#PARAM_CODE} <br>
      * param: {@link StatusData#PARAM_MSG} <br>
+     * param: {@link StatusData#PARAM_EXT_MSG} <br>
      */
     public static final String TRANS_COMPLETED = "com.pax.us.pay.TRANS_COMPLETED";
 
@@ -25,6 +26,9 @@ public final class InformationStatus {
 
     public static final String DCC_ONLINE_STARTED = "com.pax.us.pay.DCC_ONLINE_STARTED";
     public static final String DCC_ONLINE_FINISHED = "com.pax.us.pay.DCC_ONLINE_FINISHED";
+
+    public static final String RKI_STARTED = "com.pax.us.pay.RKI_STARTED";
+    public static final String RKI_FINISHED = "com.pax.us.pay.RKI_FINISHED";
 
 
     /**
