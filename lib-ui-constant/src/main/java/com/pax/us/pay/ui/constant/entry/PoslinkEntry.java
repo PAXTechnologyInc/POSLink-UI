@@ -123,4 +123,19 @@ public class PoslinkEntry {
      */
     public static final String ACTION_SHOW_SIGNATURE_BOX = "com.pax.us.pay.action.SHOW_SIGNATURE_BOX";
 
+    /**
+     * The intent action of show input text box <br>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+     * input: {@link EntryExtraData#PARAM_TITLE} <br>
+     * input: {@link EntryExtraData#PARAM_TEXT} <br>
+     * input: {@link EntryExtraData#PARAM_TIMEOUT} <br>
+     * input: {@link EntryExtraData#PARAM_CONTINUE_SCREEN} <br>
+     * input: {@link EntryExtraData#PARAM_INPUT_TYPE} <br>
+     * input: {@link EntryRequest#PARAM_MIN_LENGTH} <br>
+     * input: {@link EntryRequest#PARAM_MAX_LENGTH} <br>
+     * request: {@link EntryRequest#PARAM_INPUT_VALUE} <br>
+     */
+    public static final String ACTION_SHOW_INPUT_TEXT_BOX = "com.pax.us.pay.action.SHOW_INPUT_TEXT_BOX";
+
 } 

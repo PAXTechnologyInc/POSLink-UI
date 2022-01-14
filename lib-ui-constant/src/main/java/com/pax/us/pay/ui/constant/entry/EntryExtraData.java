@@ -213,6 +213,7 @@ public final class EntryExtraData {
     public static final String PARAM_BARCODE_DATA = "barcodeData";
     public static final String PARAM_SIGNLINE1 = "signLine1";
     public static final String PARAM_SIGNLINE2 = "signLine2";
+    public static final String PARAM_INPUT_TEXT_TITLE = "inputTextTitle";
 
     /*Accessibility mode*/
     public static final String PARAM_ACCESSIBILITY_PIN_PAD_MODE = "accessibilityPinPadMode";
