@@ -1,6 +1,6 @@
 package com.pax.us.pay.ui.core.helper;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.pax.us.pay.ui.core.BaseActionHelper;
 import com.pax.us.pay.ui.core.api.IMessageListener;

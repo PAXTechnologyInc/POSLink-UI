@@ -1,6 +1,6 @@
 package com.pax.us.pay.ui.core.api;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 public interface IDccListener {
     void onShowDcc(@Nullable String amountMessage, @Nullable String cardCurrency,

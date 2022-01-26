@@ -1,8 +1,9 @@
 package com.pax.pay.ui.def;
 
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import android.text.TextUtils;
 
 import com.pax.pay.ui.def.base.RespStatusImpl;
@@ -23,7 +24,7 @@ public class EnterCashbackActivity extends EnterAndOptionWithTwoStyleActivity<Lo
     protected void loadOtherParam() {
         //setCurrencyName(CurrencyType.USD);
         setAmountOption(null, null, null);
-        setTitleName(getString(R.string.cashback));
+        setDialogTitle(getString(R.string.prompt_select_cashback));
         EditTextDataLimit limit;
         String lengthRange = getIntent().getExtras().getString(EntryExtraData.PARAM_VALUE_PATTERN);
         if (!TextUtils.isEmpty(lengthRange)) {

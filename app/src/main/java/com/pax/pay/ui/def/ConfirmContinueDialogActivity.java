@@ -20,16 +20,19 @@ package com.pax.pay.ui.def;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.annotation.Nullable;
+
 import android.text.TextUtils;
 
 import com.pax.pay.ui.def.base.FinishRespStatusImpl;
 import com.pax.us.pay.ui.core.helper.ConfirmMessageHelper;
+import com.paxus.view.BaseAppCompatActivity;
 import com.paxus.view.dialog.CustomAlertDialog;
+import com.paxus.view.dialog.DialogUtils;
 
 
-public class ConfirmContinueDialogActivity extends AppCompatActivity implements ConfirmMessageHelper.IConfirmMessageListener {
+public class ConfirmContinueDialogActivity extends BaseAppCompatActivity implements ConfirmMessageHelper.IConfirmMessageListener {
 
     private ConfirmMessageHelper helper = null;
     private String title;
@@ -114,7 +117,7 @@ public class ConfirmContinueDialogActivity extends AppCompatActivity implements 
                 dialog.setContent(contentMsg);
                 dialog.showConfirmButton(true);
                 dialog.setConfirmText(positiveMessage);
-                dialog.show();
+                DialogUtils.showDialog(this, dialog);
             }
         });
     }

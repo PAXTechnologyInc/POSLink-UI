@@ -27,8 +27,8 @@ public enum CountryCode {
     GB("826", "GBP"),
     ;
 
-    private final String countryCode;
-    private final String currencryName;
+    private String countryCode;
+    private String currencryName;
 
     CountryCode(String countryCode, String currencyName) {
         this.countryCode = countryCode;

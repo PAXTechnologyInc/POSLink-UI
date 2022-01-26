@@ -1,10 +1,13 @@
 package com.pax.pay.ui.def;
 
+import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
@@ -12,17 +15,17 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.pax.pay.ui.def.base.BaseStackActivity;
-import com.pax.pay.ui.def.utils.TextController;
-import com.pax.us.pay.ui.component.utils.TickTimer;
+import com.pax.pay.ui.def.base.RespStatusImpl;
+import com.pax.pay.ui.def.poslink.TextController;
 import com.pax.us.pay.ui.constant.entry.EntryExtraData;
 import com.pax.us.pay.ui.constant.entry.enumeration.ManageUIConst;
-import com.pax.us.pay.ui.core.api.IRespStatus;
 import com.pax.us.pay.ui.core.helper.SelectOptionsHelper;
 import com.paxus.utils.StringUtils;
-import com.paxus.utils.log.Logger;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class ShowDialogActivity extends BaseStackActivity implements SelectOptionsHelper.ISelectOptionListener {
     private SelectOptionsHelper helper;
@@ -35,9 +38,9 @@ public class ShowDialogActivity extends BaseStackActivity implements SelectOptio
 
     private String title;
     private String[] buttons;
-    private boolean isNoBlocking = false;
-    private TickTimer tickTimer;
-    int timeout;
+    private boolean continuousScreen = false;
+    private Timer timer;
+    private boolean noBlocking = false;
 
     @Override
     protected int getLayoutId() {
@@ -46,11 +49,7 @@ public class ShowDialogActivity extends BaseStackActivity implements SelectOptio
 
     @Override
     protected boolean onKeyBackDown() {
-        tickTimerStop();
-        helper.sendAbort();
-        if (!isNoBlocking) {
-            finish();
-        }
+        onAbort();
         return true;
     }
 
@@ -62,51 +61,46 @@ public class ShowDialogActivity extends BaseStackActivity implements SelectOptio
     protected void initViews() {
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, 1);
 
-        setTextView(TextController.getViewList(this, title, lp), lp);
+        setTextView(TextController.getTitleViewList(this, title, lp), lp);
     }
 
     @Override
     protected void loadParam() {
-        createTimer();
-        tickTimer.start(getTickTimeout());
-
+        super.loadParam();
         mTitle = findViewById(R.id.tv_title_show_dialog);
         button1 = findViewById(R.id.btn_show_dialog_1);
         button2 = findViewById(R.id.btn_show_dialog_2);
         button3 = findViewById(R.id.btn_show_dialog_3);
         button4 = findViewById(R.id.btn_show_dialog_4);
 
-        Bundle bundle = getIntent().getExtras();
         mTitle.removeAllViews();
-        try {
+        title = null;
+        continuousScreen = false;
+        long timeoutMs = -1;
+        stopTimer();
+
+        Bundle bundle = getIntent().getExtras();
+        if(bundle != null) {
             title = bundle.getString(EntryExtraData.PARAM_TITLE);
-        } catch (Exception e) {
-            Logger.e(e);
-            title = null;
-        }
+            continuousScreen = ManageUIConst.ContinuousScreen.DO_NOT_GO_TO_IDLE.equals(bundle.getString(EntryExtraData.PARAM_CONTINUE_SCREEN));
 
-        try {
-            if (bundle.containsKey(EntryExtraData.PARAM_CONTINUE_SCREEN)
-                    && (ManageUIConst.ContinuousScreen.DO_NOT_GO_TO_IDLE.equals(bundle.getString(EntryExtraData.PARAM_CONTINUE_SCREEN)))) {
-                isNoBlocking = true;
+            noBlocking = false;
+            if(bundle.containsKey(EntryExtraData.PARAM_TIMEOUT)){
+                timeoutMs = bundle.getLong(EntryExtraData.PARAM_TIMEOUT, -1L);
+                if(timeoutMs == 0){
+                    noBlocking = true;
+                }
             }
-        } catch (Exception e) {
-            Logger.e(e);
-            isNoBlocking = false;
         }
 
-        helper = new SelectOptionsHelper(this, new PoslinkRespStatusImpl());
-    }
-
-    @Override
-    public void onWindowFocusChanged(boolean hasFocus) {
-        if(hasFocus && timeout == 0){
-            tickTimerStop();
-            helper.sendNext();
-        }
+        startTimer(timeoutMs);
+        helper = new SelectOptionsHelper(this, new PoslinkRespStatusImpl(this));
     }
 
     private void showButtons(){
+        if (noBlocking){
+            return;
+        }
         List<LinearLayout> disPlayButtons = Arrays.asList(button1, button2, button3, button4);
         for (int i = 0; i < buttons.length; i++) {
             if (StringUtils.isEmpty(buttons[i])) {
@@ -120,8 +114,8 @@ public class ShowDialogActivity extends BaseStackActivity implements SelectOptio
                         @Override
                         public void onClick(View v) {
                             helper.sendNext(index);
-                            tickTimerStop();
-                            if (!isNoBlocking) {
+                            stopTimer();
+                            if (!continuousScreen) {
                                 finish();
                             }
                         }
@@ -144,7 +138,7 @@ public class ShowDialogActivity extends BaseStackActivity implements SelectOptio
     private void setButtonView(LinearLayout layoutBtn, String btnName) {
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, 1);
         layoutBtn.setVisibility(View.VISIBLE);
-        List<TextView> viewList = TextController.getViewList(this, btnName, lp);
+        List<TextView> viewList = TextController.getTitleViewList(this, btnName, lp);
         for (TextView view : viewList) {
             LinearLayout.LayoutParams lps = (LinearLayout.LayoutParams) view.getLayoutParams();
             lps.gravity = lps.gravity | Gravity.CENTER;
@@ -155,85 +149,18 @@ public class ShowDialogActivity extends BaseStackActivity implements SelectOptio
         }
     }
 
-    private void createTimer() {
-        tickTimer = new TickTimer(new TickTimer.OnTickTimerListener() {
-            @Override
-            public void onFinish() {
-                onTimerFinish();
-            }
-
-            @Override
-            public void onTick(long leftTime) {
-                timeOnTick(leftTime);
-            }
-        });
-    }
-
-    protected void timeOnTick(long leftTime) {
-        //this.leftTime = leftTime;
-        //setTitle(String.format(Locale.US, "%s ( %d )", getString(R.string.signature), leftTime));
-    }
-
-    protected void restartTimer() {
-        tickTimerStop();
-        createTimer();
-        tickTimer.start(getTickTimeout());
-    }
-
-    public void tickTimerStop() {
-        if (tickTimer != null) {
-            tickTimer.stop();
-            tickTimer = null;
-        }
-    }
-
-    protected void onTimerFinish() {
-        if (timeout <= 0)
-            return;
-
-        tickTimerStop();
-        helper.sendTimeout();
-
-        if (!isNoBlocking) {
-            finish();
-        }
-    }
-
-    protected long getTickTimeout() {
-        timeout = -1;
-        if (getIntent().getExtras() != null && getIntent().getExtras().containsKey(EntryExtraData.PARAM_TIMEOUT)) {
-            long time = getIntent().getExtras().getLong(EntryExtraData.PARAM_TIMEOUT, -1L);
-            timeout = (int)(time/1000l);
-        }
-
-        if (timeout == 0)
-            isNoBlocking = true;
-
-        return timeout;
-    }
-
     @Override
     public void onStartHelper(){
         helper.start(this, getIntent());
+        if(noBlocking){
+            helper.sendNext();
+        }
     }
 
     @Override
     public void onAbortHelper() {
-        helper.sendAbort();
-        finish();
+        onAbort();
     }
-
-//    @Override
-//    protected void onStart() {
-//        helper.start(this, getIntent());
-//        super.onStart();
-//    }
-//
-//    @Override
-//    protected void onStop() {
-//        helper.stop();
-//        super.onStop();
-//    }
 
     @Override
     public void finish() {
@@ -256,21 +183,49 @@ public class ShowDialogActivity extends BaseStackActivity implements SelectOptio
         }
     }
 
+    private void startTimer(long timeoutMs) {
+        if(timeoutMs > 0) {
+            stopTimer();
+            timer = new Timer();
+            timer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    onTimeout();
+                }
+            }, timeoutMs);
+        }
+    }
 
-    private class PoslinkRespStatusImpl implements IRespStatus{
+    private void stopTimer(){
+        if(timer != null){
+            timer.cancel();
+            timer = null;
+        }
+    }
+    private void onTimeout(){
+        stopTimer();
+        helper.sendTimeout();
+        if (!continuousScreen) {
+            finish();
+        }
+    }
+    private void onAbort(){
+        stopTimer();
+        helper.sendAbort();
+        //NoBlocking mode and continuousScreen not finish screen until next command
+        if (!continuousScreen && !noBlocking) {
+            finish();
+        }
+    }
 
+    private class PoslinkRespStatusImpl extends RespStatusImpl {
+
+        public PoslinkRespStatusImpl(Activity activity) {
+            super(activity);
+        }
         @Override
         public void onAccepted() {
-            if (!isNoBlocking) {
-                finish();
-            }
-        }
-
-        @Override
-        public void onDeclined(long code, @Nullable String message) {
-            if (!isNoBlocking) {
-                finish();
-            }
+            //don't close activity.
         }
     }
 

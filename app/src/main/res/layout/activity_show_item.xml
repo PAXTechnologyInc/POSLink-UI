@@ -1,0 +1,104 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <LinearLayout
+        android:id="@+id/tv_title_show_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        android:padding="@dimen/ui_activity_horizontal_margin"/>
+
+    <View
+        android:id="@+id/title_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/tv_title_show_item"
+        android:background="@android:drawable/divider_horizontal_bright"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottom_line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:paddingBottom="10dp">
+
+        <View
+            android:id="@+id/trail_devide"
+            android:layout_width="match_parent"
+            android:layout_height="1.5dp"
+            android:background="@drawable/shape_dash_line"
+            android:layerType="software"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tv_tax_line_show_item"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/tv_total_line_show_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:paddingRight="24dp"
+            android:textSize="@dimen/font_size_value"
+            android:textStyle="bold"
+            android:textColor="@color/primary_dark"
+            tools:text="total line"/>
+
+        <TextView
+            android:layout_marginBottom="10dp"
+            android:paddingRight="24dp"
+            android:layout_above="@id/tv_total_line_show_item"
+            android:id="@+id/tv_tax_line_show_item"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tv_total_line_show_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/primary_dark"
+            android:textSize="@dimen/font_size_value"
+            tools:text="tax line"/>
+
+        <TextView
+            android:id="@+id/total_line_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textStyle="bold"
+            android:text="@string/pete_total"
+            android:textColor="@color/primary_dark"
+            android:textSize="@dimen/font_size_value"
+            android:visibility="gone"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:paddingStart="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/total_line_title"
+            android:textStyle="bold"
+            android:text="@string/pete_tax"
+            android:textColor="@color/primary_dark"
+            android:textSize="@dimen/font_size_value"
+            android:visibility="gone" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@id/title_divider"
+        android:layout_above="@id/bottom_line"
+        android:id="@+id/recycler_View_show_item"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</RelativeLayout>

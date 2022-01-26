@@ -21,7 +21,6 @@ package com.pax.pay.ui.def.receiver;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.pax.pay.ui.def.DialogActivity;
 import com.pax.us.pay.ui.component.activity.ActivityLifeCheck;
@@ -38,9 +37,9 @@ public class StatusReceiver extends android.content.BroadcastReceiver {
 
         // Note: In DialogActivity, if manager isn't on front ground, all status don't need start dialogActivity, only recycle the resource.
         boolean isNeedReceiveFlag = ActivityLifeCheck.isAppFrontGround() && ActivityLifeCheck.isUsingDefUI();
-        Logger.i("DialogActivity isNeedReceiveFlag :" + isNeedReceiveFlag + " - " + intent.getAction());
-        if ((intent.getAction() != InformationStatus.TRANS_COMPLETED) &&
-                (!isNeedReceiveFlag)) {
+        Logger.d("DialogActivity isNeedReceiveFlag :" + isNeedReceiveFlag + " - " + intent.getAction());
+        if (!InformationStatus.TRANS_COMPLETED.equals(intent.getAction()) &&
+                !isNeedReceiveFlag) {
             return;
         }
         intent.putExtra("isNeedReceiveMessage", isNeedReceiveFlag);
@@ -51,14 +50,11 @@ public class StatusReceiver extends android.content.BroadcastReceiver {
                 try {
                     listener.setIntent(context, intent);
                 } catch (Exception e) {
-                    Log.i("DialogActivity", "setIntent exception " + e.getMessage());
+                    Logger.d("setIntent exception " + e.getMessage());
                     DialogActivity.start(context, intent);
                 }
             } else {
-                if (listener == null)
-                    Log.i("DialogActivity", "listener is empty ");
-                else
-                    Log.i("DialogActivity", "DialogExist is not exist");
+                Logger.d("listener is empty ");
                 DialogActivity.start(context, intent);
             }
         }

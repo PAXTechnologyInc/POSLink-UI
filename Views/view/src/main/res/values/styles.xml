@@ -89,6 +89,11 @@
         <item name="contentInsetStartWithNavigation">0dp</item>
     </style>
 
+    <style name="PaxTheme.FullScreen" parent="PaxTheme.AnimFade">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
 
     <style name="PaxTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
         <item name="android:textColor">@android:color/white</item>

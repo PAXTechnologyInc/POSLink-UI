@@ -21,18 +21,20 @@ package com.pax.pay.ui.def;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
+
 import android.text.TextUtils;
 
 import com.pax.pay.ui.def.eventbus.ConfirmDialogEndEvent;
 import com.pax.pay.ui.def.eventbus.EventBusUtil;
+import com.paxus.view.BaseAppCompatActivity;
 import com.paxus.view.dialog.CustomAlertDialog;
+import com.paxus.view.dialog.DialogUtils;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 
-public abstract class ConfirmDialogActivity extends AppCompatActivity {
+public abstract class ConfirmDialogActivity extends BaseAppCompatActivity {
 
     private String title;
     private String contentMsg;
@@ -105,7 +107,7 @@ public abstract class ConfirmDialogActivity extends AppCompatActivity {
                 dialog.setCancelButtonColor(R.drawable.btn_bg_dark);
                 dialog.showConfirmButton(true);
                 dialog.setConfirmText(positiveMessage);
-                dialog.show();
+                DialogUtils.showDialog(this, dialog);
             }
         });
     }

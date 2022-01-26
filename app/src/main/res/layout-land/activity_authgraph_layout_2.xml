@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="0dp"
+    android:layout_marginEnd="0dp"
+    tools:ignore="MissingDefaultResource">
+
+    <LinearLayout
+        android:id="@+id/amount_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_weight="1">
+
+        <!-- 显示金额 -->
+        <LinearLayout
+            android:id="@+id/trans_amount_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_horizontal"
+            android:layout_marginTop="@dimen/space_vertical_small"
+            android:layout_marginEnd="@dimen/space_horizontal"
+            android:layout_marginBottom="@dimen/space_vertical_small"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/trans_amount_prompt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="bottom"
+                android:text="@string/history_detail_amount"
+                android:textColor="@color/primary_text_light"
+                android:textSize="@dimen/font_size_prompt" />
+
+            <TextView
+                android:id="@+id/trans_amount_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="bottom|end"
+                android:text="@string/amount_default"
+                android:textColor="@color/primary_text_light"
+                android:textSize="@dimen/font_size_value" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/message_layout_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_horizontal"
+            android:layout_marginEnd="@dimen/space_horizontal"
+            android:layout_marginBottom="@dimen/space_vertical_small"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/message_prompt_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/primary_text_light"
+                android:textSize="@dimen/font_size_value" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/message_layout_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_horizontal"
+            android:layout_marginEnd="@dimen/space_horizontal"
+            android:layout_marginBottom="@dimen/space_vertical_small"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/message_prompt_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/primary_text_light"
+                android:textSize="@dimen/font_size_value" />
+        </LinearLayout>
+
+        <View style="@style/LongLine" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/text_box_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/bottom_btn_layer"
+        app:layout_constraintTop_toBottomOf="@id/amount_layout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ScrollView
+                android:id="@+id/ll_show_text_box_scroller_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:id="@+id/ll_container_show_text_box_signature"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <LinearLayout
+                        android:id="@+id/ll_show_text_box_signature"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"></LinearLayout>
+                </LinearLayout>
+
+            </ScrollView>
+
+            <com.pax.pay.ui.def.base.ElectronicSignatureView
+                android:id="@+id/signatureView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:splitMotionEvents="true"></com.pax.pay.ui.def.base.ElectronicSignatureView>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/bottom_btn_layer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_weight="1">
+
+        <Button
+            android:id="@+id/cancel_btn"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_weight="1"
+            android:background="@drawable/cancel_sign_background"
+            android:text="@string/cancel_sign"
+            android:textColor="@color/primary_text_light"
+            android:textSize="@dimen/font_button" />
+
+        <Button
+            android:id="@+id/clear_btn"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_weight="1"
+            android:background="@drawable/clear_sign_background"
+            android:text="@string/signature_clear"
+            android:textColor="@color/primary_text_light"
+            android:textSize="@dimen/font_button" />
+
+        <Button
+            android:id="@+id/confirm_btn"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_weight="1"
+            android:background="@drawable/confirm_sign_background"
+            android:text="@string/signature_done"
+            android:textColor="@color/primary_text_light"
+            android:textSize="@dimen/font_button" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

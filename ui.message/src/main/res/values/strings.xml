@@ -1,8 +1,8 @@
 <resources>
 
     <string name="check_card_present">Card Present?</string>
-    <string name="select_reverse_partial">Reverse?</string>
-    <string name="select_supplement_partial">Another Payment?</string>
+    <string name="select_reverse_partial">Approved Amount: %1$s\nDUE: %2$s;Reverse?</string>
+    <string name="select_supplement_partial">Approved Amount: %1$s\nDUE: %2$s;Another Payment?</string>
     <string name="confirm_deactivate_warn">Card Will Be Deactivated, Are You Sure?</string>
     <string name="confirm_online_retry">Online Failed, Retry?</string>
     <string name="confirm_debit_trans">Debit Transaction?</string>
@@ -16,7 +16,7 @@
     <string name="confirm_print_failed_trans">Print Failed Trans.?</string>
     <string name="confirm_print_fps">Do You Want To Print Receipt?</string>
     <string name="confirm_delete_sf">Delete SF Records, Are You Sure?</string>
-    <string name="confirm_print_customer_copy">Print Customer Receipt?</string>
+    <string name="confirm_print_customer_copy">Please Tear Receipt.\nPrint Customer Receipt?</string>
     <string name="confirm_printer_status">Printer Have Issue, Retry?</string>
     <string name="confirm_application_update_with_batch_close">To apply the update, please close the current batch.\nDo you want to close now?</string>
     <string name="confirm_online_retry_offline">Retry Online Or Offline, Retry Online?</string>
@@ -30,8 +30,6 @@
     <string name="confirm_receipt_signature">Do you agree to sign the receipt?</string>
     <string name="confirm_signature_match">Does the cardholder signature match?</string>
 
-    <string name="approve_amount">Approved Amount: </string>
-    <string name="due">DUE:</string>
     <string name="total_amount_with_colon">Total Amount : </string>
 
     <string name="partial_approve_prompt">Insufficient Fund\nAmount Due: </string>

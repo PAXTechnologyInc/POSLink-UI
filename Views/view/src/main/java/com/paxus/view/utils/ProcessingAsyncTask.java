@@ -3,8 +3,9 @@ package com.paxus.view.utils;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
-import android.support.annotation.CallSuper;
-import android.support.v4.app.FragmentActivity;
+
+import androidx.annotation.CallSuper;
+import androidx.fragment.app.FragmentActivity;
 
 import com.paxus.view.dialog.BaseDialogFragment;
 import com.paxus.view.dialog.ProcessDialog;

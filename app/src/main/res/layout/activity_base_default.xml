@@ -6,17 +6,53 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <android.support.design.widget.AppBarLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/PaxTheme.AppBarOverlay">
 
-        <android.support.v7.widget.Toolbar
+        <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?android:attr/actionBarSize"
             android:gravity="center"
-            app:popupTheme="@style/PaxTheme.PopupOverlay" />
-    </android.support.design.widget.AppBarLayout>
+            app:popupTheme="@style/PaxTheme.PopupOverlay">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_gravity="end">
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/a11ySwitch_tag_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:visibility="gone"
+                    android:gravity="center_vertical"
+                    android:text="@string/a11y_accessibility_switch_tag"
+                    android:textSize="@dimen/ui_text_size_14"/>
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/a11ySwitch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:visibility="gone"
+                    android:layout_gravity="center_vertical|end"
+                    android:thumb="@drawable/a11y_switch_selector"
+                    android:track="@drawable/a11y_switch_track_selector"/>
+            </LinearLayout>
+            <!--<androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="A11Y"
+                android:textSize="@dimen/ui_text_size_18"/>
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/a11ySwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:thumb="@drawable/a11y_switch_selector"
+                android:track="@drawable/a11y_switch_track_selector"/>-->
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
 
 </LinearLayout>

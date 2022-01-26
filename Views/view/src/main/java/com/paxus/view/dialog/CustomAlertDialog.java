@@ -3,15 +3,16 @@ package com.paxus.view.dialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.IntDef;
-import android.support.annotation.NonNull;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.annotation.DrawableRes;
+import androidx.annotation.IntDef;
+import androidx.annotation.NonNull;
 
 import com.paxus.view.R;
 
@@ -31,12 +32,16 @@ public class CustomAlertDialog extends Dialog implements View.OnClickListener {
     private TextView mContentTextView;
     private Button mConfirmButton;
     private Button mCancelButton;
+    private Button mBypassButton;
     private boolean mShowCancel;
     private boolean mShowConfirm;
+    private boolean mShowBypass;
     private String mConfirmText;
     private String mCancelText;
+    private String mBypassText;
     private OnCustomClickListener mCancelClickListener;
     private OnCustomClickListener mConfirmClickListener;
+    private OnCustomClickListener mBypassClickListener;
     private OnCustomClickListener mKeycodeBackClickListener;
     private String mTitle;
     private String mContent;
@@ -69,6 +74,7 @@ public class CustomAlertDialog extends Dialog implements View.OnClickListener {
 
         mConfirmButton = findViewById(R.id.confirm_button);
         mCancelButton = findViewById(R.id.cancel_button);
+        mBypassButton = findViewById(R.id.bypass_button);
 
         mTitleTextView = findViewById(R.id.title_text);
         mContentTextView = findViewById(R.id.content_text);
@@ -77,6 +83,8 @@ public class CustomAlertDialog extends Dialog implements View.OnClickListener {
         mConfirmButton.setFocusable(false);
         mCancelButton.setOnClickListener(this);
         mCancelButton.setFocusable(false);
+        mBypassButton.setOnClickListener(this);
+        mBypassButton.setFocusable(false);
 
         setCancelText(mCancelText);
         setConfirmText(mConfirmText);
@@ -84,6 +92,7 @@ public class CustomAlertDialog extends Dialog implements View.OnClickListener {
         setContent(mContent);
         showCancelButton(mShowCancel);
         showConfirmButton(mShowConfirm);
+        showBypassButton(mShowBypass);
     }
 
     public void setTitle(String text) {
@@ -116,6 +125,12 @@ public class CustomAlertDialog extends Dialog implements View.OnClickListener {
         }
     }
 
+    public void showBypassButton(boolean isShow) {
+        mShowBypass = isShow;
+        if (mBypassButton != null) {
+            mBypassButton.setVisibility(mShowBypass ? View.VISIBLE : View.GONE);
+        }
+    }
     public void setCancelText(String text) {
         mCancelText = text;
         if (mCancelButton != null && mCancelText != null) {
@@ -131,6 +146,14 @@ public class CustomAlertDialog extends Dialog implements View.OnClickListener {
         }
     }
 
+    public void setBypassText(String text) {
+        mBypassText = text;
+        if (mBypassButton != null && mBypassText != null) {
+            mBypassButton.setText(mBypassText);
+        }
+    }
+
+
     public void setCancelButtonColor(@DrawableRes int color) {
         if (mCancelButton != null) {
             mCancelButton.setBackgroundColor(color);
@@ -143,6 +166,12 @@ public class CustomAlertDialog extends Dialog implements View.OnClickListener {
         }
     }
 
+    public void setBypassButtonColor(@DrawableRes int color) {
+        if (mBypassButton != null) {
+            mBypassButton.setBackgroundColor(color);
+        }
+    }
+
     public CustomAlertDialog setCancelClickListener(OnCustomClickListener listener) {
         mCancelClickListener = listener;
         return this;
@@ -150,6 +179,11 @@ public class CustomAlertDialog extends Dialog implements View.OnClickListener {
 
     public CustomAlertDialog setConfirmClickListener(OnCustomClickListener listener) {
         mConfirmClickListener = listener;
+        return this;
+    }
+
+    public CustomAlertDialog setBypassClickListener(OnCustomClickListener listener) {
+        mBypassClickListener = listener;
         return this;
     }
 
@@ -174,6 +208,13 @@ public class CustomAlertDialog extends Dialog implements View.OnClickListener {
         }
     }
 
+    private void bypassClick() {
+        if (mBypassClickListener != null) {
+            mBypassClickListener.onClick(CustomAlertDialog.this);
+        } else {
+            dismiss();
+        }
+    }
     private void keycodeBackClick() {
         if (mKeycodeBackClickListener != null) {
             mKeycodeBackClickListener.onClick(CustomAlertDialog.this);
@@ -188,6 +229,8 @@ public class CustomAlertDialog extends Dialog implements View.OnClickListener {
             cancelClick();
         } else if (v.getId() == R.id.confirm_button) {
             confirmClick();
+        } else if (v.getId() == R.id.bypass_button) {
+            bypassClick();
         }
     }
 

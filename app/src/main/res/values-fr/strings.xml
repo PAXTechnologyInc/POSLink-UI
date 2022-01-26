@@ -84,11 +84,12 @@
     <string name="prompt_date_default">YYYY/MM/DD</string>
     <string name="prompt_input_amount">Veuillez entrer le montant</string>
     <string name="prompt_input_tip">Veuillez entrer le montant du pourboire</string>
+    <string name="prompt_select_tip">Veuillez sélectionner le montant du pourboire</string>
     <string name="prompt_input_tip_in_dollars">Veuillez entrer le montant du pourboire (En dollars)</string>
     <string name="prompt_card_num">Numéro de carte</string>
     <string name="btn_scan">SCAN</string>
-    <string name="hint_enter_account">ENTRER  #CARTE:</string>
-    <string name="enter_new_account">Entrez le nouveau numéro de carte:</string>
+    <string name="hint_enter_account">Veuillez saisir le numéro de carte:</string>
+    <string name="enter_new_account">Veuillez saisir un nouveau numéro de carte:</string>
     <string name="prompt_pin">ENTRER NIP</string>
     <string name="prompt_no_pin">Appuyez sur OK pour contourner le code PIN</string>
     <string name="prompt_offline_pin">ENTRER NIP</string>
@@ -116,6 +117,9 @@
     <string name="total_amount">Montant total</string>
     <string name="total_point">Points totaux</string>
 
+    <string name="pete_total">Le total:</string>
+    <string name="pete_tax">Impôt:</string>
+
     <string name="cancel_sign">Annuler</string>
     <string name="clear_sign">Effacer</string>
     <string name="finish_sign">Confirmer</string>
@@ -137,7 +141,7 @@
     <string name="pls_input_vcode">Veuillez entrer V-Code</string>
     <string name="prompt_input_4digit">Veuillez entrer les 4 derniers chiffres</string>
     <string name="prompt_input_all_digit">Veuillez entrer tous les chiffres</string>
-    <string name="prompt_input_cashback">Veuillez entrer le montant de la remise en espèces</string>
+    <string name="prompt_input_cashback">Veuillez sélectionner le montant de la remise en espèces</string>
     <string name="pls_input_orig_trans_date">Veuillez entrer la date de la trans. initiale</string>
     <string name="pls_input_pin_again">Erreur PIN, veuillez réessayer\n\nVeuillez saisir le code PIN</string>
     <string name="pls_input_pin_last">Dernière tentative de code PIN\n\nVeuillez saisir le code PIN</string>
@@ -150,8 +154,6 @@
     <string name="select_ebt_type">Veuillez sélectionner le type EBT</string>
     <string name="check_card_present">Transaction avec carte?</string>
     <string name="select_bypass_reason">Expliquer la raison</string>
-    <string name="select_reverse_partial">Annulée?</string>
-    <string name="select_supplement_partial">Autre le paiement?</string>
     <string name="select_moto_type">Veuillez sélectionner le type de CP/CT</string>
     <string name="select_refund_reason">Veuillez sélectionner la raison du remboursement</string>
     <string name="select_tax_reason">Veuillez sélectionner le motif de la taxe</string>
@@ -166,6 +168,7 @@
     <string name="select_tip_amount">Veuillez sélectionner le pourboire</string>
     <string name="select_cashback_amount">Veuillez sélectionner la remise en espèces</string>
     <string name="select_merchant">Veuillez sélectionner un marchand</string>
+    <string name="select_orig_currency">Veuillez sélectionner la devise de transfert d\'origine</string>
 
     <string name="pls_input_clerk_id">Veuillez entrer l\'id du commis</string>
     <string name="pls_input_server_id">Veuillez entrer l\'id du serveur</string>
@@ -179,6 +182,7 @@
     <string name="pls_input_prompt_restriction_code">Veuillez entrer le code de restriction rapide</string>
     <string name="pls_input_cs_phone_number">Veuillez entrer le numéro de téléphone du service à la clientèle</string>
     <string name="prompt_merchant_tax_id">Veuillez entrer l\'ID de taxe du commerçant</string>
+    <string name="please_input_visa_installment_plan_acceptance_id">Veuillez saisir l\'ID d\'acceptation du plan</string>
 
     <!--prompt for fleet trans data-->
     <string name="prompt_input_prompt_code_for_wex">Veuillez entrer le code d\'invite </string>
@@ -228,7 +232,8 @@
 
     <!-- Notice -->
     <string name="notice_out_of_range">Le %1$s doit être dans la plage %2$s</string>
-    <string name="notice_len_out_of_range">Le %1$s doit être en %2$d-%3$d</string>
+    <string name="notice_number_out_of_range">La numéro doit être en %1$d-%2$d</string>
+    <string name="notice_length_out_of_range">La longueur doit être en %1$d-%2$d</string>
     <string name="notice_amount_out_of_range">Le montant doit être en %1$s-%2$s</string>
     <string name="notice_out_of_length">Le %1$s doit être %2$s</string>
 
@@ -264,10 +269,6 @@
     <string name="trans_print">Imprimer</string>
     <string name="history_detail_trans_no">Numéro de transaction</string>
     <string name="pls_scan_receipt">Scannez votre reçu</string>
-
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="sale_amount">Montant de la vente</string>
 
@@ -332,6 +333,9 @@
     <string name="vrtrn">ANNULER LA TRANS. DE RETOUR</string>
     <string name="auth">AUTOR</string>
     <string name="postauth">POST-AUTOR</string>
+    <string name="incremental_auth">INCRÉMENTAL</string>
+    <string name="balance_lock">VERROUILLER LE SOLDE</string>
+    <string name="redemption_unlock">DÉBLOQUER LE RACHAT</string>
     <string name="vauth">ANNULER LA TRANS. DE PRÉAUT.</string>
     <string name="verify">VÉRIFIER</string>
     <string name="tokenize">SEGMENTER EN UNITÉS</string>
@@ -398,7 +402,7 @@
 
     <string name="trans_failed">La transaction a échoué!</string>
     <string name="finished">La finition</string>
-    <string name="service_fee">Frais supplémentaires</string>
+    <string name="service_fee">Frais de service</string>
     <string name="confirm_amount">Confirmer le montant</string>
     <string name="reversal_process">Annulation...</string>
     <string name="emv_process_start">Démarrage du processus EMV...</string>
@@ -423,6 +427,9 @@
     <string name="uploading_start">Début du téléchargement</string>
     <string name="log_uploading_start">Démarrage du téléchargement...\nAttente de connexion</string>
     <string name="log_connected">Lié...</string>
+    <string name="check_for_update_start">Recherche de mise à jour...</string>
+    <string name="dcc_online_start">Demande DCC\nTraitement...</string>
+    <string name="rki_start">Injection de clé à distance, Traitement...</string>
     <string name="transaction_failed">La transaction a échoué!</string>
     <string name="transaction_successful">Transaction réussie!</string>
     <string name="tip_name">pourboire</string>
@@ -445,4 +452,93 @@
 
     <string name="thx_show_message_context">Merci</string>
 
+    <!--Visa Installment-->
+    <string name="choose_a_payment_option">Choisissez une option de paiement</string>
+    <string name="pls_input_visa_installmenttransID">Veuillez entrer l\'ID de transaction de l\'acompte de visa</string>
+    <string name="visa_installment_display_plan_detail_header2">TOTAL DES FRAIS:  %1$s |  LE TOTAL: %2$s</string>
+    <string name="visa_installment_display_plan_detail_header3"> %1$s  %2$s Paiements</string>
+    <string name="visa_installment_display_plan_detail_full_amount">Montant total \n LE TOTAL: %1$s</string>
+    <string name="choose_page_title">Choisissez une option de paiement</string>
+    <string name="visa_installment_frequency_week">semaine</string>
+    <string name="visa_installment_frequency_biweek">bihebdomadaire</string>
+    <string name="visa_installment_frequency_month">mois</string>
+    <string name="visa_installment_frequency_year">an</string>
+    <string name="visa_installment_frequency_week_plural">semaines</string>
+    <string name="visa_installment_frequency_biweek_plural">bihebdomadaires</string>
+    <string name="visa_installment_frequency_month_plural">mois</string>
+    <string name="visa_installment_frequency_year_plural">ans</string>
+    <string name="visa_installment_button_separator_or"> ou alors </string>
+
+    <!--prompt for poslink -->
+    <string name="title_default">Merci de magasiner avec nous!</string>
+    <string name="msg_1_default">\\CAutorisation de transaction réussie</string>
+    <string name="msg_2_default">\\CVeuillez prendre votre reçu</string>
+
+    <string name="detail_item_mode">Mode</string>
+    <string name="detail_item_edc_type">Type de EDC :</string>
+    <string name="detail_item_trans_type">Type de trans. :</string>
+
+    <string name="detail_demo">DÉMO</string>
+    <string name="detail_normal">NORMAL</string>
+    <string name="detail_approved">APPROUVÉ</string>
+    <string name="detail_item_sub_trans_type">Type de sous-transaction :</string>
+    <string name="detail_item_transaction_no">N° de transaction :</string>
+    <string name="detail_item_card_type">Type de carte :</string>
+    <string name="detail_item_card_no">Compte :</string>
+    <string name="detail_item_batch_number">Numéro du lot :</string>
+    <string name="detail_item_order_number">N° de commande :</string>
+    <string name="detail_item_tip1">Pourboire1 :</string>
+    <string name="detail_item_tip2">Pourboire2 :</string>
+    <string name="detail_item_tip3">Pourboire3 :</string>
+    <string name="detail_item_base_amount">Montant de base :</string>
+    <string name="detail_item_total_amount">Montant total :</string>
+    <string name="detail_item_approved_amount">Montant approuvé :</string>
+    <string name="detail_item_base_points">Points de base :</string>
+    <string name="detail_item_total_points">Points approuvé :</string>
+    <string name="detail_item_approved_points">Points approuvés :</string>
+    <string name="detail_item_tax">Taxes :</string>
+    <string name="detail_item_cashback">Remise en espèces :</string>
+    <string name="detail_item_merchant_fee">Frais du commerçant :</string>
+    <string name="detail_item_surchage_fee">Frais supplémentaires :</string>
+    <string name="detail_item_additional_fee">Supplément :</string>
+
+    <string name="detail_item_healthcare_amount">Montant de HealthCare :</string>
+    <string name="detail_item_clinic_amount">Montant de clinique :</string>
+    <string name="detail_item_dental_amount">Montant dentaire :</string>
+    <string name="detail_item_copay_amount">Montant de co-paiement :</string>
+    <string name="detail_item_rx_amount">Montant de prescription :</string>
+    <string name="detail_item_vision_amount">Montant de vision :</string>
+    <string name="detail_item_transit_amount">Montant de Transit :</string>
+    <string name="detail_item_other">Autres :</string>
+
+    <string name="detail_item_status">Statut :</string>
+    <string name="detail_item_clerk_id">ID du commis :</string>
+    <string name="detail_item_clerk_name">Nom du commis :</string>
+    <string name="detail_item_server_id">ID du serveur :</string>
+    <string name="detail_item_server_name">Nom du serveur :</string>
+    <string name="detail_item_invoice_no">N° de la facture :</string>
+    <string name="detail_item_po_number">N° de BC :</string>
+    <string name="detail_item_table_number">N° de table :</string>
+    <string name="detail_item_guests_number">Nombre d’invités :</string>
+    <string name="detail_item_customer_code">Code client :</string>
+    <string name="detail_item_merchant_tax_id">ID de taxe du commerçant :</string>
+    <string name="detail_item_prod_description">Desc. de prod. :</string>
+    <string name="detail_item_tax_exempt_id">ID d’exonération de taxes :</string>
+    <string name="detail_item_ref_number">Numéro de réf. :</string>
+    <string name="detail_item_auth_code">Code d’aut. :</string>
+    <string name="detail_item_response_status">État de la réponse :</string>
+    <string name="detail_item_avs_response">Réponse AVS :</string>
+    <string name="detail_item_entry_mode">Entrée :</string>
+    <string name="detail_item_food_stamp_balance">Solde des coupons alimentaires :</string>
+    <string name="detail_item_cash_benefit_balance">Solde de la prestation en espèces :</string>
+    <string name="detail_item_trans_status">État de la trans. :</string>
+    <string name="detail_item_cash_discount">Escompte au comptant :</string>
+    <string name="detail_swiped">Balayé</string>
+    <string name="detail_swiped_fall_back">Balayé, transaction de rechange</string>
+    <string name="detail_manual">Manuel</string>
+    <string name="detail_contactless">Sans contact</string>
+    <string name="detail_chip">Puce</string>
+    <string name="detail_colon"> :</string>
+    <string name="detail_item_trans_date">Date de transaction :</string>
+    <string name="detail_item_trans_time">Temps de transaction :</string>
 </resources>

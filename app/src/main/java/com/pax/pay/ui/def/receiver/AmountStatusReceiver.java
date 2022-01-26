@@ -21,11 +21,11 @@ package com.pax.pay.ui.def.receiver;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.pax.pay.ui.def.eventbus.AmountEvent;
 import com.pax.pay.ui.def.eventbus.EventBusUtil;
 import com.pax.us.pay.ui.constant.status.StatusData;
+import com.paxus.utils.log.Logger;
 
 public class AmountStatusReceiver extends android.content.BroadcastReceiver {
 
@@ -37,7 +37,7 @@ public class AmountStatusReceiver extends android.content.BroadcastReceiver {
 
         if (TextUtils.isEmpty(intent.getAction()))
             return;
-        Log.i("AmountStatusReceiver", "receive broadcast :" + intent.getAction());
+        Logger.d( "receive broadcast :" + intent.getAction());
         long amount = intent.getLongExtra(StatusData.PARAM_TOTAL_AMOUNT, 0);
         EventBusUtil.doEvent(new AmountEvent(intent.getAction(), amount));
 

@@ -5,16 +5,21 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.Nullable;
+
 import android.view.View;
 
 import com.pax.pay.ui.def.R;
+import com.pax.us.pay.ui.constant.entry.EntryExtraData;
+import com.pax.us.pay.ui.constant.entry.enumeration.TransMode;
 import com.pax.us.pay.ui.core.api.IMessageListener;
 import com.paxus.utils.log.Logger;
 
 public abstract class BaseStackActivity extends BaseAppActivity implements IMessageListener {
 
     public static final String POSLINK_REQUEST_ACTION_ABORT_TRANSACTION = "com.pax.us.pay.poslink.request.ABORT_TRANSACTION";
+    public static final String POSLINK_REQUEST_ACTION_RESET = "com.pax.us.pay.poslink.request.RESET";
     private  AbortReceiver abortReceiver;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,10 +30,19 @@ public abstract class BaseStackActivity extends BaseAppActivity implements IMess
 
         IntentFilter filter = new IntentFilter();
         filter.addAction(POSLINK_REQUEST_ACTION_ABORT_TRANSACTION);
+        filter.addAction(POSLINK_REQUEST_ACTION_RESET);
         abortReceiver = new AbortReceiver();
         registerReceiver(abortReceiver, filter);
 
         onStartHelper();
+    }
+    @Override
+    protected void loadParam(){
+        Bundle bundle = getIntent().getExtras();
+        if (bundle.containsKey(EntryExtraData.PARAM_TRANS_MODE) && TransMode.DEMO.equals(bundle.getString(EntryExtraData.PARAM_TRANS_MODE))){
+            navTitle = "Demo";
+        } else
+            navTitle = "BroadPOS";
     }
 
     @Override
@@ -71,6 +85,8 @@ public abstract class BaseStackActivity extends BaseAppActivity implements IMess
         public void onReceive(Context context, Intent intent) {
             if (POSLINK_REQUEST_ACTION_ABORT_TRANSACTION.equals(intent.getAction())){
                 onAbortHelper();
+            }  else if (POSLINK_REQUEST_ACTION_RESET.equals(intent.getAction())){
+                ActivityStack.getInstance().popAll();
             }
         }
     }

@@ -1,6 +1,6 @@
 package com.pax.pay.ui.def.base;
 
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 
 // TODO Kim.L
 //  bitmap receipt implementation workaround,

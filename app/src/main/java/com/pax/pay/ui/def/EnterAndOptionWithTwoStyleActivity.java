@@ -7,10 +7,6 @@ import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.MenuItem;
@@ -22,12 +18,16 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
+
 import com.pax.pay.ui.def.base.BaseLandActivity;
 import com.pax.pay.ui.def.eventbus.ActivityEndEvent;
 import com.pax.pay.ui.def.eventbus.EventBusUtil;
 import com.pax.pay.ui.def.eventbus.TransparentActivityEndEvent;
 import com.pax.pay.ui.def.utils.EnterDataLineHelper;
-import com.pax.pay.ui.def.utils.LanguageConvertUtils;
 import com.pax.pay.ui.def.utils.RangeFilter;
 import com.pax.us.pay.ui.component.keyboard.CustomKeyboardEditText;
 import com.pax.us.pay.ui.component.keyboard.KeyBoardStatus;
@@ -37,6 +37,7 @@ import com.pax.us.pay.ui.constant.entry.enumeration.TransMode;
 import com.pax.us.pay.ui.core.api.IHasPhyKeyboardListener;
 import com.pax.us.pay.ui.core.api.IMessageListener;
 import com.pax.us.pay.ui.message.CurrencyConverter;
+import com.paxus.utils.LocaleUtils;
 import com.paxus.utils.StringUtils;
 import com.paxus.utils.log.Logger;
 import com.paxus.view.dialog.CustomAlertDialog;
@@ -81,7 +82,7 @@ abstract class EnterAndOptionWithTwoStyleActivity<T> extends BaseLandActivity im
     private boolean isAmount = true;
     private long amountUnit = 1;
     protected final QuickClickProtection quickClickProtection = QuickClickProtection.getInstance();
-    private String titleName;
+    private String dialogTitle;
     private String subOption;
     private Dialog selectDialog = null;
     private boolean hasPhyKeyboard = false;
@@ -89,23 +90,9 @@ abstract class EnterAndOptionWithTwoStyleActivity<T> extends BaseLandActivity im
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_base_default);
-//        ViewGroup rootLayout = findViewById(R.id.root_layout);
-//        if (rootLayout != null) {
-//            LayoutInflater.from(this).inflate(getLayoutId(), rootLayout);
-//        }
-        Logger.i("EnterAndOption", "onCreate");
-        if (isDialog) {
-            EventBusUtil.register(this);
-        } else {
-            //TO avoid flash screen
-            //new Handler().postDelayed(() -> {
-            //Logger.i("EnterAndOption", "stop Previous ActivityEndEvent");
-            //EventBusUtil.doEvent(new ActivityEndEvent());
-            Logger.i("EnterAndOption", "register " + this);
-                EventBusUtil.register(this);
-            //}, 200);
-        }
+        Logger.d("onCreate");
+
+        EventBusUtil.register(this);
 
         loadExpandedView(savedInstanceState);
 
@@ -137,6 +124,9 @@ abstract class EnterAndOptionWithTwoStyleActivity<T> extends BaseLandActivity im
         });
 
         if (isDialog) {
+            WindowManager.LayoutParams wl = getWindow().getAttributes();
+            wl.alpha = 0.0f;//这句就是设置窗口里控件的透明度的．０.０全透明．１.０不透明．
+            getWindow().setAttributes(wl);
             loadOtherParam();
             amount = 0;
         } else {
@@ -149,10 +139,13 @@ abstract class EnterAndOptionWithTwoStyleActivity<T> extends BaseLandActivity im
     @Override
     public void setTheme(int resid) {
         String[] options = null;
-        if (getIntent().getExtras().containsKey(EntryExtraData.PARAM_TIP_OPTIONS))
-            options = getIntent().getExtras().getStringArray(EntryExtraData.PARAM_TIP_OPTIONS);
-        else if (getIntent().getExtras().containsKey(EntryExtraData.PARAM_CASHBACK_OPTIONS))
-            options = getIntent().getExtras().getStringArray(EntryExtraData.PARAM_CASHBACK_OPTIONS);
+        Bundle bundle = getIntent().getExtras();
+        if(bundle != null) {
+            if (bundle.containsKey(EntryExtraData.PARAM_TIP_OPTIONS))
+                options = getIntent().getExtras().getStringArray(EntryExtraData.PARAM_TIP_OPTIONS);
+            else if (bundle.containsKey(EntryExtraData.PARAM_CASHBACK_OPTIONS))
+                options = getIntent().getExtras().getStringArray(EntryExtraData.PARAM_CASHBACK_OPTIONS);
+        }
         isDialog = (options != null) && (options.length > 0);
         if (isDialog) {
             super.setTheme(resid);
@@ -190,13 +183,12 @@ abstract class EnterAndOptionWithTwoStyleActivity<T> extends BaseLandActivity im
             mEditText.requestFocus();
     }
 
-    public void setTitleName(String titleName) {
-        this.titleName = titleName;
+    public void setDialogTitle(String dialogTitle) {
+        this.dialogTitle = dialogTitle;
     }
 
-    public void setTipName(String tipName, @NonNull EditTextDataLimit limit) {
+    public void setEditTextDataLimit(@NonNull EditTextDataLimit limit) {
         this.limit = limit;
-        this.titleName = tipName;
         promptTv.setText(limit.prompt);
 
     }
@@ -232,9 +224,6 @@ abstract class EnterAndOptionWithTwoStyleActivity<T> extends BaseLandActivity im
     }
 
     private void initDialog() {
-        WindowManager.LayoutParams wl = getWindow().getAttributes();
-        wl.alpha = 0.0f;//这句就是设置窗口里控件的透明度的．０.０全透明．１.０不透明．
-        getWindow().setAttributes(wl);
 
         inputAmountLayout.setVisibility(View.GONE);
         selectLayout.setVisibility(View.GONE);
@@ -246,19 +235,8 @@ abstract class EnterAndOptionWithTwoStyleActivity<T> extends BaseLandActivity im
         //setTheme(R.style.ActivityTranslucent);
         //KeyboardUtils.hideSystemKeyboard(this, mEditText);
 
-        String opt = getString(R.string.pls_select);
-        String title;
-        if (opt.contains(" \\ ")) {
-            String[] select = opt.replace(" \\ ", "\\").split("\\\\");
-            String[] titles = titleName.replace(" \\ ", "\\").split("\\\\");
-            title = select[0] + " " + titles[0] + " \\ " + select[1] + " " + titles[1];
-        } else
-            title = opt + " " + titleName;
-
-
-        //String title = getString(R.string.pls_select) + " " + titleName;
         selectDialog = DialogUtils.showSelectDialog(this,
-                title,
+                dialogTitle,
                 (dialog, which) -> {
                     if (mDisplayOption.get(which).equals(subOption)) {
                         new Handler().postDelayed(() -> {
@@ -307,18 +285,18 @@ abstract class EnterAndOptionWithTwoStyleActivity<T> extends BaseLandActivity im
             if (map != null && map.size() > 0)
                 notifyObservers(map);
         });
-        Logger.i("EnterAndOption", "onResume");
+        Logger.d( "onResume");
     }
 
     @Override
     protected void onStop() {
-        Logger.i("EnterAndOption", "onStop " + this);
+        Logger.d("onStop " + this);
         super.onStop();
     }
 
     @Override
     protected void onDestroy() {
-        Logger.i("EnterAndOption", "onDestroy ");
+        Logger.d("onDestroy ");
         if (selectDialog != null) {
             selectDialog.dismiss();
             selectDialog = null;
@@ -346,7 +324,7 @@ abstract class EnterAndOptionWithTwoStyleActivity<T> extends BaseLandActivity im
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onEndEvent(ActivityEndEvent event) {
-        Logger.i("EnterAndOption", "ActivityEndEvent " + this);
+        Logger.d("ActivityEndEvent " + this);
         //new Handler().postDelayed(()->{
         if (selectDialog != null) {
             selectDialog.dismiss();
@@ -509,7 +487,7 @@ abstract class EnterAndOptionWithTwoStyleActivity<T> extends BaseLandActivity im
             dialog.setContent(limit != null ? limit.confirmPrompt : "");
             dialog.showConfirmButton(true);
             dialog.showCancelButton(true);
-            dialog.show();
+            DialogUtils.showDialog(this, dialog);
         });
     }
 
@@ -520,18 +498,8 @@ abstract class EnterAndOptionWithTwoStyleActivity<T> extends BaseLandActivity im
             Long amt = CurrencyConverter.parse(content);
             if (amt != null && amt != 0 && !lengthList.contains(String.valueOf(amt).length())) {
 
-//                String pro = getString(R.string.notice_amount_out_of_range);
-//                if (pro.contains("\n")){
-//                    ToastHelper.showMessage(this, getString(R.string.notice_amount_out_of_range, CurrencyConverter.convert(limit.minValue), CurrencyConverter.convert(limit.maxValue), CurrencyConverter.convert(limit.minValue), CurrencyConverter.convert(limit.maxValue)));
-//                }else {
-//                    ToastHelper.showMessage(this, getString(R.string.notice_amount_out_of_range, CurrencyConverter.convert(limit.minValue), CurrencyConverter.convert(limit.maxValue)));
-//                }
-                String title = LanguageConvertUtils.convertString(this, R.string.notice_amount_out_of_range, null, CurrencyConverter.convert(limit.minValue), CurrencyConverter.convert(limit.maxValue));
+                String title = LocaleUtils.getString(this, R.string.notice_amount_out_of_range,  CurrencyConverter.convert(limit.minValue), CurrencyConverter.convert(limit.maxValue));
                 ToastHelper.showMessage(this, title);
-
-
-//                ToastHelper.showMessage(this, getString(R.string.notice_amount_out_of_range,
-//                        CurrencyConverter.convert(limit.minValue), CurrencyConverter.convert(limit.maxValue)));
                 return false;
             }
         }

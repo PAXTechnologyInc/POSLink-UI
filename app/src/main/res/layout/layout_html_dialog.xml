@@ -60,17 +60,17 @@
     <!--                    android:layout_marginRight="@dimen/space_vertical_small"-->
     <!--                    android:layout_weight="1"-->
     <!--                    android:background="@drawable/btn_bg_light"-->
-    <!--                    android:text="@string/trans_confirm_btn"-->
-    <!--                    android:textColor="@color/primary_text_dark"-->
-    <!--                    android:textSize="@dimen/font_button" />-->
-    <!--            </LinearLayout>-->
+                <!--                    android:text="@string/trans_confirm_btn"-->
+                <!--                    android:textColor="@color/primary_text_dark"-->
+                <!--                    android:textSize="@dimen/font_button" />-->
+                <!--            </LinearLayout>-->
 
-    <!--            <TextView-->
-    <!--                android:layout_marginTop="10dp"-->
-    <!--                android:layout_width="match_parent"-->
-    <!--                android:layout_height="wrap_content" />-->
+                <!--            <TextView-->
+                <!--                android:layout_marginTop="10dp"-->
+                <!--                android:layout_width="match_parent"-->
+                <!--                android:layout_height="wrap_content" />-->
 
-            </LinearLayout>>
+            </LinearLayout>
         </ScrollView>
     </RelativeLayout>
 

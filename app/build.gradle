@@ -1,22 +1,49 @@
 apply plugin: 'com.android.application'
+apply from: rootProject.file('./gradle/version.gradle')
+ext {
+    loadVersions('../version.properties')
+}
+
+//repositories {
+//    maven {
+//        url 'https://maven.pkg.github.com/Kim-Linhb/XRecyclerView'
+//    }
+//    //other maven repo
+//}
+def _jacksonVersion = '2.9.5'
 
 android {
-    compileSdkVersion 27
-    defaultConfig {
-        applicationId "com.pax.pay.poslink.ui.demo"
-        minSdkVersion 22
-        targetSdkVersion 27
-        versionCode 11
-        versionName "1.00.13"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
+    compileSdkVersion _compileSdkVersion.toInteger()
+    defaultConfig {
+        minSdkVersion _minSdkVersion.toInteger()
+        targetSdkVersion _targetSdkVersion.toInteger()
+        versionCode 22
+        versionName "1.00.01"
+
+        //manifestPlaceholders = [BroadPOSHostType:"main"]
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
+
+//    defaultConfig {
+//        //applicationId "com.pax.pay.ui.def.demo"
+//        minSdkVersion 22
+//        targetSdkVersion 30
+//
+//        // if more than 1 version are released in one day, add '_0x'(x means the current release time, 01 means the 2nd time) after versionName
+//
+//
+//
+//    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -24,42 +51,70 @@ android {
 
 }
 
+configurations.all {
+    // check for updates pre hour
+   // resolutionStrategy.cacheChangingModulesFor 60, 'minutes'
+}
+
+//repositories {
+//    flatDir {dir 'libs'}  //import aar
+//}
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support:appcompat-v7:27.1.1'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 
-    implementation 'android.arch.lifecycle:extensions:1.1.0'
     implementation project(path: ':common.log')
-    annotationProcessor "android.arch.lifecycle:compiler:1.1.0"
-    implementation 'com.android.support:design:27.1.1'
-    implementation 'org.greenrobot:eventbus:3.0.0'
+    implementation project(path: ':common.utils.android')
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
 
-    implementation 'com.jcodecraeer:xrecyclerview:1.5.9'
-    implementation "com.google.zxing:core:3.4.1"
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'androidx.appcompat:appcompat:1.3.0'
+    implementation 'androidx.annotation:annotation:1.2.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    implementation 'com.google.android.material:material:1.4.0'
+
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation project(path: ':common.log')
+    implementation project(path: ':common.utils.android')
+    implementation project(path: ':common.utils.android')
+    implementation project(path: ':common.utils')
+    implementation project(path: ':common.utils')
+    annotationProcessor 'androidx.lifecycle:lifecycle-compiler:2.3.1'
+    //implementation 'com.kimlin:xrecyclerview:1.6.0.1'
+
+    //EventBus
+    implementation 'org.greenrobot:eventbus:3.1.1'
+
+    implementation 'androidx.legacy:legacy-preference-v14:1.0.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+
     implementation 'com.github.bumptech.glide:glide:4.9.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
 
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation "com.google.zxing:core:3.4.1"
 
-    implementation project(':common.log')
-    //implementation project(':common.action-api')
-    //implementation project(':common.constant')
-    implementation project(':common.utils')
+    implementation("com.fasterxml.jackson.core:jackson-annotations:${_jacksonVersion}")
+    implementation("com.fasterxml.jackson.core:jackson-core:${_jacksonVersion}")
+    implementation("com.fasterxml.jackson.core:jackson-databind:${_jacksonVersion}")
+
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
 
     implementation project(path: ':ui.constant')
     implementation project(path: ':ui.core')
-    //implementation 'com.paxus.ui:constant:1.00.25-SNAPSHOT'
-    //implementation 'com.paxus.ui:core:1.00.25-SNAPSHOT'
-    //implementation project(path: ':ui.demo')
-    implementation project(path: ':ui.component')
-    implementation project(path: ':ui.message')
-    implementation project(path: ':ui.view')
+    implementation project(':ui.message')
+    implementation project(':ui.component')
+    implementation project(':ui.view')
 
+    //implementation project(':common.log')
+    //implementation project(path: ':common.log')
+    //implementation project(':common.action-api')
+    //implementation project(':common.constant')
+    implementation project(':common.utils')
+    //implementation project(':common.utils.android')
 
-    //only for test
-    //api project(':poslink_ui_test')
 }
+

@@ -4,8 +4,10 @@ import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.preference.PreferenceDialogFragmentCompat;
+
+import androidx.annotation.NonNull;
+import androidx.preference.PreferenceDialogFragmentCompat;
+
 import android.widget.TimePicker;
 
 import java.util.Calendar;

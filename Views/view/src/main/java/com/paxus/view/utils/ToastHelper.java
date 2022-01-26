@@ -31,8 +31,10 @@ public class ToastHelper {
     private ToastHelper() {
         //do nothing
     }
-
     public static void showMessage(final Context context, final String message) {
+        showMessage(context, message, 100);
+    }
+    public static void showMessage(final Context context, final String message, int yOffset) {
         LayoutInflater inflate = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         if (inflate == null) {
             return;
@@ -44,7 +46,7 @@ public class ToastHelper {
             toast = new Toast(context);
             toast.setDuration(Toast.LENGTH_SHORT);
             // set gravity center
-            toast.setGravity(Gravity.CENTER, 0, 100);
+            toast.setGravity(Gravity.CENTER, 0, yOffset); //APMN-221
             toast.setView(view);
             toast.show();
             oneTime = System.currentTimeMillis();
@@ -53,12 +55,14 @@ public class ToastHelper {
 
             if (message.equals(oldMsg)) {
                 if (twoTime - oneTime > Toast.LENGTH_SHORT) {
+                    toast.setGravity(Gravity.CENTER, 0, yOffset);
                     toast.show();
                 }
             } else {
                 oldMsg = message;
                 textView.setText(message);
                 toast.setView(view);
+                toast.setGravity(Gravity.CENTER, 0, yOffset);
                 toast.show();
             }
         }

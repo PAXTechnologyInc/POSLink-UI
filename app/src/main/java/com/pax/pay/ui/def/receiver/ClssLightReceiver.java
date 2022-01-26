@@ -21,23 +21,19 @@ package com.pax.pay.ui.def.receiver;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.pax.pay.ui.def.eventbus.ClssLightEvent;
 import com.pax.pay.ui.def.eventbus.EventBusUtil;
+import com.paxus.utils.log.Logger;
 
 public class ClssLightReceiver extends android.content.BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
 
-//        if (!StatusActionCheck.isNeedReceiveMessage(context)) {
-//            return;
-//        }
-
         if (TextUtils.isEmpty(intent.getAction()))
             return;
-        Log.i("ClssLightReceiver", "receive broadcast :" + intent.getAction());
+        Logger.d("receive broadcast :" + intent.getAction());
         EventBusUtil.doEvent(new ClssLightEvent(intent.getAction()));
 
     }

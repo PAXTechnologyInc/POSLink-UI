@@ -1,10 +1,11 @@
 package com.pax.pay.ui.def;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+
+import com.paxus.view.BaseAppCompatActivity;
 
 
-public class VersionActivity extends AppCompatActivity {
+public class VersionActivity extends BaseAppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

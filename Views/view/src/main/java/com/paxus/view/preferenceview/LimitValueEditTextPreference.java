@@ -2,10 +2,14 @@ package com.paxus.view.preferenceview;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.preference.EditTextPreferenceDialogFragmentCompat;
+
+import androidx.annotation.NonNull;
+import androidx.preference.EditTextPreferenceDialogFragmentCompat;
+import androidx.preference.PreferenceDataStore;
+
 import android.text.InputType;
 import android.text.method.PasswordTransformationMethod;
 import android.util.AttributeSet;
@@ -30,7 +34,7 @@ public class LimitValueEditTextPreference extends GroupEditTextPreference implem
     private long maxLength;
     private long minLength;
 
-    private int inputType = 0;
+    private int inputType = InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS;
 
     public LimitValueEditTextPreference(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
@@ -177,14 +181,22 @@ public class LimitValueEditTextPreference extends GroupEditTextPreference implem
 
         @Override
         public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-            return onEditorAction(v.getText().toString(), actionId, event);
+            boolean ret = onEditorAction(v.getText().toString(), actionId, event);
+            if (ret && actionId == EditorInfo.IME_ACTION_DONE) {
+                //workaround to get the button
+                Button positive = getDialog().findViewById(android.R.id.button1);
+                if (positive != null) {
+                    positive.performClick();
+                }
+            }
+            return ret;
         }
 
         public boolean onEditorAction(@NonNull String str, int actionId, KeyEvent event) {
             if (actionId == EditorInfo.IME_ACTION_DONE) {
-                if (str.length() >= Math.max(mMinLength, 0))
+                if (str.length() >= Math.max(mMinLength, 0)) {
                     return true;
-                else {
+                } else {
                     showErr();
                 }
             }
@@ -220,7 +232,7 @@ public class LimitValueEditTextPreference extends GroupEditTextPreference implem
 
         @Override
         public void onClick(DialogInterface dialog, int which) {
-            if (which == DialogInterface.BUTTON_POSITIVE && !onEditorAction(mEditText, EditorInfo.IME_ACTION_DONE, null)) {
+            if (which == DialogInterface.BUTTON_POSITIVE && !onEditorAction(mEditText.getText().toString(), EditorInfo.IME_ACTION_DONE, null)) {
                 return;
             }
             super.onClick(dialog, which);
@@ -238,8 +250,13 @@ public class LimitValueEditTextPreference extends GroupEditTextPreference implem
         }
 
         protected String updateDefaultValue() {
-            //do nothing
-            return getPreference().getSharedPreferences().getString(getPreference().getKey(), "");
+            SharedPreferences sp = getPreference().getSharedPreferences();
+            PreferenceDataStore pds = getPreference().getPreferenceDataStore();
+            if(sp != null)
+                return sp.getString(getPreference().getKey(), "");
+            else if(pds != null)
+                return pds.getString(getPreference().getKey(), "");
+            return "";
         }
     }
 }

@@ -35,13 +35,14 @@
                     android:gravity="center"
                     android:text="@string/eula_title"
                     android:background="@color/background"
-                    android:textSize="@dimen/font_size_prompt_large"/>
+                    android:textSize="@dimen/font_size_prompt_large" />
+
                 <WebView
                     android:id="@+id/eula_content"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     tools:ignore="WebViewLayout" />
-            </LinearLayout>>
+            </LinearLayout>
         </ScrollView>
     </RelativeLayout>
 

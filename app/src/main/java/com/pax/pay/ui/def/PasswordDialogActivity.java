@@ -18,12 +18,20 @@
  */
 package com.pax.pay.ui.def;
 
+import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Point;
+import android.graphics.Rect;
+import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.annotation.Nullable;
+
+import android.util.DisplayMetrics;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
 
@@ -36,16 +44,23 @@ import com.pax.us.pay.ui.constant.entry.EntryExtraData;
 import com.pax.us.pay.ui.constant.entry.enumeration.AdminPasswordType;
 import com.pax.us.pay.ui.core.helper.SecurityHelper;
 import com.paxus.utils.StringUtils;
+import com.paxus.utils.log.Logger;
+import com.paxus.view.BaseAppCompatActivity;
 import com.paxus.view.dialog.DialogUtils;
+import com.paxus.view.utils.ViewUtils;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 
-public class PasswordDialogActivity extends AppCompatActivity implements SecurityHelper.ISecurityListener {
+public class PasswordDialogActivity extends BaseAppCompatActivity implements SecurityHelper.ISecurityListener {
 
     SecurityHelper helper;
     private InputSecurityDialog inputPwdDialog;
+    private RespStatusImpl respStatusImpl;
+    private boolean first, showFlag;
+    private String prompt;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,12 +69,12 @@ public class PasswordDialogActivity extends AppCompatActivity implements Securit
         //setContentView(R.layout.activity_setting);
         //Don't close the previous Activity, take it as background
         //EventBusUtil.doEvent(new ActivityEndEvent());
-        WindowManager.LayoutParams lp = getWindow().getAttributes();
-        lp.alpha = 0.6f;
-        getWindow().setAttributes(lp);
+       // WindowManager.LayoutParams lp = getWindow().getAttributes();
+       // lp.alpha = 0.6f;
+       // getWindow().setAttributes(lp);
         EventBusUtil.register(this);
 
-        String prompt = getString(R.string.enter_pwd);
+        prompt = getString(R.string.enter_pwd);
 
         String merchantName = getIntent().getStringExtra(EntryExtraData.PARAM_MERCHANT_NAME);
         String passwordType = getIntent().getStringExtra(EntryExtraData.PARAM_ADMIN_PASSWORD_TYPE);
@@ -77,11 +92,12 @@ public class PasswordDialogActivity extends AppCompatActivity implements Securit
         }
 
         // don't use FinishRespStatusImpl, to avoid flash screen
-        helper = new SecurityHelper(this, new RespStatusImpl(this));
+        respStatusImpl = new RespStatusImpl(this);
+        helper = new SecurityHelper(this, respStatusImpl);
+        first = true;
+        showFlag = true;
         inputPwdDialog = new InputSecurityDialog(this, 16, prompt);
         inputPwdDialog.create();
-        DialogUtils.showDialog(this, inputPwdDialog);
-        inputPwdDialog.setCanceledOnTouchOutside(false);
     }
 
     @Override
@@ -103,27 +119,79 @@ public class PasswordDialogActivity extends AppCompatActivity implements Securit
     @Override
     protected void onResume() {
         super.onResume();
-        EditText editText = inputPwdDialog.getConvertView().findViewById(R.id.pwd_input_et);
-        ViewTreeObserver observer = editText.getViewTreeObserver();
-        observer.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-            @Override
-            public void onGlobalLayout() {
-                editText.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                int[] location = new int[2];
-                //editText.getLocationInWindow(location);
-                editText.getLocationOnScreen(location);
-                int x = location[0];
-                int y = location[1];
-                int barHeight = 0;
-                int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
-                if (resourceId > 0) {
-                    barHeight = getResources().getDimensionPixelSize(resourceId);
-                }
-                sendNext(x, y - barHeight, editText.getWidth(), editText.getHeight());
-                editText.setVisibility(View.VISIBLE);
-            }
-        });
     }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        if (first & hasFocus){
+            first = false;
+
+            DialogUtils.showDialog(this, inputPwdDialog);
+            inputPwdDialog.setCanceledOnTouchOutside(false);
+
+            EditText editText = inputPwdDialog.findViewById(R.id.pwd_input_et);
+            ViewTreeObserver observer = editText.getViewTreeObserver();
+            observer.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+                @Override
+                public void onGlobalLayout() {
+                    int offset = 0;
+                    DisplayMetrics metrics = Resources.getSystem().getDisplayMetrics();
+                    if ("Aries6".equals(Build.MODEL) && metrics.density > 1.6f ) {
+                        DisplayMetrics screen = new DisplayMetrics();
+                        Window window = getWindow();
+                        window.getWindowManager().getDefaultDisplay().getRealMetrics(screen);
+                        int navigateBarHeight = screen.heightPixels - metrics.heightPixels;
+                        int origNavBardHeight = getNavigationBarHeight(PasswordDialogActivity.this);
+                        offset = navigateBarHeight - origNavBardHeight + 6;
+                    }
+                    editText.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                    int[] location = new int[2];
+                    //editText.getLocationInWindow(location);
+                    editText.getLocationOnScreen(location);
+                    int x = location[0];
+                    int y = location[1]-offset;
+                    int barHeight = 0;
+                    boolean immersiveSticky = (getWindow().getDecorView().getSystemUiVisibility() &
+                            View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY) > 0;
+                    Rect visibleFrame = new Rect();
+                    getWindow().getDecorView().getWindowVisibleDisplayFrame(visibleFrame);
+                    if(!immersiveSticky){
+                        barHeight = visibleFrame.top;  //statusBar's height
+                    }else {
+                        Point point = new Point();
+                        getWindowManager().getDefaultDisplay().getRealSize(point);
+                        if (point.y != visibleFrame.bottom) {//A920
+                            barHeight = getNavigationBarHeight(PasswordDialogActivity.this);
+                        }
+                    }
+
+                    Logger.d("sendSecurity x=" + x + " y=" + y + " barHeight=" + barHeight);
+
+                    sendNext(x, y - barHeight, editText.getWidth(), editText.getHeight());
+                    editText.setVisibility(View.VISIBLE);
+
+                    int screenHeight = Resources.getSystem().getDisplayMetrics().heightPixels;
+                    respStatusImpl.setToastYOffset(y - (screenHeight - barHeight) / 2); //APMN-221
+                }
+            });
+
+        }
+        if (hasFocus && ViewUtils.canNavigationBarImmersiveSticky()) {
+            ViewUtils.hideNavigationBar(getWindow().getDecorView());
+        }
+    }
+
+    public static int getNavigationBarHeight(Context context) {
+        int navigationBarHeight = -1;
+        Resources resources = context.getResources();
+        int resourceId = resources.getIdentifier("navigation_bar_height","dimen", "android");
+        if (resourceId > 0) {
+            navigationBarHeight = resources.getDimensionPixelSize(resourceId);
+        }
+        return navigationBarHeight;
+    }
+
+
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {

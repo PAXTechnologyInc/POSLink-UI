@@ -7,8 +7,6 @@ import android.graphics.Color;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.os.Looper;
-import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,11 +15,14 @@ import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import androidx.fragment.app.Fragment;
+
 import com.pax.pay.ui.def.R;
 import com.pax.pay.ui.def.utils.DisplayTransInfoUtils;
 import com.pax.pay.ui.def.view.ClssLight;
 import com.pax.pay.ui.def.view.ClssLightsView;
 import com.pax.us.pay.ui.constant.status.ClssLightStatus;
+import com.paxus.utils.log.Logger;
 import com.paxus.view.utils.ViewUtils;
 
 import java.util.Map;
@@ -75,7 +76,7 @@ public class ExpandFragment extends Fragment implements Observer {
         if (arg instanceof Bitmap) {
             try {
                 Bitmap map = (Bitmap) arg;
-                Log.i("ReceiptFragment", "Update Bitmap");
+                Logger.d("Update Bitmap");
 
                 int screenHigh = getScreenHigh(lightFlag);
                 if (screenHigh > 0) {
@@ -123,7 +124,7 @@ public class ExpandFragment extends Fragment implements Observer {
                 //displayTransInfoUtils.addEmptyViewsToViewGroup(llDetailContainer, screenHigh);
             }
 
-            Log.i("ReceiptFragment", "lightFlag = " + (lightFlag ? "True" : "False"));
+            Logger.d("lightFlag = " + (lightFlag ? "True" : "False"));
             if (lightFlag)
                 llClssLight.setVisibility(View.VISIBLE);
             else
@@ -142,7 +143,7 @@ public class ExpandFragment extends Fragment implements Observer {
             if (llClssLight != null) {
                 onResume();
             }
-            Log.i("ReceiptFragment", "Update lightFlag = " + lightFlag);
+            Logger.d( "Update lightFlag = " + lightFlag);
         } else if (arg instanceof String) {
             switch ((String) arg) {
                 case ClssLightStatus.CLSS_LIGHT_COMPLETED:
@@ -248,7 +249,7 @@ public class ExpandFragment extends Fragment implements Observer {
         canvas.drawColor(Color.WHITE);
         canvas.drawBitmap(bitmap, 0, 0, null);
         // 保存
-        canvas.save(Canvas.ALL_SAVE_FLAG);
+        canvas.save(/*Canvas.ALL_SAVE_FLAG*/);
         // 存储
         canvas.restore();
         return map;

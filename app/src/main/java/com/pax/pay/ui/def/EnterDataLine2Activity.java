@@ -1,6 +1,7 @@
 package com.pax.pay.ui.def;
 
 import android.content.Context;
+import android.os.Build;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
@@ -85,6 +86,16 @@ abstract class EnterDataLine2Activity extends BaseAppActivity implements TextVie
     }
 
     private void setEditTextAllText(final CustomKeyboardEditText editText, final EditTextDataLimit limit) {
+        final View decorView = getWindow().getDecorView();
+        decorView.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
+
+            @Override
+            public void onSystemUiVisibilityChange(int visibility) {
+                if (ViewUtils.canNavigationBarImmersiveSticky() && (visibility & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0) {
+                    ViewUtils.hideNavigationBar(decorView);
+                }
+            }
+        });
         EnterDataLineHelper.setEditTextAllText(this, editText, limit);
     }
 
@@ -185,6 +196,23 @@ abstract class EnterDataLine2Activity extends BaseAppActivity implements TextVie
                 }, 100);
             }
         }
+
+        LinearLayout.LayoutParams confirParams = (LinearLayout.LayoutParams) confirmBtn.getLayoutParams();
+        if ("A30".equals(Build.MODEL)){
+            confirParams.topMargin = getResources().getDimensionPixelSize(R.dimen.space_vertical);
+        }else{
+            if (!ViewUtils.isScreenOrientationPortrait(this)){
+                confirParams.topMargin = getResources().getDimensionPixelSize(R.dimen.space_vertical_extra_extra_large);
+            } else {
+                //BPCOMMON-143
+                //set space_vertical_small for A80
+                confirParams.topMargin = getResources().getDimensionPixelSize(R.dimen.space_vertical_small);
+            }
+
+        }
+
+        confirmBtn.setLayoutParams(confirParams);
+
     }
 
     @Override

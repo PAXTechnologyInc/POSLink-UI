@@ -19,9 +19,10 @@
 package com.pax.pay.ui.def;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.pax.pay.ui.def.base.FinishRespStatusImpl;
 import com.pax.us.pay.ui.constant.entry.ConfirmationEntry;
@@ -56,9 +57,6 @@ public class ConfirmPartialApproveDialogActivity extends ConfirmDialogActivity i
         } else if (ConfirmationEntry.ACTION_SUPPLEMENT_PARTIAL_APPROVAL.equals(action)){
             message = getString(R.string.partial_approve_prompt_pmt,
                     CurrencyConverter.convert(due, ""));
-//            message = getString(com.pax.us.pay.ui.message.R.string.approve_amount) + CurrencyConverter.convert(approvedAmt, "") + "\n" +
-//                    getString(com.pax.us.pay.ui.message.R.string.due) + CurrencyConverter.convert(due, "") + "; " +
-//                    getString(R.string.select_supplement_partial);
         }
 
         setContentMsg(message);

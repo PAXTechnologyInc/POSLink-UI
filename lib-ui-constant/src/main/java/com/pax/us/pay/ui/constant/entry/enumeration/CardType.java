@@ -19,4 +19,6 @@ public final class CardType {
     public static final String GASCARD = "Gascard";
     public static final String VOYAGER = "Voyager";
     public static final String WRIGHT_EXPRESS = "WrightExpress";
+    public static final String MAESTRO = "Maestro";
+    public static final String SINCLAIR = "Sinclair";
 }

@@ -1,0 +1,8 @@
+<resources>
+    <dimen name="margin_merchant_select">24dp</dimen>
+    <dimen name="merchant_item_grid_height">126dp</dimen>
+    <dimen name="merchant_item_icon_width">36dp</dimen>
+    <dimen name="merchant_item_icon_height">36dp</dimen>
+    <dimen name="merchant_item_icon_margin_top">24dp</dimen>
+    <dimen name="merchant_item_text_margin">16dp</dimen>
+</resources>

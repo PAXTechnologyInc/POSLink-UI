@@ -23,12 +23,16 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.content.LocalBroadcastManager;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+
 import android.text.TextUtils;
-import android.util.Log;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.pax.pay.ui.def.eventbus.ActivityEndEvent;
 import com.pax.pay.ui.def.eventbus.CardEvent;
@@ -41,6 +45,7 @@ import com.pax.pay.ui.def.receiver.StatusListenerHelper;
 import com.pax.pay.ui.def.utils.UIControl;
 import com.pax.pay.ui.def.view.ProcessDialogListener;
 import com.pax.pay.ui.def.view.ProcessDialogListenerImpl;
+import com.pax.us.pay.ui.component.utils.UIData;
 import com.pax.us.pay.ui.constant.entry.enumeration.SFType;
 import com.pax.us.pay.ui.constant.status.BatchStatus;
 import com.pax.us.pay.ui.constant.status.CardStatus;
@@ -48,11 +53,14 @@ import com.pax.us.pay.ui.constant.status.ClssLightStatus;
 import com.pax.us.pay.ui.constant.status.InformationStatus;
 import com.pax.us.pay.ui.constant.status.StatusData;
 import com.pax.us.pay.ui.constant.status.Uncategory;
+import com.paxus.utils.LocaleUtils;
+import com.paxus.utils.log.Logger;
+import com.paxus.view.BaseAppCompatActivity;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class DialogActivity extends AppCompatActivity implements IStatusListener {
+public class DialogActivity extends BaseAppCompatActivity implements IStatusListener {
     private static final Map<String, String> ACTION_MAP = new HashMap<>();
     private static final String KILL_OLD_DIALOG_ACTION = "local://kill.old.dialog";
     //    private static final String ORDER_BROAST = "ORDER_BROAST";
@@ -72,6 +80,9 @@ public class DialogActivity extends AppCompatActivity implements IStatusListener
         ACTION_MAP.put(InformationStatus.TRANS_REVERSAL_STARTED, InformationStatus.TRANS_REVERSAL_FINISHED);
         ACTION_MAP.put(InformationStatus.PINPAD_CONNECTION_STARTED, InformationStatus.PINPAD_CONNECTION_FINISHED);
         ACTION_MAP.put(InformationStatus.EMV_TRANS_ONLINE_STARTED, InformationStatus.EMV_TRANS_ONLINE_FINISHED);
+        ACTION_MAP.put(InformationStatus.DCC_ONLINE_STARTED, InformationStatus.DCC_ONLINE_FINISHED);
+        ACTION_MAP.put(InformationStatus.RKI_STARTED, InformationStatus.RKI_FINISHED);
+
         ACTION_MAP.put(Uncategory.ACTIVATE_STARTED, Uncategory.ACTIVATE_COMPLETED);
         ACTION_MAP.put(Uncategory.CAPK_UPDATE_STARTED, Uncategory.CAPK_UPDATE_COMPLETED);
         ACTION_MAP.put(Uncategory.PRINT_STARTED, Uncategory.PRINT_COMPLETED);
@@ -79,10 +90,11 @@ public class DialogActivity extends AppCompatActivity implements IStatusListener
         ACTION_MAP.put(Uncategory.LOG_UPLOAD_STARTED, Uncategory.LOG_UPLOAD_COMPLETED);
         ACTION_MAP.put(Uncategory.LOG_UPLOAD_CONNECTED, Uncategory.LOG_UPLOAD_COMPLETED);
         ACTION_MAP.put(Uncategory.LOG_UPLOAD_UPLOADING, Uncategory.LOG_UPLOAD_COMPLETED);
+        ACTION_MAP.put(Uncategory.FCP_FILE_UPDATE_STARTED, Uncategory.FCP_FILE_UPDATE_COMPLETED);
     }
 
-    public static final int FAILED_DIALOG_SHOW_TIME = 5;
-    public static final int SUCCESS_DIALOG_SHOW_TIME = 2;
+    public static final long FAILED_DIALOG_SHOW_TIME = 5000L;
+    public static final long SUCCESS_DIALOG_SHOW_TIME = 2000L;
     public static final int WARN_DIALOG_SHOW_TIME = 2;
 
     boolean isNeedDisplayMessage;
@@ -99,11 +111,11 @@ public class DialogActivity extends AppCompatActivity implements IStatusListener
         public void onReceive(Context context, Intent intent) {
             if (registered) {
                 LocalBroadcastManager.getInstance(context).unregisterReceiver(this);
-                Log.i("DialogActivity", "Clear Listener ");
+                Logger.d("Clear Listener ");
                 //lastAction = null;
                 StatusListenerHelper.getInstance().setListener(null);
                 if (processDialogListener != null) {
-                    Log.i("DialogActivity", "processDialogListener onHideProgress");
+                    Logger.d("processDialogListener onHideProgress");
                     processDialogListener.onHideProgress();
                     processDialogListener = null;
                 }
@@ -117,12 +129,12 @@ public class DialogActivity extends AppCompatActivity implements IStatusListener
         @Override
         public void run() {
             if (processDialogListener != null) {
-                Log.i("DialogActivity", "processDialogListener onHideProgress ");
+                Logger.d("processDialogListener onHideProgress ");
                 processDialogListener.onHideProgress();
                 processDialogListener = null;
                 LocalBroadcastManager.getInstance(DialogActivity.this).sendBroadcast(new Intent(KILL_OLD_DIALOG_ACTION));
             } else {
-                Log.i("DialogActivity", "hideDialog dismissListener close ");
+                Logger.d("hideDialog dismissListener close ");
                 dismissListener.close(dialogCloseAll);
             }
         }
@@ -160,19 +172,19 @@ public class DialogActivity extends AppCompatActivity implements IStatusListener
     public static void stop(Context context, Intent intent) {
         //no Action need to close
         if (TextUtils.isEmpty(currAction)) {
-            Log.i("DialogActivity", "currAction is empty ");
+            Logger.d( "currAction is empty ");
             return;
         }
         //For Broadcast action:
         // only current action is xxx_Started Action which is need to close,
         // other action will be closed by TRANS_COMPLETED or cover by other action.
         for (Map.Entry entry : ACTION_MAP.entrySet()) {
-            if (intent.getAction().equals(entry.getValue()) && currAction.equals(entry.getKey())) {
-                Log.i("DialogActivity", "stop : " + intent.getAction());
+            if (intent.getAction() != null && intent.getAction().equals(entry.getValue()) && currAction.equals(entry.getKey())) {
+                Logger.d( "stop : " + intent.getAction());
                 LocalBroadcastManager.getInstance(context).sendBroadcast(new Intent(KILL_OLD_DIALOG_ACTION));
             }
         }
-        Log.i("DialogActivity", "current action : " + currAction + "Action : " + intent.getAction() + "Already closeed!");
+        Logger.d("current action : " + currAction + "Action : " + intent.getAction() + "Already closeed!");
 
     }
 
@@ -192,7 +204,7 @@ public class DialogActivity extends AppCompatActivity implements IStatusListener
 //        newFilter.addAction(ORDER_BROAST);
 //        registerReceiver(newOrderReceiver, newFilter);
 
-        Log.i("DialogActivity", "onCreated! and setListener for :" + getIntent().getAction());
+        Logger.d("onCreated! and setListener for :" + getIntent().getAction());
         StatusListenerHelper.getInstance().setListener(this);
 
         //Remove confirm dialog, if confirm dialog not dismissing
@@ -236,18 +248,18 @@ public class DialogActivity extends AppCompatActivity implements IStatusListener
     @Override
     public synchronized void setIntent(Context context, Intent intent) {
         if (processDialogListener == null) {
-            Log.i("DialogActivity", "processDialogListener is Empty");
+            Logger.d("processDialogListener is Empty");
             throw new RuntimeException("Dialog is empty");
         }
 
         if (isOnStop) {
-            Log.i("DialogActivity", "currant DialogActivity is onStoped! ");
+            Logger.d("currant DialogActivity is onStoped! ");
             LocalBroadcastManager.getInstance(this).sendBroadcast(new Intent(KILL_OLD_DIALOG_ACTION));
             start(context, intent);
         } else {
-            //Log.i("DialogActivity", "handleIntent start");
+            //Logger.d("handleIntent start");
             handleIntent(intent);
-            //Log.i("DialogActivity", "handleIntent finished");
+            //Logger.d("handleIntent finished");
         }
 
     }
@@ -256,19 +268,23 @@ public class DialogActivity extends AppCompatActivity implements IStatusListener
 
         //only manager is on front ground, it need to show dialog, otherwise close all manager UI
         isNeedDisplayMessage = getIntent().getBooleanExtra("isNeedReceiveMessage", false);
-        Log.i("DialogActivity", "isNeedDisplayMessage :" + isNeedDisplayMessage);
+        Logger.d("isNeedDisplayMessage :" + isNeedDisplayMessage);
 
 
         String action = intent.getAction();
-        if (TextUtils.isEmpty(action)) {
-            Log.i("DialogActivity", "action empty DialogActivity is Killed! ");
+        if (action == null || action.isEmpty()) {
+            Logger.d("action empty DialogActivity is Killed! ");
             LocalBroadcastManager.getInstance(this).sendBroadcast(new Intent(KILL_OLD_DIALOG_ACTION));
             return;
         }
 
         currAction = action;
-        Log.i("DialogActivity", "handleIntent action :" + action);
+        Logger.d("handleIntent action :" + action);
 
+        Context wrapContext = this;
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
+            wrapContext = LocaleUtils.wrapContext(this);
+        }
         switch (action) {
 //            case InformationStatus.TRANS_START:
 //                UIControl.getInstance().setTransStarted(true);
@@ -276,28 +292,28 @@ public class DialogActivity extends AppCompatActivity implements IStatusListener
 //                LocalBroadcastManager.getInstance(this).sendBroadcast(new Intent(KILL_OLD_DIALOG_ACTION));
 //                break;
             case InformationStatus.EMV_TRANS_ONLINE_STARTED:
-                showProcessDialog(getString(R.string.emv_trans_online));
+                showProcessDialog(wrapContext.getString(R.string.emv_trans_online));
                 break;
             case InformationStatus.TRANS_ONLINE_STARTED:
-                showProcessDialog(getString(R.string.def_ui_processing));
+                showProcessDialog(wrapContext.getString(R.string.def_ui_processing));
                 break;
             case InformationStatus.TRANS_REVERSAL_STARTED:
-                showProcessDialog(getString(R.string.reversal_process));
+                showProcessDialog(wrapContext.getString(R.string.reversal_process));
                 break;
             case InformationStatus.PINPAD_CONNECTION_STARTED:
-                showProcessDialog(getString(R.string.pinpad_connect));
+                showProcessDialog(wrapContext.getString(R.string.pinpad_connect));
                 break;
             case CardStatus.CARD_PROCESS_STARTED:
-                showProcessDialog(getString(R.string.emv_process_start));
+                showProcessDialog(wrapContext.getString(R.string.emv_process_start));
                 break;
             case CardStatus.CARD_PROCESS_ERROR:
-                showWarnDialog(getString(R.string.card_error), true);
+                showWarnDialog(wrapContext.getString(R.string.card_error), true);
                 break;
             case CardStatus.CARD_REMOVAL_REQUIRED:
-                showWarnDialog(getString(R.string.please_remove_card), false);
+                showWarnDialog(wrapContext.getString(R.string.please_remove_card), false);
                 break;
             case CardStatus.CARD_QUICK_REMOVAL_REQUIRED:
-                showWarnDialog(getString(R.string.please_remove_card_quickly), false);
+                showWarnDialog(wrapContext.getString(R.string.please_remove_card_quickly), false);
                 break;
             case CardStatus.CARD_INSERT_REQUIRED:
                 EventBusUtil.doEvent(new ClssLightEvent(ClssLightStatus.CLSS_LIGHT_BLUE_OFF));
@@ -305,7 +321,7 @@ public class DialogActivity extends AppCompatActivity implements IStatusListener
                 EventBusUtil.doEvent(new ClssLightEvent(ClssLightStatus.CLSS_LIGHT_GREEN_OFF));
                 EventBusUtil.doEvent(new ClssLightEvent(ClssLightStatus.CLSS_LIGHT_RED_OFF));
                 EventBusUtil.doEvent(new CardEvent(CardStatus.CARD_INSERT_REQUIRED));
-                showWarnDialog(getString(R.string.please_insert_chip_card), true);
+                showWarnDialog(wrapContext.getString(R.string.please_insert_chip_card), true);
                 break;
             case CardStatus.CARD_SWIPE_REQUIRED:
                 EventBusUtil.doEvent(new ClssLightEvent(ClssLightStatus.CLSS_LIGHT_BLUE_OFF));
@@ -313,7 +329,7 @@ public class DialogActivity extends AppCompatActivity implements IStatusListener
                 EventBusUtil.doEvent(new ClssLightEvent(ClssLightStatus.CLSS_LIGHT_GREEN_OFF));
                 EventBusUtil.doEvent(new ClssLightEvent(ClssLightStatus.CLSS_LIGHT_RED_OFF));
                 EventBusUtil.doEvent(new CardEvent(CardStatus.CARD_SWIPE_REQUIRED));
-                showWarnDialog(getString(R.string.please_swipe_card), true);
+                showWarnDialog(wrapContext.getString(R.string.please_swipe_card), true);
                 break;
             case CardStatus.CARD_TAP_REQUIRED:
                 EventBusUtil.doEvent(new ClssLightEvent(ClssLightStatus.CLSS_LIGHT_BLUE_ON));
@@ -321,77 +337,88 @@ public class DialogActivity extends AppCompatActivity implements IStatusListener
                 EventBusUtil.doEvent(new ClssLightEvent(ClssLightStatus.CLSS_LIGHT_GREEN_OFF));
                 EventBusUtil.doEvent(new ClssLightEvent(ClssLightStatus.CLSS_LIGHT_RED_OFF));
                 EventBusUtil.doEvent(new CardEvent(CardStatus.CARD_TAP_REQUIRED));
-                showWarnDialog(getString(R.string.please_tap_card), true);
+                showWarnDialog(wrapContext.getString(R.string.please_tap_card), true);
                 break;
             case CardStatus.SEE_PHONE:
                 String prompts = intent.getStringExtra(CardStatus.PARAM_PROMPTS);
                 if (TextUtils.isEmpty(prompts))
-                    showWarnDialog(getString(R.string.please_see_phone), true); //Fix ANBP-385
+                    showWarnDialog(wrapContext.getString(R.string.please_see_phone), true); //Fix ANBP-385
                 else
                     showWarnDialog(prompts, true);
                 break;
             case Uncategory.ACTIVATE_STARTED:
-                showProcessDialog(getString(R.string.trans_online));
+                showProcessDialog(wrapContext.getString(R.string.trans_online));
                 break;
             case Uncategory.CAPK_UPDATE_STARTED:
-                showProcessDialog(getString(R.string.download_emv_capk)); //Fix ANFDRC-922
+                showProcessDialog(wrapContext.getString(R.string.download_emv_capk)); //Fix ANFDRC-922
                 break;
             case Uncategory.PRINT_STARTED:
-                showProcessDialog(getString(R.string.print_process));
+                showProcessDialog(wrapContext.getString(R.string.print_process));
                 break;
             case Uncategory.FILE_UPDATE_STARTED:
-                showProcessDialog(getString(R.string.update_process)); //Fix ADJ-118
+                showProcessDialog(wrapContext.getString(R.string.update_process)); //Fix ADJ-118
                 break;
             case BatchStatus.BATCH_CLOSE_STARTED:
-                showProcessDialog(getString(R.string.batch_close_start));
+                showProcessDialog(wrapContext.getString(R.string.batch_close_start));
                 break;
             case BatchStatus.BATCH_CLOSE_UPLOADING:
                 String edcType = intent.getStringExtra(StatusData.PARAM_EDC_TYPE);
                 long currentCount = intent.getLongExtra(StatusData.PARAM_UPLOAD_CURRENT_COUNT, 0);
                 long totalCount = intent.getLongExtra(StatusData.PARAM_UPLOAD_TOTAL_COUNT, 0);
-                String uploadMessage = getString(R.string.uploading_trans) +" "+edcType+"\n"+currentCount+"/"+totalCount;
+                String uploadMessage = wrapContext.getString(R.string.uploading_trans) +" "+edcType+"\n"+currentCount+"/"+totalCount;
                 showProcessDialog(uploadMessage);
                 break;
             case BatchStatus.BATCH_SF_UPLOADING:
                 String sfType = intent.getStringExtra(StatusData.PARAM_SF_TYPE);
                 long sfCurrentCount = intent.getLongExtra(StatusData.PARAM_SF_CURRENT_COUNT, 0);
                 long sfTotalCount = intent.getLongExtra(StatusData.PARAM_SF_TOTAL_COUNT, 0);
-                String message = sfType.equals(SFType.FAILED) ? getString(R.string.uploading_failed_trans) : getString(R.string.uploading_sf_trans) +
-                        getString(R.string.total_count) + sfTotalCount + getString(R.string.current_count) + sfCurrentCount;
+                String message = SFType.FAILED.equals(sfType) ? wrapContext.getString(R.string.uploading_failed_trans) : wrapContext.getString(R.string.uploading_sf_trans) +
+                        wrapContext.getString(R.string.total_count) + sfTotalCount + wrapContext.getString(R.string.current_count) + sfCurrentCount;
                 showProcessDialog(message);
                 break;
             case BatchStatus.BATCH_SF_STARTED:
-                showProcessDialog(getString(R.string.uploading_start));
+                showProcessDialog(wrapContext.getString(R.string.uploading_start));
                 break;
             case Uncategory.LOG_UPLOAD_STARTED:
-                showProcessDialog(getString(R.string.log_uploading_start));
+                showProcessDialog(wrapContext.getString(R.string.log_uploading_start));
                 break;
             case Uncategory.LOG_UPLOAD_CONNECTED:
                 long uploadPercent = intent.getLongExtra(StatusData.PARAM_UPLOAD_CURRENT_PERCENT, 0);
-                String logMessage = getString(R.string.log_connected) + " (" + uploadPercent + "%)";
+                String logMessage = wrapContext.getString(R.string.log_connected) + " (" + uploadPercent + "%)";
                 showProcessDialog(logMessage);
                 break;
             case Uncategory.LOG_UPLOAD_UPLOADING:
                 long logUploadCount = intent.getLongExtra(StatusData.PARAM_UPLOAD_CURRENT_COUNT, 0);
                 long logTotalCount = intent.getLongExtra(StatusData.PARAM_UPLOAD_TOTAL_COUNT, 0);
                 long logUploadPercent = intent.getLongExtra(StatusData.PARAM_UPLOAD_CURRENT_PERCENT, 0);
-                String logUploadMessage = getString(R.string.update_process) + " " + logUploadCount + "/" + logTotalCount + "("
+                String logUploadMessage = wrapContext.getString(R.string.update_process) + " " + logUploadCount + "/" + logTotalCount + "("
                         + logUploadPercent + "%)";
                 showProcessDialog(logUploadMessage);
+                break;
+            case Uncategory.FCP_FILE_UPDATE_STARTED:
+                showProcessDialog(wrapContext.getString(R.string.check_for_update_start));
+                break;
+            case InformationStatus.DCC_ONLINE_STARTED:
+                showProcessDialog(wrapContext.getString(R.string.dcc_online_start));
+                break;
+            case InformationStatus.RKI_STARTED:
+                showProcessDialog(wrapContext.getString(R.string.rki_start));
                 break;
             case InformationStatus.ERROR:
                 long errCode = intent.getLongExtra(StatusData.PARAM_CODE, 0);
                 String errMessage = intent.getStringExtra(StatusData.PARAM_MSG);
                 if (TextUtils.isEmpty(errMessage)) {
-                    errMessage = getString(R.string.transaction_failed);
+                    errMessage = wrapContext.getString(R.string.transaction_failed);
                 }
                 //ANBP-469 don't prompt error code
                 //errMessage += "\n Error Code:" + errCode;
                 showResultDialog(false, errMessage);
-                hideDialog(FAILED_DIALOG_SHOW_TIME, false);
+                int errTimeOut = (int)(FAILED_DIALOG_SHOW_TIME/1000);
+                hideDialog(errTimeOut, false);
                 break;
             case InformationStatus.TRANS_COMPLETED:
                 UIControl.getInstance().setTransStarted(false);
+                UIData.clearData(wrapContext.getApplicationContext());
                 EventBusUtil.doEvent(new ConfirmDialogEndEvent());
                 //EventBusUtil.doEvent(new TransEndEvent());
                 EventBusUtil.doEvent(new TransparentActivityEndEvent()); // To avoid black screen
@@ -409,7 +436,7 @@ public class DialogActivity extends AppCompatActivity implements IStatusListener
                         dismissListener.close(true);
                         break;
                     }
-                    timeOut = SUCCESS_DIALOG_SHOW_TIME;
+                    timeOut = (int)(intent.getLongExtra(StatusData.PARAM_HOST_RESP_TIMEOUT, SUCCESS_DIALOG_SHOW_TIME)/1000);
                 } else if (resultCode == -3) {
                     LocalBroadcastManager.getInstance(this).sendBroadcast(new Intent(KILL_OLD_DIALOG_ACTION));
                     //ANBP-661 To close other screen firstly, and avoid black screen
@@ -429,12 +456,18 @@ public class DialogActivity extends AppCompatActivity implements IStatusListener
                     }
                     //ANBP-469 don't prompt error code
                     //resultMessage += "\nError Code : " + resultCode;
-                    timeOut = FAILED_DIALOG_SHOW_TIME;
+                    timeOut = (int)(intent.getLongExtra(StatusData.PARAM_HOST_RESP_TIMEOUT, FAILED_DIALOG_SHOW_TIME)/1000);
+                    //timeOut = FAILED_DIALOG_SHOW_TIME;
                 }
                 //if (UIConfiguration.getInstance().isNeedReceiveMessage())
-                if (isNeedDisplayMessage)
+                boolean displayVisaInstallmentEnd = "Y".equals(intent.getStringExtra(StatusData.PARAM_DISPLAY_VISA_INSTALLMENT_APPROVAL));
+                if (isNeedDisplayMessage && !displayVisaInstallmentEnd){
                     showResultDialog(result, resultMessage);
-                else {
+                } else {
+                    if (displayVisaInstallmentEnd){
+                        Intent newIntent = new Intent(DialogActivity.this, VisaInstallmentTransEndActivity.class);
+                        startActivity(newIntent);
+                    }
                     if (processDialogListener != null) {
                         processDialogListener.onHideProgress();
                         processDialogListener = null;
@@ -444,7 +477,7 @@ public class DialogActivity extends AppCompatActivity implements IStatusListener
                 hideDialog(timeOut, true);
                 break;
             default:
-                Log.i("DialogActivity", "unKown Action DialogActivity is Killed! : " + action);
+                Logger.d("unKnown Action DialogActivity is Killed! : " + action);
                 LocalBroadcastManager.getInstance(this).sendBroadcast(new Intent(KILL_OLD_DIALOG_ACTION));
                 break;
         }
@@ -455,7 +488,7 @@ public class DialogActivity extends AppCompatActivity implements IStatusListener
 
         // if registered is already false, then it don't need kill old dialog again, otherwise maybe it will kill the current action.
         if (registered) {
-            Log.i("DialogActivity", "onDestroy Action DialogActivity is Killed!");
+            Logger.d("onDestroy Action DialogActivity is Killed!");
             LocalBroadcastManager.getInstance(DialogActivity.this).sendBroadcast(new Intent(KILL_OLD_DIALOG_ACTION));
             registered = false;
         }
@@ -490,8 +523,9 @@ public class DialogActivity extends AppCompatActivity implements IStatusListener
         }
         if (isNeedDisplayMessage) {
             processDialogListener.onShowWarn(message);
-            if (close)
+            if (close) {
                 hideDialog(WARN_DIALOG_SHOW_TIME, false);
+            }
         }
     }
 

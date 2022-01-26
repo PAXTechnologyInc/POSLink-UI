@@ -93,7 +93,7 @@ public class ElectronicSignatureView extends View {
 
     //protected DataRecordListener dataListener;
 
-    private final List<float[]> mPathPos = new ArrayList<>();
+    private List<float[]> mPathPos = new ArrayList<>();
     private int sampleRate = 3;
 
     public ElectronicSignatureView(Context context) {

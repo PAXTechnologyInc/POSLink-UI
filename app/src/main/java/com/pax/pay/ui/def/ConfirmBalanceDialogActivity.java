@@ -20,8 +20,9 @@ package com.pax.pay.ui.def;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.annotation.Nullable;
+
 import android.text.TextUtils;
 
 import com.pax.pay.ui.def.base.FinishRespStatusImpl;
@@ -29,13 +30,15 @@ import com.pax.pay.ui.def.eventbus.ConfirmDialogEndEvent;
 import com.pax.pay.ui.def.eventbus.EventBusUtil;
 import com.pax.us.pay.ui.core.helper.ConfirmBalanceHelper;
 import com.pax.us.pay.ui.message.CurrencyConverter;
+import com.paxus.view.BaseAppCompatActivity;
 import com.paxus.view.dialog.CustomAlertDialog;
+import com.paxus.view.dialog.DialogUtils;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 
-public class ConfirmBalanceDialogActivity extends AppCompatActivity implements ConfirmBalanceHelper.IConFirmBalanceListener {
+public class ConfirmBalanceDialogActivity extends BaseAppCompatActivity implements ConfirmBalanceHelper.IConFirmBalanceListener {
 
     private ConfirmBalanceHelper helper = null;
     private boolean isPoint;
@@ -51,7 +54,6 @@ public class ConfirmBalanceDialogActivity extends AppCompatActivity implements C
         EventBusUtil.register(this);
         helper = new ConfirmBalanceHelper(this, new FinishRespStatusImpl(this));
     }
-
 
     @Override
     public void onShowMessage(@Nullable String transName, @Nullable String message, String transMode) {
@@ -108,7 +110,7 @@ public class ConfirmBalanceDialogActivity extends AppCompatActivity implements C
         if (!isPoint)
             message = CurrencyConverter.convert(amount, "");
         else
-            message = getResources().getString(R.string.point) + " " + amount;
+            message = getResources().getString(R.string.point) + " " + String.valueOf(amount);
         showConfirmDialog(getResources().getString(R.string.confirm_balance), message, getResources().getString(R.string.dialog_ok));
     }
 
@@ -143,7 +145,7 @@ public class ConfirmBalanceDialogActivity extends AppCompatActivity implements C
                 dialog.setContent(contentMsg);
                 dialog.showConfirmButton(true);
                 dialog.setConfirmText(positiveMessage);
-                dialog.show();
+                DialogUtils.showDialog(this, dialog);
             }
         });
     }

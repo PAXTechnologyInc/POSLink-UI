@@ -15,10 +15,12 @@ package com.paxus.view.expandablerecyclerview;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.support.annotation.CallSuper;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerCursorAdapter;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.annotation.CallSuper;
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.RecyclerCursorAdapter;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.View;
 
 public abstract class ExpandableCursorAdapter<VH extends ExpandableViewHolder> extends RecyclerCursorAdapter<VH> {

@@ -3,11 +3,11 @@ package com.pax.pay.ui.def;
 
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
+import android.graphics.ImageDecoder;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Handler;
 import android.provider.MediaStore;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -16,6 +16,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.pax.pay.ui.def.base.BaseAppActivity;
 import com.pax.pay.ui.def.base.RespStatusImpl;
@@ -176,7 +179,19 @@ public class PrePrintViewActivity extends BaseAppActivity implements ConfirmRece
     public void onShowReceiptView(@NonNull String receiptUri) {
         Uri imageUri = Uri.parse(receiptUri);
         try {
-            bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
+                bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
+            } else {
+                ImageDecoder.Source source = ImageDecoder.createSource(this.getContentResolver(), imageUri);
+                ImageDecoder.OnHeaderDecodedListener listener = new ImageDecoder.OnHeaderDecodedListener() {
+                    @Override
+                    public void onHeaderDecoded(@NonNull ImageDecoder decoder, @NonNull ImageDecoder.ImageInfo info, @NonNull ImageDecoder.Source source) {
+                        decoder.setAllocator(ImageDecoder.ALLOCATOR_SOFTWARE);
+                        decoder.setMutableRequired(true);
+                    }
+                };
+                bitmap = ImageDecoder.decodeBitmap(source);
+            }
             if (bitmap == null) {
                 tickTimerStop();
                 ToastHelper.showMessage(this, getString(R.string.receipt_image_too_larger));

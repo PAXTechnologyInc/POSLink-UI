@@ -2,13 +2,14 @@ package com.pax.pay.ui.def.app;
 
 import android.app.Activity;
 import android.app.Application;
-import android.arch.lifecycle.BuildConfig;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 
+
+import com.pax.pay.ui.def.BuildConfig;
 import com.pax.us.pay.ui.component.activity.ActivityLifeCheck;
 import com.paxus.utils.log.LogHelper;
 import com.paxus.utils.log.Logger;

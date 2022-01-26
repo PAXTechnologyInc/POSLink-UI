@@ -3,7 +3,6 @@ package com.pax.pay.ui.def.base;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Handler;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -11,6 +10,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.pax.us.pay.ui.constant.entry.EntryRequest;
+import com.paxus.utils.log.Logger;
 import com.paxus.view.quickclick.QuickClickProtection;
 import com.paxus.view.utils.KeyboardUtils;
 
@@ -31,7 +31,7 @@ public abstract class BaseAppActivity extends BaseActivity implements View.OnCli
             SharedPreferences preferences=getSharedPreferences(EntryRequest.class.getName(), Context.MODE_PRIVATE);
             Map<String, ?> map = preferences.getAll();
             if (map != null && map.size() > 0) {
-            Log.i("ReceiptFragment", "BaseAppActivity notifyObservers map : " + map.size());
+                Logger.d("BaseAppActivity notifyObservers map : " + map.size());
                 notifyObservers(map);
             }
         });
@@ -82,12 +82,18 @@ public abstract class BaseAppActivity extends BaseActivity implements View.OnCli
         }
         quickClickProtection.start();
         if (keyCode == KeyEvent.KEYCODE_ENTER) {
-            onKeyEnterDown();
+            return onKeyEnterDown();
+        }else if(keyCode == KeyEvent.KEYCODE_DEL){
+            return onKeyDelDown();
         }
         return super.onKeyDown(keyCode, event);
     }
 
     protected boolean onKeyEnterDown() {
+        return false;
+    }
+
+    protected boolean onKeyDelDown(){
         return false;
     }
 

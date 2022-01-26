@@ -19,14 +19,17 @@
 
 package com.pax.pay.ui.def;
 
+import android.app.Activity;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.widget.CompoundButtonCompat;
-import android.support.v7.widget.AppCompatRadioButton;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.core.widget.CompoundButtonCompat;
+import androidx.appcompat.widget.AppCompatRadioButton;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.text.TextUtils;
 import android.util.SparseBooleanArray;
 import android.view.View;
@@ -37,14 +40,14 @@ import android.widget.CompoundButton;
 import android.widget.RadioButton;
 
 import com.pax.pay.ui.def.base.BaseStackActivity;
-import com.pax.pay.ui.def.base.FinishRespStatusImpl;
-import com.pax.us.pay.ui.component.utils.TickTimer;
+import com.pax.pay.ui.def.base.RespStatusImpl;
 import com.pax.us.pay.ui.constant.entry.EntryExtraData;
 import com.pax.us.pay.ui.constant.entry.enumeration.ManageUIConst;
 import com.pax.us.pay.ui.core.helper.ShowDialogFormHelper;
-import com.paxus.utils.log.Logger;
 
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class ShowDialogFormActivity extends BaseStackActivity implements ShowDialogFormHelper.IShowDialogFormHelper, View.OnClickListener {
@@ -57,9 +60,8 @@ public class ShowDialogFormActivity extends BaseStackActivity implements ShowDia
 
     private LabelAdapter adapter;
     private Bundle reqBundle;
-    private boolean isNoBlocking = false;
-    private TickTimer tickTimer;
-    private long timeout;
+    private boolean continuousScreen = false;
+    private Timer timer;
 
     @Override
     protected int getLayoutId() {
@@ -75,7 +77,6 @@ public class ShowDialogFormActivity extends BaseStackActivity implements ShowDia
 
     @Override
     protected void initViews() {
-        reqBundle = getIntent().getExtras();
         String buttonType = reqBundle.getString(EntryExtraData.PARAM_BUTTON_TYPE, ManageUIConst.ButtonType.RADIO_BUTTON);
 
         setupRecyclerView(recyclerView);
@@ -88,51 +89,38 @@ public class ShowDialogFormActivity extends BaseStackActivity implements ShowDia
     @SuppressWarnings("ConstantConditions")
     @Override
     protected void loadParam() {
-        createTimer();
-        tickTimer.start(getTickTimeout());
-
+        super.loadParam();
         recyclerView = findViewById(R.id.recycler_View);
         cancelBtn = findViewById(R.id.cancel_btn);
         clearBtn = findViewById(R.id.clear_btn);
         confirmBtn = findViewById(R.id.confirm_btn);
         bottomView = findViewById(R.id.bottom_layer);
 
+        reqBundle = getIntent().getExtras();
 
-        try {
-            Bundle bundle = getIntent().getExtras();
-            navTitle = bundle.getString(EntryExtraData.PARAM_TITLE);
-            if (bundle.containsKey(EntryExtraData.PARAM_CONTINUE_SCREEN)
-                    && (ManageUIConst.ContinuousScreen.DO_NOT_GO_TO_IDLE.equals(bundle.getString(EntryExtraData.PARAM_CONTINUE_SCREEN)))) {
-                isNoBlocking = true;
-            }
-        } catch (Exception e) {
-            Logger.e(e);
-            isNoBlocking = false;
+        navTitle = "";
+        continuousScreen = false;
+        long timeoutMs = -1;
+        stopTimer();
+
+        if(reqBundle != null) {
+            navTitle = reqBundle.getString(EntryExtraData.PARAM_TITLE);
+            continuousScreen = ManageUIConst.ContinuousScreen.DO_NOT_GO_TO_IDLE.equals(reqBundle.getString(EntryExtraData.PARAM_CONTINUE_SCREEN, ""));
+            timeoutMs = reqBundle.getLong(EntryExtraData.PARAM_TIMEOUT, -1L);
         }
-        helper = new ShowDialogFormHelper(this, new FinishRespStatusImpl(this));
+
+
+        startTimer(timeoutMs);
+        helper = new ShowDialogFormHelper(this, new RespStatus(this));
         //loadOtherParam();
 
     }
-
-
-//    private void setTitleView(List<TextView> viewList) {
-//        for (TextView textView : viewList) {
-//            textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimension(R.dimen.text_size_25));
-//            textView.setMaxLines(1);
-//            textView.setTextColor(Color.WHITE);
-//            textView.setEllipsize(null);
-//            toolBarEx.addDynamicTitle(textView);
-//        }
-//    }
 
     @Override
     protected void onClickProtected(View v) {
         int id = v.getId();
         if (id == R.id.cancel_btn) {
-            tickTimerStop();
-            helper.sendAbort();
-            if (!isNoBlocking)
-                finish();
+            onAbort();
         } else if (id == R.id.clear_btn) {
             adapter.clearCheckedItems();
         } else if (id == R.id.confirm_btn) {
@@ -155,17 +143,14 @@ public class ShowDialogFormActivity extends BaseStackActivity implements ShowDia
 
     @Override
     protected boolean onKeyBackDown() {
-        tickTimerStop();
-        helper.sendAbort();
-        if (!isNoBlocking)
-            finish();
+        onAbort();
         return true;
     }
 
     private void setSelectItem(String selectItem) {
-        tickTimerStop();
+        stopTimer();
         helper.sendNext(selectItem);
-        if (!isNoBlocking)
+        if (!continuousScreen)
             finish();
     }
 
@@ -186,8 +171,7 @@ public class ShowDialogFormActivity extends BaseStackActivity implements ShowDia
 
     @Override
     public void onAbortHelper() {
-        helper.sendAbort();
-        finish();
+        onAbort();
     }
 
     @Override
@@ -196,64 +180,39 @@ public class ShowDialogFormActivity extends BaseStackActivity implements ShowDia
         super.finish();
     }
 
-    private void createTimer() {
-        tickTimer = new TickTimer(new TickTimer.OnTickTimerListener() {
-            @Override
-            public void onFinish() {
-                onTimerFinish();
-            }
-
-            @Override
-            public void onTick(long leftTime) {
-                timeOnTick(leftTime);
-            }
-        });
-    }
-
-    protected void timeOnTick(long leftTime) {
-        //this.leftTime = leftTime;
-        //setTitle(String.format(Locale.US, "%s ( %d )", getString(R.string.signature), leftTime));
-    }
-
-    protected void restartTimer() {
-        tickTimerStop();
-        createTimer();
-        tickTimer.start(getTickTimeout());
-    }
-
-    public void tickTimerStop() {
-        if (tickTimer != null) {
-            tickTimer.stop();
-            tickTimer = null;
+    private void startTimer(long timeoutMs) {
+        if(timeoutMs > 0) {
+            stopTimer();
+            timer = new Timer();
+            timer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    onTimeout();
+                }
+            }, timeoutMs);
         }
     }
 
-    protected void onTimerFinish() {
-        if (timeout <= 0)
-            return;
-
-        tickTimerStop();
+    private void stopTimer(){
+        if(timer != null){
+            timer.cancel();
+            timer = null;
+        }
+    }
+    private void onTimeout(){
+        stopTimer();
         helper.sendTimeout();
-
-        if (!isNoBlocking) {
+        if (!continuousScreen) {
             finish();
         }
     }
-
-    protected long getTickTimeout() {
-        timeout = -1;
-        if (getIntent().getExtras() != null && getIntent().getExtras().containsKey(EntryExtraData.PARAM_TIMEOUT)) {
-            long time = getIntent().getExtras().getLong(EntryExtraData.PARAM_TIMEOUT, -1L);
-            timeout = (int)(time/1000l);
+    private void onAbort(){
+        stopTimer();
+        helper.sendAbort();
+        if (!continuousScreen) {
+            finish();
         }
-
-//        if (timeout == 0)
-//            isNoBlocking = true;
-
-        return timeout;
     }
-
-
 
     private class LabelAdapter extends RecyclerView.Adapter<LabelAdapter.LabelItemHolder> {
         private final Bundle bundle;
@@ -372,4 +331,17 @@ public class ShowDialogFormActivity extends BaseStackActivity implements ShowDia
             }
         }
     }
+
+
+    private class RespStatus extends RespStatusImpl {
+
+        public RespStatus(Activity activity) {
+            super(activity);
+        }
+        @Override
+        public void onAccepted() {
+            //don't close activity.
+        }
+    }
+
 }

@@ -61,7 +61,7 @@
                     android:textColor="@color/primary_text_light"
                     android:textSize="@dimen/font_size_prompt" />
 
-                <android.support.v7.widget.RecyclerView
+                <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/option_select"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

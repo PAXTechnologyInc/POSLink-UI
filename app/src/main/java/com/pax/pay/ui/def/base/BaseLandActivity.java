@@ -3,11 +3,12 @@ package com.pax.pay.ui.def.base;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.annotation.LayoutRes;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.annotation.LayoutRes;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,16 +16,17 @@ import android.view.ViewGroup;
 
 import com.pax.pay.ui.def.R;
 import com.pax.pay.ui.def.fragment.ExpandFragment;
+import com.paxus.view.BaseAppCompatActivity;
 
 import java.util.Observable;
 import java.util.Observer;
 
-public abstract class BaseLandActivity extends AppCompatActivity implements IExpandableLayoutListener {
+public abstract class BaseLandActivity extends BaseAppCompatActivity implements IExpandableLayoutListener {
 
     private static final String EXPANDED_PANE = "EXPANDED_PANE";
     protected boolean needToolBar = true;
     private String expandedPaneTag = null;
-    private final Observable observableDelegate = new Observable() {
+    private Observable observableDelegate = new Observable() {
         @Override
         public void notifyObservers() {
             setChanged();

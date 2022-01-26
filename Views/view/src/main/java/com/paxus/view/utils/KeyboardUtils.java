@@ -14,9 +14,9 @@
  */
 package com.paxus.view.utils;
 
+import static android.content.Context.AUDIO_SERVICE;
+
 import android.content.Context;
-import android.inputmethodservice.Keyboard;
-import android.inputmethodservice.KeyboardView;
 import android.media.AudioManager;
 import android.text.Editable;
 import android.view.View;
@@ -24,15 +24,16 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
-import java.util.List;
+import com.paxus.inputmethodservice.Keyboard;
+import com.paxus.inputmethodservice.KeyboardView;
 
-import static android.content.Context.AUDIO_SERVICE;
+import java.util.List;
 
 public class KeyboardUtils implements KeyboardView.OnKeyboardActionListener {
 
     private final Keyboard mKeyboard;
     private final EditText mEditText;
-    private final Context mContext;
+    private Context mContext;
 
     public KeyboardUtils(Context context, Keyboard keyboard, EditText editText) {
         mContext = context;

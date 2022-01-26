@@ -1,32 +1,29 @@
 package com.paxus.view;
 
-import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.LayoutRes;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+
+import androidx.annotation.LayoutRes;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.widget.Toolbar;
+
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.paxus.utils.LocaleUtils;
-
 import java.lang.reflect.Method;
 import java.util.Observable;
 import java.util.Observer;
 
 
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends BaseAppCompatActivity {
 
     private static final String EXPANDED_PANE = "EXPANDED_PANE";
     /**
@@ -39,7 +36,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected boolean navBack = true;
     private String expandedPaneTag = null;
     private Toolbar toolbar;
-    private final Observable observableDelegate = new Observable() {
+    private Observable observableDelegate = new Observable() {
         @Override
         public void notifyObservers() {
             setChanged();
@@ -84,16 +81,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
 
     }
-
-    @Override
-    protected void attachBaseContext(Context newBase) {
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
-            super.attachBaseContext(LocaleUtils.wrapContext(newBase));
-        } else {
-            super.attachBaseContext(newBase);
-        }
-    }
-
 
     private void addExpandedView(Bundle savedInstanceState) {
         if (this instanceof IExpandableLayoutListener) {

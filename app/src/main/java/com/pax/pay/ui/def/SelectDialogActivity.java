@@ -3,15 +3,16 @@ package com.pax.pay.ui.def;
 
 import android.app.Dialog;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.pax.pay.ui.def.base.FinishRespStatusImpl;
 import com.pax.pay.ui.def.eventbus.ConfirmDialogEndEvent;
 import com.pax.pay.ui.def.eventbus.EventBusUtil;
 import com.pax.pay.ui.def.utils.SelectOptionContent;
 import com.pax.us.pay.ui.core.helper.SelectOptionsHelper;
+import com.paxus.view.BaseAppCompatActivity;
 import com.paxus.view.dialog.DialogUtils;
 
 import org.greenrobot.eventbus.Subscribe;
@@ -24,7 +25,7 @@ import java.util.List;
  * Created by Jolie.Yang on 2017/5/5.
  */
 
-public abstract class SelectDialogActivity extends AppCompatActivity implements SelectOptionsHelper.ISelectOptionListener {
+public abstract class SelectDialogActivity extends BaseAppCompatActivity implements SelectOptionsHelper.ISelectOptionListener {
 
     protected int selected = -1;
     protected int checkedItem = -1;

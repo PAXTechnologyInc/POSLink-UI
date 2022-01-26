@@ -7,8 +7,8 @@
 
     <dimen name="dialog_width_large">540dp</dimen>
     <dimen name="dialog_width_middle">320dp</dimen>
-    <dimen name="dialog_width">300dp</dimen>
-    <dimen name="dialog_height">200dp</dimen>
+    <dimen name="dialog_width">280dp</dimen>
+    <dimen name="dialog_height">180dp</dimen>
     <dimen name="dialog_content_min_height">125dp</dimen>
     <dimen name="dialog_height_middle">280dp</dimen>
     <dimen name="dialog_height_large">500dp</dimen>

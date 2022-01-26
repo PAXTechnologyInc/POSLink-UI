@@ -2,9 +2,14 @@ package com.pax.pay.ui.def;
 
 import android.content.Intent;
 import android.graphics.Rect;
+import android.media.AudioManager;
+import android.media.ToneGenerator;
 import android.os.Bundle;
-import android.support.annotation.IdRes;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.IdRes;
+import androidx.annotation.Nullable;
+
+import android.speech.tts.TextToSpeech;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
@@ -29,7 +34,9 @@ import com.paxus.view.utils.ViewUtils;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-public class EnterPinActivity extends BaseAppActivity implements IMessageListener, EnterPinHelper.IEnterPinListener {
+import java.util.Locale;
+
+public class EnterPinActivity extends BaseAppActivity implements IMessageListener, EnterPinHelper.IEnterPinListener{
     private EnterPinHelper helper;
     private StringBuilder pin;
 
@@ -49,6 +56,9 @@ public class EnterPinActivity extends BaseAppActivity implements IMessageListene
     private boolean showVirtualPinPad;
 
     private boolean isPoint;
+
+    private TextToSpeech tts;
+    private String accessibilityPinPadMode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,6 +100,18 @@ public class EnterPinActivity extends BaseAppActivity implements IMessageListene
         //helper.start(this, getIntent());
         EventBusUtil.register(this);
 
+        tts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if(status == TextToSpeech.SUCCESS){
+                    Locale current = getApplicationContext().getResources().getConfiguration().locale;
+                    tts.setLanguage(current);
+                }
+            }
+        });
+
+        Bundle bundle = getIntent().getExtras();
+        accessibilityPinPadMode = bundle.getString(EntryExtraData.PARAM_ACCESSIBILITY_PIN_PAD_MODE);
         //isUsingExternalPinPad = false;
     }
 
@@ -123,6 +145,13 @@ public class EnterPinActivity extends BaseAppActivity implements IMessageListene
         }
 
         setExternal(false); //default
+    }
+
+    @Override
+    public void onNewIntent(Intent intent) {
+        setIntent(intent);
+        helper.start(this, intent);
+        super.onNewIntent(intent);
     }
 
     protected void sendAbort() {
@@ -159,6 +188,11 @@ public class EnterPinActivity extends BaseAppActivity implements IMessageListene
     @Override
     protected void onDestroy() {
         EventBusUtil.unregister(this);
+        if(tts != null){
+            tts.stop();
+            tts.shutdown();
+            tts = null;
+        }
         super.onDestroy();
     }
 
@@ -190,6 +224,7 @@ public class EnterPinActivity extends BaseAppActivity implements IMessageListene
                     addViewRect2Intent(intent, EntryRequest.PARAM_KEY_CLEAR, R.id.btn_clear);
                     addViewRect2Intent(intent, EntryRequest.PARAM_KEY_ENTER, R.id.btn_enter);
                     addViewRect2Intent(intent, EntryRequest.PARAM_KEY_CANCEL, R.id.btn_cancel);
+
                     sendBroadcast(intent);
                 }
 
@@ -198,10 +233,15 @@ public class EnterPinActivity extends BaseAppActivity implements IMessageListene
                 x = location[0];
                 y = location[1];
 
-                int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
-                if (resourceId > 0) {
-                    barHeight = getResources().getDimensionPixelSize(resourceId);
-                }
+//                int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
+//                if (resourceId > 0) {
+//                    barHeight = getResources().getDimensionPixelSize(resourceId);
+//                }
+
+                Rect outRect1 = new Rect();
+                getWindow().getDecorView().getWindowVisibleDisplayFrame(outRect1);
+                barHeight = outRect1.top;  //statusBar's height
+
             }
 
             /*
@@ -213,6 +253,10 @@ public class EnterPinActivity extends BaseAppActivity implements IMessageListene
             //ANBP-645 to avoid black screen while load PINPAD's Keyboard
             //just a trigger
             sendNext(x, y - barHeight, pwdInputText.getWidth(), pwdInputText.getHeight());
+        }
+
+        if (hasFocus && ViewUtils.canNavigationBarImmersiveSticky()) {
+            ViewUtils.hideNavigationBar(getWindow().getDecorView());
         }
     }
 
@@ -316,10 +360,14 @@ public class EnterPinActivity extends BaseAppActivity implements IMessageListene
     @Override
     public void onShowPin(@Nullable String pinStyles, boolean isOnline, boolean isPinBypass, boolean isExternalPinpad) {
         if (!TextUtils.isEmpty(pinStyles)) {
-            if (pinStyles.equals(PinStyles.RETRY))
+            if (pinStyles.equals(PinStyles.RETRY)){
+                if("Y".equals(accessibilityPinPadMode)) textToSound(getResources().getString(R.string.pls_enter_pin));
                 setPrompt(getResources().getString(R.string.pls_input_pin_again), Gravity.CENTER);
-            else if (pinStyles.equals(PinStyles.LAST))
+            }
+            else if (pinStyles.equals(PinStyles.LAST)){
+                if("Y".equals(accessibilityPinPadMode)) textToSound(getResources().getString(R.string.last_pin_attempt));
                 setPrompt(getResources().getString(R.string.pls_input_pin_last), Gravity.CENTER);
+            }
             else
                 setPrompt(getResources().getString(R.string.pls_input_pin), Gravity.CENTER);
         }
@@ -328,6 +376,21 @@ public class EnterPinActivity extends BaseAppActivity implements IMessageListene
             promptBypass.setVisibility(isPinBypass ? View.VISIBLE : View.INVISIBLE);
         }
         setExternal(isExternalPinpad);
+    }
+
+    private void textToSound(final String text){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try{
+                    Thread.sleep(1000);
+                    for(CharSequence charSequence : text.split(" "))
+                        tts.speak(charSequence, TextToSpeech.QUEUE_ADD, null, null);
+                } catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        }).start();
     }
 
     @Override
@@ -346,4 +409,6 @@ public class EnterPinActivity extends BaseAppActivity implements IMessageListene
         helper.stop();
         super.onStop();
     }
+
+
 }

@@ -2,7 +2,9 @@ package com.paxus.view.preferenceview;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.support.v7.preference.StringListPreference;
+
+import androidx.preference.StringListPreference;
+
 import android.text.TextUtils;
 import android.util.AttributeSet;
 

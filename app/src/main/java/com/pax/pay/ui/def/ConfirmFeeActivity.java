@@ -4,8 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 
 import com.pax.pay.ui.def.base.FinishRespStatusImpl;
 import com.pax.pay.ui.def.dialog.FeeAlertDialog;
@@ -14,6 +12,9 @@ import com.pax.pay.ui.def.eventbus.EventBusUtil;
 import com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType;
 import com.pax.us.pay.ui.core.api.IUIListener;
 import com.pax.us.pay.ui.core.helper.ConfirmFeeHelper;
+import com.paxus.utils.log.Logger;
+import com.paxus.view.BaseAppCompatActivity;
+import com.paxus.view.dialog.DialogUtils;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
@@ -22,7 +23,7 @@ import org.greenrobot.eventbus.ThreadMode;
  * @author arvind
  */
 
-public abstract class ConfirmFeeActivity extends AppCompatActivity implements IUIListener {
+public abstract class ConfirmFeeActivity extends BaseAppCompatActivity implements IUIListener {
 
     String currency = CurrencyType.USD;
     private ConfirmFeeHelper helper;
@@ -31,6 +32,7 @@ public abstract class ConfirmFeeActivity extends AppCompatActivity implements IU
     long totalAmount;
     long feeAmount;
     private FeeAlertDialog dialog = null;
+    boolean enableBypass = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,45 +49,58 @@ public abstract class ConfirmFeeActivity extends AppCompatActivity implements IU
 //        feeAmount = bundle.getLong(EntryExtraData.PARAM_SURCHARGE_FEE);
 
         helper = new ConfirmFeeHelper(this, new FinishRespStatusImpl(this));
-        Log.i("ConfirmFeeActivity", "onCreate ");
+        Logger.d( "onCreate ");
 
     }
 
     private void displayDialog(Context context) {
         if (dialog != null) {
             dialog.setTableContent(feeName, totalAmount, feeAmount);
-            dialog.setCancelText(context.getString(R.string.dialog_no));
-            dialog.setConfirmText(context.getString(R.string.dialog_yes));
-            Log.i("ConfirmFeeActivity", "dialog.reset ");
+            dialog.setCancelText(context.getString(R.string.dialog_cancel));
+            dialog.setConfirmText(context.getString(R.string.dialog_ok));
+            dialog.setBypassText(context.getString(R.string.dialog_bypass));
+            Logger.d( "dialog.reset ");
         } else {
             dialog = new FeeAlertDialog(context, currency);
             dialog.setTableContent(feeName, totalAmount, feeAmount);
             dialog.setCancelClickListener(alertDialog -> {
-                Log.i("ConfirmFeeActivity", "dialog.dismiss cancel ");
+                Logger.d("dialog.dismiss cancel ");
                 dialog.dismiss();
                 dialog = null;
-                sendNext(false);
+                //sendNext(false);
+                sendAbort();
             }).setConfirmClickListener(alertDialog -> {
-                Log.i("ConfirmFeeActivity", "dialog.dismiss confirm ");
+                Logger.d("dialog.dismiss confirm ");
                 dialog.dismiss();
                 dialog = null;
                 sendNext(true);
             }).setKeycodeBackClickListener(alertDialog -> {
-                Log.i("ConfirmFeeActivity", "dialog.dismiss back ");
+                Logger.d( "dialog.dismiss back ");
                 dialog.dismiss();
                 dialog = null;
                 sendAbort();
             }).create();
+
+            if (enableBypass){
+                dialog.setBypassClickListener(alertDialog -> {
+                    Logger.d("dialog.dismiss bypass ");
+                    dialog.dismiss();
+                    dialog = null;
+                    sendNext(false);
+                });
+                dialog.setBypassButtonColor(R.drawable.btn_bg_dark);
+                dialog.showBypassButton(true);
+                dialog.setBypassText(context.getString(R.string.dialog_bypass));
+            }
             dialog.setCancelButtonColor(R.drawable.btn_bg_dark);
             dialog.showCancelButton(true);
-            dialog.setCancelText(context.getString(R.string.dialog_no));
-            dialog.setCancelButtonColor(R.drawable.btn_bg_dark);
+            dialog.setCancelText(context.getString(R.string.dialog_cancel));
             dialog.showConfirmButton(true);
-            dialog.setConfirmText(context.getString(R.string.dialog_yes));
-            //dialog.getWindow().setType(WindowManager.LayoutParams.TYPE_TOAST);
+            dialog.setConfirmText(context.getString(R.string.dialog_ok));
+
             try {
-                dialog.show();
-                Log.i("ConfirmFeeActivity", "new dialog.show ");
+                DialogUtils.showDialog(this, dialog);
+                Logger.d("new dialog.show ");
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -109,10 +124,10 @@ public abstract class ConfirmFeeActivity extends AppCompatActivity implements IU
 
     @Override
     protected void onResume() {
-        Log.i("ConfirmFeeActivity", "onResume ");
+        Logger.d("onResume ");
         super.onResume();
         new Handler().postDelayed(() -> {
-            Log.i("ConfirmFeeActivity", "displayDialog ");
+            Logger.d("displayDialog ");
             displayDialog(this);
         }, 100);
     }
@@ -125,7 +140,7 @@ public abstract class ConfirmFeeActivity extends AppCompatActivity implements IU
 
     @Override
     public void finish() {
-        Log.i("ConfirmFeeActivity", "finish");
+        Logger.d("finish");
         super.finish();
         //remove activity animation
         overridePendingTransition(0, 0);
@@ -133,7 +148,7 @@ public abstract class ConfirmFeeActivity extends AppCompatActivity implements IU
 
     @Override
     protected void onDestroy() {
-        Log.i("ConfirmFeeActivity", "onDestroy");
+        Logger.d( "onDestroy");
         if (dialog != null) {
             dialog.dismiss();
             dialog = null;
@@ -144,7 +159,7 @@ public abstract class ConfirmFeeActivity extends AppCompatActivity implements IU
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onEndEvent(ConfirmDialogEndEvent event) {
-        Log.i("ConfirmFeeActivity", "ConfirmDialogEndEvent");
+        Logger.d("ConfirmDialogEndEvent");
         EventBusUtil.unregister(this);
         finish();
     }

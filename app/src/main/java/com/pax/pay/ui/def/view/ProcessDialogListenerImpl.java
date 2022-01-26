@@ -4,13 +4,15 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Handler;
-import android.support.v4.app.FragmentActivity;
-import android.util.Log;
 import android.view.KeyEvent;
+
+import androidx.fragment.app.FragmentActivity;
 
 import com.pax.pay.ui.def.dialog.TransResultAlertDialog;
 import com.pax.pay.ui.def.dialog.WarningDialog;
-import com.pax.us.pay.ui.component.dialog.ProcessDialog;
+import com.paxus.utils.log.Logger;
+import com.paxus.view.dialog.BaseDialogFragment;
+import com.paxus.view.dialog.ProcessDialog;
 
 /**
  * Created by Sim.G on 2017/6/5 09:44
@@ -35,12 +37,12 @@ public class ProcessDialogListenerImpl implements ProcessDialogListener {
     public synchronized void onShowProgress(String message) {
 
         if (context == null || ((Activity) context).isDestroyed() || ((Activity) context).isFinishing()) {
-            Log.i("DialogActivity", "onShowProgress Activity or Context is null ");
+            Logger.d("onShowProgress Activity or Context is null ");
             return;
         }
 
         if (processDialog != null) {
-            Log.i("DialogActivity", "onShowProgress setContent : " + message);
+            Logger.d("onShowProgress setContent : " + message);
             processDialog.setContent(message);
         } else {
             if (dialogFragment != null) {
@@ -48,7 +50,7 @@ public class ProcessDialogListenerImpl implements ProcessDialogListener {
                 warningDialog = null;
                 transResultAlertDialog = null;
             }
-            Log.i("DialogActivity", "onShowProgress new Dialog : " + message);
+            Logger.d("onShowProgress new Dialog : " + message);
             processDialog = new ProcessDialog(context, message);
             dialogFragment = BaseDialogFragment.newInstance(context, cont -> processDialog, false, null);
             dialogFragment.show(((FragmentActivity) context).getSupportFragmentManager(), context.toString());
@@ -60,7 +62,7 @@ public class ProcessDialogListenerImpl implements ProcessDialogListener {
     public void onHideProgress() {
 
         if (context == null || ((Activity) context).isDestroyed() || ((Activity) context).isFinishing()) {
-            Log.i("DialogActivity", "onHideProgress Activity or Context is null ");
+            Logger.d("onHideProgress Activity or Context is null ");
             return;
         }
         if (dialogFragment != null) {
@@ -77,7 +79,7 @@ public class ProcessDialogListenerImpl implements ProcessDialogListener {
     public void onShowWarn(String message) {
 
         if (context == null || ((Activity) context).isDestroyed() || ((Activity) context).isFinishing()) {
-            Log.i("DialogActivity", "onShowWarn Activity or Context is null ");
+            Logger.d("onShowWarn Activity or Context is null ");
             return;
         }
                 if (warningDialog != null) {
@@ -98,7 +100,7 @@ public class ProcessDialogListenerImpl implements ProcessDialogListener {
     public void onUpdateMessage(String message) {
 
         if (context == null || ((Activity) context).isDestroyed() || ((Activity) context).isFinishing()) {
-            Log.i("DialogActivity", "onUpdateMessage Activity or Context is null ");
+            Logger.d("onUpdateMessage Activity or Context is null ");
             return;
         }
         if (processDialog != null) {
@@ -122,7 +124,7 @@ public class ProcessDialogListenerImpl implements ProcessDialogListener {
         }
 
         if (context == null || ((Activity) context).isDestroyed() || ((Activity) context).isFinishing()) {
-            Log.i("DialogActivity", "onShowResult Activity or Context is null ");
+            Logger.d("onShowResult Activity or Context is null ");
             return;
         }
 //        if (transResultAlertDialog != null) {
@@ -131,7 +133,7 @@ public class ProcessDialogListenerImpl implements ProcessDialogListener {
 //        }
 
         if (dialogFragment != null) {
-            Log.i("DialogActivity", "onShowResult dialogFragment dismiss");
+            Logger.d("onShowResult dialogFragment dismiss");
             dialogFragment.dismiss();
             processDialog = null;
             warningDialog = null;
@@ -142,7 +144,7 @@ public class ProcessDialogListenerImpl implements ProcessDialogListener {
         transResultAlertDialog.create();
         transResultAlertDialog.setCanceledOnTouchOutside(true);
 
-        Log.i("DialogActivity", "onShowResult Activity " + context);
+        Logger.d("onShowResult Activity " + context);
         dialogFragment = BaseDialogFragment.newInstance(context, cont -> transResultAlertDialog, dismissListener != null, dismissListener);
         dialogFragment.show(((FragmentActivity) context).getSupportFragmentManager(), context.toString());
     }

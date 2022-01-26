@@ -1,18 +1,21 @@
 package com.pax.pay.ui.def;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnKeyListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
 
 import com.pax.pay.ui.def.base.BaseAppActivity;
 import com.pax.pay.ui.def.base.ElectronicSignatureView;
@@ -21,6 +24,7 @@ import com.pax.us.pay.ui.component.utils.TickTimer;
 import com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType;
 import com.pax.us.pay.ui.core.helper.SignatureHelper;
 import com.pax.us.pay.ui.message.CurrencyConverter;
+import com.paxus.utils.log.Logger;
 
 import java.util.List;
 import java.util.Locale;
@@ -37,8 +41,6 @@ public class SignatureActivity extends BaseAppActivity implements SignatureHelpe
     ElectronicSignatureView mSignatureView;
     protected TickTimer tickTimer;
 
-    RelativeLayout writeUserName;
-
     Button clearBtn;
     Button confirmBtn;
     Button cancelBtn;
@@ -48,18 +50,35 @@ public class SignatureActivity extends BaseAppActivity implements SignatureHelpe
     private SignatureHelper helper;
     private boolean processing = false;
     private long timeOut = 0, leftTime = 0;
+    private AbortReceiver abortReceiver;
+    public static final String POSLINK_REQUEST_ACTION_ABORT_TRANSACTION = "com.pax.us.pay.poslink.request.ABORT_TRANSACTION";
+    public static final String POSLINK_REQUEST_ACTION_RESET = "com.pax.us.pay.poslink.request.RESET";
 
 
     private final OnKeyListener onkeyListener = (v, keyCode, event) -> {
-        if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_ENTER) {
-            confirmBtn.performClick();
-            return true;
+        if (event.getAction() == KeyEvent.ACTION_UP){
+            if (keyCode == KeyEvent.KEYCODE_ENTER) {
+                onConfirmClick();
+                return true;
+            } else if(keyCode == KeyEvent.KEYCODE_DEL){
+                onClearClick();
+                return true;
+            } else if(keyCode == KeyEvent.KEYCODE_BACK){
+                onCancelClick();
+                return true;
+            }
         }
+
         return false;
     };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(POSLINK_REQUEST_ACTION_ABORT_TRANSACTION);
+        filter.addAction(POSLINK_REQUEST_ACTION_RESET);
+        abortReceiver = new AbortReceiver();
+        registerReceiver(abortReceiver, filter);
         super.onCreate(savedInstanceState);
         createTimer();
         tickTimer.start(getTickTimeout());
@@ -90,7 +109,6 @@ public class SignatureActivity extends BaseAppActivity implements SignatureHelpe
         amountTv = findViewById(R.id.trans_amount_tv);
         amountPrompt = findViewById(R.id.trans_amount_prompt);
         amountLayout = findViewById(R.id.trans_amount_layout);
-        writeUserName = findViewById(R.id.writeUserNameSpace);
         clearBtn = findViewById(R.id.clear_btn);
         cancelBtn = findViewById(R.id.cancel_btn);
         confirmBtn = findViewById(R.id.confirm_btn);
@@ -98,6 +116,7 @@ public class SignatureActivity extends BaseAppActivity implements SignatureHelpe
         lineLayout1 = findViewById(R.id.message_layout_1);
         lineTv2 = findViewById(R.id.message_prompt_2);
         lineLayout2 = findViewById(R.id.message_layout_2);
+        mSignatureView = findViewById(R.id.signatureView);
         getTickTimeout();
         navTitle = getString(R.string.signature);
         displayAmount = 0;
@@ -108,12 +127,11 @@ public class SignatureActivity extends BaseAppActivity implements SignatureHelpe
 
     @Override
     protected void initViews() {
+        cancelBtn.setVisibility(View.GONE);
         amountLayout.setVisibility(View.INVISIBLE);
         confirmBtn.requestFocus();
         // 内置签名板
-        mSignatureView = new ElectronicSignatureView(SignatureActivity.this);
         mSignatureView.setBitmap(new Rect(0, 0, 384, 128), 0, Color.WHITE);
-        writeUserName.addView(mSignatureView);
         //deleteSignFile();
     }
 
@@ -129,6 +147,8 @@ public class SignatureActivity extends BaseAppActivity implements SignatureHelpe
         clearBtn.setOnClickListener(this);
         confirmBtn.setOnClickListener(this);
         mSignatureView.setOnKeyListener(onkeyListener);
+        mSignatureView.setFocusable(true);
+        mSignatureView.setFocusableInTouchMode(true);
 //        mSignatureView.setDataListener(new ElectronicSignatureView.DataRecordListener() {
 //            @Override
 //            public void onDown(short x, short y) {
@@ -163,55 +183,84 @@ public class SignatureActivity extends BaseAppActivity implements SignatureHelpe
     }
 
     @Override
-    protected boolean onKeyBackDown() {
-        tickTimerStop();
-        helper.sendAbort();
+    protected boolean onKeyEnterDown() {
+        onConfirmClick();
         return true;
+    }
+
+    @Override
+    protected boolean onKeyDelDown() {
+        onClearClick();
+        return true;
+    }
+
+    @Override
+    protected boolean onKeyBackDown() {
+        onCancelClick();
+        return true;
+    }
+
+    @Override
+    protected void onDestroy(){
+        if (abortReceiver != null)
+            unregisterReceiver(abortReceiver);
+        super.onDestroy();
     }
 
     @Override
     public void onClickProtected(View v) {
         int i = v.getId();
         if (i == R.id.clear_btn) {
-            if (isProcessing()) {
-                return;
-            }
-            setProcessFlag();
-            restartTimer();
-            mSignatureView.clear();
-            clearProcessFlag();
-
+          onClearClick();
         } else if (i == R.id.confirm_btn) {
-            if (isProcessing()) {
-                return;
-            }
-            if (!mSignatureView.getTouched()) {
-                //finish(new ActionResult(TransResult.SUCC, null));
-                return;
-            }
+           onConfirmClick();
+        } else if (i == R.id.cancel_btn) {
+            onCancelClick();
+        } else {
+        }
+    }
 
-            try {
-                confirmBtn.setClickable(false);
-                setProcessFlag();
+    private void onClearClick(){
+        if (isProcessing()) {
+            return;
+        }
+        setProcessFlag();
+        restartTimer();
+        mSignatureView.clear();
+        clearProcessFlag();
+    }
+
+    private void onConfirmClick(){
+        if (isProcessing()) {
+            return;
+        }
+        if (!mSignatureView.getTouched()) {
+            //finish(new ActionResult(TransResult.SUCC, null));
+            return;
+        }
+
+        try {
+            confirmBtn.setClickable(false);
+            setProcessFlag();
 //                Bitmap bitmap = mSignatureView.save(true, 1);
 //                byte[] data = saveSignFile(bitmap);
-                List<float[]> pathPos = mSignatureView.getPathPos();
-                int len = 0;
-                for (float[] ba : pathPos) {
-                    len += ba.length;
+            List<float[]> pathPos = mSignatureView.getPathPos();
+            int len = 0;
+            for (float[] ba : pathPos) {
+                len += ba.length;
+            }
+            short[] total = new short[len];
+            int index = 0;
+            for (float[] ba : pathPos) {
+                for (float b : ba) {
+                    total[index++] = (short) b;
                 }
-                short[] total = new short[len];
-                int index = 0;
-                for (float[] ba : pathPos) {
-                    for (float b : ba) {
-                        total[index++] = (short) b;
-                    }
-                }
+            }
 
 //              int length  = total.length;
 //              byte[] data = gl.getImgProcessing().bitmapToJbig(bitmap, rgb2MonoAlgo);//if anonymous impl, memory leak
 //
-                Log.i("SignatureActivity", "total Length = " + total.length);
+            Logger.d( "total Length = " + total.length);
 //                if (total.length > 4000) {
 //                    Toast.makeText(this, getResources().getString(R.string.pls_re_signature), Toast.LENGTH_LONG).show();
 //                    setProcessFlag();
@@ -219,18 +268,17 @@ public class SignatureActivity extends BaseAppActivity implements SignatureHelpe
 //                    clearProcessFlag();
 //                    return;
 //                }
-                clearProcessFlag();
-                tickTimerStop();
-                helper.sendNext(total);
-            } finally {
-                confirmBtn.setClickable(true);
-            }
-        } else if (i == R.id.cancel_btn) {
+            clearProcessFlag();
             tickTimerStop();
-            helper.sendAbort();
-
-        } else {
+            helper.sendNext(total);
+        } finally {
+            confirmBtn.setClickable(true);
         }
+    }
+
+    private void onCancelClick(){
+        tickTimerStop();
+        helper.sendAbort();
     }
 
     protected void timeOnTick(long leftTime) {
@@ -329,6 +377,20 @@ public class SignatureActivity extends BaseAppActivity implements SignatureHelpe
         if (!TextUtils.isEmpty(line2)){
             lineTv2.setText(line2);
             lineLayout2.setVisibility(View.VISIBLE);
+        }
+    }
+
+    private class AbortReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+//            Logger.d("AbortReceiver " + intent.getAction());
+            if (POSLINK_REQUEST_ACTION_ABORT_TRANSACTION.equals(intent.getAction())){
+                tickTimerStop();
+                if (helper!= null)
+                    helper.sendAbort();
+            }  else if (POSLINK_REQUEST_ACTION_RESET.equals(intent.getAction())){
+                finish();
+            }
         }
     }
 }

@@ -22,10 +22,10 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.pax.pay.ui.def.DialogActivity;
 import com.pax.us.pay.ui.component.activity.ActivityLifeCheck;
+import com.paxus.utils.log.Logger;
 
 public class FinishStatusReceiver extends BroadcastReceiver {
 
@@ -38,7 +38,7 @@ public class FinishStatusReceiver extends BroadcastReceiver {
         }
 
         if (!TextUtils.isEmpty(intent.getAction())) {
-            Log.i("StatusReceiver", "receive finish broadcast :" + intent.getAction());
+            Logger.d("receive finish broadcast :" + intent.getAction());
             DialogActivity.stop(context, intent);
         }
     }

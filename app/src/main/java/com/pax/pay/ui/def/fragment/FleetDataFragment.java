@@ -3,7 +3,9 @@ package com.pax.pay.ui.def.fragment;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+
+import androidx.fragment.app.Fragment;
+
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -19,9 +21,9 @@ import com.pax.pay.ui.def.EInputType;
 import com.pax.pay.ui.def.EditTextDataLimit;
 import com.pax.pay.ui.def.R;
 import com.pax.pay.ui.def.utils.EnterDataLineHelper;
-import com.pax.pay.ui.def.utils.LanguageConvertUtils;
 import com.pax.pay.ui.def.utils.RangeFilter;
 import com.pax.us.pay.ui.component.keyboard.CustomKeyboardEditText;
+import com.paxus.utils.LocaleUtils;
 import com.paxus.view.utils.ToastHelper;
 
 import java.util.List;
@@ -163,14 +165,7 @@ public class FleetDataFragment extends Fragment implements View.OnClickListener 
             if (!TextUtils.isEmpty(limit.lengthRange)) {
                 List<Integer> lengthList = RangeFilter.getLengthList(limit.lengthRange);
                 if (content != null && !lengthList.contains(content.length())) {
-                    //ToastHelper.showMessage(getActivity(), getString(R.string.notice_out_of_range, "length", limit.lengthRange));
-//                    String pro = getString(R.string.notice_out_of_range);
-//                    if (pro.contains("\n")){
-//                        ToastHelper.showMessage(getActivity(), getString(R.string.notice_out_of_range, getString(R.string.length_en), limit.lengthRange, getString(R.string.length_fr), limit.lengthRange));
-//                    }else {
-//                        ToastHelper.showMessage(getActivity(), getString(R.string.notice_out_of_range, getString(R.string.length), limit.lengthRange));
-//                    }
-                    String title = LanguageConvertUtils.convertString(getActivity(), R.string.notice_out_of_range, R.string.length, limit.lengthRange);
+                    String title = LocaleUtils.getString(getActivity(), R.string.notice_out_of_range, R.string.length, limit.lengthRange);
                     ToastHelper.showMessage(getActivity(), title);
                     return;
                 }

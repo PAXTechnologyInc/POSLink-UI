@@ -33,7 +33,9 @@ public class EnterDataLineHelper {
         }
 
         editText.setText("$0.00");
-        editText.setSelection(editText.getText().length());
+        if(editText.getText()!=null) {
+            editText.setSelection(editText.getText().length());
+        }
         editText.addTextChangedListener(watcher);
     }
 
@@ -43,7 +45,9 @@ public class EnterDataLineHelper {
         editText.setKeyboardId(R.xml.keyboard_numeric_confirm);
         editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(4 + 1)});
         editText.addTextChangedListener(new ExpDateWatcher());
-        editText.setSelection(editText.getText().length());
+        if(editText.getText()!=null) {
+            editText.setSelection(editText.getText().length());
+        }
     }
 
     public static void setEditTextDate(Context context, CustomKeyboardEditText editText) {
@@ -51,7 +55,9 @@ public class EnterDataLineHelper {
         editText.setKeyboardId(R.xml.keyboard_numeric_confirm);
         editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(editText.getHint().length())});
         editText.addTextChangedListener(new DateWatcher());
-        editText.setSelection(editText.getText().length());
+        if(editText.getText()!=null) {
+            editText.setSelection(editText.getText().length());
+        }
     }
 
     public static void setEditTextFormatDate(Context context,String format, CustomKeyboardEditText editText) {
@@ -59,7 +65,9 @@ public class EnterDataLineHelper {
         editText.setKeyboardId(R.xml.keyboard_numeric_confirm);
         editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(editText.getHint().length())});
         editText.addTextChangedListener(new DateWatcher1());
-        editText.setSelection(editText.getText().length());
+        if(editText.getText()!=null) {
+            editText.setSelection(editText.getText().length());
+        }
     }
 
     public static void setEditTextTime(Context context,String format, CustomKeyboardEditText editText) {
@@ -67,7 +75,9 @@ public class EnterDataLineHelper {
         editText.setKeyboardId(R.xml.keyboard_numeric_confirm);
         editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(editText.getHint().length())});
         editText.addTextChangedListener(new TimeWatcher());
-        editText.setSelection(editText.getText().length());
+        if(editText.getText()!=null) {
+            editText.setSelection(editText.getText().length());
+        }
     }
 
     public static void setEditTextPhone(Context context,CustomKeyboardEditText editText) {
@@ -75,7 +85,9 @@ public class EnterDataLineHelper {
         editText.setKeyboardId(R.xml.keyboard_numeric_confirm);
         editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(editText.getHint().length())});
         editText.addTextChangedListener(new PhoneWatcher());
-        editText.setSelection(editText.getText().length());
+        if(editText.getText()!=null) {
+            editText.setSelection(editText.getText().length());
+        }
     }
 
     public static void setEditTextSocialSecurity(Context context,CustomKeyboardEditText editText) {
@@ -83,7 +95,9 @@ public class EnterDataLineHelper {
         editText.setKeyboardId(R.xml.keyboard_numeric_confirm);
         editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(editText.getHint().length())});
         editText.addTextChangedListener(new SocialSecurityWatcher());
-        editText.setSelection(editText.getText().length());
+        if(editText.getText()!=null) {
+            editText.setSelection(editText.getText().length());
+        }
     }
 
     // 纯数字
@@ -101,7 +115,7 @@ public class EnterDataLineHelper {
             watcher = null;
         }
         editText.setText("");
-        editText.setSelection(editText.getText().length());
+        editText.setSelection(0);
     }
 
     public static void setEditTextAllText(Context context, CustomKeyboardEditText editText, EditTextDataLimit limit) {
@@ -110,7 +124,7 @@ public class EnterDataLineHelper {
         }
         editText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
         editText.setText("");
-        editText.setSelection(editText.getText().length());
+        editText.setSelection(0);
     }
 
     public static EnterAmountTextWatcher getWatcher() {

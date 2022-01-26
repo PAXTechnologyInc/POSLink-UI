@@ -4,9 +4,11 @@ import android.app.Dialog;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.text.TextUtils;
 import android.view.View;
 import android.view.WindowManager;
@@ -348,7 +350,7 @@ abstract class EnterAndOptionActivity<T> extends BaseAppActivity implements IMes
             dialog.setContent(limit != null ? limit.confirmPrompt : "");
             dialog.showConfirmButton(true);
             dialog.showCancelButton(true);
-            dialog.show();
+            DialogUtils.showDialog(this, dialog);
         });
     }
 

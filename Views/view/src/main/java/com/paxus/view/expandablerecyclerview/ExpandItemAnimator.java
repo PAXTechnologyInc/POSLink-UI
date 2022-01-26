@@ -17,14 +17,16 @@ package com.paxus.view.expandablerecyclerview;
 
 import android.animation.TimeInterpolator;
 import android.animation.ValueAnimator;
-import android.support.annotation.IdRes;
-import android.support.annotation.NonNull;
-import android.support.v4.view.ViewCompat;
-import android.support.v4.view.ViewPropertyAnimatorCompat;
-import android.support.v4.view.ViewPropertyAnimatorListener;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.RecyclerView.ViewHolder;
-import android.support.v7.widget.SimpleItemAnimator;
+
+import androidx.annotation.IdRes;
+import androidx.annotation.NonNull;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.ViewPropertyAnimatorCompat;
+import androidx.core.view.ViewPropertyAnimatorListener;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView.ViewHolder;
+import androidx.recyclerview.widget.SimpleItemAnimator;
+
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
@@ -44,24 +46,24 @@ import java.util.List;
 public class ExpandItemAnimator extends SimpleItemAnimator {
     private static final boolean DEBUG = false;
 
-    private final TimeInterpolator mDefaultInterpolator = new ValueAnimator().getInterpolator();
+    private TimeInterpolator mDefaultInterpolator = new ValueAnimator().getInterpolator();
 
-    private final ArrayList<ViewHolder> mPendingRemovals = new ArrayList<>();
-    private final ArrayList<ViewHolder> mPendingAdditions = new ArrayList<>();
-    private final ArrayList<MoveInfo> mPendingMoves = new ArrayList<>();
-    private final ArrayList<ChangeInfo> mPendingChanges = new ArrayList<>();
+    private ArrayList<ViewHolder> mPendingRemovals = new ArrayList<>();
+    private ArrayList<ViewHolder> mPendingAdditions = new ArrayList<>();
+    private ArrayList<MoveInfo> mPendingMoves = new ArrayList<>();
+    private ArrayList<ChangeInfo> mPendingChanges = new ArrayList<>();
 
-    private final ArrayList<ArrayList<ViewHolder>> mAdditionsList = new ArrayList<>();
-    private final ArrayList<ArrayList<MoveInfo>> mMovesList = new ArrayList<>();
-    private final ArrayList<ArrayList<ChangeInfo>> mChangesList = new ArrayList<>();
+    private ArrayList<ArrayList<ViewHolder>> mAdditionsList = new ArrayList<>();
+    private ArrayList<ArrayList<MoveInfo>> mMovesList = new ArrayList<>();
+    private ArrayList<ArrayList<ChangeInfo>> mChangesList = new ArrayList<>();
 
-    private final ArrayList<ViewHolder> mAddAnimations = new ArrayList<>();
-    private final ArrayList<ViewHolder> mMoveAnimations = new ArrayList<>();
-    private final ArrayList<ViewHolder> mRemoveAnimations = new ArrayList<>();
-    private final ArrayList<ViewHolder> mChangeAnimations = new ArrayList<>();
+    private ArrayList<ViewHolder> mAddAnimations = new ArrayList<>();
+    private ArrayList<ViewHolder> mMoveAnimations = new ArrayList<>();
+    private ArrayList<ViewHolder> mRemoveAnimations = new ArrayList<>();
+    private ArrayList<ViewHolder> mChangeAnimations = new ArrayList<>();
 
     @IdRes
-    private final int expandViewId;
+    private int expandViewId;
     private Animation expandAnimation = null;
     private Animation collapseAnimation = null;
 

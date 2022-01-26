@@ -17,8 +17,8 @@ public class FeeAlertDialog extends CustomAlertDialog {
     private String feeName;
     private long totalAmount;
     private long feeAmount;
-    private final String currency;
-    private final Context context;
+    private String currency;
+    private Context context;
 
     public FeeAlertDialog(Context context, String currency) {
         super(context, CUSTOM_TYPE);
@@ -29,7 +29,6 @@ public class FeeAlertDialog extends CustomAlertDialog {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        feeName = context.getString(R.string.service_fee);
         mTableContent = findViewById(R.id.custom_layout);
         View view = LayoutInflater.from(getContext()).inflate(R.layout.layout_fee_table, null);
         mTableContent.addView(view);
@@ -39,6 +38,9 @@ public class FeeAlertDialog extends CustomAlertDialog {
     }
 
     public void setTableContent(String feeName, long totalAmount, long feeAmount) {
+        if(feeName == null || feeName.isEmpty()){
+            feeName = context.getString(R.string.service_fee);
+        }
         this.feeName = feeName;
         this.totalAmount = totalAmount;
         this.feeAmount = feeAmount;

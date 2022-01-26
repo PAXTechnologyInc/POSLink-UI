@@ -99,6 +99,16 @@
             android:textColor="@color/primary_text_dark"
             android:textSize="@dimen/font_dialog_button"
             android:visibility="gone" />
+        <Button
+            android:id="@+id/bypass_button"
+            style="@style/PaxTheme.DialogButton"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_bg_light"
+            android:text="@string/dialog_bypass"
+            android:textColor="@color/primary_text_dark"
+            android:textSize="@dimen/font_dialog_button"
+            android:visibility="gone" />
     </LinearLayout>
 
 </LinearLayout>

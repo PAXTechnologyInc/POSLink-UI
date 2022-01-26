@@ -8,8 +8,10 @@
     <string name="notice_length_is_out_of_range_4" tools:ignore="PluralsCandidate">Ne peut pas dépasser %1$d chiffre(s)</string>
     <string name="notice_value_length_is_wrong">La longueur doit être %1$d</string>
     <string name="notice_percent_value_is_out_of_range">La valeur doit être en (%1$.3f-%2$.3f)%%</string>
+    <string name="notice_percent_value_is_out_of_range_2">La valeur doit être en (%1$s-%2$s)%%</string>
     <string name="img_desc" />
     <string name="dialog_cancel">Annuler</string>
     <string name="dialog_ok">D\'accord</string>
+    <string name="dialog_bypass">Contourne</string>
     <string name="processing">En cours de traitement, Veuillez patienter...</string>
 </resources>

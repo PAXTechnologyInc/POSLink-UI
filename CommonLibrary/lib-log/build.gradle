@@ -1,12 +1,21 @@
 apply plugin: 'com.android.library'
+if(rootProject.name != "BroadPOS-CommonLibrary") {
+    apply from: file('../gradle/version.gradle')
+
+    ext {
+        loadVersions('../version.properties')
+    }
+}
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion _compileSdkVersion.toInteger()
+
     defaultConfig {
-        minSdkVersion 22
-        targetSdkVersion 27
-        versionCode 11
-        versionName "1.00.13"
+        minSdkVersion _minSdkVersion.toInteger()
+        targetSdkVersion _targetSdkVersion.toInteger()
+
+        versionCode _androidModuleVersionCode.toInteger()
+        versionName GLOBAL_VERSION
     }
 
     compileOptions {
@@ -18,5 +27,9 @@ android {
 dependencies {
     implementation 'com.orhanobut:logger:2.2.0'
 
-    api "com.android.support:support-annotations:${_supportLibraryVersion}"
+    api "androidx.annotation:annotation:1.2.0"
+}
+
+if(rootProject.name == "BroadPOS-CommonLibrary") {
+    apply from: file('../gradle/publish.gradle')
 }

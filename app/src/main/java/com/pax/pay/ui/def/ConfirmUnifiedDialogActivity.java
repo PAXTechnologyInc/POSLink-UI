@@ -19,7 +19,9 @@
 package com.pax.pay.ui.def;
 
 import android.content.Intent;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.Nullable;
+
 import android.text.TextUtils;
 
 import com.pax.pay.ui.def.base.FinishRespStatusImpl;

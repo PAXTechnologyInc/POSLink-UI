@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,10 +12,11 @@
     <com.pax.pay.ui.def.view.ClssLightsView
         android:id="@+id/clssLight"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="@dimen/space_vertical"
-        android:layout_marginBottom="@dimen/space_vertical"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginBottom="@dimen/space_vertical_middle"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_weight="1"/>
 
 
     <LinearLayout
@@ -25,7 +26,8 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@id/btn_layout"
         app:layout_constraintTop_toBottomOf="@id/clssLight"
-        app:layout_constraintVertical_weight="3">
+        app:layout_constraintVertical_weight="3"
+        android:gravity="center_vertical">
 
         <!-- 显示金额 -->
         <LinearLayout
@@ -71,7 +73,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:inputType="number"
             android:textColor="@color/primary_text_light"
             android:enabled="false"
             android:textSize="@dimen/font_edit_text"
@@ -91,8 +92,9 @@
         android:id="@+id/btn_layout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/space_vertical"
-        android:layout_marginBottom="@dimen/space_vertical"
+        android:gravity="center_vertical"
+        android:paddingTop="@dimen/space_vertical_small"
+        android:paddingBottom="@dimen/space_vertical_small"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/supported_card_prompt"
         app:layout_constraintTop_toBottomOf="@id/account_edit"
@@ -125,8 +127,8 @@
         android:id="@+id/supported_card_prompt"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/space_vertical_small"
-        android:layout_marginBottom="@dimen/space_vertical_small"
+        android:paddingTop="@dimen/space_vertical"
+        android:paddingBottom="@dimen/space_vertical_small"
         app:layout_constraintTop_toBottomOf="@id/btn_layout"
         app:layout_constraintBottom_toTopOf="@+id/search_paylogo_layout"
         android:orientation="horizontal"
@@ -176,4 +178,4 @@
             android:src="@mipmap/tap"
             android:visibility="visible" />
     </LinearLayout>
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
