@@ -14,6 +14,7 @@ import com.pax.us.pay.ui.core.api.IMessageListener;
 import com.pax.us.pay.ui.core.api.IRespStatus;
 import com.pax.us.pay.ui.core.api.ITipNameListener;
 import com.pax.us.pay.ui.core.api.ITipOptionListener;
+import com.pax.us.pay.ui.core.api.ITipsListener;
 import com.pax.us.pay.ui.core.api.IUIListener;
 
 public class EnterTipHelper extends BaseActionHelper {
@@ -48,6 +49,17 @@ public class EnterTipHelper extends BaseActionHelper {
             ((ITipNameListener) uiListener).onShowTipName(bundle.getString(EntryExtraData.PARAM_TIP_NAME));
         }
 
+        if (uiListener instanceof ITipsListener && bundle.containsKey(EntryExtraData.PARAM_TIP_NAMES)) {
+            String [] names = bundle.getStringArray(EntryExtraData.PARAM_TIP_NAMES);
+            long [] tipAmounts = null;
+            if (bundle.containsKey(EntryExtraData.PARAM_TIP_AMOUNTS)) {
+                tipAmounts = bundle.getLongArray(EntryExtraData.PARAM_TIP_AMOUNTS);
+            }
+            if(names != null && names.length>0){
+                ((ITipsListener) uiListener).onShowTips(names, tipAmounts);
+            }
+        }
+
         if (uiListener instanceof ITipOptionListener && bundle.containsKey(EntryExtraData.PARAM_TIP_RATE_OPTIONS)) {
             rateOptions = bundle.getStringArray(EntryExtraData.PARAM_TIP_RATE_OPTIONS);
         }
@@ -69,7 +81,7 @@ public class EnterTipHelper extends BaseActionHelper {
         }
     }
 
-    public interface IEnterTipListener extends IMessageListener, ICurrencyListener, IAmountListener, ITipNameListener, ITipOptionListener {
+    public interface IEnterTipListener extends IMessageListener, ICurrencyListener, IAmountListener, ITipNameListener, ITipOptionListener, ITipsListener {
     }
 
 }

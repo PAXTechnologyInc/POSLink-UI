@@ -169,4 +169,9 @@ public class EnterTipActivity extends EnterAndOptionWithTwoStyleActivity<Long> i
             title = opt.replace(getString(R.string.tip_name_opt), tipName);
         return title;
     }
+
+    @Override
+    public void onShowTips(@NonNull String[] tipNames, @Nullable long[] tipAmounts) {
+
+    }
 }

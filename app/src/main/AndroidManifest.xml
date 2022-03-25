@@ -1397,21 +1397,21 @@
         </activity>
         <service android:name="com.pax.pay.ui.def.service.PlayerService"
             android:exported="true" />
-        <activity
-            android:name="com.pax.pay.ui.def.DisplayApproveMessageActivity"
-            android:autoRemoveFromRecents="true"
-            android:exported="true"
-            android:configChanges="orientation|screenSize"
+<!--        <activity-->
+<!--            android:name="com.pax.pay.ui.def.DisplayApproveMessageActivity"-->
+<!--            android:autoRemoveFromRecents="true"-->
+<!--            android:exported="true"-->
+<!--            android:configChanges="orientation|screenSize"-->
 
-            android:screenOrientation="nosensor"
-            android:theme="@style/PaxTheme.ActivityTranslucent">
-            <intent-filter>
-                <action android:name="com.pax.us.pay.action.DISPLAY_APPROVE_MESSAGE" />
+<!--            android:screenOrientation="nosensor"-->
+<!--            android:theme="@style/PaxTheme.ActivityTranslucent">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="com.pax.us.pay.action.DISPLAY_APPROVE_MESSAGE" />-->
 
-                <category android:name="com.pax.us.pay.ui.category.DETAILS" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+<!--                <category android:name="com.pax.us.pay.ui.category.DETAILS" />-->
+<!--                <category android:name="android.intent.category.DEFAULT" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
 
         <!-- Workaround: noHistory and autoRemoveFromRecents are required on M series cuz
              DialogActivity is shown from StatusReceiver with new task flag,
