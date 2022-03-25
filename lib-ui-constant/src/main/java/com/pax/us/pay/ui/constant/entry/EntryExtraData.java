@@ -101,6 +101,9 @@ public final class EntryExtraData {
     public static final String PARAM_TIP1 = "tip1";
     public static final String PARAM_TIP2 = "tip2";
     public static final String PARAM_TIP3 = "tip3";
+    public static final String PARAM_TIP_NAMES = "tipNames";
+    public static final String PARAM_TIP_AMOUNTS = "tipAmounts";
+
     public static final String PARAM_APPROVED_AMOUNT = "approvedAmount";
     public static final String PARAM_BASE_POINTS = "basePoints";
     public static final String PARAM_TOTAL_POINTS = "totalPoints";
