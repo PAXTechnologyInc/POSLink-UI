@@ -3,6 +3,7 @@ package com.pax.us.pay.ui.core.helper;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 
 import com.pax.us.pay.ui.constant.entry.EntryExtraData;
 import com.pax.us.pay.ui.constant.entry.EntryRequest;
@@ -57,11 +58,10 @@ public class EnterTipHelper extends BaseActionHelper {
                 if (null != strTipAmounts && strTipAmounts.length>0) {
                     tipAmounts = new long[strTipAmounts.length];
                     for (int i = 0; i < strTipAmounts.length; i++) {
-                        Long amt = Long.valueOf(strTipAmounts[i]);
-                        if(amt != null)
-                            tipAmounts[i] = amt;
-                        else
+                        if (TextUtils.isEmpty(strTipAmounts[i]))
                             tipAmounts[i] = 0;
+                        else
+                            tipAmounts[i] = Long.valueOf(strTipAmounts[i]);
                     }
                 }
             }
