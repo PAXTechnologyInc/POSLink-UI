@@ -55,6 +55,7 @@ public class EnterTipHelper extends BaseActionHelper {
             if (bundle.containsKey(EntryExtraData.PARAM_TIP_AMOUNTS)) {
                 String[] strTipAmounts = bundle.getStringArray(EntryExtraData.PARAM_TIP_AMOUNTS);
                 if (null != strTipAmounts && strTipAmounts.length>0) {
+                    tipAmounts = new long[strTipAmounts.length];
                     for (int i = 0; i < strTipAmounts.length; i++) {
                         Long amt = Long.valueOf(strTipAmounts[i]);
                         if(amt != null)
