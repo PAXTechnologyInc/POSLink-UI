@@ -12,7 +12,6 @@ public class SignatureEntry {
      * input: {@link EntryExtraData#PARAM_ENABLE_CANCEL} <br>
      * input: {@link EntryExtraData#PARAM_SIGNLINE1} <br>
      * input: {@link EntryExtraData#PARAM_SIGNLINE2} <br>
-     * input: {@link EntryExtraData#PARAM_ENABLE_CANCEL} <br>
      * request: {@link EntryRequest#PARAM_SIGNATURE} <br>
      */
     public static final String ACTION_SIGNATURE = "com.pax.us.pay.action.GET_SIGNATURE";
