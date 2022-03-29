@@ -47,6 +47,7 @@ public final class EntryExtraData {
     public static final String PARAM_MARGIN = "margin";
     public static final String PARAM_FOREIGN_AMOUNT_MESSAGE = "foreignAmountMessage";
     public static final String PARAM_CONFIRM_WITH_CURRENCY = "confirmWithCurrency";
+    public static final String PARAM_ENABLE_NO_TIP_SELECTION = "enableNoTipSelection";
 
     public static final String PARAM_INSTALLMENT_PAYMENT_AMOUNTS = "installmentPaymentAmounts";
     public static final String PARAM_INSTALLMENT_PAYMENT_TERMS_AND_CONDITIONS = "termsAndConditions";
