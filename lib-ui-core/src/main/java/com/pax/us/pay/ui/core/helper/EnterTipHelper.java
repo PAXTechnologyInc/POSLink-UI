@@ -12,6 +12,7 @@ import com.pax.us.pay.ui.core.BaseActionHelper;
 import com.pax.us.pay.ui.core.api.IAmountListener;
 import com.pax.us.pay.ui.core.api.ICurrencyListener;
 import com.pax.us.pay.ui.core.api.IMessageListener;
+import com.pax.us.pay.ui.core.api.INoTipSelectionListener;
 import com.pax.us.pay.ui.core.api.IRespStatus;
 import com.pax.us.pay.ui.core.api.ITipNameListener;
 import com.pax.us.pay.ui.core.api.ITipOptionListener;
@@ -89,9 +90,13 @@ public class EnterTipHelper extends BaseActionHelper {
                 ((ITipOptionListener) uiListener).onShowTipOptions(options, null);
             }
         }
+
+        if (uiListener instanceof INoTipSelectionListener && bundle.containsKey(EntryExtraData.PARAM_ENABLE_NO_TIP_SELECTION)) {
+            ((INoTipSelectionListener) uiListener).onShowEnableNoTipSelection(bundle.getBoolean(EntryExtraData.PARAM_ENABLE_NO_TIP_SELECTION, false));
+        }
     }
 
-    public interface IEnterTipListener extends IMessageListener, ICurrencyListener, IAmountListener, ITipNameListener, ITipOptionListener, ITipsListener {
+    public interface IEnterTipListener extends IMessageListener, ICurrencyListener, IAmountListener, ITipNameListener, ITipOptionListener, ITipsListener,INoTipSelectionListener {
     }
 
 }

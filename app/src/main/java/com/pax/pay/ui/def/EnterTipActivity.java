@@ -158,4 +158,9 @@ public class EnterTipActivity extends EnterAndOptionWithTwoStyleActivity<Long> i
     public void onShowTips(@NonNull String[] tipNames, @Nullable long[] tipAmounts) {
 
     }
+
+    @Override
+    public void onShowEnableNoTipSelection(boolean enableCancel) {
+
+    }
 }
