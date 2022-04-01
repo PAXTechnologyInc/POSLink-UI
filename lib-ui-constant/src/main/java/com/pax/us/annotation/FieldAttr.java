@@ -7,6 +7,6 @@ import java.lang.annotation.RetentionPolicy;
  * Created by Kim.L 4/1/22
  */
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Field {
+public @interface FieldAttr {
     Class<?> type();
 }

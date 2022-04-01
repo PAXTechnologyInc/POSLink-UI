@@ -1,6 +1,6 @@
 package com.pax.us.pay.ui.constant.entry;
 
-import com.pax.us.annotation.Field;
+import com.pax.us.annotation.FieldAttr;
 
 public class EntryRequest {
 
@@ -62,181 +62,181 @@ public class EntryRequest {
      * PARAM_ACTION: request parameter current action for BroadPOS <br>
      * value type: String <br>
      */
-    @Field(type = String.class)
+    @FieldAttr(type = String.class)
     public static final String PARAM_ACTION = "action";
 
     /**
      * PARAM_AMOUNT : request parameter amount <br>
      * value type: long <br>
      */
-    @Field(type = Long.class)
+    @FieldAttr(type = Long.class)
     public static final String PARAM_AMOUNT = "amount";
 
     /**
      * PARAM_TOTAL_AMOUNT : request parameter total amount <br>
      * value type: long <br>
      */
-    @Field(type = Long.class)
+    @FieldAttr(type = Long.class)
     public static final String PARAM_TOTAL_AMOUNT = "totalAmount";
     /**
      * PARAM_TIP : request parameter tip amount <br>
      * value type: long <br>
      */
-    @Field(type = Long.class)
+    @FieldAttr(type = Long.class)
     public static final String PARAM_TIP = "tip";
     /**
      * PARAM_ZIP_CODE : request parameter zip code <br>
      * value type: String <br>
      */
-    @Field(type = String.class)
+    @FieldAttr(type = String.class)
     public static final String PARAM_ZIP_CODE = "zipCode";
     /**
      * PARAM_TRANS_NUMBER : request parameter transaction number <br>
      * value type: long <br>
      */
-    @Field(type = Long.class)
+    @FieldAttr(type = Long.class)
     public static final String PARAM_TRANS_NUMBER = "transNumber";
     /**
      * PARAM_EXPIRY_DATE : request parameter card expiry date <br>
      * value type: String <br>
      * format: MMYY <br>
      */
-    @Field(type = String.class)
+    @FieldAttr(type = String.class)
     public static final String PARAM_EXPIRY_DATE = "expiryDate";
     /**
      * PARAM_ORIG_DATE : request parameter original transaction date <br>
      * value type: String <br>
      * format:   <br>   ?????????????????
      */
-    @Field(type = String.class)
+    @FieldAttr(type = String.class)
     public static final String PARAM_ORIG_DATE = "origTransDate";
     /**
      * PARAM_ADDRESS : request parameter address <br>
      * value type: String <br>
      */
-    @Field(type = String.class)
+    @FieldAttr(type = String.class)
     public static final String PARAM_ADDRESS = "address";
     /**
      * PARAM_SIGNATURE : request parameter trace data of signature <br>
      * value type: short[] <br>
      */
     public static final String PARAM_SIGNATURE = "signature";
-    @Field(type = String.class)
+    @FieldAttr(type = String.class)
     public static final String PARAM_VOUCHER_NUMBER = "voucherNumber";
-    @Field(type = String.class)
+    @FieldAttr(type = String.class)
     public static final String PARAM_AUTH_CODE = "authCode";
-    @Field(type = Long.class)
+    @FieldAttr(type = Long.class)
     public static final String PARAM_HEALTH_CARE_AMOUNT = "healthCareAmount";
-    @Field(type = Long.class)
+    @FieldAttr(type = Long.class)
     public static final String PARAM_CLINIC_AMOUNT = "clinicAmount";
-    @Field(type = Long.class)
+    @FieldAttr(type = Long.class)
     public static final String PARAM_PRESCRIPTION_AMOUNT = "prescriptionAmount";
-    @Field(type = Long.class)
+    @FieldAttr(type = Long.class)
     public static final String PARAM_VISION_AMOUNT = "visionAmount";
-    @Field(type = Long.class)
+    @FieldAttr(type = Long.class)
     public static final String PARAM_DENTAL_AMOUNT = "dentalAmount";
-    @Field(type = Long.class)
+    @FieldAttr(type = Long.class)
     public static final String PARAM_COPAY_AMOUNT = "copayAmount";
-    @Field(type = Long.class)
+    @FieldAttr(type = Long.class)
     public static final String PARAM_OTC_AMOUNT = "otcAmount";
-    @Field(type = Long.class)
+    @FieldAttr(type = Long.class)
     public static final String PARAM_TRANSIT_AMOUNT = "transitAmount";
     /**
      * @see com.pax.us.pay.ui.constant.entry.enumeration.FSAType
      */
-    @Field(type = String.class)
+    @FieldAttr(type = String.class)
     public static final String PARAM_FSA_OPTION = "fsaOption";
-    @Field(type = Long.class)
+    @FieldAttr(type = Long.class)
     public static final String PARAM_CASHBACK_AMOUNT = "cashbackAmount";
-    @Field(type = Long.class)
+    @FieldAttr(type = Long.class)
     public static final String PARAM_FUEL_AMOUNT = "fuelAmount";
-    @Field(type = long.class)
+    @FieldAttr(type = long.class)
     public static final String PARAM_TAX_AMOUNT = "taxAmount";
-    @Field(type = String.class)
+    @FieldAttr(type = String.class)
     public static final String PARAM_MERCHANT_REFERENCE_NUMBER = "merchantReferenceNumber";
-    @Field(type = String.class)
+    @FieldAttr(type = String.class)
     public static final String PARAM_REFERENCE_NUMBER = "referenceNumber";
-    @Field(type = String.class)
+    @FieldAttr(type = String.class)
     public static final String PARAM_INVOICE_NUMBER = "invoiceNumber";
-    @Field(type = String.class)
+    @FieldAttr(type = String.class)
     public static final String PARAM_CLERK_ID = "clerkId";
-    @Field(type = String.class)
+    @FieldAttr(type = String.class)
     public static final String PARAM_SERVER_ID = "serverId";
-    @Field(type = String.class)
+    @FieldAttr(type = String.class)
     public static final String PARAM_TABLE_NUMBER = "tableNumber";
-    @Field(type = String.class)
+    @FieldAttr(type = String.class)
     public static final String PARAM_PHONE_NUMBER = "phoneNumber";
-    @Field(type = String.class)
+    @FieldAttr(type = String.class)
     public static final String PARAM_GUEST_NUMBER = "guestNumber";
-    @Field(type = String.class)
+    @FieldAttr(type = String.class)
     public static final String PARAM_ORDER_NUMBER = "orderNumber";
-    @Field(type = String.class)
+    @FieldAttr(type = String.class)
     public static final String PARAM_PO_NUMBER = "PONumber";
-    @Field(type = String.class)
+    @FieldAttr(type = String.class)
     public static final String PARAM_PROC_DESC = "prodDesc";
-    @Field(type = String.class)
+    @FieldAttr(type = String.class)
     public static final String PARAM_MERCHANT_TAX_ID = "merchantTaxID";
     public static final String PARAM_CS_PHONE_NUMBER = "customerServicePhoneNumber";
-    @Field(type = String.class)
+    @FieldAttr(type = String.class)
     public static final String PARAM_OCT_REFERENCE_NUMBER = "octReferenceNumber";
-    @Field(type = String.class)
+    @FieldAttr(type = String.class)
     public static final String PARAM_CUSTOMER_CODE = "customerCode";
-    @Field(type = String.class)
+    @FieldAttr(type = String.class)
     public static final String PARAM_PROMPT_RESTRICTION_CODE = "promptRestrictionCode";
     
-    @Field(type = String.class)
+    @FieldAttr(type = String.class)
     public static final String PARAM_FLEET_CUSTOMER_DATA = "fleetCustomerData";
-    @Field(type = String.class)
+    @FieldAttr(type = String.class)
     public static final String PARAM_FLEET_DEPARTMENT_NUMBER = "fleetDepartmentNumber";
-    @Field(type = String.class)
+    @FieldAttr(type = String.class)
     public static final String PARAM_FLEET_USER_ID = "fleetUserId";
-    @Field(type = String.class)
+    @FieldAttr(type = String.class)
     public static final String PARAM_FLEET_VEHICLE_ID = "fleetVehicleId";
-    @Field(type = String.class)
+    @FieldAttr(type = String.class)
     public static final String PARAM_FLEET_VEHICLE_NUMBER = "fleetVehicleNumber";
-    @Field(type = String.class)
+    @FieldAttr(type = String.class)
     public static final String PARAM_FLEET_JOB_NUMBER = "fleetJobNumber";
-    @Field(type = String.class)
+    @FieldAttr(type = String.class)
     public static final String PARAM_FLEET_ODOMETER = "fleetOdometer";
-    @Field(type = String.class)
+    @FieldAttr(type = String.class)
     public static final String PARAM_FLEET_DRIVER_ID = "fleetDriverId";
-    @Field(type = String.class)
+    @FieldAttr(type = String.class)
     public static final String PARAM_FLEET_LICENSE_NUMBER = "fleetLicenseNumber";
 
     /**
      * PARAM_DEST_ZIP_CODE : request parameter destination zip code <br>
      * value type: String <br>
      */
-    @Field(type = String.class)
+    @FieldAttr(type = String.class)
     public static final String PARAM_DEST_ZIP_CODE = "destinationZipCode";
 
     /**
      * PARAM_DO_NOT_PROMPT_AGAIN : request parameter prompt again <br>
      * value type: Boolean <br>
      */
-    @Field(type = boolean.class)
+    @FieldAttr(type = boolean.class)
     public static final String PARAM_DO_NOT_PROMPT_AGAIN = "doNotPromptAgain";
 
     //POSLINK
-    @Field(type = String.class)
+    @FieldAttr(type = String.class)
     public static final String PARAM_INPUT_VALUE = "inputValue";
     /**
      * FIXME String but need to be int array
      */
-    @Field(type = String.class)
+    @FieldAttr(type = String.class)
     public static final String PARAM_LABEL_SELECTED = "labelSelected";
     /**
      * FIXME String but need to be long
      */
-    @Field(type = String.class)
+    @FieldAttr(type = String.class)
     public static final String PARAM_BUTTON_NUMBER = "buttonNumber";
-    @Field(type = String.class)
+    @FieldAttr(type = String.class)
     public static final String PARAM_SIGN_STATUS = "signStatus";
 
     public static final String PARAM_VALUE = "value";
-    @Field(type = int.class)
+    @FieldAttr(type = int.class)
     public static final String PARAM_INDEX = "index";
-    @Field(type = boolean.class)
+    @FieldAttr(type = boolean.class)
     public static final String PARAM_CONFIRMED = "confirmed";
     public static final String PARAM_X = "x";
     public static final String PARAM_Y = "y";
@@ -247,9 +247,9 @@ public class EntryRequest {
     //Visa Installment
     @Deprecated
     public static final String PARAM_INSTALLMENT_SELECT_OPTION = "installmentSelectOption";
-    @Field(type = String.class)
+    @FieldAttr(type = String.class)
     public static final String PARAM_VISA_TRANSID = "visaTransID";
-    @Field(type = String.class)
+    @FieldAttr(type = String.class)
     public static final String PARAM_VISA_PLAN_ACCEPTANCE_ID = "visaPlanAcceptanceID";
 
     /**
