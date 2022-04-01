@@ -243,7 +243,7 @@ public class OptionEntry {
      * input: {@link EntryExtraData#PARAM_INSTALLMENT_PAYMENT_TOTAL_AMOUNT_INCLUSIVE_FEES} String Array<br>
      * input: {@link EntryExtraData#PARAM_INSTALLMENT_PAYMENT_PLAN_ID} String Array<br>
      * input: {@link EntryExtraData#PARAM_CURRENCY} String Array<br>
-     * request: {@link EntryRequest#PARAM_INSTALLMENT_SELECT_OPTION} <br>
+     * request: {@link EntryRequest#PARAM_INDEX} <br>
      */
     public static final String ACTION_SELECT_INSTALLMENT_PLAN = "com.pax.us.pay.action.SELECT_INSTALLMENT_PLAN";
 

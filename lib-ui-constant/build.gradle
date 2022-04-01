@@ -12,6 +12,7 @@ group=_groupId
 version=GLOBAL_VERSION
 
 dependencies {
+    compileOnly 'com.fasterxml.jackson.core:jackson-annotations:2.9.5'
 }
 
 sourceCompatibility = "7"
