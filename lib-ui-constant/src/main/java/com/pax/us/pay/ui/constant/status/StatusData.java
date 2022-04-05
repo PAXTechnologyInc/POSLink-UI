@@ -20,4 +20,6 @@ public final class StatusData {
     public static final String PARAM_UPLOAD_CURRENT_PERCENT = "uploadCurrentPercent";
     public static final String PARAM_DISPLAY_VISA_INSTALLMENT_APPROVAL = "displayVisaInstallmentApproval";
 
+    public static final String PARAM_DISPLAY_VISA_INSTALLMENT_APPROVAL = "displayVisaInstallmentApproval";
+
 }

@@ -15,8 +15,6 @@ import com.paxus.utils.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class EnterTipActivity extends EnterAndOptionWithTwoStyleActivity<Long> implements EnterTipHelper.IEnterTipListener {
     private EnterTipHelper helper;
@@ -30,7 +28,7 @@ public class EnterTipActivity extends EnterAndOptionWithTwoStyleActivity<Long> i
     protected void loadOtherParam() {
         //setCurrencyName(CurrencyType.USD);
         setAmountOption(null, null, null);
-        setDialogTitle(getString(R.string.prompt_select_tip));
+        setTitleName(getString(R.string.tip_name_opt));
         // Arvind: ANBP-702
         Long amountUnit = getIntent().getExtras().getLong(EntryExtraData.PARAM_AMOUNT_UNIT);
         if (amountUnit == 0) {
@@ -134,9 +132,16 @@ public class EnterTipActivity extends EnterAndOptionWithTwoStyleActivity<Long> i
 
     @Override
     public void onShowTipName(@Nullable String tipName) {
-        if (tipName!=null && !tipName.isEmpty()) {
+        if (!TextUtils.isEmpty(tipName)) {
             EditTextDataLimit limit;
-            String title = getTipPrompt(getString(R.string.prompt_input_tip),tipName);
+            String opt = getString(R.string.prompt_input_tip);
+            String title;
+            if (opt.contains(" \\ ")) {
+                String[] tips = tipName.replace(" \\ ", "\\").split("\\\\");
+                title = opt.replace(getString(R.string.tip_name_en), tips[0]);
+                title = title.replace(getString(R.string.tip_name_fr), tips[1]);
+            } else
+                title = opt.replace(getString(R.string.tip_name_opt), tipName);
             if (!TextUtils.isEmpty(lengthRange)) {
                 limit = new EditTextDataLimit(title,
                         "", lengthRange, EInputType.AMOUNT, false);
@@ -144,34 +149,17 @@ public class EnterTipActivity extends EnterAndOptionWithTwoStyleActivity<Long> i
                 limit = new EditTextDataLimit(title,
                         "", min, max, EInputType.AMOUNT, false);
             }
-            setDialogTitle(getTipPrompt(getString(R.string.prompt_select_tip),tipName));
-            setEditTextDataLimit(limit);
+            setTipName(tipName, limit);
         }
-    }
-
-    private String getTipPrompt(String opt,String tipName){
-        String title = opt;
-        if (opt.contains(" \\ ")) {
-            if(tipName.contains(" \\ ")) {
-                String[] tips = tipName.split(" \\ ");
-                title = opt.replace(getString(R.string.tip_name_en), tips[0]);
-                title = title.replace(getString(R.string.tip_name_fr), tips[1]);
-            }else {
-                Pattern pattern = Pattern.compile("\\d");
-                Matcher m = pattern.matcher(tipName);
-                if(m.find()){
-                    String number = m.group(0);
-                    title = opt.replace(getString(R.string.tip_name_en), getString(R.string.tip_name_en)+number);
-                    title = title.replace(getString(R.string.tip_name_fr), getString(R.string.tip_name_fr)+number);
-                }
-            }
-        } else
-            title = opt.replace(getString(R.string.tip_name_opt), tipName);
-        return title;
     }
 
     @Override
     public void onShowTips(@NonNull String[] tipNames, @Nullable long[] tipAmounts) {
+
+    }
+
+    @Override
+    public void onShowEnableNoTipSelection(boolean enableCancel) {
 
     }
 }

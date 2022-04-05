@@ -33,14 +33,13 @@ import com.paxus.view.BaseAppCompatActivity;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-public class DisplayApproveMessageActivity extends BaseAppCompatActivity implements DisplayApproveMessageHelper.IDisplayApproveMessageListener {
+public class DisplayApproveMessageActivity extends AppCompatActivity implements DisplayApproveMessageHelper.IDisplayApproveMessageListener {
 
     ImageView imageView;
     private DisplayApproveMessageHelper helper;
     private boolean needDisplay = false;
     private boolean needPlayAnimation = true;
     private boolean needPlaySound = true;
-    private String soundApproval = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,12 +47,13 @@ public class DisplayApproveMessageActivity extends BaseAppCompatActivity impleme
         if (needDisplay) {
             setContentView(R.layout.activity_display_approve_message_default);
             Resources res = getResources();
-            Drawable drawable = ResourcesCompat.getDrawable(res, R.drawable.bkcolor, null);
+            Drawable drawable = res.getDrawable(R.drawable.bkcolor);
             this.getWindow().setBackgroundDrawable(drawable);
         } else {
             setContentView(R.layout.activity_custom);
         }
 
+        //EventBusUtil.doEvent(new ActivityEndEvent());
         EventBusUtil.register(this);
 
 
@@ -87,20 +87,14 @@ public class DisplayApproveMessageActivity extends BaseAppCompatActivity impleme
 
     @Override
     public void setTheme(int resid) {
-        Bundle bundle = getIntent().getExtras();
-        needPlayAnimation = false;
-        needPlaySound = false;
-        soundApproval = "";
-        String cardType = "";
-        if(bundle != null) {
-            needPlayAnimation = bundle.getBoolean(EntryExtraData.PARAM_ANIMATION_SUPPORT,false);
-            needPlaySound = bundle.getBoolean(EntryExtraData.PARAM_SOUND_SUPPORT,false);
-            soundApproval = bundle.getString(EntryExtraData.PARAM_SOUND_URI,"");
-            cardType = bundle.getString(EntryExtraData.PARAM_CARD_TYPE,"");
-        }
-        Logger.d("needPlayAnimation : " + needPlayAnimation + " needPlaySound : " + needPlaySound);
-        if (needPlayAnimation) {
-            if (!StringUtils.isEmpty(cardType)) {
+        if (getIntent().getExtras().containsKey(EntryExtraData.PARAM_ANIMATION_SUPPORT))
+            needPlayAnimation = getIntent().getExtras().getBoolean(EntryExtraData.PARAM_ANIMATION_SUPPORT);
+        if (getIntent().getExtras().containsKey(EntryExtraData.PARAM_SOUND_SUPPORT))
+            needPlaySound = getIntent().getExtras().getBoolean(EntryExtraData.PARAM_SOUND_SUPPORT);
+        Logger.i("needPlayAnimation : " + needPlayAnimation + " needPlaySound : " + needPlaySound);
+        if (getIntent().getExtras().containsKey(EntryExtraData.PARAM_CARD_TYPE) && needPlayAnimation) {
+            String cardType = getIntent().getExtras().getString(EntryExtraData.PARAM_CARD_TYPE);
+            if (!TextUtils.isEmpty(cardType)) {
                 if (CardType.VISA.equals(cardType)) {
                     needDisplay = true;
                     super.setTheme(R.style.AppTheme_NoActionBar);
@@ -111,6 +105,27 @@ public class DisplayApproveMessageActivity extends BaseAppCompatActivity impleme
         needDisplay = false;
         super.setTheme(resid);
     }
+
+//        @Override
+//    protected void setListeners() {
+//
+//    }
+
+//    @Override
+//    protected void initViews() {
+//        enableBack(false);
+//    }
+//
+//    @Override
+//    protected void loadParam() {
+//        imageView = findViewById(R.id.cardimageview);
+//        helper = new DisplayApproveMessageHelper(this, new RespStatusImpl(this));
+//    }
+//
+//    @Override
+//    protected int getLayoutId() {
+//        return R.layout.activity_display_approve_message_default;
+//    }
 
     @Override
     protected void onStart() {
@@ -149,7 +164,7 @@ public class DisplayApproveMessageActivity extends BaseAppCompatActivity impleme
 
     @Override
     public void onShowCardType(@NonNull String cardType) {
-        if (StringUtils.isEmpty(cardType)) {
+        if (TextUtils.isEmpty(cardType)) {
             helper.sendAbort();
         } else {
             Logger.d("CardType : " + cardType);
@@ -157,33 +172,37 @@ public class DisplayApproveMessageActivity extends BaseAppCompatActivity impleme
                 showVisaAmimation();
             } else {
                 needPlayAnimation = false;
-                if (needPlaySound) {
-                    if(!StringUtils.isEmpty(soundApproval)){
-                        playSound(soundApproval);
-                    }else {
-                        playSound(R.raw.boba);
-                    }
-                }
+                if (needPlaySound)
+                    playSound(R.raw.boba);
             }
         }
     }
 
+//    @Override
+//    public void onShowCardType(@NonNull String cardType) {
+//        if (TextUtils.isEmpty(cardType)) {
+//            helper.sendAbort();
+//        } else {
+//            Logger.i("CardType : " + cardType);
+//            if (CardType.VISA.equals(cardType)) {
+//                showVisaAmimation();
+//            } else {
+//                needPlayAnimation = false;
+//                if (needPlaySound)
+//                    playSound(R.raw.boba);
+//            }
+//        }
+//    }
+
     private void playSound(int resourcesId) {
         //Fix ANFDRC-977
         Intent intent = new Intent(this, PlayerService.class);
-        intent.putExtra(PlayerService.PARAM_RESOURCE_ID, resourcesId);
-        startService(intent);
-        if (!needPlayAnimation) {
-            helper.sendNext(true);
+        intent.putExtra(PlayerService.PARAM_RESOURCE_ID,resourcesId);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            startForegroundService(intent);
+        } else {
+            startService(intent);
         }
-    }
-
-    private void playSound(String soundUri) {
-        //Fix ANFDRC-977
-        Intent intent = new Intent(this, PlayerService.class);
-        intent.putExtra(PlayerService.PARAM_APPROVAL_SOUND,soundUri);
-        startService(intent);
-
         if (!needPlayAnimation) {
             helper.sendNext(true);
         }
