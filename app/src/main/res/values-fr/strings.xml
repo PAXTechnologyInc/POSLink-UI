@@ -245,6 +245,8 @@
     <string name="dialog_yes">OUI</string>
     <string name="dialog_accept">J\'accepte</string>
 
+    <string name="sale_amt">Vente</string>
+    <string name="tip_amount">Montant du pourboire:</string>
     <string name="other_amount">Autres</string>
     <string name="no_tip">Aucun conseil</string>
 

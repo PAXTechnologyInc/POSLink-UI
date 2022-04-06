@@ -7,6 +7,8 @@ import android.text.InputType;
 import com.pax.pay.ui.def.EditTextDataLimit;
 import com.pax.pay.ui.def.R;
 import com.pax.us.pay.ui.component.keyboard.CustomKeyboardEditText;
+import com.paxus.utils.CurrencyCode;
+import com.paxus.utils.CurrencyConverter;
 
 /**
  * Created by Kim.L on 2018/8/16.
@@ -33,6 +35,31 @@ public class EnterDataLineHelper {
         }
 
         editText.setText("$0.00");
+        if(editText.getText()!=null) {
+            editText.setSelection(editText.getText().length());
+        }
+        editText.addTextChangedListener(watcher);
+    }
+
+    public static void setEditTextAmount(CustomKeyboardEditText editText, final EditTextDataLimit limit, CurrencyCode currencyCode) {
+        editText.setKeyboardId(R.xml.keyboard_numeric_confirm);
+
+        //remove the watcher for the Number Text type, if watch already be set by the previous screen
+        if (watcher != null) {
+            editText.removeTextChangedListener(watcher);
+            //Log.i("Watch", "setEditTextAmount removeTextChangedListener watcher");
+            watcher = null;
+        }
+
+        watcher = new EnterAmountTextWatcher(limit.maxLen);
+        if (limit.maxValue != 0) {
+            watcher.setMaxValue(limit.maxValue);
+        }
+        if (limit.maxLen > 0 && limit.maxValue == 0) {
+            limit.maxValue = (long) Math.pow(10, limit.maxLen) - 1;
+        }
+
+        editText.setText(CurrencyConverter.convert(0,"",currencyCode.getCurrencyName()));
         if(editText.getText()!=null) {
             editText.setSelection(editText.getText().length());
         }

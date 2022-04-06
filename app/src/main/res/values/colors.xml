@@ -2,6 +2,9 @@
 <resources>
     <color name="transparent">#F000</color>
     <color name="background_expand">#F5F5F5</color>  <!-- whitesmoke -->
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="tip_background">#DDDDDD</color>
 
     <color name="clss_blue">@color/primary</color>
     <color name="clss_yellow">#C5C53F</color>
@@ -15,4 +18,11 @@
     <color name="visa_display_plans_font_color_01">#000000</color>
     <color name="visa_display_plans_font_color_02">#444444</color>
     <color name="visa_display_plan_font_color_03">#f8f8ff</color>
+
+    <!-- For new cashback and tip UI -->
+    <color name="cashback_blue">#10348c</color>
+    <color name="cashback_gray">#eaefee</color>
+    <color name="cashback_dark_text">#10348c</color>
+    <color name="cashback_light_text">#ffffff</color>
+    <color name="prompt_text_color">#858585</color>
 </resources>

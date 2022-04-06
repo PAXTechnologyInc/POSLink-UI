@@ -250,6 +250,8 @@
     <string name="dialog_yes">YES \\ OUI</string>
     <string name="dialog_accept">Accept \\ J\'accepte</string>
 
+    <string name="sale_amt">Sale \\ Vente</string>
+    <string name="tip_amount">Tip Amount\\Montant du pourboire:</string>
     <string name="other_amount">Others \\ Autres</string>
     <string name="no_tip">No Tip \\ Aucun conseil</string>
 

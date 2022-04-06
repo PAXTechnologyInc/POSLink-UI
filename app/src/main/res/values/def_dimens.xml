@@ -5,4 +5,11 @@
     <dimen name="merchant_item_icon_height">36dp</dimen>
     <dimen name="merchant_item_icon_margin_top">24dp</dimen>
     <dimen name="merchant_item_text_margin">16dp</dimen>
+
+    <!-- Enter Tip Size -->
+    <dimen name="tip_space_small">4dp</dimen>
+    <dimen name="tip_space_normal">6dp</dimen>
+    <dimen name="tip_width_big">200dp</dimen>
+    <dimen name="tip_height_big">120dp</dimen>
+    <dimen name="tip_option_height">80dp</dimen>
 </resources>

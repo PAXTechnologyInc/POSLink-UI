@@ -3,11 +3,13 @@ package com.pax.pay.ui.def;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.WindowManager;
 import android.widget.ImageView;

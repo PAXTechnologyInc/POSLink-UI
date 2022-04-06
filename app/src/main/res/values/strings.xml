@@ -252,6 +252,8 @@
     <string name="dialog_yes">YES</string>
     <string name="dialog_accept">Accept</string>
 
+    <string name="sale_amt">Sale</string>
+    <string name="tip_amount">Tip Amount:</string>
     <string name="other_amount">Others</string>
     <string name="no_tip">No Tip</string>
 
