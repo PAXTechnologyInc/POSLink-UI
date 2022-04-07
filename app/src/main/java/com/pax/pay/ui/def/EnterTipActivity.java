@@ -5,6 +5,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
+
+
 import com.pax.pay.ui.def.base.RespStatusImpl;
 import com.pax.us.pay.ui.constant.entry.EntryExtraData;
 import com.pax.us.pay.ui.constant.entry.enumeration.UnitType;
@@ -150,5 +152,15 @@ public class EnterTipActivity extends EnterAndOptionWithTwoStyleActivity<Long> i
             }
             setTipName(tipName, limit);
         }
+    }
+
+    @Override
+    public void onShowTips(@NonNull String[] tipNames, @Nullable long[] tipAmounts) {
+
+    }
+
+    @Override
+    public void onShowEnableNoTipSelection(boolean enableCancel) {
+
     }
 }

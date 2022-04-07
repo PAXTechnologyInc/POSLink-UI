@@ -47,6 +47,7 @@ public final class EntryExtraData {
     public static final String PARAM_MARGIN = "margin";
     public static final String PARAM_FOREIGN_AMOUNT_MESSAGE = "foreignAmountMessage";
     public static final String PARAM_CONFIRM_WITH_CURRENCY = "confirmWithCurrency";
+    public static final String PARAM_ENABLE_NO_TIP_SELECTION = "enableNoTipSelection";
 
     public static final String PARAM_INSTALLMENT_PAYMENT_AMOUNTS = "installmentPaymentAmounts";
     public static final String PARAM_INSTALLMENT_PAYMENT_TERMS_AND_CONDITIONS = "termsAndConditions";
@@ -101,6 +102,9 @@ public final class EntryExtraData {
     public static final String PARAM_TIP1 = "tip1";
     public static final String PARAM_TIP2 = "tip2";
     public static final String PARAM_TIP3 = "tip3";
+    public static final String PARAM_TIP_NAMES = "tipNames";
+    public static final String PARAM_TIP_AMOUNTS = "tipAmounts";
+
     public static final String PARAM_APPROVED_AMOUNT = "approvedAmount";
     public static final String PARAM_BASE_POINTS = "basePoints";
     public static final String PARAM_TOTAL_POINTS = "totalPoints";

@@ -3,6 +3,7 @@ package com.pax.us.pay.ui.core.helper;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 
 import com.pax.us.pay.ui.constant.entry.EntryExtraData;
 import com.pax.us.pay.ui.constant.entry.EntryRequest;
@@ -11,9 +12,11 @@ import com.pax.us.pay.ui.core.BaseActionHelper;
 import com.pax.us.pay.ui.core.api.IAmountListener;
 import com.pax.us.pay.ui.core.api.ICurrencyListener;
 import com.pax.us.pay.ui.core.api.IMessageListener;
+import com.pax.us.pay.ui.core.api.INoTipSelectionListener;
 import com.pax.us.pay.ui.core.api.IRespStatus;
 import com.pax.us.pay.ui.core.api.ITipNameListener;
 import com.pax.us.pay.ui.core.api.ITipOptionListener;
+import com.pax.us.pay.ui.core.api.ITipsListener;
 import com.pax.us.pay.ui.core.api.IUIListener;
 
 public class EnterTipHelper extends BaseActionHelper {
@@ -48,6 +51,26 @@ public class EnterTipHelper extends BaseActionHelper {
             ((ITipNameListener) uiListener).onShowTipName(bundle.getString(EntryExtraData.PARAM_TIP_NAME));
         }
 
+        if (uiListener instanceof ITipsListener && bundle.containsKey(EntryExtraData.PARAM_TIP_NAMES)) {
+            String [] names = bundle.getStringArray(EntryExtraData.PARAM_TIP_NAMES);
+            long [] tipAmounts = null;
+            if (bundle.containsKey(EntryExtraData.PARAM_TIP_AMOUNTS)) {
+                String[] strTipAmounts = bundle.getStringArray(EntryExtraData.PARAM_TIP_AMOUNTS);
+                if (null != strTipAmounts && strTipAmounts.length>0) {
+                    tipAmounts = new long[strTipAmounts.length];
+                    for (int i = 0; i < strTipAmounts.length; i++) {
+                        if (TextUtils.isEmpty(strTipAmounts[i]))
+                            tipAmounts[i] = 0;
+                        else
+                            tipAmounts[i] = Long.valueOf(strTipAmounts[i]);
+                    }
+                }
+            }
+            if(names != null && names.length>0){
+                ((ITipsListener) uiListener).onShowTips(names, tipAmounts);
+            }
+        }
+
         if (uiListener instanceof ITipOptionListener && bundle.containsKey(EntryExtraData.PARAM_TIP_RATE_OPTIONS)) {
             rateOptions = bundle.getStringArray(EntryExtraData.PARAM_TIP_RATE_OPTIONS);
         }
@@ -67,9 +90,13 @@ public class EnterTipHelper extends BaseActionHelper {
                 ((ITipOptionListener) uiListener).onShowTipOptions(options, null);
             }
         }
+
+        if (uiListener instanceof INoTipSelectionListener && bundle.containsKey(EntryExtraData.PARAM_ENABLE_NO_TIP_SELECTION)) {
+            ((INoTipSelectionListener) uiListener).onShowEnableNoTipSelection(bundle.getBoolean(EntryExtraData.PARAM_ENABLE_NO_TIP_SELECTION, false));
+        }
     }
 
-    public interface IEnterTipListener extends IMessageListener, ICurrencyListener, IAmountListener, ITipNameListener, ITipOptionListener {
+    public interface IEnterTipListener extends IMessageListener, ICurrencyListener, IAmountListener, ITipNameListener, ITipOptionListener, ITipsListener,INoTipSelectionListener {
     }
 
 }

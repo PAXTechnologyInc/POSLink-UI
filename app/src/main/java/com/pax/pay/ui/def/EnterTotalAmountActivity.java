@@ -64,4 +64,14 @@ public class EnterTotalAmountActivity extends EnterDataLine1Activity<Long> imple
     public void onShowAmount(long amount) {
         setAmount(amount);
     }
+
+    @Override
+    public void onShowEnableNoTipSelection(boolean enableCancel) {
+
+    }
+
+    @Override
+    public void onShowTipName(@Nullable String tipName) {
+
+    }
 }
