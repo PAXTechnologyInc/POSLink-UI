@@ -32,9 +32,13 @@ public class EnterTipHelper extends BaseActionHelper {
         super.sendNext(bundle);
     }
 
-    public void sendNext() {
+    public void sendNext(Long amount) {
         Bundle bundle = new Bundle();
-        bundle.putBoolean(EntryRequest.PARAM_NO_TIP_SELECTED, true);
+        if (null == amount )
+            bundle.putBoolean(EntryRequest.PARAM_NO_TIP_SELECTED, true);
+        else
+            bundle.putLong(EntryRequest.PARAM_TIP, amount);
+
         super.sendNext(bundle);
     }
 
