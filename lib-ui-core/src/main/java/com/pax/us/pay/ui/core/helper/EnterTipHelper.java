@@ -32,6 +32,12 @@ public class EnterTipHelper extends BaseActionHelper {
         super.sendNext(bundle);
     }
 
+    public void sendNext() {
+        Bundle bundle = new Bundle();
+        bundle.putBoolean(EntryRequest.PARAM_NO_TIP_SELECTED, true);
+        super.sendNext(bundle);
+    }
+
     @Override
     protected void showUI(@Nullable IUIListener uiListener, @NonNull Bundle bundle) {
         String[] rateOptions = null, options = null;
