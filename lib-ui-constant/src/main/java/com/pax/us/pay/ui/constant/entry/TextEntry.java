@@ -6,8 +6,8 @@ public class TextEntry {
      * The intent action of Enter Amount <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * input: {@link EntryExtraData#PARAM_CURRENCY}  enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType} <br>
-     * input: {@link EntryExtraData#PARAM_VALUE_PATTERN} <br>
+     * input: {@link EntryExtraData#PARAM_CURRENCY} <br>
+     * input: {@link EntryExtraData#PARAM_VALUE_PATTERN} (0-12)<br>
      * request: {@link EntryRequest#PARAM_AMOUNT} <br>
      */
     public static final String ACTION_ENTER_AMOUNT = "com.pax.us.pay.action.ENTER_AMOUNT";
@@ -15,14 +15,17 @@ public class TextEntry {
      * The intent action of Enter Tip <br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * input: {@link EntryExtraData#PARAM_CURRENCY}  enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType} <br>
+     * input: {@link EntryExtraData#PARAM_CURRENCY} <br>
      * input: {@link EntryExtraData#PARAM_BASE_AMOUNT} <br>
      * input: {@link EntryExtraData#PARAM_TIP_NAME} <br>
-     * input: {@link EntryExtraData#PARAM_TIP_OPTIONS} String Array, Nullable amount array <br>
-     * input: {@link EntryExtraData#PARAM_TIP_RATE_OPTIONS} String Array, Nullable tip rate array,
-     *         if it exist, the number of tip rate options should equal the number of  tip options <br>
-     * input: {@link EntryExtraData#PARAM_TIP_UNIT enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.UnitType}} <br>
+     * input: {@link EntryExtraData#PARAM_TIP_OPTIONS} (optional) <br>
+     * input: {@link EntryExtraData#PARAM_TIP_RATE_OPTIONS} (optional) <br>
+     * input: {@link EntryExtraData#PARAM_TIP_UNIT} (option)  <br>
+     * input: {@link EntryExtraData#PARAM_AMOUNT_UNIT} (option)  <br>
      * input: {@link EntryExtraData#PARAM_VALUE_PATTERN} <br>
+     * input: {@link EntryExtraData#PARAM_TIP_NAMES} (optional) <br>
+     * input: {@link EntryExtraData#PARAM_TIP_AMOUNTS} (optional) <br>
+     * input: {@link EntryExtraData#PARAM_ENABLE_NO_TIP_SELECTION} (optional) <br>
      * request: {@link EntryRequest#PARAM_TIP} <br>
      */
     public static final String ACTION_ENTER_TIP = "com.pax.us.pay.action.ENTER_TIP";
@@ -294,6 +297,8 @@ public class TextEntry {
      * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
      * input: {@link EntryExtraData#PARAM_CURRENCY}  enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType} <br>
      * input: {@link EntryExtraData#PARAM_BASE_AMOUNT} <br>
+     * input: {@link EntryExtraData#PARAM_TIP_NAME} <br>
+     * input: {@link EntryExtraData#PARAM_ENABLE_NO_TIP_SELECTION} (optional) <br>
      * request: {@link EntryRequest#PARAM_TOTAL_AMOUNT} <br>
      */
     public static final String ACTION_ENTER_TOTAL_AMOUNT = "com.pax.us.pay.action.ENTER_TOTAL_AMOUNT";

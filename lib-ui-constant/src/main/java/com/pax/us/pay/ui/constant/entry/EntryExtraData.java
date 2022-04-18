@@ -1,13 +1,25 @@
 package com.pax.us.pay.ui.constant.entry;
 
 public final class EntryExtraData {
+    /**
+     * PARAM_MESSAGE : the message displayed on UI screen <br>
+     * Type : String <br>
+     */
     public static final String PARAM_MESSAGE = "message";
+    /**
+     * PARAM_PACKAGE : the package name of sender <br>
+     * Type : String <br>
+     */
     public static final String PARAM_PACKAGE = "senderPackage";
     public static final String PARAM_TRANS_TYPE = "transType";
     public static final String PARAM_TRANS_TIME = "transTime";
     public static final String PARAM_TRANS_DATE = "transDate";
     public static final String PARAM_MERCHANT_ID = "merchantID";
     public static final String PARAM_TERMINAL_ID = "terminalID";
+    /**
+     * PARAM_TRANS_MODE : transaction mode <br>
+     * enum : {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} <br>
+     */
     public static final String PARAM_TRANS_MODE = "transMode";
     public static final String PARAM_EDC_TYPE = "edcType";
     public static final String PARAM_SUB_TRANS_TYPE = "subTransType";
@@ -15,12 +27,36 @@ public final class EntryExtraData {
 
     public static final String PARAM_OPTIONS = "options";
 
+    /**
+     * PARAM_CURRENCY : currency name <br>
+     * enum : {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType} <br>
+     * default value : USD <br>
+     */
     public static final String PARAM_CURRENCY = "currency";
+    /**
+     * PARAM_BASE_AMOUNT : base amount <br>
+     * Type : long <br>
+     */
     public static final String PARAM_BASE_AMOUNT = "baseAmount";
     public static final String PARAM_TOTAL_AMOUNT = "totalAmount";
     public static final String PARAM_AMOUNT_MESSAGE = "amountMessage";
+    /**
+     * PARAM_TIP_NAME : tip name <br>
+     * Type : String <br>
+     */
     public static final String PARAM_TIP_NAME = "tipName";
+
+    /**
+     * PARAM_TIP_OPTIONS : tip options for selection <br>
+     * Type : String Array, Nullable amount array <br>
+     */
     public static final String PARAM_TIP_OPTIONS = "tipOptions";
+
+    /**
+     * PARAM_TIP_RATE_OPTIONS : tip rate options for selection, this is optional <br>
+     * Type : String Array, Nullable tip rate array <br>
+     *     if it exist, the number of tip rate options should equal the number of tip options <br>
+     */
     public static final String PARAM_TIP_RATE_OPTIONS = "tipRateOptions";
     public static final String PARAM_CASHBACK_OPTIONS = "cashbackOptions";
     public static final String PARAM_CASHBACK_RATE_OPTIONS = "cashbackRateOptions";
@@ -92,10 +128,7 @@ public final class EntryExtraData {
     public static final String PARAM_BALANCE = "balance";
 
 
-    /**
-     * PARAM_TRANS_MODE : transaction mode <br>
-     * enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode}
-     */
+
     public static final String PARAM_CARD_NUMBER = "cardNumber";
     public static final String PARAM_BATCH_NUMBER = "batchNumber";
     public static final String PARAM_ORDER_NUMBER = "orderNumber";
@@ -146,10 +179,40 @@ public final class EntryExtraData {
     public static final String PARAM_EINPUT_TYPE = "eInputType";
 //    public static final String PARAM_MAX_VALUE = "maxValue";
 //    public static final String PARAM_MIN_VALUE = "minValue";
+    /**
+     * PARAM_MAX_LENGTH : the maximum length of input content  <br>
+     * Type : String <br>
+     */
     public static final String PARAM_MAX_LENGTH = "maxLength";
+
+    /**
+     * PARAM_MIN_LENGTH : the minimum length of input content  <br>
+     * Type : String <br>
+     */
     public static final String PARAM_MIN_LENGTH = "minLength";
+
+    /**
+     * PARAM_TIP_UNIT : the type of tip's unit  <br>
+     * enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.UnitType}}
+     * Type : String <br>
+     */
     public static final String PARAM_TIP_UNIT = "tipUnit";
+
+    /**
+     * PARAM_AMOUNT_UNIT : the unit of tip amount <br>
+     * Type : Long <br>
+     */
     public static final String PARAM_AMOUNT_UNIT = "amountUnit";
+
+    /**
+     * PARAM_VALUE_PATTERN : the scope of input value <br>
+     * Host enumerates all possible lengths of TEXT actions. <br>
+     * ',' will be used to separate each number of length and '-' will be used to define a sequential length. <br>
+     * Example: The valid length of the value range is "0,4,6- 12". <br>
+     *          0 means that no input is required and pressing "Enter" will return. <br>
+     *          The length value should be sorted in ascending order. <br>
+     * Type : String
+     */
     public static final String PARAM_VALUE_PATTERN = "valuePattern";
 
     public static final String PARAM_FLEET_CUSTOMER_DATA_PATTERN = "fleetCustomerDataPattern";

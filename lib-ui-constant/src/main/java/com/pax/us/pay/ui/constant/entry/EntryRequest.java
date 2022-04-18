@@ -78,6 +78,13 @@ public class EntryRequest {
      * value type: long <br>
      */
     public static final String PARAM_TIP = "tip";
+
+    /**
+     * PARAM_NO_TIP_SELECTED : request parameter not Tip selected <br>
+     * value type: boolean <br>
+     */
+    public static final String PARAM_NO_TIP_SELECTED = "noTipSelected";
+
     /**
      * PARAM_ZIP_CODE : request parameter zip code <br>
      * value type: String <br>
@@ -183,6 +190,21 @@ public class EntryRequest {
     public static final String PARAM_WIDTH = "width";
     public static final String PARAM_HEIGHT = "height";
     public static final String PARAM_FONT_SIZE = "fontSize";
+    /**
+     * PARAM_FOCUSABLE : request parameter enable focus <br>
+     * value type: Boolean <br>
+     */
+    public static final String PARAM_FOCUSABLE = "focusable";
+    /**
+     * PARAM_HINT : request parameter hint <br>
+     * value type: String <br>
+     */
+    public static final String PARAM_HINT = "hint";
+    /**
+     * PARAM_COLOR : request parameter font color <br>
+     * value type: String, ARGB format <br>
+     */
+    public static final String PARAM_COLOR = "color";
 
     //Visa Installment
     public static final String PARAM_INSTALLMENT_SELECT_OPTION = "installmentSelectOption";
