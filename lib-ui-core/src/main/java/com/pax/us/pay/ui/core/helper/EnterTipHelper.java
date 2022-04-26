@@ -26,19 +26,12 @@ public class EnterTipHelper extends BaseActionHelper {
         super(uiListener, respStatus);
     }
 
-    public void sendNext(long amount) {
-        Bundle bundle = new Bundle();
-        bundle.putLong(EntryRequest.PARAM_TIP, amount);
-        super.sendNext(bundle);
-    }
-
     public void sendNext(Long amount) {
         Bundle bundle = new Bundle();
-        if (null == amount )
-            bundle.putBoolean(EntryRequest.PARAM_NO_TIP_SELECTED, true);
-        else
+        //If BYPASS by click ENTER, do not return PARAM_TIP
+        if (null != amount ) {
             bundle.putLong(EntryRequest.PARAM_TIP, amount);
-
+        }
         super.sendNext(bundle);
     }
 
