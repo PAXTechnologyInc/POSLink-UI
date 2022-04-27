@@ -80,12 +80,6 @@ public class EntryRequest {
     public static final String PARAM_TIP = "tip";
 
     /**
-     * PARAM_NO_TIP_SELECTED : request parameter not Tip selected <br>
-     * value type: boolean <br>
-     */
-    public static final String PARAM_NO_TIP_SELECTED = "noTipSelected";
-
-    /**
      * PARAM_ZIP_CODE : request parameter zip code <br>
      * value type: String <br>
      */
