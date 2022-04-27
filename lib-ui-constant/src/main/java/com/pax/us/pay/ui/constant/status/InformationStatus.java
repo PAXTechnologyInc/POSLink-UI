@@ -30,6 +30,11 @@ public final class InformationStatus {
     public static final String RKI_STARTED = "com.pax.us.pay.RKI_STARTED";
     public static final String RKI_FINISHED = "com.pax.us.pay.RKI_FINISHED";
 
+    /*
+     * let UI app display some information while enter PIN
+     */
+    public static final String ENTER_PIN_STARTED = "com.pax.us.pay.ENTER_PIN_STARTED";
+    public static final String ENTER_PIN_FINISHED = "com.pax.us.pay.ENTER_PIN_FINISHED";
 
     /**
      * param: {@link StatusData#PARAM_CODE} <br>
