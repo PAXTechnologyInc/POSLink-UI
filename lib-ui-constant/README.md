@@ -15,7 +15,7 @@
    4. Add "Prompts" for "See Phone" action
    5. Add "PARAM_ENABLE_CONTACTLESS_LIGHT" for input account action
    6. Fixed error TransType name "VOID VERIFY" to "VERIFY"
-   7. Add “ENTER_CS_PHONE”, “ENTER_MERCHANT_TAX_ID”,"CONFIRM_RECEIPT_SIGNATURE",“CONFIRM_ADDITIONAL_FEE” actions
+   7. Add "ENTER_CS_PHONE", "ENTER_MERCHANT_TAX_ID","CONFIRM_RECEIPT_SIGNATURE","CONFIRM_ADDITIONAL_FEE" actions
    8. Add "fleetCustomerDataPattern,fleetDepartmentNumberPattern,fleetUserIDPattern,fleetVehicleIDPattern,
           fleetVehicleNumberPattern,fleetJobNumberPattern,fleetFleetOdometerPattern,fleetDriverIDPattern,
           fleetLicenseNumberPattern" for "ENTER_FLEET_DATA" action

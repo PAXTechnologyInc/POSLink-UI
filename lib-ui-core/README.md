@@ -6,7 +6,7 @@
    1. Add "onShowLight" interface for ICardListener;
    2. Modify SearchCardHelper to support onShowLight interface
    3. Add Support ExpandScreen function
-   4. Add “ENTER_CS_PHONE”, “ENTER_MERCHANT_TAX_ID”,"CONFIRM_RECEIPT_SIGNATURE",“CONFIRM_ADDITIONAL_FEE” actions
+   4. Add "ENTER_CS_PHONE", "ENTER_MERCHANT_TAX_ID","CONFIRM_RECEIPT_SIGNATURE","CONFIRM_ADDITIONAL_FEE" actions
    5. Add "fleetCustomerDataPattern,fleetDepartmentNumberPattern,fleetUserIDPattern,fleetVehicleIDPattern,
           fleetVehicleNumberPattern,fleetJobNumberPattern,fleetFleetOdometerPattern,fleetDriverIDPattern,
           fleetLicenseNumberPattern" for "ENTER_FLEET_DATA" action

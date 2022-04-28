@@ -1,368 +1,1340 @@
 package com.pax.us.pay.ui.constant.entry;
 
-public class TextEntry {
+/**
+ * define Activity for TEXT
+ */
+public final class TextEntry {
+    private TextEntry(){
+        
+    }
+
+    /**
+     * Activity Category: TEXT
+     */
     public static final String CATEGORY = "com.pax.us.pay.ui.category.TEXT";
     /**
-     * The intent action of Enter Amount <br>
-     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
-     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * input: {@link EntryExtraData#PARAM_CURRENCY} <br>
-     * input: {@link EntryExtraData#PARAM_VALUE_PATTERN} (0-12)<br>
-     * request: {@link EntryRequest#PARAM_AMOUNT} <br>
+     * Activity Action: Enter Amount
+     * <p>"Please Enter Amount"</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is transaction name. Example: "CREDIT SALE"</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+     *     Type: String<br>
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Type: Long<br>
+     *     Unit: ms<br>
+     *     Default is 30000.
+     * </p>
+     * <p>
+     *     Input:  {@link EntryExtraData#PARAM_CURRENCY} is currency type. <br>
+     *     Type: String<br>
+     *     Default value: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType#USD}
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
+     *     Type: String<br>
+     *     Default: "0-12"</p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_AMOUNT} <br>
+     *     Type: Long
+     * </p>
      */
     public static final String ACTION_ENTER_AMOUNT = "com.pax.us.pay.action.ENTER_AMOUNT";
+
     /**
-     * The intent action of Enter Tip <br>
-     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
-     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * input: {@link EntryExtraData#PARAM_CURRENCY} <br>
-     * input: {@link EntryExtraData#PARAM_BASE_AMOUNT} <br>
-     * input: {@link EntryExtraData#PARAM_TIP_NAME} <br>
-     * input: {@link EntryExtraData#PARAM_TIP_OPTIONS} (optional) <br>
-     * input: {@link EntryExtraData#PARAM_TIP_RATE_OPTIONS} (optional) <br>
-     * input: {@link EntryExtraData#PARAM_TIP_UNIT} (option)  <br>
-     * input: {@link EntryExtraData#PARAM_AMOUNT_UNIT} (option)  <br>
-     * input: {@link EntryExtraData#PARAM_VALUE_PATTERN} <br>
-     * input: {@link EntryExtraData#PARAM_TIP_NAMES} (optional) <br>
-     * input: {@link EntryExtraData#PARAM_TIP_AMOUNTS} (optional) <br>
-     * input: {@link EntryExtraData#PARAM_ENABLE_NO_TIP_SELECTION} (optional) <br>
-     * request: {@link EntryRequest#PARAM_TIP} <br>
+     * Activity Action: Enter Tip
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is transaction name. Example: "CREDIT SALE"</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+     *     Type: String<br>
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Type: Long<br>
+     *     Unit: ms<br>
+     *     Default is 30000.
+     * </p>
+     * <p>
+     *     Input:  {@link EntryExtraData#PARAM_CURRENCY} is currency type. <br>
+     *     Type: String<br>
+     *     Default value: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType#USD}
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_BASE_AMOUNT} is base amount. Optional. </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIP_NAME} is tip name</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIP_OPTIONS} is tip options. Optional.</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIP_RATE_OPTIONS} is tip rate options. Optional.</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIP_UNIT}. <br>
+     *     Type: String<br>
+     *     Default is {@link com.pax.us.pay.ui.constant.entry.enumeration.UnitType#CENT}
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
+     *     Type: String<br>
+     *     Default: "0-12"</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIP_NAMES}<br>
+     *     Type: String[]<br>
+     *     Optional. For Standalone use only. Used when multiple tips are enabled.
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIP_AMOUNTS} <br>
+     *     Type: String[]<br>
+     *     Optional. For Standalone use only. Used when multiple tips are enabled.<br>
+     * </p>
+     * <p>
+     *     Example:<br>
+     *     If Tip Names are: {"TIP", "TIP1", "TIP2}<br>
+     *     Tip Amounts are: {"100", "200"}<br>
+     *     Then tip page shown as:<br>
+     *
+     *     TIP : $1.00 (BLUE)<br>
+     *     TIP2: $1.00 (BLUE)<br>
+     *     TIP3: $0.00 (GREY)<br>
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_ENABLE_NO_TIP_SELECTION} <br>
+     *     Type: Boolean<br>
+     *     Optional. TRUE means NO TIP SELECTION is enabled.
+     * </p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_TIP}<br>
+     *     Type: Long<br>
+     *     Optional. <br>
+     *     If return nothing, BroadPOS will treat it as tip bypassed.<br>
+     *     If return 0, BroadPOS will treat it as "NO TIP"<br>
+     * </p>
      */
     public static final String ACTION_ENTER_TIP = "com.pax.us.pay.action.ENTER_TIP";
 
     /**
-     * The intent action of Enter Trans.No <br>
-     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
-     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * input: {@link EntryExtraData#PARAM_VALUE_PATTERN} <br>
-     * request: {@link EntryRequest#PARAM_TRANS_NUMBER} <br>
+     * Activity Action: Enter Trans. No.
+     * <p>"Please Enter Transaction Number"</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
+     *     Type: String<br>
+     *     Example: "CREDIT SALE"
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+     *     Type: String<br>
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Type: Long<br>
+     *     Unit: ms<br>
+     *     Default is 30000.
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
+     *     Type: String<br>
+     *     Default: "0-4"</p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_TRANS_NUMBER} <br>Type: String
+     *     </p>
      */
     public static final String ACTION_ENTER_TRANS_NUMBER = "com.pax.us.pay.action.ENTER_TRANS_NUMBER";
 
     /**
-     * The intent action of Enter Exp date <br>
-     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
-     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * request: {@link EntryRequest#PARAM_EXPIRY_DATE} <br>
+     * Activity Action: Enter Expiry Date
+     * <p>"Please Enter Expiry Date"</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
+     *     Type: String<br>
+     *     Example: "CREDIT SALE"
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+     *     Type: String<br>
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Type: Long<br>
+     *     Unit: ms<br>
+     *     Default is 30000.
+     * </p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_EXPIRY_DATE} <br>Type: String</p>
      */
     public static final String ACTION_ENTER_EXPIRY_DATE = "com.pax.us.pay.action.ENTER_EXPIRY_DATE";
 
     /**
-     * The intent action of Enter Address <br>
-     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
-     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * input: {@link EntryExtraData#PARAM_VALUE_PATTERN} <br>
-     * request: {@link EntryRequest#PARAM_ADDRESS} <br>
+     * Activity Action: Enter Address
+     * <p>"Please Enter Address"</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
+     *     Type: String<br>
+     *     Example: "CREDIT SALE"
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+     *     Type: String<br>
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Type: Long<br>
+     *     Unit: ms<br>
+     *     Default is 30000.
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
+     *     Type: String<br>
+     *     Default: "0-30"</p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_ADDRESS}  <br>Type: String</p>
      */
     public static final String ACTION_ENTER_ADDRESS = "com.pax.us.pay.action.ENTER_ADDRESS";
 
     /**
-     * The intent action of Enter Zip Code <br>
-     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
-     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * input: {@link EntryExtraData#PARAM_EINPUT_TYPE} enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType} <br>
-     * input: {@link EntryExtraData#PARAM_VALUE_PATTERN} <br>
-     * request: {@link EntryRequest#PARAM_ZIP_CODE} <br>
+     * Activity Action: Enter Zip Code
+     * <p>"Please Enter Zip Code"</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
+     *     Type: String<br>
+     *     Example: "CREDIT SALE"
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+     *     Type: String<br>
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Type: Long<br>
+     *     Unit: ms<br>
+     *     Default is 30000.
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_INPUT_TYPE} <br>
+     *     Could be {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#NUMERIC} and {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#ALPHA_NUMERIC}<br>
+     *     Default: {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#NUMERIC}<br>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
+     *     Type: String<br>
+     *     Default: "0-9"
+     * </p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_ZIP_CODE} <br>Type: String </p>
      */
     public static final String ACTION_ENTER_ZIPCODE = "com.pax.us.pay.action.ENTER_ZIP_CODE";
 
     /**
-     * The intent action of Enter AuthCode <br>
-     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
-     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * input: {@link EntryExtraData#PARAM_VALUE_PATTERN} <br>
-     * request: {@link EntryRequest#PARAM_AUTH_CODE} <br>
+     * Activity Action: Enter Auth Code
+     * <p>"Please Enter Auth Code"</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
+     *     Type: String<br>
+     *     Example: "CREDIT SALE"
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+     *     Type: String<br>
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Type: Long<br>
+     *     Unit: ms<br>
+     *     Default is 30000.
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
+     *     Type: String<br>
+     *     Default: "1-15"</p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_AUTH_CODE}  <br>Type: String</p>
      */
     public static final String ACTION_ENTER_AUTH = "com.pax.us.pay.action.ENTER_AUTH_CODE";
 
     /**
-     * The intent action of Enter FSA Amount <br>
-     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
-     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * input: {@link EntryExtraData#PARAM_CURRENCY}  enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType} <br>
-     * input: {@link EntryExtraData#PARAM_TOTAL_AMOUNT} <br>
-     * input: {@link EntryExtraData#PARAM_FSA_AMOUNT_OPTIONS} enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.FSAAmountType} <br>
-     * request: {@link EntryRequest#PARAM_HEALTH_CARE_AMOUNT} <br>
-     * request: {@link EntryRequest#PARAM_CLINIC_AMOUNT} <br>
-     * request: {@link EntryRequest#PARAM_PRESCRIPTION_AMOUNT} <br>
-     * request: {@link EntryRequest#PARAM_VISION_AMOUNT} <br>
-     * request: {@link EntryRequest#PARAM_DENTAL_AMOUNT} <br>
-     * request: {@link EntryRequest#PARAM_COPAY_AMOUNT} <br>
-     * request: {@link EntryRequest#PARAM_OTC_AMOUNT} <br>
-     * request: {@link EntryRequest#PARAM_TRANSIT_AMOUNT} <br>
-     * request: {@link EntryRequest#PARAM_FSA_OPTION} enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.FSAType}  <br>
-     * the{@link EntryExtraData#PARAM_FSA_AMOUNT_OPTIONS} control which request field will be sent <br>
+     * Activity Action: Enter FSA Amount
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
+     *     Type: String<br>
+     *     Example: "CREDIT SALE"
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+     *     Type: String<br>
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Type: Long<br>
+     *     Unit: ms<br>
+     *     Default is 30000.
+     * </p>
+     * <p>
+     *     Input:  {@link EntryExtraData#PARAM_CURRENCY} is currency type. <br>
+     *     Type: String<br>
+     *     Default value: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType#USD}
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TOTAL_AMOUNT} is total amount</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_FSA_AMOUNT_OPTIONS} is fsa amount options.<br>
+     *     Type: String[]
+     *     it control output fields.<br>
+     *     Example:<br>
+     *     If options are {"clinicAmount","prescriptionAmount"}, required outputs are 
+     *     {@link EntryRequest#PARAM_CLINIC_AMOUNT} and {@link EntryRequest#PARAM_PRESCRIPTION_AMOUNT}
+     *     Type: String[]<br>
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.FSAAmountType}<br>
+     * </p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_HEALTH_CARE_AMOUNT}<br>
+     *     Type: Long
+     * </p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_CLINIC_AMOUNT} <br>
+     *     Type: Long
+     * </p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_PRESCRIPTION_AMOUNT} <br>
+     *     Type: Long
+     * </p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_VISION_AMOUNT} <br>
+     *     Type: Long
+     * </p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_DENTAL_AMOUNT} <br>
+     *     Type: Long
+     * </p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_COPAY_AMOUNT} <br>
+     *     Type: Long
+     * </p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_OTC_AMOUNT} <br>
+     *     Type: Long
+     * </p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_TRANSIT_AMOUNT}<br>
+     *     Type: Long
+     * </p>
      */
     public static final String ACTION_ENTER_FSA_DATA = "com.pax.us.pay.action.ENTER_FSA_DATA";
 
 
     /**
-     * The intent action of Enter voucher data <br>
-     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
-     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * request: {@link EntryRequest#PARAM_VOUCHER_NUMBER} <br>
-     * request: {@link EntryRequest#PARAM_AUTH_CODE} <br>
+     * Activity Action: Enter Voucher Number
+     * <p>"Please Enter Voucher Number" </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
+     *     Type: String<br>
+     *     Example: "CREDIT SALE"
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+     *     Type: String<br>
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Type: Long<br>
+     *     Unit: ms<br>
+     *     Default is 30000.
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
+     *     Type: String<br>
+     *     Default: "0-15"</p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_VOUCHER_NUMBER} <br>Type: String </p>
      */
     public static final String ACTION_ENTER_VOUCHER_DATA = "com.pax.us.pay.action.ENTER_VOUCHER_DATA";
 
     /**
-     * The intent action of Enter AVS data <br>
-     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
-     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * input: {@link EntryExtraData#PARAM_ZIP_CODE_PATTERN} <br>
-     * input: {@link EntryExtraData#PARAM_ADDRESS_PATTERN} <br>
-     * request: {@link EntryRequest#PARAM_ADDRESS} <br>
-     * request: {@link EntryRequest#PARAM_ZIP_CODE}
+     * Activity Action: Enter Address and Zip code
+     * <p>
+     *     "Please Enter Address"<br>
+     *     "Please Enter Zip Code"
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
+     *     Type: String<br>
+     *     Example: "CREDIT SALE"
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+     *     Type: String<br>
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Type: Long<br>
+     *     Unit: ms<br>
+     *     Default is 30000.
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_ZIP_CODE_PATTERN} is length limit for Zip Code. Default: "0-9" </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_ADDRESS_PATTERN} is length limit for Address. Default: "0-30" </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_INPUT_TYPE} is input type for Zip Code. <br>
+     *     Could be {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#NUMERIC} and {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#ALPHA_NUMERIC}<br>
+     *     Default is {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#NUMERIC}
+     * </p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_ADDRESS} <br>Type: String</p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_ZIP_CODE} <br>Type: String</p>
      */
     public static final String ACTION_ENTER_AVS_DATA = "com.pax.us.pay.action.ENTER_AVS_DATA";
 
     /**
-     * The intent action of Enter reference number <br>
-     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
-     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * input: {@link EntryExtraData#PARAM_VALUE_PATTERN} <br>
-     * input: {@link EntryExtraData#PARAM_EINPUT_TYPE} enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType} <br>
-     * request: {@link EntryRequest#PARAM_REFERENCE_NUMBER} <br>
+     * Activity Action:  Enter Reference Number
+     * <p>"Please Enter Reference Number"</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
+     *     Type: String<br>
+     *     Example: "CREDIT SALE"
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+     *     Type: String<br>
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Type: Long<br>
+     *     Unit: ms<br>
+     *     Default is 30000.
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
+     *     Type: String<br>
+     *     Default: "1-16"</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_INPUT_TYPE} <br>
+     *     Could be {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#NUMERIC} and {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#ALPHA_NUMERIC}</p>
+     *     Default: {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#NUMERIC}
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_REFERENCE_NUMBER}  <br>Type: String</p>
      */
     public static final String ACTION_ENTER_REFERENCE_NUMBER = "com.pax.us.pay.action.ENTER_REFERENCE_NUMBER";
 
 
     /**
-     * The intent action of Enter invoice number <br>
-     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
-     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * input: {@link EntryExtraData#PARAM_VALUE_PATTERN} <br>
-     * request: {@link EntryRequest#PARAM_INVOICE_NUMBER} <br>
+     * Activity Action: Enter Invoice Number
+     * <p>"Please Enter Invoice Number"</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
+     *     Type: String<br>
+     *     Example: "CREDIT SALE"
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+     *     Type: String<br>
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Type: Long<br>
+     *     Unit: ms<br>
+     *     Default is 30000.
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_INPUT_TYPE} <br>
+     *     Could be {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#NUMERIC} and {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#ALPHA_NUMERIC}<br>
+     *     Default: {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#NUMERIC}
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
+     *     Type: String<br>
+     *     Default: "0-20"</p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_INVOICE_NUMBER} <br>Type: String </p>
      */
     public static final String ACTION_ENTER_INVOICE_NUMBER = "com.pax.us.pay.action.ENTER_INVOICE_NUMBER";
 
     /**
-     * The intent action of Enter clerk id <br>
-     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
-     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * request: {@link EntryRequest#PARAM_CLERK_ID} <br>
+     * Activity Action: Enter Clerk ID
+     * <p>"Please Enter Clerk ID"</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
+     *     Type: String<br>
+     *     Example: "CREDIT SALE"
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+     *     Type: String<br>
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Type: Long<br>
+     *     Unit: ms<br>
+     *     Default is 30000.
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
+     *     Type: String<br>
+     *     Default: "0-4"</p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_CLERK_ID}  <br>Type: String</p>
      */
     public static final String ACTION_ENTER_CLERK_ID = "com.pax.us.pay.action.ENTER_CLERK_ID";
 
+    /**
+     * Activity Action: Enter Server ID (For Restaurant only)
+     * <p>"Please Enter Server ID"</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
+     *     Type: String<br>
+     *     Example: "CREDIT SALE"
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+     *     Type: String<br>
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Type: Long<br>
+     *     Unit: ms<br>
+     *     Default is 30000.
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
+     *     Type: String<br>
+     *     Default: "0-4"</p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_SERVER_ID} <br>Type: String</p>
+     */
+    public static final String ACTION_ENTER_SERVER_ID = "com.pax.us.pay.action.ENTER_SERVER_ID";
 
     /**
-     * The intent action of Enter cash back <br>
-     * input: {@link EntryExtraData#PARAM_PACKAGE}  <br>
-     * input: {@link EntryExtraData#PARAM_MESSAGE}  <br>
-     * input: {@link EntryExtraData#PARAM_CURRENCY}  enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType}  <br>
-     * input: {@link EntryExtraData#PARAM_TOTAL_AMOUNT} long  <br>
-     * input: {@link EntryExtraData#PARAM_CASHBACK_OPTIONS} String Array, Nullable amount array  <br>
-     * input: {@link EntryExtraData#PARAM_CASHBACK_RATE_OPTIONS} String Array, Nullable cashback rate array,
-     *         if it exist, the number of cashback rate options should equal the number of  cashback options <br>
-     * input: {@link EntryExtraData#PARAM_ENABLE_OTHER_PROMPT} boolean <br>
-     * request: {@link EntryRequest#PARAM_CASHBACK_AMOUNT} long  <br>
+     * Activity Action: Enter Cashback
+     * <p>"Please Enter Cashback"</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
+     *     Type: String<br>
+     *     Example: "CREDIT SALE"
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+     *     Type: String<br>
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Type: Long<br>
+     *     Unit: ms<br>
+     *     Default is 30000.
+     * </p>
+     * <p>
+     *     Input:  {@link EntryExtraData#PARAM_CURRENCY} is currency type. <br>
+     *     Type: String<br>
+     *     Default value: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType#USD}
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
+     *     Type: String<br>
+     *     Default: "0-12"</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_CASHBACK_OPTIONS} is cashback options.</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_ENABLE_OTHER_PROMPT} controls whether prompt Other Cashback </p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_CASHBACK_AMOUNT}</p>
      */
     public static final String ACTION_ENTER_CASH_BACK = "com.pax.us.pay.action.ENTER_CASH_BACK";
 
     /**
-     * The intent action of Enter original transaction date <br>
-     * input: {@link EntryExtraData#PARAM_PACKAGE}  <br>
-     * input: {@link EntryExtraData#PARAM_MESSAGE}  <br>
-     * request: {@link EntryRequest#PARAM_ORIG_DATE} <br>
+     * Activity Action: Enter Original Trans. Date
+     * <p>"Please Enter Original Transaction Date"</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
+     *     Type: String<br>
+     *     Example: "CREDIT SALE"
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+     *     Type: String<br>
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Type: Long<br>
+     *     Unit: ms<br>
+     *     Default is 30000.
+     * </p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_ORIG_DATE} <br>Type: String</p>
      */
     public static final String ACTION_ENTER_ORIG_DATE = "com.pax.us.pay.action.ENTER_ORIG_DATE";
 
     /**
-     * The intent action of Enter fuel amount <br>
-     * input: {@link EntryExtraData#PARAM_PACKAGE}  <br>
-     * input: {@link EntryExtraData#PARAM_MESSAGE}  <br>
-     * input: {@link EntryExtraData#PARAM_CURRENCY}  enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType}  <br>
-     * request: {@link EntryRequest#PARAM_FUEL_AMOUNT} long  <br>
+     * Activity Action: Enter Fuel Amount
+     * <p>"Please Enter Fuel Amount"</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
+     *     Type: String<br>
+     *     Example: "CREDIT SALE"
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+     *     Type: String<br>
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Type: Long<br>
+     *     Unit: ms<br>
+     *     Default is 30000.
+     * </p>
+     * <p>
+     *     Input:  {@link EntryExtraData#PARAM_CURRENCY} is currency type. <br>
+     *     Type: String<br>
+     *     Default value: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType#USD}
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
+     *     Type: String<br>
+     *     Default: "0-12"</p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_FUEL_AMOUNT} <br>Type: Long </p>
      */
     public static final String ACTION_ENTER_FUEL_AMOUNT = "com.pax.us.pay.action.ENTER_FUEL_AMOUNT";
 
     /**
-     * The intent action of Enter tax amount <br>
-     * input: {@link EntryExtraData#PARAM_PACKAGE}  <br>
-     * input: {@link EntryExtraData#PARAM_MESSAGE}  <br>
-     * input: {@link EntryExtraData#PARAM_CURRENCY}  enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType}  <br>
-     * input: {@link EntryExtraData#PARAM_BASE_AMOUNT} long  <br>
-     * request: {@link EntryRequest#PARAM_TAX_AMOUNT} long  <br>
+     * Activity Action: Enter Tax Amount
+     * <p>"Please Enter Tax Amount"</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
+     *     Type: String<br>
+     *     Example: "CREDIT SALE"
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+     *     Type: String<br>
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Type: Long<br>
+     *     Unit: ms<br>
+     *     Default is 30000.
+     * </p>
+     * <p>
+     *     Input:  {@link EntryExtraData#PARAM_CURRENCY} is currency type. <br>
+     *     Type: String<br>
+     *     Default value: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType#USD}
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
+     *     Type: String<br>
+     *     Default: "0-12"</p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_TAX_AMOUNT} <br>Type: Long</p>
      */
     public static final String ACTION_ENTER_TAX_AMOUNT = "com.pax.us.pay.action.ENTER_TAX_AMOUNT";
 
 
     /**
-     * The intent action of Enter server id <br>
-     * input: {@link EntryExtraData#PARAM_PACKAGE}  <br>
-     * input: {@link EntryExtraData#PARAM_MESSAGE}  <br>
-     * request: {@link EntryRequest#PARAM_SERVER_ID} <br>
-     */
-    public static final String ACTION_ENTER_SERVER_ID = "com.pax.us.pay.action.ENTER_SERVER_ID";
-
-    /**
-     * The intent action of Enter table number <br>
-     * input: {@link EntryExtraData#PARAM_PACKAGE}  <br>
-     * input: {@link EntryExtraData#PARAM_MESSAGE}  <br>
-     * request: {@link EntryRequest#PARAM_TABLE_NUMBER} <br>
+     * Activity Action: Enter Table Number (For Restaurant Only)
+     * <p>"Please Enter Table Number"</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
+     *     Type: String<br>
+     *     Example: "CREDIT SALE"
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+     *     Type: String<br>
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Type: Long<br>
+     *     Unit: ms<br>
+     *     Default is 30000.
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
+     *     Type: String<br>
+     *     Default: "0-4"</p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_TABLE_NUMBER} <br>
+     *     Type: String<br>
+     *     Optional. If return nothing, BroadPOS will treat as bypass.</p>
      */
     public static final String ACTION_ENTER_TABLE_NUMBER = "com.pax.us.pay.action.ENTER_TABLE_NUMBER";
 
     /**
-     * The intent action of Enter phone number <br>
-     * input: {@link EntryExtraData#PARAM_PACKAGE}  <br>
-     * input: {@link EntryExtraData#PARAM_MESSAGE}  <br>
-     * input: {@link EntryExtraData#PARAM_VALUE_PATTERN}  <br>
-     * request: {@link EntryRequest#PARAM_PHONE_NUMBER} <br>
+     * Activity Action: Enter Phone Number
+     * <p>"Please Enter Phone Number"</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
+     *     Type: String<br>
+     *     Example: "CREDIT SALE"
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+     *     Type: String<br>
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Type: Long<br>
+     *     Unit: ms<br>
+     *     Default is 30000.
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
+     *     Type: String<br>
+     *     Default: "1-32"</p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_PHONE_NUMBER} <br>Type: String </p>
      */
     public static final String ACTION_ENTER_PHONE_NUMBER = "com.pax.us.pay.action.ENTER_PHONE_NUMBER";
 
 
     /**
-     * The intent action of Enter guest number <br>
-     * input: {@link EntryExtraData#PARAM_PACKAGE}  <br>
-     * input: {@link EntryExtraData#PARAM_MESSAGE}  <br>
-     * request: {@link EntryRequest#PARAM_GUEST_NUMBER} <br>
+     * Activity Action: Enter Guest Number (For Restaurant Only)
+     * <p>"Please Enter Guest Number"</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
+     *     Type: String<br>
+     *     Example: "CREDIT SALE"
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+     *     Type: String<br>
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Type: Long<br>
+     *     Unit: ms<br>
+     *     Default is 30000.
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
+     *     Type: String<br>
+     *     Default: "0-4"</p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_GUEST_NUMBER} <br>Type: String </p>
      */
     public static final String ACTION_ENTER_GUEST_NUMBER = "com.pax.us.pay.action.ENTER_GUEST_NUMBER";
 
     /**
-     * The intent action of Enter order number <br>
-     * input: {@link EntryExtraData#PARAM_PACKAGE}  <br>
-     * input: {@link EntryExtraData#PARAM_MESSAGE}  <br>
-     * request: {@link EntryRequest#PARAM_ORDER_NUMBER} <br>
+     * Activity Action: Enter Order Number
+     * <p>"Please Enter Order Number"</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
+     *     Type: String<br>
+     *     Example: "CREDIT SALE"
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+     *     Type: String<br>
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Type: Long<br>
+     *     Unit: ms<br>
+     *     Default is 30000.
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
+     *     Type: String<br>
+     *     Default: "0-12"</p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_ORDER_NUMBER} <br>Type: String </p>
      */
     public static final String ACTION_ENTER_ORDER_NUMBER = "com.pax.us.pay.action.ENTER_ORDER_NUMBER";
 
     /**
-     * The intent action of Enter P.O. number <br>
-     * input: {@link EntryExtraData#PARAM_PACKAGE}  <br>
-     * input: {@link EntryExtraData#PARAM_MESSAGE}  <br>
-     * request: {@link EntryRequest#PARAM_PO_NUMBER} String <br>
+     * Activity Action: Enter PO Number
+     * <p>"Please Enter P.O. Number"</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
+     *     Type: String<br>
+     *     Example: "CREDIT SALE"
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+     *     Type: String<br>
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Type: Long<br>
+     *     Unit: ms<br>
+     *     Default is 30000.
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
+     *     Type: String<br>
+     *     Default: "0-17"</p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_PO_NUMBER} <br>Type: String</p>
      */
     public static final String ACTION_ENTER_PO_NUMBER = "com.pax.us.pay.action.ENTER_PO_NUMBER";
 
     /**
-     * The intent action of Enter production description <br>
-     * input: {@link EntryExtraData#PARAM_PACKAGE}  <br>
-     * input: {@link EntryExtraData#PARAM_MESSAGE}  <br>
-     * request: {@link EntryRequest#PARAM_PROC_DESC} String <br>
+     * Activity Action: Enter Product Description
+     * <p>"Please Enter Product Description"</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
+     *     Type: String<br>
+     *     Example: "CREDIT SALE"
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+     *     Type: String<br>
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Type: Long<br>
+     *     Unit: ms<br>
+     *     Default is 30000.
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
+     *     Type: String<br>
+     *     Default: "0-40"</p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_PROC_DESC} <br>Type: String </p>
      */
     public static final String ACTION_ENTER_PROD_DESC = "com.pax.us.pay.action.ENTER_PROD_DESC";
-    @Deprecated
-    public static final String ACTION_ENTER_PROC_DESC = "com.pax.us.pay.action.ENTER_PROC_DESC";
 
     /**
-     * The intent action of Enter customer code <br>
-     * input: {@link EntryExtraData#PARAM_PACKAGE}  <br>
-     * input: {@link EntryExtraData#PARAM_MESSAGE}  <br>
-     * input: {@link EntryExtraData#PARAM_VALUE_PATTERN} <br>
-     * request: {@link EntryRequest#PARAM_CUSTOMER_CODE} String <br>
+     * Activity Action: Enter Customer Code
+     * <p>"Please Enter Customer Code"</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
+     *     Type: String<br>
+     *     Example: "CREDIT SALE"
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+     *     Type: String<br>
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Type: Long<br>
+     *     Unit: ms<br>
+     *     Default is 30000.
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
+     *     Type: String<br>
+     *     Default: "0-25"</p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_CUSTOMER_CODE}  <br>Type: String </p>
      */
     public static final String ACTION_ENTER_CUSTOMER_CODE = "com.pax.us.pay.action.ENTER_CUSTOMER_CODE";
 
     /**
-     * The intent action of Enter prompt restriction code <br>
-     * input: {@link EntryExtraData#PARAM_PACKAGE}  <br>
-     * input: {@link EntryExtraData#PARAM_MESSAGE}  <br>
-     * request: {@link EntryRequest#PARAM_PROMPT_RESTRICTION_CODE} String <br>
+     * Activity Action: Enter Prompt Restriction Code
+     * <p>"Please Enter Prompt Restriction Code"</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
+     *     Type: String<br>
+     *     Example: "CREDIT SALE"
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+     *     Type: String<br>
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Type: Long<br>
+     *     Unit: ms<br>
+     *     Default is 30000.
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
+     *     Type: String<br>
+     *     Default: "0-2"</p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_PROMPT_RESTRICTION_CODE} <br>Type: String</p>
      */
     public static final String ACTION_ENTER_PROMPT_RESTRICTION_CODE = "com.pax.us.pay.action.ENTER_PROMPT_RESTRICTION_CODE";
 
-    //FLEET CARD DATA
     /**
-     * The intent action of Enter Fleet card data <br>
-     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
-     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * input: {@link EntryExtraData#PARAM_FLEET_DRIVER_ID_PATTERN} <br>
-     * input: {@link EntryExtraData#PARAM_FLEET_ODOMETER_PATTERN} <br>
-     * input: {@link EntryExtraData#PARAM_FLEET_VEHICLE_NUMBER_PATTERN} <br>
-     * input: {@link EntryExtraData#PARAM_FLEET_LICENSE_NUMBER_PATTERN} <br>
-     * input: {@link EntryExtraData#PARAM_FLEET_JOB_NUMBER_PATTERN} <br>
-     * input: {@link EntryExtraData#PARAM_FLEET_DEPARTMENT_NUMBER_PATTERN} <br>
-     * input: {@link EntryExtraData#PARAM_FLEET_CUSTOMER_DATA_PATTERN} <br>
-     * input: {@link EntryExtraData#PARAM_FLEET_USER_ID_PATTERN} <br>
-     * input: {@link EntryExtraData#PARAM_FLEET_VEHICLE_ID_PATTERN} <br>
-     * request: {@link EntryRequest#PARAM_FLEET_DRIVER_ID} <br>
-     * request: {@link EntryRequest#PARAM_FLEET_ODOMETER} <br>
-     * request: {@link EntryRequest#PARAM_FLEET_VEHICLE_NUMBER} <br>
-     * request: {@link EntryRequest#PARAM_FLEET_LICENSE_NUMBER} <br>
-     * request: {@link EntryRequest#PARAM_FLEET_JOB_NUMBER} <br>
-     * request: {@link EntryRequest#PARAM_FLEET_DEPARTMENT_NUMBER} <br>
-     * request: {@link EntryRequest#PARAM_FLEET_CUSTOMER_DATA} <br>
-     * request: {@link EntryRequest#PARAM_FLEET_USER_ID} <br>
-     * request: {@link EntryRequest#PARAM_FLEET_VEHICLE_ID} <br>
+     * Activity Action: Enter Fleet Data
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
+     *     Type: String<br>
+     *     Example: "CREDIT SALE"
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+     *     Type: String<br>
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Type: Long<br>
+     *     Unit: ms<br>
+     *     Default is 30000.
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_FLEET_DRIVER_ID_PATTERN}  <br>Type: String</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_FLEET_ODOMETER_PATTERN}  <br>Type: String</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_FLEET_VEHICLE_NUMBER_PATTERN} <br>Type: String </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_FLEET_LICENSE_NUMBER_PATTERN}  <br>Type: String</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_FLEET_JOB_NUMBER_PATTERN}  <br>Type: String</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_FLEET_DEPARTMENT_NUMBER_PATTERN}  <br>Type: String</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_FLEET_CUSTOMER_DATA_PATTERN}  <br>Type: String</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_FLEET_USER_ID_PATTERN}  <br>Type: String</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_FLEET_VEHICLE_ID_PATTERN}  <br>Type: String</p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_FLEET_DRIVER_ID} <br>Type: String </p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_FLEET_ODOMETER}  <br>Type: String</p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_FLEET_VEHICLE_NUMBER}  <br>Type: String</p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_FLEET_LICENSE_NUMBER}  <br>Type: String</p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_FLEET_JOB_NUMBER}  <br>Type: String</p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_FLEET_DEPARTMENT_NUMBER} <br>Type: String </p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_FLEET_CUSTOMER_DATA} <br>Type: String </p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_FLEET_USER_ID} <br>Type: String </p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_FLEET_VEHICLE_ID} <br>Type: String </p>
      */
     public static final String ACTION_ENTER_FLEET_DATA = "com.pax.us.pay.action.ENTER_FLEET_DATA";
 
 
     /**
-     * The intent action of Enter total amount <br>
-     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
-     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * input: {@link EntryExtraData#PARAM_CURRENCY}  enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType} <br>
-     * input: {@link EntryExtraData#PARAM_BASE_AMOUNT} <br>
-     * input: {@link EntryExtraData#PARAM_TIP_NAME} <br>
-     * input: {@link EntryExtraData#PARAM_ENABLE_NO_TIP_SELECTION} (optional) <br>
-     * request: {@link EntryRequest#PARAM_TOTAL_AMOUNT} <br>
+     * Activity Action: Enter Total Amount
+     * <p>"Please Enter Total Amount"</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
+     *     Type: String<br>
+     *     Example: "CREDIT SALE"
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+     *     Type: String<br>
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Type: Long<br>
+     *     Unit: ms<br>
+     *     Default is 30000.
+     * </p>
+     * <p>
+     *     Input:  {@link EntryExtraData#PARAM_CURRENCY} is currency type. <br>
+     *     Type: String<br>
+     *     Default value: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType#USD}
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_BASE_AMOUNT} is base amount</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIP_NAME} is tip name</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
+     *     Type: String<br>
+     *     Default: "0-12"
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_ENABLE_NO_TIP_SELECTION} <br>
+     *     Type: Boolean<br>
+     *     Optional. TRUE means NO TIP SELECTION is enabled.
+     * </p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_TOTAL_AMOUNT} <br>
+     *     Type: String
+     * </p>
      */
     public static final String ACTION_ENTER_TOTAL_AMOUNT = "com.pax.us.pay.action.ENTER_TOTAL_AMOUNT";
 
     /**
-     * The intent action of Enter destination Zip Code <br>
-     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
-     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * input: {@link EntryExtraData#PARAM_VALUE_PATTERN} <br>
-     * input: {@link EntryExtraData#PARAM_EINPUT_TYPE} enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType} <br>
-     * request: {@link EntryRequest#PARAM_DEST_ZIP_CODE} <br>
+     * Activity Action: Enter Destination Zip Code
+     * <p>"Please Enter Destination Zip Code"</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
+     *     Type: String<br>
+     *     Example: "CREDIT SALE"
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+     *     Type: String<br>
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Type: Long<br>
+     *     Unit: ms<br>
+     *     Default is 30000.
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
+     *     Type: String<br>
+     *     Default: "0-9"</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_INPUT_TYPE} <br>
+     *     Could be {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#NUMERIC} and {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#ALPHA_NUMERIC}<br>
+     *     Default: {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#NUMERIC}
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_DEST_ZIP_CODE} <br>
+     *     Type: String
+     * </p>
      */
     public static final String ACTION_ENTER_DEST_ZIPCODE = "com.pax.us.pay.action.ENTER_DEST_ZIP_CODE";
 
     /**
-     * The intent action of Enter customer service phone number <br>
-     * input: {@link EntryExtraData#PARAM_PACKAGE}  <br>
-     * input: {@link EntryExtraData#PARAM_MESSAGE}  <br>
-     * request: {@link EntryRequest#PARAM_PHONE_NUMBER} <br>
+     * Activity Action: Enter Customer Service Phone Number
+     * <p>"Please Enter Customer Service Phone"</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
+     *     Type: String<br>
+     *     Example: "CREDIT SALE"
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+     *     Type: String<br>
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Type: Long<br>
+     *     Unit: ms<br>
+     *     Default is 30000.
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
+     *     Type: String<br>
+     *     Default: "1-32"</p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_PHONE_NUMBER} <br>
+     *     Type: String
+     * </p>
      */
     public static final String ACTION_ENTER_CS_PHONE_NUMBER = "com.pax.us.pay.action.ENTER_CS_PHONE_NUMBER";
 
     /**
-     * The intent action of Enter merchant tax id <br>
-     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
-     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * request: {@link EntryRequest#PARAM_MERCHANT_TAX_ID} <br>
+     * Activity Action: Enter merchant tax id
+     * <p>"Please Enter Merchant Tax ID"</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
+     *     Type: String<br>
+     *     Example: "CREDIT SALE"
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+     *     Type: String<br>
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Type: Long<br>
+     *     Unit: ms<br>
+     *     Default is 30000.
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
+     *     Type: String<br>
+     *     Default: "0-15"</p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_MERCHANT_TAX_ID} <br>
+     *     Type: String
+     * </p>
      */
     public static final String ACTION_ENTER_MERCHANT_TAX_ID = "com.pax.us.pay.action.ENTER_MERCHANT_TAX_ID";
 
     /**
-     * The intent action of Enter reference number <br>
-     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
-     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * input: {@link EntryExtraData#PARAM_VALUE_PATTERN} <br>
-     * input: {@link EntryExtraData#PARAM_EINPUT_TYPE} enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType} <br>
-     * request: {@link EntryRequest#PARAM_MERCHANT_REFERENCE_NUMBER} <br>
+     * Activity Action: Enter Merchant Reference Number
+     * <p>"Please Enter Merchant Reference Number"</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
+     *     Type: String<br>
+     *     Example: "CREDIT SALE"
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+     *     Type: String<br>
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Type: Long<br>
+     *     Unit: ms<br>
+     *     Default is 30000.
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
+     *     Type: String<br>
+     *     Default: "0-12"</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_INPUT_TYPE} <br>
+     *     Could be {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#NUMERIC} and {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#ALPHA_NUMERIC}<br>
+     *     Default: {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#NUMERIC}
+     * </p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_MERCHANT_REFERENCE_NUMBER} <br>
+     *     Type: String
+     * </p>
      */
     public static final String ACTION_ENTER_MERCHANT_REFERENCE_NUMBER = "com.pax.us.pay.action.ENTER_MERCHANT_REFERENCE_NUMBER";
 
     /**
-     * The intent action of Enter reference number <br>
-     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
-     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * input: {@link EntryExtraData#PARAM_VALUE_PATTERN} <br>
-     * input: {@link EntryExtraData#PARAM_EINPUT_TYPE} enum: {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType} <br>
-     * request: {@link EntryRequest#PARAM_OCT_REFERENCE_NUMBER} <br>
+     * Activity Action: Enter OCT reference number
+     * <p>"Please Enter OCT Reference Number"</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
+     *     Type: String<br>
+     *     Example: "CREDIT SALE"
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+     *     Type: String<br>
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Type: Long<br>
+     *     Unit: ms<br>
+     *     Default is 30000.
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
+     *     Type: String<br>
+     *     Default: "0-12"</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_INPUT_TYPE} <br>
+     *     Could be {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#NUMERIC} and {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#ALPHA_NUMERIC}<br>
+     *     Default: {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#NUMERIC}
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_OCT_REFERENCE_NUMBER} <br>
+     *     Type: String
+     * </p>
      */
     public static final String ACTION_ENTER_OCT_REFERENCE_NUMBER = "com.pax.us.pay.action.ENTER_OCT_REFERENCE_NUMBER";
 
     /**
-     * The intent action of Enter Visa Installment Transaction ID <br>
-     * input: {@link EntryExtraData#PARAM_VALUE_PATTERN} <br>
-     * request: {@link EntryRequest#PARAM_VISA_TRANSID} <br>
+     * Activity Action: Enter Visa Installment Transaction ID
+     * <p>"Please Enter Visa Installment TransactionID"</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
+     *     Type: String<br>
+     *     Example: "CREDIT SALE"
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+     *     Type: String<br>
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Type: Long<br>
+     *     Unit: ms<br>
+     *     Default is 30000.
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
+     *     Type: String<br>
+     *     Default: "0-20"</p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_VISA_TRANSID}<br>
+     *     Type: String
+     * </p>
      */
     public static final String ACTION_ENTER_VISA_INSTALLMENT_TRANSACTIONID = "com.pax.us.pay.action.ENTER_VISA_INSTALLMENT_TRANSACTIONID";
 
 
     /**
-     * The intent action of Enter reference number <br>
-     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
-     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * input: {@link EntryExtraData#PARAM_VALUE_PATTERN} <br>
-     * request: {@link EntryRequest#PARAM_VISA_PLAN_ACCEPTANCE_ID} <br>
+     * Activity Action: Enter Visa Installment Plan Acceptance ID
+     * <p>"Please Enter Plan Acceptance ID"</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
+     *     Type: String<br>
+     *     Example: "CREDIT SALE"
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+     *     Type: String<br>
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Type: Long<br>
+     *     Unit: ms<br>
+     *     Default is 30000.
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
+     *     Type: String<br>
+     *     Default: "0-36"</p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_VISA_PLAN_ACCEPTANCE_ID} <br>
+     *     Type: String
+     * </p>
      */
     public static final String ACTION_ENTER_VISA_INSTALLMENT_PLAN_ACCEPTANCE_ID = "com.pax.us.pay.action.ENTER_VISA_INSTALLMENT_PLAN_ACCEPTANCE_ID";
 

@@ -1,24 +1,42 @@
 package com.pax.us.pay.ui.constant.status;
 
 /**
- * Created by ZZ on 9/10/2020
+ * define Broadcast which has LANGUAGE Category
+ * <p>
+ *     In US market, BroadPOS app only support 1 language (English) and doesn't need change language.
+ *     So generally it is only used for other markets like CANADA.
+ * </p>
  */
-public class LanguageStatus {
+public final class LanguageStatus {
+    private LanguageStatus(){
+
+    }
+
+    /**
+     * Broadcast Category: LANGUAGE
+     */
     public static final String CATEGORY = "com.pax.us.pay.status.category.LANGUAGE";
 
+    /**
+     * Broadcast Action: Set Language
+     * <p>
+     *     Input: {@link #PARAM_COUNTRY}</p>
+     * <p>
+     *     Input: {@link #PARAM_LANGUAGE}</p>
+     */
     public static final String SET_LANGUAGE = "com.pax.us.pay.SET_LANGUAGE";
 
     /**
-     * PARAM_LANGUAGE: Extra data in Action SET_LANGUAGE <br>
-     * lowercase 2 to 8 language code.
-     * value type: String <br>
+     * Language Code of Locale.
+     * <p>Type: String. See java.util.Locale for details.</p>
+     * <p>Used in {@link #SET_LANGUAGE}</p>
      */
     public static final String PARAM_LANGUAGE = "language";
 
     /**
-     * PARAM_COUNTRY: Extra data in Action SET_LANGUAGE <br>
-     * An uppercase ISO 3166 2-letter code
-     * value type: String <br>
+     * Country Code of Locale.
+     * <p>Type: String. See java.util.Locale for details.</p>
+     * <p>Used in {@link #SET_LANGUAGE}</p>
      */
     public static final String PARAM_COUNTRY = "country";
 }

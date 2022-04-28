@@ -1,23 +1,105 @@
 package com.pax.us.pay.ui.constant.status;
 
+/**
+ * define extra data for status Broadcast
+ */
 public final class StatusData {
-    public static final String PARAM_CODE = "resultCode";
-    public static final String PARAM_MSG = "resultMessage";
-    public static final String PARAM_EXT_MSG = "externalResultMessage";
+ private StatusData(){
 
-    public static final String PARAM_SF_TYPE = "sfType";
-    public static final String PARAM_SF_CURRENT_COUNT = "sfCurrent";
-    public static final String PARAM_SF_TOTAL_COUNT = "sfTotal";
+ }
+ /**
+  * Trans Result Code
+  * <p>Type: Long.</p>
+  * <p>value 0 means Transaction Approved.</p>
+  * <p>value -3 means Transaction Canceled.</p>
+  * <p>other value means Transaction Error.</p>
+  * <p>Used in {@link InformationStatus#TRANS_COMPLETED}</p>
+  */
+ public static final String PARAM_CODE = "resultCode";
 
-    public static final String PARAM_EDC_TYPE = "edcType";
-    public static final String PARAM_UPLOAD_CURRENT_COUNT = "uploadCurrentCount";
-    public static final String PARAM_UPLOAD_TOTAL_COUNT = "uploadTotalCout";
+ /**
+  * Trans Result Message
+  * <p>Type: String.</p>
+  * <p>Used in {@link InformationStatus#TRANS_COMPLETED} and {@link InformationStatus#ERROR}</p>
+  */
+ public static final String PARAM_MSG = "resultMessage";
+ /**
+  * Message to be shown on external PIN PAD (BroadPOS use only)
+  * <p>Type: String.</p>
+  * <p>Used in {@link InformationStatus#TRANS_COMPLETED}</p>
+  */
+ public static final String PARAM_EXT_MSG = "externalResultMessage";
 
-    public static final String PARAM_TOTAL_AMOUNT = "totalAmount";
+ /**
+  * S&amp;F Type
+  * <p>Type: String. see {@link com.pax.us.pay.ui.constant.entry.enumeration.SFType}</p>
+  * <p>Used in {@link BatchStatus#BATCH_SF_UPLOADING}</p>
+  */
+ public static final String PARAM_SF_TYPE = "sfType";
 
-    public static final String PARAM_HOST_RESP_TIMEOUT = "hostRespTimeout";
+ /**
+  * S&amp;F Uploaded Count
+  * <p>Type: Long. Default: 0</p>
+  * <p>Used in {@link BatchStatus#BATCH_SF_UPLOADING}</p>
+  */
+ public static final String PARAM_SF_CURRENT_COUNT = "sfCurrent";
 
-    public static final String PARAM_UPLOAD_CURRENT_PERCENT = "uploadCurrentPercent";
-    public static final String PARAM_DISPLAY_VISA_INSTALLMENT_APPROVAL = "displayVisaInstallmentApproval";
+ /**
+  * S&amp;F Total Count to upload
+  * <p>Type: Long. Default: 0</p>
+  * <p>Used in {@link BatchStatus#BATCH_SF_UPLOADING}</p>
+  */
+ public static final String PARAM_SF_TOTAL_COUNT = "sfTotal";
+
+ /**
+  * EDC Type
+  * <p>
+  *     Type: String.<br>
+  *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.EDCType}
+  * </p>
+  */
+ public static final String PARAM_EDC_TYPE = "edcType";
+
+ /**
+  * Uploaded Count
+  * <p>Type: Long. Default: 0</p>
+  * <p>Used in {@link Uncategory#LOG_UPLOAD_UPLOADING}</p>
+  */
+ public static final String PARAM_UPLOAD_CURRENT_COUNT = "uploadCurrentCount";
+
+ /**
+  * Total Count to Upload
+  * <p>Type: Long. Default: 0</p>
+  * <p>Used in {@link Uncategory#LOG_UPLOAD_UPLOADING}</p>
+  */
+ public static final String PARAM_UPLOAD_TOTAL_COUNT = "uploadTotalCout";
+
+ /**
+  * Total Amount
+  * <p>Type: Long. Default: 0</p>
+  * <p>Used in {@link InformationStatus#TRANS_AMOUNT_CHANGED_IN_CARD_PROCESSING}</p>
+  */
+ public static final String PARAM_TOTAL_AMOUNT = "totalAmount";
+
+ /**
+  * Timeout for trans result dialog
+  * <p>Type: Long. Default: 2000</p>
+  * <p>Used in {@link InformationStatus#TRANS_COMPLETED}</p>
+  */
+ public static final String PARAM_HOST_RESP_TIMEOUT = "hostRespTimeout";
+
+ /**
+  * Uploaded Percent
+  * <p>Type: Long. Default: 0</p>
+  * <p>Used in {@link Uncategory#LOG_UPLOAD_CONNECTED},{@link Uncategory#LOG_UPLOAD_UPLOADING}</p>
+  */
+ public static final String PARAM_UPLOAD_CURRENT_PERCENT = "uploadCurrentPercent";
+
+ /**
+  * Whether display specific UI of visa installment.
+  * <p>Type: Boolean. true: display. false: do not.</p>
+  * <p>Used in {@link InformationStatus#TRANS_COMPLETED}</p>
+  */
+ public static final String PARAM_DISPLAY_VISA_INSTALLMENT_APPROVAL = "displayVisaInstallmentApproval";
 
 }
