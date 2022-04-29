@@ -99,6 +99,11 @@ public final class SecurityEntry {
      *     TRUE is enabled. FALSE is disabled
      * </p>
      * <p>
+     *     Input: {@link EntryExtraData#PARAM_ENABLE_LASER_SCAN}  <br>
+     *     Type: Boolean<br>
+     *     TRUE is enabled. FALSE is disabled
+     * </p>
+     * <p>
      *     Input: {@link EntryExtraData#PARAM_PAN_STYLES} <br>
      *     Type: String<br>
      *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.PanStyles}
@@ -205,9 +210,6 @@ public final class SecurityEntry {
      *     Input: {@link EntryExtraData#PARAM_IS_EXTERNAL_PINPAD} tells the type of PIN PAD<br>
      *     Type: Boolean<br>
      *     TRUE means BroadPOS using external PIN PAD (like SP30S).
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_SHOW_VIRTUAL_PINPAD}
      * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_X} is X coordinate of input box<br>

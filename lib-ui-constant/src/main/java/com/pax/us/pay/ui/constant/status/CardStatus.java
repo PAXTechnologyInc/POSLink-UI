@@ -21,26 +21,23 @@ public final class CardStatus {
      * Broadcast Action: EMV Process end
      */
     public static final String CARD_PROCESS_COMPLETED = "com.pax.us.pay.CARD_PROCESS_COMPLETED";
-    /**
-     * Broadcast Action: EMV Process error
-     * @deprecated Use {@link com.pax.us.pay.ui.constant.entry.ConfirmationEntry#ACTION_CONFIRM_CARD_PROCESS_RESULT} instead.
-     */
-    public static final String CARD_PROCESS_ERROR = "com.pax.us.pay.CARD_PROCESS_ERROR";
+//    /**
+//     * Broadcast Action: EMV Process error
+//     * @deprecated Use {@link com.pax.us.pay.ui.constant.entry.ConfirmationEntry#ACTION_CONFIRM_CARD_PROCESS_RESULT} instead.
+//     */
+//    public static final String CARD_PROCESS_ERROR = "com.pax.us.pay.CARD_PROCESS_ERROR";
 
     /**
-     * Broadcast Action: card inserted
-     * @deprecated BroadPOS Use Only
+     * Broadcast Action: Card Inserted
      */
     public static final String CARD_INSERTED = "com.pax.us.pay.CARD_INSERTED";
 
     /**
-     * Broadcast Action: card swiped
-     * @deprecated BroadPOS Use Only
+     * Broadcast Action: Card Swiped
      */
     public static final String CARD_SWIPED = "com.pax.us.pay.CARD_SWIPED";
     /**
-     * Broadcast Action: card tapped
-     * @deprecated BroadPOS Use Only
+     * Broadcast Action: Card Tapped
      */
     public static final String CARD_TAPPED = "com.pax.us.pay.CARD_TAPPED";
 
@@ -78,15 +75,15 @@ public final class CardStatus {
      */
     public static final String CARD_REMOVED = "com.pax.us.pay.CARD_REMOVED";
 
-    /**
-     * Broadcast Action: See Phone
-     * param: {@link #PARAM_PROMPTS} <br>
-     * @deprecated Use {@link com.pax.us.pay.ui.constant.entry.ConfirmationEntry#ACTION_CONFIRM_CARD_PROCESS_RESULT} instead.
-     */
-    public static final String SEE_PHONE = "com.pax.us.pay.SEE_PHONE";
-
-    /**
-     * @deprecated never used?
-     */
-    public static final String PARAM_PROMPTS = "prompts";
+//    /**
+//     * Broadcast Action: See Phone
+//     * param: {@link #PARAM_PROMPTS} <br>
+//     * @deprecated Use {@link com.pax.us.pay.ui.constant.entry.ConfirmationEntry#ACTION_CONFIRM_CARD_PROCESS_RESULT} instead.
+//     */
+//    public static final String SEE_PHONE = "com.pax.us.pay.SEE_PHONE";
+//
+//    /**
+//     * @deprecated Used by SEE_PHONE. But SEE_PHONE has been deprecated.
+//     */
+//    public static final String PARAM_PROMPTS = "prompts";
 }

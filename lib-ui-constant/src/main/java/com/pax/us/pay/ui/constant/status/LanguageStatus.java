@@ -20,9 +20,17 @@ public final class LanguageStatus {
     /**
      * Broadcast Action: Set Language
      * <p>
-     *     Input: {@link #PARAM_COUNTRY}</p>
+     *     Input: {@link #PARAM_COUNTRY}<br>
+     *     Type: String.<br>
+     *     Country Code of Locale.<br>
+     *     See java.util.Locale for details.
+     * </p>
      * <p>
-     *     Input: {@link #PARAM_LANGUAGE}</p>
+     *     Input: {@link #PARAM_LANGUAGE}<br>
+     *     Type: String.<br>
+     *     Language Code of Locale.<br>
+     *     See java.util.Locale for details.
+     * </p>
      */
     public static final String SET_LANGUAGE = "com.pax.us.pay.SET_LANGUAGE";
 

@@ -155,23 +155,23 @@ public final class ConfirmationEntry {
      */
     public static final String ACTION_SUPPLEMENT_PARTIAL_APPROVAL = "com.pax.us.pay.action.SUPPLEMENT_PARTIAL_APPROVAL";
 
-    /**
-     * The intent action of select the transaction online retry or offline <br>
-     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
-     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
-     * @deprecated Not used any more. This feature has been removed.
-     */
-    public static final String ACTION_CONFIRM_ONLINE_RETRY_OFFLINE = "com.pax.us.pay.action.CONFIRM_ONLINE_RETRY_OFFLINE";
+//    /**
+//     * The intent action of select the transaction online retry or offline <br>
+//     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+//     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+//     * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
+//     * @deprecated Not used any more. This feature has been removed.
+//     */
+//    public static final String ACTION_CONFIRM_ONLINE_RETRY_OFFLINE = "com.pax.us.pay.action.CONFIRM_ONLINE_RETRY_OFFLINE";
 
-    /**
-     * The intent action of select the credit type <br>
-     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
-     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
-     * @deprecated Not used any more
-     */
-    public static final String ACTION_CONFIRM_DEBIT_TRANS = "com.pax.us.pay.action.CONFIRM_DEBIT_TRANS";
+//    /**
+//     * The intent action of select the credit type <br>
+//     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+//     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+//     * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
+//     * @deprecated Not used any more
+//     */
+//    public static final String ACTION_CONFIRM_DEBIT_TRANS = "com.pax.us.pay.action.CONFIRM_DEBIT_TRANS";
     /**
      * Activity Action: Confirm Card Present <br>
      * <p>
@@ -699,14 +699,14 @@ public final class ConfirmationEntry {
      */
     public static final String ACTION_CONFIRM_PRINT_CUSTOMER_COPY = "com.pax.us.pay.action.CONFIRM_PRINT_CUSTOMER_COPY";
 
-    /**
-     * The intent action of Batch close for Application update <br>
-     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
-     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
-     * @deprecated Never used. This dialog shown by Host app.
-     */
-    public static final String ACTION_CONFIRM_BATCH_FOR_APPLICATION_UPDATE = "com.pax.us.pay.action.CONFIRM_BATCH_FOR_APPLICATION_UPDATE";
+//    /**
+//     * The intent action of Batch close for Application update <br>
+//     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+//     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+//     * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
+//     * @deprecated Never used. This dialog shown by Host app.
+//     */
+//    public static final String ACTION_CONFIRM_BATCH_FOR_APPLICATION_UPDATE = "com.pax.us.pay.action.CONFIRM_BATCH_FOR_APPLICATION_UPDATE";
     /**
      * Activity Action: Retry Online <br>
      * <p>
@@ -812,11 +812,31 @@ public final class ConfirmationEntry {
 
 
     /**
-     * The intent action of confirm the receipt need to be signed or not<br>
-     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
-     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
-     * @deprecated Never used?
+     * Activity Action: Confirm the Receipt need to be Signed or not<br>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Input:  {@link EntryExtraData#PARAM_MESSAGE}<br>
+     *     Type: String<br>
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Type: Long<br>
+     *     Unit: ms<br>
+     *     Default is 5000.
+     * </p>
+     * <p>
+     *     Input:  {@link EntryExtraData#PARAM_OPTIONS}<br>
+     *     Type: String[]<br>
+     *     Value is {@link ConfirmationType#YES}
+     * </p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_CONFIRMED} <br>
+     *     Type: Boolean<br>
+     *     If select {@link ConfirmationType#YES}, return TRUE.
+     * </p>
      */
     public static final String ACTION_CONFIRM_RECEIPT_SIGNATURE = "com.pax.us.pay.action.CONFIRM_RECEIPT_SIGNATURE";
     /**
@@ -871,35 +891,35 @@ public final class ConfirmationEntry {
      */
     public static final String ACTION_CONFIRM_RECEIPT_VIEW = "com.pax.us.pay.action.CONFIRM_RECEIPT_VIEW";
 
-    /**
-     * Activity Action: Confirm Balance<br>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
-     *     Type: String
-     * </p>
-     * <p>
-     *     Input:  {@link EntryExtraData#PARAM_CURRENCY} is currency type. <br>
-     *     Type: String<br>
-     *     Default value: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType#USD}
-     * </p>
-     * <p>
-     *     Input:  {@link EntryExtraData#PARAM_BALANCE}  <br>
-     *     Type: Long
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
-     *     Type: Long<br>
-     *     Unit: ms<br>
-     *     Default is 30000.
-     * </p>
-     * <p>
-     *     Output: {@link EntryRequest#PARAM_CONFIRMED} <br>
-     *     Type: Boolean<br>
-     *     If select {@link ConfirmationType#YES}, return TRUE.
-     * </p>
-     * @deprecated Not used any more
-     */
-    public static final String ACTION_CONFIRM_BALANCE = "com.pax.us.pay.action.CONFIRM_BALANCE";
+//    /**
+//     * Activity Action: Confirm Balance<br>
+//     * <p>
+//     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+//     *     Type: String
+//     * </p>
+//     * <p>
+//     *     Input:  {@link EntryExtraData#PARAM_CURRENCY} is currency type. <br>
+//     *     Type: String<br>
+//     *     Default value: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType#USD}
+//     * </p>
+//     * <p>
+//     *     Input:  {@link EntryExtraData#PARAM_BALANCE}  <br>
+//     *     Type: Long
+//     * </p>
+//     * <p>
+//     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+//     *     Type: Long<br>
+//     *     Unit: ms<br>
+//     *     Default is 30000.
+//     * </p>
+//     * <p>
+//     *     Output: {@link EntryRequest#PARAM_CONFIRMED} <br>
+//     *     Type: Boolean<br>
+//     *     If select {@link ConfirmationType#YES}, return TRUE.
+//     * </p>
+//     * @deprecated Not used any more
+//     */
+//    public static final String ACTION_CONFIRM_BALANCE = "com.pax.us.pay.action.CONFIRM_BALANCE";
 
     /**
      * Activity Action: Confirm Merchant
@@ -969,20 +989,20 @@ public final class ConfirmationEntry {
      */
     public static final String ACTION_CONFIRM_CARD_ENTRY_RETRY = "com.pax.us.pay.action.CONFIRM_CARD_ENTRY_RETRY";
 
-
-    /**
-     * The intent action of confirm end user license agreement<br>
-     * when start action from host by call startActivity() directly, doesn't set EntryExtraData#PARAM_START_TYPE <br>
-     * when start action from manager, set EntryExtraData#PARAM_START_TYPE value "ACTION" <br>
-     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
-     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * input: {@link EntryExtraData#PARAM_EULA_URI} <br>
-     * input: {@link EntryExtraData#PARAM_START_TYPE} <br>
-     * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
-     * request: {@link EntryRequest#PARAM_DO_NOT_PROMPT_AGAIN} <br>
-     * @deprecated Never used?
-     */
-    public static final String ACTION_CONFIRM_END_USER_LICENSE_AGREEMENT = "com.pax.us.pay.action.CONFIRM_END_USER_LICENSE_AGREEMENT";
+//Yanina: Remove it cuz never used.
+//    /**
+//     * The intent action of confirm end user license agreement<br>
+//     * when start action from host by call startActivity() directly, doesn't set EntryExtraData#PARAM_START_TYPE <br>
+//     * when start action from manager, set EntryExtraData#PARAM_START_TYPE value "ACTION" <br>
+//     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
+//     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+//     * input: {@link EntryExtraData#PARAM_EULA_URI} <br>
+//     * input: {@link EntryExtraData#PARAM_START_TYPE} <br>
+//     * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
+//     * request: {@link EntryRequest#PARAM_DO_NOT_PROMPT_AGAIN} <br>
+//     * @deprecated Never used?
+//     */
+//    public static final String ACTION_CONFIRM_END_USER_LICENSE_AGREEMENT = "com.pax.us.pay.action.CONFIRM_END_USER_LICENSE_AGREEMENT";
 
     /**
      * The intent action of confirm eula continue<br>

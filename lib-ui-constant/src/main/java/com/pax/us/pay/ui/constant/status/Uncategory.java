@@ -7,14 +7,14 @@ public final class Uncategory {
     private Uncategory(){
 
     }
-    /**
-     * @deprecated Not used
-     */
-    public static final String ACTIVATE_STARTED = "com.pax.us.pay.ACTIVATE_STARTED";
-    /**
-     * @deprecated Not used
-     */
-    public static final String ACTIVATE_COMPLETED = "com.pax.us.pay.ACTIVATE_COMPLETED";
+//    /**
+//     * @deprecated Not used any more
+//     */
+//    public static final String ACTIVATE_STARTED = "com.pax.us.pay.ACTIVATE_STARTED";
+//    /**
+//     * @deprecated Not used any more
+//     */
+//    public static final String ACTIVATE_COMPLETED = "com.pax.us.pay.ACTIVATE_COMPLETED";
 
     /**
      * Broadcast Action: prompt "Downloading EMV CAPK\nPlease Wait..."

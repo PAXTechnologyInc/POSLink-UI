@@ -20,7 +20,6 @@ public final class EntryRequest {
      * <pre>
      *     Bundle bundle = new Bundle();
      *     bundle.putLong(EntryRequest.PARAM_AMOUNT,amount);
-     *     bundle.putString(EntryRequest.PARAM_ACTION, TextEntry.ACTION_ENTER_AMOUNT);
      *     Intent intent = new Intent();
      *     intent.setPackage(broadPOSPackage); //broadPOSPackage is from {@link EntryExtraData#PARAM_PACKAGE}
      *     intent.setAction(EntryRequest.ACTION_NEXT);
@@ -29,7 +28,7 @@ public final class EntryRequest {
      *</pre>
      * <p>
      *     For some actions which have no required outputs,
-     *     like {@link InformationEntry#ACTION_DISPLAY_APPROVE_MESSAGE} and {@link ConfirmationEntry#ACTION_DISPLAY_QR_CODE_RECEIPT},
+     *     like {@link ConfirmationEntry#ACTION_DISPLAY_QR_CODE_RECEIPT},
      *     you can send NEXT by this way:
      * </p>
      * <pre>
@@ -228,19 +227,18 @@ public final class EntryRequest {
      * <pre>
      *     Intent intent = new Intent(EntryRequest.ACTION_START_SCAN);
      *     intent.setPackage(broadPOSPackage); //broadPOSPackage is from {@link EntryExtraData#PARAM_PACKAGE}
-     *     intent.putExtra(EntryRequest.PARAM_ACTION, EntryRequest.ACTION_START_SCAN);
      *     context.sendBroadcast(intent);
      * </pre>
      */
     public static final String ACTION_START_SCAN = "com.pax.us.pay.ui.START_SCAN";
 
-    /**
-     * Current Action
-     * <p>Tell BroadPOS what is the current activity action</p>
-     * <p>Type: String</p>
-     * @deprecated how to use it?
-     */
-    public static final String PARAM_ACTION = "action";
+//    /**
+//     * Current Action
+//     * <p>Tell BroadPOS what is the current activity action</p>
+//     * <p>Type: String</p>
+//     * @deprecated Internal use only. Should update BroadPOS Manager .
+//     */
+//    public static final String PARAM_ACTION = "action";
 
     /**
      * Amount

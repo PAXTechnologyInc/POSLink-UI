@@ -22,11 +22,18 @@ public final class InformationStatus {
     /**
      * Broadcast Action: Transaction Completed
      * <p>
-     *     Input: {@link StatusData#PARAM_CODE} result code</p>
+     *     Input: {@link StatusData#PARAM_CODE}<br>
+     *     Type: String<br>
+     *     result code</p>
      * <p>
-     *     Input: {@link StatusData#PARAM_MSG} result message</p>
+     *     Input: {@link StatusData#PARAM_MSG} <br>
+     *     Type: String<br>
+     *     result message</p>
      * <p>
-     *     Input: {@link StatusData#PARAM_EXT_MSG} BroadPOS use only</p>
+     *     Input: {@link StatusData#PARAM_EXT_MSG}<br>
+     *     Type: String<br>
+     *     Message which need shown on external device (like SP30s). For BroadPOS use only.
+     * </p>
      */
     public static final String TRANS_COMPLETED = "com.pax.us.pay.TRANS_COMPLETED";
 
@@ -41,17 +48,17 @@ public final class InformationStatus {
      */
     public static final String TRANS_ONLINE_FINISHED = "com.pax.us.pay.TRANS_ONLINE_FINISHED";
 
-    /**
-     * Broadcast Action: Reversal Process begin
-     * <p>"Reversal..."</p>
-     * @deprecated Not used any more(Ticket BPOSANDAPP-492}
-     */
-    public static final String TRANS_REVERSAL_STARTED = "com.pax.us.pay.TRANS_REVERSAL_STARTED";
-    /**
-     * Broadcast Action: Reversal Process end
-     * @deprecated Not used any more(Ticket BPOSANDAPP-492}
-     */
-    public static final String TRANS_REVERSAL_FINISHED = "com.pax.us.pay.TRANS_REVERSAL_FINISHED";
+//    /**
+//     * Broadcast Action: Reversal Process begin
+//     * <p>"Reversal..."</p>
+//     * @deprecated Not used any more(Ticket BPOSANDAPP-492}
+//     */
+//    public static final String TRANS_REVERSAL_STARTED = "com.pax.us.pay.TRANS_REVERSAL_STARTED";
+//    /**
+//     * Broadcast Action: Reversal Process end
+//     * @deprecated Not used any more(Ticket BPOSANDAPP-492}
+//     */
+//    public static final String TRANS_REVERSAL_FINISHED = "com.pax.us.pay.TRANS_REVERSAL_FINISHED";
 
     /**
      * Broadcast Action: Connect PINPAD Process begin
@@ -103,16 +110,22 @@ public final class InformationStatus {
     /**
      * Broadcast Action: General Error
      * <p>
-     *     Input: {@link StatusData#PARAM_CODE} errorCode</p>
+     *     Input: {@link StatusData#PARAM_CODE} <br>
+     *     Type: String
+     * </p>
      * <p>
-     *     Input: {@link StatusData#PARAM_MSG} errorMessage</p>
+     *     Input: {@link StatusData#PARAM_MSG} <br>
+     *     Type: String
+     * </p>
      */
     public static final String ERROR = "com.pax.us.pay.ERROR";
 
     /**
      * Broadcast Action: Update amount during card processing
      * <p>
-     *     Input: {@link StatusData#PARAM_TOTAL_AMOUNT}</p>
+     *     Input: {@link StatusData#PARAM_TOTAL_AMOUNT}<br>
+     *     Type: Long
+     * </p>
      */
     public static final String TRANS_AMOUNT_CHANGED_IN_CARD_PROCESSING = "com.pax.us.pay.AMOUNT_CHANGED_IN_CARD_PROCESSING";
 

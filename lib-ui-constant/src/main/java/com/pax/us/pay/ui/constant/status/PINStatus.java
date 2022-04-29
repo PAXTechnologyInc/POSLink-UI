@@ -25,16 +25,16 @@ public final class PINStatus {
      */
     public static final String PIN_ENTER_CLEARED = "com.pax.us.pay.PIN_CLEARED";
 
-    /**
-     * Broadcast Action: PIN_ENTER_COMPLETED
-     * @deprecated Never Used
-     */
-    public static final String PIN_ENTER_COMPLETED = "com.pax.us.pay.PIN_ENTER_COMPLETED";
-
-    /**
-     * Broadcast Action: PIN_ENTER_ABORTED
-     * @deprecated Never Used
-     */
-    public static final String PIN_ENTER_ABORTED = "com.pax.us.pay.PIN_ENTER_ABORTED";
+//    /**
+//     * Broadcast Action: PIN_ENTER_COMPLETED
+//     * @deprecated Never Sent
+//     */
+//    public static final String PIN_ENTER_COMPLETED = "com.pax.us.pay.PIN_ENTER_COMPLETED";
+//
+//    /**
+//     * Broadcast Action: PIN_ENTER_ABORTED
+//     * @deprecated Never Sent
+//     */
+//    public static final String PIN_ENTER_ABORTED = "com.pax.us.pay.PIN_ENTER_ABORTED";
 
 }
