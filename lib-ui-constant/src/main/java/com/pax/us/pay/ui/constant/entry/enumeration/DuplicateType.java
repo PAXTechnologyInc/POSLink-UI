@@ -3,7 +3,8 @@ package com.pax.us.pay.ui.constant.entry.enumeration;
 /**
  * Duplicate Type
  * <p>
- *     Options when handle a duplicated transaction
+ *     Re-auth Option after getting DUP response<br>
+ *     See {@link com.pax.us.pay.ui.constant.entry.OptionEntry#ACTION_SELECT_DUPLICATE_OVERRIDE} for details.
  * </p>
  */
 public final class DuplicateType {

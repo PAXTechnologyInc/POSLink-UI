@@ -16,40 +16,40 @@ public final class InputType {
     /**
      * Alpha-Numeric String.
      */
-    public static final String ALPHA_NUMERIC = "0";
+    public static final String ALPHA_NUMERIC = "ALPHA_NUMERIC"; //"0";
 
     /**
      * Numeric String
      */
-    public static final String NUMERIC = "1";
+    public static final String NUMERIC = "NUMERIC";//"1";
 
     /**
      * Date in MMDDYYYY format. For POSLinkEntry use only.
      */
-    public static final String DATE = "2";
+    public static final String DATE = "DATE";//"2";
 
     /**
      * Time in HHMMSS format. For POSLinkEntry use only.
      */
-    public static final String TIME = "3";
+    public static final String TIME = "TIME";//"3";
 
     /**
      * Currency in XXXXXX.XX format. For POSLinkEntry use only.
      */
-    public static final String CURRENCY = "4";
+    public static final String CURRENCY = "CURRENCY";//"4";
 
     /**
-     * Password format
+     * Password format. . For POSLinkEntry use only.
      */
-    public static final String PASSWORD = "5";
+    public static final String PASSWORD = "PASSWORD";//"5";
 
     /**
      * Phone number as "(xxx) xxx-xxxx". For POSLinkEntry use only.
      */
-    public static final String PHONE = "6";
+    public static final String PHONE = "PHONE";//"6";
 
     /**
      * Social Security as "xxx-xx-xxxx". For POSLinkEntry use only.
      */
-    public static final String SSN = "7";
+    public static final String SSN = "SSN";//"7";
 }

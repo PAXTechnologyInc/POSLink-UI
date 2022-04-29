@@ -262,7 +262,15 @@ public final class OptionEntry {
     public static final String ACTION_SELECT_TAX_REASON = "com.pax.us.pay.action.SELECT_TAX_REASON";
 
     /**
-     * Activity Action: Select Duplicate Transaction Override or Use original transaction
+     * Activity Action: Select Re-auth Option after getting DUP response
+     * <p>
+     *     Not apply for all BroadPOS apps. It depends on Host support.
+     *     Example:
+     *     Do a CREDIT SALE transaction using BroadPOS CardKnox, response from host tells it is duplicated.
+     *     The BroadPOS CardKnox will start this action with option {@link com.pax.us.pay.ui.constant.entry.enumeration.DuplicateType#OVERRIDE},<br>
+     *     If choose OVERRIDE, BroadPOS will do re-auth for this transaction.
+     *     If decline the option by cancel, BroadPOS will treat this transaction as declined.
+     * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
      *     Type: String
@@ -286,8 +294,7 @@ public final class OptionEntry {
      * <p>
      *     Input: {@link EntryExtraData#PARAM_OPTIONS}<br>
      *     Type: String[]<br>
-     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.DuplicateType}<br>
-     *     Type: String
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.DuplicateType}
      * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_INDEX} Selected Index<br>

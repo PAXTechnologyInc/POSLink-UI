@@ -231,6 +231,12 @@ public final class EntryExtraData {
      * <p>Type: String</p>
      */
     public static final String PARAM_SOUND_URI = "soundUri";
+
+    /**
+     * Animation Uri
+     * <p>Type: String</p>
+     */
+    public static final String PARAM_ANIMATION_URI = "animationUri";
     /**
      * VCode Name
      * <p>Type: String</p>
@@ -238,12 +244,13 @@ public final class EntryExtraData {
      */
     public static final String PARAM_VCODE_NAME = "vcodeName";
 
-    /**
-     * PAN Style
-     * <p>Type: String</p>
-     * <p>See {@link com.pax.us.pay.ui.constant.entry.enumeration.PanStyles} for details</p>
-     */
-    public static final String PARAM_PAN_STYLES = "panStyles";
+//    /**
+//     * PAN Style
+//     * <p>Type: String</p>
+//     * <p>See {@link com.pax.us.pay.ui.constant.entry.enumeration.PanStyles} for details</p>
+//     * @deprecated Not use any more. Use INPUT_NEW_ACCOUNT action.
+//     */
+//    public static final String PARAM_PAN_STYLES = "panStyles";
 
     /**
      * Use external PIN PAD or internal PIN PAD
@@ -505,25 +512,36 @@ public final class EntryExtraData {
 //    public static final String PARAM_TIP3 = "tip3";
 
     /**
-     * Tip Names (For Standalone use only)
+     * Name of Enabled Tips (For Standalone use only)
      * <p>Type: String[]</p>
      * <p>Used when multiple tips are enabled.</p>
      * <p>
      *     Example:<br>
-     *     If Tip Names are: {"TIP", "TIP1", "TIP2}<br>
-     *     Tip Amounts are: {"100", "200"}<br>
-     *     Then tip page shown as:<br>
-     *
-     *     TIP : $1.00 (BLUE)<br>
-     *     TIP2: $1.00 (BLUE)<br>
-     *     TIP3: $0.00 (GREY)<br>
+     *     If TIP1, TIP2, TIP3 are all enabled.<br>
+     *     If name of enabled tips is: {"TIP", "TIP2", "TIP3}<br>
+     *     value of enabled tips is: {"100", "200"}<br>
+     *     That means:<br>
+     *     The customer has entered $1.00 TIP, $2.00 TIP2. TIP3 not valued yet.
      * </p>
+     */
+    public static final String PARAM_NAME_OF_ENABLED_TIPS = "nameOfEnabledTips";
+
+    /**
+     * Value of Enabled Tips (For Standalone use only)
+     * <p>Type: String[]</p>
+     * <p>see {@link #PARAM_NAME_OF_ENABLED_TIPS} for details</p>
+     */
+    public static final String PARAM_VALUE_OF_ENABLED_TIPS = "valueOfEnabledTips";
+
+    /**
+     * @deprecated Use PARAM_ALL_TIP_NAME_ARRAY instead.
      */
     public static final String PARAM_TIP_NAMES = "tipNames";
     /**
      * Tip Amounts (For Standalone use only)
      * <p>Type: String[]</p>
      * <p>see {@link #PARAM_TIP_NAMES} for details</p>
+     * @deprecated Use PARAM_KNOWN_TIP_VALUES
      */
     public static final String PARAM_TIP_AMOUNTS = "tipAmounts";
 
