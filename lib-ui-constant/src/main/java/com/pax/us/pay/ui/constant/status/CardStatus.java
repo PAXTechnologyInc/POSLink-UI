@@ -28,23 +28,11 @@ public final class CardStatus {
     public static final String CARD_PROCESS_ERROR = "com.pax.us.pay.CARD_PROCESS_ERROR";
 
     /**
-     * @deprecated never used?
-     */
-    public static final String CARD_REMOVED = "com.pax.us.pay.CARD_REMOVED";
-
-    /**
-     * @deprecated never used?
-     */
-    public static final String CARD_INSERT_REQUIRED = "com.pax.us.pay.CARD_INSERT_REQUIRED";
-    /**
      * Broadcast Action: card inserted
      * @deprecated BroadPOS Use Only
      */
     public static final String CARD_INSERTED = "com.pax.us.pay.CARD_INSERTED";
-    /**
-     * @deprecated never used?
-     */
-    public static final String CARD_SWIPE_REQUIRED = "com.pax.us.pay.CARD_SWIPE_REQUIRED";
+
     /**
      * Broadcast Action: card swiped
      * @deprecated BroadPOS Use Only
@@ -78,10 +66,6 @@ public final class CardStatus {
      * Broadcast Action: require swipe card
      * <p>"Please Remove Card!"</p>
      */
-    /**
-     * @deprecated never used?
-     */
-    public static final String CARD_TAPPED = "com.pax.us.pay.CARD_TAPPED";
     public static final String CARD_REMOVAL_REQUIRED = "com.pax.us.pay.CARD_REMOVAL_REQUIRED";
     /**
      * Broadcast Action: require swipe card
