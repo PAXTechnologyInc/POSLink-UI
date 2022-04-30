@@ -26,10 +26,26 @@ public final class CardStatus {
     public static final String CARD_TAPPED = "com.pax.us.pay.CARD_TAPPED";
     public static final String CARD_REMOVAL_REQUIRED = "com.pax.us.pay.CARD_REMOVAL_REQUIRED";
     public static final String CARD_QUICK_REMOVAL_REQUIRED = "com.pax.us.pay.CARD_QUICK_REMOVAL_REQUIRED";
+
+    /**
+     * Reserved for BroadPos application inner communication
+     * Used for Easylink to updates search card UI
+     * param: {@link #PARAM_SEARCH_MODE} <br>
+     */
+    public static final String CARD_SEARCH_MODE = "com.pax.us.pay.CARD_SEARCH_MODE";
+
+
     /**
      * param: {@link #PARAM_PROMPTS} <br>
      */
     public static final String SEE_PHONE = "com.pax.us.pay.SEE_PHONE";
 
     public static final String PARAM_PROMPTS = "prompts";
+
+    /**
+     * param: search mode <br>
+     * type: int <br>
+     */
+    public static final String PARAM_SEARCH_MODE = "searchMode";
+
 }
