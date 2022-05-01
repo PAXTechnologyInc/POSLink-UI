@@ -20,6 +20,7 @@ public final class EntryRequest {
      * <pre>
      *     Bundle bundle = new Bundle();
      *     bundle.putLong(EntryRequest.PARAM_AMOUNT,amount);
+     *     bundle.putStringExtra(EntryRequest.PARAM_ACTION,TextEntry.ACTION_ENTER_AMOUNT);
      *     Intent intent = new Intent();
      *     intent.setPackage(broadPOSPackage); //broadPOSPackage is from {@link EntryExtraData#PARAM_PACKAGE}
      *     intent.setAction(EntryRequest.ACTION_NEXT);
@@ -43,12 +44,16 @@ public final class EntryRequest {
     /**
      * Broadcast Action: ABORT
      * <p>
-     *     When you try to abort the transaction, you can send broadcast to BroadPOS. Like this:
+     *     When you try to abort the transaction, you can send broadcast to BroadPOS. <br>
+     *     Example: try to abort action {@link TextEntry#ACTION_ENTER_AMOUNT}:
      * </p>
      * <pre>
+     *     Bundle bundle = new Bundle();
+     *     bundle.putStringExtra(EntryRequest.PARAM_ACTION,TextEntry.ACTION_ENTER_AMOUNT);
      *     Intent intent = new Intent();
      *     intent.setPackage(broadPOSPackage); //broadPOSPackage is from {@link EntryExtraData#PARAM_PACKAGE}
      *     intent.setAction(EntryRequest.ACTION_ABORT);
+     *     intent.putExtras(bundle);
      *     context.sendBroadcast(intent);
      *</pre>
      */
@@ -57,10 +62,14 @@ public final class EntryRequest {
     /**
      * Broadcast Action: TIMEOUT
      * <p>
-     *     When TIMEOUT, you can send broadcast to BroadPOS. Like this:
+     *     When TIMEOUT, you can send broadcast to BroadPOS. <br>
+     *     Example for action {@link TextEntry#ACTION_ENTER_AMOUNT}:
      * </p>
      * <pre>
+     *     Bundle bundle = new Bundle();
+     *     bundle.putStringExtra(EntryRequest.PARAM_ACTION,TextEntry.ACTION_ENTER_AMOUNT);
      *     Intent intent = new Intent();
+     *     intent.putExtras(bundle);
      *     intent.setPackage(broadPOSPackage); //broadPOSPackage is from {@link EntryExtraData#PARAM_PACKAGE}
      *     intent.setAction(EntryRequest.ACTION_TIME_OUT);
      *     context.sendBroadcast(intent);
@@ -71,7 +80,7 @@ public final class EntryRequest {
 
     /**
      * Broadcast Action: PREV: request BroadPOS to go to previous step . <br>
-     * @deprecated Never used.
+     * @deprecated Never used. Now BroadPOS can not go to previous step during transaction.
      */
     public static final String ACTION_PREV = "com.pax.us.pay.ui.PREV";
 
@@ -232,13 +241,12 @@ public final class EntryRequest {
      */
     public static final String ACTION_START_SCAN = "com.pax.us.pay.ui.START_SCAN";
 
-//    /**
-//     * Current Action
-//     * <p>Tell BroadPOS what is the current activity action</p>
-//     * <p>Type: String</p>
-//     * @deprecated Internal use only. Should update BroadPOS Manager .
-//     */
-//    public static final String PARAM_ACTION = "action";
+    /**
+     * Current Action
+     * <p>Tell BroadPOS what is the current activity action</p>
+     * <p>Type: String</p>
+     */
+    public static final String PARAM_ACTION = "action";
 
     /**
      * Amount
@@ -352,7 +360,8 @@ public final class EntryRequest {
     public static final String PARAM_TRANSIT_AMOUNT = "transitAmount";
 
     /**
-     * @deprecated Not used anymore
+     * FSA Type
+     * @deprecated Never used.
      */
     public static final String PARAM_FSA_OPTION = "fsaOption";
 
@@ -434,7 +443,7 @@ public final class EntryRequest {
      * Product Description
      * <p>Type: String</p>
      */
-    public static final String PARAM_PROC_DESC = "prodDesc";
+    public static final String PARAM_PROD_DESC = "prodDesc";
     /**
      * Merchant TAX ID
      * <p>Type: String</p>
@@ -525,11 +534,12 @@ public final class EntryRequest {
      */
     public static final String PARAM_DEST_ZIP_CODE = "destinationZipCode";
 
-    /**
-     * PARAM_DO_NOT_PROMPT_AGAIN : request parameter prompt again <br>
-     * value type: Boolean <br>
-     */
-    public static final String PARAM_DO_NOT_PROMPT_AGAIN = "doNotPromptAgain";
+    //Yanina: Used by EULA. Internal use.
+//    /**
+//     * PARAM_DO_NOT_PROMPT_AGAIN : request parameter prompt again <br>
+//     * value type: Boolean <br>
+//     */
+//    public static final String PARAM_DO_NOT_PROMPT_AGAIN = "doNotPromptAgain";
 
     //POSLINK
     /**
@@ -556,10 +566,11 @@ public final class EntryRequest {
      */
     public static final String PARAM_SIGN_STATUS = "signStatus";
 
-    /**
-     * @deprecated Never used
-     */
-    public static final String PARAM_VALUE = "value";
+//    /**
+//     * Value
+//     * @deprecated Never used
+//     */
+//    public static final String PARAM_VALUE = "value";
 
     /**
      * Selected Index

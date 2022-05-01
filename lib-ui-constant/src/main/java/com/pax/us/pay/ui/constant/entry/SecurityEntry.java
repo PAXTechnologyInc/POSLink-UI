@@ -104,14 +104,17 @@ public final class SecurityEntry {
      *     TRUE is enabled. FALSE is disabled
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_PAN_STYLES} <br>
-     *     Type: String<br>
-     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.PanStyles}
-     * </p>
-     * <p>
      *     Input: {@link EntryExtraData#PARAM_ENABLE_CONTACTLESS_LIGHT} <br>
      *     Type: Boolean.<br>
      *     True is enabled. False is disabled
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_PAN_STYLES} <br>
+     *     Type: String.<br>
+     *     If value is {@link com.pax.us.pay.ui.constant.entry.enumeration.PanStyles#NEW_PAN},
+     *     prompt "Please Enter New Card Number".<br>
+     *     Else, prompt "Please Enter Card Number".<br>
+     *     For GIFT/LOYALTY Replace/Merge transaction use.
      * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_X} is X coordinate of input box<br>
@@ -212,27 +215,6 @@ public final class SecurityEntry {
      *     TRUE means BroadPOS using external PIN PAD (like SP30S).
      * </p>
      * <p>
-     *     Output: {@link EntryRequest#PARAM_X} is X coordinate of input box<br>
-     *     Type: Integer<br>
-     *     Unit: pixel
-     * </p>
-     * <p>
-     *     Output: {@link EntryRequest#PARAM_Y} is Y coordinate of input box<br>
-     *     Type: Integer<br>
-     *     Unit: pixel
-     * </p>
-     * <p>
-     *     Output: {@link EntryRequest#PARAM_WIDTH} is width of input box<br>
-     *     Type: Integer<br>
-     *     Unit: pixel
-     * </p>
-     * <p>
-     *     Output: {@link EntryRequest#PARAM_HEIGHT} is height of input box<br>
-     *     Type: Integer<br>
-     *     Unit: pixel
-     * </p>
-     * <p>
-     *     About how to send output to BroadPOS, see {@link EntryRequest#ACTION_SECURITY_AREA} for details.<br>
      *     If you would like to use your PIN PAD layout, see {@link EntryRequest#ACTION_SET_PIN_KEY_LAYOUT} for details.
      * </p>
      */

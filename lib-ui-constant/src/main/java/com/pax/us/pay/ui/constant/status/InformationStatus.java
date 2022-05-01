@@ -48,17 +48,17 @@ public final class InformationStatus {
      */
     public static final String TRANS_ONLINE_FINISHED = "com.pax.us.pay.TRANS_ONLINE_FINISHED";
 
-//    /**
-//     * Broadcast Action: Reversal Process begin
-//     * <p>"Reversal..."</p>
-//     * @deprecated Not used any more(Ticket BPOSANDAPP-492}
-//     */
-//    public static final String TRANS_REVERSAL_STARTED = "com.pax.us.pay.TRANS_REVERSAL_STARTED";
-//    /**
-//     * Broadcast Action: Reversal Process end
-//     * @deprecated Not used any more(Ticket BPOSANDAPP-492}
-//     */
-//    public static final String TRANS_REVERSAL_FINISHED = "com.pax.us.pay.TRANS_REVERSAL_FINISHED";
+    /**
+     * Broadcast Action: Reversal Process begin
+     * <p>"Reversal..."</p>
+     * @deprecated Not used anymore(Ticket BPOSANDAPP-492}
+     */
+    public static final String TRANS_REVERSAL_STARTED = "com.pax.us.pay.TRANS_REVERSAL_STARTED";
+    /**
+     * Broadcast Action: Reversal Process end
+     * @deprecated Not used anymore(Ticket BPOSANDAPP-492}
+     */
+    public static final String TRANS_REVERSAL_FINISHED = "com.pax.us.pay.TRANS_REVERSAL_FINISHED";
 
     /**
      * Broadcast Action: Connect PINPAD Process begin

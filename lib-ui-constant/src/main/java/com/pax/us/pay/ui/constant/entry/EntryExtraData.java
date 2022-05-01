@@ -26,32 +26,7 @@ public final class EntryExtraData {
      */
     public static final String PARAM_TRANS_TYPE = "transType";
 
-//    /**
-//     * Transaction Time
-//     * <p>Type : String</p>
-//     * @deprecated Land receipt fragment need redesign!!!
-//     */
-//    public static final String PARAM_TRANS_TIME = "transTime";
-//    /**
-//     * Transaction Date
-//     * <p>Type : String</p>
-//     *
-//     * @deprecated Land receipt fragment need redesign!!!
-//     */
-//    public static final String PARAM_TRANS_DATE = "transDate";
 
-//    /**
-//     * Merchant ID
-//     * <p>Type : String</p>
-//     * @deprecated Land receipt fragment need redesign!!!
-//     */
-//    public static final String PARAM_MERCHANT_ID = "merchantID";
-//    /**
-//     * Terminal ID
-//     * <p>Type : String</p>
-//     * @deprecated Land receipt fragment need redesign!!!
-//     */
-//    public static final String PARAM_TERMINAL_ID = "terminalID";
     /**
      * Transaction mode
      * <p>BroadPOS will show specific watermark. If you don't want to, you can ignore this parameter.</p>
@@ -59,26 +34,15 @@ public final class EntryExtraData {
      * <p>see {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details </p>
      */
     public static final String PARAM_TRANS_MODE = "transMode";
-//    /**
-//     * EDC Type
-//     * <p>Type : String</p>
-//     * <p>See {@link com.pax.us.pay.ui.constant.entry.enumeration.EDCType}</p>
-//     * @deprecated Land receipt fragment need redesign!!!
-//     */
-//    public static final String PARAM_EDC_TYPE = "edcType";
+
 //    /**
 //     * Sub Trans Type
 //     * <p>Type : String</p>
 //     * <p>See {@link com.pax.us.pay.ui.constant.entry.enumeration.SubTransType} and {@link com.pax.us.pay.ui.constant.entry.enumeration.CashoutType}</p>
-//     * @deprecated Land receipt fragment need redesign!!!
+//     * @deprecated Never used.
 //     */
 //    public static final String PARAM_SUB_TRANS_TYPE = "subTransType";
-//    /**
-//     * Transaction Number
-//     * <p>Type : String</p>
-//     * @deprecated Land receipt fragment need redesign!!!
-//     */
-//    public static final String PARAM_TRANS_NUMBER = "transNumber";
+
 
     /**
      * Options
@@ -254,6 +218,7 @@ public final class EntryExtraData {
     /**
      * Interface Style
      * <p>Type: String</p>
+     * @deprecated Not used anymore.
      */
     public static final String PARAM_INTERFACE_STYLES = "interfaceStyles";
 
@@ -459,69 +424,50 @@ public final class EntryExtraData {
 //    public static final String PARAM_SERVICE_FEE = "serviceFee";
 //    public static final String PARAM_TOTAL_FEE = "totalFee";
 //
-//    /**
-//     * Balance
-//     * <p>Type: Long</p>
-//     *  @deprecated Confirm Balance
-//     */
-//    public static final String PARAM_BALANCE = "balance";
+    /**
+     * Balance
+     * <p>Type: Long</p>
+     *  @deprecated {@link ConfirmationEntry#ACTION_CONFIRM_BALANCE} deprecated.
+     */
+    public static final String PARAM_BALANCE = "balance";
 //
 //
 //    /**
 //     * Card Number
 //     * <p>Type: String</p>
-//     *  @deprecated Land receipt fragment need redesign!!!
+//     *  @deprecated Never used.
 //     */
 //    public static final String PARAM_CARD_NUMBER = "cardNumber";
 //    /**
 //     * Batch Number
 //     * <p>Type: String</p>
-//     *  @deprecated Land receipt fragment need redesign!!!
+//     *  @deprecated Never used.
 //     */
 //    public static final String PARAM_BATCH_NUMBER = "batchNumber";
 //    /**
 //     * Order Number
 //     * <p>Type: String</p>
-//     *  @deprecated Land receipt fragment need redesign!!!
+//     *  @deprecated Never used.
 //     */
 //    public static final String PARAM_ORDER_NUMBER = "orderNumber";
-//    /**
-//     * TIP1
-//     * <p>Type: Long</p>
-//     *  @deprecated Land receipt fragment need redesign!!!
-//     */
-//    public static final String PARAM_TIP1 = "tip1";
-//    /**
-//     * TIP2
-//     * <p>Type: Long</p>
-//     *  @deprecated Land receipt fragment need redesign!!!
-//     */
-//    public static final String PARAM_TIP2 = "tip2";
-//    /**
-//     * TIP3
-//     * <p>Type: Long</p>
-//     * @deprecated Land receipt fragment need redesign!!!
-//     */
-//    public static final String PARAM_TIP3 = "tip3";
+
 
     /**
-     * Tip Names (For Standalone use only)
+     * Name of Enabled Tips (For Standalone multiple-tips use only)
      * <p>Type: String[]</p>
      * <p>Used when multiple tips are enabled.</p>
      * <p>
      *     Example:<br>
-     *     If Tip Names are: {"TIP", "TIP1", "TIP2}<br>
-     *     Tip Amounts are: {"100", "200"}<br>
-     *     Then tip page shown as:<br>
-     *
-     *     TIP : $1.00 (BLUE)<br>
-     *     TIP2: $1.00 (BLUE)<br>
-     *     TIP3: $0.00 (GREY)<br>
+     *     If TIP1, TIP2, TIP3 are all enabled.<br>
+     *     If name of enabled tips is: {"TIP", "TIP2", "TIP3}<br>
+     *     value of enabled tips is: {"100", "200"}<br>
+     *     That means:<br>
+     *     The customer has entered $1.00 TIP, $2.00 TIP2. TIP3 not valued yet.
      * </p>
      */
     public static final String PARAM_TIP_NAMES = "tipNames";
     /**
-     * Tip Amounts (For Standalone use only)
+     * Value of Enabled Tips (For Standalone multiple-tips use only)
      * <p>Type: String[]</p>
      * <p>see {@link #PARAM_TIP_NAMES} for details</p>
      */
@@ -544,24 +490,6 @@ public final class EntryExtraData {
 //     * @deprecated Never used
 //     */
 //    public static final String PARAM_APPROVED_POINTS = "approvedPoints";
-//    /**
-//     * Tax
-//     * <p>Type: Long</p>
-//     * @deprecated Land receipt fragment need redesign!!!
-//     */
-//    public static final String PARAM_TAX = "tax";
-//    /**
-//     * CashBack Amount
-//     * <p>Type: Long</p>
-//     * @deprecated Land receipt fragment need redesign!!!
-//     */
-//    public static final String PARAM_CASH_BACK = "cashBack";
-//    /**
-//     * Merchant Fee
-//     * <p>Type: Long</p>
-//     * @deprecated Land receipt fragment need redesign!!!
-//     */
-//    public static final String PARAM_MERCHANT_FEE = "merchantFee";
     /**
      * Surcharge Fee Name
      * <p>Type: String</p>
@@ -601,139 +529,140 @@ public final class EntryExtraData {
 //    /**
 //     * Health Care Amount
 //     * <p>Type: Long</p>
-//     * @deprecated Land receipt fragment need redesign!!!
+//     * @deprecated Never used.
 //     */
 //    public static final String PARAM_HEALTH_CARE_AMOUNT = "healthCareAmount";
 //    /**
 //     * Clinic Amount
 //     * <p>Type: Long</p>
-//     * @deprecated Land receipt fragment need redesign!!!
+//     * @deprecated Never used.
 //     */
 //    public static final String PARAM_CLINIC_AMOUNT = "clinicAmount";
 //
 //    /**
 //     * Dental Amount
 //     * <p>Type: Long</p>
-//     * @deprecated Land receipt fragment need redesign!!!
+//     * @deprecated Never used.
 //     */
 //    public static final String PARAM_DENTAL_AMOUNT = "dentalAmount";
 
 //    /**
 //     * Copay Amount
 //     * <p>Type: Long</p>
-//     * @deprecated Land receipt fragment need redesign!!!
+//     * @deprecated Never used.
 //     */
 //    public static final String PARAM_COPAY_AMOUNT = "copayAmount";
 //
 //    /**
 //     * Prescription Amount
 //     * <p>Type: Long</p>
-//     * @deprecated Land receipt fragment need redesign!!!
+//     * @deprecated Never used.
 //     */
 //    public static final String PARAM_PRESCRIPTION_AMOUNT = "prescriptionAmount";
 //
 //    /**
 //     * Vision Amount
 //     * <p>Type: Long</p>
-//     * @deprecated Land receipt fragment need redesign!!!
+//     * @deprecated Never used.
 //     */
 //    public static final String PARAM_VISION_AMOUNT = "visionAmount";
 //
 //    /**
 //     * Transit Amount
 //     * <p>Type: Long</p>
-//     * @deprecated Land receipt fragment need redesign!!!
+//     * @deprecated Never used.
 //     */
 //    public static final String PARAM_TRANSIT_AMOUNT = "transitAmount";
 //
 //    /**
 //     * Status
 //     * <p>Type: String</p>
-//     * @deprecated Land receipt fragment need redesign!!!
+//     * @deprecated Never used.
 //     */
 //    public static final String PARAM_STATUS = "status";
 //    /**
 //     * Clerk ID
 //     * <p>Type: String</p>
-//     * @deprecated Land receipt fragment need redesign!!!
+//     * @deprecated Never used.
 //     */
 //    public static final String PARAM_CLERK_ID = "clerkID";
 //    /**
 //     * Clerk Name
 //     * <p>Type: String</p>
-//     * @deprecated Land receipt fragment need redesign!!!
+//     * @deprecated Never used.
 //     */
 //    public static final String PARAM_CLERK_NAME = "clerkName";
 //    /**
 //     * Invoice Number
 //     * <p>Type: String</p>
-//     * @deprecated Land receipt fragment need redesign!!!
+//     * @deprecated Never used.
 //     */
 //    public static final String PARAM_INVOICE_NUMBER = "invoiceNumber";
 //    /**
 //     * PO Number
 //     * <p>Type: String</p>
-//     * @deprecated Land receipt fragment need redesign!!!
+//     * @deprecated Never used.
 //     */
 //    public static final String PARAM_PO_NUMBER = "poNumber";
 //    /**
 //     * Table Number
 //     * <p>Type: String</p>
-//     * @deprecated Land receipt fragment need redesign!!!
+//     * @deprecated Never used.
 //     */
 //    public static final String PARAM_TABLE_NUMBER = "tableNumber";
 //    /**
 //     * Guest Number
 //     * <p>Type: String</p>
-//     * @deprecated Land receipt fragment need redesign!!!
+//     * @deprecated Never used.
 //     */
 //    public static final String PARAM_GUESTS_NUMBER = "guestsNumber";
 //    /**
 //     * Customer Code
 //     * <p>Type: String</p>
-//     * @deprecated Land receipt fragment need redesign!!!
+//     * @deprecated Never used.
 //     */
 //    public static final String PARAM_CUST_CODE = "custCode";
 //    /**
 //     * Merchant TAX ID
 //     * <p>Type: String</p>
-//     * @deprecated Land receipt fragment need redesign!!!
+//     * @deprecated Never used.
 //     */
 //    public static final String PARAM_MERCHANT_TAX_ID = "merchantTaxID";
 //    /**
 //     * Product Description
 //     * <p>Type: String</p>
-//     * @deprecated Land receipt fragment need redesign!!!
+//     * @deprecated Never used.
 //     */
 //    public static final String PARAM_PROD_DESC = "prodDesc";
 //    /**
 //     * TAX EXEMPT ID
 //     * <p>Type: String</p>
-//     * @deprecated Land receipt fragment need redesign!!!
+//     * @deprecated Never used.
 //     */
 //    public static final String PARAM_TAX_EXEMPT_ID = "taxExemptID";
 //    /**
 //     * Ref Number
 //     * <p>Type: String</p>
-//     * @deprecated Land receipt fragment need redesign!!!
+//     * @deprecated Never used.
 //     */
 //    public static final String PARAM_REF_NUMBER = "refNumber";
 //    /**
 //     * AUTH CODE
 //     * <p>Type: String</p>
-//     * @deprecated Land receipt fragment need redesign!!!
+//     * @deprecated Never used.
 //     */
 //    public static final String PARAM_AUTH_CODE = "authCode";
 //    /**
 //     * Response Status
 //     * <p>Type: String</p>
-//     * @deprecated Land receipt fragment need redesign!!!
+//     * @deprecated Never used.
 //     */
 //    public static final String PARAM_RESPONSE_STATUS = "responseStatus";
-//    /**
-//     * @deprecated Use {@link #PARAM_INPUT_TYPE} instead.
-//     */
-//    public static final String PARAM_EINPUT_TYPE = "eInputType";
+    /**
+     * Input Type
+     * <p>Type: String</p>
+     */
+    public static final String PARAM_EINPUT_TYPE = "eInputType";
 //    public static final String PARAM_MAX_VALUE = "maxValue";
 //    public static final String PARAM_MIN_VALUE = "minValue";
     /**
@@ -756,12 +685,12 @@ public final class EntryExtraData {
      */
     public static final String PARAM_TIP_UNIT = "tipUnit";
 
-//    /**
-//     * PARAM_AMOUNT_UNIT : the unit of tip amount <br>
-//     * Type : Long <br>
-//     * @deprecated Never used
-//     */
-//    public static final String PARAM_AMOUNT_UNIT = "amountUnit";
+    /**
+     * PARAM_AMOUNT_UNIT : the unit of tip amount <br>
+     * Type : Long <br>
+     * @deprecated Not used anymore. Use {@link #PARAM_TIP_UNIT} instead.
+     */
+    public static final String PARAM_AMOUNT_UNIT = "amountUnit";
 
     /**
      * The length limit for input value
@@ -862,31 +791,31 @@ public final class EntryExtraData {
 //     * Tansaction status <br>
 //     *     Type: String[]<br>
 //     *     See upload, offline, voided, Adjusted ??????
-//     * @deprecated Land receipt fragment need redesign!!!
+//     * @deprecated Never used.
 //     */
 //    public static final String PARAM_TRANS_STATUS = "transStatus";
 //    /**
 //     * AVS Response
 //     * <p>Type: String</p>
-//     * @deprecated Land receipt fragment need redesign!!!
+//     * @deprecated Never used.
 //     */
 //    public static final String PARAM_AVS_RESPONSE = "avsResponse";
 //    /**
 //     * Entry Mode
 //     * <p>Type: String</p>
-//     * @deprecated Land receipt fragment need redesign!!!
+//     * @deprecated Never used.
 //     */
 //    public static final String PARAM_ENTRY_MODE = "entryMode";
 //    /**
 //     * FoodStamp Balance
 //     * <p>Type: Long</p>
-//     * @deprecated Land receipt fragment need redesign!!!
+//     * @deprecated Never used.
 //     */
 //    public static final String PARAM_FOOD_STAMPS_BALANCE = "foodStampsBalance";
 //    /**
 //     * Cashbenefit Balance
 //     * <p>Type: Long</p>
-//     * @deprecated Land receipt fragment need redesign!!!
+//     * @deprecated Never used.
 //     */
 //    public static final String PARAM_CASH_BENEFIT_BALANCE = "cashBenefitBalance";
 
@@ -907,23 +836,6 @@ public final class EntryExtraData {
 //     * @deprecated Used in EULA. But EULA handled by Host app. So we need remove it.
 //     */
 //    public static final String PARAM_START_TYPE = "startType";
-
-    //TODO Transaction Uri should be public
-    /**
-     * Transaction URL
-     * <p>Type:String</p>
-     */
-    public static final String PARAM_TRANS_URL = "transUri";
-    /**
-     * Transaction Selection
-     * <p>Type:String</p>
-     */
-    public static final String PARAM_TRANS_SELECTION = "transSelection";
-    /**
-     * Transaction Selection Arguments
-     * <p>Type:String[]</p>
-     */
-    public static final String PARAM_TRANS_SELECTION_ARGUMENTS = "transSelectionArguments";
 
     /**
      * Continue Screen

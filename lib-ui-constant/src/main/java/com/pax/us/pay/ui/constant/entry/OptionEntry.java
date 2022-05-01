@@ -262,7 +262,15 @@ public final class OptionEntry {
     public static final String ACTION_SELECT_TAX_REASON = "com.pax.us.pay.action.SELECT_TAX_REASON";
 
     /**
-     * Activity Action: Select Duplicate Transaction Override or Use original transaction
+     * Activity Action: Select Re-auth Option after getting DUP response
+     * <p>
+     *     Not apply for all BroadPOS apps. It depends on Host support.
+     *     Example:
+     *     Do a CREDIT SALE transaction using BroadPOS CardKnox, response from host tells it is duplicated.
+     *     The BroadPOS CardKnox will start this action with option {@link com.pax.us.pay.ui.constant.entry.enumeration.DuplicateType#OVERRIDE},<br>
+     *     If choose OVERRIDE, BroadPOS will do re-auth for this transaction.
+     *     If decline the option by cancel, BroadPOS will treat this transaction as declined.
+     * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
      *     Type: String
@@ -286,8 +294,7 @@ public final class OptionEntry {
      * <p>
      *     Input: {@link EntryExtraData#PARAM_OPTIONS}<br>
      *     Type: String[]<br>
-     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.DuplicateType}<br>
-     *     Type: String
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.DuplicateType}
      * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_INDEX} Selected Index<br>
@@ -443,49 +450,6 @@ public final class OptionEntry {
     public static final String ACTION_SELECT_SEARCH_CRITERIA = "com.pax.us.pay.action.SELECT_SEARCH_CRITERIA";
 
     /**
-     * Activity Action: Select transaction for Tip Adjust
-     * <p>Not exported. Now for BroadPOS Use only.</p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
-     *     Type: String
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
-     *     Type: String<br>
-     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
-     *     Type: String<br>
-     *     Example: "CREDIT SALE"
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
-     *     Type: Long<br>
-     *     Unit: ms<br>
-     *     Default is 30000.
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_TRANS_URL}<br>
-     *     Type: String
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_TRANS_SELECTION}<br>
-     *     Type: String
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_TRANS_SELECTION_ARGUMENTS}<br>
-     *     Type: String[]
-     * </p>
-     * <p>
-     *     Output: {@link EntryRequest#PARAM_TRANS_NUMBER}<br>
-     *     Type: String
-     * </p>
-     */
-    public static final String ACTION_SELECT_TRANS_FOR_ADJUST = "com.pax.us.pay.action.SELECT_TRANS_FOR_ADJUST";
-
-
-    /**
      * Activity Action: Select Batch Type
      * <p>
      *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
@@ -631,97 +595,72 @@ public final class OptionEntry {
     public static final String ACTION_SELECT_ACCOUNT_TYPE = "com.pax.us.pay.action.SELECT_ACCOUNT_TYPE";
 
 
-//    /**
-//     * Activity Action: select tip amount options<br>
-//     * <p>
-//     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
-//     *     Type: String
-//     * </p>
-//     * <p>
-//     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
-//     *     Type: String<br>
-//     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
-//     * </p>
-//     * <p>
-//     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
-//     *     Type: String<br>
-//     *     Example: "CREDIT SALE"
-//     * </p>
-//     * <p>
-//     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
-//     *     Type: Long<br>
-//     *     Unit: ms<br>
-//     *     Default is 30000.
-//     * </p>
-//     * <p>
-//     *     Input: {@link EntryExtraData#PARAM_OPTIONS}: According the tip amount<br>
-//     * <p>
-//     *     Output: {@link EntryRequest#PARAM_INDEX} Selected Index<br>
-//     *     Type: Integer<br>
-//     *     Value start from 0.
-//     * </p>
-//     * @deprecated Not used any more
-//     */
-//    public static final String ACTION_SELECT_TIP_AMOUNT = "com.pax.us.pay.action.SELECT_TIP_AMOUNT";
+    /**
+     * Activity Action: select tip amount options<br>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+     *     Type: String<br>
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
+     *     Type: String<br>
+     *     Example: "CREDIT SALE"
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Type: Long<br>
+     *     Unit: ms<br>
+     *     Default is 30000.
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_OPTIONS}: According the tip amount<br>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_INDEX} Selected Index<br>
+     *     Type: Integer<br>
+     *     Value start from 0.
+     * </p>
+     * @deprecated Never used. Use {@link TextEntry#ACTION_ENTER_TIP} instead.
+     */
+    public static final String ACTION_SELECT_TIP_AMOUNT = "com.pax.us.pay.action.SELECT_TIP_AMOUNT";
 
-//    /**
-//     * Activity Action: select tip amount options<br>
-//     * <p>
-//     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
-//     *     Type: String
-//     * </p>
-//     * <p>
-//     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
-//     *     Type: String<br>
-//     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
-//     * </p>
-//     * <p>
-//     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
-//     *     Type: String<br>
-//     *     Example: "CREDIT SALE"
-//     * </p>
-//     * <p>
-//     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
-//     *     Type: Long<br>
-//     *     Unit: ms<br>
-//     *     Default is 30000.
-//     * </p>
-//     * <p>
-//     *     Input: {@link EntryExtraData#PARAM_OPTIONS}: According the cashback amount<br>
-//     * <p>
-//     *     Output: {@link EntryRequest#PARAM_INDEX} Selected Index<br>
-//     *     Type: Integer<br>
-//     *     Value start from 0.
-//     * </p>
-//     * @deprecated Not used any more
-//     */
-//    public static final String ACTION_SELECT_CASHBACK_AMOUNT = "com.pax.us.pay.action.SELECT_CASHBACK_AMOUNT";
+    /**
+     * Activity Action: select cashback amount options<br>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+     *     Type: String<br>
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
+     *     Type: String<br>
+     *     Example: "CREDIT SALE"
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Type: Long<br>
+     *     Unit: ms<br>
+     *     Default is 30000.
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_OPTIONS}: According the cashback amount<br>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_INDEX} Selected Index<br>
+     *     Type: Integer<br>
+     *     Value start from 0.
+     * </p>
+     * @deprecated Never used. Use {@link TextEntry#ACTION_ENTER_CASH_BACK} instead.
+     */
+    public static final String ACTION_SELECT_CASHBACK_AMOUNT = "com.pax.us.pay.action.SELECT_CASHBACK_AMOUNT";
 
-
-    //Yanina: Remove it cuz duplicated with ACTION_SELECT_TRANS_FOR_ADJUST
-//    /**
-//     * Activity Action: Select Trans to Adjust
-//     * <p>
-//     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
-//     *     Type: String
-//     * </p>
-//     * <p>
-//     *     Input: {@link EntryExtraData#PARAM_MESSAGE}<br>
-//     *     Type: String
-//     * </p>
-//     * <p>
-//     *     Input: {@link EntryExtraData#PARAM_TRANS_URL}: String</p>
-//     * <p>
-//     *     Input: {@link EntryExtraData#PARAM_TRANS_SELECTION}</p>
-//     * <p>
-//     *     Input: {@link EntryExtraData#PARAM_TRANS_SELECTION_ARGUMENTS} </p>
-//     * <p>
-//     *     Output: {@link EntryRequest#PARAM_TRANS_NUMBER}<br>
-//     *     Type: String
-//     * </p>
-//     * @deprecated Never used. See {@link #ACTION_SELECT_TRANS_FOR_ADJUST}
-//     */
-//    public static final String ACTION_SELECT_TRANS_ADJUST = "com.pax.us.pay.action.SELECT_TRANS_ADJUST";
 
     /**
      * Activity Action: Select User Language
@@ -784,6 +723,11 @@ public final class OptionEntry {
      * <p>
      *     Input: {@link EntryExtraData#PARAM_OPTIONS}<br>
      *     Type: String[]
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_INTERFACE_STYLES}<br>
+     *     Type: String<br>
+     *     Deprecated. Not used anymore.
      * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_INDEX} Selected Index<br>

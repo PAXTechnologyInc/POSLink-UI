@@ -16,7 +16,7 @@ public class EnterProcDescHelper extends BaseActionHelper {
 
     public void sendNext(String procDes) {
         Bundle bundle = new Bundle();
-        bundle.putString(EntryRequest.PARAM_PROC_DESC, procDes);
+        bundle.putString(EntryRequest.PARAM_PROD_DESC, procDes);
         super.sendNext(bundle);
     }
 

@@ -39,6 +39,15 @@ public final class EDCType {
     public static final String LOYALTY = "LOYALTY";
 
     /**
+     * @deprecated Never used
+     */
+    public static final String SUBGIFT = "SUBGIFT";
+    /**
+     * @deprecated Never used
+     */
+    public static final String SUBLOYALTY = "SUBLOYALTY";
+
+    /**
      * CHECK
      */
     public static final String CHECK = "CHECK";

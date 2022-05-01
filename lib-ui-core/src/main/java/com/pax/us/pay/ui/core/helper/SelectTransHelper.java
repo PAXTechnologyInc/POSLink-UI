@@ -28,10 +28,10 @@ public class SelectTransHelper extends BaseActionHelper {
     protected void showUI(@Nullable IUIListener uiListener, @NonNull Bundle bundle) {
         super.showUI(uiListener, bundle);
         if (uiListener instanceof ITransListener) {
-            if (bundle.containsKey(EntryExtraData.PARAM_TRANS_URL)) {
-                String url = bundle.getString(EntryExtraData.PARAM_TRANS_URL);
-                String selection = bundle.getString(EntryExtraData.PARAM_TRANS_SELECTION);
-                String[] selectionArgs = bundle.getStringArray(EntryExtraData.PARAM_TRANS_SELECTION_ARGUMENTS);
+            if (bundle.containsKey("transUri")) {
+                String url = bundle.getString("transUri");
+                String selection = bundle.getString("transSelection");
+                String[] selectionArgs = bundle.getStringArray("transSelectionArguments");
                 if (!TextUtils.isEmpty(url))
                     ((ITransListener) uiListener).onShowTrans(url, selection, selectionArgs);
             }

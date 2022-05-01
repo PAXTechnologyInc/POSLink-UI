@@ -19,7 +19,7 @@ public class ConvertMessageHelper {
         messageMap.put(ConfirmationEntry.ACTION_CHECK_CARD_PRESENT, R.string.check_card_present);
         messageMap.put(ConfirmationEntry.ACTION_CHECK_DEACTIVATE_WARN, R.string.confirm_deactivate_warn);
         messageMap.put(ConfirmationEntry.ACTION_CONFIRM_ONLINE_RETRY_OFFLINE, R.string.confirm_online_retry_offline);
-        messageMap.put(ConfirmationEntry.ACTION_CONFIRM_DEBIT_TRANS, R.string.confirm_debit_trans);
+//        messageMap.put(ConfirmationEntry.ACTION_CONFIRM_DEBIT_TRANS, R.string.confirm_debit_trans);
         messageMap.put(ConfirmationEntry.ACTION_CONFIRM_UNTIPPED, R.string.confirm_untipped_close);
         messageMap.put(ConfirmationEntry.ACTION_CONFIRM_DUPLICATE_TRANS, R.string.prompt_confirm_dup_transaction);
         messageMap.put(ConfirmationEntry.ACTION_CONFIRM_UPLOAD_TRANS, R.string.confirm_upload_trans);
@@ -48,7 +48,7 @@ public class ConvertMessageHelper {
             Bundle bundle = intent.getExtras();
             String currentAction = bundle.getString("currentAction","");
             if (ConfirmationEntry.ACTION_CONFIRM_BATCH_CLOSE.equals(currentAction)){
-                if( bundle.getBoolean(EntryExtraData.PARAM_INTERNAL_NICKNAME_FLAG,false)){
+                if( bundle.getBoolean("internalNicknameFlag",false)){
                     message = context.getString(R.string.confirm_reconciliation_close);
                 }else {
                     message = context.getString(R.string.confirm_batch_close);
