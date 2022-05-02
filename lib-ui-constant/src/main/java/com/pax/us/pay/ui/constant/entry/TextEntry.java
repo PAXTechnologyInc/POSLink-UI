@@ -40,7 +40,7 @@ public final class TextEntry {
      * <p>
      *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
      *     Type: String<br>
-     *     Default: "0-12"</p>
+     *     Default: "1-12"</p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_AMOUNT} <br>
      *     Type: Long
@@ -112,18 +112,25 @@ public final class TextEntry {
      *     Default is {@link com.pax.us.pay.ui.constant.entry.enumeration.UnitType#CENT}
      * </p>
      * <p>
+     *     Input: {@link EntryExtraData#PARAM_AMOUNT_UNIT}. <br>
+     *     Type: Long<br>
+     *     Deprecated. Not used anymore. Use {@link EntryExtraData#PARAM_TIP_UNIT} instead.
+     * </p>
+     * <p>
      *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
      *     Type: String<br>
      *     Default: "0-12". It is used for manual input tip.
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_NAME_OF_ENABLED_TIPS}<br>
+     *     Input: {@link EntryExtraData#PARAM_TIP_NAMES}<br>
      *     Type: String[]<br>
+     *     Name of Enabled Tips <br>
      *     Optional. For Standalone use only. Used when multiple tips are enabled.
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_VALUE_OF_ENABLED_TIPS} <br>
+     *     Input: {@link EntryExtraData#PARAM_TIP_AMOUNTS} <br>
      *     Type: String[]<br>
+     *     Value of Enabled Tips <br>
      *     Optional. For Standalone use only. Used when multiple tips are enabled.<br>
      * </p>
      * <p>
@@ -266,9 +273,12 @@ public final class TextEntry {
      *     Default is 30000.
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_INPUT_TYPE} <br>
-     *     Could be {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#NUMERIC} and {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#ALPHA_NUMERIC}<br>
-     *     Default: {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#NUMERIC}<br>
+     *     Input: {@link EntryExtraData#PARAM_EINPUT_TYPE} <br>
+     *     Type: String<br>
+     *     If value is {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#ALLTEXT},
+     *     the output {@link EntryRequest#PARAM_ZIP_CODE} could be alpha-numeric string.<br>
+     *     Else it should be numeric string.
+     * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
      *     Type: String<br>
@@ -339,7 +349,9 @@ public final class TextEntry {
      *     Default value: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType#USD}
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TOTAL_AMOUNT} is total amount</p>
+     *     Input: {@link EntryExtraData#PARAM_TOTAL_AMOUNT} is total amount<br>
+     *     Type: Long
+     *     </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_FSA_AMOUNT_OPTIONS} is fsa amount options.<br>
      *     Type: String[]
@@ -382,6 +394,11 @@ public final class TextEntry {
      *     Output: {@link EntryRequest#PARAM_TRANSIT_AMOUNT}<br>
      *     Type: Long
      * </p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_FSA_OPTION}<br>
+     *     Type: Long<br>
+     *     Deprecated. Never used.
+     * </p>
      */
     public static final String ACTION_ENTER_FSA_DATA = "com.pax.us.pay.action.ENTER_FSA_DATA";
 
@@ -408,6 +425,11 @@ public final class TextEntry {
      *     Type: Long<br>
      *     Unit: ms<br>
      *     Default is 30000.
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TOTAL_AMOUNT} <br>
+     *     Type: Long<br>
+     *     Deprecated. Never used.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
@@ -449,9 +471,11 @@ public final class TextEntry {
      * <p>
      *     Input: {@link EntryExtraData#PARAM_ADDRESS_PATTERN} is length limit for Address. Default: "0-30" </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_INPUT_TYPE} is input type for Zip Code. <br>
-     *     Could be {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#NUMERIC} and {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#ALPHA_NUMERIC}<br>
-     *     Default is {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#NUMERIC}
+     *     Input: {@link EntryExtraData#PARAM_EINPUT_TYPE} <br>
+     *     Type: String<br>
+     *     If value is {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#ALLTEXT},
+     *     the output {@link EntryRequest#PARAM_ZIP_CODE} could be alpha-numeric string.<br>
+     *     Else it should be numeric string.
      * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_ADDRESS} <br>Type: String</p>
@@ -488,9 +512,12 @@ public final class TextEntry {
      *     Type: String<br>
      *     Default: "1-16"</p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_INPUT_TYPE} <br>
-     *     Could be {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#NUMERIC} and {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#ALPHA_NUMERIC}</p>
-     *     Default: {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#NUMERIC}
+     *     Input: {@link EntryExtraData#PARAM_EINPUT_TYPE} <br>
+     *     Type: String<br>
+     *     If value is {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#ALLTEXT},
+     *     the output {@link EntryRequest#PARAM_REFERENCE_NUMBER} could be alpha-numeric string.<br>
+     *     Else it should be numeric string.
+     * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_REFERENCE_NUMBER}  <br>Type: String</p>
      */
@@ -521,9 +548,12 @@ public final class TextEntry {
      *     Default is 30000.
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_INPUT_TYPE} <br>
-     *     Could be {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#NUMERIC} and {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#ALPHA_NUMERIC}<br>
-     *     Default: {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#NUMERIC}
+     *     Input: {@link EntryExtraData#PARAM_EINPUT_TYPE} <br>
+     *     Type: String<br>
+     *     If value is {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#ALLTEXT},
+     *     the output {@link EntryRequest#PARAM_INVOICE_NUMBER} could be alpha-numeric string.<br>
+     *     Else it should be numeric string.
+     * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
      *     Type: String<br>
@@ -939,7 +969,7 @@ public final class TextEntry {
      *     Type: String<br>
      *     Default: "0-40"</p>
      * <p>
-     *     Output: {@link EntryRequest#PARAM_PROC_DESC} <br>Type: String </p>
+     *     Output: {@link EntryRequest#PARAM_PROD_DESC} <br>Type: String </p>
      */
     public static final String ACTION_ENTER_PROD_DESC = "com.pax.us.pay.action.ENTER_PROD_DESC";
 
@@ -1146,9 +1176,12 @@ public final class TextEntry {
      *     Type: String<br>
      *     Default: "0-9"</p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_INPUT_TYPE} <br>
-     *     Could be {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#NUMERIC} and {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#ALPHA_NUMERIC}<br>
-     *     Default: {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#NUMERIC}
+     *     Input: {@link EntryExtraData#PARAM_EINPUT_TYPE} <br>
+     *     Type: String<br>
+     *     If value is {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#ALLTEXT},
+     *     the output {@link EntryRequest#PARAM_DEST_ZIP_CODE} could be alpha-numeric string.<br>
+     *     Else it should be numeric string.
+     * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_DEST_ZIP_CODE} <br>
      *     Type: String
@@ -1252,9 +1285,11 @@ public final class TextEntry {
      *     Type: String<br>
      *     Default: "0-12"</p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_INPUT_TYPE} <br>
-     *     Could be {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#NUMERIC} and {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#ALPHA_NUMERIC}<br>
-     *     Default: {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#NUMERIC}
+     *     Input: {@link EntryExtraData#PARAM_EINPUT_TYPE} <br>
+     *     Type: String<br>
+     *     If value is {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#ALLTEXT},
+     *     the output {@link EntryRequest#PARAM_MERCHANT_REFERENCE_NUMBER} could be alpha-numeric string.<br>
+     *     Else it should be numeric string.
      * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_MERCHANT_REFERENCE_NUMBER} <br>
@@ -1291,9 +1326,12 @@ public final class TextEntry {
      *     Type: String<br>
      *     Default: "0-12"</p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_INPUT_TYPE} <br>
-     *     Could be {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#NUMERIC} and {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#ALPHA_NUMERIC}<br>
-     *     Default: {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#NUMERIC}
+     *     Input: {@link EntryExtraData#PARAM_EINPUT_TYPE} <br>
+     *     Type: String<br>
+     *     If value is {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType#ALLTEXT},
+     *     the output {@link EntryRequest#PARAM_OCT_REFERENCE_NUMBER} could be alpha-numeric string.<br>
+     *     Else it should be numeric string.
+     * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_OCT_REFERENCE_NUMBER} <br>
      *     Type: String

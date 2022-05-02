@@ -12,12 +12,12 @@ public final class BatchStatus {
      */
     public static final String CATEGORY = "com.pax.us.pay.status.category.BATCH";
 
-//    /**
-//     * Broadcast Action: Batch Close begin
-//     * <p>"Batch Close Start..."</p>
-//     * @deprecated Not used anymore. Use {@link #BATCH_CLOSE_UPLOADING} instead.
-//     */
-//    public static final String BATCH_CLOSE_STARTED = "com.pax.us.pay.BATCH_CLOSE_STARTED";
+    /**
+     * Broadcast Action: Batch Close begin
+     * <p>"Batch Close Start..."</p>
+     * @deprecated Not used anymore. Use {@link #BATCH_CLOSE_UPLOADING} instead.
+     */
+    public static final String BATCH_CLOSE_STARTED = "com.pax.us.pay.BATCH_CLOSE_STARTED";
 
     /**
      * Broadcast Action: Batch Upload begin
@@ -43,11 +43,11 @@ public final class BatchStatus {
      */
     public static final String BATCH_CLOSE_COMPLETED = "com.pax.us.pay.BATCH_CLOSE_COMPLETED";
 
-//    /**
-//     * Broadcast Action: S&amp;F start
-//     * @deprecated Not used anymore. Use {@link #BATCH_SF_UPLOADING} instead.
-//     */
-//    public static final String BATCH_SF_STARTED = "com.pax.us.pay.BATCH_SF_STARTED";
+    /**
+     * Broadcast Action: S&amp;F start
+     * @deprecated Not used anymore. Use {@link #BATCH_SF_UPLOADING} instead.
+     */
+    public static final String BATCH_SF_STARTED = "com.pax.us.pay.BATCH_SF_STARTED";
 
     /**
      * Broadcast Action: S&amp;F Upload begin

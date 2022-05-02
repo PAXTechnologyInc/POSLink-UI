@@ -178,42 +178,42 @@ public class ExpandFragment extends Fragment implements Observer {
                     llClssLight.setLight(3, ClssLight.OFF);
 
                     break;
-                case ClssLightStatus.CLSS_LIGHT_BLUE_ON:
-                    llClssLight.setLight(0, ClssLight.ON);
-                    break;
-                case ClssLightStatus.CLSS_LIGHT_BLUE_OFF:
-                    llClssLight.setLight(0, ClssLight.OFF);
-                    break;
-                case ClssLightStatus.CLSS_LIGHT_BLUE_BLINK:
-                    llClssLight.setLight(0, ClssLight.BLINK);
-                    break;
-                case ClssLightStatus.CLSS_LIGHT_YELLOW_ON:
-                    llClssLight.setLight(1, ClssLight.ON);
-                    break;
-                case ClssLightStatus.CLSS_LIGHT_YELLOW_OFF:
-                    llClssLight.setLight(1, ClssLight.OFF);
-                    break;
-                case ClssLightStatus.CLSS_LIGHT_YELLOW_BLINK:
-                    llClssLight.setLight(1, ClssLight.BLINK);
-                    break;
-                case ClssLightStatus.CLSS_LIGHT_GREEN_ON:
-                    llClssLight.setLight(2, ClssLight.ON);
-                    break;
-                case ClssLightStatus.CLSS_LIGHT_GREEN_OFF:
-                    llClssLight.setLight(2, ClssLight.OFF);
-                    break;
-                case ClssLightStatus.CLSS_LIGHT_GREEN_BLINK:
-                    llClssLight.setLight(2, ClssLight.BLINK);
-                    break;
-                case ClssLightStatus.CLSS_LIGHT_RED_ON:
-                    llClssLight.setLight(3, ClssLight.ON);
-                    break;
-                case ClssLightStatus.CLSS_LIGHT_RED_OFF:
-                    llClssLight.setLight(3, ClssLight.OFF);
-                    break;
-                case ClssLightStatus.CLSS_LIGHT_RED_BLINK:
-                    llClssLight.setLight(3, ClssLight.BLINK);
-                    break;
+//                case ClssLightStatus.CLSS_LIGHT_BLUE_ON:
+//                    llClssLight.setLight(0, ClssLight.ON);
+//                    break;
+//                case ClssLightStatus.CLSS_LIGHT_BLUE_OFF:
+//                    llClssLight.setLight(0, ClssLight.OFF);
+//                    break;
+//                case ClssLightStatus.CLSS_LIGHT_BLUE_BLINK:
+//                    llClssLight.setLight(0, ClssLight.BLINK);
+//                    break;
+//                case ClssLightStatus.CLSS_LIGHT_YELLOW_ON:
+//                    llClssLight.setLight(1, ClssLight.ON);
+//                    break;
+//                case ClssLightStatus.CLSS_LIGHT_YELLOW_OFF:
+//                    llClssLight.setLight(1, ClssLight.OFF);
+//                    break;
+//                case ClssLightStatus.CLSS_LIGHT_YELLOW_BLINK:
+//                    llClssLight.setLight(1, ClssLight.BLINK);
+//                    break;
+//                case ClssLightStatus.CLSS_LIGHT_GREEN_ON:
+//                    llClssLight.setLight(2, ClssLight.ON);
+//                    break;
+//                case ClssLightStatus.CLSS_LIGHT_GREEN_OFF:
+//                    llClssLight.setLight(2, ClssLight.OFF);
+//                    break;
+//                case ClssLightStatus.CLSS_LIGHT_GREEN_BLINK:
+//                    llClssLight.setLight(2, ClssLight.BLINK);
+//                    break;
+//                case ClssLightStatus.CLSS_LIGHT_RED_ON:
+//                    llClssLight.setLight(3, ClssLight.ON);
+//                    break;
+//                case ClssLightStatus.CLSS_LIGHT_RED_OFF:
+//                    llClssLight.setLight(3, ClssLight.OFF);
+//                    break;
+//                case ClssLightStatus.CLSS_LIGHT_RED_BLINK:
+//                    llClssLight.setLight(3, ClssLight.BLINK);
+//                    break;
                 default:
                     break;
             }

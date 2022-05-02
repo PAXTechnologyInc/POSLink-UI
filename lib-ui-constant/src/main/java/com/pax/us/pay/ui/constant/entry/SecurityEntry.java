@@ -109,6 +109,14 @@ public final class SecurityEntry {
      *     True is enabled. False is disabled
      * </p>
      * <p>
+     *     Input: {@link EntryExtraData#PARAM_PAN_STYLES} <br>
+     *     Type: String.<br>
+     *     If value is {@link com.pax.us.pay.ui.constant.entry.enumeration.PanStyles#NEW_PAN},
+     *     prompt "Please Enter New Card Number".<br>
+     *     Else, prompt "Please Enter Card Number".<br>
+     *     For GIFT/LOYALTY Replace/Merge transaction use.
+     * </p>
+     * <p>
      *     Output: {@link EntryRequest#PARAM_X} is X coordinate of input box<br>
      *     Type: Integer<br>
      *     Unit: pixel
@@ -155,149 +163,6 @@ public final class SecurityEntry {
      * </p>
      */
     public static final String ACTION_INPUT_ACCOUNT = "com.pax.us.pay.action.INPUT_ACCOUNT";
-
-    /**
-     * Activity Action: Input New Account
-     * <p>
-     *     For transaction {@link com.pax.us.pay.ui.constant.entry.enumeration.TransType#REPLACE}
-     *     and {@link com.pax.us.pay.ui.constant.entry.enumeration.TransType#MERGE}
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
-     *     Type: String
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
-     *     Type: String<br>
-     *     Example: "CREDIT SALE"
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
-     *     Type: String<br>
-     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
-     *     Type: Long<br>
-     *     Unit: ms<br>
-     *     Default is 30000.
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_MERCHANT_NAME} is merchant name. <br>
-     *     Type: String<br>
-     *     Used when multi-merchant feature is enabled
-     * </p>
-     * <p>
-     *     Input:  {@link EntryExtraData#PARAM_CURRENCY} is currency type. <br>
-     *     Type: String<br>
-     *     Default value: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType#USD}
-     * </p>
-     * <p>
-     *     Input:  {@link EntryExtraData#PARAM_TOTAL_AMOUNT} is total amount<br>
-     *     Type: Long
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_ENABLE_SWIPE} <br>
-     *     Type: Boolean<br>
-     *     TRUE is enabled. FALSE is disabled
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_ENABLE_INSERT} <br>
-     *     Type: Boolean<br>
-     *     TRUE is enabled. FALSE is disabled
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_ENABLE_TAP} <br>
-     *     Type: Boolean<br>
-     *     TRUE is enabled. FALSE is disabled
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_ENABLE_MANUAL} <br>
-     *     Type: Boolean<br>
-     *     TRUE is enabled. FALSE is disabled
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_ENABLE_APPLEPAY} <br>
-     *     Type: Boolean<br>
-     *     TRUE is enabled. FALSE is disabled
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_ENABLE_GOOGLEPAY} <br>
-     *     Type: Boolean<br>
-     *     TRUE is enabled. FALSE is disabled
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_ENABLE_SUMSUNGPAY} <br>
-     *     Type: Boolean<br>
-     *     TRUE is enabled. FALSE is disabled
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_ENABLE_NFCPAY} <br>
-     *     Type: Boolean<br>
-     *     TRUE is enabled. FALSE is disabled
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_ENABLE_SCAN}  <br>
-     *     Type: Boolean<br>
-     *     TRUE is enabled. FALSE is disabled
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_ENABLE_LASER_SCAN}  <br>
-     *     Type: Boolean<br>
-     *     TRUE is enabled. FALSE is disabled
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_ENABLE_CONTACTLESS_LIGHT} <br>
-     *     Type: Boolean.<br>
-     *     True is enabled. False is disabled
-     * </p>
-     * <p>
-     *     Output: {@link EntryRequest#PARAM_X} is X coordinate of input box<br>
-     *     Type: Integer<br>
-     *     Unit: pixel
-     * </p>
-     * <p>
-     *     Output: {@link EntryRequest#PARAM_Y} is Y coordinate of input box<br>
-     *     Type: Integer<br>
-     *     Unit: pixel
-     * </p>
-     * <p>
-     *     Output: {@link EntryRequest#PARAM_WIDTH} is width of input box<br>
-     *     Type: Integer<br>
-     *     Unit: pixel
-     * </p>
-     * <p>
-     *     Output: {@link EntryRequest#PARAM_HEIGHT} is height of input box<br>
-     *     Type: Integer<br>
-     *     Unit: pixel
-     * </p>
-     * <p>
-     *     Output: {@link EntryRequest#PARAM_FONT_SIZE} is font size of input box <br>
-     *     Type: Integer<br>
-     *     Unit is sp
-     * </p>
-     * <p>
-     *     Output: {@link EntryRequest#PARAM_FOCUSABLE} Optional <br>
-     *     Type: Boolean<br>
-     *     TRUE is focusable.
-     * </p>
-     * <p>
-     *     Output: {@link EntryRequest#PARAM_HINT} Optional <br>
-     *     Type: String
-     * </p>
-     * <p>
-     *     Output: {@link EntryRequest#PARAM_COLOR} Optional<br>
-     *     Type : String<br>
-     *     Format: ARGB<br>
-     *     Example: <br>
-     *     "ffffffff" which represent the opaque white color.<br>
-     *     "cc00ff00" which means the green color with 20% transparent.
-     * </p>
-     * <p>
-     *     About how to send output to BroadPOS, see {@link EntryRequest#ACTION_SECURITY_AREA} for details.<br>
-     * </p>
-     */
-    public static final String ACTION_INPUT_NEW_ACCOUNT = "com.pax.us.pay.action.INPUT_NEW_ACCOUNT";
 
     /**
      * Activity Action: ENTER PIN
@@ -350,27 +215,6 @@ public final class SecurityEntry {
      *     TRUE means BroadPOS using external PIN PAD (like SP30S).
      * </p>
      * <p>
-     *     Output: {@link EntryRequest#PARAM_X} is X coordinate of input box<br>
-     *     Type: Integer<br>
-     *     Unit: pixel
-     * </p>
-     * <p>
-     *     Output: {@link EntryRequest#PARAM_Y} is Y coordinate of input box<br>
-     *     Type: Integer<br>
-     *     Unit: pixel
-     * </p>
-     * <p>
-     *     Output: {@link EntryRequest#PARAM_WIDTH} is width of input box<br>
-     *     Type: Integer<br>
-     *     Unit: pixel
-     * </p>
-     * <p>
-     *     Output: {@link EntryRequest#PARAM_HEIGHT} is height of input box<br>
-     *     Type: Integer<br>
-     *     Unit: pixel
-     * </p>
-     * <p>
-     *     About how to send output to BroadPOS, see {@link EntryRequest#ACTION_SECURITY_AREA} for details.<br>
      *     If you would like to use your PIN PAD layout, see {@link EntryRequest#ACTION_SET_PIN_KEY_LAYOUT} for details.
      * </p>
      */

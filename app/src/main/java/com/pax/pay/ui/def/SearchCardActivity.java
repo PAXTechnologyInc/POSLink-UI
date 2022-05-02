@@ -400,42 +400,42 @@ public class SearchCardActivity extends BaseAppActivity implements SearCardHelpe
                     tvClssLight.setLight(3, ClssLight.OFF);
 
                     break;
-                case ClssLightStatus.CLSS_LIGHT_BLUE_ON:
-                    tvClssLight.setLight(0, ClssLight.ON);
-                    break;
-                case ClssLightStatus.CLSS_LIGHT_BLUE_OFF:
-                    tvClssLight.setLight(0, ClssLight.OFF);
-                    break;
-                case ClssLightStatus.CLSS_LIGHT_BLUE_BLINK:
-                    tvClssLight.setLight(0, ClssLight.BLINK);
-                    break;
-                case ClssLightStatus.CLSS_LIGHT_YELLOW_ON:
-                    tvClssLight.setLight(1, ClssLight.ON);
-                    break;
-                case ClssLightStatus.CLSS_LIGHT_YELLOW_OFF:
-                    tvClssLight.setLight(1, ClssLight.OFF);
-                    break;
-                case ClssLightStatus.CLSS_LIGHT_YELLOW_BLINK:
-                    tvClssLight.setLight(1, ClssLight.BLINK);
-                    break;
-                case ClssLightStatus.CLSS_LIGHT_GREEN_ON:
-                    tvClssLight.setLight(2, ClssLight.ON);
-                    break;
-                case ClssLightStatus.CLSS_LIGHT_GREEN_OFF:
-                    tvClssLight.setLight(2, ClssLight.OFF);
-                    break;
-                case ClssLightStatus.CLSS_LIGHT_GREEN_BLINK:
-                    tvClssLight.setLight(2, ClssLight.BLINK);
-                    break;
-                case ClssLightStatus.CLSS_LIGHT_RED_ON:
-                    tvClssLight.setLight(3, ClssLight.ON);
-                    break;
-                case ClssLightStatus.CLSS_LIGHT_RED_OFF:
-                    tvClssLight.setLight(3, ClssLight.OFF);
-                    break;
-                case ClssLightStatus.CLSS_LIGHT_RED_BLINK:
-                    tvClssLight.setLight(3, ClssLight.BLINK);
-                    break;
+//                case ClssLightStatus.CLSS_LIGHT_BLUE_ON:
+//                    tvClssLight.setLight(0, ClssLight.ON);
+//                    break;
+//                case ClssLightStatus.CLSS_LIGHT_BLUE_OFF:
+//                    tvClssLight.setLight(0, ClssLight.OFF);
+//                    break;
+//                case ClssLightStatus.CLSS_LIGHT_BLUE_BLINK:
+//                    tvClssLight.setLight(0, ClssLight.BLINK);
+//                    break;
+//                case ClssLightStatus.CLSS_LIGHT_YELLOW_ON:
+//                    tvClssLight.setLight(1, ClssLight.ON);
+//                    break;
+//                case ClssLightStatus.CLSS_LIGHT_YELLOW_OFF:
+//                    tvClssLight.setLight(1, ClssLight.OFF);
+//                    break;
+//                case ClssLightStatus.CLSS_LIGHT_YELLOW_BLINK:
+//                    tvClssLight.sgitetLight(1, ClssLight.BLINK);
+//                    break;
+//                case ClssLightStatus.CLSS_LIGHT_GREEN_ON:
+//                    tvClssLight.setLight(2, ClssLight.ON);
+//                    break;
+//                case ClssLightStatus.CLSS_LIGHT_GREEN_OFF:
+//                    tvClssLight.setLight(2, ClssLight.OFF);
+//                    break;
+//                case ClssLightStatus.CLSS_LIGHT_GREEN_BLINK:
+//                    tvClssLight.setLight(2, ClssLight.BLINK);
+//                    break;
+//                case ClssLightStatus.CLSS_LIGHT_RED_ON:
+//                    tvClssLight.setLight(3, ClssLight.ON);
+//                    break;
+//                case ClssLightStatus.CLSS_LIGHT_RED_OFF:
+//                    tvClssLight.setLight(3, ClssLight.OFF);
+//                    break;
+//                case ClssLightStatus.CLSS_LIGHT_RED_BLINK:
+//                    tvClssLight.setLight(3, ClssLight.BLINK);
+//                    break;
                 default:
                     break;
             }
