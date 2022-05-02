@@ -661,6 +661,7 @@ public final class EntryExtraData {
     /**
      * Input Type
      * <p>Type: String</p>
+     * <p>See {@link com.pax.us.pay.ui.constant.entry.enumeration.InputType}</p>
      */
     public static final String PARAM_EINPUT_TYPE = "eInputType";
 //    public static final String PARAM_MAX_VALUE = "maxValue";
@@ -855,8 +856,9 @@ public final class EntryExtraData {
      */
     public static final String PARAM_MESSAGE_2 = "message2";
     /**
-     * Input Type
+     * Input Type (For POSLink UI use)
      * <p>Type: String</p>
+     * <br>See {@link com.pax.us.pay.ui.constant.entry.enumeration.ManageUIConst.InputType} for details
      */
     public static final String PARAM_INPUT_TYPE = "inputType";
     /**

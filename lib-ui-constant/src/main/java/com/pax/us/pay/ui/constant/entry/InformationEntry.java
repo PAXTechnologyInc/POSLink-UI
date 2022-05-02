@@ -9,49 +9,49 @@ public final class InformationEntry {
     }
 
     /**
-     * Activity Category: DETAILS
+     * Activity Category: DETAILS<br>{@value #CATEGORY}<br>
      */
     public static final String CATEGORY = "com.pax.us.pay.ui.category.DETAILS";
 
     /**
-     * Activity Action: Display Transaction Information
+     * Activity Action: Display Transaction Information<br>{@value #ACTION_DISPLAY_TRANS_INFORMATION}<br>
      * <p>
      *     For Void/PostAuth/Adjust transaction use.
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} - {@value EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
      *     Type: String<br>
      *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} - {@value EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
      *     Type: String<br>
      *     Example: "CREDIT SALE"
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
      *     Type: Long<br>
      *     Unit: ms<br>
      *     Default is 30000.
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_INFORMATION_KEY} <br>
+     *     Input:  {@link EntryExtraData#PARAM_INFORMATION_KEY} - {@value EntryExtraData#PARAM_INFORMATION_KEY} <br>
      *     Type:String[]<br>
      *     Left Column
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_INFORMATION_VALUE} <br>
+     *     Input:  {@link EntryExtraData#PARAM_INFORMATION_VALUE} - {@value EntryExtraData#PARAM_INFORMATION_VALUE} <br>
      *     Type:String[]
      *     Right Column
      * </p>
      * Example:
      * <p>
-     *     If {@link EntryExtraData#PARAM_INFORMATION_KEY} value is {"Trans. Mode:","Trans. Number:","Trans. Date:", ...},<br>
-     *     and {@link EntryExtraData#PARAM_INFORMATION_VALUE} value is {"Normal","1","2022/05/01", ...},<br>
+     *     If {@value EntryExtraData#PARAM_INFORMATION_KEY}  is {"Trans. Mode:","Trans. Number:","Trans. Date:", ...},<br>
+     *     and {@value EntryExtraData#PARAM_INFORMATION_VALUE} is {"Normal","1","2022/05/01", ...},<br>
      *     Then the UI shows:<br>
      *     "Trans. Mode:          Normal"<br>
      *     "Trans. Number:            1"<br>
@@ -63,7 +63,7 @@ public final class InformationEntry {
 
 
     /**
-     * Activity Action: Play Approval Sound
+     * Activity Action: Play Approval Sound<br>{@value #ACTION_DISPLAY_APPROVE_MESSAGE}<br>
      * <p>
      *     This action request nothing. You can request go to next step like this:
      * </p>
@@ -77,37 +77,37 @@ public final class InformationEntry {
      *     context.sendBroadcast(intent);
      * </pre>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} - {@value EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
      *     Type: String<br>
      *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} - {@value EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
      *     Type: String<br>
      *     Example: "CREDIT SALE"
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_CARD_TYPE} <br>
+     *     Input:  {@link EntryExtraData#PARAM_CARD_TYPE} - {@value EntryExtraData#PARAM_CARD_TYPE} <br>
      *     Type: String<br>
      *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.CardType} for details
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_ANIMATION_SUPPORT} <br>
+     *     Input:  {@link EntryExtraData#PARAM_ANIMATION_SUPPORT} - {@value EntryExtraData#PARAM_ANIMATION_SUPPORT} <br>
      *     Type: Boolean<br>
      *     TRUE is play animation
      *     Only works for Visa card<br>
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_SOUND_SUPPORT} <br>
+     *     Input:  {@link EntryExtraData#PARAM_SOUND_SUPPORT} - {@value EntryExtraData#PARAM_SOUND_SUPPORT} <br>
      *     Type: Boolean<br>
      *     TRUE is play sound.
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_SOUND_URI} <br>
+     *     Input:  {@link EntryExtraData#PARAM_SOUND_URI} - {@value EntryExtraData#PARAM_SOUND_URI} <br>
      *     Type: String
      * </p>
      */
@@ -116,21 +116,21 @@ public final class InformationEntry {
 //    /**
 //     * Activity Action: Display Visa Installment Transaction Approved message <br>
 //     * <p>
-//     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+//     *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
 //     *     Type: String
 //     * </p>
 //     * <p>
-//     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+//     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} - {@value EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
 //     *     Type: String<br>
 //     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
 //     * </p>
 //     * <p>
-//     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
+//     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} - {@value EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
 //     *     Type: String<br>
 //     *     Example: "CREDIT SALE"
 //     * </p>
 //     * <p>
-//     *     Input:  {@link EntryExtraData#PARAM_MESSAGE}<br>
+//     *     Input:  {@link EntryExtraData#PARAM_MESSAGE} - {@value EntryExtraData#PARAM_MESSAGE}<br>
 //     *     Type: String
 //     * </p>
 //     * @deprecated Never used. Now the end ui is shown on Trans completed. See {@link com.pax.us.pay.ui.constant.status.StatusData#PARAM_DISPLAY_VISA_INSTALLMENT_APPROVAL} instead.

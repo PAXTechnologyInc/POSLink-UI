@@ -13,64 +13,63 @@ public final class ConfirmationEntry {
     }
 
     /**
-     * Activity Category: CONFIRMATION
+     * Activity Category: CONFIRMATION<br>{@value #CATEGORY}<br>
      */
     public static final String CATEGORY = "com.pax.us.pay.ui.category.CONFIRMATION";
 
     /**
-     * Activity Action: General Confirmation with Message<br>
-     * If specific confirmation activity not found in customized app,
-     * BroadPOS will try start this general confirmation activity.<br>
+     * Activity Action: General Confirmation with Message<br>{@value #ACTION_CONFIRM_UNIFIED_MESSAGE}<br>
+     * <p>If specific confirmation activity not found in customized app,
+     *  BroadPOS will try start this general confirmation activity.</p>
      * <p>
      *     Example:<br>
-     *     If BroadPOS try to start Activity {@link #ACTION_CHECK_CARD_PRESENT}, but your app does not implement it.<br>
-     *     then BroadPOS will try to start this general confirmation Activity ("com.pax.us.pay.action.CONFIRM_UNIFIED_MESSAGE").
+     *     If BroadPOS try to start Activity {@value #ACTION_CHECK_CARD_PRESENT}, but your app does not implement it.<br>
+     *     then BroadPOS will try to start this general confirmation Activity {@value #ACTION_CONFIRM_UNIFIED_MESSAGE}.
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_MESSAGE} Message shown on UI<br>
+     *     Input:  {@link EntryExtraData#PARAM_MESSAGE} - {@value EntryExtraData#PARAM_MESSAGE} Message shown on UI<br>
      *     Type: String
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
      *     Type: Long<br>
      *     Unit: ms<br>
      *     Default is 30000.
      * </p>
      * <p>
-     *     Output: {@link EntryRequest#PARAM_CONFIRMED} <br>
+     *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
      *     Type: Boolean<br>
-     *     If select {@link ConfirmationType#YES}, return TRUE.
+     *     If select {@value ConfirmationType#YES}, return TRUE.
      * </p>
      */
     public static final String ACTION_CONFIRM_UNIFIED_MESSAGE = "com.pax.us.pay.action.CONFIRM_UNIFIED_MESSAGE";
 
 
     /**
-     * Activity Action: Reverse or Accept a Partial-approval transaction<br>
+     * Activity Action: Reverse or Accept a Partial-approval transaction<br>{@value #ACTION_REVERSE_PARTIAL_APPROVAL}<br>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_CURRENCY} is currency type. <br>
+     *     Input:  {@link EntryExtraData#PARAM_CURRENCY} - {@value EntryExtraData#PARAM_CURRENCY} is currency type. <br>
      *     Type: String<br>
      *     Default value: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType#USD}
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_APPROVED_AMOUNT} <br>
+     *     Input:  {@link EntryExtraData#PARAM_APPROVED_AMOUNT} - {@value EntryExtraData#PARAM_APPROVED_AMOUNT} <br>
      *     Type: Long
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_TOTAL_AMOUNT} <br>
+     *     Input:  {@link EntryExtraData#PARAM_TOTAL_AMOUNT} - {@value EntryExtraData#PARAM_TOTAL_AMOUNT} <br>
      *     Type: Long
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_MESSAGE} <br>
-     *     Message shown on UI<br>
+     *     Input:  {@link EntryExtraData#PARAM_MESSAGE} - {@value EntryExtraData#PARAM_MESSAGE}  Message shown on UI<br>
      *     Type: String<br>
      *     It is optional. Reversed if some BroadPOS app prefer customized message.<br>
      * </p>
@@ -81,50 +80,49 @@ public final class ConfirmationEntry {
      *     %1$s is formatted Approved amount,  %2$s is formatted due amount (Total Amount- Approved Amount)
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_OPTIONS} <br>
+     *     Input:  {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS} <br>
      *     Type: String[]<br>
      *     Options are {@link PartialApprovalOption#REVERSE} and {@link PartialApprovalOption#ACCEPT}<br>
-     *     If select {@link PartialApprovalOption#REVERSE}, the transaction will be voided.<br>
-     *     If select {@link PartialApprovalOption#ACCEPT}, the transaction will be accepted with partial-approval.
+     *     If select {@value PartialApprovalOption#REVERSE}, the transaction will be voided.<br>
+     *     If select {@value PartialApprovalOption#ACCEPT}, the transaction will be accepted with partial-approval.
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
      *     Type: Long<br>
      *     Unit: ms<br>
      *     Default is 30000.
      * </p>
      * <p>
-     *     Output: {@link EntryRequest#PARAM_CONFIRMED} <br>
+     *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
      *     Type: Boolean<br>
-     *     If select {@link PartialApprovalOption#REVERSE}, return TRUE<br>
-     *     If select {@link PartialApprovalOption#ACCEPT}, return FALSE
+     *     If select {@value PartialApprovalOption#REVERSE}, return TRUE<br>
+     *     If select {@value PartialApprovalOption#ACCEPT}, return FALSE
      * </p>
      */
     public static final String ACTION_REVERSE_PARTIAL_APPROVAL = "com.pax.us.pay.action.REVERSE_PARTIAL_APPROVAL";
 
 
     /**
-     * Activity Action: Confirm If Start a New Payment when get partial-approval<br>
+     * Activity Action: Confirm If Start a New Payment when get partial-approval<br>{@value #ACTION_SUPPLEMENT_PARTIAL_APPROVAL}<br>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_CURRENCY} is currency type. <br>
+     *     Input:  {@link EntryExtraData#PARAM_CURRENCY} - {@value EntryExtraData#PARAM_CURRENCY} is currency type. <br>
      *     Type: String<br>
      *     Default value: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType#USD}
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_APPROVED_AMOUNT} <br>
+     *     Input:  {@link EntryExtraData#PARAM_APPROVED_AMOUNT} - {@value EntryExtraData#PARAM_APPROVED_AMOUNT} <br>
      *     Type: Long
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_TOTAL_AMOUNT} <br>
+     *     Input:  {@link EntryExtraData#PARAM_TOTAL_AMOUNT} - {@value EntryExtraData#PARAM_TOTAL_AMOUNT} <br>
      *     Type: Long
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_MESSAGE} <br>
-     *     Message shown on UI<br>
+     *     Input:  {@link EntryExtraData#PARAM_MESSAGE} - {@value EntryExtraData#PARAM_MESSAGE}  Message shown on UI<br>
      *     Type: String<br>
      *     It is optional. Reversed if some BroadPOS app prefer customized message.<br>
      * </p>
@@ -135,32 +133,33 @@ public final class ConfirmationEntry {
      *     %1$s is formatted Approved amount,  %2$s is formatted due amount (Total Amount- Approved Amount)
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_OPTIONS} <br>
+     *     Input:  {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS} <br>
      *     Type: String[]<br>
-     *     If select {@link PartialApprovalOption#ACCEPT}, a new payment will be started.<br>
-     *     If select {@link PartialApprovalOption#DECLINE}, this transaction will be accepted with partial-approval.
+     *     Options are {@link PartialApprovalOption#ACCEPT} and {@link PartialApprovalOption#DECLINE}<br>
+     *     If select {@value PartialApprovalOption#ACCEPT}, a new payment will be started.<br>
+     *     If select {@value PartialApprovalOption#DECLINE}, this transaction will be accepted with partial-approval.
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
      *     Type: Long<br>
      *     Unit: ms<br>
      *     Default is 30000.
      * </p>
      * <p>
-     *     Output: {@link EntryRequest#PARAM_CONFIRMED} <br>
+     *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
      *     Type: Boolean<br>
-     *     If select {@link PartialApprovalOption#ACCEPT}, return TRUE<br>
-     *     If select {@link PartialApprovalOption#DECLINE}, return FALSE
+     *     If select {@value PartialApprovalOption#ACCEPT}, return TRUE<br>
+     *     If select {@value PartialApprovalOption#DECLINE}, return FALSE
      * </p>
      */
     public static final String ACTION_SUPPLEMENT_PARTIAL_APPROVAL = "com.pax.us.pay.action.SUPPLEMENT_PARTIAL_APPROVAL";
 
     /**
-     * Activity Action: select the transaction online retry or offline <br>
-     * If not implemented, BroadPOS will try to start action {@link #ACTION_CONFIRM_UNIFIED_MESSAGE}
-     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
-     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
+     * Activity Action: select the transaction online retry or offline <br>{@value #ACTION_CONFIRM_ONLINE_RETRY_OFFLINE}<br>
+     * <p>If not implemented, BroadPOS will try to start action {@link #ACTION_CONFIRM_UNIFIED_MESSAGE}</p>
+     * input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} - {@value EntryExtraData#PARAM_MESSAGE} <br>
+     * request: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
      * @deprecated Not used anymore. Retry-Or-Offline feature has been removed from BroadPOS.
      */
     public static final String ACTION_CONFIRM_ONLINE_RETRY_OFFLINE = "com.pax.us.pay.action.CONFIRM_ONLINE_RETRY_OFFLINE";
@@ -168,21 +167,20 @@ public final class ConfirmationEntry {
 //    /**
 //     * The intent action of select the credit type <br>
 //     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
-//     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-//     * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
+//     * input: {@link EntryExtraData#PARAM_MESSAGE} - {@value EntryExtraData#PARAM_MESSAGE} <br>
+//     * request: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
 //     * @deprecated Never used
 //     */
 //    public static final String ACTION_CONFIRM_DEBIT_TRANS = "com.pax.us.pay.action.CONFIRM_DEBIT_TRANS";
     /**
-     * Activity Action: Confirm Card Present <br>
-     * If not implemented, BroadPOS will try to start action {@link #ACTION_CONFIRM_UNIFIED_MESSAGE}
+     * Activity Action: Confirm Card Present <br>{@value #ACTION_CHECK_CARD_PRESENT}<br>
+     * <p>If not implemented, BroadPOS will try to start action {@value #ACTION_CONFIRM_UNIFIED_MESSAGE}</p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_MESSAGE} <br>
-     *     Message shown on UI<br>
+     *     Input:  {@link EntryExtraData#PARAM_MESSAGE} - {@value EntryExtraData#PARAM_MESSAGE} Message shown on UI<br>
      *     Type: String<br>
      *     It is optional. Reversed if some BroadPOS app prefer customized message.<br>
      * </p>
@@ -192,34 +190,33 @@ public final class ConfirmationEntry {
      *     "Card Present?"<br>
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_OPTIONS}<br>
+     *     Input:  {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS}<br>
      *     Type: String[]<br>
-     *     Values: {@link ConfirmationType#YES} and {@link ConfirmationType#NO}
+     *     Options: {@link ConfirmationType#YES} and {@link ConfirmationType#NO}
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
      *     Type: Long<br>
      *     Unit: ms<br>
      *     Default is 30000.
      * </p>
      * <p>
-     *     Output: {@link EntryRequest#PARAM_CONFIRMED} <br>
+     *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
      *     Type: Boolean<br>
-     *     If select {@link ConfirmationType#YES}, return TRUE.
+     *     If select {@value ConfirmationType#YES}, return TRUE.
      * </p>
      */
     public static final String ACTION_CHECK_CARD_PRESENT = "com.pax.us.pay.action.CONFIRM_CARD_PRESENT";
 
     /**
-     * Activity Action: Confirm Deactivate Warning <br>
-     * If not implemented, BroadPOS will try to start action {@link #ACTION_CONFIRM_UNIFIED_MESSAGE}
+     * Activity Action: Confirm Deactivate Warning <br>{@value #ACTION_CHECK_DEACTIVATE_WARN}<br>
+     * <p>If not implemented, BroadPOS will try to start action {@link #ACTION_CONFIRM_UNIFIED_MESSAGE}</p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_MESSAGE} <br>
-     *     Message shown on UI<br>
+     *     Input:  {@link EntryExtraData#PARAM_MESSAGE} - {@value EntryExtraData#PARAM_MESSAGE} Message shown on UI<br>
      *     Type: String<br>
      *     It is optional. Reversed if some BroadPOS app prefer customized message.<br>
      * </p>
@@ -229,35 +226,34 @@ public final class ConfirmationEntry {
      *     "Card Will Be Deactivated, Are You Sure?"<br>
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_OPTIONS}<br>
+     *     Input:  {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS}<br>
      *     Type: String[]<br>
-     *     Values: {@link ConfirmationType#YES} and {@link ConfirmationType#NO}
+     *     Options: {@link ConfirmationType#YES}  and {@link ConfirmationType#NO}
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
      *     Type: Long<br>
      *     Unit: ms<br>
      *     Default is 30000.
      * </p>
      * <p>
-     *     Output: {@link EntryRequest#PARAM_CONFIRMED} <br>
+     *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
      *     Type: Boolean<br>
-     *     If select {@link ConfirmationType#YES}, return TRUE.
+     *     If select {@value ConfirmationType#YES}, return TRUE.
      * </p>
      */
     public static final String ACTION_CHECK_DEACTIVATE_WARN = "com.pax.us.pay.action.CONFIRM_DEACTIVATE_WARN";
 
 
     /**
-     * Activity Action: Confirm Batch Close Warning <br>
-     * If not implemented, BroadPOS will try to start action {@link #ACTION_CONFIRM_UNIFIED_MESSAGE}
+     * Activity Action: Confirm Batch Close Warning <br>{@value #ACTION_CONFIRM_BATCH_CLOSE}<br>
+     * <p>If not implemented, BroadPOS will try to start action {@link #ACTION_CONFIRM_UNIFIED_MESSAGE}</p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_MESSAGE} <br>
-     *     Message shown on UI<br>
+     *     Input:  {@link EntryExtraData#PARAM_MESSAGE} - {@value EntryExtraData#PARAM_MESSAGE}  Message shown on UI<br>
      *     Type: String<br>
      *     It is optional. Reversed if some BroadPOS app prefer customized message.<br>
      * </p>
@@ -267,35 +263,34 @@ public final class ConfirmationEntry {
      *     "Close Batch?"<br>
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_OPTIONS}<br>
+     *     Input:  {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS}<br>
      *     Type: String[]<br>
-     *     Values: {@link ConfirmationType#YES} and {@link ConfirmationType#NO}
+     *     Options: {@link ConfirmationType#YES}  and {@link ConfirmationType#NO}
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
      *     Type: Long<br>
      *     Unit: ms<br>
      *     Default is 30000.
      * </p>
      * <p>
-     *     Output: {@link EntryRequest#PARAM_CONFIRMED} <br>
+     *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
      *     Type: Boolean<br>
-     *     If select {@link ConfirmationType#YES}, return TRUE.
+     *     If select {@value ConfirmationType#YES}, return TRUE.
      * </p>
      */
     public static final String ACTION_CONFIRM_BATCH_CLOSE = "com.pax.us.pay.action.CONFIRM_BATCH_CLOSE";
 
 
     /**
-     * Activity Action: Confirm Close With Untipped <br>
-     * If not implemented, BroadPOS will try to start action {@link #ACTION_CONFIRM_UNIFIED_MESSAGE}
+     * Activity Action: Confirm Close With Untipped <br>{@value #ACTION_CONFIRM_UNTIPPED}<br>
+     * <p>If not implemented, BroadPOS will try to start action {@link #ACTION_CONFIRM_UNIFIED_MESSAGE}</p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_MESSAGE} <br>
-     *     Message shown on UI<br>
+     *     Input:  {@link EntryExtraData#PARAM_MESSAGE} - {@value EntryExtraData#PARAM_MESSAGE}  Message shown on UI<br>
      *     Type: String<br>
      *     It is optional. Reversed if some BroadPOS app prefer customized message.<br>
      * </p>
@@ -305,34 +300,33 @@ public final class ConfirmationEntry {
      *     "Close Batch with Untipped Trans.?"<br>
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_OPTIONS}<br>
+     *     Input:  {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS}<br>
      *     Type: String[]<br>
-     *     Values: {@link ConfirmationType#YES} and {@link ConfirmationType#NO}
+     *     Options: {@link ConfirmationType#YES}  and {@link ConfirmationType#NO}
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
      *     Type: Long<br>
      *     Unit: ms<br>
      *     Default is 30000.
      * </p>
      * <p>
-     *     Output: {@link EntryRequest#PARAM_CONFIRMED} <br>
+     *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
      *     Type: Boolean<br>
-     *     If select {@link ConfirmationType#YES}, return TRUE.
+     *     If select {@value ConfirmationType#YES}, return TRUE.
      * </p>
      */
     public static final String ACTION_CONFIRM_UNTIPPED = "com.pax.us.pay.action.CONFIRM_UNTIPPED";
 
     /**
-     * Activity Action: Duplicate transaction approval <br>
-     * If not implemented, BroadPOS will try to start action {@link #ACTION_CONFIRM_UNIFIED_MESSAGE}
+     * Activity Action: Duplicate transaction approval <br>{@value #ACTION_CONFIRM_DUPLICATE_TRANS}<br>
+     * <p>If not implemented, BroadPOS will try to start action {@link #ACTION_CONFIRM_UNIFIED_MESSAGE}</p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_MESSAGE} <br>
-     *     Message shown on UI<br>
+     *     Input:  {@link EntryExtraData#PARAM_MESSAGE} - {@value EntryExtraData#PARAM_MESSAGE}  Message shown on UI<br>
      *     Type: String<br>
      *     It is optional. Reversed if some BroadPOS app prefer customized message.<br>
      * </p>
@@ -342,28 +336,28 @@ public final class ConfirmationEntry {
      *     "Duplicated Trans.\nDo you wish to continue?"<br>
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_OPTIONS}<br>
+     *     Input:  {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS}<br>
      *     Type: String[]<br>
-     *     Values: {@link ConfirmationType#YES} and {@link ConfirmationType#NO}
+     *     Options: {@link ConfirmationType#YES}  and {@link ConfirmationType#NO}
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
      *     Type: Long<br>
      *     Unit: ms<br>
      *     Default is 30000.
      * </p>
      * <p>
-     *     Output: {@link EntryRequest#PARAM_CONFIRMED} <br>
+     *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
      *     Type: Boolean<br>
-     *     If select {@link ConfirmationType#YES}, return TRUE.
+     *     If select {@value ConfirmationType#YES}, return TRUE.
      * </p>
      */
     public static final String ACTION_CONFIRM_DUPLICATE_TRANS = "com.pax.us.pay.action.CONFIRM_DUPLICATE_TRANS";
 
     /**
-     * Activity Action: Confirm Surcharge Fee <br>
+     * Activity Action: Confirm Surcharge Fee <br>{@value #ACTION_CONFIRM_SURCHARGE_FEE}<br>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
      * </p>
      * <p>
@@ -371,12 +365,12 @@ public final class ConfirmationEntry {
      *     Type: String<br>
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_CURRENCY} is currency type. <br>
+     *     Input:  {@link EntryExtraData#PARAM_CURRENCY} - {@value EntryExtraData#PARAM_CURRENCY} is currency type. <br>
      *     Type: String<br>
      *     Default value: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType#USD}
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_TOTAL_AMOUNT} <br>
+     *     Input:  {@link EntryExtraData#PARAM_TOTAL_AMOUNT} - {@value EntryExtraData#PARAM_TOTAL_AMOUNT} <br>
      *     Type: Long
      * </p>
      * <p>
@@ -389,28 +383,28 @@ public final class ConfirmationEntry {
      *     TRUE means Bypass is allowable
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_OPTIONS}<br>
+     *     Input:  {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS}<br>
      *     Type: String[]<br>
-     *     Values: {@link ConfirmationType#YES} and {@link ConfirmationType#NO}
+     *     Options: {@link ConfirmationType#YES}  and {@link ConfirmationType#NO}
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
      *     Type: Long<br>
      *     Unit: ms<br>
      *     Default is 30000.
      * </p>
      * <p>
-     *     Output: {@link EntryRequest#PARAM_CONFIRMED} <br>
+     *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
      *     Type: Boolean<br>
-     *     If select {@link ConfirmationType#YES}, return TRUE.
+     *     If select {@value ConfirmationType#YES}, return TRUE.
      * </p>
      */
     public static final String ACTION_CONFIRM_SURCHARGE_FEE = "com.pax.us.pay.action.CONFIRM_SURCHARGE_FEE";
 
     /**
-     * Activity Action: Confirm Service Fee <br>
+     * Activity Action: Confirm Service Fee <br>{@value #ACTION_CONFIRM_SERVICE_FEE}<br>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
      * </p>
      * <p>
@@ -418,12 +412,12 @@ public final class ConfirmationEntry {
      *     Type: String
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_CURRENCY} is currency type. <br>
+     *     Input:  {@link EntryExtraData#PARAM_CURRENCY} - {@value EntryExtraData#PARAM_CURRENCY} is currency type. <br>
      *     Type: String<br>
      *     Default value: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType#USD}
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_TOTAL_AMOUNT} <br>
+     *     Input:  {@link EntryExtraData#PARAM_TOTAL_AMOUNT} - {@value EntryExtraData#PARAM_TOTAL_AMOUNT} <br>
      *     Type: Long
      * </p>
      * <p>
@@ -431,29 +425,29 @@ public final class ConfirmationEntry {
      *     Type: Long
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_OPTIONS}<br>
+     *     Input:  {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS}<br>
      *     Type: String[]<br>
-     *     Values: {@link ConfirmationType#YES} and {@link ConfirmationType#NO}
+     *     Options: {@link ConfirmationType#YES}  and {@link ConfirmationType#NO}
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
      *     Type: Long<br>
      *     Unit: ms<br>
      *     Default is 30000.
      * </p>
      * <p>
-     *     Output: {@link EntryRequest#PARAM_CONFIRMED} <br>
+     *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
      *     Type: Boolean<br>
-     *     If select {@link ConfirmationType#YES}, return TRUE.
+     *     If select {@value ConfirmationType#YES}, return TRUE.
      * </p>
      */
     public static final String ACTION_CONFIRM_SERVICE_FEE = "com.pax.us.pay.action.CONFIRM_SERVICE_FEE";
 
     /**
-     * Activity Action: Confirm Printer Status <br>
-     * If not implemented, BroadPOS will try to start action {@link #ACTION_CONFIRM_UNIFIED_MESSAGE}
+     * Activity Action: Confirm Printer Status <br>{@value #ACTION_CONFIRM_PRINTER_STATUS}<br>
+     * <p>If not implemented, BroadPOS will try to start action {@link #ACTION_CONFIRM_UNIFIED_MESSAGE}</p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
      * </p>
      * <p>
@@ -462,8 +456,7 @@ public final class ConfirmationEntry {
      *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.PrintStatusType}
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_MESSAGE} <br>
-     *     Message shown on UI<br>
+     *     Input:  {@link EntryExtraData#PARAM_MESSAGE} - {@value EntryExtraData#PARAM_MESSAGE}  Message shown on UI<br>
      *     Type: String<br>
      *     It is optional. Reversed if some BroadPOS app prefer customized message.<br>
      * </p>
@@ -474,34 +467,33 @@ public final class ConfirmationEntry {
      *     display "Printer Out Of Paper, Retry?"<br>
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_OPTIONS}<br>
+     *     Input:  {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS}<br>
      *     Type: String[]<br>
-     *     Values: {@link ConfirmationType#YES} and {@link ConfirmationType#NO}
+     *     Options: {@link ConfirmationType#YES}  and {@link ConfirmationType#NO}
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
      *     Type: Long<br>
      *     Unit: ms<br>
      *     Default is 30000.
      * </p>
      * <p>
-     *     Output: {@link EntryRequest#PARAM_CONFIRMED} <br>
+     *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
      *     Type: Boolean<br>
-     *     If select {@link ConfirmationType#YES}, return TRUE.
+     *     If select {@value ConfirmationType#YES}, return TRUE.
      * </p>
      */
     public static final String ACTION_CONFIRM_PRINTER_STATUS = "com.pax.us.pay.action.CONFIRM_PRINTER_STATUS";
 
     /**
-     * Activity Action: Confirm Upload Transaction <br>
-     * If not implemented, BroadPOS will try to start action {@link #ACTION_CONFIRM_UNIFIED_MESSAGE}
+     * Activity Action: Confirm Upload Transaction <br>{@value #ACTION_CONFIRM_UPLOAD_TRANS}<br>
+     * <p>If not implemented, BroadPOS will try to start action {@link #ACTION_CONFIRM_UNIFIED_MESSAGE}</p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_MESSAGE} <br>
-     *     Message shown on UI<br>
+     *     Input:  {@link EntryExtraData#PARAM_MESSAGE} - {@value EntryExtraData#PARAM_MESSAGE}  Message shown on UI<br>
      *     Type: String<br>
      *     It is optional. Reversed if some BroadPOS app prefer customized message.<br>
      * </p>
@@ -511,34 +503,33 @@ public final class ConfirmationEntry {
      *     "Upload Transaction, Are You Sure?"<br>
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_OPTIONS}<br>
+     *     Input:  {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS}<br>
      *     Type: String[]<br>
-     *     Values: {@link ConfirmationType#YES} and {@link ConfirmationType#NO}
+     *     Options: {@link ConfirmationType#YES}  and {@link ConfirmationType#NO}
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
      *     Type: Long<br>
      *     Unit: ms<br>
      *     Default is 30000.
      * </p>
      * <p>
-     *     Output: {@link EntryRequest#PARAM_CONFIRMED} <br>
+     *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
      *     Type: Boolean<br>
-     *     If select {@link ConfirmationType#YES}, return TRUE.
+     *     If select {@value ConfirmationType#YES}, return TRUE.
      * </p>
      */
     public static final String ACTION_CONFIRM_UPLOAD_TRANS = "com.pax.us.pay.action.CONFIRM_UPLOAD_TRANS";
 
     /**
-     * Activity Action: Confirm Retry Upload Transaction <br>
-     * If not implemented, BroadPOS will try to start action {@link #ACTION_CONFIRM_UNIFIED_MESSAGE}
+     * Activity Action: Confirm Retry Upload Transaction <br>{@value #ACTION_CONFIRM_UPLOAD_RETRY}<br>
+     * <p>If not implemented, BroadPOS will try to start action {@link #ACTION_CONFIRM_UNIFIED_MESSAGE}</p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_MESSAGE} <br>
-     *     Message shown on UI<br>
+     *     Input:  {@link EntryExtraData#PARAM_MESSAGE} - {@value EntryExtraData#PARAM_MESSAGE}  Message shown on UI<br>
      *     Type: String<br>
      *     It is optional. Reversed if some BroadPOS app prefer customized message.<br>
      * </p>
@@ -548,34 +539,33 @@ public final class ConfirmationEntry {
      *     "Upload Retry?"<br>
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_OPTIONS}<br>
+     *     Input:  {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS}<br>
      *     Type: String[]<br>
-     *     Values: {@link ConfirmationType#YES} and {@link ConfirmationType#NO}
+     *     Options: {@link ConfirmationType#YES}  and {@link ConfirmationType#NO}
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
      *     Type: Long<br>
      *     Unit: ms<br>
      *     Default is 30000.
      * </p>
      * <p>
-     *     Output: {@link EntryRequest#PARAM_CONFIRMED} <br>
+     *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
      *     Type: Boolean<br>
-     *     If select {@link ConfirmationType#YES}, return TRUE.
+     *     If select {@value ConfirmationType#YES}, return TRUE.
      * </p>
      */
     public static final String ACTION_CONFIRM_UPLOAD_RETRY = "com.pax.us.pay.action.CONFIRM_UPLOAD_RETRY";
 
     /**
-     * Activity Action: Confirm Print Failed Transaction <br>
-     * If not implemented, BroadPOS will try to start action {@link #ACTION_CONFIRM_UNIFIED_MESSAGE}
+     * Activity Action: Confirm Print Failed Transaction <br>{@value #ACTION_CONFIRM_PRINT_FAILED_TRANS}<br>
+     * <p>If not implemented, BroadPOS will try to start action {@link #ACTION_CONFIRM_UNIFIED_MESSAGE}</p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_MESSAGE} <br>
-     *     Message shown on UI<br>
+     *     Input:  {@link EntryExtraData#PARAM_MESSAGE} - {@value EntryExtraData#PARAM_MESSAGE}  Message shown on UI<br>
      *     Type: String<br>
      *     It is optional. Reversed if some BroadPOS app prefer customized message.<br>
      * </p>
@@ -585,34 +575,33 @@ public final class ConfirmationEntry {
      *     "Print Failed Trans.?"<br>
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_OPTIONS}<br>
+     *     Input:  {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS}<br>
      *     Type: String[]<br>
-     *     Values: {@link ConfirmationType#YES} and {@link ConfirmationType#NO}
+     *     Options: {@link ConfirmationType#YES}  and {@link ConfirmationType#NO}
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
      *     Type: Long<br>
      *     Unit: ms<br>
      *     Default is 30000.
      * </p>
      * <p>
-     *     Output: {@link EntryRequest#PARAM_CONFIRMED} <br>
+     *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
      *     Type: Boolean<br>
-     *     If select {@link ConfirmationType#YES}, return TRUE.
+     *     If select {@value ConfirmationType#YES}, return TRUE.
      * </p>
      */
     public static final String ACTION_CONFIRM_PRINT_FAILED_TRANS = "com.pax.us.pay.action.CONFIRM_PRINT_FAILED_TRANS";
 
     /**
-     * Activity Action: Confirm Print Receipt <br>
-     * If not implemented, BroadPOS will try to start action {@link #ACTION_CONFIRM_UNIFIED_MESSAGE}
+     * Activity Action: Confirm Print Receipt <br>{@value #ACTION_CONFIRM_PRINT_FPS}<br>
+     * <p>If not implemented, BroadPOS will try to start action {@link #ACTION_CONFIRM_UNIFIED_MESSAGE}</p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_MESSAGE} <br>
-     *     Message shown on UI<br>
+     *     Input:  {@link EntryExtraData#PARAM_MESSAGE} - {@value EntryExtraData#PARAM_MESSAGE}  Message shown on UI<br>
      *     Type: String<br>
      *     It is optional. Reversed if some BroadPOS app prefer customized message.<br>
      * </p>
@@ -622,35 +611,34 @@ public final class ConfirmationEntry {
      *     "Do You Want To Print Receipt?"<br>
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_OPTIONS}<br>
+     *     Input:  {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS}<br>
      *     Type: String[]<br>
-     *     Values: {@link ConfirmationType#YES} and {@link ConfirmationType#NO}
+     *     Options: {@link ConfirmationType#YES}  and {@link ConfirmationType#NO}
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
      *     Type: Long<br>
      *     Unit: ms<br>
      *     Default is 30000.
      * </p>
      * <p>
-     *     Output: {@link EntryRequest#PARAM_CONFIRMED} <br>
+     *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
      *     Type: Boolean<br>
-     *     If select {@link ConfirmationType#YES}, return TRUE.
+     *     If select {@value ConfirmationType#YES}, return TRUE.
      * </p>
      */
     public static final String ACTION_CONFIRM_PRINT_FPS = "com.pax.us.pay.action.CONFIRM_PRINT_FPS";
 
 
     /**
-     * Activity Action: Confirm Delete SF transaction  <br>
-     * If not implemented, BroadPOS will try to start action {@link #ACTION_CONFIRM_UNIFIED_MESSAGE}
+     * Activity Action: Confirm Delete SF transaction  <br>{@value #ACTION_CONFIRM_DELETE_SF}<br>
+     * <p>If not implemented, BroadPOS will try to start action {@link #ACTION_CONFIRM_UNIFIED_MESSAGE}</p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_MESSAGE} <br>
-     *     Message shown on UI<br>
+     *     Input:  {@link EntryExtraData#PARAM_MESSAGE} - {@value EntryExtraData#PARAM_MESSAGE}  Message shown on UI<br>
      *     Type: String<br>
      *     It is optional. Reversed if some BroadPOS app prefer customized message.<br>
      * </p>
@@ -660,34 +648,33 @@ public final class ConfirmationEntry {
      *     "Delete SF Records, Are You Sure?"<br>
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_OPTIONS}<br>
+     *     Input:  {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS}<br>
      *     Type: String[]<br>
-     *     Values: {@link ConfirmationType#YES} and {@link ConfirmationType#NO}
+     *     Options: {@link ConfirmationType#YES}  and {@link ConfirmationType#NO}
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
      *     Type: Long<br>
      *     Unit: ms<br>
      *     Default is 30000.
      * </p>
      * <p>
-     *     Output: {@link EntryRequest#PARAM_CONFIRMED} <br>
+     *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
      *     Type: Boolean<br>
-     *     If select {@link ConfirmationType#YES}, return TRUE.
+     *     If select {@value ConfirmationType#YES}, return TRUE.
      * </p>
      */
     public static final String ACTION_CONFIRM_DELETE_SF = "com.pax.us.pay.action.CONFIRM_DELETE_SF";
 
     /**
-     * Activity Action: Confirm Print Customer Receipt <br>
-     * If not implemented, BroadPOS will try to start action {@link #ACTION_CONFIRM_UNIFIED_MESSAGE}
+     * Activity Action: Confirm Print Customer Receipt <br>{@value #ACTION_CONFIRM_PRINT_CUSTOMER_COPY}<br>
+     * <p>If not implemented, BroadPOS will try to start action {@link #ACTION_CONFIRM_UNIFIED_MESSAGE}</p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_MESSAGE} <br>
-     *     Message shown on UI<br>
+     *     Input:  {@link EntryExtraData#PARAM_MESSAGE} - {@value EntryExtraData#PARAM_MESSAGE}  Message shown on UI<br>
      *     Type: String<br>
      *     It is optional. Reversed if some BroadPOS app prefer customized message.<br>
      * </p>
@@ -697,40 +684,39 @@ public final class ConfirmationEntry {
      *     "Please Tear Receipt.\nPrint Customer Receipt?"<br>
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
      *     Type: Long<br>
      *     Unit: ms<br>
      *     Default is 30000.
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_OPTIONS}<br>
+     *     Input:  {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS}<br>
      *     Type: String[]<br>
-     *     Values: {@link ConfirmationType#YES} and {@link ConfirmationType#NO}
+     *     Options: {@link ConfirmationType#YES}  and {@link ConfirmationType#NO}
      * </p>
      * <p>
-     *     Output: {@link EntryRequest#PARAM_CONFIRMED} YES: OK  NO:CANCEL  <br>
+     *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} YES: OK  NO:CANCEL  <br>
      */
     public static final String ACTION_CONFIRM_PRINT_CUSTOMER_COPY = "com.pax.us.pay.action.CONFIRM_PRINT_CUSTOMER_COPY";
 
     /**
-     * Activity Action: Batch close for Application update <br>
+     * Activity Action: Batch close for Application update <br>{@value #ACTION_CONFIRM_BATCH_FOR_APPLICATION_UPDATE}<br>
      * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
-     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-     * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
+     * input: {@link EntryExtraData#PARAM_MESSAGE} - {@value EntryExtraData#PARAM_MESSAGE} <br>
+     * request: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
      * @deprecated Never used.
      */
     public static final String ACTION_CONFIRM_BATCH_FOR_APPLICATION_UPDATE = "com.pax.us.pay.action.CONFIRM_BATCH_FOR_APPLICATION_UPDATE";
 
     /**
-     * Activity Action: Retry Online <br>
-     * If not implemented, BroadPOS will try to start action {@link #ACTION_CONFIRM_UNIFIED_MESSAGE}
+     * Activity Action: Retry Online <br>{@value #ACTION_CONFIRM_ONLINE_RETRY}<br>
+     * <p>If not implemented, BroadPOS will try to start action {@link #ACTION_CONFIRM_UNIFIED_MESSAGE}</p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_MESSAGE} <br>
-     *     Message shown on UI<br>
+     *     Input:  {@link EntryExtraData#PARAM_MESSAGE} - {@value EntryExtraData#PARAM_MESSAGE}  Message shown on UI<br>
      *     Type: String<br>
      *     It is optional. Reversed if some BroadPOS app prefer customized message.<br>
      * </p>
@@ -740,35 +726,34 @@ public final class ConfirmationEntry {
      *     "Online Failed, Retry?"<br>
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_OPTIONS}<br>
+     *     Input:  {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS}<br>
      *     Type: String[]<br>
-     *     Values: {@link ConfirmationType#YES} and {@link ConfirmationType#NO}
+     *     Options: {@link ConfirmationType#YES}  and {@link ConfirmationType#NO}
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
      *     Type: Long<br>
      *     Unit: ms<br>
      *     Default is 30000.
      * </p>
      * <p>
-     *     Output: {@link EntryRequest#PARAM_CONFIRMED} <br>
+     *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
      *     Type: Boolean<br>
-     *     If select {@link ConfirmationType#YES}, return TRUE.
+     *     If select {@value ConfirmationType#YES}, return TRUE.
      * </p>
      */
     public static final String ACTION_CONFIRM_ONLINE_RETRY = "com.pax.us.pay.action.CONFIRM_ONLINE_RETRY";
 
 
     /**
-     * Activity Action: Confirm Tip Edit <br>
-     * If not implemented, BroadPOS will try to start action {@link #ACTION_CONFIRM_UNIFIED_MESSAGE}
+     * Activity Action: Confirm Tip Edit <br>{@value #ACTION_CONFIRM_ADJUST_TIP}<br>
+     * <p>If not implemented, BroadPOS will try to start action {@link #ACTION_CONFIRM_UNIFIED_MESSAGE}</p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_MESSAGE} <br>
-     *     Message shown on UI<br>
+     *     Input:  {@link EntryExtraData#PARAM_MESSAGE} - {@value EntryExtraData#PARAM_MESSAGE}  Message shown on UI<br>
      *     Type: String<br>
      *     It is optional. Reversed if some BroadPOS app prefer customized message.<br>
      * </p>
@@ -778,97 +763,97 @@ public final class ConfirmationEntry {
      *     "Would you like to add this tip?"<br>
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_OPTIONS}<br>
+     *     Input:  {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS}<br>
      *     Type: String[]<br>
-     *     Values: {@link ConfirmationType#YES} and {@link ConfirmationType#NO}
+     *     Options: {@link ConfirmationType#YES}  and {@link ConfirmationType#NO}
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
      *     Type: Long<br>
      *     Unit: ms<br>
      *     Default is 30000.
      * </p>
      * <p>
-     *     Output: {@link EntryRequest#PARAM_CONFIRMED} <br>
+     *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
      *     Type: Boolean<br>
-     *     If select {@link ConfirmationType#YES}, return TRUE.
+     *     If select {@value ConfirmationType#YES}, return TRUE.
      * </p>
      */
     public static final String ACTION_CONFIRM_ADJUST_TIP = "com.pax.us.pay.action.CONFIRM_ADJUST_TIP";
 
     /**
-     * Activity Action: Confirm Card Process Result<br>
+     * Activity Action: Confirm Card Process Result<br>{@value #ACTION_CONFIRM_CARD_PROCESS_RESULT}<br>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_MESSAGE}<br>
+     *     Input:  {@link EntryExtraData#PARAM_MESSAGE} - {@value EntryExtraData#PARAM_MESSAGE}<br>
      *     Type: String<br>
      *     Generally it is some card error message. Like "1-Chip Malfunction"
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_OPTIONS}<br>
+     *     Input:  {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS}<br>
      *     Type: String[]<br>
-     *     Value is {@link ConfirmationType#YES}
+     *     Options: {@link ConfirmationType#YES} - {@value ConfirmationType#YES}
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
      *     Type: Long<br>
      *     Unit: ms<br>
      *     Default is 5000.
      * </p>
      * <p>
-     *     Output: {@link EntryRequest#PARAM_CONFIRMED} <br>
+     *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
      *     Type: Boolean<br>
-     *     If select {@link ConfirmationType#YES}, return TRUE.
+     *     If select {@value ConfirmationType#YES}, return TRUE.
      * </p>
      */
     public static final String ACTION_CONFIRM_CARD_PROCESS_RESULT = "com.pax.us.pay.action.CONFIRM_CARD_PROCESS_RESULT";
 
 
     /**
-     * Activity Action: Confirm the Receipt need to be Signed or not<br>
-     * If not implemented, BroadPOS will try to start action {@link #ACTION_CONFIRM_UNIFIED_MESSAGE}
+     * Activity Action: Confirm the Receipt need to be Signed or not<br>{@value #ACTION_CONFIRM_RECEIPT_SIGNATURE}<br>
+     * <p>If not implemented, BroadPOS will try to start action {@link #ACTION_CONFIRM_UNIFIED_MESSAGE}</p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_MESSAGE}<br>
+     *     Input:  {@link EntryExtraData#PARAM_MESSAGE} - {@value EntryExtraData#PARAM_MESSAGE}<br>
      *     Type: String<br>
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
      *     Type: Long<br>
      *     Unit: ms<br>
      *     Default is 5000.
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_OPTIONS}<br>
+     *     Input:  {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS}<br>
      *     Type: String[]<br>
-     *     Value is {@link ConfirmationType#YES}
+     *     Value is {@link ConfirmationType#YES} - {@value ConfirmationType#YES}
      * </p>
      * <p>
-     *     Output: {@link EntryRequest#PARAM_CONFIRMED} <br>
+     *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
      *     Type: Boolean<br>
-     *     If select {@link ConfirmationType#YES}, return TRUE.
+     *     If select {@value ConfirmationType#YES}, return TRUE.
      * </p>
      */
     public static final String ACTION_CONFIRM_RECEIPT_SIGNATURE = "com.pax.us.pay.action.CONFIRM_RECEIPT_SIGNATURE";
     /**
-     * Activity Action: Receipt Print Preview <br>
+     * Activity Action: Receipt Print Preview <br>{@value #ACTION_CONFIRM_RECEIPT_VIEW}<br>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} - {@value EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
      *     Type: String<br>
      *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} - {@value EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
      *     Type: String<br>
      *     Example: "CREDIT SALE"
      * </p>
@@ -895,60 +880,59 @@ public final class ConfirmationEntry {
      *             }
      * </pre>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
      *     Type: Long<br>
      *     Unit: ms<br>
      *     Default is 30000.
      * </p>
      * <p>
-     *     Output: {@link EntryRequest#PARAM_CONFIRMED} <br>
+     *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
      *     Type: Boolean<br>
-     *     If select {@link ConfirmationType#YES}, return TRUE.
+     *     If select {@value ConfirmationType#YES}, return TRUE.
      * </p>
      */
     public static final String ACTION_CONFIRM_RECEIPT_VIEW = "com.pax.us.pay.action.CONFIRM_RECEIPT_VIEW";
 
     /**
-     * Activity Action: Confirm Balance<br>
-     * If not implemented, BroadPOS will try to start action {@link #ACTION_CONFIRM_UNIFIED_MESSAGE}
+     * Activity Action: Confirm Balance<br>{@value #ACTION_CONFIRM_BALANCE}<br>
+     * <p>If not implemented, BroadPOS will try to start action {@link #ACTION_CONFIRM_UNIFIED_MESSAGE}</p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_CURRENCY} is currency type. <br>
+     *     Input:  {@link EntryExtraData#PARAM_CURRENCY} - {@value EntryExtraData#PARAM_CURRENCY} is currency type. <br>
      *     Type: String<br>
      *     Default value: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType#USD}
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_BALANCE}  <br>
+     *     Input:  {@link EntryExtraData#PARAM_BALANCE} - {@value EntryExtraData#PARAM_BALANCE}  <br>
      *     Type: Long
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
      *     Type: Long<br>
      *     Unit: ms<br>
      *     Default is 30000.
      * </p>
      * <p>
-     *     Output: {@link EntryRequest#PARAM_CONFIRMED} <br>
+     *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
      *     Type: Boolean<br>
-     *     If select {@link ConfirmationType#YES}, return TRUE.
+     *     If select {@value ConfirmationType#YES}, return TRUE.
      * </p>
      * @deprecated Never used. For BALANCE transaction, BroadPOS does not show Balance on screen.
      */
     public static final String ACTION_CONFIRM_BALANCE = "com.pax.us.pay.action.CONFIRM_BALANCE";
 
     /**
-     * Activity Action: Confirm Merchant
+     * Activity Action: Confirm Merchant<br>{@value #ACTION_CONFIRM_MERCHANT_SCOPE}<br>
      * <p>Used when multi-merchant feature is enabled.</p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_MESSAGE} <br>
-     *     Message shown on UI<br>
+     *     Input:  {@link EntryExtraData#PARAM_MESSAGE} - {@value EntryExtraData#PARAM_MESSAGE}  Message shown on UI<br>
      *     Type: String<br>
      *     It is optional. Reversed if some BroadPOS app prefer customized message.<br>
      * </p>
@@ -958,18 +942,18 @@ public final class ConfirmationEntry {
      *     "Apply for all merchants or current?"<br>
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_OPTIONS} <br>
+     *     Input:  {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS} <br>
      *     Type: String[]<br>
-     *     Options are {@link com.pax.us.pay.ui.constant.entry.enumeration.MerchantScope#CURRENT} and {@link com.pax.us.pay.ui.constant.entry.enumeration.MerchantScope#ALL}
+     *     Options: {@link com.pax.us.pay.ui.constant.entry.enumeration.MerchantScope#CURRENT} and {@link com.pax.us.pay.ui.constant.entry.enumeration.MerchantScope#ALL}
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
      *     Type: Long<br>
      *     Unit: ms<br>
      *     Default is 30000.
      * </p>
      * <p>
-     *     Output: {@link EntryRequest#PARAM_CONFIRMED} <br>
+     *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
      *     Type: Boolean<br>
      *     If select {@link com.pax.us.pay.ui.constant.entry.enumeration.MerchantScope#CURRENT}, return TRUE.
      * </p>
@@ -978,31 +962,30 @@ public final class ConfirmationEntry {
 
 
     /**
-     * Activity Action: Confirm Card Entry Retry<br>
+     * Activity Action: Confirm Card Entry Retry<br>{@value #ACTION_CONFIRM_CARD_ENTRY_RETRY}<br>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_MESSAGE}<br>
-     *     Message shown on UI<br>
+     *     Input:  {@link EntryExtraData#PARAM_MESSAGE} - {@value EntryExtraData#PARAM_MESSAGE} Message shown on UI<br>
      *     Type: String
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_OPTIONS} <br>
+     *     Input:  {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS} <br>
      *     Type: String[]<br>
-     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.CardEntryRetryOption}
+     *     Options: {@link com.pax.us.pay.ui.constant.entry.enumeration.CardEntryRetryOption#CONTINUE} and {@link com.pax.us.pay.ui.constant.entry.enumeration.CardEntryRetryOption#DECLINE} 
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
      *     Type: Long<br>
      *     Unit: ms<br>
      *     Default is 30000.
      * </p>
      * <p>
-     *     Output: {@link EntryRequest#PARAM_CONFIRMED} <br>
+     *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
      *     Type: Boolean<br>
-     *     If select {@link ConfirmationType#YES}, return TRUE.
+     *     If select {@value com.pax.us.pay.ui.constant.entry.enumeration.CardEntryRetryOption#CONTINUE}, return TRUE.
      * </p>
      */
     public static final String ACTION_CONFIRM_CARD_ENTRY_RETRY = "com.pax.us.pay.action.CONFIRM_CARD_ENTRY_RETRY";
@@ -1013,10 +996,10 @@ public final class ConfirmationEntry {
 //     * when start action from host by call startActivity() directly, doesn't set EntryExtraData#PARAM_START_TYPE <br>
 //     * when start action from manager, set EntryExtraData#PARAM_START_TYPE value "ACTION" <br>
 //     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
-//     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
+//     * input: {@link EntryExtraData#PARAM_MESSAGE} - {@value EntryExtraData#PARAM_MESSAGE} <br>
 //     * input: {@link EntryExtraData#PARAM_EULA_URI} <br>
 //     * input: {@link EntryExtraData#PARAM_START_TYPE} <br>
-//     * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
+//     * request: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
 //     * request: {@link EntryRequest#PARAM_DO_NOT_PROMPT_AGAIN} <br>
 //     */
 //    public static final String ACTION_CONFIRM_END_USER_LICENSE_AGREEMENT = "com.pax.us.pay.action.CONFIRM_END_USER_LICENSE_AGREEMENT";
@@ -1024,22 +1007,21 @@ public final class ConfirmationEntry {
 //    /**
 //     * The intent action of confirm eula continue<br>
 //     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
-//     * input: {@link EntryExtraData#PARAM_MESSAGE} <br>
-//     * input: {@link EntryExtraData#PARAM_OPTIONS} <br>
-//     * request: {@link EntryRequest#PARAM_CONFIRMED} <br>
+//     * input: {@link EntryExtraData#PARAM_MESSAGE} - {@value EntryExtraData#PARAM_MESSAGE} <br>
+//     * input: {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS} <br>
+//     * request: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
 //     * @deprecated Never used
 //     */
 //    public static final String ACTION_CONFIRM_EULA_CONTINUE = "com.pax.us.pay.action.CONFIRM_EULA_CONTINUE";
     /**
-     * Activity Action: Confirm Signature Match<br>
-     * If not implemented, BroadPOS will try to start action {@link #ACTION_CONFIRM_UNIFIED_MESSAGE}
+     * Activity Action: Confirm Signature Match<br>{@value #ACTION_CONFIRM_SIGNATURE_MATCH}<br>
+     * <p>If not implemented, BroadPOS will try to start action {@link #ACTION_CONFIRM_UNIFIED_MESSAGE}</p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_MESSAGE} <br>
-     *     Message shown on UI<br>
+     *     Input:  {@link EntryExtraData#PARAM_MESSAGE} - {@value EntryExtraData#PARAM_MESSAGE}  Message shown on UI<br>
      *     Type: String<br>
      *     It is optional. Reversed if some BroadPOS app prefer customized message.<br>
      * </p>
@@ -1049,42 +1031,45 @@ public final class ConfirmationEntry {
      *     "Does the cardholder signature match?"<br>
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_OPTIONS} <br>
+     *     Input:  {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS} <br>
      *     Type: String[]<br>
-     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType}
+     *     Options: {@link ConfirmationType#YES} and {@link ConfirmationType#NO}
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
      *     Type: Long<br>
      *     Unit: ms<br>
      *     Default is 30000.
      * </p>
      * <p>
-     *     Output: {@link EntryRequest#PARAM_CONFIRMED} <br>
+     *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
      *     Type: Boolean<br>
-     *     If select {@link ConfirmationType#YES}, return TRUE.
+     *     If select {@value ConfirmationType#YES}, return TRUE.
      * </p>
      */
     public static final String ACTION_CONFIRM_SIGNATURE_MATCH = "com.pax.us.pay.action.CONFIRM_SIGNATURE_MATCH";
 
     /**
-     * Activity Action: Display QRCode Receipt
+     * Activity Action: Display QRCode Receipt<br>{@value #ACTION_DISPLAY_QR_CODE_RECEIPT}<br>
      * <p>
      *     This UI is used to display a QRCode of receipt so that maybe customer could scan it and save to their phone.<br>
      *     This action request nothing. You can request go to next step like this:
      * </p>
      * <pre>
+     *     Bundle bundle = new Bundle();
+     *     bundle.putStringExtra(EntryRequest.PARAM_ACTION, ConfirmationEntry.ACTION_DISPLAY_QR_CODE_RECEIPT);
      *     Intent intent = new Intent();
      *     intent.setPackage(broadPOSPackage); //broadPOSPackage is from {@link EntryExtraData#PARAM_PACKAGE}
      *     intent.setAction(EntryRequest.ACTION_NEXT);
+     *     intent.putExtras(bundle);
      *     context.sendBroadcast(intent);
      * </pre>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_QR_CODE_CONTENT} <br>
+     *     Input:  {@link EntryExtraData#PARAM_QR_CODE_CONTENT} - {@value EntryExtraData#PARAM_QR_CODE_CONTENT} <br>
      *     Type: String
      * </p>
      * Example Code for convert QRCodeContent to Bitmap:<br>
@@ -1133,7 +1118,7 @@ public final class ConfirmationEntry {
      *     }
      * </pre>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
      *     Type: Long<br>
      *     Unit: ms<br>
      *     Default is 20000.
@@ -1145,45 +1130,45 @@ public final class ConfirmationEntry {
     public static final String ACTION_DISPLAY_QR_CODE_RECEIPT = "com.pax.us.pay.action.DISPLAY_QR_CODE_RECEIPT";
 
     /**
-     * Activity Action: Confirm DCC information <br>
+     * Activity Action: Confirm DCC information <br>{@value #ACTION_CONFIRM_DCC}<br>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_AMOUNT_MESSAGE} <br>
+     *     Input:  {@link EntryExtraData#PARAM_AMOUNT_MESSAGE} - {@value EntryExtraData#PARAM_AMOUNT_MESSAGE}<br>
      *     Type: String
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_EXCHANGE_RATE} <br>
+     *     Input:  {@link EntryExtraData#PARAM_EXCHANGE_RATE} - {@value EntryExtraData#PARAM_EXCHANGE_RATE}<br>
      *     Type: String
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_CURRENCY_ALPHA_CODE} <br>
+     *     Input:  {@link EntryExtraData#PARAM_CURRENCY_ALPHA_CODE} - {@value EntryExtraData#PARAM_CURRENCY_ALPHA_CODE}<br>
      *     Type: String
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_MARGIN} <br>
+     *     Input:  {@link EntryExtraData#PARAM_MARGIN} - {@value EntryExtraData#PARAM_MARGIN} <br>
      *     Type: String
      *     </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_FOREIGN_AMOUNT_MESSAGE} <br>
+     *     Input:  {@link EntryExtraData#PARAM_FOREIGN_AMOUNT_MESSAGE} - {@value EntryExtraData#PARAM_FOREIGN_AMOUNT_MESSAGE} <br>
      *     Type: String
      * </p>
      * <p>
-     *     Input:  {@link EntryExtraData#PARAM_CONFIRM_WITH_CURRENCY} <br>
+     *     Input:  {@link EntryExtraData#PARAM_CONFIRM_WITH_CURRENCY} - {@value EntryExtraData#PARAM_CONFIRM_WITH_CURRENCY} <br>
      *     Type: Boolean
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
      *     Type: Long<br>
      *     Unit: ms<br>
      *     Default is 20000.
      * </p>
      * <p>
-     *     Output: {@link EntryRequest#PARAM_CONFIRMED} <br>
+     *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
      *     Type: Boolean<br>
-     *     If PARAM_CONFIRM_WITH_CURRENCY is true and select "USD", return TRUE.
+     *     If {@link EntryExtraData#PARAM_CONFIRM_WITH_CURRENCY} is true and select "USD", return TRUE.
      * </p>
      */
     public static final String ACTION_CONFIRM_DCC = "com.pax.us.pay.action.CONFIRM_DCC";

@@ -9,7 +9,7 @@ public final class EntryRequest {
     }
 
     /**
-     * Broadcast Action: NEXT
+     * Broadcast Action: NEXT<br>{@value #ACTION_NEXT}<br>
      * <p>
      *     For a entry (Activity Action), when you get the required OUTPUT ready,<br>
      *     you need send a broadcast to BroadPOS (the caller),<br>
@@ -42,7 +42,7 @@ public final class EntryRequest {
     public static final String ACTION_NEXT = "com.pax.us.pay.ui.NEXT";
 
     /**
-     * Broadcast Action: ABORT
+     * Broadcast Action: ABORT<br>{@value #ACTION_ABORT}<br>
      * <p>
      *     When you try to abort the transaction, you can send broadcast to BroadPOS. <br>
      *     Example: try to abort action {@link TextEntry#ACTION_ENTER_AMOUNT}:
@@ -60,7 +60,7 @@ public final class EntryRequest {
     public static final String ACTION_ABORT = "com.pax.us.pay.ui.ABORT";
 
     /**
-     * Broadcast Action: TIMEOUT
+     * Broadcast Action: TIMEOUT<br>{@value #ACTION_TIME_OUT}<br>
      * <p>
      *     When TIMEOUT, you can send broadcast to BroadPOS. <br>
      *     Example for action {@link TextEntry#ACTION_ENTER_AMOUNT}:
@@ -79,13 +79,14 @@ public final class EntryRequest {
 
 
     /**
-     * Broadcast Action: PREV: request BroadPOS to go to previous step . <br>
+     * Broadcast Action: PREV <br>{@value #ACTION_PREV}<br>
+     * request BroadPOS to go to previous step . <br>
      * @deprecated Never used. Now BroadPOS can not go to previous step during transaction.
      */
     public static final String ACTION_PREV = "com.pax.us.pay.ui.PREV";
 
     /**
-     * Broadcast Action: Set Secure Area
+     * Broadcast Action: Set Secure Area<br>{@value #ACTION_SECURITY_AREA}<br>
      * <p>
      *     For {@link SecurityEntry}, you need tell BroadPOS about your input box after UI layout is ready.<br>
      *     Then BroadPOS could show security widget on specific position.<br>
@@ -109,41 +110,41 @@ public final class EntryRequest {
      *     context.sendBroadcast(intent);
      * </pre>
      * <p>
-     *     ExtraData: {@link EntryRequest#PARAM_X} is X coordinate of input box<br>
+     *     ExtraData: {@link EntryRequest#PARAM_X} - {@value EntryRequest#PARAM_X} is X coordinate of input box<br>
      *     Type: Integer<br>
      *     Unit: pixel
      * </p>
      * <p>
-     *     ExtraData: {@link EntryRequest#PARAM_Y} is Y coordinate of input box<br>
+     *     ExtraData: {@link EntryRequest#PARAM_Y} - {@value EntryRequest#PARAM_Y} is Y coordinate of input box<br>
      *     Type: Integer<br>
      *     Unit: pixel
      * </p>
      * <p>
-     *     ExtraData: {@link EntryRequest#PARAM_WIDTH} is width of input box<br>
+     *     ExtraData: {@link EntryRequest#PARAM_WIDTH} - {@value EntryRequest#PARAM_WIDTH} is width of input box<br>
      *     Type: Integer<br>
      *     Unit: pixel
      * </p>
      * <p>
-     *     ExtraData: {@link EntryRequest#PARAM_HEIGHT} is height of input box<br>
+     *     ExtraData: {@link EntryRequest#PARAM_HEIGHT} - {@value EntryRequest#PARAM_HEIGHT} is height of input box<br>
      *     Type: Integer<br>
      *     Unit: pixel
      * </p>
      * <p>
-     *     ExtraData: {@link EntryRequest#PARAM_FONT_SIZE} is font size of input box <br>
+     *     ExtraData: {@link EntryRequest#PARAM_FONT_SIZE} - {@value EntryRequest#PARAM_FONT_SIZE} is font size of input box <br>
      *     Type: Integer<br>
      *     Unit is sp
      * </p>
      * <p>
-     *     ExtraData: {@link EntryRequest#PARAM_FOCUSABLE} Optional <br>
+     *     ExtraData: {@link EntryRequest#PARAM_FOCUSABLE} - {@value EntryRequest#PARAM_FOCUSABLE} Optional <br>
      *     Type: Boolean<br>
      *     TRUE is focusable.
      * </p>
      * <p>
-     *     ExtraData: {@link EntryRequest#PARAM_HINT} Optional <br>
+     *     ExtraData: {@link EntryRequest#PARAM_HINT} - {@value EntryRequest#PARAM_HINT} Optional <br>
      *     Type: String
      * </p>
      * <p>
-     *     ExtraData: {@link EntryRequest#PARAM_COLOR} Optional<br>
+     *     ExtraData: {@link EntryRequest#PARAM_COLOR} - {@value EntryRequest#PARAM_COLOR} Optional<br>
      *     Type : String<br>
      *     Format: ARGB<br>
      *     Example: <br>
@@ -154,7 +155,7 @@ public final class EntryRequest {
     public static final String ACTION_SECURITY_AREA = "com.pax.us.pay.ui.SECURITY_AREA";
 
     /**
-     * Broadcast Action: Set Pin Pad Layout
+     * Broadcast Action: Set Pin Pad Layout<br>{@value #ACTION_SET_PIN_KEY_LAYOUT}<br>
      * <p>
      *     For {@link com.pax.us.pay.ui.constant.entry.SecurityEntry#ACTION_ENTER_PIN} Only <br>
      *     Need to be sent before {@link EntryRequest#ACTION_SECURITY_AREA} <br>
@@ -172,35 +173,35 @@ public final class EntryRequest {
      *     context.sendBroadcast(intent);
      * </pre>
      * <p>
-     *     ExtraData:  {@link EntryRequest#PARAM_KEY_0}<br>
+     *     ExtraData:  {@link EntryRequest#PARAM_KEY_0} - {@value EntryRequest#PARAM_KEY_0}<br>
      *     Type: android.graphics.Rect
      * </p>
      * <p>
-     *     ExtraData:  {@link EntryRequest#PARAM_KEY_1}<br>
+     *     ExtraData:  {@link EntryRequest#PARAM_KEY_1} - {@value EntryRequest#PARAM_KEY_1}<br>
      *     Type: android.graphics.Rect
      * </p>
      * <p>
-     *     ExtraData:  {@link EntryRequest#PARAM_KEY_2}<br>
+     *     ExtraData:  {@link EntryRequest#PARAM_KEY_2} - {@value EntryRequest#PARAM_KEY_2}<br>
      *     Type: android.graphics.Rect
      * </p>
      * <p>
-     *     ExtraData:  {@link EntryRequest#PARAM_KEY_3}<br>
+     *     ExtraData:  {@link EntryRequest#PARAM_KEY_3} - {@value EntryRequest#PARAM_KEY_3}<br>
      *     Type: android.graphics.Rect
      * </p>
      * <p>
-     *     ExtraData:  {@link EntryRequest#PARAM_KEY_4}<br>
+     *     ExtraData:  {@link EntryRequest#PARAM_KEY_4} - {@value EntryRequest#PARAM_KEY_4}<br>
      *     Type: android.graphics.Rect
      * </p>
      * <p>
-     *     ExtraData:  {@link EntryRequest#PARAM_KEY_5}<br>
+     *     ExtraData:  {@link EntryRequest#PARAM_KEY_5} - {@value EntryRequest#PARAM_KEY_5}<br>
      *     Type: android.graphics.Rect
      * </p>
      * <p>
-     *     ExtraData:  {@link EntryRequest#PARAM_KEY_6}<br>
+     *     ExtraData:  {@link EntryRequest#PARAM_KEY_6} - {@value EntryRequest#PARAM_KEY_6}<br>
      *     Type: android.graphics.Rect
      * </p>
      * <p>
-     *     ExtraData:  {@link EntryRequest#PARAM_KEY_7}<br>
+     *     ExtraData:  {@link EntryRequest#PARAM_KEY_7} - {@value EntryRequest#PARAM_KEY_7}<br>
      *     Type: android.graphics.Rect
      * </p>
      * <p>
@@ -208,26 +209,26 @@ public final class EntryRequest {
      *     Type: android.graphics.Rect
      * </p>
      * <p>
-     *     ExtraData:  {@link EntryRequest#PARAM_KEY_9}<br>
+     *     ExtraData:  {@link EntryRequest#PARAM_KEY_8} - {@value EntryRequest#PARAM_KEY_8}<br>
      *     Type: android.graphics.Rect
      * </p>
      * <p>
-     *     ExtraData:  {@link EntryRequest#PARAM_KEY_CLEAR}<br>
+     *     ExtraData:  {@link EntryRequest#PARAM_KEY_CLEAR} - {@value EntryRequest#PARAM_KEY_CLEAR}<br>
      *     Type: android.graphics.Rect
      * </p>
      * <p>
-     *     ExtraData:  {@link EntryRequest#PARAM_KEY_ENTER}<br>
+     *     ExtraData:  {@link EntryRequest#PARAM_KEY_ENTER} - {@value EntryRequest#PARAM_KEY_ENTER}<br>
      *     Type: android.graphics.Rect
      * </p>
      * <p>
-     *     ExtraData:  {@link EntryRequest#PARAM_KEY_CANCEL} <br>
+     *     ExtraData:  {@link EntryRequest#PARAM_KEY_CANCEL} - {@value EntryRequest#PARAM_KEY_CANCEL} <br>
      *     Type: android.graphics.Rect
      * </p>
      */
     public static final String ACTION_SET_PIN_KEY_LAYOUT = "com.pax.us.pay.ui.SET_PIN_LAYOUT";
 
     /**
-     * Broadcast Action: Start QR Code Scan
+     * Broadcast Action: Start QR Code Scan<br>{@value #ACTION_START_SCAN}<br>
      * <p>
      *     Used for {@link com.pax.us.pay.ui.constant.entry.SecurityEntry#ACTION_INPUT_ACCOUNT}<br>
      *     If user click the Start Scan button on your input account UI, you can tell BroadPOS to start scan.
