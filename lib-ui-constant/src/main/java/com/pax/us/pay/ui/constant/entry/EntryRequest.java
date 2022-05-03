@@ -196,7 +196,7 @@ public class EntryRequest {
     public static final String PARAM_HINT = "hint";
     /**
      * PARAM_COLOR : request parameter font color <br>
-     * value type: String, ARGB format <br>
+     * value type: String, #AARRGGBB or #RRGGBB format. See {@link android.graphics.Color#parseColor} for details. <br>
      */
     public static final String PARAM_COLOR = "color";
 
