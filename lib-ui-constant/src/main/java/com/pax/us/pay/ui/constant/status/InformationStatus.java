@@ -34,6 +34,17 @@ public final class InformationStatus {
      *     Type: String<br>
      *     Message which need shown on external device (like SP30s). For BroadPOS use only.
      * </p>
+     * <p>
+     *     Input: {@link StatusData#PARAM_HOST_RESP_TIMEOUT}<br>
+     *     Type: Long<br>
+     *     Default: 2000<br>
+     * </p>
+     * <p>
+     *     Input: {@link StatusData#PARAM_DISPLAY_VISA_INSTALLMENT_APPROVAL}<br>
+     *     Type: Boolean<br>
+     *     Default: false<br>
+     *     Optional. For Visa Installment use only.
+     * </p>
      */
     public static final String TRANS_COMPLETED = "com.pax.us.pay.TRANS_COMPLETED";
 

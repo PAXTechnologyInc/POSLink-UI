@@ -180,7 +180,7 @@ public final class TextEntry {
      * <p>
      *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} - {@value EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
      *     Type: String<br>
-     *     Default: "0-4"</p>
+     *     Default: "1-4"</p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_TRANS_NUMBER} - {@value EntryRequest#PARAM_TRANS_NUMBER} <br>Type: String
      *     </p>
@@ -1010,7 +1010,7 @@ public final class TextEntry {
      * <p>
      *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} - {@value EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
      *     Type: String<br>
-     *     Default: "0-2"</p>
+     *     Default: "2-2"</p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_PROMPT_RESTRICTION_CODE} - {@value EntryRequest#PARAM_PROMPT_RESTRICTION_CODE} <br>Type: String</p>
      */

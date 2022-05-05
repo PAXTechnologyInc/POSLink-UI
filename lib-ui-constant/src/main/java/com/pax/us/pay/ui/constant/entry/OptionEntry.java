@@ -121,7 +121,7 @@ public final class OptionEntry {
 
 
     /**
-     * Activity Action: Select Sub AID<br>{@value #ACTION_SELECT_AID}<br>
+     * Activity Action: Select EMV AID<br>{@value #ACTION_SELECT_AID}<br>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
