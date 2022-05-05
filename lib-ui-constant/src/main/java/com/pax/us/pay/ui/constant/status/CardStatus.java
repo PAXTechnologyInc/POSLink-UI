@@ -30,7 +30,10 @@ public final class CardStatus {
     /**
      * Reserved for BroadPos application inner communication
      * Used for Easylink to updates search card UI
-     * param: {@link #PARAM_SEARCH_MODE} <br>
+     * param: {@link StatusData#PARAM_ENABLE_SWIPE} <br>
+     * param: {@link StatusData#PARAM_ENABLE_INSERT} <br>
+     * param: {@link StatusData#PARAM_ENABLE_TAP} <br>
+     * param: {@link StatusData#PARAM_ENABLE_MANUAL} <br>
      */
     public static final String CARD_SEARCH_MODE = "com.pax.us.pay.CARD_SEARCH_MODE";
 
@@ -41,11 +44,5 @@ public final class CardStatus {
     public static final String SEE_PHONE = "com.pax.us.pay.SEE_PHONE";
 
     public static final String PARAM_PROMPTS = "prompts";
-
-    /**
-     * param: search mode <br>
-     * type: int <br>
-     */
-    public static final String PARAM_SEARCH_MODE = "searchMode";
 
 }
