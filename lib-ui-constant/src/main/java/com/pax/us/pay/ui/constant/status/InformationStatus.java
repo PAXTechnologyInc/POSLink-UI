@@ -39,12 +39,6 @@ public final class InformationStatus {
      *     Type: Long<br>
      *     Default: 2000<br>
      * </p>
-     * <p>
-     *     Input: {@link StatusData#PARAM_DISPLAY_VISA_INSTALLMENT_APPROVAL}<br>
-     *     Type: Boolean<br>
-     *     Default: false<br>
-     *     Optional. For Visa Installment use only.
-     * </p>
      */
     public static final String TRANS_COMPLETED = "com.pax.us.pay.TRANS_COMPLETED";
 

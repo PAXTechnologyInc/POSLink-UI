@@ -15,13 +15,13 @@ public final class PINStatus {
 
     /**
      * Broadcast Action: PIN_ENTERING
-     * <p>PIN Input Box should append a character &#42;</p>
+     * <p>PIN Input Box should append 1 character &#42;</p>
      */
     public static final String PIN_ENTERING = "com.pax.us.pay.PIN_ENTERING";
 
     /**
      * Broadcast Action: PIN_CLEARED
-     * <p>PIN Input Box should clear all text</p>
+     * <p>KEY_CLEAR is clicked. PIN Input Box should delete 1 character</p>
      */
     public static final String PIN_ENTER_CLEARED = "com.pax.us.pay.PIN_CLEARED";
 

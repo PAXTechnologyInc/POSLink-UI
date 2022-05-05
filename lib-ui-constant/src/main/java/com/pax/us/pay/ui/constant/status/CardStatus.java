@@ -79,12 +79,15 @@ public final class CardStatus {
     /**
      * Broadcast Action: See Phone
      * param: {@link #PARAM_PROMPTS} <br>
-     * @deprecated Not used anymore. Use {@link com.pax.us.pay.ui.constant.entry.ConfirmationEntry#ACTION_CONFIRM_CARD_PROCESS_RESULT} instead.
+     * Actually now BroadPOS use {@link com.pax.us.pay.ui.constant.entry.ConfirmationEntry#ACTION_CONFIRM_CARD_PROCESS_RESULT} cuz it could know the dialog has closed and ready for next step.<br>
+     * But for BroadPOS+, it will use this action for prompting error.
      */
     public static final String SEE_PHONE = "com.pax.us.pay.SEE_PHONE";
 
     /**
-     * @deprecated {@link #SEE_PHONE} has been deprecated.
+     * Prompt Message
+     * <p>Type: String</p>
+     * Used by {@link #SEE_PHONE}.
      */
     public static final String PARAM_PROMPTS = "prompts";
 }

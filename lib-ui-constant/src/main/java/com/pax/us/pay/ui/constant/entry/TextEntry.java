@@ -210,7 +210,9 @@ public final class TextEntry {
      *     Default is 30000.
      * </p>
      * <p>
-     *     Output: {@link EntryRequest#PARAM_EXPIRY_DATE} - {@value EntryRequest#PARAM_EXPIRY_DATE} <br>Type: String</p>
+     *     Output: {@link EntryRequest#PARAM_EXPIRY_DATE} - {@value EntryRequest#PARAM_EXPIRY_DATE} <br>Type: String<br>
+     *     Format: MMYY
+     * </p>
      */
     public static final String ACTION_ENTER_EXPIRY_DATE = "com.pax.us.pay.action.ENTER_EXPIRY_DATE";
 
@@ -390,8 +392,8 @@ public final class TextEntry {
      * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_FSA_OPTION} - {@value EntryRequest#PARAM_FSA_OPTION}<br>
-     *     Type: Long<br>
-     *     Deprecated. Never used.
+     *     Type: String<br>
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.FSAType}
      * </p>
      */
     public static final String ACTION_ENTER_FSA_DATA = "com.pax.us.pay.action.ENTER_FSA_DATA";
@@ -427,7 +429,7 @@ public final class TextEntry {
      * <p>
      *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} - {@value EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
      *     Type: String<br>
-     *     Default: "0-15"</p>
+     *     Default: "1-15"</p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_VOUCHER_NUMBER} - {@value EntryRequest#PARAM_VOUCHER_NUMBER} <br>Type: String </p>
      */
@@ -550,7 +552,7 @@ public final class TextEntry {
      * <p>
      *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} - {@value EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
      *     Type: String<br>
-     *     Default: "0-20"</p>
+     *     Default: "1-20"</p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_INVOICE_NUMBER} - {@value EntryRequest#PARAM_INVOICE_NUMBER} <br>Type: String </p>
      */
@@ -1314,77 +1316,5 @@ public final class TextEntry {
      */
     public static final String ACTION_ENTER_OCT_REFERENCE_NUMBER = "com.pax.us.pay.action.ENTER_OCT_REFERENCE_NUMBER";
 
-    /**
-     * Activity Action: Enter Visa Installment Transaction ID<br>{@value #ACTION_ENTER_VISA_INSTALLMENT_TRANSACTIONID}<br>
-     * <p>
-     *     For Visa Installment use.
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
-     *     Type: String
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} - {@value EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
-     *     Type: String<br>
-     *     Example: "CREDIT SALE"
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} - {@value EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
-     *     Type: String<br>
-     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
-     *     Type: Long<br>
-     *     Unit: ms<br>
-     *     Default is 30000.
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} - {@value EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
-     *     Type: String<br>
-     *     Default: "0-20"</p>
-     * <p>
-     *     Output: {@link EntryRequest#PARAM_VISA_TRANSID} - {@value EntryRequest#PARAM_VISA_TRANSID}<br>
-     *     Type: String
-     * </p>
-     */
-    public static final String ACTION_ENTER_VISA_INSTALLMENT_TRANSACTIONID = "com.pax.us.pay.action.ENTER_VISA_INSTALLMENT_TRANSACTIONID";
-
-
-    /**
-     * Activity Action: Enter Visa Installment Plan Acceptance ID<br>{@value #ACTION_ENTER_VISA_INSTALLMENT_PLAN_ACCEPTANCE_ID}<br>
-     * <p>
-     *     For Visa Installment use.
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
-     *     Type: String
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} - {@value EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
-     *     Type: String<br>
-     *     Example: "CREDIT SALE"
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} - {@value EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
-     *     Type: String<br>
-     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
-     *     Type: Long<br>
-     *     Unit: ms<br>
-     *     Default is 30000.
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} - {@value EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
-     *     Type: String<br>
-     *     Default: "0-36"</p>
-     * <p>
-     *     Output: {@link EntryRequest#PARAM_VISA_PLAN_ACCEPTANCE_ID} - {@value EntryRequest#PARAM_VISA_PLAN_ACCEPTANCE_ID} <br>
-     *     Type: String
-     * </p>
-     */
-    public static final String ACTION_ENTER_VISA_INSTALLMENT_PLAN_ACCEPTANCE_ID = "com.pax.us.pay.action.ENTER_VISA_INSTALLMENT_PLAN_ACCEPTANCE_ID";
 
 }

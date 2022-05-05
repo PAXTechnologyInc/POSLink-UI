@@ -95,11 +95,4 @@ public final class StatusData {
   */
  public static final String PARAM_UPLOAD_CURRENT_PERCENT = "uploadCurrentPercent";
 
- /**
-  * Whether display specific UI of visa installment.
-  * <p>Type: Boolean. true: display. false: do not.</p>
-  * <p>Used in {@link InformationStatus#TRANS_COMPLETED}</p>
-  */
- public static final String PARAM_DISPLAY_VISA_INSTALLMENT_APPROVAL = "displayVisaInstallmentApproval";
-
 }

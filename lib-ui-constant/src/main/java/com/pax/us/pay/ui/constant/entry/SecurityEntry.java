@@ -139,7 +139,7 @@ public final class SecurityEntry {
      * <p>
      *     Output: {@link EntryRequest#PARAM_FONT_SIZE} - {@value EntryRequest#PARAM_FONT_SIZE} is font size of input box <br>
      *     Type: Integer<br>
-     *     Unit is sp
+     *     Unit: scaled pixel
      * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_FOCUSABLE} - {@value EntryRequest#PARAM_FOCUSABLE} Optional <br>
@@ -189,11 +189,13 @@ public final class SecurityEntry {
      * <p>
      *     Input:  {@link EntryExtraData#PARAM_CURRENCY} - {@value EntryExtraData#PARAM_CURRENCY} is currency type. <br>
      *     Type: String<br>
-     *     Default value: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType#USD}
+     *     Default value: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType#USD}<br>
+     *     Optional.
      * </p>
      * <p>
      *     Input:  {@link EntryExtraData#PARAM_TOTAL_AMOUNT} - {@value EntryExtraData#PARAM_TOTAL_AMOUNT} is total amount<br>
-     *     Type: Long
+     *     Type: Long<br>
+     *     Optional.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_IS_ONLINE_PIN} - {@value EntryExtraData#PARAM_IS_ONLINE_PIN} <br>
@@ -207,7 +209,10 @@ public final class SecurityEntry {
      * <p>
      *     Input: {@link EntryExtraData#PARAM_PIN_RANGE} - {@value EntryExtraData#PARAM_PIN_RANGE} is length limit for PIN<br>
      *     Type: String<br>
-     *     Format is same with {@link EntryExtraData#PARAM_VALUE_PATTERN}
+     *     It defines valid length of PIN and enumerates all possible lengths of PIN. "," will be used to separate each number of length.<br>
+     *     Example:<br>
+     *     If value is "0,4,6", it means NO PIN, or 4 or 6 digits of PIN are allowed.<br>
+     *     So, if value start with "0,", you could show a message "Press OK to Bypass PIN".
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_IS_EXTERNAL_PINPAD} - {@value EntryExtraData#PARAM_IS_EXTERNAL_PINPAD} tells the type of PIN PAD<br>
@@ -215,8 +220,20 @@ public final class SecurityEntry {
      *     TRUE means BroadPOS using external PIN PAD (like SP30S).
      * </p>
      * <p>
-     *     If you would like to use your PIN PAD layout, see {@link EntryRequest#ACTION_SET_PIN_KEY_LAYOUT} for details.
+     *     If you would like to use your PIN PAD layout, see {@link EntryRequest#ACTION_SET_PIN_KEY_LAYOUT} for details.<br>
+     *     BroadPOS does not care about the location of PIN INPUT BOX, however you have to set security area to BroadPOS after UI is ready.<br>
+     *     BroadPOS will start PIN entry process after receive broadcast {@link EntryRequest#ACTION_SECURITY_AREA}<br>
      * </p>
+     * Example code:
+     * <pre>
+     *         Bundle bundle = new Bundle();
+     *         bundle.putString(EntryRequest.PARAM_ACTION, SecurityEntry.ACTION_ENTER_PIN);
+     *
+     *         Intent intent = new Intent(EntryRequest.ACTION_SECURITY_AREA);
+     *         intent.putExtras(bundle);
+     *         intent.setPackage(packageName);
+     *         requireContext().sendBroadcast(intent);
+     * </pre>
      */
     public static final String ACTION_ENTER_PIN = "com.pax.us.pay.action.ENTER_PIN";
 
@@ -265,7 +282,7 @@ public final class SecurityEntry {
      * <p>
      *     Output: {@link EntryRequest#PARAM_FONT_SIZE} - {@value EntryRequest#PARAM_FONT_SIZE} is font size of input box <br>
      *     Type: Integer<br>
-     *     Unit is sp
+     *     Unit: scaled pixel
      * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_FOCUSABLE} - {@value EntryRequest#PARAM_FOCUSABLE} Optional <br>
@@ -347,7 +364,7 @@ public final class SecurityEntry {
      * <p>
      *     Output: {@link EntryRequest#PARAM_FONT_SIZE} - {@value EntryRequest#PARAM_FONT_SIZE} is font size of input box <br>
      *     Type: Integer<br>
-     *     Unit is sp
+     *     Unit: scaled pixel
      * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_FOCUSABLE} - {@value EntryRequest#PARAM_FOCUSABLE} Optional <br>
@@ -429,7 +446,7 @@ public final class SecurityEntry {
      * <p>
      *     Output: {@link EntryRequest#PARAM_FONT_SIZE} - {@value EntryRequest#PARAM_FONT_SIZE} is font size of input box <br>
      *     Type: Integer<br>
-     *     Unit is sp
+     *     Unit: scaled pixel
      * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_FOCUSABLE} - {@value EntryRequest#PARAM_FOCUSABLE} Optional <br>
@@ -506,7 +523,7 @@ public final class SecurityEntry {
      * <p>
      *     Output: {@link EntryRequest#PARAM_FONT_SIZE} - {@value EntryRequest#PARAM_FONT_SIZE} is font size of input box <br>
      *     Type: Integer<br>
-     *     Unit is sp
+     *     Unit: scaled pixel
      * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_FOCUSABLE} - {@value EntryRequest#PARAM_FOCUSABLE} Optional <br>
@@ -610,7 +627,7 @@ public final class SecurityEntry {
      * <p>
      *     Output: {@link EntryRequest#PARAM_FONT_SIZE} - {@value EntryRequest#PARAM_FONT_SIZE} is font size of input box <br>
      *     Type: Integer<br>
-     *     Unit is sp
+     *     Unit: scaled pixel
      * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_FOCUSABLE} - {@value EntryRequest#PARAM_FOCUSABLE} Optional <br>

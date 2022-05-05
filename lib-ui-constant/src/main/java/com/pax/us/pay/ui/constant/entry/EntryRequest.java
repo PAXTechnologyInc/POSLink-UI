@@ -132,7 +132,7 @@ public final class EntryRequest {
      * <p>
      *     ExtraData: {@link EntryRequest#PARAM_FONT_SIZE} - {@value EntryRequest#PARAM_FONT_SIZE} is font size of input box <br>
      *     Type: Integer<br>
-     *     Unit is sp
+     *     Unit: scaled pixel
      * </p>
      * <p>
      *     ExtraData: {@link EntryRequest#PARAM_FOCUSABLE} - {@value EntryRequest#PARAM_FOCUSABLE} Optional <br>
@@ -362,7 +362,8 @@ public final class EntryRequest {
 
     /**
      * FSA Type
-     * @deprecated Never used.
+     * <p>Type: String</p>
+     * See {@link com.pax.us.pay.ui.constant.entry.enumeration.FSAType}
      */
     public static final String PARAM_FSA_OPTION = "fsaOption";
 
@@ -615,7 +616,12 @@ public final class EntryRequest {
     /**
      * Font Size
      * <p>Type: Integer</p>
-     * <p>unit is sp</p>
+     * <p>Unit: scaled pixel</p>
+     * You can get scaled pixel like this:
+     * <pre>
+     *     TextPaint paint = editText.getPaint();
+     *     int fontSize = (int)(paint.getTextSize()/paint.density);
+     * </pre>
      */
     public static final String PARAM_FONT_SIZE = "fontSize";
     /**
@@ -639,23 +645,6 @@ public final class EntryRequest {
      * </p>
      */
     public static final String PARAM_COLOR = "color";
-
-    //Visa Installment
-    /**
-     * Visa Installment Selected Option
-     * <p>Type:Integer</p>
-     */
-    public static final String PARAM_INSTALLMENT_SELECT_OPTION = "installmentSelectOption";
-    /**
-     * Visa Installment Transaction ID
-     * <p>Type:String</p>
-     */
-    public static final String PARAM_VISA_TRANSID = "visaTransID";
-    /**
-     * Visa Installment Acceptance ID
-     * <p>Type: String</p>
-     */
-    public static final String PARAM_VISA_PLAN_ACCEPTANCE_ID = "visaPlanAcceptanceID";
 
     /**
      * Location of KEY 0
