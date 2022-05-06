@@ -63,11 +63,11 @@ public final class EntryRequest {
      * Broadcast Action: TIMEOUT<br>{@value #ACTION_TIME_OUT}<br>
      * <p>
      *     When TIMEOUT, you can send broadcast to BroadPOS. <br>
-     *     Example for action {@link TextEntry#ACTION_ENTER_AMOUNT}:
+     *     Example for action {@link SignatureEntry#ACTION_SIGNATURE}:
      * </p>
      * <pre>
      *     Bundle bundle = new Bundle();
-     *     bundle.putStringExtra(EntryRequest.PARAM_ACTION,TextEntry.ACTION_ENTER_AMOUNT);
+     *     bundle.putStringExtra(EntryRequest.PARAM_ACTION,SignatureEntry.ACTION_SIGNATURE);
      *     Intent intent = new Intent();
      *     intent.putExtras(bundle);
      *     intent.setPackage(broadPOSPackage); //broadPOSPackage is from {@link EntryExtraData#PARAM_PACKAGE}

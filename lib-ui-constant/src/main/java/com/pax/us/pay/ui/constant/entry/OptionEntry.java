@@ -33,10 +33,11 @@ public final class OptionEntry {
      *     Example: "CREDIT SALE"
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS} <br>
@@ -67,10 +68,11 @@ public final class OptionEntry {
      *     Example: "CREDIT SALE"
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS} <br>
@@ -101,10 +103,11 @@ public final class OptionEntry {
      *     Example: "CREDIT SALE"
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS} <br>
@@ -137,10 +140,11 @@ public final class OptionEntry {
      *     Example: "CREDIT SALE"
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS} <br>
@@ -172,10 +176,11 @@ public final class OptionEntry {
      *     Example: "CREDIT SALE"
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS} <br>
@@ -207,10 +212,11 @@ public final class OptionEntry {
      *     Example: "CREDIT SALE"
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS} <br>
@@ -242,10 +248,11 @@ public final class OptionEntry {
      *     Example: "CREDIT SALE"
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS}<br>
@@ -286,10 +293,11 @@ public final class OptionEntry {
      *     Example: "CREDIT SALE"
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS}<br>
@@ -321,10 +329,11 @@ public final class OptionEntry {
      *     Example: "CREDIT SALE"
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS}<br>
@@ -357,10 +366,11 @@ public final class OptionEntry {
      *     Example: "CREDIT SALE"
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS}<br>
@@ -393,10 +403,11 @@ public final class OptionEntry {
      *     Example: "CREDIT SALE"
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS}<br>
@@ -430,10 +441,11 @@ public final class OptionEntry {
      *     Example: "CREDIT SALE"
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS}<br>
@@ -466,10 +478,11 @@ public final class OptionEntry {
      *     Example: "CREDIT SALE"
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS}<br>
@@ -502,10 +515,11 @@ public final class OptionEntry {
      *     Example: "CREDIT SALE"
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS}<br>
@@ -539,10 +553,11 @@ public final class OptionEntry {
      *     Example: "CREDIT SALE"
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS}<br>
@@ -575,10 +590,11 @@ public final class OptionEntry {
      *     Example: "CREDIT SALE"
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS}<br>
@@ -612,10 +628,11 @@ public final class OptionEntry {
      *     Example: "CREDIT SALE"
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS}: According the tip amount<br>
@@ -645,10 +662,11 @@ public final class OptionEntry {
      *     Example: "CREDIT SALE"
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS}: According the cashback amount<br>
@@ -679,10 +697,11 @@ public final class OptionEntry {
      *     Example: "CREDIT SALE"
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS}<br>
@@ -715,10 +734,11 @@ public final class OptionEntry {
      *     Example: "CREDIT SALE"
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS}<br>
@@ -736,69 +756,6 @@ public final class OptionEntry {
      * </p>
      */
     public static final String ACTION_SELECT_MERCHANT = "com.pax.us.pay.action.SELECT_MERCHANT";
-
-    /**
-     * Activity Action: Select Installment Plan<br>{@value #ACTION_SELECT_INSTALLMENT_PLAN}<br>
-     * <p>
-     *     For Visa Installment use.
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_BASE_AMOUNT} - {@value EntryExtraData#PARAM_BASE_AMOUNT}<br>
-     *     Type: Long
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} - {@value EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
-     *     Type: String<br>
-     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} - {@value EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
-     *     Type: String<br>
-     *     Example: "CREDIT SALE"
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_INSTALLMENT_PAYMENT_AMOUNTS} - {@value EntryExtraData#PARAM_INSTALLMENT_PAYMENT_AMOUNTS} <br>
-     *     Type: String[]
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_INSTALLMENT_PAYMENT_TERMS_AND_CONDITIONS} - {@value EntryExtraData#PARAM_INSTALLMENT_PAYMENT_TERMS_AND_CONDITIONS} <br>
-     *     Type: String[]
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_INSTALLMENT_PAYMENT_TOTAL_FEES} - {@value EntryExtraData#PARAM_INSTALLMENT_PAYMENT_TOTAL_FEES}<br>
-     *     Type: String[]
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_INSTALLMENT_PAYMENT_NUMBER_OF_INSTALLMENTS} - {@value EntryExtraData#PARAM_INSTALLMENT_PAYMENT_NUMBER_OF_INSTALLMENTS} <br>
-     *     Type: String[]
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_INSTALLMENT_PAYMENT_FREQUENCY_OF_INSTALLMENTS} - {@value EntryExtraData#PARAM_INSTALLMENT_PAYMENT_FREQUENCY_OF_INSTALLMENTS} <br>
-     *     Type: String[]
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_INSTALLMENT_PAYMENT_TOTAL_AMOUNT_INCLUSIVE_FEES} - {@value EntryExtraData#PARAM_INSTALLMENT_PAYMENT_TOTAL_AMOUNT_INCLUSIVE_FEES} <br>
-     *     Type: String[]
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_INSTALLMENT_PAYMENT_PLAN_CURRENCIES} - {@value EntryExtraData#PARAM_INSTALLMENT_PAYMENT_PLAN_CURRENCIES} <br>
-     *     Type: String[]
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_INSTALLMENT_PAYMENT_PLAN_ID} - {@value EntryExtraData#PARAM_INSTALLMENT_PAYMENT_PLAN_ID} <br>
-     *     Type: String[]
-     * </p>
-     * <p>
-     *     Input:  {@link EntryExtraData#PARAM_CURRENCY} - {@value EntryExtraData#PARAM_CURRENCY} is currency type. <br>
-     *     Type: String<br>
-     *     Default value: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType#USD}
-     * </p>
-     * <p>
-     *     Output: {@link EntryRequest#PARAM_INSTALLMENT_SELECT_OPTION} - {@value EntryRequest#PARAM_INSTALLMENT_SELECT_OPTION}<br>
-     *     Type: Integer
-     * </p>
-     */
-    public static final String ACTION_SELECT_INSTALLMENT_PLAN = "com.pax.us.pay.action.SELECT_INSTALLMENT_PLAN";
 
     /**
      * Activity Action: Select Original Transaction Currency<br>{@value #ACTION_SELECT_ORIG_CURRENCY}<br>

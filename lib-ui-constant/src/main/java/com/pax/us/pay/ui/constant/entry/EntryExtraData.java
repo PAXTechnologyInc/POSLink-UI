@@ -277,47 +277,6 @@ public final class EntryExtraData {
     public static final String PARAM_ENABLE_NO_TIP_SELECTION = "enableNoTipSelection";
 
     /**
-     * Installment Payment Amounts
-     * <p>Type: String[]</p>
-     */
-    public static final String PARAM_INSTALLMENT_PAYMENT_AMOUNTS = "installmentPaymentAmounts";
-    /**
-     * Installment Payment terms and conditions
-     * <p>Type: String[]</p>
-     */
-    public static final String PARAM_INSTALLMENT_PAYMENT_TERMS_AND_CONDITIONS = "termsAndConditions";
-    /**
-     * Installment Payment total fees
-     * <p>Type: String[]</p>
-     */
-    public static final String PARAM_INSTALLMENT_PAYMENT_TOTAL_FEES = "totalFees";
-    /**
-     * Installment number
-     * <p>Type: String[]</p>
-     */
-    public static final String PARAM_INSTALLMENT_PAYMENT_NUMBER_OF_INSTALLMENTS = "numberOfInstallmens";
-    /**
-     * Installment Frequency
-     * <p>Type: String[]</p>
-     */
-    public static final String PARAM_INSTALLMENT_PAYMENT_FREQUENCY_OF_INSTALLMENTS = "frequencyOfInstallments";
-    /**
-     * Total Amount Inclusive Fees
-     * <p>Type: String[]</p>
-     */
-    public static final String PARAM_INSTALLMENT_PAYMENT_TOTAL_AMOUNT_INCLUSIVE_FEES = "totalAmountInclusiveFees";
-    /**
-     * Total Amount Currencies
-     * <p>Type: String[]</p>
-     */
-    public static final String PARAM_INSTALLMENT_PAYMENT_PLAN_CURRENCIES = "CURRENCIES";
-    /**
-     * Total Amount Plan ID
-     * <p>Type: String[]</p>
-     */
-    public static final String PARAM_INSTALLMENT_PAYMENT_PLAN_ID = "planId";
-
-    /**
      * Has Physical Keyboard
      * <p>Type: Boolean</p>
      */

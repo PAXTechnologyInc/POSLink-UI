@@ -33,10 +33,11 @@ public final class InformationEntry {
      *     Example: "CREDIT SALE"
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input:  {@link EntryExtraData#PARAM_INFORMATION_KEY} - {@value EntryExtraData#PARAM_INFORMATION_KEY} <br>

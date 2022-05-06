@@ -35,15 +35,15 @@ public final class ConfirmationEntry {
      *     Type: String
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
      *     Type: Boolean<br>
-     *     If select {@value ConfirmationType#YES}, return TRUE.
      * </p>
      */
     public static final String ACTION_CONFIRM_UNIFIED_MESSAGE = "com.pax.us.pay.action.CONFIRM_UNIFIED_MESSAGE";
@@ -87,10 +87,11 @@ public final class ConfirmationEntry {
      *     If select {@value PartialApprovalOption#ACCEPT}, the transaction will be accepted with partial-approval.
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
@@ -140,10 +141,11 @@ public final class ConfirmationEntry {
      *     If select {@value PartialApprovalOption#DECLINE}, this transaction will be accepted with partial-approval.
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
@@ -195,10 +197,11 @@ public final class ConfirmationEntry {
      *     Options: {@link ConfirmationType#YES} and {@link ConfirmationType#NO}
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
@@ -231,10 +234,11 @@ public final class ConfirmationEntry {
      *     Options: {@link ConfirmationType#YES}  and {@link ConfirmationType#NO}
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
@@ -268,10 +272,11 @@ public final class ConfirmationEntry {
      *     Options: {@link ConfirmationType#YES}  and {@link ConfirmationType#NO}
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
@@ -305,10 +310,11 @@ public final class ConfirmationEntry {
      *     Options: {@link ConfirmationType#YES}  and {@link ConfirmationType#NO}
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
@@ -341,10 +347,11 @@ public final class ConfirmationEntry {
      *     Options: {@link ConfirmationType#YES}  and {@link ConfirmationType#NO}
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
@@ -388,10 +395,11 @@ public final class ConfirmationEntry {
      *     Options: {@link ConfirmationType#YES}  and {@link ConfirmationType#NO}
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
@@ -430,10 +438,11 @@ public final class ConfirmationEntry {
      *     Options: {@link ConfirmationType#YES}  and {@link ConfirmationType#NO}
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
@@ -472,10 +481,11 @@ public final class ConfirmationEntry {
      *     Options: {@link ConfirmationType#YES}  and {@link ConfirmationType#NO}
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
@@ -508,10 +518,11 @@ public final class ConfirmationEntry {
      *     Options: {@link ConfirmationType#YES}  and {@link ConfirmationType#NO}
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
@@ -544,10 +555,11 @@ public final class ConfirmationEntry {
      *     Options: {@link ConfirmationType#YES}  and {@link ConfirmationType#NO}
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
@@ -580,10 +592,11 @@ public final class ConfirmationEntry {
      *     Options: {@link ConfirmationType#YES}  and {@link ConfirmationType#NO}
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
@@ -616,10 +629,11 @@ public final class ConfirmationEntry {
      *     Options: {@link ConfirmationType#YES}  and {@link ConfirmationType#NO}
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
@@ -653,10 +667,11 @@ public final class ConfirmationEntry {
      *     Options: {@link ConfirmationType#YES}  and {@link ConfirmationType#NO}
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
@@ -684,10 +699,11 @@ public final class ConfirmationEntry {
      *     "Please Tear Receipt.\nPrint Customer Receipt?"<br>
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input:  {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS}<br>
@@ -731,10 +747,11 @@ public final class ConfirmationEntry {
      *     Options: {@link ConfirmationType#YES}  and {@link ConfirmationType#NO}
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
@@ -768,10 +785,11 @@ public final class ConfirmationEntry {
      *     Options: {@link ConfirmationType#YES}  and {@link ConfirmationType#NO}
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
@@ -801,7 +819,8 @@ public final class ConfirmationEntry {
      *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 5000.
+     *     Default is 5000.<br>
+     *     If timeout, treat it as CONFIRMED.
      * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
@@ -880,10 +899,11 @@ public final class ConfirmationEntry {
      *             }
      * </pre>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
@@ -910,10 +930,11 @@ public final class ConfirmationEntry {
      *     Type: Long
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
@@ -947,10 +968,11 @@ public final class ConfirmationEntry {
      *     Options: {@link com.pax.us.pay.ui.constant.entry.enumeration.MerchantScope#CURRENT} and {@link com.pax.us.pay.ui.constant.entry.enumeration.MerchantScope#ALL}
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
@@ -977,10 +999,11 @@ public final class ConfirmationEntry {
      *     Options: {@link com.pax.us.pay.ui.constant.entry.enumeration.CardEntryRetryOption#CONTINUE} and {@link com.pax.us.pay.ui.constant.entry.enumeration.CardEntryRetryOption#DECLINE} 
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
@@ -1036,10 +1059,11 @@ public final class ConfirmationEntry {
      *     Options: {@link ConfirmationType#YES} and {@link ConfirmationType#NO}
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>

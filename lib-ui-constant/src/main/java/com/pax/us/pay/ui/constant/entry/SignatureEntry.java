@@ -36,10 +36,11 @@ public final class SignatureEntry {
      *     Type: Long
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     You should handle timeout and send action {@link EntryRequest#ACTION_TIME_OUT}.
      * </p>
      * <p>
      *     Input:  {@link EntryExtraData#PARAM_ENABLE_CANCEL} -  {@value EntryExtraData#PARAM_ENABLE_CANCEL} specifies visibility of "CANCEL" button<br>

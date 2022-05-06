@@ -26,10 +26,11 @@ public final class TextEntry {
      *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input:  {@link EntryExtraData#PARAM_CURRENCY} - {@value EntryExtraData#PARAM_CURRENCY} is currency type. <br>
@@ -61,10 +62,11 @@ public final class TextEntry {
      *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input:  {@link EntryExtraData#PARAM_CURRENCY} - {@value EntryExtraData#PARAM_CURRENCY} is currency type. <br>
@@ -172,10 +174,11 @@ public final class TextEntry {
      *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} - {@value EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
@@ -204,10 +207,11 @@ public final class TextEntry {
      *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_EXPIRY_DATE} - {@value EntryRequest#PARAM_EXPIRY_DATE} <br>Type: String<br>
@@ -233,10 +237,11 @@ public final class TextEntry {
      *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} - {@value EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
@@ -264,10 +269,11 @@ public final class TextEntry {
      *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_EINPUT_TYPE} - {@value EntryExtraData#PARAM_EINPUT_TYPE} <br>
@@ -303,10 +309,11 @@ public final class TextEntry {
      *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} - {@value EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
@@ -334,10 +341,11 @@ public final class TextEntry {
      *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input:  {@link EntryExtraData#PARAM_CURRENCY} - {@value EntryExtraData#PARAM_CURRENCY} is currency type. <br>
@@ -416,10 +424,11 @@ public final class TextEntry {
      *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_TOTAL_AMOUNT} - {@value EntryExtraData#PARAM_TOTAL_AMOUNT} <br>
@@ -456,10 +465,11 @@ public final class TextEntry {
      *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_ZIP_CODE_PATTERN} - {@value EntryExtraData#PARAM_ZIP_CODE_PATTERN} is length limit for Zip Code. <br>
@@ -498,10 +508,11 @@ public final class TextEntry {
      *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} - {@value EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
@@ -537,10 +548,11 @@ public final class TextEntry {
      *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_EINPUT_TYPE} - {@value EntryExtraData#PARAM_EINPUT_TYPE} <br>
@@ -575,10 +587,11 @@ public final class TextEntry {
      *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} - {@value EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
@@ -606,10 +619,11 @@ public final class TextEntry {
      *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} - {@value EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
@@ -637,10 +651,11 @@ public final class TextEntry {
      *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input:  {@link EntryExtraData#PARAM_CURRENCY} - {@value EntryExtraData#PARAM_CURRENCY} is currency type. <br>
@@ -684,10 +699,11 @@ public final class TextEntry {
      *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_ORIG_DATE} - {@value EntryRequest#PARAM_ORIG_DATE} <br>Type: String</p>
@@ -711,10 +727,11 @@ public final class TextEntry {
      *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input:  {@link EntryExtraData#PARAM_CURRENCY} - {@value EntryExtraData#PARAM_CURRENCY} is currency type. <br>
@@ -747,10 +764,11 @@ public final class TextEntry {
      *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input:  {@link EntryExtraData#PARAM_CURRENCY} - {@value EntryExtraData#PARAM_CURRENCY} is currency type. <br>
@@ -784,10 +802,11 @@ public final class TextEntry {
      *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} - {@value EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
@@ -817,10 +836,11 @@ public final class TextEntry {
      *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} - {@value EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
@@ -849,10 +869,11 @@ public final class TextEntry {
      *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} - {@value EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
@@ -880,10 +901,11 @@ public final class TextEntry {
      *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} - {@value EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
@@ -911,10 +933,11 @@ public final class TextEntry {
      *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} - {@value EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
@@ -942,10 +965,11 @@ public final class TextEntry {
      *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} - {@value EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
@@ -973,10 +997,11 @@ public final class TextEntry {
      *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} - {@value EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
@@ -1004,10 +1029,11 @@ public final class TextEntry {
      *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} - {@value EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
@@ -1035,10 +1061,11 @@ public final class TextEntry {
      *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_FLEET_DRIVER_ID_PATTERN} - {@value EntryExtraData#PARAM_FLEET_DRIVER_ID_PATTERN}  <br>Type: String</p>
@@ -1097,10 +1124,11 @@ public final class TextEntry {
      *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input:  {@link EntryExtraData#PARAM_CURRENCY} - {@value EntryExtraData#PARAM_CURRENCY} is currency type. <br>
@@ -1147,10 +1175,11 @@ public final class TextEntry {
      *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} - {@value EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
@@ -1187,10 +1216,11 @@ public final class TextEntry {
      *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} - {@value EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
@@ -1220,10 +1250,11 @@ public final class TextEntry {
      *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} - {@value EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
@@ -1253,10 +1284,11 @@ public final class TextEntry {
      *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} - {@value EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
@@ -1293,10 +1325,11 @@ public final class TextEntry {
      *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
      *     Type: Long<br>
      *     Unit: ms<br>
-     *     Default is 30000.
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} - {@value EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
