@@ -119,4 +119,14 @@ public final class ManageUIConst {
         public static final String RADIO_BUTTON = "1";
         public static final String CHECK_BOX = "2";
     }
+
+    /**
+     * Signature Box Orientation
+     * 1 - Horizontal
+     * 2 - Vertical
+     */
+    public static class SignatureBox {
+        public static final int HORIZONTAL_SIGNATURE_BOX = 1;
+        public static final int VERTICAL_SIGNATURE_BOX = 2;
+    }
 }

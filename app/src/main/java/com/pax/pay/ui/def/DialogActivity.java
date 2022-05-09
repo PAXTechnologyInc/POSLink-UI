@@ -331,7 +331,7 @@ public class DialogActivity extends BaseAppCompatActivity implements IStatusList
                 showWarnDialog(wrapContext.getString(R.string.please_tap_card), true);
                 break;
             case CardStatus.SEE_PHONE:
-                String prompts = intent.getStringExtra(CardStatus.PARAM_PROMPTS);
+                String prompts = intent.getStringExtra(StatusData.PARAM_PROMPTS);
                 if (TextUtils.isEmpty(prompts))
                     showWarnDialog(wrapContext.getString(R.string.please_see_phone), true); //Fix ANBP-385
                 else
@@ -451,7 +451,7 @@ public class DialogActivity extends BaseAppCompatActivity implements IStatusList
                     //timeOut = FAILED_DIALOG_SHOW_TIME;
                 }
                 //if (UIConfiguration.getInstance().isNeedReceiveMessage())
-                boolean displayVisaInstallmentEnd = "Y".equals(intent.getStringExtra(StatusData.PARAM_DISPLAY_VISA_INSTALLMENT_APPROVAL));
+                boolean displayVisaInstallmentEnd = "Y".equals(intent.getStringExtra("displayVisaInstallmentApproval"));//StatusData.PARAM_DISPLAY_VISA_INSTALLMENT_APPROVAL));
                 if (isNeedDisplayMessage && !displayVisaInstallmentEnd){
                     showResultDialog(result, resultMessage);
                 } else {

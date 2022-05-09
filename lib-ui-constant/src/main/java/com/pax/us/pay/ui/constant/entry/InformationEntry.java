@@ -63,63 +63,6 @@ public final class InformationEntry {
     public static final String ACTION_DISPLAY_TRANS_INFORMATION = "com.pax.us.pay.action.DISPLAY_TRANS_INFORMATION";
 
 
-    /**
-     * Activity Action: Play Approval Sound<br>{@value #ACTION_DISPLAY_APPROVE_MESSAGE}<br>
-     * <p>
-     *     This action request nothing. You can request go to next step like this:
-     * </p>
-     * <pre>
-     *     Bundle bundle = new Bundle();
-     *     bundle.putStringExtra(EntryRequest.PARAM_ACTION, InformationEntry.ACTION_DISPLAY_APPROVE_MESSAGE);
-     *     Intent intent = new Intent();
-     *     intent.setPackage(broadPOSPackage); //broadPOSPackage is from {@link EntryExtraData#PARAM_PACKAGE}
-     *     intent.setAction(EntryRequest.ACTION_NEXT);
-     *     intent.putExtras(bundle);
-     *     context.sendBroadcast(intent);
-     * </pre>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
-     *     Type: String
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} - {@value EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
-     *     Type: String<br>
-     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} - {@value EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
-     *     Type: String<br>
-     *     Example: "CREDIT SALE"
-     * </p>
-     * <p>
-     *     Input:  {@link EntryExtraData#PARAM_CARD_TYPE} - {@value EntryExtraData#PARAM_CARD_TYPE} <br>
-     *     Type: String<br>
-     *     If card type is {@link com.pax.us.pay.ui.constant.entry.enumeration.CardType#VISA}, need play visa animation and visa sound.<br>
-     *     Else, play sound specified by {@link EntryExtraData#PARAM_SOUND_URI}
-     * </p>
-     * <p>
-     *     Input:  {@link EntryExtraData#PARAM_ANIMATION_SUPPORT} - {@value EntryExtraData#PARAM_ANIMATION_SUPPORT} <br>
-     *     Type: Boolean<br>
-     *     TRUE is play animation.<br>
-     *     Only works for Visa card.
-     * </p>
-     * <p>
-     *     Input:  {@link EntryExtraData#PARAM_SOUND_SUPPORT} - {@value EntryExtraData#PARAM_SOUND_SUPPORT} <br>
-     *     Type: Boolean<br>
-     *     TRUE is play sound.
-     * </p>
-     * <p>
-     *     Input:  {@link EntryExtraData#PARAM_SOUND_URI} - {@value EntryExtraData#PARAM_SOUND_URI} <br>
-     *     Type: String<br>
-     *     For other card types use.
-     * </p>
-     * Resource files:<br>
-     * 1.<a href="doc-files/visa_animation.gif">Animation for Visa Approval: visa_animation.gif</a><br>
-     * 2.<a href="doc-files/visa_sound.wav">Sound for Visa Approval: visa_sound.wav</a><br>
-     * 3.<a href="doc-files/boba.wav">Default Sound for other approval: boba.wav</a>
-     */
-    public static final String ACTION_DISPLAY_APPROVE_MESSAGE = "com.pax.us.pay.action.DISPLAY_APPROVE_MESSAGE";
-
 //    /**
 //     * Activity Action: Display Visa Installment Transaction Approved message <br>
 //     * <p>

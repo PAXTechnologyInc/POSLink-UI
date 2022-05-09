@@ -179,23 +179,6 @@ public final class EntryExtraData {
     public static final String PARAM_CARD_TYPE = "cardType";
 
     /**
-     * Play Approval Animation
-     * <p>Type: Boolean</p>
-     * <p>TRUE is play</p>
-     */
-    public static final String PARAM_ANIMATION_SUPPORT = "animationSupport";
-    /**
-     * Play Approval Sound
-     * <p>Type: Boolean</p>
-     * <p>TRUE is play</p>
-     */
-    public static final String PARAM_SOUND_SUPPORT = "soundSupport";
-    /**
-     * Sound Uri
-     * <p>Type: String</p>
-     */
-    public static final String PARAM_SOUND_URI = "soundUri";
-    /**
      * VCode Name
      * <p>Type: String</p>
      * <p>See {@link com.pax.us.pay.ui.constant.entry.enumeration.VCodeName} for details</p>
@@ -939,7 +922,7 @@ public final class EntryExtraData {
     public static final String PARAM_HARD_KEY_LIST = "hardKeyList";
     /**
      * Sign Box
-     * <p>Type: String</p>
+     * <p>Type: Long</p>
      */
     public static final String PARAM_SIGN_BOX = "signBox";
     /**

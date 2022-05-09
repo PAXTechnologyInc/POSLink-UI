@@ -395,7 +395,8 @@ public final class PoslinkEntry {
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_SIGN_BOX}  - {@value EntryExtraData#PARAM_SIGN_BOX}  <br>
-     *     Type: String
+     *     Type: Long<br>
+     *     Default value: {@link com.pax.us.pay.ui.constant.entry.enumeration.ManageUIConst.SignatureBox#VERTICAL_SIGNATURE_BOX}
      * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_SIGN_STATUS} - {@value EntryRequest#PARAM_SIGN_STATUS} <br>
@@ -403,7 +404,7 @@ public final class PoslinkEntry {
      * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_SIGNATURE} - {@value EntryRequest#PARAM_SIGNATURE} <br>
-     *     Type: String
+     *     Type: short[]
      * </p>
      */
     public static final String ACTION_SHOW_SIGNATURE_BOX = "com.pax.us.pay.action.SHOW_SIGNATURE_BOX";

@@ -95,4 +95,50 @@ public final class StatusData {
   */
  public static final String PARAM_UPLOAD_CURRENT_PERCENT = "uploadCurrentPercent";
 
+ /**
+  * Language Code of Locale.
+  * <p>Type: String. See java.util.Locale for details.</p>
+  * <p>Used in {@link LanguageStatus#SET_LANGUAGE}</p>
+  */
+ public static final String PARAM_LANGUAGE = "language";
+
+ /**
+  * Country Code of Locale.
+  * <p>Type: String. See java.util.Locale for details.</p>
+  * <p>Used in {@link LanguageStatus#SET_LANGUAGE}</p>
+  */
+ public static final String PARAM_COUNTRY = "country";
+
+ /**
+  * Prompt Message
+  * <p>Type: String</p>
+  * Used by {@link CardStatus#SEE_PHONE}.
+  */
+ public static final String PARAM_PROMPTS = "prompts";
+
+ /**
+  * Enable Swipe
+  * <p>Type: Boolean</p>
+  */
+    public static final String PARAM_ENABLE_SWIPE = "enableSwipe";
+
+ /**
+  * Enable Insert
+  * <p>Type: Boolean</p>
+  */
+    public static final String PARAM_ENABLE_INSERT = "enableInsert";
+
+ /**
+  * Enable Tap
+  * <p>Type: Boolean</p>
+  */
+    public static final String PARAM_ENABLE_TAP = "enableTap";
+
+ /**
+  * Enable Manual Entry
+  * <p>Type: Boolean</p>
+  */
+    public static final String PARAM_ENABLE_MANUAL = "enableManualEntry";
+
+
 }

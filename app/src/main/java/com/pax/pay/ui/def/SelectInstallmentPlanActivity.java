@@ -142,14 +142,14 @@ public class SelectInstallmentPlanActivity extends BaseActivity implements IUILi
         buttons = findViewById(R.id.buttons);
         amount = bundle.getLong(EntryExtraData.PARAM_BASE_AMOUNT);
 
-        String[] installmentPaymentAmounts = bundle.getStringArray(EntryExtraData.PARAM_INSTALLMENT_PAYMENT_AMOUNTS);
-        String[] installmentPaymentTermsAndConditions = bundle.getStringArray(EntryExtraData.PARAM_INSTALLMENT_PAYMENT_TERMS_AND_CONDITIONS);
-        String[] installmentPaymentTotalFees = bundle.getStringArray(EntryExtraData.PARAM_INSTALLMENT_PAYMENT_TOTAL_FEES);
-        String[] installmentPaymentNumberOfInstallments = bundle.getStringArray(EntryExtraData.PARAM_INSTALLMENT_PAYMENT_NUMBER_OF_INSTALLMENTS);
-        String[] installmentPaymentFrequencys = bundle.getStringArray(EntryExtraData.PARAM_INSTALLMENT_PAYMENT_FREQUENCY_OF_INSTALLMENTS);
-        String[] installmentPaymentTotalAmountInclusiveFees = bundle.getStringArray(EntryExtraData.PARAM_INSTALLMENT_PAYMENT_TOTAL_AMOUNT_INCLUSIVE_FEES);
-        String[] installmentPaymentPlanIDs = bundle.getStringArray(EntryExtraData.PARAM_INSTALLMENT_PAYMENT_PLAN_ID);
-        String[] installmentCurrencies = bundle.getStringArray(EntryExtraData.PARAM_INSTALLMENT_PAYMENT_PLAN_CURRENCIES);
+        String[] installmentPaymentAmounts = bundle.getStringArray("installmentPaymentAmounts");//EntryExtraData.PARAM_INSTALLMENT_PAYMENT_AMOUNTS);
+        String[] installmentPaymentTermsAndConditions = bundle.getStringArray("termsAndConditions");//EntryExtraData.PARAM_INSTALLMENT_PAYMENT_TERMS_AND_CONDITIONS);
+        String[] installmentPaymentTotalFees = bundle.getStringArray("totalFees");//EntryExtraData.PARAM_INSTALLMENT_PAYMENT_TOTAL_FEES);
+        String[] installmentPaymentNumberOfInstallments = bundle.getStringArray("numberOfInstallmens");//EntryExtraData.PARAM_INSTALLMENT_PAYMENT_NUMBER_OF_INSTALLMENTS);
+        String[] installmentPaymentFrequencys = bundle.getStringArray("frequencyOfInstallments");//EntryExtraData.PARAM_INSTALLMENT_PAYMENT_FREQUENCY_OF_INSTALLMENTS);
+        String[] installmentPaymentTotalAmountInclusiveFees = bundle.getStringArray("totalAmountInclusiveFees");//EntryExtraData.PARAM_INSTALLMENT_PAYMENT_TOTAL_AMOUNT_INCLUSIVE_FEES);
+        String[] installmentPaymentPlanIDs = bundle.getStringArray("planId");//EntryExtraData.PARAM_INSTALLMENT_PAYMENT_PLAN_ID);
+        String[] installmentCurrencies = bundle.getStringArray("CURRENCIES");//EntryExtraData.PARAM_INSTALLMENT_PAYMENT_PLAN_CURRENCIES);
         totalPlans = installmentPaymentAmounts.length;
 
         getButtonText(installmentPaymentAmounts, installmentPaymentNumberOfInstallments, installmentPaymentFrequencys, installmentPaymentTotalFees, installmentPaymentTotalAmountInclusiveFees);
