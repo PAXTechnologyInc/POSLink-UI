@@ -17,7 +17,8 @@ public class EnterVisaInstallmentTransIDHelper extends BaseActionHelper {
 
     public void sendNext(String transID) {
         Bundle bundle = new Bundle();
-        bundle.putString(EntryRequest.PARAM_VISA_TRANSID, transID);
+//        bundle.putString(InternalConstant.PARAM_VISA_TRANSID, transID);
+        bundle.putString("visaTransID", transID);
         super.sendNext(bundle);
     }
 

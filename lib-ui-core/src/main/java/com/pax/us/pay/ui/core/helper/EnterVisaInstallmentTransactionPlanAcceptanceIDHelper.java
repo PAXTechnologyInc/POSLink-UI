@@ -18,7 +18,8 @@ public class EnterVisaInstallmentTransactionPlanAcceptanceIDHelper extends BaseA
 
     public void sendNext(String planAcceptanceID) {
         Bundle bundle = new Bundle();
-        bundle.putString(EntryRequest.PARAM_VISA_PLAN_ACCEPTANCE_ID, planAcceptanceID);
+        //bundle.putString(EntryRequest.PARAM_VISA_PLAN_ACCEPTANCE_ID, planAcceptanceID);
+        bundle.putString("visaPlanAcceptanceID", planAcceptanceID);
         super.sendNext(bundle);
     }
 
