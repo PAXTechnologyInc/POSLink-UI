@@ -94,13 +94,14 @@ public final class InformationEntry {
      * <p>
      *     Input:  {@link EntryExtraData#PARAM_CARD_TYPE} - {@value EntryExtraData#PARAM_CARD_TYPE} <br>
      *     Type: String<br>
-     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.CardType} for details
+     *     If card type is {@link com.pax.us.pay.ui.constant.entry.enumeration.CardType#VISA}, need play visa animation and visa sound.<br>
+     *     Else, play sound specified by {@link EntryExtraData#PARAM_SOUND_URI}
      * </p>
      * <p>
      *     Input:  {@link EntryExtraData#PARAM_ANIMATION_SUPPORT} - {@value EntryExtraData#PARAM_ANIMATION_SUPPORT} <br>
      *     Type: Boolean<br>
-     *     TRUE is play animation
-     *     Only works for Visa card<br>
+     *     TRUE is play animation.<br>
+     *     Only works for Visa card.
      * </p>
      * <p>
      *     Input:  {@link EntryExtraData#PARAM_SOUND_SUPPORT} - {@value EntryExtraData#PARAM_SOUND_SUPPORT} <br>
@@ -109,8 +110,13 @@ public final class InformationEntry {
      * </p>
      * <p>
      *     Input:  {@link EntryExtraData#PARAM_SOUND_URI} - {@value EntryExtraData#PARAM_SOUND_URI} <br>
-     *     Type: String
+     *     Type: String<br>
+     *     For other card types use.
      * </p>
+     * Resource files:<br>
+     * 1.<a href="doc-files/visa_animation.gif">Animation for Visa Approval: visa_animation.gif</a><br>
+     * 2.<a href="doc-files/visa_sound.wav">Sound for Visa Approval: visa_sound.wav</a><br>
+     * 3.<a href="doc-files/boba.wav">Default Sound for other approval: boba.wav</a>
      */
     public static final String ACTION_DISPLAY_APPROVE_MESSAGE = "com.pax.us.pay.action.DISPLAY_APPROVE_MESSAGE";
 

@@ -2,7 +2,6 @@ package com.pax.us.pay.ui.constant.entry.enumeration;
 
 /**
  * PAN Style
- * @deprecated
  */
 public final class PanStyles {
     private PanStyles(){
