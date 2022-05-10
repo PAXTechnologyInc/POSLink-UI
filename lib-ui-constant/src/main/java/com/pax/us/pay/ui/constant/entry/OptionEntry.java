@@ -794,6 +794,111 @@ public final class OptionEntry {
      */
     public static final String ACTION_SELECT_ORIG_CURRENCY = "com.pax.us.pay.action.SELECT_ORIG_CURRENCY";
 
+    //-----------------------------Visa Installment---------------------------------
+    /**
+     * Activity Action: Select Installment Plan (For Visa Installment use)<br>{@value #ACTION_SELECT_INSTALLMENT_PLAN}<br>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_BASE_AMOUNT} - {@value EntryExtraData#PARAM_BASE_AMOUNT}<br>
+     *     Type: Long
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} - {@value EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+     *     Type: String<br>
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} - {@value EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
+     *     Type: String<br>
+     *     Example: "CREDIT SALE"
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_INSTALLMENT_PAYMENT_AMOUNTS} - {@value EntryExtraData#PARAM_INSTALLMENT_PAYMENT_AMOUNTS} <br>
+     *     Type: String[]
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_INSTALLMENT_PAYMENT_TERMS_AND_CONDITIONS} - {@value EntryExtraData#PARAM_INSTALLMENT_PAYMENT_TERMS_AND_CONDITIONS} <br>
+     *     Type: String[]
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_INSTALLMENT_PAYMENT_TOTAL_FEES} - {@value EntryExtraData#PARAM_INSTALLMENT_PAYMENT_TOTAL_FEES}<br>
+     *     Type: String[]
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_INSTALLMENT_PAYMENT_NUMBER_OF_INSTALLMENTS} - {@value EntryExtraData#PARAM_INSTALLMENT_PAYMENT_NUMBER_OF_INSTALLMENTS} <br>
+     *     Type: String[]
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_INSTALLMENT_PAYMENT_FREQUENCY_OF_INSTALLMENTS} - {@value EntryExtraData#PARAM_INSTALLMENT_PAYMENT_FREQUENCY_OF_INSTALLMENTS} <br>
+     *     Type: String[]
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_INSTALLMENT_PAYMENT_TOTAL_AMOUNT_INCLUSIVE_FEES} - {@value EntryExtraData#PARAM_INSTALLMENT_PAYMENT_TOTAL_AMOUNT_INCLUSIVE_FEES} <br>
+     *     Type: String[]
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_INSTALLMENT_PAYMENT_PLAN_CURRENCIES} - {@value EntryExtraData#PARAM_INSTALLMENT_PAYMENT_PLAN_CURRENCIES} <br>
+     *     Type: String[]
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_INSTALLMENT_PAYMENT_PLAN_ID} - {@value EntryExtraData#PARAM_INSTALLMENT_PAYMENT_PLAN_ID} <br>
+     *     Type: String[]
+     * </p>
+     * <p>
+     *     Input:  {@link EntryExtraData#PARAM_CURRENCY} - {@value EntryExtraData#PARAM_CURRENCY} is currency type. <br>
+     *     Type: String<br>
+     *     Default value: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType#USD}
+     * </p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_INDEX} - {@value EntryRequest#PARAM_INDEX} Selected Index<br>
+     *     Type: Integer<br>
+     *     Value start from 0.
+     * </p>
+     */
+    public static final String ACTION_SELECT_INSTALLMENT_PLAN = "com.pax.us.pay.action.SELECT_INSTALLMENT_PLAN";
+
+    //---------------------Tip Adjust--------------------
+    /**
+     * Activity Action: Select Transaction for Tip Adjust
+     * <p>Now not ready for public.</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} is the package name of caller.<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+     *     Type: String<br>
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
+     *     Type: String<br>
+     *     Example: "CREDIT SALE"
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Type: Long<br>
+     *     Unit: ms<br>
+     *     Default is 30000.
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_URL}<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_SELECTION}<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_SELECTION_ARGUMENTS}<br>
+     *     Type: String[]
+     * </p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_TRANS_NUMBER}<br>
+     *     Type: String
+     * </p>
+     */
+    public static final String ACTION_SELECT_TRANS_FOR_ADJUST = "com.pax.us.pay.action.SELECT_TRANS_FOR_ADJUST";
+
 //Note:
 //Appending a new action, please add mapping into "SELECT_OPTION_MAP" in "SelectOptionContent"
 

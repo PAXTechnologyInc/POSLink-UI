@@ -958,6 +958,64 @@ public final class EntryExtraData {
      */
     public static final String PARAM_ACCESSIBILITY_PIN_PAD_MODE = "accessibilityPinPadMode";
 
+    //---------------------------------Visa Installment--------------------------------
+    /**
+     * Installment Payment Amounts
+     * <p>Type: String[]</p>
+     */
+    public static final String PARAM_INSTALLMENT_PAYMENT_AMOUNTS = "installmentPaymentAmounts";
+    /**
+     * Installment Payment terms and conditions
+     * <p>Type: String[]</p>
+     */
+    public static final String PARAM_INSTALLMENT_PAYMENT_TERMS_AND_CONDITIONS = "termsAndConditions";
+    /**
+     * Installment Payment total fees
+     * <p>Type: String[]</p>
+     */
+    public static final String PARAM_INSTALLMENT_PAYMENT_TOTAL_FEES = "totalFees";
+    /**
+     * Installment number
+     * <p>Type: String[]</p>
+     */
+    public static final String PARAM_INSTALLMENT_PAYMENT_NUMBER_OF_INSTALLMENTS = "numberOfInstallmens";
+    /**
+     * Installment Frequency
+     * <p>Type: String[]</p>
+     */
+    public static final String PARAM_INSTALLMENT_PAYMENT_FREQUENCY_OF_INSTALLMENTS = "frequencyOfInstallments";
+    /**
+     * Total Amount Inclusive Fees
+     * <p>Type: String[]</p>
+     */
+    public static final String PARAM_INSTALLMENT_PAYMENT_TOTAL_AMOUNT_INCLUSIVE_FEES = "totalAmountInclusiveFees";
+    /**
+     * Total Amount Currencies
+     * <p>Type: String[]</p>
+     */
+    public static final String PARAM_INSTALLMENT_PAYMENT_PLAN_CURRENCIES = "CURRENCIES";
+    /**
+     * Total Amount Plan ID
+     * <p>Type: String[]</p>
+     */
+    public static final String PARAM_INSTALLMENT_PAYMENT_PLAN_ID = "planId";
+
+    //------------Tip Adjust------------------
+    /**
+     * Transaction URL
+     * <p>Type:String</p>
+     */
+    public static final String PARAM_TRANS_URL = "transUri";
+    /**
+     * Transaction Selection
+     * <p>Type:String</p>
+     */
+    public static final String PARAM_TRANS_SELECTION = "transSelection";
+    /**
+     * Transaction Selection Arguments
+     * <p>Type:String[]</p>
+     */
+    public static final String PARAM_TRANS_SELECTION_ARGUMENTS = "transSelectionArguments";
 // Yanina: Remove this parameters. Use PARAM_MESSAGE instead.
 // ADJ-144
  //   //internal parameter

@@ -711,4 +711,17 @@ public final class EntryRequest {
      * <p>Type : android.graphics.Rect</p>
      */
     public static final String PARAM_KEY_CANCEL = "key_cancel";
+
+    //---------------------Visa Installment---------------
+    /**
+     * Visa Installment Transaction ID
+     * <p>Type:String</p>
+     */
+    public static final String PARAM_VISA_TRANSID = "visaTransID";
+
+    /**
+     * Visa Installment Acceptance ID
+     * <p>Type: String</p>
+     */
+    public static final String PARAM_VISA_PLAN_ACCEPTANCE_ID = "visaPlanAcceptanceID";
 }

@@ -140,5 +140,12 @@ public final class StatusData {
   */
     public static final String PARAM_ENABLE_MANUAL = "enableManualEntry";
 
-
+    /**
+     * Display Visa Installment (For Visa Installment use only)
+     * <p>Type: String</p>
+     * Used by {@link InformationStatus#TRANS_COMPLETED}.<br>
+     * When it is set to "Y", the terminal should display Visa Installment Approve UI message<br>
+     * Otherwise the terminal should show the original credit sale success dialog
+     */
+    public static final String PARAM_DISPLAY_VISA_INSTALLMENT_APPROVAL = "displayVisaInstallmentApproval";
 }

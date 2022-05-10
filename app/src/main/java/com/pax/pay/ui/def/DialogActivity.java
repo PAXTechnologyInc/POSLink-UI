@@ -451,7 +451,7 @@ public class DialogActivity extends BaseAppCompatActivity implements IStatusList
                     //timeOut = FAILED_DIALOG_SHOW_TIME;
                 }
                 //if (UIConfiguration.getInstance().isNeedReceiveMessage())
-                boolean displayVisaInstallmentEnd = "Y".equals(intent.getStringExtra("displayVisaInstallmentApproval"));//StatusData.PARAM_DISPLAY_VISA_INSTALLMENT_APPROVAL));
+                boolean displayVisaInstallmentEnd = "Y".equals(intent.getStringExtra(StatusData.PARAM_DISPLAY_VISA_INSTALLMENT_APPROVAL));
                 if (isNeedDisplayMessage && !displayVisaInstallmentEnd){
                     showResultDialog(result, resultMessage);
                 } else {
