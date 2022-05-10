@@ -894,7 +894,7 @@ public final class OptionEntry {
      * </p>
      * <p>
      *     Output: {@link EntryRequest#PARAM_TRANS_NUMBER}<br>
-     *     Type: String
+     *     Type: Long
      * </p>
      */
     public static final String ACTION_SELECT_TRANS_FOR_ADJUST = "com.pax.us.pay.action.SELECT_TRANS_FOR_ADJUST";

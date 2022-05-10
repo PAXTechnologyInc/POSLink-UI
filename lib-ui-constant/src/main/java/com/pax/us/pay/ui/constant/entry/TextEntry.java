@@ -185,7 +185,7 @@ public final class TextEntry {
      *     Type: String<br>
      *     Default: "1-4"</p>
      * <p>
-     *     Output: {@link EntryRequest#PARAM_TRANS_NUMBER} - {@value EntryRequest#PARAM_TRANS_NUMBER} <br>Type: String
+     *     Output: {@link EntryRequest#PARAM_TRANS_NUMBER} - {@value EntryRequest#PARAM_TRANS_NUMBER} <br>Type: Long
      *     </p>
      */
     public static final String ACTION_ENTER_TRANS_NUMBER = "com.pax.us.pay.action.ENTER_TRANS_NUMBER";
