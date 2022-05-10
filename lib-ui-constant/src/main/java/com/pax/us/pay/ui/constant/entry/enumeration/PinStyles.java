@@ -8,10 +8,10 @@ public final class PinStyles {
 
     }
     /**
-     * RETRY
+     * NORMAL
      * <p>BroadPOS prompt as "Please Enter PIN"</p>
      */
-    public static final String NORMAL = "RETRY";
+    public static final String NORMAL = "NORMAL";
     /**
      * RETRY
      * <p>BroadPOS prompt as "PIN Error, Please Retry\nPlease Enter PIN"</p>
