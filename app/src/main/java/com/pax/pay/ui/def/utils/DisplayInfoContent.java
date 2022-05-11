@@ -92,18 +92,18 @@ public class DisplayInfoContent {
 
     public static void init_trans_map() {
         //AG3G-49
-        EXPAND_TRANS_MAP.put(EntryExtraData.PARAM_TRANS_DATE, R.string.view_trans_date);
-        EXPAND_TRANS_MAP.put(EntryExtraData.PARAM_TRANS_TIME, R.string.view_trans_time);
-        EXPAND_TRANS_MAP.put(EntryExtraData.PARAM_MERCHANT_ID, R.string.view_merchant_id);
-        EXPAND_TRANS_MAP.put(EntryExtraData.PARAM_TERMINAL_ID, R.string.view_terminal_id);
+        EXPAND_TRANS_MAP.put("transDate", R.string.view_trans_date);
+        EXPAND_TRANS_MAP.put("transTime", R.string.view_trans_time);
+        EXPAND_TRANS_MAP.put("merchantID", R.string.view_merchant_id);
+        EXPAND_TRANS_MAP.put("terminalID", R.string.view_terminal_id);
 
         //EXPAND_TRANS_MAP.put(EntryRequest.PARAM_AMOUNT, R.string.view_amount);
         EXPAND_TRANS_MAP.put("baseAmount", R.string.view_base_amount); //ANBP1009, amount total amount name duplicate
         EXPAND_TRANS_MAP.put(EntryRequest.PARAM_TOTAL_AMOUNT, R.string.view_total_amount);
         EXPAND_TRANS_MAP.put("Tip", R.string.view_tip);
-        EXPAND_TRANS_MAP.put(EntryExtraData.PARAM_TIP1, R.string.view_tip_1);
-        EXPAND_TRANS_MAP.put(EntryExtraData.PARAM_TIP2, R.string.view_tip_2);
-        EXPAND_TRANS_MAP.put(EntryExtraData.PARAM_TIP3, R.string.view_tip_3);
+        EXPAND_TRANS_MAP.put("tip1", R.string.view_tip_1);
+        EXPAND_TRANS_MAP.put("tip2", R.string.view_tip_2);
+        EXPAND_TRANS_MAP.put("tip3", R.string.view_tip_3);
         EXPAND_TRANS_MAP.put(EntryRequest.PARAM_CASHBACK_AMOUNT, R.string.view_cashback);
         EXPAND_TRANS_MAP.put(EntryRequest.PARAM_HEALTH_CARE_AMOUNT, R.string.view_health_care);
         EXPAND_TRANS_MAP.put(EntryRequest.PARAM_CLINIC_AMOUNT, R.string.view_clinic);
@@ -146,8 +146,8 @@ public class DisplayInfoContent {
         EXPAND_TRANS_MAP.put(EntryRequest.PARAM_DEST_ZIP_CODE, R.string.view_dest_zip);
         EXPAND_TRANS_MAP.put(EntryExtraData.PARAM_SERVICE_FEE, R.string.view_service_fee); //Fixed ANBP-1009, display addional fee on AR terminals
         EXPAND_TRANS_MAP.put(EntryExtraData.PARAM_SURCHARGE_FEE, R.string.view_surcharge_fee);
-        EXPAND_TRANS_MAP.put(EntryExtraData.PARAM_MERCHANT_FEE, R.string.view_merchant_fee);
-        EXPAND_TRANS_MAP.put(EntryExtraData.PARAM_CASH_BACK, R.string.view_cashback);
+        EXPAND_TRANS_MAP.put("merchantFee", R.string.view_merchant_fee);
+        EXPAND_TRANS_MAP.put("cashBack", R.string.view_cashback);
 
         EXPAND_TRANS_MAP.put("ebtType", R.string.view_ebt_type);
         EXPAND_TRANS_MAP.put("bypassReason", R.string.view_bypass_reason);
