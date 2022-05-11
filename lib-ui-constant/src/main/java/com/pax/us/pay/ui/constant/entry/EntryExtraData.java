@@ -874,7 +874,7 @@ public final class EntryExtraData {
      * Button 1 Key
      * <p>Type: String </p>
      */
-    public static final String PARAM_BUTTON_1_KEY = "button1key";
+    public static final String PARAM_BUTTON_1_KEY = "button1Key";
     /**
      * Button 2 Name
      * <p>Type: String </p>
@@ -889,7 +889,7 @@ public final class EntryExtraData {
      * Button 2 Key
      * <p>Type: String </p>
      */
-    public static final String PARAM_BUTTON_2_KEY = "button2key";
+    public static final String PARAM_BUTTON_2_KEY = "button2Key";
     /**
      * Button 3 Name
      * <p>Type: String </p>
@@ -904,7 +904,7 @@ public final class EntryExtraData {
      * Button 3 Key
      * <p>Type: String </p>
      */
-    public static final String PARAM_BUTTON_3_KEY = "button3key";
+    public static final String PARAM_BUTTON_3_KEY = "button3Key";
     /**
      * TEXT
      * <p>Type: String</p>
