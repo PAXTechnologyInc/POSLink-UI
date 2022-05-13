@@ -320,7 +320,7 @@ public final class EntryExtraData {
      * <p>Type: Boolean. True is enabled. False is disabled</p>
      * <p>Default is false.</p>
      */
-    public static final String PARAM_ENABLE_SUMSUNGPAY = "enableSumsungPay";
+    public static final String PARAM_ENABLE_SAMSUNGPAY = "enableSamsungPay";
 
     /**
      * Enable NFC Pay

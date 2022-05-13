@@ -72,7 +72,7 @@ public final class StatusData {
   * <p>Type: Long. Default: 0</p>
   * <p>Used in {@link Uncategory#LOG_UPLOAD_UPLOADING}</p>
   */
- public static final String PARAM_UPLOAD_TOTAL_COUNT = "uploadTotalCout";
+ public static final String PARAM_UPLOAD_TOTAL_COUNT = "uploadTotalCount";
 
  /**
   * Total Amount
