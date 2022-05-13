@@ -85,7 +85,7 @@ public final class SecurityEntry {
      *     TRUE is enabled. FALSE is disabled
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_ENABLE_SUMSUNGPAY}  - {@value EntryExtraData#PARAM_ENABLE_SUMSUNGPAY}  <br>
+     *     Input: {@link EntryExtraData#PARAM_ENABLE_SAMSUNGPAY}  - {@value EntryExtraData#PARAM_ENABLE_SAMSUNGPAY}  <br>
      *     Type: Boolean<br>
      *     TRUE is enabled. FALSE is disabled
      * </p>
