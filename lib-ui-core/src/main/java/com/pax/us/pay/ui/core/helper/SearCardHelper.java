@@ -86,7 +86,7 @@ public class SearCardHelper extends BaseActionHelper {
             ((ITapLogoListener) uiListener).onShowCardPay(
                     bundle.getBoolean(EntryExtraData.PARAM_ENABLE_APPLEPAY, false),
                     bundle.getBoolean(EntryExtraData.PARAM_ENABLE_GOOGLEPAY, false),
-                    bundle.getBoolean(EntryExtraData.PARAM_ENABLE_SUMSUNGPAY, false),
+                    bundle.getBoolean(EntryExtraData.PARAM_ENABLE_SAMSUNGPAY, false),
                     bundle.getBoolean(EntryExtraData.PARAM_ENABLE_NFCPAY, false)
             );
         }
