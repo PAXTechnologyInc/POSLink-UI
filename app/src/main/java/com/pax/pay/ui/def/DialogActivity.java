@@ -316,31 +316,22 @@ public class DialogActivity extends BaseAppCompatActivity implements IStatusList
                 showWarnDialog(wrapContext.getString(R.string.please_remove_card_quickly), false);
                 break;
             case CardStatus.CARD_INSERT_REQUIRED:
-                EventBusUtil.doEvent(new ClssLightEvent(ClssLightStatus.CLSS_LIGHT_BLUE_OFF));
-                EventBusUtil.doEvent(new ClssLightEvent(ClssLightStatus.CLSS_LIGHT_YELLOW_OFF));
-                EventBusUtil.doEvent(new ClssLightEvent(ClssLightStatus.CLSS_LIGHT_GREEN_OFF));
-                EventBusUtil.doEvent(new ClssLightEvent(ClssLightStatus.CLSS_LIGHT_RED_OFF));
+                EventBusUtil.doEvent(new ClssLightEvent(ClssLightStatus.CLSS_LIGHT_NOT_READY));
                 EventBusUtil.doEvent(new CardEvent(CardStatus.CARD_INSERT_REQUIRED));
                 showWarnDialog(wrapContext.getString(R.string.please_insert_chip_card), true);
                 break;
             case CardStatus.CARD_SWIPE_REQUIRED:
-                EventBusUtil.doEvent(new ClssLightEvent(ClssLightStatus.CLSS_LIGHT_BLUE_OFF));
-                EventBusUtil.doEvent(new ClssLightEvent(ClssLightStatus.CLSS_LIGHT_YELLOW_OFF));
-                EventBusUtil.doEvent(new ClssLightEvent(ClssLightStatus.CLSS_LIGHT_GREEN_OFF));
-                EventBusUtil.doEvent(new ClssLightEvent(ClssLightStatus.CLSS_LIGHT_RED_OFF));
+                EventBusUtil.doEvent(new ClssLightEvent(ClssLightStatus.CLSS_LIGHT_NOT_READY));
                 EventBusUtil.doEvent(new CardEvent(CardStatus.CARD_SWIPE_REQUIRED));
                 showWarnDialog(wrapContext.getString(R.string.please_swipe_card), true);
                 break;
             case CardStatus.CARD_TAP_REQUIRED:
-                EventBusUtil.doEvent(new ClssLightEvent(ClssLightStatus.CLSS_LIGHT_BLUE_ON));
-                EventBusUtil.doEvent(new ClssLightEvent(ClssLightStatus.CLSS_LIGHT_YELLOW_OFF));
-                EventBusUtil.doEvent(new ClssLightEvent(ClssLightStatus.CLSS_LIGHT_GREEN_OFF));
-                EventBusUtil.doEvent(new ClssLightEvent(ClssLightStatus.CLSS_LIGHT_RED_OFF));
+                EventBusUtil.doEvent(new ClssLightEvent(ClssLightStatus.CLSS_LIGHT_READY_FOR_TXN));
                 EventBusUtil.doEvent(new CardEvent(CardStatus.CARD_TAP_REQUIRED));
                 showWarnDialog(wrapContext.getString(R.string.please_tap_card), true);
                 break;
             case CardStatus.SEE_PHONE:
-                String prompts = intent.getStringExtra(CardStatus.PARAM_PROMPTS);
+                String prompts = intent.getStringExtra(StatusData.PARAM_PROMPTS);
                 if (TextUtils.isEmpty(prompts))
                     showWarnDialog(wrapContext.getString(R.string.please_see_phone), true); //Fix ANBP-385
                 else

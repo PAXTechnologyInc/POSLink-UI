@@ -1395,8 +1395,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <service android:name="com.pax.pay.ui.def.service.PlayerService"
-            android:exported="true" />
+<!--        <service android:name="com.pax.pay.ui.def.service.PlayerService"-->
+<!--            android:exported="true" />-->
 <!--        <activity-->
 <!--            android:name="com.pax.pay.ui.def.DisplayApproveMessageActivity"-->
 <!--            android:autoRemoveFromRecents="true"-->
@@ -1531,10 +1531,10 @@
             android:name="com.pax.pay.ui.def.receiver.PinStatusReceiver"
             android:exported="true">
             <intent-filter>
-                <action android:name="com,pax.us.pay.PIN_CLEARED" />
-                <action android:name="com,pax.us.pay.PIN_ENTER_COMPLETED" />
-                <action android:name="com,pax.us.pay.PIN_ENTER_ABORTED" />
-                <action android:name="com,pax.us.pay.PIN_ENTERING" />
+                <action android:name="com.pax.us.pay.PIN_CLEARED" />
+                <action android:name="com.pax.us.pay.PIN_ENTER_COMPLETED" />
+                <action android:name="com.pax.us.pay.PIN_ENTER_ABORTED" />
+                <action android:name="com.pax.us.pay.PIN_ENTERING" />
 
                 <category android:name="com.pax.us.pay.status.category.PIN" />
             </intent-filter>

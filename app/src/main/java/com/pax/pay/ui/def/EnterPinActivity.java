@@ -93,7 +93,7 @@ public class EnterPinActivity extends BaseAppActivity implements IMessageListene
         //ANFDRC-1000
         //setPrompt(getResources().getString(R.string.pls_input_pin), Gravity.CENTER);
         confirmBtnVisible = false;
-        showVirtualPinPad = false;
+        showVirtualPinPad = true;
 
         navBack = false;
         helper = new EnterPinHelper(this, new SecurityRespStatusImpl(this));

@@ -45,6 +45,7 @@ public class SearCardHelper extends BaseActionHelper {
         bundle.putInt(EntryRequest.PARAM_WIDTH, width);
         bundle.putInt(EntryRequest.PARAM_HEIGHT, height);
         bundle.putInt(EntryRequest.PARAM_FONT_SIZE, fontSize);
+        bundle.putString(EntryRequest.PARAM_COLOR, "#FF0000");
         super.setSecurityArea(bundle);
     }
 
@@ -86,7 +87,8 @@ public class SearCardHelper extends BaseActionHelper {
             ((ITapLogoListener) uiListener).onShowCardPay(
                     bundle.getBoolean(EntryExtraData.PARAM_ENABLE_APPLEPAY, false),
                     bundle.getBoolean(EntryExtraData.PARAM_ENABLE_GOOGLEPAY, false),
-                    bundle.getBoolean(EntryExtraData.PARAM_ENABLE_SUMSUNGPAY, false),
+                    bundle.getBoolean(EntryExtraData.PARAM_ENABLE_SAMSUNGPAY, false)
+                    || bundle.getBoolean("enableSumsungPay", false), //[ADJ-201]
                     bundle.getBoolean(EntryExtraData.PARAM_ENABLE_NFCPAY, false)
             );
         }
