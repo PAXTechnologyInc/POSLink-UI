@@ -101,13 +101,13 @@ public final class InformationStatus {
     public static final String DCC_ONLINE_FINISHED = "com.pax.us.pay.DCC_ONLINE_FINISHED";
 
     /**
-     * Broadcast Action: RKI Process begin<br>{@value #RKI_STARTED}<br>
+     * Broadcast Action: RKI Process begin (BroadPOS use only)<br>{@value #RKI_STARTED}<br>
      * <p>"Remote Key Injection, Processing..."</p>
      */
     public static final String RKI_STARTED = "com.pax.us.pay.RKI_STARTED";
 
     /**
-     * Broadcast Action: RKI Process end<br>{@value #RKI_FINISHED}<br>
+     * Broadcast Action: RKI Process end (BroadPOS use only)<br>{@value #RKI_FINISHED}<br>
      */
     public static final String RKI_FINISHED = "com.pax.us.pay.RKI_FINISHED";
 
