@@ -56,7 +56,7 @@ public class SecurityHelper extends BaseActionHelper {
         bundle.putInt(EntryRequest.PARAM_WIDTH, width);
         bundle.putInt(EntryRequest.PARAM_HEIGHT, height);
         bundle.putInt(EntryRequest.PARAM_FONT_SIZE, fontsize);
-        bundle.putString(EntryRequest.PARAM_COLOR, "#FF0000");
+        bundle.putString(EntryRequest.PARAM_COLOR, "FF0000");
         super.setSecurityArea(bundle);
     }
 

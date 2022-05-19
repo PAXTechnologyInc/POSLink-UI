@@ -33,7 +33,8 @@ public class SecurityStatusReceiver extends android.content.BroadcastReceiver {
 
         if (TextUtils.isEmpty(intent.getAction()))
             return;
-        Logger.d("receive broadcast :" + intent.getAction());
+//        Logger.d("receive broadcast :" + intent.getAction());
+        Logger.i("receive broadcast :" + intent.getAction());
         EventBusUtil.doEvent(new SecurityEvent(intent.getAction()));
 
     }

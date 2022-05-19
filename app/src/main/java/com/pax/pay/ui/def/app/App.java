@@ -59,7 +59,7 @@ public class App extends Application implements  Application.ActivityLifecycleCa
 
     private void initLog(Context context) {
         //Fix BPOSANDJAX-35
-        LogHelper.init("broadpos_log_manager", context.getExternalFilesDir(null).getAbsolutePath(), new LogHelper.LoggerCallback() {
+        LogHelper.init("PoslinkUIDemo_log", context.getExternalFilesDir(null).getAbsolutePath(), new LogHelper.LoggerCallback() {
             @Override
             public void onAppCrashed() {
             }
