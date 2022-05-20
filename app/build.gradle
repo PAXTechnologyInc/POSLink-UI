@@ -19,7 +19,7 @@ android {
         minSdkVersion _minSdkVersion.toInteger()
         targetSdkVersion _targetSdkVersion.toInteger()
         versionCode 22
-        versionName "1.00.01"
+        versionName "1.00.01_20220520"
 
         //manifestPlaceholders = [BroadPOSHostType:"main"]
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
