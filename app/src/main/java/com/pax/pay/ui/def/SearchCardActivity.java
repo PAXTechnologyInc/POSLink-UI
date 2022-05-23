@@ -680,7 +680,7 @@ public class SearchCardActivity extends BaseAppActivity implements SearCardHelpe
             barHeight = outRect1.top;  //statusBar's height
         }
         int fontSize = ViewUtils.px2sp(SearchCardActivity.this, cardNumEdt.getTextSize());
-        helper.setSecurityArea(x, y - barHeight, cardNumEdt.getWidth(), cardNumEdt.getHeight(), fontSize);
+        helper.setSecurityArea(x, y - barHeight, cardNumEdt.getWidth(), cardNumEdt.getHeight(), fontSize, "FF0000");
         Logger.d("search card "+x+','+y+','+barHeight);
     }
 

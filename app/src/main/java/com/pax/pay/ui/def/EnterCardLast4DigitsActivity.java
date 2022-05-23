@@ -42,7 +42,7 @@ public class EnterCardLast4DigitsActivity extends EnterSecurityInfoActivity impl
     @Override
     protected void sendNext(int offsetX, int offsetY, int width, int height) {
         int fontSize = ViewUtils.px2sp(this, mEditText.getTextSize());
-        helper.setSecurityArea(offsetX, offsetY, width, height, fontSize);
+        helper.setSecurityArea(offsetX, offsetY, width, height, fontSize, "FF0000");
     }
 
     @Override
