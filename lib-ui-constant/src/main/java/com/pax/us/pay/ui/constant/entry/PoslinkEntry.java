@@ -44,8 +44,8 @@ public final class PoslinkEntry {
      *     Output: {@link EntryRequest#PARAM_INDEX}- {@value EntryRequest#PARAM_INDEX} <br>
      *     Type: Integer<br>
      *     Example: <br>
-     *     if button1 is clicked, return 0,<br>
-     *     if button4 is clicked, return 3<br>
+     *     if button1 is clicked, return 1,<br>
+     *     if button4 is clicked, return 4<br>
      * </p>
      */
     public static final String ACTION_SHOW_DIALOG = "com.pax.us.pay.action.SHOW_DIALOG";
