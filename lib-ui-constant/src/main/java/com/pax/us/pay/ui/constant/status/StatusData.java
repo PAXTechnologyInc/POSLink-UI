@@ -148,4 +148,34 @@ public final class StatusData {
      * Otherwise the terminal should show the original credit sale success dialog
      */
     public static final String PARAM_DISPLAY_VISA_INSTALLMENT_APPROVAL = "displayVisaInstallmentApproval";
+
+    /**
+     * X coordinate
+     * <p>Type: Integer</p>
+     * <p>Unit: pixel</p>
+     */
+    public static final String PARAM_X = "x";
+    /**
+     * Y coordinate
+     * <p>Type: Integer</p>
+     * <p>Unit: pixel</p>
+     */
+    public static final String PARAM_Y = "y";
+
+    /**
+     * Width
+     * <p>Type: Integer</p>
+     * <p>Unit: pixel</p>
+     */
+    public static final String PARAM_WIDTH = "width";
+
+    /**
+     * Height
+     * <p>Type: Integer</p>
+     * <p>Unit: pixel</p>
+     */
+    public static final String PARAM_HEIGHT = "height";
+
+
+
 }
