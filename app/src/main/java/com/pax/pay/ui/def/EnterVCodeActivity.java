@@ -1,6 +1,6 @@
 package com.pax.pay.ui.def;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.pax.pay.ui.def.base.SecurityRespStatusImpl;
 import com.pax.us.pay.ui.core.helper.EnterVCodeHelper;
@@ -44,7 +44,7 @@ public class EnterVCodeActivity extends EnterSecurityInfoActivity implements Ent
     @Override
     protected void sendNext(int offsetX, int offsetY, int width, int height) {
         int fontSize = ViewUtils.px2sp(this, mEditText.getTextSize());
-        helper.setSecurityArea(offsetX, offsetY, width, height, fontSize);
+        helper.setSecurityArea(offsetX, offsetY, width, height, fontSize, "FF0000");
     }
 
     @Override

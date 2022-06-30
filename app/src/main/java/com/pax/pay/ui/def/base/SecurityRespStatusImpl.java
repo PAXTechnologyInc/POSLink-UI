@@ -3,7 +3,8 @@ package com.pax.pay.ui.def.base;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.Nullable;
 
 import com.pax.pay.ui.def.R;
 import com.pax.pay.ui.def.utils.UIControl;

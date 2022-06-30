@@ -1,0 +1,13 @@
+<resources>
+    <dimen name="font_prompt_message">20sp</dimen>
+    <dimen name="cashback_option_font_size">35sp</dimen>
+    <dimen name="cashback_button_font_size">25sp</dimen>
+    <dimen name="font_size_smaller">15sp</dimen>
+    <dimen name="font_size_small">17sp</dimen>
+    <dimen name="font_size_large">20sp</dimen>
+    <dimen name="font_size_larger_def">25sp</dimen>
+
+    <dimen name="font_size_tip_small">17sp</dimen>
+    <dimen name="font_size_tip_normal">20sp</dimen>
+    <dimen name="font_size_tip_large">25sp</dimen>
+</resources>

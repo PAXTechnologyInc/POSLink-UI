@@ -1,7 +1,8 @@
 package com.pax.pay.ui.def;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.pax.pay.ui.def.eventbus.EventBusUtil;
 import com.pax.pay.ui.def.eventbus.TransparentActivityEndEvent;

@@ -1,7 +1,9 @@
 package com.pax.pay.ui.def.recyclerview;
 
 import android.graphics.Rect;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.View;
 
 
@@ -11,9 +13,9 @@ import android.view.View;
 
 public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
 
-    private final int spanCount;
-    private final int spacing;
-    private final boolean includeEdge;
+    private int spanCount;
+    private int spacing;
+    private boolean includeEdge;
 
     public GridSpacingItemDecoration(int spanCount, int spacing, boolean includeEdge) {
         this.spanCount = spanCount;

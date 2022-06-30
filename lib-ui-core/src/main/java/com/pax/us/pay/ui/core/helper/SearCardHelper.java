@@ -1,8 +1,8 @@
 package com.pax.us.pay.ui.core.helper;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.pax.us.pay.ui.constant.entry.EntryExtraData;
 import com.pax.us.pay.ui.constant.entry.EntryRequest;
@@ -48,6 +48,17 @@ public class SearCardHelper extends BaseActionHelper {
         super.setSecurityArea(bundle);
     }
 
+    public void setSecurityArea(int x, int y, int width, int height, int fontSize, String color) {
+        Bundle bundle = new Bundle();
+        bundle.putInt(EntryRequest.PARAM_X, x);
+        bundle.putInt(EntryRequest.PARAM_Y, y);
+        bundle.putInt(EntryRequest.PARAM_WIDTH, width);
+        bundle.putInt(EntryRequest.PARAM_HEIGHT, height);
+        bundle.putInt(EntryRequest.PARAM_FONT_SIZE, fontSize);
+        bundle.putString(EntryRequest.PARAM_COLOR, color);
+        super.setSecurityArea(bundle);
+    }
+
     @Override
     protected void showUI(@Nullable IUIListener uiListener, @NonNull Bundle bundle) {
         super.showUI(uiListener, bundle);
@@ -86,7 +97,8 @@ public class SearCardHelper extends BaseActionHelper {
             ((ITapLogoListener) uiListener).onShowCardPay(
                     bundle.getBoolean(EntryExtraData.PARAM_ENABLE_APPLEPAY, false),
                     bundle.getBoolean(EntryExtraData.PARAM_ENABLE_GOOGLEPAY, false),
-                    bundle.getBoolean(EntryExtraData.PARAM_ENABLE_SUMSUNGPAY, false),
+                    bundle.getBoolean(EntryExtraData.PARAM_ENABLE_SAMSUNGPAY, false)
+                    || bundle.getBoolean("enableSumsungPay", false), //[ADJ-201]
                     bundle.getBoolean(EntryExtraData.PARAM_ENABLE_NFCPAY, false)
             );
         }

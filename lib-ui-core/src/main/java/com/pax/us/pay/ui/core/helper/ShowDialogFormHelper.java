@@ -1,7 +1,7 @@
 package com.pax.us.pay.ui.core.helper;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.text.TextUtils;
 
 import com.pax.us.pay.ui.constant.entry.EntryRequest;

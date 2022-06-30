@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/installment_button"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/sub"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:background="@drawable/round_corner_text_view"
+        android:textAllCaps="false"
+        android:textColor="@color/visa_display_plan_font_color_03"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/main"
+        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_weight="3"
+        android:gravity= "center_horizontal"
+        android:textAllCaps="false"
+        android:textColor="@color/visa_display_plan_font_color_03"
+        android:textStyle="bold"/>
+
+</LinearLayout>

@@ -18,7 +18,11 @@ public class ProcessDialog extends Dialog {
     private String mContent;
     //    private TextView mTitleTextView;
     private TextView mContentTextView;
-    private final ProgressHelper mProgressHelper; //Not Used?
+    private ProgressHelper mProgressHelper; //Not Used?
+
+    public ProcessDialog(Context context, String content) {
+        this(context, content, null);
+    }
 
     public ProcessDialog(Context context, String content, OnCancelListener cancellable) {
         super(context, R.style.PaxTheme_AlertDialog);
@@ -31,7 +35,7 @@ public class ProcessDialog extends Dialog {
         }
         setCanceledOnTouchOutside(false);
 
-//        mTitle = title;
+        //        mTitle = title;
         mContent = content;
         mProgressHelper = new ProgressHelper(context);
 
@@ -45,7 +49,6 @@ public class ProcessDialog extends Dialog {
         if (window == null)
             return;
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-
 //        mTitleTextView = findViewById(R.id.title_text);
         mContentTextView = findViewById(R.id.content_text);
         Button mCancelBtn = findViewById(R.id.cancel_button);
@@ -61,7 +64,6 @@ public class ProcessDialog extends Dialog {
 //        setTitle(mTitle);
         setContent(mContent);
     }
-
 
     public void setContent(String content) {
         this.mContent = content;

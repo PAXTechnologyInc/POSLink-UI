@@ -1,5 +1,7 @@
 package com.paxus.view.widget.keyboard;
 
+import static android.content.Context.AUDIO_SERVICE;
+
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -8,25 +10,25 @@ import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
-import android.inputmethodservice.Keyboard;
-import android.inputmethodservice.KeyboardView;
 import android.media.AudioManager;
+import android.os.Build;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.Selection;
 import android.text.TextPaint;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
+import com.paxus.inputmethodservice.Keyboard;
+import com.paxus.inputmethodservice.KeyboardView;
 import com.paxus.view.R;
 import com.paxus.view.utils.ViewUtils;
 
-import java.lang.reflect.Method;
 import java.math.BigDecimal;
 import java.util.List;
-
-import static android.content.Context.AUDIO_SERVICE;
 
 /**
  * Created by Yanina.Yang on 2/26/2021.
@@ -44,12 +46,13 @@ public class PaxKeyboardView extends KeyboardView implements KeyboardView.OnKeyb
         this.mContext = context;
         initialize();
     }
-    public static final int TYPE_MASK_CLASS = 0x0000000f;
-    public static final int TYPE_CLASS_TEXT = 0x00000001;
-    public static final int TYPE_CLASS_NUMBER = 0x00000002;
 
-    public static final int TYPE_MASK_FLAGS = 0x00fff000;
-    public static final int TYPE_TEXT_FLAG_SYMBOLS = 0x00001000;
+    public static final int TYPE_MASK_CLASS = InputType.TYPE_MASK_CLASS;
+    public static final int TYPE_CLASS_TEXT = InputType.TYPE_CLASS_TEXT;
+    public static final int TYPE_CLASS_NUMBER = InputType.TYPE_CLASS_NUMBER;
+
+    public static final int TYPE_MASK_FLAGS = InputType.TYPE_MASK_FLAGS;
+    public static final int TYPE_TEXT_FLAG_SYMBOLS = TextUtils.CAP_MODE_CHARACTERS;
 
     private int mInputType = TYPE_CLASS_TEXT;
 
@@ -63,24 +66,15 @@ public class PaxKeyboardView extends KeyboardView implements KeyboardView.OnKeyb
         return keyBoard;
     }
 
-    public void bindEditText(EditText[] editTexts){
+    public void bindEditText(EditText[] editTexts) {
         this.mEditTexts = editTexts;
-        if(this.mEditTexts != null){
-            try {
-                Class<EditText> cls = EditText.class;
-                Method method = cls.getMethod("setShowSoftInputOnFocus", boolean.class);
-                if (method != null) {
-                    method.setAccessible(true);
-                    for(EditText editText:editTexts) {
-                        method.invoke(editText, false);
-                    }
-                }
-            }catch (Exception e){
-                e.printStackTrace();
+        if (this.mEditTexts != null) {
+            for (EditText editText : editTexts) {
+                editText.setShowSoftInputOnFocus(false);
             }
-            for(EditText editText:editTexts){
+            for (EditText editText : editTexts) {
                 editText.setOnFocusChangeListener((v, hasFocus) -> {
-                    if(hasFocus && getFocusedEditText() != null){
+                    if (hasFocus && getFocusedEditText() != null) {
                         showKeyboard();
                     }
                 });
@@ -104,8 +98,8 @@ public class PaxKeyboardView extends KeyboardView implements KeyboardView.OnKeyb
     }
 
     private void initialize() {
-        vSpecLength = ViewUtils.dp2px(mContext, 3);
-        hSpecLength = ViewUtils.dp2px(mContext, 3);
+        vSpecLength = ViewUtils.dp2px(mContext, 4);
+        hSpecLength = ViewUtils.dp2px(mContext, 4);
 
         numberPaint = new TextPaint();
         numberPaint.setColor(Color.BLACK);
@@ -137,9 +131,9 @@ public class PaxKeyboardView extends KeyboardView implements KeyboardView.OnKeyb
         }
         List<Keyboard.Key> keys = getKeyboard().getKeys();
         Keyboard.Key lastKey = keys.get(keys.size()-1);
-        int w = lastKey.x+lastKey.width + hSpecLength;
+//        int w = lastKey.x+lastKey.width + hSpecLength;
         int h = lastKey.y+lastKey.height+ vSpecLength;
-        setMeasuredDimension(w,h);
+        setMeasuredDimension(widthMeasureSpec,h);
 
     }
 
@@ -147,15 +141,15 @@ public class PaxKeyboardView extends KeyboardView implements KeyboardView.OnKeyb
         //Keyboard keyBoard;
         int inputClass = mInputType & TYPE_MASK_CLASS;
         int flag = mInputType & TYPE_MASK_FLAGS;
-        if(inputClass == TYPE_CLASS_TEXT){
-            if(flag == TYPE_TEXT_FLAG_SYMBOLS){
+        if (inputClass == TYPE_CLASS_TEXT) {
+            if (flag == TYPE_TEXT_FLAG_SYMBOLS) {
                 keyBoard = new Keyboard(mContext, R.xml.pax_special_character_keyboard, 0);
-            }else {
+            } else {
                 keyBoard = new Keyboard(mContext, R.xml.pax_alpha_keyboard, 0);
             }
-        }else if(inputClass == TYPE_CLASS_NUMBER){
+        } else if (inputClass == TYPE_CLASS_NUMBER) {
             keyBoard = new Keyboard(mContext, R.xml.pax_other_keyboard_num, 0);
-        }else {
+        } else {
             return;
         }
 
@@ -163,9 +157,25 @@ public class PaxKeyboardView extends KeyboardView implements KeyboardView.OnKeyb
 
         List<Keyboard.Key> keys = keyBoard.getKeys();
 
-        for(Keyboard.Key key:keys){
-            key.x += hSpecLength/2;
-            key.y += vSpecLength/2;
+        int padding = 0;
+
+        // FIXME Kim.L I guess all PAX landscape terminals have this bug on scaled display size,
+        //  not just on Aries8.
+        //  The width misses to plus size of nav bar, even the system keyboard.
+
+        // center_horizontal
+        if ("Aries8".equals(Build.MODEL)) {
+            Keyboard.Key lastKey = keys.get(keys.size() - 1);
+            int screenWidth = 1280; // Ar8 bug, the system keyboard cannot fill the screen either when display size is not default
+            padding = (screenWidth - lastKey.x - lastKey.width - hSpecLength) / 2;
+            if (padding < 0)
+                padding = 0;
+        }
+
+        for (Keyboard.Key key : keys) {
+//            key.x += hSpecLength/2;
+            key.x += padding;
+            key.y += vSpecLength / 2;
         }
     }
 

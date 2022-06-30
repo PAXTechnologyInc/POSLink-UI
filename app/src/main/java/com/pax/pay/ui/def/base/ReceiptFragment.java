@@ -7,8 +7,6 @@ import android.graphics.Color;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.os.Looper;
-import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,8 +14,11 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.widget.ImageView;
 
+import androidx.fragment.app.Fragment;
+
 import com.pax.pay.ui.def.R;
 import com.pax.pay.ui.def.view.ClssLightsView;
+import com.paxus.utils.log.Logger;
 
 import java.util.Observable;
 import java.util.Observer;
@@ -66,7 +67,7 @@ public class ReceiptFragment extends Fragment implements Observer {
         if (arg instanceof Bitmap) {
             try {
                 Bitmap map = (Bitmap) arg;
-                Log.i("ReceiptFragment", "Update Bitmap");
+                Logger.d( "Update Bitmap");
 
                 if (getActivity() != null) {
                     Display display = getActivity().getWindowManager().getDefaultDisplay();
@@ -107,7 +108,7 @@ public class ReceiptFragment extends Fragment implements Observer {
             }
         } else if (arg instanceof Boolean) {
             lightFlag = (Boolean) arg;
-            Log.i("ReceiptFragment", "Update lightFlag = " + lightFlag);
+            Logger.d("Update lightFlag = " + lightFlag);
         }
 //        else if (arg instanceof SearchCardEvent.Status) {
 //            SearchCardEvent.Status lightStatus = (SearchCardEvent.Status) arg;
@@ -137,7 +138,7 @@ public class ReceiptFragment extends Fragment implements Observer {
         canvas.drawColor(Color.WHITE);
         canvas.drawBitmap(bitmap, 0, 0, null);
         // 保存
-        canvas.save(Canvas.ALL_SAVE_FLAG);
+        canvas.save(/*Canvas.ALL_SAVE_FLAG*/);
         // 存储
         canvas.restore();
         return map;

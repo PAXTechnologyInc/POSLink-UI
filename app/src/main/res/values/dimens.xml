@@ -25,11 +25,17 @@
     <dimen name="ui_text_size_8">8sp</dimen>
     <dimen name="ui_text_size_10">10sp</dimen>
     <dimen name="ui_text_size_12">12sp</dimen>
+    <dimen name="ui_text_size_14">14sp</dimen>
     <dimen name="ui_text_size_16">16sp</dimen>
     <dimen name="ui_text_size_18">18sp</dimen>
     <dimen name="ui_text_size_20">20sp</dimen>
     <dimen name="ui_text_size_25">25sp</dimen>
+    <dimen name="ui_text_size_30">30sp</dimen>
 
     <dimen name="ui_font_size_normal">20sp</dimen>
+
+    <dimen name="visa_installment_side_margin_small">25dp</dimen>
+    <dimen name="visa_installment_side_margin_large">50dp</dimen>
+    <dimen name="visa_installment_terms_and_conditions_line_height">18px</dimen>
 
 </resources>

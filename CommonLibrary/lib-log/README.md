@@ -1,11 +1,8 @@
 ## log(android lib)
 Adapter design log component, depends on com.orhanobut:logger
 ### build
-to turn on/off output BroadPOS log through logcat in release build, please add/delete `debuggable true` in buildTypes of .app build.gradle file and comment/uncomment class android.util.Log and class java.io.PrintStream in .app proguard-rules.pro.</br>
+to turn on/off output BroadPOS log through logcat in release build, please comment/uncomment public static int println(...) of class android.util.Log.</br>
 e.g. for BroadPOS-FDRC</br>
-gradle location: `BroadPOS-FDRC\FDRC\fdrc.app\build.gradle`</br>
-debuggable location: `android -> buildTypes -> release`</br>
-proguard location: `BroadPOS-FDRC\FDRC\fdrc.app\proguard-rules.pro`</br>
+proguard location: `BroadPOS-FDRC\FDRC\fdrc.app\proguard-rules.pro -> class android.util.Log.`</br>
 
-Add `debuggable true` to open output BroadPOS log through logcat in release build. Delete it to close.</br>
-Comment class android.util.Log and class java.io.PrintStream in proguard-rules.pro to open output BroadPOS log through logcat. Uncomment it to close.
+Comment public static int println(...) to turn on output BroadPOS log through logcat in release, uncomment it to close.

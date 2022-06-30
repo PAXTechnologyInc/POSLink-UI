@@ -3,8 +3,10 @@ package com.paxus.view.utils;
 import android.app.Activity;
 import android.content.pm.ActivityInfo;
 import android.hardware.SensorManager;
-import android.support.annotation.IntDef;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.IntDef;
+import androidx.annotation.NonNull;
+
 import android.view.OrientationEventListener;
 
 import java.lang.annotation.Retention;

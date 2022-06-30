@@ -25,6 +25,9 @@ public class DisplayTransInfoUtils {
 
     private final ArrayList<HashMap<String, String>> columns = new ArrayList<>();
 
+    public DisplayTransInfoUtils(){
+        DisplayInfoContent.init_trans_map();
+    }
     public DisplayTransInfoUtils(ViewGroup viewGroup, String[] key, String[] value, ShowType showType) {
         DisplayInfoContent.init_trans_map();
         switch (showType) {

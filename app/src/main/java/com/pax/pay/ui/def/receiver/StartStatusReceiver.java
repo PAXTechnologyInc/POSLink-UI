@@ -22,10 +22,10 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.pax.pay.ui.def.expand.ContentResolver;
 import com.pax.pay.ui.def.utils.UIControl;
+import com.paxus.utils.log.Logger;
 
 public class StartStatusReceiver extends BroadcastReceiver {
 
@@ -33,7 +33,7 @@ public class StartStatusReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
 
         if (!TextUtils.isEmpty(intent.getAction())) {
-            Log.i("StatusReceiver", "receive start broadcast :" + intent.getAction());
+            Logger.d( "receive start broadcast :" + intent.getAction());
             UIControl.getInstance().setTransStarted(true);
         }
         ContentResolver.getInstance().clearPreference(context);

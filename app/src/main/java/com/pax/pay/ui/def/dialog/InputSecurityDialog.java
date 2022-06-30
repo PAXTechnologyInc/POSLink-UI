@@ -16,8 +16,11 @@ package com.pax.pay.ui.def.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.res.Resources;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.InputFilter;
+import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
@@ -26,6 +29,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.pax.pay.ui.def.R;
+import com.paxus.view.utils.ViewUtils;
 import com.paxus.view.widget.keyboard.PaxKeyboardView;
 
 public class InputSecurityDialog extends Dialog {
@@ -34,10 +38,7 @@ public class InputSecurityDialog extends Dialog {
 
     private EditText pwdEdt;
     private int maxLength;
-    private View convertView;
-
-
-    //private OnPwdListener listener;
+    private boolean first = true;
 
     public InputSecurityDialog(Context context, int length, String title) {
         this(context, R.style.PaxTheme_PopupDialog);
@@ -50,16 +51,11 @@ public class InputSecurityDialog extends Dialog {
 
     }
 
-
-    public View getConvertView() {
-        return convertView;
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        convertView = getLayoutInflater().inflate(R.layout.activity_inner_pwd_layout, null);
+        View convertView = getLayoutInflater().inflate(R.layout.activity_inner_pwd_layout, null);
         setContentView(convertView);
         if (getWindow() == null) {
             return;
@@ -78,25 +74,18 @@ public class InputSecurityDialog extends Dialog {
         TextView titleTv = view.findViewById(R.id.prompt_title);
         titleTv.setText(title);
 
-//        TextView subtitleTv = view.findViewById(R.id.prompt_no_pwd);
-//        if (prompt != null) {
-//            subtitleTv.setText(prompt);
-//        } else {
-//            subtitleTv.setVisibility(View.GONE);
-//        }
-
         TextView pwdTv = view.findViewById(R.id.pwd_input_text);
         pwdTv.setVisibility(View.GONE);
 
         pwdEdt = view.findViewById(R.id.pwd_input_et);
         pwdEdt.setEnabled(false);
+        pwdEdt.setFocusable(false);
         pwdEdt.setFilters(new InputFilter[]{new InputFilter.LengthFilter(maxLength)});
-
         //final Keyboard keyboard = new Keyboard(view.getContext(), R.xml.pax_alpha_keyboard);
 
         PaxKeyboardView keyboardView = (PaxKeyboardView) view.findViewById(R.id.pwd_keyboard);
         keyboardView.setInputType(PaxKeyboardView.TYPE_CLASS_TEXT);
-        keyboardView.bindEditText(new EditText[]{pwdEdt});
+        //keyboardView.bindEditText(new EditText[]{pwdEdt});//Fix APMN-247
         //KeyboardUtils.bind(keyboardView, new KeyboardUtils(view.getContext(), keyboard, pwdEdt));
         //set keyboardView onKey action to do nothing
 //        keyboardView.setOnKeyboardActionListener(new KeyboardView.OnKeyboardActionListener() {
@@ -144,4 +133,38 @@ public class InputSecurityDialog extends Dialog {
 
     }
 
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if(first && hasFocus){
+            first = false;
+            DisplayMetrics metrics = Resources.getSystem().getDisplayMetrics();
+            if ("Aries6".equals(Build.MODEL) && metrics.density > 1.6f ) {
+                View view = findViewById(R.id.layout_pwd_dialog);
+                int dialogHeight = view.getMeasuredHeight();
+                DisplayMetrics screen = new DisplayMetrics();
+                Window window = getWindow();
+                window.getWindowManager().getDefaultDisplay().getRealMetrics(screen);
+
+                int navigateBarHeight = screen.heightPixels - metrics.heightPixels;
+                int origNavBardHeight = getNavigationBarHeight(getContext());
+                int offset = navigateBarHeight - origNavBardHeight;
+
+                WindowManager.LayoutParams lp = window.getAttributes();
+
+                lp.height = dialogHeight+offset+6;
+                window.setAttributes(lp);
+            }
+        }
+    }
+
+    private int getNavigationBarHeight(Context context) {
+        int navigationBarHeight = -1;
+        Resources resources = context.getResources();
+        int resourceId = resources.getIdentifier("navigation_bar_height","dimen", "android");
+        if (resourceId > 0) {
+            navigationBarHeight = resources.getDimensionPixelSize(resourceId);
+        }
+        return navigationBarHeight;
+    }
 }

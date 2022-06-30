@@ -391,6 +391,14 @@ public enum CurrencyCode {
         return null;
     }
 
+    public static CurrencyCode findTypeByCurrencyCode(int currencyCode) {
+        for (CurrencyCode type : CurrencyCode.values()) {
+            if (type.getCurrencyCode() == currencyCode)
+                return type;
+        }
+        return null;
+    }
+
     public String getCurrencyName() {
         return currencyName;
     }

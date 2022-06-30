@@ -33,12 +33,12 @@ public class Rotate3dAnimation extends Animation {
     private int mPivotYType = ABSOLUTE;
     private float mPivotXValue = 0.0f;
     private float mPivotYValue = 0.0f;
-    private final float mFromDegrees;
-    private final float mToDegrees;
+    private float mFromDegrees;
+    private float mToDegrees;
     private float mPivotX;
     private float mPivotY;
     private Camera mCamera;
-    private final int mRollType;
+    private int mRollType;
 
     public Rotate3dAnimation(Context context, AttributeSet attrs) {
         super(context, attrs);

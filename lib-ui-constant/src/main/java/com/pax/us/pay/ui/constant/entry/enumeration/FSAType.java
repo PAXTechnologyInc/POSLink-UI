@@ -1,7 +1,13 @@
 package com.pax.us.pay.ui.constant.entry.enumeration;
 
-public enum FSAType {
-    // flexible spending accounts (FSA) and health savings account (HSA)
-    HealthCare, //HSA
-    Transit, //FSA
+
+/**
+ * Created by Yanina.Yang on 5/4/2022.
+ */
+public final class FSAType {
+    private FSAType(){
+
+    }
+    public static final String HEALTH_CARE = "HealthCare"; //HSA
+    public static final String TRANSIT = "Transit"; //FSA
 }

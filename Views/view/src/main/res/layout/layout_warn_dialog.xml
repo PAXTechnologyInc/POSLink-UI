@@ -15,7 +15,6 @@
         android:layout_marginTop="@dimen/dialog_vertical_space"
         android:contentDescription="@string/img_desc"
         android:scaleType="fitCenter"
-        android:visibility="gone"
         android:src="@mipmap/warn_icon" />
 
     <TextView
@@ -25,7 +24,7 @@
         android:layout_marginTop="@dimen/dialog_vertical_space"
         android:gravity="center_horizontal"
         android:textColor="@color/primary_text_light"
-        android:textSize="@dimen/font_dialog_title"
+        android:textSize="@dimen/font_dialog_prompt"
         android:visibility="gone" />
 
     <TextView

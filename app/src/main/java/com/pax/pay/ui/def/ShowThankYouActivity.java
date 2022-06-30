@@ -2,22 +2,25 @@ package com.pax.pay.ui.def;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
+
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+
 import android.util.TypedValue;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.pax.pay.ui.def.base.BaseStackActivity;
-import com.pax.pay.ui.def.utils.TextController;
-import com.pax.us.pay.ui.component.utils.TickTimer;
+import com.pax.pay.ui.def.poslink.TextController;
+import com.pax.pay.ui.def.poslink.print.PrintDataItem;
 import com.pax.us.pay.ui.constant.entry.EntryExtraData;
 import com.pax.us.pay.ui.core.api.IRespStatus;
 import com.pax.us.pay.ui.core.helper.ShowOnlyHelper;
 import com.paxus.utils.StringUtils;
-import com.paxus.utils.log.Logger;
 
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Created by ZZ on 8/20/2020
@@ -31,12 +34,12 @@ public class ShowThankYouActivity extends BaseStackActivity implements ShowOnlyH
     String titleStr;
     String msg1;
     String msg2;
-    private TickTimer tickTimer;
-    int timeout;
+    private Timer timer;
     LinearLayout title;
     LinearLayout line1;
     LinearLayout line2;
-    private boolean isNoBlocking;
+    private boolean continuousScreen;
+    private boolean noBlocking;
     private LinearLayout.LayoutParams lp;
 
 
@@ -48,27 +51,19 @@ public class ShowThankYouActivity extends BaseStackActivity implements ShowOnlyH
     @Override
     protected void initViews() {
 
-
-        if (timeout <= 0) {
-            setTextView(TextController.getViewList(this, titleStr, lp), title, TITLE_TAG);
-            //EventBusUtil.doEvent(new POSLinkManagerUIEvent(POSLinkManagerUIEvent.Status.EVENT_UI_POSLINK_SUCCESS, null));
+        if (StringUtils.isEmpty(titleStr) && StringUtils.isEmpty(msg1)
+                && StringUtils.isEmpty(msg2)) {
+            setTextView(TextController.getViewList(this, getResources().getText(R.string.thx_show_message_context).toString(), lp), line1, MESSAGE_TAG);
         } else {
-            if (StringUtils.isEmpty(titleStr) && StringUtils.isEmpty(msg1)
-                    && StringUtils.isEmpty(msg2)) {
-                setTextView(TextController.getViewList(this, getResources().getText(R.string.thx_show_message_context).toString(), lp), line1, MESSAGE_TAG);
-            } else {
-                setTextView(TextController.getViewList(this, titleStr, lp), title, TITLE_TAG);
-                setTextView(TextController.getViewList(this, msg1, lp), line1, MESSAGE_TAG);
-                setTextView(TextController.getViewList(this, msg2, lp), line2, MESSAGE_TAG);
-            }
+            setTextView(TextController.getTitleViewList(this, titleStr, lp), title, TITLE_TAG);
+            setTextView(TextController.getViewList(this, msg1, lp), line1, MESSAGE_TAG);
+            setTextView(TextController.getViewList(this, msg2, lp), line2, MESSAGE_TAG);
         }
     }
 
     @Override
     protected void loadParam() {
-        createTimer();
-        tickTimer.start(getTickTimeout());
-
+        super.loadParam();
         title = findViewById(R.id.thx_msg_title);
         line1 = findViewById(R.id.thx_msg_01);
         line2 = findViewById(R.id.thx_msg_02);
@@ -76,27 +71,36 @@ public class ShowThankYouActivity extends BaseStackActivity implements ShowOnlyH
         lp = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1);
 
         Bundle bundle = getIntent().getExtras();
-        try {
-            titleStr = bundle.getString(EntryExtraData.PARAM_TITLE);
-            msg1 = bundle.getString(EntryExtraData.PARAM_MESSAGE_1);
-            msg2 = bundle.getString(EntryExtraData.PARAM_MESSAGE_2);
-        } catch (Exception e) {
-            Logger.e(e);
-            titleStr = null;
-            msg1 = null;
-            msg2 = null;
+        continuousScreen = false;
+        long timeoutMs = -1;
+        stopTimer();
+
+        titleStr = null;
+        msg1 = null;
+        msg2 = null;
+        if(bundle != null) {
+            titleStr = bundle.getString(EntryExtraData.PARAM_TITLE, getResources().getString(R.string.title_default));
+            msg1 = bundle.getString(EntryExtraData.PARAM_MESSAGE_1, getResources().getString(R.string.msg_1_default));
+            if (!msg1.startsWith(PrintDataItem.RIGHT_ALIGN) &&
+                    !msg1.startsWith(PrintDataItem.LEFT_ALIGN) &&
+                    !msg1.startsWith(PrintDataItem.CENTER_ALIGN))
+                msg1 = PrintDataItem.CENTER_ALIGN + msg1;
+            msg2 = bundle.getString(EntryExtraData.PARAM_MESSAGE_2, getResources().getString(R.string.msg_2_default));
+            if (!msg2.startsWith(PrintDataItem.RIGHT_ALIGN) &&
+                    !msg2.startsWith(PrintDataItem.LEFT_ALIGN) &&
+                    !msg2.startsWith(PrintDataItem.CENTER_ALIGN))
+                msg2 = PrintDataItem.CENTER_ALIGN + msg2;
+            timeoutMs = bundle.getLong(EntryExtraData.PARAM_TIMEOUT, -1L);
+            if(timeoutMs == 0){
+                continuousScreen = true;
+                noBlocking = true;
+            }
         }
 
+
+        startTimer(timeoutMs);
         helper = new ShowOnlyHelper(this, new PoslinkRespStatusImpl());
 
-    }
-
-    @Override
-    public void onWindowFocusChanged(boolean hasFocus) {
-        if(hasFocus && timeout <= 0){
-            tickTimerStop();
-            helper.sendNext();
-        }
     }
 
     private void setTextView(List<TextView> viewList, LinearLayout msgLayout, String tag) {
@@ -116,66 +120,9 @@ public class ShowThankYouActivity extends BaseStackActivity implements ShowOnlyH
     }
 
 
-    private void createTimer() {
-        tickTimer = new TickTimer(new TickTimer.OnTickTimerListener() {
-            @Override
-            public void onFinish() {
-                onTimerFinish();
-            }
-
-            @Override
-            public void onTick(long leftTime) {
-                timeOnTick(leftTime);
-            }
-        });
-    }
-
-    protected void timeOnTick(long leftTime) {
-     }
-
-//    protected long getTickTimeout() {
-//        if (timeout < 0) {
-//            isNoBlocking = true;
-//        }
-//
-//        return timeout <= 1 ? timeout : timeout / 1000;
-//    }
-
-
-    protected void restartTimer() {
-        tickTimerStop();
-        createTimer();
-        tickTimer.start(getTickTimeout());
-    }
-
-    public void tickTimerStop() {
-        if (tickTimer != null) {
-            tickTimer.stop();
-            tickTimer = null;
-        }
-    }
-
-    protected void onTimerFinish() {
-        if (timeout <= 0) {
-            return;
-        }
-        tickTimerStop();
-        helper.sendNext();
-        if (!isNoBlocking) {
-            finish();
-        }
-    }
-
     @Override
     protected boolean onKeyBackDown() {
-        tickTimerStop();
-        helper.sendAbort();
-        //EventBusUtil.doEvent(new POSLinkManagerUIEvent(POSLinkManagerUIEvent.Status.EVENT_UI_POSLINK_ABORT, null));
-        tickTimerStop();
-        if (!isNoBlocking) {
-            finish();
-        }
-
+        onAbort();
         return true;
     }
 
@@ -189,32 +136,6 @@ public class ShowThankYouActivity extends BaseStackActivity implements ShowOnlyH
 
     }
 
-    protected long getTickTimeout() {
-        timeout = -1;
-        if (getIntent().getExtras() != null && getIntent().getExtras().containsKey(EntryExtraData.PARAM_TIMEOUT)) {
-            long time = getIntent().getExtras().getLong(EntryExtraData.PARAM_TIMEOUT, -1L);
-            timeout = (int)(time/1000l);
-        }
-
-        if (timeout <= 0) {
-            isNoBlocking = true;
-        }
-
-        return timeout;
-    }
-
-//    @Override
-//    protected void onStart() {
-//        helper.start(this, getIntent());
-//        super.onStart();
-//    }
-//
-//    @Override
-//    protected void onStop() {
-//        helper.stop();
-//        super.onStop();
-//    }
-
     @Override
     public void finish() {
         helper.stop();
@@ -226,26 +147,63 @@ public class ShowThankYouActivity extends BaseStackActivity implements ShowOnlyH
     @Override
     public void onStartHelper() {
         helper.start(this, getIntent());
+        if(noBlocking){
+            helper.sendNext();
+        }
     }
 
     @Override
     public void onAbortHelper() {
-        helper.sendAbort();
+        onAbort();
         finish();
+    }
+
+    private void startTimer(long timeoutMs) {
+        if(timeoutMs > 0) {
+            stopTimer();
+            timer = new Timer();
+            timer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    onTimeout();
+                }
+            }, timeoutMs);
+        }
+    }
+
+    private void stopTimer(){
+        if(timer != null){
+            timer.cancel();
+            timer = null;
+        }
+    }
+    private void onTimeout(){
+        stopTimer();
+        helper.sendTimeout();
+        if (!continuousScreen) {
+            finish();
+        }
+    }
+    private void onAbort(){
+        stopTimer();
+        helper.sendAbort();
+        if (!continuousScreen) {
+            finish();
+        }
     }
 
     private class PoslinkRespStatusImpl implements IRespStatus {
 
         @Override
         public void onAccepted() {
-            if (!isNoBlocking) {
+            if (!continuousScreen) {
                 finish();
             }
         }
 
         @Override
         public void onDeclined(long code, @Nullable String message) {
-            if (!isNoBlocking) {
+            if (!continuousScreen) {
                 finish();
             }
         }

@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.text.TextUtils;
 
+import com.pax.pay.ui.def.R;
 import com.pax.pay.ui.def.constant.CardContext;
 import com.pax.pay.ui.def.constant.EdcContext;
 import com.pax.pay.ui.def.constant.EdcTransContract;
@@ -13,6 +14,7 @@ import com.pax.pay.ui.def.constant.EntryMode;
 import com.pax.pay.ui.def.constant.StoreForwardContext;
 import com.pax.pay.ui.def.constant.TransContext;
 import com.pax.us.pay.ui.message.CurrencyConverter;
+import com.paxus.utils.CollectionUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -29,7 +31,6 @@ public class DataProviderUtils {
             EdcTransContract.CommonTrans.TRANS_NUMBER,
             EdcTransContract.CommonTrans.PAN,
             EdcTransContract.CommonTrans.ENTRY_MODE,
-            EdcTransContract.CommonTrans.EMV_CARD_SRQ_NUM,
             EdcTransContract.CommonTrans.BASE_AMOUNT,
             EdcTransContract.CommonTrans.TIP0,
             EdcTransContract.CommonTrans.TIP1,
@@ -49,15 +50,8 @@ public class DataProviderUtils {
             EdcTransContract.CommonTrans.TRANS_DATE,
             EdcTransContract.CommonTrans.TRANS_TIME};
 
-    private static final Map<Integer, String> statusMap = new HashMap<>();
     private static final Map<Integer, String> entryModeMap = new HashMap<>();
     private static final Map<Integer, String> subTransTypeMap = new HashMap<>();
-
-    static {
-        statusMap.put(StoreForwardContext.STATUS_NO_UPLOAD, "Not Upload");
-        statusMap.put(StoreForwardContext.STATUS_UPLOAD_SUCCESS, "Uploaded Success");
-        statusMap.put(StoreForwardContext.STATUS_UPLOAD_FAILED, "Uploaded Failed");
-    }
 
     static {
         entryModeMap.put(EntryMode.SWIPE, "Swiped");
@@ -227,7 +221,7 @@ public class DataProviderUtils {
         return new ArrayList<>();
     }
 
-    private static Map<String, Object> parseCursor(Cursor cursor) {
+    public static Map<String, Object> parseCursor(Cursor cursor) {
         List<String> stringKey = Arrays.asList(
                 EdcTransContract.CommonTrans.EDC_TYPE,
                 EdcTransContract.CommonTrans.TRANS_TYPE,
@@ -235,12 +229,12 @@ public class DataProviderUtils {
                 EdcTransContract.CommonTrans.PAN,
                 EdcTransContract.CommonTrans.CARD_TYPE,
                 EdcTransContract.CommonTrans.CURRENCY,
-                EdcTransContract.CommonTrans.EMV_CARD_SRQ_NUM,
                 EdcTransContract.CommonTrans.REF_NUMBER,
                 EdcTransContract.CommonTrans.AUTH_CODE,
                 EdcTransContract.CommonTrans.RESP_STATUS,
                 EdcTransContract.CommonTrans.TRANS_DATE,
-                EdcTransContract.CommonTrans.TRANS_TIME);
+                EdcTransContract.CommonTrans.TRANS_TIME
+        );
         List<String> longKey = Arrays.asList(
                 EdcTransContract.CommonTrans.TRANS_NUMBER,
                 EdcTransContract.CommonTrans.AMOUNT,
@@ -272,100 +266,35 @@ public class DataProviderUtils {
         return map;
     }
 
-    public static LinkedHashMap<String, String> prepareData(Map<String, Object> transData) {
+    public static LinkedHashMap<String, String> prepareData(Context context,Map<String, Object> transData) {
         String[] list = queryDataKey;
 
         LinkedHashMap<String, String> displayData = new LinkedHashMap<>();
         for (String temp : list) {
-            if (transData.containsKey(temp)) {
+            if (transData.containsKey(temp)
+            && !EdcTransContract.CommonTrans.CARD_TYPE.equals(temp)
+            && !EdcTransContract.CommonTrans.CURRENCY.equals(temp)
+            && !EdcTransContract.CommonTrans.TRANS_DATE.equals(temp)
+            && !EdcTransContract.CommonTrans.TRANS_TIME.equals(temp)) { //Do not display these items since they are shown in list
                 if (transData.get(temp) instanceof String) {
                     if (EdcTransContract.CommonTrans.PAN.equals(temp)) {
-                        displayData.put(temp, maskCardNoFixLength((String) transData.get(temp)));
+                        displayData.put(getItemTitle(context,temp), maskCardNoFixLength((String) transData.get(temp)));
                     }else if (EdcTransContract.CommonTrans.TRANS_DATE.equals(temp)) {
                         String date = String.valueOf(transData.get(temp));
                         if (!TextUtils.isEmpty(date) && date.matches("^[0-9]{8}$")) {
-                            displayData.put(temp, date.substring(4, 6) + "/" + date.substring(6) + "/" + date.substring(0, 4));
+                            displayData.put(getItemTitle(context,temp), date.substring(4, 6) + "/" + date.substring(6) + "/" + date.substring(0, 4));
                         }else {
-                            displayData.put(temp,date);
+                            displayData.put(getItemTitle(context,temp),date);
                         }
                     } else if (EdcTransContract.CommonTrans.TRANS_TIME.equals(temp)) {
                         String time = String.valueOf(transData.get(temp));
                         if (!TextUtils.isEmpty(time) && time.matches("^[0-9]{6}$")) {
-                            displayData.put(temp, time.substring(0, 2) + ":" + time.substring(2, 4) + ":" + time.substring(4));
+                            displayData.put(getItemTitle(context,temp), time.substring(0, 2) + ":" + time.substring(2, 4) + ":" + time.substring(4));
                         }else {
-                            displayData.put(temp,time);
+                            displayData.put(getItemTitle(context,temp),time);
                         }
                     } else if (!TextUtils.isEmpty((String) transData.get(temp))) {
-                        displayData.put(temp, (String) transData.get(temp));
-                    }
-                } else if (!(transData.get(temp) instanceof Boolean)) {
-                    if (EdcTransContract.CommonTrans.AMOUNT.equals(temp) || EdcTransContract.CommonTrans.AUTH_AMOUNT.equals(temp)
-                            || EdcTransContract.CommonTrans.BASE_AMOUNT.equals(temp)
-                            || EdcTransContract.CommonTrans.TIP0.equals(temp)
-                            || EdcTransContract.CommonTrans.TIP1.equals(temp)
-                            || EdcTransContract.CommonTrans.TIP2.equals(temp)
-                            || EdcTransContract.CommonTrans.SURCHARGE_FEE.equals(temp)
-                            || EdcTransContract.CommonTrans.MERCHANT_FEE.equals(temp)
-                            || EdcTransContract.CommonTrans.CASH_BACK.equals(temp)) {
-                        if((Long) transData.get(temp)>0) {
-                            displayData.put(temp, CurrencyConverter.convert((Long) transData.get(temp)));
-                        }
-                    } else if (EdcTransContract.CommonTrans.ENTRY_MODE.equals(temp)) {
-                        displayData.put(temp, entryModeMap.get(transData.get(temp)));
-                    } else if (EdcTransContract.CommonTrans.SUB_TRANS_TYPE.equals(temp)) {
-                        displayData.put(temp, subTransTypeMap.get(transData.get(temp)));
-                    } else if (EdcTransContract.CommonTrans.SF_UPLOAD_STATUS.equals(temp)) {
-                        displayData.put(temp, statusMap.get(transData.get(temp)));
-                    } else {
-                        if (transData.get(temp) != null) {
-                            displayData.put(temp, String.valueOf(transData.get(temp)));
-                        }
-                    }
-                }
-            }
-        }
-        return displayData;
-    }
-
-    public static void prepareData(Map<String, Object> transData, List<String> key, List<String> value) {
-        String[] list = queryDataKey;
-        if (key == null)
-            key = new ArrayList<>();
-        else if (!key.isEmpty())
-            key.clear();
-
-        if (value == null)
-            value = new ArrayList<>();
-        else if (!value.isEmpty())
-            value.clear();
-        for (String temp : list) {
-            if (transData.containsKey(temp)) {
-                if (transData.get(temp) instanceof String) {
-                    if (EdcTransContract.CommonTrans.PAN.equals(temp)) {
-                        key.add(temp);
-                        value.add(maskCardNoFixLength((String) transData.get(temp)));
-                    } else if (EdcTransContract.CommonTrans.TRANS_DATE.equals(temp)) {
-                        key.add(temp);
-                        String date = String.valueOf(transData.get(temp));
-                        if (!TextUtils.isEmpty(date) && date.matches("^[0-9]{8}$")) {
-                            value.add(date.substring(4, 6) + "/" + date.substring(6) + "/" + date.substring(0, 4));
-                        }else {
-                            value.add(date);
-                        }
-                    } else if (EdcTransContract.CommonTrans.TRANS_TIME.equals(temp)) {
-                        key.add(temp);
-                        String time = String.valueOf(transData.get(temp));
-                        if (!TextUtils.isEmpty(time) && time.matches("^[0-9]{6}$")) {
-                            value.add(time.substring(0, 2) + ":" + time.substring(2, 4) + ":" + time.substring(4));
-                        }else {
-                            value.add(time);
-                        }
-                    }else if(EdcTransContract.CommonTrans.TRANS_TYPE.equals(temp)){
-                        key.add(temp);
-                        value.add(TransContext.getTransTypeDesc(null, (String) transData.get(EdcTransContract.CommonTrans.TRANS_TYPE)));
-                    }else if (!TextUtils.isEmpty((String) transData.get(temp))) {
-                        key.add(temp);
-                        value.add((String) transData.get(temp));
+                        displayData.put(getItemTitle(context,temp), (String) transData.get(temp));
                     }
                 } else if (!(transData.get(temp) instanceof Boolean)) {
                     if (EdcTransContract.CommonTrans.AMOUNT.equals(temp)
@@ -377,32 +306,91 @@ public class DataProviderUtils {
                             || EdcTransContract.CommonTrans.SURCHARGE_FEE.equals(temp)
                             || EdcTransContract.CommonTrans.MERCHANT_FEE.equals(temp)
                             || EdcTransContract.CommonTrans.CASH_BACK.equals(temp)) {
-                        if((Long) transData.get(temp) > 0) {
-                            key.add(temp);
-                            value.add(CurrencyConverter.convert((Long) transData.get(temp)));
+                        long amount = (long)CollectionUtil.getOrDefault(transData,temp, 0L);
+                        if(amount>0) {
+                            displayData.put(getItemTitle(context,temp), CurrencyConverter.convert(amount));
                         }
                     } else if (EdcTransContract.CommonTrans.ENTRY_MODE.equals(temp)) {
-                        key.add(temp);
-                        value.add(entryModeMap.get(transData.get(temp)));
+                        displayData.put(getItemTitle(context,temp), entryModeMap.get(transData.get(temp)));
                     } else if (EdcTransContract.CommonTrans.SUB_TRANS_TYPE.equals(temp)) {
-                        key.add(temp);
-                        value.add(subTransTypeMap.get(transData.get(temp)));
+                        displayData.put(getItemTitle(context,temp), subTransTypeMap.get(transData.get(temp)));
                     } else if (EdcTransContract.CommonTrans.SF_UPLOAD_STATUS.equals(temp)) {
-                        key.add(temp);
-                        value.add(statusMap.get(transData.get(temp)));
+                        //do nothing
+                    } else if(EdcTransContract.CommonTrans.REQ_STATUS.equals(temp)){
+                        String reqStatus = (String)CollectionUtil.getOrDefault(transData, EdcTransContract.CommonTrans.REQ_STATUS,"");
+                        int sfUploadStatus = (int)CollectionUtil.getOrDefault(transData, EdcTransContract.CommonTrans.SF_UPLOAD_STATUS,0);
+                        displayData.put(getItemTitle(context, EdcTransContract.CommonTrans.REQ_STATUS),
+                                getStatusDetails(context,reqStatus,sfUploadStatus));
                     } else {
                         if (transData.get(temp) != null) {
-                            key.add(temp);
-                            value.add(String.valueOf(transData.get(temp)));
+                            displayData.put(getItemTitle(context,temp), String.valueOf(transData.get(temp)));
                         }
                     }
                 }
             }
         }
+        return displayData;
     }
 
-    public static String statusConvert(int status) {
-        return statusMap.get(status);
+    public static void prepareData(Context context,Map<String, Object> transData, List<String> key, List<String> value) {
+        if (key == null)
+            key = new ArrayList<>();
+        else if (!key.isEmpty())
+            key.clear();
+
+        if (value == null)
+            value = new ArrayList<>();
+        else if (!value.isEmpty())
+            value.clear();
+        Map<String,String> map = prepareData(context,transData);
+        for (Map.Entry<String, String> mapEntry : map.entrySet()) {
+            key.add(mapEntry.getKey());
+            if(mapEntry.getValue() == null){//Fix ANFDRC-985
+                value.add("");
+            }else {
+                value.add(mapEntry.getValue());
+            }
+        }
+    }
+
+    public static String getStatusDetails(Context context, @TransContext.ReqStatus String reqStatus, @StoreForwardContext.StoreForwardUploadStatus int sfUploadStatus) {
+        String sf = StoreForwardContext.getUploadStatusDesc(context, sfUploadStatus);
+        if (!TextUtils.isEmpty(sf)) {
+            sf = "\n(" + sf + ")";
+        }
+        return (reqStatus != null ? reqStatus : "") + (TransContext.REQ_STATUS_STORE_OFFLINE.equals(reqStatus) ? sf : "");
+    }
+
+
+    public static String getItemTitle(Context context,String key){
+        if(key == null){
+            return "";
+        }
+        switch (key){
+            case EdcTransContract.CommonTrans.EDC_TYPE:return context.getString(R.string.detail_item_edc_type);
+            case EdcTransContract.CommonTrans.TRANS_TYPE:return context.getString(R.string.detail_item_trans_type);
+            case EdcTransContract.CommonTrans.SUB_TRANS_TYPE:return context.getString(R.string.detail_item_sub_trans_type);
+            case EdcTransContract.CommonTrans.TRANS_NUMBER:return context.getString(R.string.detail_item_transaction_no);
+            case EdcTransContract.CommonTrans.PAN:return context.getString(R.string.detail_item_card_no);
+            case EdcTransContract.CommonTrans.ENTRY_MODE:return context.getString(R.string.detail_item_entry_mode);
+            case EdcTransContract.CommonTrans.BASE_AMOUNT:return context.getString(R.string.detail_item_base_amount);
+            case EdcTransContract.CommonTrans.TIP0:return context.getString(R.string.detail_item_tip1);
+            case EdcTransContract.CommonTrans.TIP1:return context.getString(R.string.detail_item_tip2);
+            case EdcTransContract.CommonTrans.TIP2:return context.getString(R.string.detail_item_tip3);
+            case EdcTransContract.CommonTrans.MERCHANT_FEE:return context.getString(R.string.detail_item_merchant_fee);
+            case EdcTransContract.CommonTrans.SURCHARGE_FEE:return context.getString(R.string.detail_item_surchage_fee);
+            case EdcTransContract.CommonTrans.CASH_BACK:return context.getString(R.string.detail_item_cashback);
+            case EdcTransContract.CommonTrans.AMOUNT:return context.getString(R.string.detail_item_total_amount);
+            case EdcTransContract.CommonTrans.AUTH_AMOUNT:return context.getString(R.string.detail_item_approved_amount);
+            case EdcTransContract.CommonTrans.REQ_STATUS:return context.getString(R.string.detail_item_trans_status);
+            case EdcTransContract.CommonTrans.REF_NUMBER:return context.getString(R.string.detail_item_ref_number);
+            case EdcTransContract.CommonTrans.AUTH_CODE:return context.getString(R.string.detail_item_auth_code);
+            case EdcTransContract.CommonTrans.RESP_STATUS:return context.getString(R.string.detail_item_response_status);
+            case EdcTransContract.CommonTrans.CARD_TYPE:return context.getString(R.string.detail_item_card_type);
+            case EdcTransContract.CommonTrans.TRANS_DATE:return context.getString(R.string.detail_item_trans_date);
+            case EdcTransContract.CommonTrans.TRANS_TIME:return context.getString(R.string.detail_item_trans_time);
+            default: return "";
+        }
     }
 
     public static String maskCardNoFixLength(String encryptedPan) {

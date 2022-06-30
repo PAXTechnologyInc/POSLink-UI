@@ -1,8 +1,10 @@
 package com.paxus.utils.log;
 
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import android.util.Log;
 
 import com.orhanobut.logger.AndroidLogAdapter;
@@ -28,9 +30,9 @@ public class FileLogAdapter extends AndroidLogAdapter implements Thread.Uncaught
     private final SimpleDateFormat dateFormatFileName = new SimpleDateFormat("yyyyMMdd", Locale.US);
     private final SimpleDateFormat dateFormatLog = new SimpleDateFormat("MM-dd-HH-mm-ss.SSS", Locale.US);
     private final Thread.UncaughtExceptionHandler mHandler;
-    private final String logPath;
-    private final String filenamePrefix;
-    private final ExecutorService executorService = Executors.newSingleThreadExecutor();
+    private String logPath;
+    private String filenamePrefix;
+    private ExecutorService executorService = Executors.newSingleThreadExecutor();
     private LogHelper.LoggerCallback callback;
 
     FileLogAdapter(@NonNull FormatStrategy formatStrategy, String path, String filenamePrefix) {

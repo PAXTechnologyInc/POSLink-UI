@@ -3,6 +3,7 @@ package com.paxus.utils;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * Created by Leon.F on 2018/1/25.
@@ -43,9 +44,7 @@ public class CollectionUtil {
             return map.get(key) == null;
         } else {
             for(V i : values) {
-                if(i == null && !map.containsKey(key)){
-                    return true;
-                } else if(i != null && i.equals(map.get(key))) {
+                if(Objects.equals(i,map.get(key))){
                     return true;
                 }
             }

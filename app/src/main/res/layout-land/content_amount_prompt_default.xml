@@ -6,7 +6,7 @@
         android:id="@+id/amount_prompt_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/space_vertical_small"
+        android:layout_marginBottom="@dimen/space_vertical_smaller"
         android:orientation="horizontal"
         android:visibility="invisible">
 

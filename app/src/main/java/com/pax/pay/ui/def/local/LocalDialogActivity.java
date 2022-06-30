@@ -23,13 +23,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
-import android.text.TextUtils;
-import android.util.Log;
 
 import com.pax.pay.ui.def.R;
 import com.pax.us.pay.ui.component.constant.InternalDialogStatus;
 import com.paxus.utils.StringUtils;
+import com.paxus.view.BaseAppCompatActivity;
 import com.paxus.view.dialog.CustomAlertDialog;
 import com.paxus.view.dialog.DialogUtils;
 
@@ -37,7 +35,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 
-public class LocalDialogActivity extends AppCompatActivity {
+public class LocalDialogActivity extends BaseAppCompatActivity {
 
     private Runnable run;
     private Timer timer;
@@ -58,15 +56,14 @@ public class LocalDialogActivity extends AppCompatActivity {
 
     private void handleIntent(Intent intent) {
         String action = intent.getAction();
-        if (TextUtils.isEmpty(action)) {
+        Bundle bundle = intent.getExtras();
+        if (action == null || action.isEmpty() || bundle == null) {
             finish();
             return;
         }
-        Log.i("LocalDialogActivity", "action :" + action);
 
         switch (action) {
             case InternalDialogStatus.ACTION_PROMPT_DIALOG:
-                Bundle bundle = intent.getExtras();
                 String title = bundle.getString(InternalDialogStatus.PARAM_MESSAGE);
                 String confirmBtnMsg = bundle.getString(InternalDialogStatus.PARAM_POSITIVE);
                 String cancelBtnMsg = bundle.getString(InternalDialogStatus.PARAM_NEGATIVE);
@@ -123,7 +120,7 @@ public class LocalDialogActivity extends AppCompatActivity {
                 dialog.setCancelText(cancelText);
                 dialog.showConfirmButton(true);
                 dialog.setConfirmText(confirmText);
-                dialog.show();
+                DialogUtils.showDialog(LocalDialogActivity.this, dialog);
             }
         };
         handler.post(run);

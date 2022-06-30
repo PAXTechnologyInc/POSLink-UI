@@ -5,16 +5,21 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import android.util.Log;
+import android.view.View;
+import android.view.WindowManager;
+
+import com.paxus.view.utils.ViewUtils;
 
 /**
  * Created by Kim.L on 2018/4/19.
  */
-
 public class BaseDialogFragment extends DialogFragment {
 
     private static final String TAG = BaseDialogFragment.class.getSimpleName();
@@ -53,18 +58,38 @@ public class BaseDialogFragment extends DialogFragment {
         return instance;
     }
 
+
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         if (null == mOnCallDialog) {
             super.onCreate(savedInstanceState);
         }
-        return mOnCallDialog.getDialog(context != null ? context : getActivity());
+        Dialog dialog = mOnCallDialog.getDialog(context != null ? context : getActivity());
+        if (ViewUtils.canNavigationBarImmersiveSticky() && dialog != null) {
+            View decorView = dialog.getWindow().getDecorView();
+            if (decorView != null) {
+                ViewUtils.hideNavigationBar(decorView);
+            }
+        }
+        return dialog;
     }
 
     @Override
     public void onStart() {
-        super.onStart();
+        Dialog dialog = getDialog();
+        if (ViewUtils.canNavigationBarImmersiveSticky() && dialog != null) {
+            // Set the dialog to not focusable.
+            dialog.getWindow().addFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE);
+
+            //dialog.show() is invoked in super.onStart();
+            super.onStart();
+
+            // Set the dialog to focusable again.
+            dialog.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE);
+        } else {
+            super.onStart();
+        }
 
         //-----Fix ANFDRC-327, Keep consistent with BroadPOS Vantiv--------------
         //-----Keep Grey Background----------------------------------------------
@@ -107,9 +132,8 @@ public class BaseDialogFragment extends DialogFragment {
     @Override
     public void onDismiss(DialogInterface dialog) {
         super.onDismiss(dialog);
-        if (mDismissListener != null) {
+        if (mDismissListener != null && getDialog() != null) {
             mDismissListener.onDismiss(getDialog());
-            mDismissListener = null;
         }
     }
 

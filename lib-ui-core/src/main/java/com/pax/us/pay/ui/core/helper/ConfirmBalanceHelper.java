@@ -1,8 +1,8 @@
 package com.pax.us.pay.ui.core.helper;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.pax.us.pay.ui.constant.entry.EntryExtraData;
 import com.pax.us.pay.ui.constant.entry.EntryRequest;
@@ -12,7 +12,6 @@ import com.pax.us.pay.ui.core.api.IAmountListener;
 import com.pax.us.pay.ui.core.api.ICurrencyListener;
 import com.pax.us.pay.ui.core.api.IMessageListener;
 import com.pax.us.pay.ui.core.api.IRespStatus;
-import com.pax.us.pay.ui.core.api.ISurchargeFeeNameListener;
 import com.pax.us.pay.ui.core.api.IUIListener;
 
 public class ConfirmBalanceHelper extends BaseActionHelper {

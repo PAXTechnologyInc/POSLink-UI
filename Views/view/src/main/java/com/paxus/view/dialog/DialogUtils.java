@@ -20,10 +20,13 @@ import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.os.Handler;
-import android.support.annotation.MainThread;
-import android.support.annotation.StringRes;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AlertDialog;
+
+import androidx.annotation.MainThread;
+import androidx.annotation.StringRes;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.appcompat.app.AlertDialog;
+
 import android.text.InputFilter;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -49,13 +52,13 @@ public class DialogUtils {
     }
 
     @MainThread
-    public static void showDialog(Activity context, final Dialog dialog) {
-        showDialogInternal(context, dialog, null, null);
+    public static DialogFragment showDialog(Activity context, final Dialog dialog) {
+        return showDialogInternal(context, dialog, null, null);
     }
 
     @MainThread
-    public static void showDialog(Activity context, final Dialog dialog, final DialogInterface.OnDismissListener listener) {
-        showDialogInternal(context, dialog, listener, null);
+    public static DialogFragment showDialog(Activity context, final Dialog dialog, final DialogInterface.OnDismissListener listener) {
+        return showDialogInternal(context, dialog, listener, null);
     }
 
     private static BaseDialogFragment showDialogInternal(Activity context, final Dialog dialog, final DialogInterface.OnDismissListener listener, DialogInterface.OnCancelListener cancelListener) {
@@ -219,25 +222,25 @@ public class DialogUtils {
     }
 
     @MainThread
-    public static void showListDialog(final Activity context, final String title, final String[] items,
-                                      final DialogInterface.OnClickListener resultListener,
-                                      final DialogInterface.OnCancelListener onCancelListener,
-                                      final boolean cancelable) {
+    public static DialogFragment showListDialog(final Activity context, final String title, final String[] items,
+                                                final DialogInterface.OnClickListener resultListener,
+                                                final DialogInterface.OnCancelListener onCancelListener,
+                                                final boolean cancelable) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.PaxTheme_AlertDialog);
         builder.setTitle(title);
         builder.setItems(items, resultListener);
         if (cancelable && onCancelListener != null) {
-            showDialogInternal(context, builder.create(), null, onCancelListener);
+            return showDialogInternal(context, builder.create(), null, onCancelListener);
         } else {
-            showDialog(context, builder.create(), cancelable ? dialog -> {
+            return showDialog(context, builder.create(), cancelable ? dialog -> {
             } : null);
         }
     }
 
     @MainThread
-    public static void showEditTextDialog(final Activity context, final String title,
-                                          final IDialogResultListener<String> resultListener,
-                                          final boolean cancelable, final int editTextType, final int maxLength) {
+    public static DialogFragment showEditTextDialog(final Activity context, final String title,
+                                                    final IDialogResultListener<String> resultListener,
+                                                    final boolean cancelable, final int editTextType, final int maxLength) {
         final EditText editText = new EditText(context);
         editText.setInputType(editTextType);
         editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(maxLength)});
@@ -264,13 +267,13 @@ public class DialogUtils {
             }
             return false;
         });
-        showDialog(context, alertDialog, cancelable ? dialog -> {
+        return showDialog(context, alertDialog, cancelable ? dialog -> {
         } : null);
     }
 
     @MainThread
-    public static void showDateDialog(final Activity context, final String title, final Calendar calendar,
-                                      final IDialogResultListener<Calendar> resultListener, final boolean cancelable) {
+    public static DialogFragment showDateDialog(final Activity context, final String title, final Calendar calendar,
+                                                final IDialogResultListener<Calendar> resultListener, final boolean cancelable) {
         final DatePickerDialog datePickerDialog = new DatePickerDialog(context, R.style.PaxTheme_AlertDialog,
                 (view, year, month, dayOfMonth) -> {
                     calendar.set(year, month, dayOfMonth);
@@ -289,13 +292,13 @@ public class DialogUtils {
             }
             return false;
         });
-        showDialog(context, datePickerDialog, cancelable ? dialog -> {
+        return showDialog(context, datePickerDialog, cancelable ? dialog -> {
         } : null);
     }
 
     @MainThread
-    public static void showTimeDialog(final Activity context, final String title, final Calendar calendar,
-                                      final IDialogResultListener<Calendar> resultListener, final boolean cancelable) {
+    public static DialogFragment showTimeDialog(final Activity context, final String title, final Calendar calendar,
+                                                final IDialogResultListener<Calendar> resultListener, final boolean cancelable) {
         final TimePickerDialog dateDialog = new TimePickerDialog(context, R.style.PaxTheme_AlertDialog,
                 (view, hourOfDay, minute) -> {
                     if (resultListener != null) {
@@ -317,7 +320,7 @@ public class DialogUtils {
             }
             return false;
         });
-        showDialog(context, dateDialog, cancelable ? dialog -> {
+        return showDialog(context, dateDialog, cancelable ? dialog -> {
         } : null);
     }
 }

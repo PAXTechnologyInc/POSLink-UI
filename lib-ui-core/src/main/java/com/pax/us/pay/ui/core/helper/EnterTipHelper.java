@@ -1,9 +1,10 @@
 package com.pax.us.pay.ui.core.helper;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.pax.us.pay.ui.constant.entry.EntryExtraData;
 import com.pax.us.pay.ui.constant.entry.EntryRequest;
@@ -25,9 +26,12 @@ public class EnterTipHelper extends BaseActionHelper {
         super(uiListener, respStatus);
     }
 
-    public void sendNext(long amount) {
+    public void sendNext(Long amount) {
         Bundle bundle = new Bundle();
-        bundle.putLong(EntryRequest.PARAM_TIP, amount);
+        //If BYPASS by click ENTER, do not return PARAM_TIP
+        if (null != amount ) {
+            bundle.putLong(EntryRequest.PARAM_TIP, amount);
+        }
         super.sendNext(bundle);
     }
 

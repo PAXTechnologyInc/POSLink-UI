@@ -1,6 +1,7 @@
 package com.pax.pay.ui.def;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
@@ -14,19 +15,18 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.pax.pay.ui.def.base.BaseStackActivity;
-import com.pax.pay.ui.def.base.FinishRespStatusImpl;
+import com.pax.pay.ui.def.base.RespStatusImpl;
 import com.pax.pay.ui.def.utils.EnterDataLineHelper;
-import com.pax.pay.ui.def.utils.LanguageConvertUtils;
 import com.pax.us.pay.ui.component.keyboard.PoslinkCustomKeyboardEditText;
-import com.pax.us.pay.ui.component.utils.TickTimer;
 import com.pax.us.pay.ui.constant.entry.EntryExtraData;
 import com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType;
 import com.pax.us.pay.ui.constant.entry.enumeration.ManageUIConst;
 import com.pax.us.pay.ui.core.helper.EnterTextHelper;
 import com.pax.us.pay.ui.message.CurrencyConverter;
+import com.paxus.utils.LocaleUtils;
 import com.paxus.utils.StringUtils;
-import com.paxus.utils.log.Logger;
 import com.paxus.view.dialog.CustomAlertDialog;
+import com.paxus.view.dialog.DialogUtils;
 import com.paxus.view.utils.ToastHelper;
 import com.paxus.view.utils.ViewUtils;
 
@@ -35,6 +35,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class EnterTextActivity extends BaseStackActivity implements EnterTextHelper.IEnterTextHelper,View.OnClickListener {
     private EnterTextHelper helper;
@@ -44,8 +46,6 @@ public class EnterTextActivity extends BaseStackActivity implements EnterTextHel
     Button confirmBtn;
     private boolean hasPhyKeyboard = false;
 
-    private long timeout;
-
     private String inputType;
 
     private String title;
@@ -53,11 +53,11 @@ public class EnterTextActivity extends BaseStackActivity implements EnterTextHel
     private int minLen = 0, maxLen = 32;
 
     private int textLength;
-    private boolean isNoBlocking = false;
+    private boolean continuousScreen = false;
 
     private String defaultValue;
     private EditTextDataLimit limit;
-    private TickTimer tickTimer;
+    private Timer timer;
 
     @Override
     protected int getLayoutId() {
@@ -78,37 +78,40 @@ public class EnterTextActivity extends BaseStackActivity implements EnterTextHel
 
     @Override
     protected void loadParam() {
-        createTimer();
-        tickTimer.start(getTickTimeout());
 
         promptTv = findViewById(R.id.tv_input_text);
         mEditText = findViewById(R.id.edit_input_text);
         confirmBtn = findViewById(R.id.btn_input_text_ok);
         hasPhyKeyboard = false;
-        try {
-            Bundle bundle = getIntent().getExtras();
-            if (bundle.containsKey(EntryExtraData.PARAM_CONTINUE_SCREEN)
-                    && (ManageUIConst.ContinuousScreen.DO_NOT_GO_TO_IDLE.equals(bundle.getString(EntryExtraData.PARAM_CONTINUE_SCREEN)))) {
-                isNoBlocking = true;
-            }
-        } catch (Exception e) {
-            Logger.e(e);
-            isNoBlocking = false;
+
+        continuousScreen = false;
+        long timeoutMs = -1;
+        stopTimer();
+
+        Bundle bundle = getIntent().getExtras();
+        if(bundle != null) {
+            navTitle = bundle.getString(EntryExtraData.PARAM_TITLE);
+            continuousScreen = ManageUIConst.ContinuousScreen.DO_NOT_GO_TO_IDLE.equals(bundle.getString(EntryExtraData.PARAM_CONTINUE_SCREEN, ""));
+            timeoutMs = bundle.getLong(EntryExtraData.PARAM_TIMEOUT, -1L);
         }
-        helper = new EnterTextHelper(this, new FinishRespStatusImpl(this));
+
+        startTimer(timeoutMs);
+        helper = new EnterTextHelper(this, new RespStatus(this));
         loadOtherParam();
     }
 
     private void loadOtherParam(){
         EditTextDataLimit limit = null;
-        title = getIntent().getExtras().getString(EntryExtraData.PARAM_TITLE);
-        inputType = getIntent().getExtras().getString(EntryExtraData.PARAM_INPUT_TYPE, "");
-        defaultValue = getIntent().getExtras().getString(EntryExtraData.PARAM_DEFAULT_VALUE, "");
-        String minLength = getIntent().getExtras().getString(EntryExtraData.PARAM_MIN_LENGTH, "");
-        String maxLength = getIntent().getExtras().getString(EntryExtraData.PARAM_MAX_LENGTH);
-        minLen = StringUtils.parseInt(minLength, 0);
-        maxLen = StringUtils.parseInt(maxLength, 32);
-
+        Bundle bundle = getIntent().getExtras();
+        if(bundle != null) {
+            title = bundle.getString(EntryExtraData.PARAM_TITLE);
+            inputType = bundle.getString(EntryExtraData.PARAM_INPUT_TYPE, "");
+            defaultValue = bundle.getString(EntryExtraData.PARAM_DEFAULT_VALUE, "");
+            String minLength = bundle.getString(EntryExtraData.PARAM_MIN_LENGTH, "");
+            String maxLength = bundle.getString(EntryExtraData.PARAM_MAX_LENGTH);
+            minLen = StringUtils.parseInt(minLength, 0);
+            maxLen = StringUtils.parseInt(maxLength, 32);
+        }
         switch (inputType){
             case "":
             case "0":
@@ -190,10 +193,7 @@ public class EnterTextActivity extends BaseStackActivity implements EnterTextHel
         }
         mEditText.setOnEditorActionListener((v, actionId, event) -> {
             if (actionId == EditorInfo.IME_ACTION_NONE) {
-                tickTimerStop();
-                helper.sendAbort();
-                if (!isNoBlocking)
-                    finish();
+                onAbort();
                 return true;
             } else if (actionId == EditorInfo.IME_ACTION_DONE) {
                 onDataConfirmed();
@@ -300,7 +300,9 @@ public class EnterTextActivity extends BaseStackActivity implements EnterTextHel
 //        mEditText.setKeepKeyBoardOn(true);
         mEditText.postDelayed(() -> {
             InputMethodManager imm = (InputMethodManager) EnterTextActivity.this.getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.showSoftInput(mEditText, InputMethodManager.SHOW_IMPLICIT);
+            if(imm!=null) {
+                imm.showSoftInput(mEditText, InputMethodManager.SHOW_IMPLICIT);
+            }
         }, 100);
         EnterDataLineHelper.setEditTextAllText(this, mEditText, limit);
         //mEditText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
@@ -321,7 +323,9 @@ public class EnterTextActivity extends BaseStackActivity implements EnterTextHel
         if (limit.inputType == EInputType.ALLTEXT) {
             mEditText.postDelayed(() -> {
                 InputMethodManager imm = (InputMethodManager) EnterTextActivity.this.getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.showSoftInput(mEditText, InputMethodManager.SHOW_IMPLICIT);
+                if(imm!= null) {
+                    imm.showSoftInput(mEditText, InputMethodManager.SHOW_IMPLICIT);
+                }
             }, 100);
         }
         EnterDataLineHelper.setEditTextAllText(this, mEditText, limit);
@@ -331,10 +335,7 @@ public class EnterTextActivity extends BaseStackActivity implements EnterTextHel
 
     @Override
     protected boolean onKeyBackDown() {
-        tickTimerStop();
-        helper.sendAbort();
-        if (!isNoBlocking)
-            finish();
+        onAbort();
         return true;
     }
 
@@ -350,10 +351,7 @@ public class EnterTextActivity extends BaseStackActivity implements EnterTextHel
                     return;
                 }
                 else{
-                    tickTimerStop();
-                    helper.sendAbort();
-                    if (!isNoBlocking)
-                        finish();
+                    onAbort();
                     return;
                 }
             }
@@ -369,9 +367,9 @@ public class EnterTextActivity extends BaseStackActivity implements EnterTextHel
             if (limit != null && limit.needConfirm) {
                 confirm(data);
             } else {
-                tickTimerStop();
+                stopTimer();
                 helper.sendNext(data);
-                if (!isNoBlocking)
+                if (!continuousScreen)
                     finish();
             }
         } finally {
@@ -430,7 +428,7 @@ public class EnterTextActivity extends BaseStackActivity implements EnterTextHel
                     return true;
                 }
                 if (content != null && (content.length() < limit.minLen || content.length() > limit.maxLen)) {
-                    String title = LanguageConvertUtils.convertString(this, R.string.notice_len_out_of_range, R.string.length, limit.minLen, limit.maxLen);
+                    String title = LocaleUtils.getString(this, R.string.notice_length_out_of_range, limit.minLen, limit.maxLen);
                     ToastHelper.showMessage(this, title);
                     return false;
                 }
@@ -439,7 +437,7 @@ public class EnterTextActivity extends BaseStackActivity implements EnterTextHel
                 Long amt = CurrencyConverter.parse(content);
                 if (amt != null && amt != 0 &&
                         (String.valueOf(amt).length()<limit.minLen || String.valueOf(amt).length()>limit.maxLen)){
-                    String title = LanguageConvertUtils.convertString(this, R.string.notice_amount_out_of_range, null, CurrencyConverter.convert(limit.minValue), CurrencyConverter.convert(limit.maxValue));
+                    String title = LocaleUtils.getString(this, R.string.notice_amount_out_of_range, null, CurrencyConverter.convert(limit.minValue), CurrencyConverter.convert(limit.maxValue));
                     ToastHelper.showMessage(this, title);
 
                     return false;
@@ -466,7 +464,7 @@ public class EnterTextActivity extends BaseStackActivity implements EnterTextHel
                             dateFormat.setLenient(false);
                             date1 = dateFormat.parse(date);
                         } catch (ParseException e) {
-
+                            //
                         }
                         if (date1 == null) {
                             ToastHelper.showMessage(this, getString(R.string.err_invalid_date));
@@ -494,7 +492,7 @@ public class EnterTextActivity extends BaseStackActivity implements EnterTextHel
                             dateFormat.setLenient(false);
                             time1 = dateFormat.parse(time);
                         } catch (ParseException e) {
-
+                            //
                         }
                         if (time1 == null) {
                             ToastHelper.showMessage(this, getString(R.string.err_invalid_time));
@@ -518,8 +516,8 @@ public class EnterTextActivity extends BaseStackActivity implements EnterTextHel
                     tmp = tmp.replace(" ", "");
                     tmp = tmp.replace("-", "");
 
-                    if (tmp != null && (tmp.length() < limit.minLen || tmp.length() > limit.maxLen)) {
-                        String title = LanguageConvertUtils.convertString(this, R.string.notice_len_out_of_range, R.string.length, limit.minLen, limit.maxLen);
+                    if (tmp.length() < limit.minLen || tmp.length() > limit.maxLen) {
+                        String title = LocaleUtils.getString(this, R.string.notice_length_out_of_range, limit.minLen, limit.maxLen);
                         ToastHelper.showMessage(this, title);
                         return false;
                     }
@@ -534,8 +532,8 @@ public class EnterTextActivity extends BaseStackActivity implements EnterTextHel
                 if (content != null) {
                     String tmp = content.replace("-", "");
 
-                    if (tmp != null && (tmp.length() != 9)) {
-                        String title = LanguageConvertUtils.convertString(this, R.string.notice_out_of_length, R.string.length, 9);
+                    if (tmp.length() != 9) {
+                        String title = LocaleUtils.getString(this, R.string.notice_out_of_length, R.string.length, 9);
                         ToastHelper.showMessage(this, title);
                         return false;
                     }
@@ -543,7 +541,7 @@ public class EnterTextActivity extends BaseStackActivity implements EnterTextHel
                 break;
             default:
                 if (content != null && (content.length() < limit.minLen || content.length() > limit.maxLen)) {
-                    String title = LanguageConvertUtils.convertString(this, R.string.notice_len_out_of_range, R.string.length, limit.minLen, limit.maxLen);
+                    String title = LocaleUtils.getString(this, R.string.notice_length_out_of_range, limit.minLen, limit.maxLen);
                     ToastHelper.showMessage(this, title);
                     return false;
                 }
@@ -561,21 +559,18 @@ public class EnterTextActivity extends BaseStackActivity implements EnterTextHel
             CustomAlertDialog dialog = new CustomAlertDialog(ctx, CustomAlertDialog.NORMAL_TYPE);
             dialog.setCancelClickListener(alertDialog -> {
                 alertDialog.dismiss();
-                tickTimerStop();
-                helper.sendAbort();
-                if (!isNoBlocking)
-                    finish();
+                onAbort();
             }).setConfirmClickListener(alertDialog -> {
                 alertDialog.dismiss();
-                tickTimerStop();
+                stopTimer();
                 helper.sendNext(data);
-                if (!isNoBlocking)
+                if (!continuousScreen)
                     finish();
             }).create();
             dialog.setContent(limit != null ? limit.confirmPrompt : "");
             dialog.showConfirmButton(true);
             dialog.showCancelButton(true);
-            dialog.show();
+            DialogUtils.showDialog(this, dialog);
         });
     }
 
@@ -605,64 +600,51 @@ public class EnterTextActivity extends BaseStackActivity implements EnterTextHel
 
     @Override
     public void onAbortHelper() {
-        helper.sendAbort();
-        finish();
+        onAbort();
     }
 
-    private void createTimer() {
-        tickTimer = new TickTimer(new TickTimer.OnTickTimerListener() {
-            @Override
-            public void onFinish() {
-                onTimerFinish();
-            }
-
-            @Override
-            public void onTick(long leftTime) {
-                timeOnTick(leftTime);
-            }
-        });
-    }
-
-    protected void timeOnTick(long leftTime) {
-        //this.leftTime = leftTime;
-        //setTitle(String.format(Locale.US, "%s ( %d )", getString(R.string.signature), leftTime));
-    }
-
-    protected void restartTimer() {
-        tickTimerStop();
-        createTimer();
-        tickTimer.start(getTickTimeout());
-    }
-
-    public void tickTimerStop() {
-        if (tickTimer != null) {
-            tickTimer.stop();
-            tickTimer = null;
+    private void startTimer(long timeoutMs) {
+        if(timeoutMs > 0) {
+            stopTimer();
+            timer = new Timer();
+            timer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    onTimeout();
+                }
+            }, timeoutMs);
         }
     }
 
-    protected void onTimerFinish() {
-        if (timeout <= 0)
-            return;
-
-        tickTimerStop();
+    private void stopTimer(){
+        if(timer != null){
+            timer.cancel();
+            timer = null;
+        }
+    }
+    private void onTimeout(){
+        stopTimer();
         helper.sendTimeout();
-
-        if (!isNoBlocking) {
+        if (!continuousScreen) {
+            finish();
+        }
+    }
+    private void onAbort(){
+        stopTimer();
+        helper.sendAbort();
+        if (!continuousScreen) {
             finish();
         }
     }
 
-    protected long getTickTimeout() {
-        timeout = -1;
-        if (getIntent().getExtras() != null && getIntent().getExtras().containsKey(EntryExtraData.PARAM_TIMEOUT)) {
-            long time = getIntent().getExtras().getLong(EntryExtraData.PARAM_TIMEOUT, -1L);
-            timeout = (int)(time/1000l);
+    private class RespStatus extends RespStatusImpl {
+
+        public RespStatus(Activity activity) {
+            super(activity);
         }
-
-//        if (timeout == 0)
-//            isNoBlocking = true;
-
-        return timeout;
+        @Override
+        public void onAccepted() {
+            //don't close activity.
+        }
     }
 }

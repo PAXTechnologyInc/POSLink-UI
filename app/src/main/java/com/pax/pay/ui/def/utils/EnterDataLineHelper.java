@@ -7,6 +7,8 @@ import android.text.InputType;
 import com.pax.pay.ui.def.EditTextDataLimit;
 import com.pax.pay.ui.def.R;
 import com.pax.us.pay.ui.component.keyboard.CustomKeyboardEditText;
+import com.paxus.utils.CurrencyCode;
+import com.paxus.utils.CurrencyConverter;
 
 /**
  * Created by Kim.L on 2018/8/16.
@@ -33,7 +35,34 @@ public class EnterDataLineHelper {
         }
 
         editText.setText("$0.00");
-        editText.setSelection(editText.getText().length());
+        if(editText.getText()!=null) {
+            editText.setSelection(editText.getText().length());
+        }
+        editText.addTextChangedListener(watcher);
+    }
+
+    public static void setEditTextAmount(CustomKeyboardEditText editText, final EditTextDataLimit limit, CurrencyCode currencyCode) {
+        editText.setKeyboardId(R.xml.keyboard_numeric_confirm);
+
+        //remove the watcher for the Number Text type, if watch already be set by the previous screen
+        if (watcher != null) {
+            editText.removeTextChangedListener(watcher);
+            //Log.i("Watch", "setEditTextAmount removeTextChangedListener watcher");
+            watcher = null;
+        }
+
+        watcher = new EnterAmountTextWatcher(limit.maxLen);
+        if (limit.maxValue != 0) {
+            watcher.setMaxValue(limit.maxValue);
+        }
+        if (limit.maxLen > 0 && limit.maxValue == 0) {
+            limit.maxValue = (long) Math.pow(10, limit.maxLen) - 1;
+        }
+
+        editText.setText(CurrencyConverter.convert(0,"",currencyCode.getCurrencyName()));
+        if(editText.getText()!=null) {
+            editText.setSelection(editText.getText().length());
+        }
         editText.addTextChangedListener(watcher);
     }
 
@@ -43,7 +72,9 @@ public class EnterDataLineHelper {
         editText.setKeyboardId(R.xml.keyboard_numeric_confirm);
         editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(4 + 1)});
         editText.addTextChangedListener(new ExpDateWatcher());
-        editText.setSelection(editText.getText().length());
+        if(editText.getText()!=null) {
+            editText.setSelection(editText.getText().length());
+        }
     }
 
     public static void setEditTextDate(Context context, CustomKeyboardEditText editText) {
@@ -51,7 +82,9 @@ public class EnterDataLineHelper {
         editText.setKeyboardId(R.xml.keyboard_numeric_confirm);
         editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(editText.getHint().length())});
         editText.addTextChangedListener(new DateWatcher());
-        editText.setSelection(editText.getText().length());
+        if(editText.getText()!=null) {
+            editText.setSelection(editText.getText().length());
+        }
     }
 
     public static void setEditTextFormatDate(Context context,String format, CustomKeyboardEditText editText) {
@@ -59,7 +92,9 @@ public class EnterDataLineHelper {
         editText.setKeyboardId(R.xml.keyboard_numeric_confirm);
         editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(editText.getHint().length())});
         editText.addTextChangedListener(new DateWatcher1());
-        editText.setSelection(editText.getText().length());
+        if(editText.getText()!=null) {
+            editText.setSelection(editText.getText().length());
+        }
     }
 
     public static void setEditTextTime(Context context,String format, CustomKeyboardEditText editText) {
@@ -67,7 +102,9 @@ public class EnterDataLineHelper {
         editText.setKeyboardId(R.xml.keyboard_numeric_confirm);
         editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(editText.getHint().length())});
         editText.addTextChangedListener(new TimeWatcher());
-        editText.setSelection(editText.getText().length());
+        if(editText.getText()!=null) {
+            editText.setSelection(editText.getText().length());
+        }
     }
 
     public static void setEditTextPhone(Context context,CustomKeyboardEditText editText) {
@@ -75,7 +112,9 @@ public class EnterDataLineHelper {
         editText.setKeyboardId(R.xml.keyboard_numeric_confirm);
         editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(editText.getHint().length())});
         editText.addTextChangedListener(new PhoneWatcher());
-        editText.setSelection(editText.getText().length());
+        if(editText.getText()!=null) {
+            editText.setSelection(editText.getText().length());
+        }
     }
 
     public static void setEditTextSocialSecurity(Context context,CustomKeyboardEditText editText) {
@@ -83,7 +122,9 @@ public class EnterDataLineHelper {
         editText.setKeyboardId(R.xml.keyboard_numeric_confirm);
         editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(editText.getHint().length())});
         editText.addTextChangedListener(new SocialSecurityWatcher());
-        editText.setSelection(editText.getText().length());
+        if(editText.getText()!=null) {
+            editText.setSelection(editText.getText().length());
+        }
     }
 
     // 纯数字
@@ -101,7 +142,7 @@ public class EnterDataLineHelper {
             watcher = null;
         }
         editText.setText("");
-        editText.setSelection(editText.getText().length());
+        editText.setSelection(0);
     }
 
     public static void setEditTextAllText(Context context, CustomKeyboardEditText editText, EditTextDataLimit limit) {
@@ -110,7 +151,7 @@ public class EnterDataLineHelper {
         }
         editText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
         editText.setText("");
-        editText.setSelection(editText.getText().length());
+        editText.setSelection(0);
     }
 
     public static EnterAmountTextWatcher getWatcher() {

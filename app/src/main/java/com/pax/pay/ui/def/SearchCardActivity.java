@@ -2,16 +2,16 @@ package com.pax.pay.ui.def;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Rect;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.Nullable;
-import android.util.Log;
+import android.os.Handler;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -22,6 +22,8 @@ import com.pax.pay.ui.def.eventbus.AmountEvent;
 import com.pax.pay.ui.def.eventbus.CardEvent;
 import com.pax.pay.ui.def.eventbus.ClssLightEvent;
 import com.pax.pay.ui.def.eventbus.EventBusUtil;
+import com.pax.pay.ui.def.eventbus.SecurityEvent;
+import com.pax.pay.ui.def.utils.GifLoadOneTimeGif;
 import com.pax.pay.ui.def.view.ClssLight;
 import com.pax.pay.ui.def.view.ClssLightsView;
 import com.pax.us.pay.ui.constant.entry.EntryExtraData;
@@ -31,13 +33,23 @@ import com.pax.us.pay.ui.constant.entry.enumeration.PanStyles;
 import com.pax.us.pay.ui.constant.status.CardStatus;
 import com.pax.us.pay.ui.constant.status.ClssLightStatus;
 import com.pax.us.pay.ui.constant.status.InformationStatus;
+import com.pax.us.pay.ui.constant.status.SecurityStatus;
 import com.pax.us.pay.ui.core.helper.SearCardHelper;
 import com.pax.us.pay.ui.message.CurrencyConverter;
 import com.paxus.utils.StringUtils;
+import com.paxus.utils.log.Logger;
 import com.paxus.view.utils.ViewUtils;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
+
+import androidx.annotation.DrawableRes;
+import androidx.annotation.Nullable;
+import androidx.annotation.RawRes;
+import androidx.appcompat.widget.AppCompatTextView;
+import androidx.appcompat.widget.SwitchCompat;
+
+import static com.bumptech.glide.load.resource.gif.GifDrawable.LOOP_FOREVER;
 
 public class SearchCardActivity extends BaseAppActivity implements SearCardHelper.ISearchCardListener {
     TextView merchantTv;
@@ -54,11 +66,14 @@ public class SearchCardActivity extends BaseAppActivity implements SearCardHelpe
 //    TextView tvSwipe;
 //    TextView tvInsert;
 //    TextView tvTap;
-LinearLayout logoLayout;
+    LinearLayout logoLayout;
     ImageView ivApple;
     ImageView ivGoogle;
     ImageView ivSamsung;
     ImageView ivTap;
+
+    private SwitchCompat a11ySwitch;
+    private AppCompatTextView a11ySwitchText;
 
 
     private boolean enableManualEntry;
@@ -71,6 +86,8 @@ LinearLayout logoLayout;
     private boolean isPoint;
     private SearCardHelper helper;
     private boolean enableContactlessLight = true;
+    private int panLength;
+    private String accessibilityPinPadMode;
 
 
     @Override
@@ -96,7 +113,7 @@ LinearLayout logoLayout;
 
     @Override
     protected void onDestroy() {
-        Log.i("ReceiptFragment", "SearchCardActivity onDestroy notifyObservers false");
+        Logger.d( "SearchCardActivity onDestroy notifyObservers false");
         notifyObservers(false);
         EventBusUtil.unregister(this);
         super.onDestroy();
@@ -125,8 +142,41 @@ LinearLayout logoLayout;
         CurrencyConverter.setDefCurrency(CurrencyType.USD);
         totalAmount = 0;
         merchantName = "";
+        panLength = 0;
         helper = new SearCardHelper(this, new SecurityRespStatusImpl(this));
+    }
 
+    @Override
+    protected void initToolbar() {
+        super.initToolbar();
+        a11ySwitch = findViewById(R.id.a11ySwitch);
+        a11ySwitchText = findViewById(R.id.a11ySwitch_tag_text);
+        Bundle bundle = getIntent().getExtras();
+        accessibilityPinPadMode = bundle.getString(EntryExtraData.PARAM_ACCESSIBILITY_PIN_PAD_MODE);
+        if ("Y".equals(accessibilityPinPadMode)){
+            a11ySwitchText.setVisibility(View.VISIBLE);
+            a11ySwitch.setVisibility(View.VISIBLE);
+            a11ySwitch.setChecked(true);
+        } else if ("N".equals(accessibilityPinPadMode)){
+            a11ySwitchText.setVisibility(View.VISIBLE);
+            a11ySwitch.setVisibility(View.VISIBLE);
+            a11ySwitch.setChecked(false);
+        }
+        a11ySwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(StringUtils.isEmpty(accessibilityPinPadMode) || "D".equals(accessibilityPinPadMode)) return;
+                if(b){
+                    Intent newIntent = new Intent("com.pax.us.pay.setAccessibilityMode");
+                    newIntent.putExtra(EntryExtraData.PARAM_ACCESSIBILITY_PIN_PAD_MODE, "Y");
+                    sendBroadcast(newIntent);
+                }else{
+                    Intent newIntent = new Intent("com.pax.us.pay.setAccessibilityMode");
+                    newIntent.putExtra(EntryExtraData.PARAM_ACCESSIBILITY_PIN_PAD_MODE, "N");
+                    sendBroadcast(newIntent);
+                }
+            }
+        });
     }
 
     @Override
@@ -143,7 +193,13 @@ LinearLayout logoLayout;
     public void onStart() {
         helper.start(this, getIntent());
         super.onStart();
+    }
 
+    @Override
+    public void onNewIntent(Intent intent) {
+        setIntent(intent);
+        helper.start(this, intent);
+        super.onNewIntent(intent);
     }
 
     @Override
@@ -155,7 +211,7 @@ LinearLayout logoLayout;
 
     @Override
     public void onStop() {
-        Log.i("Helper", "SearchCard Helper Stop");
+        Logger.d("SearchCard Helper Stop");
         helper.stop();
         super.onStop();
     }
@@ -192,7 +248,7 @@ LinearLayout logoLayout;
         return true;
     }
 
-    private void updateCardLayout(boolean enableSwipe, boolean enableInsert, boolean enableTap) {
+    private void updateCardLayout(boolean enableSwipe, boolean enableInsert, boolean enableTap, boolean enableManual) {
         cardLayout.removeAllViews();
 
         int swipeId = R.drawable.selection_swipe_card_a920;
@@ -201,51 +257,74 @@ LinearLayout logoLayout;
 
         String deviceModel = Build.MODEL;
 
-        if ("A60".equals(deviceModel)) {
-            swipeId = R.drawable.selection_swipe_card_a60;
-            insertId = R.drawable.selection_insert_card_a60;
-        } else if ("Aries8".equals(deviceModel)) {
-            swipeId = R.drawable.selection_swipe_card_ar_x;
-            insertId = R.drawable.selection_insert_card_ar_x;
-            tapId = R.drawable.selection_tap_card_ar_x;
-        } else if ("Aries6".equals(deviceModel)){
-            swipeId = R.drawable.selection_swipe_card_ar6;
-            insertId = R.drawable.selection_insert_card_ar6;
-            tapId = R.drawable.selection_tap_card_ar6;
-        } else if ("A80".equals(deviceModel)) {
-            swipeId = R.drawable.selection_swipe_card_a80;
-        } else if ("A930".equals(deviceModel)) {
-            swipeId = R.drawable.selection_swipe_card_a930;
-        } else if ("A77".equals(deviceModel)) {
-            swipeId = R.drawable.selection_swipe_card_a77;
-            insertId = R.drawable.selection_insert_card_a77;
-            tapId = R.drawable.selection_tap_card_a77;
-        } else if ("PX7A".equals(deviceModel)) {
-            swipeId = R.drawable.selection_swipe_card_px7a;
-        } else if ("IM30".equals(deviceModel)) {
-            swipeId = R.drawable.selection_swipe_card_im30;
-            insertId = R.drawable.selection_insert_card_im30;
-            tapId = R.drawable.selection_tap_card_im30;
-        } else if ("A30".equals(deviceModel)) {
-            swipeId = R.drawable.selection_swipe_card_a30;
-            insertId = R.drawable.selection_insert_card_a30;
-            tapId = R.drawable.selection_tap_card_a30;
+        if ("M50".equals(deviceModel) || "M8".equals(deviceModel)){
+            swipeId = R.raw.insert_card_m50;
+            insertId = R.raw.insert_card_m50;
+            tapId = R.raw.tap_card_m50;
+            int manualId =R.raw.enter_card_m50;
+            int insertTapId = R.raw.insert_tap_card_m50;
+            if (enableSwipe)
+                loadImage(swipeId, enableSwipe);
+            if (enableInsert && enableTap) {
+                loadImage(insertTapId, enableInsert);
+            } else if (enableInsert) {
+                loadImage(insertId, enableInsert);
+            } else if (enableTap) {
+                loadImage(tapId, enableTap);
+            }
+            if (enableManual)
+                loadImage(swipeId, enableSwipe);
+
+        } else {
+            if ("A60".equals(deviceModel)) {
+                swipeId = R.drawable.selection_swipe_card_a60;
+                insertId = R.drawable.selection_insert_card_a60;
+            } else if ("Aries8".equals(deviceModel)) {
+                swipeId = R.drawable.selection_swipe_card_ar_x;
+                insertId = R.drawable.selection_insert_card_ar_x;
+                tapId = R.drawable.selection_tap_card_ar_x;
+            } else if ("Aries6".equals(deviceModel)){
+                swipeId = R.drawable.selection_swipe_card_ar6;
+                insertId = R.drawable.selection_insert_card_ar6;
+                tapId = R.drawable.selection_tap_card_ar6;
+            } else if ("A80".equals(deviceModel)) {
+                swipeId = R.drawable.selection_swipe_card_a80;
+            } else if ("A930".equals(deviceModel)) {
+                swipeId = R.drawable.selection_swipe_card_a930;
+            } else if ("A77".equals(deviceModel)) {
+                swipeId = R.drawable.selection_swipe_card_a77;
+                insertId = R.drawable.selection_insert_card_a77;
+                tapId = R.drawable.selection_tap_card_a77;
+            } else if ("PX7A".equals(deviceModel)) {
+                swipeId = R.drawable.selection_swipe_card_px7a;
+            } else if ("IM30".equals(deviceModel)) {
+                swipeId = R.drawable.selection_swipe_card_im30;
+                insertId = R.drawable.selection_insert_card_im30;
+                tapId = R.drawable.selection_tap_card_im30;
+            } else if ("A30".equals(deviceModel)) {
+                swipeId = R.drawable.selection_swipe_card_a30;
+                insertId = R.drawable.selection_insert_card_a30;
+                tapId = R.drawable.selection_tap_card_a30;
+            } else if ("A35".equals(deviceModel)) {
+                swipeId = R.drawable.selection_swipe_card_a35;
+                insertId = R.drawable.selection_insert_card_a35;
+                tapId = R.drawable.selection_tap_card_a35;
+            }
+            // 支持刷卡
+            //tvSwipe.setEnabled((mode & SearchMode.SWIPE) == SearchMode.SWIPE);
+            addCardImage(getString(R.string.swipe_action), swipeId, enableSwipe);
+
+            // 支持插卡
+            //tvInsert.setEnabled((mode & SearchMode.INSERT) == SearchMode.INSERT);
+            addCardImage(getString(R.string.insert_action), insertId, enableInsert);
+
+            addCardImage(getString(R.string.tap_action), tapId, enableTap);
         }
-
-        // 支持刷卡
-        //tvSwipe.setEnabled((mode & SearchMode.SWIPE) == SearchMode.SWIPE);
-        addCardImage(getString(R.string.swipe_action), swipeId, enableSwipe);
-
-        // 支持插卡
-        //tvInsert.setEnabled((mode & SearchMode.INSERT) == SearchMode.INSERT);
-        addCardImage(getString(R.string.insert_action), insertId, enableInsert);
-
-        addCardImage(getString(R.string.tap_action), tapId, enableTap);
     }
 
     private void addCardImage(String text, @DrawableRes int resId, boolean enable) {
         TextView textView = new TextView(this);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, 1);
         params.setMargins(4, 4, 4, 4);
         textView.setLayoutParams(params);
         textView.setPadding(4, 4, 4, 4);
@@ -255,6 +334,23 @@ LinearLayout logoLayout;
         textView.setEnabled(enable);
 //        textView.setTextSize(getResources().getDimension(R.dimen.font_size_label_card_entry_logo));
         cardLayout.addView(textView);
+    }
+
+    private void loadImage(@RawRes int resId, boolean enable) {
+        ImageView imageView = new ImageView(this);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1);
+        params.setMargins(4, 4, 4, 4);
+        imageView.setLayoutParams(params);
+        imageView.setPadding(4, 4, 4, 4);
+        imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+        GifLoadOneTimeGif.loadOneTimeGif(this, resId, imageView, LOOP_FOREVER, new GifLoadOneTimeGif.GifListener() {
+            @Override
+            public void gifPlayComplete() {
+                //Logger.d("VisaAnimationActivity gifPlayComplete");
+                //helper.sendNext(true);
+            }
+        });
+        cardLayout.addView(imageView);
     }
 
 
@@ -267,7 +363,7 @@ LinearLayout logoLayout;
         if (event == null)
             return;
         String action = event.getStatus();
-        Log.i("BroadcastReceiver", "clss action :" + action);
+        Logger.d("clss action :" + action);
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
             notifyObservers(action);
         } else {
@@ -304,42 +400,42 @@ LinearLayout logoLayout;
                     tvClssLight.setLight(3, ClssLight.OFF);
 
                     break;
-                case ClssLightStatus.CLSS_LIGHT_BLUE_ON:
-                    tvClssLight.setLight(0, ClssLight.ON);
-                    break;
-                case ClssLightStatus.CLSS_LIGHT_BLUE_OFF:
-                    tvClssLight.setLight(0, ClssLight.OFF);
-                    break;
-                case ClssLightStatus.CLSS_LIGHT_BLUE_BLINK:
-                    tvClssLight.setLight(0, ClssLight.BLINK);
-                    break;
-                case ClssLightStatus.CLSS_LIGHT_YELLOW_ON:
-                    tvClssLight.setLight(1, ClssLight.ON);
-                    break;
-                case ClssLightStatus.CLSS_LIGHT_YELLOW_OFF:
-                    tvClssLight.setLight(1, ClssLight.OFF);
-                    break;
-                case ClssLightStatus.CLSS_LIGHT_YELLOW_BLINK:
-                    tvClssLight.setLight(1, ClssLight.BLINK);
-                    break;
-                case ClssLightStatus.CLSS_LIGHT_GREEN_ON:
-                    tvClssLight.setLight(2, ClssLight.ON);
-                    break;
-                case ClssLightStatus.CLSS_LIGHT_GREEN_OFF:
-                    tvClssLight.setLight(2, ClssLight.OFF);
-                    break;
-                case ClssLightStatus.CLSS_LIGHT_GREEN_BLINK:
-                    tvClssLight.setLight(2, ClssLight.BLINK);
-                    break;
-                case ClssLightStatus.CLSS_LIGHT_RED_ON:
-                    tvClssLight.setLight(3, ClssLight.ON);
-                    break;
-                case ClssLightStatus.CLSS_LIGHT_RED_OFF:
-                    tvClssLight.setLight(3, ClssLight.OFF);
-                    break;
-                case ClssLightStatus.CLSS_LIGHT_RED_BLINK:
-                    tvClssLight.setLight(3, ClssLight.BLINK);
-                    break;
+//                case ClssLightStatus.CLSS_LIGHT_BLUE_ON:
+//                    tvClssLight.setLight(0, ClssLight.ON);
+//                    break;
+//                case ClssLightStatus.CLSS_LIGHT_BLUE_OFF:
+//                    tvClssLight.setLight(0, ClssLight.OFF);
+//                    break;
+//                case ClssLightStatus.CLSS_LIGHT_BLUE_BLINK:
+//                    tvClssLight.setLight(0, ClssLight.BLINK);
+//                    break;
+//                case ClssLightStatus.CLSS_LIGHT_YELLOW_ON:
+//                    tvClssLight.setLight(1, ClssLight.ON);
+//                    break;
+//                case ClssLightStatus.CLSS_LIGHT_YELLOW_OFF:
+//                    tvClssLight.setLight(1, ClssLight.OFF);
+//                    break;
+//                case ClssLightStatus.CLSS_LIGHT_YELLOW_BLINK:
+//                    tvClssLight.sgitetLight(1, ClssLight.BLINK);
+//                    break;
+//                case ClssLightStatus.CLSS_LIGHT_GREEN_ON:
+//                    tvClssLight.setLight(2, ClssLight.ON);
+//                    break;
+//                case ClssLightStatus.CLSS_LIGHT_GREEN_OFF:
+//                    tvClssLight.setLight(2, ClssLight.OFF);
+//                    break;
+//                case ClssLightStatus.CLSS_LIGHT_GREEN_BLINK:
+//                    tvClssLight.setLight(2, ClssLight.BLINK);
+//                    break;
+//                case ClssLightStatus.CLSS_LIGHT_RED_ON:
+//                    tvClssLight.setLight(3, ClssLight.ON);
+//                    break;
+//                case ClssLightStatus.CLSS_LIGHT_RED_OFF:
+//                    tvClssLight.setLight(3, ClssLight.OFF);
+//                    break;
+//                case ClssLightStatus.CLSS_LIGHT_RED_BLINK:
+//                    tvClssLight.setLight(3, ClssLight.BLINK);
+//                    break;
                 default:
                     break;
             }
@@ -353,7 +449,7 @@ LinearLayout logoLayout;
         if (event == null)
             return;
         String action = event.getStatus();
-        Log.i("BroadcastReceiver", "card action :" + action);
+        Logger.d("card action :" + action);
         switch (action) {
             case CardStatus.CARD_INSERT_REQUIRED:
                 //APAR-38
@@ -401,15 +497,37 @@ LinearLayout logoLayout;
         if (event == null)
             return;
         String action = event.getStatus();
-        Log.i("BroadcastReceiver", "amount action :" + action);
+        Logger.d("amount action :" + action);
+        if (InformationStatus.TRANS_AMOUNT_CHANGED_IN_CARD_PROCESSING.equals(action)) {
+            if (isPoint) {
+                amountLine = String.valueOf(event.getData());
+            } else {
+                amountLine = CurrencyConverter.convert(event.getData(), "");
+            }
+            amountTv.setText(amountLine);
+        }
+    }
+
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEventAsync(SecurityEvent event) {
+        if (event == null)
+            return;
+        String action = event.getStatus();
+        Logger.d( "SecurityEvent action :" + action);
         switch (action) {
-            case InformationStatus.TRANS_AMOUNT_CHANGED_IN_CARD_PROCESSING:
-                if (isPoint) {
-                    amountLine = String.valueOf(event.getData());
-                } else {
-                    amountLine = CurrencyConverter.convert(event.getData(), "");
-                }
-                amountTv.setText(amountLine);
+            case SecurityStatus.SECURITY_ENTERING:
+                panLength++;
+                confirmBtn.setEnabled(true);
+                break;
+            case SecurityStatus.SECURITY_ENTER_CLEARED:
+                panLength = 0;
+                confirmBtn.setEnabled(false);
+                break;
+            case SecurityStatus.SECURITY_ENTER_DELETE:
+                panLength --;
+                if (panLength==0)
+                    confirmBtn.setEnabled(false);
                 break;
             default:
                 break;
@@ -433,18 +551,18 @@ LinearLayout logoLayout;
         if (b) {
             // support input card by manual
             confirmBtn.setVisibility(View.VISIBLE);
-            confirmBtn.setEnabled(true);
+            confirmBtn.setEnabled(false);  //BPOSANDJAX-203
         } else {
             promptTv.setVisibility(View.INVISIBLE);
             confirmBtn.setVisibility(View.INVISIBLE);
         }
 
         //enableTaplEntry = b3;
-        updateCardLayout(b1, b2, b3);
+        updateCardLayout(b1, b2, b3, b);
         if (b3) {
             // enable tap
             if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                Log.i("ReceiptFragment", "SearchCardActivity onShowCard notifyObservers true ");
+                Logger.d("SearchCardActivity onShowCard notifyObservers true ");
                 if (enableContactlessLight) {
                     notifyObservers(true);
                 }
@@ -534,22 +652,36 @@ LinearLayout logoLayout;
                 @Override
                 public void onGlobalLayout() {
                     cardNumEdt.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                    int[] location = new int[2];
-                    cardNumEdt.getLocationInWindow(location);
-                    int x = location[0];
-                    int y = location[1];
-                    int barHeight = 0;
-                    int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
-                    if (resourceId > 0) {
-                        barHeight = getResources().getDimensionPixelSize(resourceId);
+                    if(Build.MODEL.equals("A35")){
+                        new Handler().postDelayed(()-> {
+                            sendEditTextLocation();
+                        },100);
+                    }else{
+                        sendEditTextLocation();
                     }
-                    int fontSize = ViewUtils.px2sp(SearchCardActivity.this, cardNumEdt.getTextSize());
-                    helper.setSecurityArea(x, y - barHeight, cardNumEdt.getWidth(), cardNumEdt.getHeight(), fontSize);
-                    //confirmBtn.requestFocus(); //ANFDRC-687
                 }
             });
         }
 
+    }
+
+    private void sendEditTextLocation(){
+        int[] location = new int[2];
+        cardNumEdt.getLocationInWindow(location);
+        int x = location[0];
+        int y = location[1];
+        int barHeight = 0;
+        boolean immersiveSticky = (getWindow().getDecorView().getSystemUiVisibility() &
+                View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY) > 0;
+        if (!immersiveSticky) {
+            //area of application
+            Rect outRect1 = new Rect();
+            getWindow().getDecorView().getWindowVisibleDisplayFrame(outRect1);
+            barHeight = outRect1.top;  //statusBar's height
+        }
+        int fontSize = ViewUtils.px2sp(SearchCardActivity.this, cardNumEdt.getTextSize());
+        helper.setSecurityArea(x, y - barHeight, cardNumEdt.getWidth(), cardNumEdt.getHeight(), fontSize, "FF0000");
+        Logger.d("search card "+x+','+y+','+barHeight);
     }
 
     @Override
@@ -587,6 +719,14 @@ LinearLayout logoLayout;
             this.merchantName = merchantName;
             merchantLayout.setVisibility(View.VISIBLE);
             merchantTv.setText(merchantName);
+        }
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (hasFocus && ViewUtils.canNavigationBarImmersiveSticky()) {
+            ViewUtils.hideNavigationBar(getWindow().getDecorView());
         }
     }
 }

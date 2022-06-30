@@ -25,7 +25,6 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="gone"
             android:background="@drawable/error_circle" />
 
         <ImageView
@@ -34,7 +33,6 @@
             android:layout_height="match_parent"
             android:contentDescription="@string/img_desc"
             android:scaleType="center"
-            android:visibility="gone"
             android:src="@drawable/error_center_x" />
     </FrameLayout>
 
@@ -56,7 +54,6 @@
             android:layout_height="80dp"
             android:layout_gravity="end"
             android:layout_marginTop="-13dp"
-            android:visibility="gone"
             android:background="@color/background" />
 
         <View
@@ -65,13 +62,11 @@
             android:layout_height="60dp"
             android:layout_gravity="start"
             android:layout_marginStart="-3dp"
-            android:visibility="gone"
             android:background="@color/background" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="gone"
             android:background="@drawable/success_circle" />
 
         <com.paxus.view.dialog.SuccessTickView

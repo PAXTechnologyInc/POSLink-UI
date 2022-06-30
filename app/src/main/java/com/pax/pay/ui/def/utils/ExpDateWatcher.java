@@ -2,7 +2,8 @@ package com.pax.pay.ui.def.utils;
 
 //import android.support.annotation.VisibleForTesting;
 
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.VisibleForTesting;
+
 import android.text.Editable;
 import android.text.TextWatcher;
 

@@ -3,8 +3,10 @@ package com.pax.pay.ui.def;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import android.widget.ImageView;
 
 import com.google.zxing.BarcodeFormat;

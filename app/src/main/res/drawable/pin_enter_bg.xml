@@ -3,7 +3,7 @@
     <item android:state_enabled="true" android:state_pressed="false">
         <shape android:shape="rectangle">
             <corners android:radius="@dimen/pin_btn_radius" />
-            <solid android:color="#006400" />
+            <solid android:color="#3F51B5" />
         </shape>
     </item>
 </selector>

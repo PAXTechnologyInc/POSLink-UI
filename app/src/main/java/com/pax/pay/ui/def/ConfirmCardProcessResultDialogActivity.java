@@ -18,24 +18,30 @@
  */
 package com.pax.pay.ui.def;
 
+import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.text.TextUtils;
 
 import com.pax.pay.ui.def.base.RespStatusImpl;
 import com.pax.pay.ui.def.eventbus.ConfirmDialogEndEvent;
 import com.pax.pay.ui.def.eventbus.EventBusUtil;
 import com.pax.us.pay.ui.core.helper.ConfirmOptionsHelper;
+import com.paxus.view.BaseAppCompatActivity;
 import com.paxus.view.dialog.CustomAlertDialog;
+import com.paxus.view.dialog.DialogUtils;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 
-public class ConfirmCardProcessResultDialogActivity extends AppCompatActivity implements ConfirmOptionsHelper.IComfirmOptionListener {
+public class ConfirmCardProcessResultDialogActivity extends BaseAppCompatActivity implements ConfirmOptionsHelper.IComfirmOptionListener {
 
     private ConfirmOptionsHelper helper = null;
     private String title;
@@ -139,7 +145,7 @@ public class ConfirmCardProcessResultDialogActivity extends AppCompatActivity im
                 dialog.setContent(contentMsg);
                 dialog.showConfirmButton(true);
                 dialog.setConfirmText(positiveMessage);
-                dialog.show();
+                DialogUtils.showDialog(this, dialog);
             }
         });
     }

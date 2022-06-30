@@ -13,5 +13,6 @@ public class ConfirmSurchargelFeeActivity extends ConfirmFeeActivity {
         totalAmount = bundle.getLong(EntryExtraData.PARAM_TOTAL_AMOUNT);
         feeAmount = bundle.getLong(EntryExtraData.PARAM_SURCHARGE_FEE);
         currency = bundle.getString(EntryExtraData.PARAM_CURRENCY);
+        enableBypass = bundle.getBoolean(EntryExtraData.PARAM_ENABLE_BYPASS);
     }
 }

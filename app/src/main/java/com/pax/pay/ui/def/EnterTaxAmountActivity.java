@@ -1,7 +1,8 @@
 package com.pax.pay.ui.def;
 
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
+
 import android.text.TextUtils;
 
 import com.pax.pay.ui.def.base.RespStatusImpl;

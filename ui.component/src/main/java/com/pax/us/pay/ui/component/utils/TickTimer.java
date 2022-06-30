@@ -27,7 +27,7 @@ public class TickTimer {
     }
 
     private Timer timer;
-    private final OnTickTimerListener listener;
+    private OnTickTimerListener listener;
 
     private static class Timer extends CountDownTimer {
 

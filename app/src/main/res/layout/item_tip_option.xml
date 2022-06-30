@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/tip_option_height"
+    android:orientation="vertical"
+    android:background="@drawable/tip_select_style">
+    <TextView
+        android:id="@+id/tv_percentage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:duplicateParentState="true"
+        android:textColor="@drawable/tip_text_color"
+        android:textSize="@dimen/font_size_smaller"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/tv_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:duplicateParentState="true"
+        android:textColor="@drawable/tip_text_color"
+        android:textSize="@dimen/font_size_large"
+        android:textStyle="bold"/>
+
+</LinearLayout>

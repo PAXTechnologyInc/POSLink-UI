@@ -82,6 +82,9 @@ public class SelectOptionContent {
         SELECT_OPTION_MAP.put(TransType.VRTRN, R.string.vrtrn);
         SELECT_OPTION_MAP.put(TransType.AUTH, R.string.auth);
         SELECT_OPTION_MAP.put(TransType.POSTAUTH, R.string.postauth);
+        SELECT_OPTION_MAP.put(TransType.INCREMENTAL_AUTH, R.string.incremental_auth);
+        SELECT_OPTION_MAP.put(TransType.BALANCE_WITH_LOCK, R.string.balance_lock);
+        SELECT_OPTION_MAP.put(TransType.REDEMPTION_WITH_UNLOCK, R.string.redemption_unlock);
         SELECT_OPTION_MAP.put(TransType.VAUTH, R.string.vauth);
         SELECT_OPTION_MAP.put(TransType.VERIFY, R.string.verify);
         SELECT_OPTION_MAP.put(TransType.TOKENIZE, R.string.tokenize);
@@ -130,20 +133,19 @@ public class SelectOptionContent {
         SELECT_OPTION_MAP.put(BatchType.PURGE_BATCH, R.string.batch_type_purge_batch);
         SELECT_OPTION_MAP.put(BatchType.HOST_TOTALS, R.string.batch_type_host_totals);
 
-        SELECT_OPTION_MAP.put(BatchType.BATCH_CLOSE_NEW, R.string.batch_type_batch_close);
-        SELECT_OPTION_MAP.put(BatchType.PURGE_BATCH_NEW, R.string.batch_type_purge_batch);
-        SELECT_OPTION_MAP.put(BatchType.HOST_TOTALS_NEW, R.string.batch_type_host_totals);
+//        SELECT_OPTION_MAP.put(BatchType.BATCH_CLOSE_NEW, R.string.batch_type_batch_close);
+//        SELECT_OPTION_MAP.put(BatchType.PURGE_BATCH_NEW, R.string.batch_type_purge_batch);
+//        SELECT_OPTION_MAP.put(BatchType.HOST_TOTALS_NEW, R.string.batch_type_host_totals);
         SELECT_OPTION_MAP.put(BatchType.FORCE_BATCH_CLOSE, R.string.batch_type_force_batch_close);
 
 
-        SELECT_OPTION_MAP.put(EDCGroup.GIFT, R.string.edc_group_gift);
         SELECT_OPTION_MAP.put(EDCGroup.CREDIT_DEBIT_EBT, R.string.edc_group_credit_debit_ebt);
 
         SELECT_OPTION_MAP.put(ReportType.CURRENT_BATCH, R.string.report_type_current_batch);
         SELECT_OPTION_MAP.put(ReportType.PREVIOUS_BATCH, R.string.report_type_previous_batch);
 
-        SELECT_OPTION_MAP.put(ReportType.CURRENT_BATCH_NEW, R.string.report_type_current_batch);
-        SELECT_OPTION_MAP.put(ReportType.PREVIOUS_BATCH_NEW, R.string.report_type_previous_batch);
+//        SELECT_OPTION_MAP.put(ReportType.CURRENT_BATCH_NEW, R.string.report_type_current_batch);
+//        SELECT_OPTION_MAP.put(ReportType.PREVIOUS_BATCH_NEW, R.string.report_type_previous_batch);
 
         SELECT_OPTION_MAP.put(AccountType.SAVING, R.string.acc_type_saving);
         SELECT_OPTION_MAP.put(AccountType.CHECKING, R.string.acc_type_checking);

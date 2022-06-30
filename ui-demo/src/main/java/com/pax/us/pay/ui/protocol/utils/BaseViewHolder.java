@@ -13,7 +13,7 @@
  */
 package com.pax.us.pay.ui.protocol.utils;
 
-import android.support.v7.widget.RecyclerView;
+import androidx.appcompat.widget.RecyclerView;
 import android.view.View;
 
 

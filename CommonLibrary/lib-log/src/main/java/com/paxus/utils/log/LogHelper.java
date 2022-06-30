@@ -36,6 +36,6 @@ public class LogHelper {
     }
 
     public interface LoggerCallback {
-        void onAppCrashed();
+        public void onAppCrashed();
     }
 }

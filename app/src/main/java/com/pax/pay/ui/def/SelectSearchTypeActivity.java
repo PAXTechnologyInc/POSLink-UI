@@ -1,10 +1,12 @@
 package com.pax.pay.ui.def;
 
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.res.ResourcesCompat;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -156,13 +158,11 @@ public class SelectSearchTypeActivity extends BaseAppActivity implements SelectO
                     holder.textView.setText(viewData);
                 }
 
-                if (TRANS_TYPE_ICON_MAP.get(viewData) != null) {
-                    holder.textView.setCompoundDrawablesWithIntrinsicBounds(null,
-                            getResources().getDrawable(TRANS_TYPE_ICON_MAP.get(viewData), null), null, null);
-                } else {
-                    holder.textView.setCompoundDrawablesWithIntrinsicBounds(null,
-                            getResources().getDrawable(R.mipmap.by_operator, null), null, null);
-                }
+                Integer resId = TRANS_TYPE_ICON_MAP.get(viewData);
+                holder.textView.setCompoundDrawablesWithIntrinsicBounds(null,
+                        ResourcesCompat.getDrawable(getResources(),
+                                resId != null ? resId : R.mipmap.by_operator, null),
+                        null, null);
 
                 holder.textView.setCompoundDrawablePadding(10);
                 holder.textView.setSelected(selected == position);

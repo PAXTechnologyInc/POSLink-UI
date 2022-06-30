@@ -23,7 +23,9 @@ import android.graphics.RectF;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.SystemClock;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
+
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
@@ -62,8 +64,8 @@ public class ProgressWheel extends View {
     private int rimColor = 0x00FFFFFF;
 
     // Paints
-    private final Paint barPaint = new Paint();
-    private final Paint rimPaint = new Paint();
+    private Paint barPaint = new Paint();
+    private Paint rimPaint = new Paint();
 
     // Rectangles
     private RectF circleBounds = new RectF();

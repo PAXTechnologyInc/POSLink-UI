@@ -89,7 +89,7 @@
     <string name="view_merchant_fee">Merchant Fee : </string>
     <string name="view_surcharge_fee">Surcharge Fee : </string>
     <string name="view_addition_fee">Addition Fee : </string>
-    <string name="view_service_fee" >Service Fee : </string>
+    <string name="view_service_fee">Service Fee : </string>
     <string name="view_health_amount">Health Amount : </string>
     <string name="view_rx_amount">Rx Amount : </string>
     <string name="view_clinic_amount">Clinic Amount : </string>

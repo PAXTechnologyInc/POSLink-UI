@@ -3,17 +3,22 @@ package com.pax.pay.ui.def.base;
 import android.content.pm.ActivityInfo;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.Menu;
+import android.view.View;
+import android.widget.Switch;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.widget.AppCompatTextView;
+import androidx.appcompat.widget.SwitchCompat;
+import androidx.appcompat.widget.Toolbar;
 
 import com.pax.pay.ui.def.R;
 import com.pax.pay.ui.def.eventbus.ActivityEndEvent;
 import com.pax.pay.ui.def.eventbus.EventBusUtil;
 import com.pax.us.pay.ui.constant.entry.enumeration.TransMode;
+import com.paxus.utils.log.Logger;
 import com.paxus.view.utils.ViewUtils;
 
 import org.greenrobot.eventbus.Subscribe;
@@ -24,6 +29,7 @@ import java.lang.reflect.Method;
 public abstract class BaseActivity extends BaseLandActivity {
 
     private Toolbar toolbar;
+
 
     /**
      * display Title
@@ -58,7 +64,7 @@ public abstract class BaseActivity extends BaseLandActivity {
         } else {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         }
-        Log.i("LocalBroadcastReceiver", "registerReceiver : " + this.getLocalClassName());
+        Logger.d( "registerReceiver : " + this.getLocalClassName());
     }
 
     @Override
@@ -76,7 +82,7 @@ public abstract class BaseActivity extends BaseLandActivity {
     /**
      * init toolbar
      */
-    private void initToolbar() {
+    protected void initToolbar() {
         toolbar = findViewById(R.id.toolbar);
         if (toolbar != null) {
             setSupportActionBar(toolbar);

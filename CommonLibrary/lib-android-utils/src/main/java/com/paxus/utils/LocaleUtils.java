@@ -8,6 +8,7 @@ import android.content.res.Resources;
 import android.os.Build;
 import android.os.LocaleList;
 import android.util.DisplayMetrics;
+import android.util.Log;
 
 import java.util.Locale;
 
@@ -49,6 +50,7 @@ public class LocaleUtils {
                     config.setLocales(localeList);
                 }
                 baseContext = baseContext.createConfigurationContext(config);
+                baseContext.getResources().getConfiguration().setLocale(locale);//[TC-99]
             } else {
                 config.locale = locale;
                 resources.updateConfiguration(config, dm);

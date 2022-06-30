@@ -44,4 +44,99 @@
         <attr name="matProg_barWidth" format="dimension" />
         <attr name="matProg_linearProgress" format="boolean" />
     </declare-styleable>
+
+    <!-- To access styleable Theme:backgroundDimAmount -->
+    <declare-styleable name="MockTheme">
+        <attr name="android:backgroundDimAmount" />
+    </declare-styleable>
+
+    <declare-styleable name="MockKeyboardView">
+        <!-- Default KeyboardView style. -->
+        <attr name="keyboardViewStyle" format="reference" />
+
+        <!-- Image for the key. This image needs to be a StateListDrawable, with the following
+             possible states: normal, pressed, checkable, checkable+pressed, checkable+checked,
+             checkable+checked+pressed. -->
+        <attr name="android:keyBackground" />
+
+        <!-- Size of the text for character keys. -->
+        <attr name="android:keyTextSize" />
+
+        <!-- Size of the text for custom keys with some text and no icon. -->
+        <attr name="android:labelTextSize" />
+
+        <!-- Color to use for the label in a key. -->
+        <attr name="android:keyTextColor" />
+
+        <!-- Layout resource for key press feedback. -->
+        <attr name="android:keyPreviewLayout" />
+
+        <!-- Vertical offset of the key press feedback from the key. -->
+        <attr name="android:keyPreviewOffset" />
+
+        <!-- Height of the key press feedback popup. -->
+        <attr name="android:keyPreviewHeight" />
+
+        <!-- Amount to offset the touch Y coordinate by, for bias correction. -->
+        <attr name="android:verticalCorrection" />
+
+        <!-- Layout resource for popup keyboards. -->
+        <attr name="android:popupLayout" />
+
+        <attr name="android:shadowColor" />
+        <attr name="android:shadowRadius" />
+    </declare-styleable>
+
+    <declare-styleable name="MockKeyboardViewPreviewState">
+        <!-- State for {@link com.paxus.inputmethodservice.KeyboardView KeyboardView}
+                key preview background. -->
+        <attr name="android:state_long_pressable" />
+    </declare-styleable>
+
+    <declare-styleable name="MockKeyboard">
+        <!-- Default width of a key, in pixels or percentage of display width. -->
+        <attr name="android:keyWidth" />
+        <!-- Default height of a key, in pixels or percentage of display width. -->
+        <attr name="android:keyHeight" />
+        <!-- Default horizontal gap between keys. -->
+        <attr name="android:horizontalGap" />
+        <!-- Default vertical gap between rows of keys. -->
+        <attr name="android:verticalGap" />
+    </declare-styleable>
+
+    <declare-styleable name="MockKeyboard_Row">
+        <!-- Row edge flags. -->
+        <attr name="android:rowEdgeFlags" />
+        <!-- Mode of the keyboard. If the mode doesn't match the
+             requested keyboard mode, the row will be skipped. -->
+        <attr name="android:keyboardMode" />
+    </declare-styleable>
+
+    <declare-styleable name="MockKeyboard_Key">
+        <!-- The unicode value or comma-separated values that this key outputs. -->
+        <attr name="android:codes" />
+        <!-- The XML keyboard layout of any popup keyboard. -->
+        <attr name="android:popupKeyboard" />
+        <!-- The characters to display in the popup keyboard. -->
+        <attr name="android:popupCharacters" />
+        <!-- Key edge flags. -->
+        <attr name="android:keyEdgeFlags" />
+        <!-- Whether this is a modifier key such as Alt or Shift. -->
+        <attr name="android:isModifier" />
+        <!-- Whether this is a toggle key. -->
+        <attr name="android:isSticky" />
+        <!-- Whether long-pressing on this key will make it repeat. -->
+        <attr name="android:isRepeatable" />
+        <!-- The icon to show in the popup preview. -->
+        <attr name="android:iconPreview" />
+        <!-- The string of characters to output when this key is pressed. -->
+        <attr name="android:keyOutputText" />
+        <!-- The label to display on the key. -->
+        <attr name="android:keyLabel" />
+        <!-- The icon to display on the key instead of the label. -->
+        <attr name="android:keyIcon" />
+        <!-- Mode of the keyboard. If the mode doesn't match the
+             requested keyboard mode, the key will be skipped. -->
+        <attr name="android:keyboardMode" />
+    </declare-styleable>
 </resources>

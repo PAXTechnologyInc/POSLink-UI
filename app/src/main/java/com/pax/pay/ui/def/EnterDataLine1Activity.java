@@ -2,7 +2,9 @@ package com.pax.pay.ui.def;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.Nullable;
+
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
@@ -15,15 +17,16 @@ import android.widget.TextView;
 
 import com.pax.pay.ui.def.base.BaseAppActivity;
 import com.pax.pay.ui.def.utils.EnterDataLineHelper;
-import com.pax.pay.ui.def.utils.LanguageConvertUtils;
 import com.pax.pay.ui.def.utils.RangeFilter;
 import com.pax.us.pay.ui.component.keyboard.CustomKeyboardEditText;
 import com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType;
 import com.pax.us.pay.ui.core.api.IHasPhyKeyboardListener;
 import com.pax.us.pay.ui.core.api.IMessageListener;
 import com.pax.us.pay.ui.message.CurrencyConverter;
+import com.paxus.utils.LocaleUtils;
 import com.paxus.utils.StringUtils;
 import com.paxus.view.dialog.CustomAlertDialog;
+import com.paxus.view.dialog.DialogUtils;
 import com.paxus.view.utils.ToastHelper;
 import com.paxus.view.utils.ViewUtils;
 
@@ -256,17 +259,8 @@ abstract class EnterDataLine1Activity<T> extends BaseAppActivity implements IMes
                         if (limit.minLen == 4 && limit.maxLen == 4) {
                             ToastHelper.showMessage(this, getString(R.string.pls_input_4digit));
                         } else {
-//                            String pro = getString(R.string.notice_len_out_of_range);
-//                            if (pro.contains("\n")){
-//                                ToastHelper.showMessage(this, getString(R.string.notice_len_out_of_range, getString(R.string.length_en), limit.minLen, limit.maxLen, getString(R.string.length_fr), limit.minLen, limit.maxLen));
-//                            }else {
-//                                ToastHelper.showMessage(this, getString(R.string.notice_len_out_of_range, getString(R.string.length), limit.minLen, limit.maxLen));
-//                            }
-
-                            String title = LanguageConvertUtils.convertString(this, R.string.notice_len_out_of_range, R.string.length, limit.minValue, limit.maxValue);
+                            String title = LocaleUtils.getString(this, R.string.notice_length_out_of_range, limit.minValue, limit.maxValue);
                             ToastHelper.showMessage(this, title);
-
-                            //ToastHelper.showMessage(this, getString(R.string.notice_len_out_of_range, "length", limit.minLen, limit.maxLen));
                         }
                         return false;
                     }
@@ -276,16 +270,8 @@ abstract class EnterDataLine1Activity<T> extends BaseAppActivity implements IMes
                         if (limit.minLen == 4 && limit.maxLen == 4) {
                             ToastHelper.showMessage(this, getString(R.string.pls_input_4digit));
                         } else {
-//                            String pro = getString(R.string.notice_out_of_range);
-//                            if (pro.contains("\n")){
-//                                ToastHelper.showMessage(this, getString(R.string.notice_out_of_range, getString(R.string.length_en), limit.lengthRange, getString(R.string.length_fr), limit.lengthRange));
-//                            }else {
-//                                ToastHelper.showMessage(this, getString(R.string.notice_out_of_range, getString(R.string.length), limit.lengthRange));
-//                            }
-
-                            String title = LanguageConvertUtils.convertString(this, R.string.notice_out_of_range, R.string.length_en, limit.lengthRange);
+                            String title = LocaleUtils.getString(this, R.string.notice_out_of_range, R.string.length, limit.lengthRange);
                             ToastHelper.showMessage(this, title);
-
                         }
                         return false;
                     }
@@ -293,16 +279,7 @@ abstract class EnterDataLine1Activity<T> extends BaseAppActivity implements IMes
 
                 long value = StringUtils.parseLong(content);
                 if (value > limit.maxValue || value < limit.minValue) {
-
-                    //String pro = getString(R.string.notice_len_out_of_range);
-//                    if (Locale.CANADA_FRENCH.equals(Locale.getDefault())){
-//                        String title = getString(R.string.notice_len_out_of_range, getString(R.string.number_en), limit.minValue, limit.maxValue, getString(R.string.number_fr), limit.minValue, limit.maxValue);
-//                        ToastHelper.showMessage(this, title);
-//                    }else {
-//                        ToastHelper.showMessage(this, getString(R.string.notice_len_out_of_range, getString(R.string.number), limit.minValue, limit.maxValue));
-//                    }
-
-                    String title = LanguageConvertUtils.convertString(this, R.string.notice_len_out_of_range, R.string.number, limit.minValue, limit.maxValue);
+                    String title = LocaleUtils.getString(this, R.string.notice_number_out_of_range, limit.minValue, limit.maxValue);
                     ToastHelper.showMessage(this, title);
                     return false;
                 } else if (limit.minValue != 0) {
@@ -347,7 +324,7 @@ abstract class EnterDataLine1Activity<T> extends BaseAppActivity implements IMes
 //                            ToastHelper.showMessage(this, getString(R.string.notice_amount_out_of_range, CurrencyConverter.convert(limit.minValue), CurrencyConverter.convert(limit.maxValue)));
 //                        }
 
-                        String title = LanguageConvertUtils.convertString(this, R.string.notice_amount_out_of_range, null, CurrencyConverter.convert(limit.minValue), CurrencyConverter.convert(limit.maxValue));
+                        String title = LocaleUtils.getString(this, R.string.notice_amount_out_of_range,  CurrencyConverter.convert(limit.minValue), CurrencyConverter.convert(limit.maxValue));
                         ToastHelper.showMessage(this, title);
 
                         return false;
@@ -391,15 +368,8 @@ abstract class EnterDataLine1Activity<T> extends BaseAppActivity implements IMes
                 if (!StringUtils.isEmpty(limit.lengthRange)) {
                     List<Integer> lengthList = RangeFilter.getLengthList(limit.lengthRange);
                     if (content != null && !lengthList.contains(content.length())) {
-//                        String pro = getString(R.string.notice_out_of_range);
-//                        if (pro.contains("\n")){
-//                            ToastHelper.showMessage(this, getString(R.string.notice_out_of_range, getString(R.string.length_en), limit.lengthRange, getString(R.string.length_fr), limit.lengthRange));
-//                        }else {
-//                            ToastHelper.showMessage(this, getString(R.string.notice_out_of_range, getString(R.string.length), limit.lengthRange));
-//                        }
-                        String title = LanguageConvertUtils.convertString(this, R.string.notice_out_of_range, R.string.length, limit.lengthRange);
+                        String title = LocaleUtils.getString(this, R.string.notice_out_of_range, R.string.length, limit.lengthRange);
                         ToastHelper.showMessage(this, title);
-                        //ToastHelper.showMessage(this, getString(R.string.notice_out_of_range, "length", limit.lengthRange));
                         return false;
                     }
                 }
@@ -425,7 +395,7 @@ abstract class EnterDataLine1Activity<T> extends BaseAppActivity implements IMes
             dialog.setContent(limit != null ? limit.confirmPrompt : "");
             dialog.showConfirmButton(true);
             dialog.showCancelButton(true);
-            dialog.show();
+            DialogUtils.showDialog(this, dialog);
         });
     }
 

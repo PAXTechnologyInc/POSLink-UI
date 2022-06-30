@@ -4,7 +4,9 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
+
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,7 +23,7 @@ import com.paxus.view.R;
 public class SingleChoiceDialog extends Dialog implements View.OnClickListener {
     private TextView mTitleTextView;
     private TextView mContentTextView;
-    private final String[] mItems;
+    private String[] mItems;
     private int mWhich = -1;
     private Button mConfirmButton;
     private Button mCancelButton;

@@ -1,8 +1,8 @@
 package com.pax.us.pay.ui.core.helper;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.pax.us.pay.ui.constant.entry.EntryExtraData;
 import com.pax.us.pay.ui.constant.entry.EntryRequest;
@@ -39,24 +39,25 @@ public class EnterCashbackHelper extends BaseActionHelper {
             ((ICashbackOptionListener) uiListener).onShowEnableOtherPrompt(enable);
         }
 
-        if (uiListener instanceof ICashbackOptionListener && bundle.containsKey(EntryExtraData.PARAM_CASHBACK_RATE_OPTIONS)) {
-            rateOptions = bundle.getStringArray(EntryExtraData.PARAM_CASHBACK_RATE_OPTIONS);
-        }
+//        if (uiListener instanceof ICashbackOptionListener && bundle.containsKey(EntryExtraData.PARAM_CASHBACK_RATE_OPTIONS)) {
+//            rateOptions = bundle.getStringArray(EntryExtraData.PARAM_CASHBACK_RATE_OPTIONS);
+//        }
 
         if (uiListener instanceof ICashbackOptionListener && bundle.containsKey(EntryExtraData.PARAM_CASHBACK_OPTIONS)) {
             options = bundle.getStringArray(EntryExtraData.PARAM_CASHBACK_OPTIONS);
         }
 
         if (options != null && options.length > 0) {
-            if ((rateOptions != null && rateOptions.length > 0)) {
-                if (rateOptions.length == options.length) {
-                    if (options != null && options.length > 0) {
-                        ((ICashbackOptionListener) uiListener).onShowCashbackOptions(options, rateOptions);
-                    }
-                }
-            } else {
+//            if ((rateOptions != null && rateOptions.length > 0)) {
+//                if (rateOptions.length == options.length) {
+//                    if (options != null && options.length > 0) {
+//                        ((ICashbackOptionListener) uiListener).onShowCashbackOptions(options, rateOptions);
+//                    }
+//                }
+//            }
+//            else {
                 ((ICashbackOptionListener) uiListener).onShowCashbackOptions(options, null);
-            }
+//            }
         }
     }
 

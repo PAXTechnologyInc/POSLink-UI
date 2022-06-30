@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/show_text_box_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/show_text_box_text_layout"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="horizontal">
+
+        <ScrollView
+            android:id="@+id/ll_show_text_box_scroller_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp">
+
+            <LinearLayout
+                android:id="@+id/ll_container_show_text_box_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="5dp"></LinearLayout>
+
+        </ScrollView>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/show_text_box_input_layout"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp">
+
+        <com.pax.us.pay.ui.component.keyboard.PoslinkCustomKeyboardEditText
+            android:id="@+id/edit_input_text"
+            style="@style/DefEditText"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true" />
+
+        <TextView
+            android:id="@+id/tv_input_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/edit_input_text"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="30dp"
+            android:text="Enter Amount"
+            android:textColor="@color/primary_text_light"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_input_text_ok"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edit_input_text"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/btn_bg_light"
+            android:text="@string/trans_confirm_btn"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_button" />
+
+    </RelativeLayout>
+</LinearLayout>

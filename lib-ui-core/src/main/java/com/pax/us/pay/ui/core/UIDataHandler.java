@@ -3,7 +3,7 @@ package com.pax.us.pay.ui.core;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -107,21 +107,21 @@ public class UIDataHandler {
     static {
 
         EXTRA_DATA_MAP.put(EntryExtraData.PARAM_TRANS_TYPE, DEFAULT);
-        EXTRA_DATA_MAP.put(EntryExtraData.PARAM_TRANS_TIME, TIME);
-        EXTRA_DATA_MAP.put(EntryExtraData.PARAM_TRANS_DATE, DATE);
-        EXTRA_DATA_MAP.put(EntryExtraData.PARAM_MERCHANT_ID, DEFAULT);
-        EXTRA_DATA_MAP.put(EntryExtraData.PARAM_TERMINAL_ID, DEFAULT);
-        EXTRA_DATA_MAP.put(EntryExtraData.PARAM_EDC_TYPE, DEFAULT);
-        EXTRA_DATA_MAP.put(EntryExtraData.PARAM_TRANS_NUMBER, DEFAULT);
+        EXTRA_DATA_MAP.put("transTime", TIME);
+        EXTRA_DATA_MAP.put("transDate", DATE);
+        EXTRA_DATA_MAP.put("merchantID", DEFAULT);
+        EXTRA_DATA_MAP.put("terminalID", DEFAULT);
+        EXTRA_DATA_MAP.put("edcType", DEFAULT);
+        EXTRA_DATA_MAP.put("transNumber", DEFAULT);
         EXTRA_DATA_MAP.put(EntryExtraData.PARAM_TRANS_MODE, DEFAULT);
         EXTRA_DATA_MAP.put(EntryExtraData.PARAM_SERVICE_FEE, AMOUNT); //Fixed ANBP-1009, display additional fee on AR terminals
         EXTRA_DATA_MAP.put(EntryExtraData.PARAM_TOTAL_AMOUNT, AMOUNT); //Fixed ANBP-1009, display additional fee on AR terminals
-        EXTRA_DATA_MAP.put(EntryExtraData.PARAM_TIP1, AMOUNT);//ANBP1039, When send Tip/Cashback from poslink, terminal should show the tip/cashback amount in receipt side
-        EXTRA_DATA_MAP.put(EntryExtraData.PARAM_CASH_BACK, AMOUNT);//ANBP1039, When send Tip/Cashback from poslink, terminal should show the tip/cashback amount in receipt side
+        EXTRA_DATA_MAP.put("tip", AMOUNT);//ANBP1039, When send Tip/Cashback from poslink, terminal should show the tip/cashback amount in receipt side
+        EXTRA_DATA_MAP.put("cashBack", AMOUNT);//ANBP1039, When send Tip/Cashback from poslink, terminal should show the tip/cashback amount in receipt side
         EXTRA_DATA_MAP.put(EntryExtraData.PARAM_BASE_AMOUNT, AMOUNT);//ANBP1039, When send Tip/Cashback from poslink, terminal should show the tip/cashback amount in receipt side
 		EXTRA_DATA_MAP.put(EntryExtraData.PARAM_SURCHARGE_FEE, AMOUNT);
-		EXTRA_DATA_MAP.put(EntryExtraData.PARAM_MERCHANT_FEE, AMOUNT);
-		EXTRA_DATA_MAP.put(EntryExtraData.PARAM_TAX, AMOUNT);
+		EXTRA_DATA_MAP.put("merchantFee", AMOUNT);
+		EXTRA_DATA_MAP.put("tax", AMOUNT);
     }
 
 

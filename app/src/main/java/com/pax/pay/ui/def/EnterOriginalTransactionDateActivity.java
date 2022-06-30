@@ -9,7 +9,7 @@ public class EnterOriginalTransactionDateActivity extends EnterDataLine1Activity
     @Override
     protected void loadOtherParam(String label) {
         EditTextDataLimit limit = new EditTextDataLimit(getResources().getString(R.string.pls_input_orig_trans_date),
-                "", 0, 5, EInputType.DATE, false);
+                "", 0, 10, EInputType.DATE, false);
         setLimit(limit);
 
         helper = new EnterOriginalTransDateHelper(this, new RespStatusImpl(this));

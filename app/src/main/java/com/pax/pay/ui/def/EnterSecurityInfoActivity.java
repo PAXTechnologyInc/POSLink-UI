@@ -1,14 +1,15 @@
 package com.pax.pay.ui.def;
 
+import android.graphics.Rect;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
 
 import com.pax.pay.ui.def.base.BaseAppActivity;
 import com.pax.us.pay.ui.core.api.IMessageListener;
@@ -18,13 +19,13 @@ import com.paxus.view.utils.ViewUtils;
 abstract public class EnterSecurityInfoActivity extends BaseAppActivity implements IMessageListener {
 
 
-    TextView amountTv;
+//    TextView amountTv;
     TextView promptTv;
     TextView mEditText;
     Button confirmBtn;
-    LinearLayout transAmountLayout;
+//    LinearLayout transAmountLayout;
 
-    private long totalAmount;
+//    private long totalAmount;
     private String prompt = null;
 
     private boolean isPoint;
@@ -44,14 +45,14 @@ abstract public class EnterSecurityInfoActivity extends BaseAppActivity implemen
 
     @Override
     protected void loadParam() {
-        amountTv = findViewById(R.id.amount_tv);
+//        amountTv = findViewById(R.id.amount_tv);
         promptTv = findViewById(R.id.prompt_tv);
         mEditText = findViewById(R.id.data_edt);
-        transAmountLayout = findViewById(R.id.trans_amount_layout);
+//        transAmountLayout = findViewById(R.id.trans_amount_layout);
         confirmBtn = findViewById(R.id.confirm_btn);
 
-        totalAmount = 0;
-        transAmountLayout.setVisibility(View.INVISIBLE);
+//        totalAmount = 0;
+//        transAmountLayout.setVisibility(View.INVISIBLE);
 
         prompt = null;
         navBack = true;
@@ -64,7 +65,7 @@ abstract public class EnterSecurityInfoActivity extends BaseAppActivity implemen
             confirmBtn.setVisibility(View.GONE);
         }
 
-        amountTv.setText(CurrencyConverter.convert(totalAmount));
+//        amountTv.setText(CurrencyConverter.convert(totalAmount));
         if ((prompt != null) && (prompt.length() != 0))
             promptTv.setText(prompt);
     }
@@ -72,9 +73,8 @@ abstract public class EnterSecurityInfoActivity extends BaseAppActivity implemen
 
     // 当页面加载完成之后再执行弹出键盘的动作
     @Override
-    protected void onResume() {
-        super.onResume();
-        if (first) {
+    public void onWindowFocusChanged(boolean hasFocus) {
+        if (first && hasFocus) {
             first = false;
             ViewTreeObserver observer = mEditText.getViewTreeObserver();
             observer.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
@@ -86,15 +86,26 @@ abstract public class EnterSecurityInfoActivity extends BaseAppActivity implemen
                     int x = location[0];
                     int y = location[1];
                     int barHeight = 0;
-                    int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
-                    if (resourceId > 0) {
-                        barHeight = getResources().getDimensionPixelSize(resourceId);
+                    boolean immersiveSticky = (getWindow().getDecorView().getSystemUiVisibility() &
+                            View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY) > 0;
+                    if (!immersiveSticky) {
+//                    int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
+//                    if (resourceId > 0) {
+//                        barHeight = getResources().getDimensionPixelSize(resourceId);
+//                    }
+                        Rect outRect1 = new Rect();
+                        getWindow().getDecorView().getWindowVisibleDisplayFrame(outRect1);
+                        barHeight = outRect1.top;  //statusBar's height
+
                     }
                     sendNext(x, y - barHeight, mEditText.getWidth(), mEditText.getHeight());
                 }
             });
+            mEditText.requestLayout(); //On some devices, onGlobalLayout is not invoked, call requestLayout to force
         }
-
+        if (hasFocus && ViewUtils.canNavigationBarImmersiveSticky()) {
+            ViewUtils.hideNavigationBar(getWindow().getDecorView());
+        }
     }
 
     public void setCurrencyName(String currencyName) {
@@ -108,13 +119,13 @@ abstract public class EnterSecurityInfoActivity extends BaseAppActivity implemen
     }
 
     public void setTotalAmount(long totalAmount) {
-        this.totalAmount = totalAmount;
-        if (isPoint) {
-            amountTv.setText(String.valueOf(totalAmount));
-        } else {
-            amountTv.setText(CurrencyConverter.convert(totalAmount, ""));
-        }
-        transAmountLayout.setVisibility(View.VISIBLE);
+//        this.totalAmount = totalAmount;
+//        if (isPoint) {
+//            amountTv.setText(String.valueOf(totalAmount));
+//        } else {
+//            amountTv.setText(CurrencyConverter.convert(totalAmount, ""));
+//        }
+//        transAmountLayout.setVisibility(View.VISIBLE);
     }
 
     @Override

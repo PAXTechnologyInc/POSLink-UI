@@ -20,16 +20,11 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
-import android.inputmethodservice.Keyboard;
 import android.os.Build;
-import android.support.annotation.Nullable;
-import android.support.annotation.XmlRes;
-import android.support.v7.widget.AppCompatEditText;
 import android.text.InputType;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.ActionMode;
 import android.view.Display;
@@ -46,11 +41,14 @@ import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 
+import androidx.annotation.Nullable;
+import androidx.annotation.XmlRes;
+import androidx.appcompat.widget.AppCompatEditText;
+
 import com.pax.us.pay.ui.component.R;
+import com.paxus.inputmethodservice.Keyboard;
 import com.paxus.view.utils.KeyboardUtils;
 import com.paxus.view.utils.ViewUtils;
-
-import java.lang.reflect.Field;
 
 public class CustomKeyboardEditText extends AppCompatEditText implements View.OnClickListener {
 
@@ -186,17 +184,12 @@ public class CustomKeyboardEditText extends AppCompatEditText implements View.On
     }
 
     private int getStatusBarHeight() {
-        int statusBarHeight = 0;
-        try {
-            Class<?> clazz = Class.forName("com.android.internal.R$dimen");
-            Object object = clazz.newInstance();
-            Field field = clazz.getField("status_bar_height");
-            int x = Integer.parseInt(field.get(object).toString());
-            statusBarHeight = context.getResources().getDimensionPixelSize(x);
-        } catch (Exception e) {
-            Log.w("", e.getMessage());
+        int result = 0;
+        int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (resourceId > 0) {
+            result = getResources().getDimensionPixelSize(resourceId);
         }
-        return statusBarHeight;
+        return result;
     }
 
     @Override
@@ -209,7 +202,7 @@ public class CustomKeyboardEditText extends AppCompatEditText implements View.On
 
     @Override
     public void onClick(View v) {
-        if ((mKeyboard != null) && (!"A30".equals(Build.MODEL))) {
+        if (mKeyboard != null && ViewUtils.canShowSoftInputOnFocus()) {
             hideSysInput();
             showKeyboard();
         }
@@ -303,6 +296,9 @@ public class CustomKeyboardEditText extends AppCompatEditText implements View.On
             mKeyboardWindow.forceDismiss();
             mKeyboardWindow.showAtLocation(mDecorView, Gravity.BOTTOM | Gravity.END, 0, 0);
             //mKeyboardWindow.update(); //bug on Android 7.0, it hardcode Gravity!!!!!
+            if (ViewUtils.canNavigationBarImmersiveSticky()) {
+                ViewUtils.hideNavigationBar(mKeyboardView);
+            }
             setSelection(getText().length());
             KeyBoardStatus.setKeyBoardPopuped(true);
 
@@ -400,8 +396,11 @@ public class CustomKeyboardEditText extends AppCompatEditText implements View.On
                 @Override
                 public void onGlobalLayout() {
                     mKeyboardView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                    int width = mKeyboardView.getMeasuredWidth();
                     if (mKeyboardView.getWeight() < 1.0f) {
+                        int width = mKeyboardView.getMeasuredWidth();
+                        if ("Aries8".equals(Build.MODEL)) { // Ar8 bug, the system keyboard cannot fill the screen either when display size is not default
+                            width = 1280; // should not change metrics.widthPixels directly
+                        }
                         mKeyboardWindow.update((int) (width * mKeyboardView.getWeight()), -1);
                     }
                 }

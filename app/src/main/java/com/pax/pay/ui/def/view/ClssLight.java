@@ -16,8 +16,10 @@
 package com.pax.pay.ui.def.view;
 
 import android.content.Context;
-import android.support.annotation.IntDef;
-import android.support.v7.widget.AppCompatImageView;
+
+import androidx.annotation.IntDef;
+import androidx.appcompat.widget.AppCompatImageView;
+
 import android.util.AttributeSet;
 import android.view.animation.Animation;
 

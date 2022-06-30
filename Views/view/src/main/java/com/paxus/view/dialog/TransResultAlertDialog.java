@@ -3,7 +3,9 @@ package com.paxus.view.dialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.IntDef;
+
+import androidx.annotation.IntDef;
+
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -25,18 +27,18 @@ public class TransResultAlertDialog extends Dialog {
     public static final int TYPE_SUCC = 0;
     public static final int TYPE_FAIL = 1;
     @DialogType
-    private final int dialogType;
-    private final AnimationSet mSuccessLayoutAnimSet;
-    private final Animation mSuccessBowAnim;
-    private final String mTitle;
-    private final String mContent;
+    private int dialogType;
+    private AnimationSet mSuccessLayoutAnimSet;
+    private Animation mSuccessBowAnim;
+    private String mTitle;
+    private String mContent;
     private TextView mTitleTextView;
     private TextView mContentTextView;
     //For fail type
     private FrameLayout mErrorFrame;
     private ImageView mErrorX;
-    private final Animation mErrorInAnim;
-    private final AnimationSet mErrorXInAnim;
+    private Animation mErrorInAnim;
+    private AnimationSet mErrorXInAnim;
     //For succ type
     private FrameLayout mSuccessFrame;
     private SuccessTickView mSuccessTick;

@@ -23,14 +23,15 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
-import android.inputmethodservice.Keyboard;
-import android.inputmethodservice.KeyboardView;
 import android.os.Build;
-import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 
+import androidx.core.content.ContextCompat;
+
 import com.pax.us.pay.ui.component.R;
+import com.paxus.inputmethodservice.Keyboard;
+import com.paxus.inputmethodservice.KeyboardView;
 
 import java.lang.reflect.Method;
 import java.util.List;

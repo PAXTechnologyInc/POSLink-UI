@@ -4,7 +4,8 @@
     android:layout_height="wrap_content"
     android:layout_alignParentBottom="true"
     android:gravity="center_horizontal"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/layout_pwd_dialog">
 
     <TextView
         android:id="@+id/prompt_title"
@@ -64,6 +65,6 @@
         style="@style/PaxKeyboardViewStyle"
         android:id="@+id/pwd_keyboard"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

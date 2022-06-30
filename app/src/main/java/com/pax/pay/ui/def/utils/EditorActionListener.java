@@ -22,7 +22,7 @@ import com.paxus.view.quickclick.QuickClickProtection;
 
 public abstract class EditorActionListener implements TextView.OnEditorActionListener {
 
-    private final QuickClickProtection quickClickProtection = QuickClickProtection.getInstance();
+    private QuickClickProtection quickClickProtection = QuickClickProtection.getInstance();
 
     @Override
     public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
