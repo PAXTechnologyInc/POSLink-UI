@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="clss_blue">@color/primary</color>
-    <color name="clss_yellow">#C5C53F</color>
-    <color name="clss_green">#51B53F</color>
-    <color name="clss_red">#C53F31</color>
-
-</resources>
