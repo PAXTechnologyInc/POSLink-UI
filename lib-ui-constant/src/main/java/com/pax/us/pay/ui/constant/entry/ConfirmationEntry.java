@@ -213,6 +213,7 @@ public final class ConfirmationEntry {
 
     /**
      * Activity Action: Confirm Deactivate Warning <br>{@value #ACTION_CHECK_DEACTIVATE_WARN}<br>
+     * This action is host dependent.<br>
      * <p>If not implemented, BroadPOS will try to start action {@link #ACTION_CONFIRM_UNIFIED_MESSAGE}</p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
@@ -411,6 +412,7 @@ public final class ConfirmationEntry {
 
     /**
      * Activity Action: Confirm Service Fee <br>{@value #ACTION_CONFIRM_SERVICE_FEE}<br>
+     * This action is host dependent.<br>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
@@ -833,6 +835,7 @@ public final class ConfirmationEntry {
 
     /**
      * Activity Action: Confirm the Receipt need to be Signed or not<br>{@value #ACTION_CONFIRM_RECEIPT_SIGNATURE}<br>
+     * This action is host dependent.<br>
      * <p>If not implemented, BroadPOS will try to start action {@link #ACTION_CONFIRM_UNIFIED_MESSAGE}</p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
@@ -1038,6 +1041,7 @@ public final class ConfirmationEntry {
 //    public static final String ACTION_CONFIRM_EULA_CONTINUE = "com.pax.us.pay.action.CONFIRM_EULA_CONTINUE";
     /**
      * Activity Action: Confirm Signature Match<br>{@value #ACTION_CONFIRM_SIGNATURE_MATCH}<br>
+     * This action is host dependent.<br>
      * <p>If not implemented, BroadPOS will try to start action {@link #ACTION_CONFIRM_UNIFIED_MESSAGE}</p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
@@ -1155,6 +1159,7 @@ public final class ConfirmationEntry {
 
     /**
      * Activity Action: Confirm DCC information <br>{@value #ACTION_CONFIRM_DCC}<br>
+     * This action is host dependent.<br>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String

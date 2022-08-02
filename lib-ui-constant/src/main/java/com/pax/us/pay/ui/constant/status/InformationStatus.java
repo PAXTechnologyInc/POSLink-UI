@@ -91,12 +91,14 @@ public final class InformationStatus {
 
     /**
      * Broadcast Action: DCC Process begin<br>{@value #DCC_ONLINE_STARTED}<br>
+     * This action is host dependent.<br>
      * <p>DCC is dynamic currency conversion</p>
      * <p>"DCC Request Processing..."</p>
      */
     public static final String DCC_ONLINE_STARTED = "com.pax.us.pay.DCC_ONLINE_STARTED";
     /**
      * Broadcast Action: DCC Process end<br>{@value #DCC_ONLINE_FINISHED}<br>
+     * This action is host dependent.<br>
      */
     public static final String DCC_ONLINE_FINISHED = "com.pax.us.pay.DCC_ONLINE_FINISHED";
 

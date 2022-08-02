@@ -161,6 +161,7 @@ public final class OptionEntry {
 
     /**
      * Activity Action: Select Refund Reason<br>{@value #ACTION_SELECT_REFUND_REASON}<br>
+     * This action is host dependent.<br>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
@@ -197,6 +198,7 @@ public final class OptionEntry {
 
     /**
      * Activity Action: Select MOTO Type<br>{@value #ACTION_SELECT_MOTO_TYPE}<br>
+     * This action is host dependent.<br>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
@@ -233,6 +235,7 @@ public final class OptionEntry {
 
     /**
      * Activity Action: Select Tax Reason<br>{@value #ACTION_SELECT_TAX_REASON}<br>
+     * This action is host dependent.<br>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
@@ -270,6 +273,7 @@ public final class OptionEntry {
 
     /**
      * Activity Action: Select Re-auth Option after getting DUP response<br>{@value #ACTION_SELECT_DUPLICATE_OVERRIDE}<br>
+     * This action is host dependent.<br>
      * <p>
      *     Not apply for all BroadPOS apps. It depends on Host support.
      *     Example:
@@ -463,6 +467,7 @@ public final class OptionEntry {
 
     /**
      * Activity Action: Select Batch Type<br>{@value #ACTION_SELECT_BATCH_TYPE}<br>
+     * This action is host dependent.<br>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
@@ -500,6 +505,7 @@ public final class OptionEntry {
 
     /**
      * Activity Action: Select Edc Group for Batch Transaction<br>{@value #ACTION_SELECT_EDC_GROUP}<br>
+     * This action is host dependent.<br>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
@@ -537,7 +543,7 @@ public final class OptionEntry {
 
     /**
      * Activity Action: Select Report type for Batch Transaction<br>{@value #ACTION_SELECT_REPORT_TYPE}<br>
-     * <p>Depend on Host</p>
+     * This action is host dependent.<br>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
@@ -575,6 +581,7 @@ public final class OptionEntry {
 
     /**
      * Activity Action: Select Debit Account Type<br>{@value #ACTION_SELECT_ACCOUNT_TYPE}<br>
+     * This action is host dependent.<br>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
@@ -682,6 +689,7 @@ public final class OptionEntry {
 
     /**
      * Activity Action: Select User Language<br>{@value #ACTION_SELECT_LANGUAGE}<br>
+     * This action is host dependent.<br>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
@@ -759,6 +767,7 @@ public final class OptionEntry {
 
     /**
      * Activity Action: Select Original Transaction Currency<br>{@value #ACTION_SELECT_ORIG_CURRENCY}<br>
+     * This action is host dependent.<br>
      * <p>
      *     For Visa Installment use.
      * </p>
@@ -797,6 +806,7 @@ public final class OptionEntry {
     //-----------------------------Visa Installment---------------------------------
     /**
      * Activity Action: Select Installment Plan (For Visa Installment use)<br>{@value #ACTION_SELECT_INSTALLMENT_PLAN}<br>
+     * This action is host dependent.<br>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_BASE_AMOUNT} - {@value EntryExtraData#PARAM_BASE_AMOUNT}<br>
      *     Type: Long
