@@ -25,11 +25,6 @@ public final class ConfirmationEntry {
      * Suggestion to prompt a dialog "Processing,Please wait..."<br>
      * After dialog show up, sendNext()</p>
      * <p>
-     *     Example:<br>
-     *     If BroadPOS try to start Activity {@value #ACTION_CHECK_CARD_PRESENT}, but your app does not implement it.<br>
-     *     then BroadPOS will try to start this general confirmation Activity {@value #ACTION_CONFIRM_UNIFIED_MESSAGE}.
-     * </p>
-     * <p>
      *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
      * </p>
