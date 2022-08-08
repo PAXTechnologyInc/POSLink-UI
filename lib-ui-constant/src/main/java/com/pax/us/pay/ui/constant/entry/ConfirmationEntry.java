@@ -18,6 +18,28 @@ public final class ConfirmationEntry {
     public static final String CATEGORY = "com.pax.us.pay.ui.category.CONFIRMATION";
 
     /**
+     * Activity Action: Start UI<br>{@value #ACTION_START_UI}<br>
+     * <p>BroadPOS would show status like {@link com.pax.us.pay.ui.constant.status.CardStatus#CARD_REMOVAL_REQUIRED}
+     * before start any Entry Action. It's hard to choose default ui or customized ui. So we add this action.<br>
+     * In InsertAnyTime case, if customized app implements this action, BroadPOS will call customized app to foreground.<br>
+     * Suggestion to prompt a dialog "Processing,Please wait..."<br>
+     * After dialog show up, sendNext()</p>
+     * <p>
+     *     Example:<br>
+     *     If BroadPOS try to start Activity {@value #ACTION_CHECK_CARD_PRESENT}, but your app does not implement it.<br>
+     *     then BroadPOS will try to start this general confirmation Activity {@value #ACTION_CONFIRM_UNIFIED_MESSAGE}.
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Output: Nothing
+     * </p>
+     */
+    public static final String ACTION_START_UI = "com.pax.us.pay.action.START_UI";
+
+    /**
      * Activity Action: General Confirmation with Message<br>{@value #ACTION_CONFIRM_UNIFIED_MESSAGE}<br>
      * <p>If specific confirmation activity not found in customized app,
      *  BroadPOS will try start this general confirmation activity.</p>
