@@ -114,15 +114,6 @@ public final class InformationStatus {
     public static final String RKI_FINISHED = "com.pax.us.pay.RKI_FINISHED";
 
     /**
-     * Broadcast Action: Enter PIN Process start (Used by EasyLink only)<br>{@value #ENTER_PIN_STARTED}<br>
-     */
-    public static final String ENTER_PIN_STARTED = "com.pax.us.pay.ENTER_PIN_STARTED";
-    /**
-     * Broadcast Action: Enter PIN Process end (Used by EasyLink only)<br>{@value #ENTER_PIN_FINISHED}<br>
-     */
-    public static final String ENTER_PIN_FINISHED = "com.pax.us.pay.ENTER_PIN_FINISHED";
-
-    /**
      * Broadcast Action: General Error<br>{@value #ERROR}<br>
      * <p>
      *     Input: {@link StatusData#PARAM_CODE} <br>

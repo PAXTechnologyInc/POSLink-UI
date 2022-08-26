@@ -76,37 +76,4 @@ public final class CardStatus {
      */
     public static final String CARD_REMOVED = "com.pax.us.pay.CARD_REMOVED";
 
-    /**
-     * Broadcast Action: See Phone (Used by EasyLink only)<br>{@value #SEE_PHONE}<br>
-     * <p>
-     *     Input: {@link StatusData#PARAM_PROMPTS} <br>
-     *     Type: String
-     * </p>
-     * Actually now BroadPOS use {@link com.pax.us.pay.ui.constant.entry.ConfirmationEntry#ACTION_CONFIRM_CARD_PROCESS_RESULT} cuz it could know the dialog has closed and ready for next step.<br>
-     * But for BroadPOS+, it will use this action for prompting error.
-     */
-    public static final String SEE_PHONE = "com.pax.us.pay.SEE_PHONE";
-
-    /**
-     * Broadcast Action: Update Search Mode (Used by EasyLink only)<br>{@value #CARD_SEARCH_MODE}<br>
-     * <p>
-     * Input: {@link StatusData#PARAM_ENABLE_SWIPE} <br>
-     * Type: Boolean
-     *  </p>
-     *  <p>
-     * Input: {@link StatusData#PARAM_ENABLE_INSERT} <br>
-     * Type: Boolean
-     *  </p>
-     *  <p>
-     * Input: {@link StatusData#PARAM_ENABLE_TAP} <br>
-     * Type: Boolean
-     *  </p>
-     *  <p>
-     * Input: {@link StatusData#PARAM_ENABLE_MANUAL} <br>
-     * Type: Boolean
-     *  </p>
-     */
-    public static final String CARD_SEARCH_MODE = "com.pax.us.pay.CARD_SEARCH_MODE";
-
-
 }
