@@ -19,6 +19,7 @@ public final class LanguageStatus {
 
     /**
      * Broadcast Action: Set Language<br>{@value #SET_LANGUAGE}<br>
+     * This action is host dependent.<br>
      * <p>
      *     Input: {@link StatusData#PARAM_COUNTRY}<br>
      *     Type: String.<br>

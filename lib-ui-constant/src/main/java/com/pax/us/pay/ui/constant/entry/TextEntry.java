@@ -326,6 +326,7 @@ public final class TextEntry {
 
     /**
      * Activity Action: Enter FSA Amount<br>{@value #ACTION_ENTER_FSA_DATA}<br>
+     * This action is host dependent.<br>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
@@ -493,6 +494,7 @@ public final class TextEntry {
 
     /**
      * Activity Action:  Enter Reference Number<br>{@value #ACTION_ENTER_REFERENCE_NUMBER}<br>
+     * This action is host dependent.<br>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
@@ -684,6 +686,7 @@ public final class TextEntry {
 
     /**
      * Activity Action: Enter Original Trans. Date<br>{@value #ACTION_ENTER_ORIG_DATE}<br>
+     * This action is host dependent.<br>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
@@ -712,6 +715,7 @@ public final class TextEntry {
 
     /**
      * Activity Action: Enter Fuel Amount<br>{@value #ACTION_ENTER_FUEL_AMOUNT}<br>
+     * This action is host dependent.<br>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
@@ -821,6 +825,7 @@ public final class TextEntry {
 
     /**
      * Activity Action: Enter Phone Number<br>{@value #ACTION_ENTER_PHONE_NUMBER}<br>
+     * This action is host dependent.<br>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
@@ -1046,6 +1051,7 @@ public final class TextEntry {
 
     /**
      * Activity Action: Enter Fleet Data<br>{@value #ACTION_ENTER_FLEET_DATA}<br>
+     * This action is host dependent.<br>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
@@ -1201,6 +1207,7 @@ public final class TextEntry {
 
     /**
      * Activity Action: Enter Customer Service Phone Number<br>{@value #ACTION_ENTER_CS_PHONE_NUMBER}<br>
+     * This action is host dependent.<br>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
@@ -1269,6 +1276,7 @@ public final class TextEntry {
 
     /**
      * Activity Action: Enter Merchant Reference Number<br>{@value #ACTION_ENTER_MERCHANT_REFERENCE_NUMBER}<br>
+     * This action is host dependent.<br>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
@@ -1310,6 +1318,7 @@ public final class TextEntry {
 
     /**
      * Activity Action: Enter OCT Reference Number<br>{@value #ACTION_ENTER_OCT_REFERENCE_NUMBER}<br>
+     * This action is host dependent.<br>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
@@ -1352,6 +1361,7 @@ public final class TextEntry {
     //-----------------------------Visa Installment---------------------------------
     /**
      * Activity Action: Enter Visa Installment Transaction ID (For Visa Installment use)<br>{@value #ACTION_ENTER_VISA_INSTALLMENT_TRANSACTIONID}<br>
+     * This action is host dependent.<br>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
@@ -1385,6 +1395,7 @@ public final class TextEntry {
 
     /**
      * Activity Action: Enter Visa Installment Plan Acceptance ID (For Visa Installment use)<br>{@value #ACTION_ENTER_VISA_INSTALLMENT_PLAN_ACCEPTANCE_ID}<br>
+     * This action is host dependent.<br>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
      *     Type: String
