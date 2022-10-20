@@ -1033,29 +1033,6 @@ public final class ConfirmationEntry {
      */
     public static final String ACTION_CONFIRM_CARD_ENTRY_RETRY = "com.pax.us.pay.action.CONFIRM_CARD_ENTRY_RETRY";
 
-    //Yanina: Internal use
-//    /**
-//     * The intent action of confirm end user license agreement<br>
-//     * when start action from host by call startActivity() directly, doesn't set EntryExtraData#PARAM_START_TYPE <br>
-//     * when start action from manager, set EntryExtraData#PARAM_START_TYPE value "ACTION" <br>
-//     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
-//     * input: {@link EntryExtraData#PARAM_MESSAGE} - {@value EntryExtraData#PARAM_MESSAGE} <br>
-//     * input: {@link EntryExtraData#PARAM_EULA_URI} <br>
-//     * input: {@link EntryExtraData#PARAM_START_TYPE} <br>
-//     * request: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
-//     * request: {@link EntryRequest#PARAM_DO_NOT_PROMPT_AGAIN} <br>
-//     */
-//    public static final String ACTION_CONFIRM_END_USER_LICENSE_AGREEMENT = "com.pax.us.pay.action.CONFIRM_END_USER_LICENSE_AGREEMENT";
-
-//    /**
-//     * The intent action of confirm eula continue<br>
-//     * input: {@link EntryExtraData#PARAM_PACKAGE} <br>
-//     * input: {@link EntryExtraData#PARAM_MESSAGE} - {@value EntryExtraData#PARAM_MESSAGE} <br>
-//     * input: {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS} <br>
-//     * request: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
-//     * @deprecated Never used
-//     */
-//    public static final String ACTION_CONFIRM_EULA_CONTINUE = "com.pax.us.pay.action.CONFIRM_EULA_CONTINUE";
     /**
      * Activity Action: Confirm Signature Match<br>{@value #ACTION_CONFIRM_SIGNATURE_MATCH}<br>
      * This action is host dependent.<br>
