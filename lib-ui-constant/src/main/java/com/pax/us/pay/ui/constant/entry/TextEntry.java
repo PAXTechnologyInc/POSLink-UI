@@ -596,6 +596,13 @@ public final class TextEntry {
      *     For reference only, BroadPOS handles timeout.
      * </p>
      * <p>
+     *     Input: {@link EntryExtraData#PARAM_EINPUT_TYPE} - {@value EntryExtraData#PARAM_EINPUT_TYPE} <br>
+     *     Type: String<br>
+     *     If value is {@value com.pax.us.pay.ui.constant.entry.enumeration.InputType#ALLTEXT},
+     *     the output {@value EntryRequest#PARAM_CLERK_ID} could be alpha-numeric string.<br>
+     *     Else it should be numeric string.
+     * </p>
+     * <p>
      *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} - {@value EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
      *     Type: String<br>
      *     Default: "0-4"</p>
@@ -626,6 +633,13 @@ public final class TextEntry {
      *     Unit: ms<br>
      *     Default is 30000. <br>
      *     For reference only, BroadPOS handles timeout.
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_EINPUT_TYPE} - {@value EntryExtraData#PARAM_EINPUT_TYPE} <br>
+     *     Type: String<br>
+     *     If value is {@value com.pax.us.pay.ui.constant.entry.enumeration.InputType#ALLTEXT},
+     *     the output {@value EntryRequest#PARAM_SERVER_ID} could be alpha-numeric string.<br>
+     *     Else it should be numeric string.
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_VALUE_PATTERN} - {@value EntryExtraData#PARAM_VALUE_PATTERN} is length limit. <br>
