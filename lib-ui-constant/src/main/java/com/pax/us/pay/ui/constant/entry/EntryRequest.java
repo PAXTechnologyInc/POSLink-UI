@@ -536,12 +536,11 @@ public final class EntryRequest {
      */
     public static final String PARAM_DEST_ZIP_CODE = "destinationZipCode";
 
-    //Yanina: Used by EULA. Internal use.
-//    /**
-//     * PARAM_DO_NOT_PROMPT_AGAIN : request parameter prompt again <br>
-//     * value type: Boolean <br>
-//     */
-//    public static final String PARAM_DO_NOT_PROMPT_AGAIN = "doNotPromptAgain";
+    /**
+     * Original Transaction Identifier
+     * <p>Type: String</p>
+     */
+    public static final String PARAM_ORIGINAL_TRANSACTION_IDENTIFIER = "originalTransactionIdentifier";
 
     //POSLINK
     /**
