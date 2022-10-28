@@ -17,7 +17,7 @@ public final class InformationStatus {
 
     /**
      * Broadcast Action: Transaction Start<br>{@value #TRANS_START}<br>
-     *  @deprecated Not used anymore (Ticket BPOSLITE-42)
+     *  @deprecated Not used anymore
      */
     public static final String TRANS_START = "com.pax.us.pay.TRANS_START";
     /**
