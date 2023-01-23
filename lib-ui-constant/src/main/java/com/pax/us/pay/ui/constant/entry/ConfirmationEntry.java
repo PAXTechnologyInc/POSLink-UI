@@ -1196,4 +1196,36 @@ public final class ConfirmationEntry {
      */
     public static final String ACTION_CONFIRM_DCC = "com.pax.us.pay.action.CONFIRM_DCC";
 
+
+    /**
+     * Activity Action: Confirm total amount<br>{@value #ACTION_CONFIRM_TOTAL_AMOUNT}<br>
+     * <p>If not implemented, BroadPOS will try to start action {@link #ACTION_CONFIRM_UNIFIED_MESSAGE}</p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Input:  {@link EntryExtraData#PARAM_CURRENCY} - {@value EntryExtraData#PARAM_CURRENCY} is currency type. <br>
+     *     Type: String<br>
+     *     Default value: {@link com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType#USD}
+     * </p>
+     * <p>
+     *     Input:  {@link EntryExtraData#PARAM_TOTAL_AMOUNT} - {@value EntryExtraData#PARAM_TOTAL_AMOUNT}  <br>
+     *     Type: Long
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
+     *     Type: Long<br>
+     *     Unit: ms<br>
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
+     * </p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} <br>
+     *     Type: Boolean<br>
+     *     If select {@value ConfirmationType#YES}, return TRUE.
+     * </p>
+     */
+    public static final String ACTION_CONFIRM_TOTAL_AMOUNT = "com.pax.us.pay.action.CONFIRM_TOTAL_AMOUNT";
+
 }
