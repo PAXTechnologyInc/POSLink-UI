@@ -10,10 +10,6 @@ Define customer UI's constant and interface API
    
    > ../status/                    : Transaction status prompt, customer UI according those status to display relevant information or do actions. involve card's status, contactless light status, batch transaction status, prompt message during transaction, etc.
 
-## lib-ui-core (To be deprecated):
-Customer UI protocol layer implement
-   > ../api    :  Callback interface define, which will be implement in Customer;  
-   > ../helper :  protocol layer data pack and unpack parsing.     
 
 ## POSLink-UI Demo
 Our latest simple demo for POSLink-UI.
