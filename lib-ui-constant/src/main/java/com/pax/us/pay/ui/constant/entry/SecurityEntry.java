@@ -552,7 +552,7 @@ public final class SecurityEntry {
      *     About how to send output to BroadPOS, see {@link EntryRequest#ACTION_SECURITY_AREA} for details.<br>
      * </p>
      */
-    public static final String ACTION_ENTER_ADMINISTRATION_PASSWORD = "com.pax.us.pay.action.ADMINISTRATOR_PASSWORD";
+    public static final String ACTION_ENTER_ADMINISTRATION_PASSWORD = "com.pax.us.pay.action.ENTER_ADMINISTRATOR_PASSWORD";
 
     /**
      * Activity Action: Manage Input Account<br>{@value #ACTION_MANAGE_INPUT_ACCOUNT}<br>
