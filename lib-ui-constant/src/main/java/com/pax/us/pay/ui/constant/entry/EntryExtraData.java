@@ -1026,4 +1026,7 @@ public final class EntryExtraData {
 //    * */
 //    public static final String PARAM_INTERNAL_NICKNAME_FLAG = "internalNicknameFlag";
 
+    public static final String PARAM_STATUS_OBJECT = "status_object";
+    public static final String PARAM_STATUS_STATE = "status_state";
+    public static final String PARAM_STATUS_TYPE = "status_type";
 }
