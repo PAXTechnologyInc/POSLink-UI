@@ -16,7 +16,7 @@ def loadVersions(String propertiesFile) {
 
     def isRelease = System.getProperty('isRelease', 'false')
     if (isRelease != 'true') {
-        ext.GLOBAL_VERSION = "${project.ext._moduleVersion}_T_"+releaseTime()
+        ext.GLOBAL_VERSION = "${project.ext._moduleVersion}T_"+releaseTime()
     } else {
         ext.GLOBAL_VERSION = "${project.ext._moduleVersion}_"+releaseTime()
     }
