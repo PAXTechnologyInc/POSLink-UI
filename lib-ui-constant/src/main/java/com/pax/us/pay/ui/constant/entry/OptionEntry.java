@@ -909,6 +909,9 @@ public final class OptionEntry {
      */
     public static final String ACTION_SELECT_TRANS_FOR_ADJUST = "com.pax.us.pay.action.SELECT_TRANS_FOR_ADJUST";
 
+
+    public static final String ACTION_SELECT_COF_INITIATOR = "com.pax.us.pay.action.SELECT_COF_INITIATOR";
+
 //Note:
 //Appending a new action, please add mapping into "SELECT_OPTION_MAP" in "SelectOptionContent"
 
