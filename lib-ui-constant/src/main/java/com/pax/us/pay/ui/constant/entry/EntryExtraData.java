@@ -145,6 +145,7 @@ public final class EntryExtraData {
      * <p>Type: String</p>
      * <p>See {@link com.pax.us.pay.ui.constant.entry.enumeration.PinStyles} for details</p>
      */
+    @Deprecated
     public static final String PARAM_PIN_STYLES = "pinStyles";
 
     /**
@@ -190,6 +191,7 @@ public final class EntryExtraData {
      * <p>Type: String</p>
      * <p>See {@link com.pax.us.pay.ui.constant.entry.enumeration.PanStyles} for details</p>
      */
+    @Deprecated
     public static final String PARAM_PAN_STYLES = "panStyles";
 
     /**
@@ -1026,4 +1028,9 @@ public final class EntryExtraData {
 //    * */
 //    public static final String PARAM_INTERNAL_NICKNAME_FLAG = "internalNicknameFlag";
 
+    /**
+     * Notify Remaining Tries for one interface
+     * <p>Type: int<p/>
+     */
+    public static final String PARAM_TRIALS_REMAINING = "trialsRemaining";
 }
