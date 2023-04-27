@@ -165,6 +165,9 @@ public final class SecurityEntry {
      */
     public static final String ACTION_INPUT_ACCOUNT = "com.pax.us.pay.action.INPUT_ACCOUNT";
 
+
+    public static final String ACTION_INPUT_NEW_ACCOUNT = "com.pax.us.pay.action.INPUT_NEW_ACCOUNT";
+
     /**
      * Activity Action: ENTER PIN<br>{@value #ACTION_ENTER_PIN}<br>
      * <p>
