@@ -51,5 +51,5 @@ public final class EntryResponse {
      * Action being responded to
      * <p>Type: String</p>
      */
-    public static final String PARAM_ACTION = "action";
+    public static final String PARAM_ACTION = "originatingAction";
 }
