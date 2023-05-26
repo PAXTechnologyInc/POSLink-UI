@@ -369,7 +369,6 @@ public final class EntryExtraData {
     /**
      * Balance
      * <p>Type: Long</p>
-     *  @deprecated {@link ConfirmationEntry#ACTION_CONFIRM_BALANCE} deprecated.
      */
     public static final String PARAM_BALANCE = "balance";
 //

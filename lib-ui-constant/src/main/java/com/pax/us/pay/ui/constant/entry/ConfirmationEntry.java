@@ -961,7 +961,6 @@ public final class ConfirmationEntry {
      *     Type: Boolean<br>
      *     If select {@value ConfirmationType#YES}, return TRUE.
      * </p>
-     * @deprecated Never used. For BALANCE transaction, BroadPOS does not show Balance on screen.
      */
     public static final String ACTION_CONFIRM_BALANCE = "com.pax.us.pay.action.CONFIRM_BALANCE";
 
