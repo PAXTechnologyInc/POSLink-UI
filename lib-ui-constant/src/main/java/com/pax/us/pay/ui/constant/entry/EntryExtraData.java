@@ -143,10 +143,12 @@ public final class EntryExtraData {
     /**
      * PIN Style
      * <p>Type: String</p>
-     * <p>See {@link com.pax.us.pay.ui.constant.entry.enumeration.PinStyles} for details</p>
+     * <p>See {@link com.pax.us.pay.ui.constant.entry.enumeration.PinStyles}</p>
+     * <p>PARAM_PIN_STYLES used to be sent with SecurityEntry.ACTION_ENTER_PIN to signify the scope of trial and error. It had 3 possible values: NORMAL, RETRY, LAST.</p>
+     * <p>This has been replaced by EntryExtraData.PARAM_TRIALS_REMAINING (an integer referring to the number of trials remaining)</p>
+     * <p>PinStyles.NORMAL is equivalent to EntryExtraData.PARAM_TRIALS_REMAINING=2</p>
      */
-    @Deprecated
-    public static final String PARAM_PIN_STYLES = "pinStyles";
+    @Deprecated public static final String PARAM_PIN_STYLES = "pinStyles";
 
     /**
      * Is Online Pin
@@ -190,9 +192,10 @@ public final class EntryExtraData {
      * PAN Style
      * <p>Type: String</p>
      * <p>See {@link com.pax.us.pay.ui.constant.entry.enumeration.PanStyles} for details</p>
+     * <p>PARAM_PAN_STYLES used to be bundled with SecurityEntry.ACTION_INPUT_ACCOUNT. It had two values: NORMAL and NEW_PAN.</p>
+     * <p>Now, instead of sending PanStyles.NEW_PAN with SecurityEntry.ACTION_INPUT_ACCOUNT, SecurityEntry.ACTION_INPUT_NEW_ACCOUNT is invoked.</p>
      */
-    @Deprecated
-    public static final String PARAM_PAN_STYLES = "panStyles";
+    @Deprecated public static final String PARAM_PAN_STYLES = "panStyles";
 
     /**
      * Use external PIN PAD or internal PIN PAD

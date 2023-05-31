@@ -4,9 +4,12 @@ package com.pax.us.pay.ui.constant.entry.enumeration;
  * PIN Style
  */
 @Deprecated public final class PinStyles {
-    @Deprecated private PinStyles(){
 
-    }
+    /**
+     * <p>@Deprecated: Instead of sending NORMAL, RETRY, LAST,
+     * EntryExtraData.PARAM_TRIALS_REMAINING is set to 2, 1, 0 respectively.</p>
+     */
+    @Deprecated private PinStyles(){}
     /**
      * NORMAL
      * <p>BroadPOS prompt as "Please Enter PIN"</p>

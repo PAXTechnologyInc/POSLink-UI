@@ -4,9 +4,12 @@ package com.pax.us.pay.ui.constant.entry.enumeration;
  * PAN Style
  */
 @Deprecated public final class PanStyles {
-    @Deprecated private PanStyles(){
 
-    }
+    /**
+     * <p>@Deprecated: Instead of sending NORMAL and NEW_PAN with SecurityEntry.ACTION_INPUT_ACCOUNT,
+     * SecurityEntry.ACTION_INPUT_ACCOUNT is followed by SecurityEntry.ACTION_INPUT_NEW_ACCOUNT to differentiate between the two.</p>
+     */
+    @Deprecated private PanStyles(){}
     /**
      * NORMAL
      * BroadPOS prompt as "Please Enter Card Number"
