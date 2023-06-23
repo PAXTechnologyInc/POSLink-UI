@@ -33,21 +33,21 @@ public final class StatusData {
  /**
   * S&amp;F Type
   * <p>Type: String. see {@link com.pax.us.pay.ui.constant.entry.enumeration.SFType}</p>
-  * <p>Used in {@link BatchStatus#BATCH_SF_UPLOADING}</p>
+  * <p>Used in {@link BatchStatus#BATCH_UPLOADING}</p>
   */
  public static final String PARAM_SF_TYPE = "sfType";
 
  /**
   * S&amp;F Uploaded Count
   * <p>Type: Long. Default: 0</p>
-  * <p>Used in {@link BatchStatus#BATCH_SF_UPLOADING}</p>
+  * <p>Used in {@link BatchStatus#BATCH_UPLOADING}</p>
   */
  public static final String PARAM_SF_CURRENT_COUNT = "sfCurrent";
 
  /**
   * S&amp;F Total Count to upload
   * <p>Type: Long. Default: 0</p>
-  * <p>Used in {@link BatchStatus#BATCH_SF_UPLOADING}</p>
+  * <p>Used in {@link BatchStatus#BATCH_UPLOADING}</p>
   */
  public static final String PARAM_SF_TOTAL_COUNT = "sfTotal";
 

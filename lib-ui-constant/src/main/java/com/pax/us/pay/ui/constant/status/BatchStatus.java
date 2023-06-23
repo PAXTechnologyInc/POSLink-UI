@@ -45,12 +45,12 @@ public final class BatchStatus {
 
     /**
      * Broadcast Action: S&amp;F start<br>{@value #BATCH_SF_STARTED}<br>
-     * @deprecated Not used anymore. Use {@link #BATCH_SF_UPLOADING} instead.
+     * @deprecated Not used anymore. Use {@link #BATCH_UPLOADING} instead.
      */
     public static final String BATCH_SF_STARTED = "com.pax.us.pay.BATCH_SF_STARTED";
 
     /**
-     * Broadcast Action: S&amp;F Upload begin<br>{@value #BATCH_SF_UPLOADING}<br>
+     * Broadcast Action: S&amp;F Upload begin<br>{@value #BATCH_UPLOADING}<br>
      * <p>
      *     Input: {@link StatusData#PARAM_SF_TYPE} sfType <br>
      *     Type: String
@@ -67,7 +67,7 @@ public final class BatchStatus {
      *     display: "Uploading Failed Transaction...\nTotal Count :"+totalCount+" Current Count :"+totalCount
      * </p>
      */
-    public static final String BATCH_UPLOADING = "com.pax.us.pay.BATCH_UPLOADING"; //BATCH_UPLOADING";
+    public static final String BATCH_UPLOADING = "com.pax.us.pay.BATCH_UPLOADING";
     /**
      * Broadcast Action: S&amp;F Upload end<br>{@value #BATCH_SF_COMPLETED}<br>
      */
