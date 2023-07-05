@@ -67,7 +67,7 @@ public final class BatchStatus {
      *     display: "Uploading Failed Transaction...\nTotal Count :"+totalCount+" Current Count :"+totalCount
      * </p>
      */
-    public static final String BATCH_SF_UPLOADING = "com.pax.us.pay.BATCH_SF_UPLOADING"; //BATCH_UPLOADING";
+    public static final String BATCH_UPLOADING = "com.pax.us.pay.BATCH_UPLOADING"; //BATCH_UPLOADING";
     /**
      * Broadcast Action: S&amp;F Upload end<br>{@value #BATCH_SF_COMPLETED}<br>
      */
