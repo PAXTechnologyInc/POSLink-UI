@@ -313,8 +313,9 @@ public final class OptionEntry {
      *     Type: Integer<br>
      *     Value start from 0.
      * </p>
+     * @deprecated Because {@link ConfirmationEntry#ACTION_CONFIRM_DUPLICATE_TRANS} will be used by the hosts instead.
      */
-    public static final String ACTION_SELECT_DUPLICATE_OVERRIDE = "com.pax.us.pay.action.SELECT_DUPLICATE_OVERRIDE";
+    @Deprecated public static final String ACTION_SELECT_DUPLICATE_OVERRIDE = "com.pax.us.pay.action.SELECT_DUPLICATE_OVERRIDE";
 
     /**
      * Activity Action: Select Card Type<br>{@value #ACTION_SELECT_CARD_TYPE}<br>
