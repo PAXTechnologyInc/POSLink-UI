@@ -20,6 +20,13 @@ public final class EntryExtraData {
     public static final String PARAM_PACKAGE = "senderPackage";
 
     /**
+     * Interface Identifier
+     * Interface: Instance of a UI Entry Action
+     * <p>Type: int</p>
+     */
+    public static final String PARAM_INTERFACE_ID = "interfaceID";
+
+    /**
      * Transaction Type
      * <p>Type : String</p>
      * <p>Example: "CREDIT SALE"</p>
