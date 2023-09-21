@@ -6,22 +6,33 @@ package com.pax.us.pay.ui.constant.entry.enumeration;
  */
 public final class BypassReason {
     private BypassReason(){
-
     }
-    /**
-     * Want to bypass
-     */
-    public static final String WANT_TO_BYPASS = "Bypass";
 
     /**
-     * Cannot read
+     * @deprecated  {@value NOT_AVAILABLE} and {@value ILLEGIBLE} replaced the previous options.
+     *              Want to bypass
      */
-    public static final String CANNOT_READ = "Unable to Read";
+    @Deprecated public static final String WANT_TO_BYPASS = "Bypass";
+    /**
+     * @deprecated  {@value NOT_AVAILABLE} and {@value ILLEGIBLE} replaced the previous options.
+     *              Cannot read
+     */
+    @Deprecated public static final String CANNOT_READ = "Unable to Read";
+    /**
+     * @deprecated  {@value NOT_AVAILABLE} and {@value ILLEGIBLE} replaced the previous options.
+     *              Does not exist
+     */
+    @Deprecated public static final String DOES_NOT_EXIST = "Not Present";
 
     /**
-     * Does not exit
+     * Not Available
      */
-    public static final String DOES_NOT_EXIST = "Not Present";
+    public static final String NOT_AVAILABLE = "Not Available";
+
+    /**
+     * Illegible
+     */
+    public static final String ILLEGIBLE = "Illegible";
 
 
     /**
@@ -29,6 +40,6 @@ public final class BypassReason {
      * @return String[]
      */
     public static String[] values() {
-        return new String[]{WANT_TO_BYPASS, CANNOT_READ, DOES_NOT_EXIST};
+        return new String[]{NOT_AVAILABLE, ILLEGIBLE};
     }
 }

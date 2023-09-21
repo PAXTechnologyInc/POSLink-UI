@@ -1,4 +1,4 @@
-rootProject.name = "POSLink-UI"
+rootProject.name = "POSLinkUI"
 
 include ':ui.constant'
 project (':ui.constant').projectDir = file('./lib-ui-constant')

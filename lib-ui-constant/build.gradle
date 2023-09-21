@@ -1,6 +1,6 @@
 apply plugin: 'java-library'
 
-if(rootProject.name != "POSLink-UI") {
+if(rootProject.name != "POSLinkUI") {
     apply from: file('../gradle/version.gradle')
 
     ext {
@@ -17,6 +17,6 @@ dependencies {
 sourceCompatibility = "7"
 targetCompatibility = "7"
 
-if(rootProject.name == "POSLink-UI") {
+if(rootProject.name == "POSLinkUI") {
     apply from: file('../gradle/publish.gradle')
 }
