@@ -27,13 +27,13 @@ public final class PINStatus {
 
     /**
      * Broadcast Action: PIN_ENTER_COMPLETED<br>{@value #PIN_ENTER_COMPLETED}<br>
-     * @deprecated Never used
+     * <p>KEY_ENTER is clicked. The entered pin is being submitted for validation.</p>
      */
     public static final String PIN_ENTER_COMPLETED = "com.pax.us.pay.PIN_ENTER_COMPLETED";
 
     /**
      * Broadcast Action: PIN_ENTER_ABORTED<br>{@value #PIN_ENTER_ABORTED}<br>
-     * @deprecated Never used
+     * <p>KEY_CANCEL is clicked. Pin Entry is aborted.</p>
      */
     public static final String PIN_ENTER_ABORTED = "com.pax.us.pay.PIN_ENTER_ABORTED";
 
