@@ -38,4 +38,10 @@ public final class EntryResponse {
      * <p>Type: String</p>
      */
     public static final String PARAM_MSG = "resultMessage";
+
+    /**
+     * Action being responded to
+     * <p>Type: String</p>
+     */
+    public static final String PARAM_ACTION = "originatingAction";
 }

@@ -110,14 +110,6 @@ public final class SecurityEntry {
      *     True is enabled. False is disabled
      * </p>
      * <p>
-     *     Input: {@link EntryExtraData#PARAM_PAN_STYLES}  - {@value EntryExtraData#PARAM_PAN_STYLES}  <br>
-     *     Type: String.<br>
-     *     If value is {@link com.pax.us.pay.ui.constant.entry.enumeration.PanStyles#NEW_PAN},
-     *     prompt "Please Enter New Card Number".<br>
-     *     Else, prompt "Please Enter Card Number".<br>
-     *     For GIFT/LOYALTY Replace/Merge transaction use.
-     * </p>
-     * <p>
      *     Output: {@link EntryRequest#PARAM_X} - {@value EntryRequest#PARAM_X} is X coordinate of input box<br>
      *     Type: Integer<br>
      *     Unit: pixel
@@ -164,6 +156,13 @@ public final class SecurityEntry {
      * </p>
      */
     public static final String ACTION_INPUT_ACCOUNT = "com.pax.us.pay.action.INPUT_ACCOUNT";
+
+
+    /**
+     * Similar to ACTION_INPUT_ACCOUNT. But it implies that it is going to be a new account.
+     * This makes the usage of PanStyles obsolete.
+     */
+    public static final String ACTION_INPUT_NEW_ACCOUNT = "com.pax.us.pay.action.INPUT_NEW_ACCOUNT";
 
     /**
      * Activity Action: ENTER PIN<br>{@value #ACTION_ENTER_PIN}<br>
