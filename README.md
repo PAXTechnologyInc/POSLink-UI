@@ -1,4 +1,4 @@
-# POSLink-UI
+# POSLinkUI
 ## lib-ui-constant:  
 Define customer UI's constant and interface API
    > ../entry/                     : Customer action UI's interface and input/output parameters  
@@ -11,8 +11,8 @@ Define customer UI's constant and interface API
    > ../status/                    : Transaction status prompt, customer UI according those status to display relevant information or do actions. involve card's status, contactless light status, batch transaction status, prompt message during transaction, etc.
 
 
-## POSLink-UI Demo
-Our latest simple demo for POSLink-UI.
+## POSLinkUI-Demo
+Our latest simple demo for POSLinkUI.
 See [POSLinkUI-Demo](https://github.com/PAXTechnologyInc/POSLinkUI-Demo) for details.
 
 The old demo app is deprecated. See [deprecated-demo branch](https://github.com/PAXTechnologyInc/POSLink-UI/tree/deprecated-demo) if you need.
