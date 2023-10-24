@@ -85,6 +85,10 @@ public final class EntryExtraData {
      */
     public static final String PARAM_TOTAL_AMOUNT = "totalAmount";
     /**
+     * Amount: long
+     */
+    public static final String PARAM_AMOUNT = "amount";
+    /**
      * Amount Message
      * <p>Type : String</p>
      */

@@ -913,6 +913,29 @@ public final class OptionEntry {
 
     public static final String ACTION_SELECT_COF_INITIATOR = "com.pax.us.pay.action.SELECT_COF_INITIATOR";
 
+    /**
+     * ACTION
+     * Select Cash Discount <br>
+     * <br>
+     * INPUT EXTRAS <br>
+     * {@link EntryExtraData#PARAM_PACKAGE} : String,<br>
+     * {@link EntryExtraData#PARAM_TRANS_TYPE} : String,<br>
+     * {@link EntryExtraData#PARAM_TRANS_MODE} : String, <br>
+     * {@link EntryExtraData#PARAM_OPTIONS} : Stringified JSONArray <br>
+     * JSONObject in {@link EntryExtraData#PARAM_OPTIONS}:
+     * {
+     *   {@link EntryExtraData#PARAM_TITLE} : String,
+     *   {@link EntryExtraData#PARAM_AMOUNT} : long,
+     *   {@link EntryExtraData#PARAM_CURRENCY} : String
+     * }<br>
+     *
+     * <br>
+     * OUTPUT EXTRAS <br>
+     * {@link EntryRequest#PARAM_ACTION} : String, <br>
+     * {@link EntryRequest#PARAM_INDEX} : int <br>
+     */
+    public static final String ACTION_SELECT_CASH_DISCOUNT = "com.pax.us.pay.action.SELECT_CASH_DISCOUNT";
+
 //Note:
 //Appending a new action, please add mapping into "SELECT_OPTION_MAP" in "SelectOptionContent"
 
