@@ -1227,4 +1227,24 @@ public final class ConfirmationEntry {
      */
     public static final String ACTION_CONFIRM_TOTAL_AMOUNT = "com.pax.us.pay.action.CONFIRM_TOTAL_AMOUNT";
 
+
+    /**
+     * ACTION
+     * Confirm Cash Payment <br>
+     * <br>
+     * INPUT EXTRAS <br>
+     * {@link EntryExtraData#PARAM_PACKAGE} : String,<br>
+     * {@link EntryExtraData#PARAM_TRANS_TYPE} : String,<br>
+     * {@link EntryExtraData#PARAM_TRANS_MODE} : String, <br>
+     * {@link EntryExtraData#PARAM_TOTAL_AMOUNT} : long, <br>
+     * {@link EntryExtraData#PARAM_CURRENCY} : String, <br>
+     * {@link EntryExtraData#PARAM_MESSAGE} : String, <br>
+     * {@link EntryExtraData#PARAM_OPTIONS} : String[] <br>
+     * <br>
+     * OUTPUT EXTRAS <br>
+     * {@link EntryRequest#PARAM_ACTION} : String, <br>
+     * {@link EntryRequest#PARAM_CONFIRMED} : Boolean <br>
+     */
+    public static final String ACTION_CONFIRM_CASH_PAYMENT = "com.pax.us.pay.action.CONFIRM_CASH_PAYMENT";
+
 }
