@@ -1,7 +1,7 @@
 package com.pax.us.pay.ui.constant.status;
 
 
-import com.pax.us.pay.ui.constant.entry.EntryRequest;
+import com.pax.us.pay.ui.constant.entry.SecureKeyboardKeyCode;
 
 /**
  * define Broadcast which has SECURITY Category
@@ -60,5 +60,19 @@ public final class SecurityStatus {
      * </p>
      */
     public static final String SECURITY_KEYBOARD_LOCATION = "com.pax.us.pay.SECURITY_KEYBOARD_LOCATION";
+
+    /**
+     * BroadPOS sends this broadcast to notify the security UI that it is ready to receive keyboard location information. <br>
+     * This is sent as a result of the UI App requesting to disable to default secure keyboard.
+     */
+    public static final String READY_FOR_KEYBOARD_LOCATION = "com.pax.us.pay.READY_FOR_KEYBOARD_LOCATION";
+
+    /**
+     * BroadPOS sends this status broadcast when the secure keyboard is deactivated upon request from the UI App. <br>
+     * Deactivation is requested by the UI App by including the {@link SecureKeyboardKeyCode#KEYCODE_DEACTIVATE_SECURE_KEYBOARD} as a keycode in one of the keys of the secure keyboard.
+     */
+    public static final String SECURE_KEYBOARD_DEACTIVATED = "com.pax.us.pay.SECURE_KEYBOARD_DEACTIVATED";
+
+
 
 }
