@@ -718,6 +718,55 @@ public final class EntryExtraData {
     public static final String PARAM_FLEET_LICENSE_NUMBER_PATTERN = "fleetLicenseNumberPattern";
 
     /**
+     * Length limit for P.O. Number
+     * <p>Type: String</p>
+     * <p>See {@link #PARAM_VALUE_PATTERN} for details</p>
+     */
+    public static final String PARAM_FLEET_PO_NUMBER_PATTERN = "fleetPONumberPattern";
+
+    /**
+     * Length limit for Trip Number
+     * <p>Type: String</p>
+     * <p>See {@link #PARAM_VALUE_PATTERN} for details</p>
+     */
+    public static final String PARAM_FLEET_TRIP_NUMBER_PATTERN = "fleetTripNumberPattern";
+
+    /**
+     * Length limit for Unit Number
+     * <p>Type: String</p>
+     * <p>See {@link #PARAM_VALUE_PATTERN} for details</p>
+     */
+    public static final String PARAM_FLEET_UNIT_NUMBER_PATTERN = "fleetUnitNumberPattern";
+
+    /**
+     * Length limit for Trailer Number
+     * <p>Type: String</p>
+     * <p>See {@link #PARAM_VALUE_PATTERN} for details</p>
+     */
+    public static final String PARAM_FLEET_TRAILER_NUMBER_PATTERN = "fleetTrailerNumberPattern";
+
+    /**
+     * Length limit for Reefer Hours
+     * <p>Type: String</p>
+     * <p>See {@link #PARAM_VALUE_PATTERN} for details</p>
+     */
+    public static final String PARAM_FLEET_REEFER_HOURS_PATTERN = "fleetReeferHoursPattern";
+
+    /**
+     * Length limit for Maintenance ID
+     * <p>Type: String</p>
+     * <p>See {@link #PARAM_VALUE_PATTERN} for details</p>
+     */
+    public static final String PARAM_FLEET_MAINTENANCE_ID_PATTERN = "fleetMaintenanceIdPattern";
+
+    /**
+     * Length limit for Hubometer
+     * <p>Type: String</p>
+     * <p>See {@link #PARAM_VALUE_PATTERN} for details</p>
+     */
+    public static final String PARAM_FLEET_HUBOMETER_PATTERN = "fleetHubometerPattern";
+
+    /**
      * Length limit for Zip Code
      * <p>Type: String</p>
      * <p>See {@link #PARAM_VALUE_PATTERN} for details</p>

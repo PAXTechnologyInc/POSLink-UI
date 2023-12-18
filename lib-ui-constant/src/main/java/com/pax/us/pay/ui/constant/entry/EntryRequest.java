@@ -531,6 +531,48 @@ public final class EntryRequest {
     public static final String PARAM_FLEET_LICENSE_NUMBER = "fleetLicenseNumber";
 
     /**
+     * Fleet P.O. Number
+     * <p>Type: String</p>
+     */
+    public static final String PARAM_FLEET_PO_NUMBER = "fleetPONumber";
+
+    /**
+     * Trip Number
+     * <p>Type: String</p>
+     */
+    public static final String PARAM_FLEET_TRIP_NUMBER = "fleetTripNumber";
+
+    /**
+     * Unit Number
+     * <p>Type: String</p>
+     */
+    public static final String PARAM_FLEET_UNIT_NUMBER = "fleetUnitNumber";
+
+    /**
+     * Trailer Number
+     * <p>Type: String</p>
+     */
+    public static final String PARAM_FLEET_TRAILER_NUMBER = "fleetTrailerNumber";
+
+    /**
+     * Reefer Hours
+     * <p>Type: String</p>
+     */
+    public static final String PARAM_FLEET_REEFER_HOURS = "fleetReeferHours";
+
+    /**
+     * Maintenance ID
+     * <p>Type: String</p>
+     */
+    public static final String PARAM_FLEET_MAINTENANCE_ID = "fleetMaintenanceID";
+
+    /**
+     * Hubometer
+     * <p>Type: String</p>
+     */
+    public static final String PARAM_FLEET_HUBOMETER = "fleetHubometer";
+
+    /**
      * Destination zip code
      * <p>Type: String</p>
      */
