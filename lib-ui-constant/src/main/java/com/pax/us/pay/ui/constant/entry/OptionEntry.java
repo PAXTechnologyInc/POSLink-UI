@@ -725,6 +725,80 @@ public final class OptionEntry {
      */
     public static final String ACTION_SELECT_LANGUAGE = "com.pax.us.pay.action.SELECT_LANGUAGE";
 
+    /**
+     * Activity Action: Select Cash Discount Payment<br>{@value #ACTION_SELECT_CASH_DISCOUNT}<br>
+     * This action is host dependent.<br>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} - {@value EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+     *     Type: String<br>
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} - {@value EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
+     *     Type: String<br>
+     *     Example: "CREDIT SALE"
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
+     *     Type: Long<br>
+     *     Unit: ms<br>
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS}<br>
+     *     Type: String[]<br>
+     *     Value depends on language list of EMV Card
+     * </p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_INDEX} - {@value EntryRequest#PARAM_INDEX} Selected Index<br>
+     *     Type: Integer<br>
+     *     Value start from 0.
+     * </p>
+     */
+    public static final String ACTION_SELECT_CASH_DISCOUNT = "com.pax.us.pay.action.SELECT_CASH_DISCOUNT";
+
+    /**
+     * Activity Action: Select Cash Discount Payment<br>{@value #ACTION_SELECT_CASH_DISCOUNT}<br>
+     * This action is host dependent.<br>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
+     *     Type: String
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} - {@value EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
+     *     Type: String<br>
+     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} - {@value EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
+     *     Type: String<br>
+     *     Example: "CREDIT SALE"
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
+     *     Type: Long<br>
+     *     Unit: ms<br>
+     *     Default is 30000. <br>
+     *     For reference only, BroadPOS handles timeout.
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS}<br>
+     *     Type: String[]<br>
+     *     Value depends on language list of EMV Card
+     * </p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_INDEX} - {@value EntryRequest#PARAM_INDEX} Selected Index<br>
+     *     Type: Integer<br>
+     *     Value start from 0.
+     * </p>
+     */
+    public static final String ACTION_CONFIRM_CASH_PAYMENT = "com.pax.us.pay.action.CONFIRM_CASH_PAYMENT";
+
 
     /**
      * Activity Action: Select Merchant<br>{@value #ACTION_SELECT_MERCHANT}<br>
