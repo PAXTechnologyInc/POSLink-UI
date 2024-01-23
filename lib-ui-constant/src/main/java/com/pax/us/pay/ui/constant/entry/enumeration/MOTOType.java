@@ -18,7 +18,12 @@ public final class MOTOType {
      */
     public static final String PHONE = "PHONE ORDER";
 
+    /**
+     * None
+     */
+    public static final String NONE = "NONE";
+
     public static String[] values() {
-        return new String[]{MAIL, PHONE};
+        return new String[]{MAIL, PHONE, NONE};
     }
 }
