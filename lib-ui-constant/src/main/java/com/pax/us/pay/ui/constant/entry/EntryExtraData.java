@@ -655,6 +655,21 @@ public final class EntryExtraData {
     public static final String PARAM_VALUE_PATTERN = "valuePattern";
 
     /**
+     * The input type bitmap string of the fleet prompt data
+     * <p>Type: String</p>
+     * <p>Values: N-Numeric
+     *            A-ALLTEXT
+     *            P-Password
+     * </p>
+     * <p>
+     *     It's in that order: DRIVER_ID, ODOMETER, VEHICLE_NUMBER, LICENSE_NUMBER, JOB_NUMBER, DEPARTMENT_NUMBER,
+     *     CUSTOMER_DATA, USER_ID, VEHICLE_ID, PO_NO, TRIP_NO, UNIT_NO, MAINTENANCE_ID, HUBOMETER, TRAILER_NO,
+     *     REEFER_HOURS.
+     *     Format: NNNNNAAANAAAANAN
+     * </p>
+     */
+    public static final String PARAM_FLEET_PROMPT_DATA_INPUT_TYPE_BITMAP = "fleetPromptDataInputTypeBitmap";
+    /**
      * Length limit for Customer Data
      * <p>Type: String</p>
      * <p>See {@link #PARAM_VALUE_PATTERN} for details</p>
