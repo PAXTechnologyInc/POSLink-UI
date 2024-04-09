@@ -804,6 +804,46 @@ public final class OptionEntry {
      */
     public static final String ACTION_SELECT_ORIG_CURRENCY = "com.pax.us.pay.action.SELECT_ORIG_CURRENCY";
 
+    /**
+     * Activity Action: Select Payment Type for Cash Discount<br>{@value #ACTION_SELECT_CASH_DISCOUNT}<br>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS} is the stringifed JSON array defining the 2 payment type options.<br>
+     *     Example: "[{title:"Card",amount:1000,currency:"USD"},{title:"Cash",amount:800,currency:"USD"}]"
+     *     Type: String<br>
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Type: Long<br>
+     *     Unit: ms<br>
+     *     Default is 30000.
+     * </p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_INDEX} - {@value EntryRequest#PARAM_INDEX} Selected Index<br>
+     *     Type: Integer<br>
+     *     Value start from 0.
+     * </p>
+     */
+    public static final String ACTION_SELECT_CASH_DISCOUNT = "com.pax.us.pay.action.SELECT_CASH_DISCOUNT";
+
+    /**
+     * Activity Action: Confirm Cash Payment<br>{@value #ACTION_CONFIRM_CASH_PAYMENT}<br>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_OPTIONS} - {@value EntryExtraData#PARAM_OPTIONS} String contents to display.<br>
+     *     Example: String[]{"Ok", "Cancel"}<br>
+     *     Type: String[]
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT} is timeout. <br>
+     *     Type: Long<br>
+     *     Unit: ms<br>
+     *     Default is 30000.
+     * </p>
+     * <p>
+     *     Output: {@link EntryRequest#PARAM_CONFIRMED} - {@value EntryRequest#PARAM_CONFIRMED} Cash Payment was confirmed.<br>
+     *     Type: Boolean<br>
+     * </p>
+     */
+    public static final String ACTION_CONFIRM_CASH_PAYMENT = "com.pax.us.pay.action.CONFIRM_CASH_PAYMENT";
     //-----------------------------Visa Installment---------------------------------
     /**
      * Activity Action: Select Installment Plan (For Visa Installment use)<br>{@value #ACTION_SELECT_INSTALLMENT_PLAN}<br>
