@@ -573,6 +573,24 @@ public final class EntryRequest {
     public static final String PARAM_FLEET_HUBOMETER = "fleetHubometer";
 
     /**
+     * Employee Number
+     * <p>Type: String</p>
+     */
+    public static final String PARAM_FLEET_EMPLOYEE_NUMBER = "fleetEmployeeNumber";
+
+    /**
+     * Additional Prompted Data 1
+     * <p>Type: String</p>
+     */
+    public static final String PARAM_FLEET_ADDITIONAL_PROMPTED_DATA_1 = "fleetAdditionalPromptedData1";
+
+    /**
+     * Additional Prompted Data 2
+     * <p>Type: String</p>
+     */
+    public static final String PARAM_FLEET_ADDITIONAL_PROMPTED_DATA_2 = "fleetAdditionalPromptedData2";
+
+    /**
      * Destination zip code
      * <p>Type: String</p>
      */
