@@ -664,8 +664,8 @@ public final class EntryExtraData {
      * <p>
      *     It's in that order: DRIVER_ID, ODOMETER, VEHICLE_NUMBER, LICENSE_NUMBER, JOB_NUMBER, DEPARTMENT_NUMBER,
      *     CUSTOMER_DATA, USER_ID, VEHICLE_ID, PO_NO, TRIP_NO, UNIT_NO, MAINTENANCE_ID, HUBOMETER, TRAILER_NO,
-     *     REEFER_HOURS.
-     *     Format: NNNNNAAANAAAANAN
+     *     REEFER_HOURS, EMPLOYEE_NUMBER, ADDITIONAL_PROMPTED_DATA_1, ADDITIONAL_PROMPTED_DATA_2.
+     *     Format: NNNNNAAANAAAANANAAA
      * </p>
      */
     public static final String PARAM_FLEET_PROMPT_DATA_INPUT_TYPE_BITMAP = "fleetPromptDataInputTypeBitmap";
@@ -780,6 +780,27 @@ public final class EntryExtraData {
      * <p>See {@link #PARAM_VALUE_PATTERN} for details</p>
      */
     public static final String PARAM_FLEET_HUBOMETER_PATTERN = "fleetHubometerPattern";
+
+    /**
+     * Length limit for EmployeeNumber
+     * <p>Type: String</p>
+     * <p>See {@link #PARAM_VALUE_PATTERN} for details</p>
+     */
+    public static final String PARAM_FLEET_EMPLOYEE_NUMBER_PATTERN = "fleetEmployeeNumberPattern";
+
+    /**
+     * Length limit for Additional Prompted Data 1
+     * <p>Type: String</p>
+     * <p>See {@link #PARAM_VALUE_PATTERN} for details</p>
+     */
+    public static final String PARAM_FLEET_ADDITIONAL_PROMPTED_DATA_1_PATTERN = "fleetAdditionalPromptedData1Pattern";
+
+    /**
+     * Length limit for Additional Prompted Data 2
+     * <p>Type: String</p>
+     * <p>See {@link #PARAM_VALUE_PATTERN} for details</p>
+     */
+    public static final String PARAM_FLEET_ADDITIONAL_PROMPTED_DATA_2_PATTERN = "fleetAdditionalPromptedData2Pattern";
 
     /**
      * Length limit for Zip Code
