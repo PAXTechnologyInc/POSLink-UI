@@ -950,6 +950,16 @@ public final class EntryExtraData {
      * <p>Type: String[]</p>
      */
     public static final String PARAM_MESSAGE_LIST = "messageList";
+
+    /**
+     * Top Down
+     * <p>Type: Boolean <br>
+     * Text pushed in top down or bottom up.<br>
+     * True is top down. False is bottom up</p>
+     * <p>Default is true</p>
+     */
+    public static final String PARAM_TOP_DOWN = "topDown";
+
     /**
      * Currency Symbol
      * <p>Type: String</p>
