@@ -245,6 +245,12 @@ public final class PoslinkEntry {
      *     Type: String<br>
      *     Value is always {@value com.pax.us.pay.ui.constant.entry.enumeration.ManageUIConst.ContinuousScreen#DO_NOT_GO_TO_IDLE}
      * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TOP_DOWN}  - {@value EntryExtraData#PARAM_TOP_DOWN}<br>
+     *     Type: Boolean<br>
+     *     Text pushed in top down or bottom up.<br>
+     *     True is top down. False is bottom up. Default is True.
+     * </p>
      */
     public static final String ACTION_SHOW_MESSAGE = "com.pax.us.pay.action.SHOW_MESSAGE";
 
@@ -279,6 +285,12 @@ public final class PoslinkEntry {
      * <p>
      *     Input: {@link EntryExtraData#PARAM_MESSAGE_LIST}  - {@value EntryExtraData#PARAM_MESSAGE_LIST}<br>
      *     Type: String
+     * </p>
+     * <p>
+     *     Input: {@link EntryExtraData#PARAM_TOP_DOWN}  - {@value EntryExtraData#PARAM_TOP_DOWN}<br>
+     *     Type: Boolean<br>
+     *     Text pushed in top down or bottom up.<br>
+     *     True is top down. False is bottom up. Default is True.
      * </p>
      */
     public static final String ACTION_SHOW_ITEM = "com.pax.us.pay.action.SHOW_ITEM";
