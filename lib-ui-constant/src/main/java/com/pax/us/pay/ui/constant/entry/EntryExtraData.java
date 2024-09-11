@@ -1131,4 +1131,7 @@ public final class EntryExtraData {
 //    * */
 //    public static final String PARAM_INTERNAL_NICKNAME_FLAG = "internalNicknameFlag";
 
+
+    public static final String PARAM_DATE_FORMAT = "dateFormat";
+
 }

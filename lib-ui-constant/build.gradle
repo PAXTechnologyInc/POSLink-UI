@@ -20,3 +20,12 @@ targetCompatibility = "7"
 if(rootProject.name == "POSLinkUI") {
     apply from: file('../gradle/publish.gradle')
 }
+
+jar {
+    manifest {
+        attributes(
+                'Implementation-Title': 'POSLinkUI',
+                'Implementation-Version': version
+        )
+    }
+}
