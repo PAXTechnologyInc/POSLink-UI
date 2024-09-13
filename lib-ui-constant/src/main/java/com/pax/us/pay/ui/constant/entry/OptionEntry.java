@@ -936,6 +936,23 @@ public final class OptionEntry {
      */
     public static final String ACTION_SELECT_CASH_DISCOUNT = "com.pax.us.pay.action.SELECT_CASH_DISCOUNT";
 
+    /**
+     * ACTION
+     * Select Batch Report Type <br>
+     * <br>
+     * INPUT EXTRAS <br>
+     * {@link EntryExtraData#PARAM_PACKAGE} : String,<br>
+     * {@link EntryExtraData#PARAM_TRANS_TYPE} : String,<br>
+     * {@link EntryExtraData#PARAM_TRANS_MODE} : String, <br>
+     * {@link EntryExtraData#PARAM_OPTIONS} : String[] <br>
+     *
+     * <br>
+     * OUTPUT EXTRAS <br>
+     * {@link EntryRequest#PARAM_ACTION} : String, <br>
+     * {@link EntryRequest#PARAM_INDEX} : int <br>
+     */
+    public static final String ACTION_SELECT_BATCH_REPORT_TYPE = "com.pax.us.pay.action.SELECT_BATCH_REPORT_TYPE";
+
 //Note:
 //Appending a new action, please add mapping into "SELECT_OPTION_MAP" in "SelectOptionContent"
 
