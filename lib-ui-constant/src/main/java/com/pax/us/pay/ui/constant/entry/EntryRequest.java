@@ -783,4 +783,10 @@ public final class EntryRequest {
      * <p>Type: String</p>
      */
     public static final String PARAM_VISA_PLAN_ACCEPTANCE_ID = "visaPlanAcceptanceID";
+
+    /**
+     * Ticket Number
+     * <p>Type: String</p>
+     */
+    public static final String PARAM_TICKET_NUMBER = "ticketNumber";
 }
