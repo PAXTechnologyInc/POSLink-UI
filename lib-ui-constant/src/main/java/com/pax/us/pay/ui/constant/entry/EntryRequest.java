@@ -154,6 +154,8 @@ public final class EntryRequest {
      */
     public static final String ACTION_SECURITY_AREA = "com.pax.us.pay.ui.SECURITY_AREA";
 
+    public static final String ACTION_ACTIVATE_SECURE_KEYBOARD = "com.pax.us.pay.ui.ACTIVATE_SECURE_KEYBOARD";
+
     /**
      * Broadcast Action: Set Pin Pad Layout<br>{@value #ACTION_SET_PIN_KEY_LAYOUT}<br>
      * <p>
@@ -783,4 +785,38 @@ public final class EntryRequest {
      * <p>Type: String</p>
      */
     public static final String PARAM_VISA_PLAN_ACCEPTANCE_ID = "visaPlanAcceptanceID";
+
+
+    /**
+     * Locations of all the keys requested by UI App for {@link com.pax.us.pay.ui.constant.entry.SecurityEntry} interfaces.
+     * It will contain a stringified json array.
+     * Each object of that array will contain attributes:
+     * {@link EntryRequest#PARAM_X}, {@link EntryRequest#PARAM_Y}, {@link EntryRequest#PARAM_WIDTH}, {@link EntryRequest#PARAM_HEIGHT}, {@link EntryRequest#PARAM_KEY_CODE}, {@link EntryRequest#PARAM_SECURE_KEYBOARD_PAYLOAD}
+     */
+    public static final String PARAM_KEY_LOCATIONS = "keyLocations";
+
+    /**
+     * Key Code. Used in {@link EntryRequest#PARAM_KEY_LOCATIONS}
+     * <p>Type: String</p>
+     * <p>Value: Key Codes defined in {@link SecureKeyboardKeyCode}</p>
+     * <p>Example: {@link SecureKeyboardKeyCode#KEYCODE_0}</p>
+     */
+    public static final String PARAM_KEY_CODE = "keyCode";
+
+    /**
+     * Disable Default Secure Keyboard. Used in {@link EntryRequest#ACTION_SECURITY_AREA}
+     * This will disable the default secure keyboard drawn by BroadPOS.
+     * If this is set to true, BroadPOS will send a broadcast {@link com.pax.us.pay.ui.constant.status.SecurityStatus#READY_FOR_KEYBOARD_LOCATION} to the UI App.
+     * The UI App should then send the keyboard location information to BroadPOS bundled with {@link EntryRequest#ACTION_ACTIVATE_SECURE_KEYBOARD}
+     */
+    public static final String PARAM_DISABLE_DEFAULT_SECURE_KEYBOARD = "disableDefaultSecureKeyboard";
+
+    /**
+     * Secure Keyboard Payload. Used in {@link EntryRequest#PARAM_KEY_LOCATIONS}
+     * It is an optional parameter. It is used for sending additional data to the BroadPOS.
+     * BroadPOS will piggyback this data if it is included in the key with code {@link SecureKeyboardKeyCode#KEYCODE_DEACTIVATE_SECURE_KEYBOARD}
+     */
+    public static final String PARAM_SECURE_KEYBOARD_PAYLOAD = "secureKeyboardPayload";
+
+
 }
