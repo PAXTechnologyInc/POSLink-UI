@@ -1064,65 +1064,56 @@ public final class TextEntry {
     public static final String ACTION_ENTER_PROMPT_RESTRICTION_CODE = "com.pax.us.pay.action.ENTER_PROMPT_RESTRICTION_CODE";
 
     /**
-     * Activity Action: Enter Fleet Data<br>{@value #ACTION_ENTER_FLEET_DATA}<br>
-     * This action is host dependent.<br>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_PACKAGE} - {@value EntryExtraData#PARAM_PACKAGE}  is the package name of caller.<br>
-     *     Type: String
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_TRANS_TYPE} - {@value EntryExtraData#PARAM_TRANS_TYPE} is trans name. <br>
-     *     Type: String<br>
-     *     Example: "CREDIT SALE"
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_TRANS_MODE} - {@value EntryExtraData#PARAM_TRANS_MODE} is transaction mode.<br>
-     *     Type: String<br>
-     *     See {@link com.pax.us.pay.ui.constant.entry.enumeration.TransMode} for details
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_TIMEOUT} - {@value EntryExtraData#PARAM_TIMEOUT}<br>
-     *     Type: Long<br>
-     *     Unit: ms<br>
-     *     Default is 30000. <br>
-     *     For reference only, BroadPOS handles timeout.
-     * </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_FLEET_DRIVER_ID_PATTERN} - {@value EntryExtraData#PARAM_FLEET_DRIVER_ID_PATTERN}  <br>Type: String</p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_FLEET_ODOMETER_PATTERN} - {@value EntryExtraData#PARAM_FLEET_ODOMETER_PATTERN} <br>Type: String</p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_FLEET_VEHICLE_NUMBER_PATTERN}-{@value EntryExtraData#PARAM_FLEET_VEHICLE_NUMBER_PATTERN} <br>Type: String </p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_FLEET_LICENSE_NUMBER_PATTERN} -{@value EntryExtraData#PARAM_FLEET_LICENSE_NUMBER_PATTERN} <br>Type: String</p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_FLEET_JOB_NUMBER_PATTERN} - {@value EntryExtraData#PARAM_FLEET_JOB_NUMBER_PATTERN}  <br>Type: String</p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_FLEET_DEPARTMENT_NUMBER_PATTERN} - {@value EntryExtraData#PARAM_FLEET_DEPARTMENT_NUMBER_PATTERN}  <br>Type: String</p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_FLEET_CUSTOMER_DATA_PATTERN} - {@value EntryExtraData#PARAM_FLEET_CUSTOMER_DATA_PATTERN}  <br>Type: String</p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_FLEET_USER_ID_PATTERN} - {@value EntryExtraData#PARAM_FLEET_USER_ID_PATTERN} <br>Type: String</p>
-     * <p>
-     *     Input: {@link EntryExtraData#PARAM_FLEET_VEHICLE_ID_PATTERN} - {@value EntryExtraData#PARAM_FLEET_VEHICLE_ID_PATTERN}  <br>Type: String</p>
-     * <p>
-     *     Output: {@link EntryRequest#PARAM_FLEET_DRIVER_ID} - {@value EntryRequest#PARAM_FLEET_DRIVER_ID} <br>Type: String </p>
-     * <p>
-     *     Output: {@link EntryRequest#PARAM_FLEET_ODOMETER} - {@value EntryRequest#PARAM_FLEET_ODOMETER}  <br>Type: String</p>
-     * <p>
-     *     Output: {@link EntryRequest#PARAM_FLEET_VEHICLE_NUMBER} - {@value EntryRequest#PARAM_FLEET_VEHICLE_NUMBER}  <br>Type: String</p>
-     * <p>
-     *     Output: {@link EntryRequest#PARAM_FLEET_LICENSE_NUMBER} - {@value EntryRequest#PARAM_FLEET_LICENSE_NUMBER}  <br>Type: String</p>
-     * <p>
-     *     Output: {@link EntryRequest#PARAM_FLEET_JOB_NUMBER} - {@value EntryRequest#PARAM_FLEET_JOB_NUMBER}  <br>Type: String</p>
-     * <p>
-     *     Output: {@link EntryRequest#PARAM_FLEET_DEPARTMENT_NUMBER} - {@value EntryRequest#PARAM_FLEET_DEPARTMENT_NUMBER}<br>Type: String </p>
-     * <p>
-     *     Output: {@link EntryRequest#PARAM_FLEET_CUSTOMER_DATA} - {@value EntryRequest#PARAM_FLEET_CUSTOMER_DATA} <br>Type: String </p>
-     * <p>
-     *     Output: {@link EntryRequest#PARAM_FLEET_USER_ID} -{@value EntryRequest#PARAM_FLEET_USER_ID} <br>Type: String </p>
-     * <p>
-     *     Output: {@link EntryRequest#PARAM_FLEET_VEHICLE_ID} - {@value EntryRequest#PARAM_FLEET_VEHICLE_ID} <br>Type: String </p>
+     * Activity Action: Enter Fleet Data<br>
+     * {@value #ACTION_ENTER_FLEET_DATA}<br>
+     * <br>
+     * INPUT EXTRAS <br>
+     * {@link EntryExtraData#PARAM_PACKAGE} : String,<br>
+     * {@link EntryExtraData#PARAM_TRANS_TYPE} : String,<br>
+     * {@link EntryExtraData#PARAM_TRANS_MODE} : String, <br>
+     * {@link EntryExtraData#PARAM_FLEET_CUSTOMER_DATA_PATTERN} : String (Default Value: 0-12)<br>
+     * {@link EntryExtraData#PARAM_FLEET_DEPARTMENT_NUMBER_PATTERN} : String (Default Value: 0-12)<br>
+     * {@link EntryExtraData#PARAM_FLEET_USER_ID_PATTERN} : String (Default Value: 0-13)<br>
+     * {@link EntryExtraData#PARAM_FLEET_VEHICLE_ID_PATTERN} : String (Default Value: 0-8)<br>
+     * {@link EntryExtraData#PARAM_FLEET_VEHICLE_NUMBER_PATTERN} : String (Default Value: 0-6)<br>
+     * {@link EntryExtraData#PARAM_FLEET_JOB_NUMBER_PATTERN} : String (Default Value: 0-9)<br>
+     * {@link EntryExtraData#PARAM_FLEET_ODOMETER_PATTERN} : String (Default Value: 0-7)<br>
+     * {@link EntryExtraData#PARAM_FLEET_DRIVER_ID_PATTERN} : String (Default Value: 0-9)<br>
+     * {@link EntryExtraData#PARAM_FLEET_LICENSE_NUMBER_PATTERN} : String (Default Value: 0-10)<br>
+     * {@link EntryExtraData#PARAM_FLEET_PO_NUMBER_PATTERN} : String<br>
+     * {@link EntryExtraData#PARAM_FLEET_TRIP_NUMBER_PATTERN} : String<br>
+     * {@link EntryExtraData#PARAM_FLEET_UNIT_NUMBER_PATTERN} : String<br>
+     * {@link EntryExtraData#PARAM_FLEET_TRAILER_NUMBER_PATTERN} : String<br>
+     * {@link EntryExtraData#PARAM_FLEET_REEFER_HOURS_PATTERN} : String<br>
+     * {@link EntryExtraData#PARAM_FLEET_MAINTENANCE_ID_PATTERN} : String<br>
+     * {@link EntryExtraData#PARAM_FLEET_HUBOMETER_PATTERN} : String<br>
+     * {@link EntryExtraData#PARAM_FLEET_EMPLOYEE_NUMBER_PATTERN} : String<br>
+     * {@link EntryExtraData#PARAM_FLEET_ADDITIONAL_PROMPTED_DATA_1_PATTERN} : String<br>
+     * {@link EntryExtraData#PARAM_FLEET_ADDITIONAL_PROMPTED_DATA_2_PATTERN} : String<br>
+     *
+     * <br>
+     * OUTPUT EXTRAS <br>
+     * {@link EntryRequest#PARAM_ACTION} : String, <br>
+     * {@link EntryRequest#PARAM_FLEET_CUSTOMER_DATA} : String <br>
+     * {@link EntryRequest#PARAM_FLEET_DEPARTMENT_NUMBER} : String <br>
+     * {@link EntryRequest#PARAM_FLEET_USER_ID} : String <br>
+     * {@link EntryRequest#PARAM_FLEET_VEHICLE_ID} : String <br>
+     * {@link EntryRequest#PARAM_FLEET_VEHICLE_NUMBER} : String <br>
+     * {@link EntryRequest#PARAM_FLEET_JOB_NUMBER} : String <br>
+     * {@link EntryRequest#PARAM_FLEET_ODOMETER} : String <br>
+     * {@link EntryRequest#PARAM_FLEET_DRIVER_ID} : String <br>
+     * {@link EntryRequest#PARAM_FLEET_LICENSE_NUMBER} : String <br>
+     * {@link EntryRequest#PARAM_FLEET_PO_NUMBER} : String <br>
+     * {@link EntryRequest#PARAM_FLEET_TRIP_NUMBER} : String <br>
+     * {@link EntryRequest#PARAM_FLEET_UNIT_NUMBER} : String <br>
+     * {@link EntryRequest#PARAM_FLEET_TRAILER_NUMBER} : String <br>
+     * {@link EntryRequest#PARAM_FLEET_REEFER_HOURS} : String <br>
+     * {@link EntryRequest#PARAM_FLEET_MAINTENANCE_ID} : String <br>
+     * {@link EntryRequest#PARAM_FLEET_HUBOMETER} : String <br>
+     * {@link EntryRequest#PARAM_FLEET_EMPLOYEE_NUMBER} : String <br>
+     * {@link EntryRequest#PARAM_FLEET_ADDITIONAL_PROMPTED_DATA_1} : String <br>
+     * {@link EntryRequest#PARAM_FLEET_ADDITIONAL_PROMPTED_DATA_2} : String <br>
+     *
      */
     public static final String ACTION_ENTER_FLEET_DATA = "com.pax.us.pay.action.ENTER_FLEET_DATA";
 
