@@ -1477,4 +1477,20 @@ public final class TextEntry {
      */
     public static final String ACTION_ENTER_VISA_INSTALLMENT_PLAN_ACCEPTANCE_ID = "com.pax.us.pay.action.ENTER_VISA_INSTALLMENT_PLAN_ACCEPTANCE_ID";
 
+    /**
+     * ACTION
+     * Enter Ticket Number <br>
+     * <br>
+     * INPUT EXTRAS <br>
+     * {@link EntryExtraData#PARAM_PACKAGE} : String,<br>
+     * {@link EntryExtraData#PARAM_TRANS_TYPE} : String,<br>
+     * {@link EntryExtraData#PARAM_TRANS_MODE} : String, <br>
+     * {@link EntryExtraData#PARAM_VALUE_PATTERN} : String (Default Value: 0-8)<br>
+     *
+     * <br>
+     * OUTPUT EXTRAS <br>
+     * {@link EntryRequest#PARAM_ACTION} : String, <br>
+     * {@link EntryRequest#PARAM_TICKET_NUMBER} : String <br>
+     */
+    public static final String ACTION_ENTER_TICKET_NUMBER = "com.pax.us.pay.action.ENTER_TICKET_NUMBER";
 }
