@@ -263,6 +263,8 @@ public final class EntryRequest {
     /**
      * Tip Amount
      * <p>Type: Long</p>
+     * <p>Submitting PARAM_TIP=0L will mark the transaction Untipped.</p>
+     * <p>To indicate the "No Tip" option is selected, UI App needs to remove this parameter from the submission bundle.</p>
      */
     public static final String PARAM_TIP = "tip";
 
