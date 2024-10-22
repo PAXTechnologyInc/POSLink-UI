@@ -153,8 +153,8 @@ public final class TextEntry {
      *     Output: {@link EntryRequest#PARAM_TIP} - {@value EntryRequest#PARAM_TIP}<br>
      *     Type: Long<br>
      *     Optional. <br>
-     *     If return nothing, BroadPOS will treat it as tip bypassed.<br>
-     *     If return 0, BroadPOS will treat it as "NO TIP"<br>
+     *     To indicate that "NO TIP" has been selected, {@link EntryRequest#PARAM_TIP} needs to be absent in the output extras.<br>
+     *     If {@link EntryRequest#PARAM_TIP} is set to zero, BroadPOS will treat it as an untipped transaction.<br>
      * </p>
      */
     public static final String ACTION_ENTER_TIP = "com.pax.us.pay.action.ENTER_TIP";
