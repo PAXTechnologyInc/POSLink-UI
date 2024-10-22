@@ -92,14 +92,16 @@ public final class TextEntry {
      * <p>
      *     Example:<br>
      *     if value of {@link EntryExtraData#PARAM_TIP_OPTIONS} is {"300","500","700"}, <br>
-     *     you could provide 3 options for user:<br><br>
-     *     $3.00, $5.00, $7.00
+     *     you could provide 3 options for user:$3.00, $5.00, $7.00. <br>
+     *     The array contains String that can be converted to Long.<br>
      * </p>
      * <p>
      *     Input: {@link EntryExtraData#PARAM_TIP_RATE_OPTIONS} - {@value EntryExtraData#PARAM_TIP_RATE_OPTIONS} is tip percentage options.<br>
      *     Type: String[]<br>
      *     It is optional. Used when tip select is enabled.<br>
      *     Used with {@link EntryExtraData#PARAM_TIP_OPTIONS} together.<br>
+     *     It has the same size as the value of {@link EntryExtraData#PARAM_TIP_OPTIONS}<br>
+     *     And it contains additional information (rate in percentage) for each option in {@link EntryExtraData#PARAM_TIP_OPTIONS}<br>
      * </p>
      * <p>
      *     Example:<br>
